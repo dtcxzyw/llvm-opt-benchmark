@@ -173,7 +173,7 @@ if.then17:                                        ; preds = %for.cond
 
 if.then27:                                        ; preds = %if.then17
   %27 = load ptr, ptr %base, align 8
-  %add.ptr29 = getelementptr inbounds %union.TValue, ptr %27, i64 %sub.ptr.div
+  %add.ptr29 = getelementptr inbounds i8, ptr %27, i64 %sub.ptr.sub
   store ptr %add.ptr29, ptr %top22.i, align 8
   %upvalue = getelementptr inbounds %struct.GCfuncC, ptr %call25, i64 0, i32 9
   %conv32 = shl i64 %sub, 3

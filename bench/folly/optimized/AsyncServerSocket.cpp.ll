@@ -2214,7 +2214,7 @@ _ZNKSt6vectorIN5folly17AsyncServerSocket12CallbackInfoESaIS2_EE12_M_check_lenEmP
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i32, 24
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #49
-  %add.ptr.i = getelementptr inbounds %"struct.folly::AsyncServerSocket::CallbackInfo", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
   store ptr %callback, ptr %add.ptr.i, align 8, !tbaa !123
   %eventBase.i.i.i.i33 = getelementptr inbounds %"struct.folly::AsyncServerSocket::CallbackInfo", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
   store ptr %eventBase, ptr %eventBase.i.i.i.i33, align 8, !tbaa !125
@@ -15474,8 +15474,7 @@ while.end:                                        ; preds = %land.lhs.true, %lan
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.us-phi141 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
-  %add.ptr.i.i = getelementptr inbounds %"struct.folly::AsyncServerSocket::CallbackInfo", ptr %0, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::AsyncServerSocket::CallbackInfo", ptr %add.ptr.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i.i.i, %1
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN5folly17AsyncServerSocket12CallbackInfoESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly17AsyncServerSocket12CallbackInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i

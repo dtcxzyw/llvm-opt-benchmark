@@ -27,7 +27,7 @@ $_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE6insertEN9__gnu_cxx17__normal_iterat
 
 $__clang_call_terminate = comdat any
 
-$_ZNSt19__shrink_to_fit_auxISt6vectorIPN8facebook4yoga4NodeESaIS4_EELb1EE8_S_do_itERS6_ = comdat any
+$_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE16_M_shrink_to_fitEv = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -238,7 +238,7 @@ lpad:                                             ; preds = %invoke.cont, %_ZN8f
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
@@ -260,7 +260,7 @@ declare i32 @__gxx_personality_v0(...)
 
 declare noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8facebook4yoga4NodeC2EOS1_(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull align 8 dereferenceable(640) %node) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bf.load = load i8, ptr %this, align 8
@@ -506,7 +506,7 @@ cond.true:                                        ; preds = %entry
   br i1 %1, label %switch.lookup, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %cond.true
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 cond.false:                                       ; preds = %entry
@@ -542,7 +542,7 @@ cond.true:                                        ; preds = %entry
   br i1 %1, label %switch.lookup, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %cond.true
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 cond.false:                                       ; preds = %entry
@@ -578,7 +578,7 @@ cond.false:                                       ; preds = %entry
   br i1 %1, label %switch.lookup, label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -612,7 +612,7 @@ cond.false:                                       ; preds = %entry
   br i1 %1, label %switch.lookup, label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -656,7 +656,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -678,7 +678,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -735,7 +735,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -816,7 +816,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -951,7 +951,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -973,7 +973,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -1030,7 +1030,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -1111,7 +1111,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -1246,7 +1246,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -1268,7 +1268,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -1325,7 +1325,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -1444,7 +1444,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -1617,7 +1617,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -1639,7 +1639,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -1696,7 +1696,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -1815,7 +1815,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -1988,7 +1988,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -2010,7 +2010,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -2067,7 +2067,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -2186,7 +2186,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -2359,7 +2359,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -2381,7 +2381,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -2438,7 +2438,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -2557,7 +2557,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -2730,7 +2730,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -2884,7 +2884,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -2906,7 +2906,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -2963,7 +2963,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -3063,7 +3063,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -3217,7 +3217,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -3239,7 +3239,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -3296,7 +3296,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -3396,7 +3396,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -3572,7 +3572,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga21flexStartRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -3594,7 +3594,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -3651,7 +3651,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -3773,7 +3773,7 @@ sw.bb3.i.i:                                       ; preds = %cond.true.i
   br label %cond.true
 
 sw.epilog.i.i:                                    ; preds = %cond.true.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
@@ -3949,7 +3949,7 @@ sw.bb3.i.i.i:                                     ; preds = %cond.false.i
   br label %_ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 sw.epilog.i.i.i:                                  ; preds = %cond.false.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga19flexEndRelativeEdgeENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %cond.false.i, %sw.bb3.i.i.i
@@ -3971,7 +3971,7 @@ sw.bb3.i:                                         ; preds = %_ZNK8facebook4yoga4
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
 
 sw.epilog.i:                                      ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit: ; preds = %_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE.exit, %sw.bb3.i
@@ -4028,7 +4028,7 @@ cond.false:                                       ; preds = %entry
   br i1 %9, label %switch.lookup, label %sw.epilog.i8
 
 sw.epilog.i8:                                     ; preds = %cond.false
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %cond.false
@@ -4312,7 +4312,7 @@ entry:
   br i1 %0, label %switch.lookup, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %entry
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %entry
@@ -4336,7 +4336,7 @@ entry:
   br i1 %0, label %switch.lookup, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %entry
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %entry
@@ -4369,7 +4369,7 @@ _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread28: ; preds = %entry
   br label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit12
 
 sw.epilog.i:                                      ; preds = %entry
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit: ; preds = %entry, %entry
@@ -4464,7 +4464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4Node12replaceChildEPS1_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr noundef readnone %oldChild, ptr noundef %newChild) local_unnamed_addr #10 align 2 {
+define void @_ZN8facebook4yoga4Node12replaceChildEPS1_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr noundef readnone %oldChild, ptr noundef %newChild) local_unnamed_addr #6 align 2 {
 entry:
   %children_ = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 10
   %0 = load ptr, ptr %children_, align 8
@@ -4511,7 +4511,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   %1 = load ptr, ptr %_M_finish, align 8
   %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
@@ -4532,7 +4531,7 @@ if.then9:                                         ; preds = %if.then
   br label %if.end38
 
 if.else:                                          ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %5 = load ptr, ptr %__x, align 8
   %add.ptr.i9 = getelementptr inbounds ptr, ptr %1, i64 -1
   %6 = load ptr, ptr %add.ptr.i9, align 8
@@ -4559,14 +4558,14 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   br label %if.end38
 
 if.else26:                                        ; preds = %entry
-  %add.ptr.i14 = getelementptr inbounds ptr, ptr %0, i64 %sub.ptr.div.i
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else26
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #25
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #23
   unreachable
 
 _ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else26
@@ -4578,20 +4577,21 @@ _ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds 
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
   %cond.i.i = select i1 %or.cond.i.i, i64 1152921504606846975, i64 %add.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i14 to i64
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i: ; preds = %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 3
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #24
   br label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ %call5.i.i.i.i, %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i ], [ null, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i ]
-  %add.ptr.i15 = getelementptr inbounds ptr, ptr %cond.i10.i, i64 %sub.ptr.div.i
+  %add.ptr.i15 = getelementptr inbounds ptr, ptr %cond.i10.i, i64 %sub.ptr.div.i.i
   %8 = load ptr, ptr %__x, align 8
   store ptr %8, ptr %add.ptr.i15, align 8
-  %cmp.i.i.i11.i = icmp sgt i64 %sub.ptr.div.i, 0
+  %cmp.i.i.i11.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i11.i, label %if.then.i.i.i12.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 if.then.i.i.i12.i:                                ; preds = %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i
@@ -4599,35 +4599,35 @@ if.then.i.i.i12.i:                                ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %if.then.i.i.i12.i, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i
-  %incdec.ptr.i16 = getelementptr inbounds ptr, ptr %add.ptr.i15, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i, i64 %sub.ptr.sub.i
+  %incdec.ptr.i16 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i, i64 1
   %sub.ptr.sub.i.i.i15.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i
-  %sub.ptr.div.i.i.i16.i = ashr exact i64 %sub.ptr.sub.i.i.i15.i, 3
-  %cmp.i.i.i17.i = icmp sgt i64 %sub.ptr.div.i.i.i16.i, 0
-  br i1 %cmp.i.i.i17.i, label %if.then.i.i.i19.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i
+  %cmp.i.i.i16.i = icmp sgt i64 %sub.ptr.sub.i.i.i15.i, 0
+  br i1 %cmp.i.i.i16.i, label %if.then.i.i.i18.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i
 
-if.then.i.i.i19.i:                                ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
+if.then.i.i.i18.i:                                ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %incdec.ptr.i16, ptr align 8 %add.ptr.i14, i64 %sub.ptr.sub.i.i.i15.i, i1 false)
-  br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i
+  br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i
 
-_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i: ; preds = %if.then.i.i.i19.i, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
+_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i: ; preds = %if.then.i.i.i18.i, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %if.then.i21.i
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %if.then.i20.i
 
-if.then.i21.i:                                    ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+if.then.i20.i:                                    ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit
 
-_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i, %if.then.i21.i
-  %add.ptr.i.i.i18.i = getelementptr inbounds ptr, ptr %incdec.ptr.i16, i64 %sub.ptr.div.i.i.i16.i
+_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i, %if.then.i20.i
+  %add.ptr.i.i.i17.i = getelementptr inbounds i8, ptr %incdec.ptr.i16, i64 %sub.ptr.sub.i.i.i15.i
   store ptr %cond.i10.i, ptr %this, align 8
-  store ptr %add.ptr.i.i.i18.i, ptr %_M_finish, align 8
+  store ptr %add.ptr.i.i.i17.i, ptr %_M_finish, align 8
   %add.ptr19.i = getelementptr inbounds ptr, ptr %cond.i10.i, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage, align 8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then9, %invoke.cont, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit
   %9 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %9, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i
   ret ptr %add.ptr
 }
 
@@ -4749,7 +4749,7 @@ if.end10:                                         ; preds = %entry, %if.then8, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN8facebook4yoga4Node11removeChildEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, ptr noundef readnone %child) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children_ = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 10
@@ -4860,8 +4860,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN8facebook4yoga4NodeESt6vectorIS5_SaI
 if.then:                                          ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %0, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
   %cmp.i.i.i2 = icmp eq ptr %add.ptr.i.i.i, %1
   br i1 %cmp.i.i.i2, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i
@@ -4884,8 +4883,8 @@ return:                                           ; preds = %for.end.i.i.i, %_ZS
   ret i1 %cmp.i7
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4Node11removeChildEm(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i64 noundef %index) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN8facebook4yoga4Node11removeChildEm(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i64 noundef %index) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children_ = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 10
   %0 = load ptr, ptr %children_, align 8
@@ -4912,7 +4911,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iterator
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook4yoga4Node18setLayoutDirectionENS0_9DirectionE(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %direction) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node18setLayoutDirectionENS0_9DirectionE(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %direction) local_unnamed_addr #11 align 2 {
 entry:
   %direction_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 7, i32 7
   %bf.load.i = load i8, ptr %direction_.i, align 8
@@ -4960,7 +4959,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node27setLayoutLastOwnerDirectionENS0_9DirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, i8 noundef zeroext %direction) local_unnamed_addr #13 align 2 {
+define void @_ZN8facebook4yoga4Node27setLayoutLastOwnerDirectionENS0_9DirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, i8 noundef zeroext %direction) local_unnamed_addr #12 align 2 {
 entry:
   %lastOwnerDirection = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 7, i32 3
   store i8 %direction, ptr %lastOwnerDirection, align 8
@@ -4968,7 +4967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node26setLayoutComputedFlexBasisENS0_13FloatOptionalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float %computedFlexBasis.coerce) local_unnamed_addr #13 align 2 {
+define void @_ZN8facebook4yoga4Node26setLayoutComputedFlexBasisENS0_13FloatOptionalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float %computedFlexBasis.coerce) local_unnamed_addr #12 align 2 {
 entry:
   %computedFlexBasis2 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 7, i32 1
   store float %computedFlexBasis.coerce, ptr %computedFlexBasis2, align 8
@@ -4988,7 +4987,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node36setLayoutComputedFlexBasisGenerationEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, i32 noundef %computedFlexBasisGeneration) local_unnamed_addr #13 align 2 {
+define void @_ZN8facebook4yoga4Node36setLayoutComputedFlexBasisGenerationEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, i32 noundef %computedFlexBasisGeneration) local_unnamed_addr #12 align 2 {
 entry:
   %layout_ = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 7
   store i32 %computedFlexBasisGeneration, ptr %layout_, align 4
@@ -4996,7 +4995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node26setLayoutMeasuredDimensionEfNS0_9DimensionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %measuredDimension, i8 noundef zeroext %dimension) local_unnamed_addr #13 align 2 {
+define void @_ZN8facebook4yoga4Node26setLayoutMeasuredDimensionEfNS0_9DimensionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %measuredDimension, i8 noundef zeroext %dimension) local_unnamed_addr #12 align 2 {
 entry:
   %measuredDimensions_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 7, i32 9
   %conv.i = zext i8 %dimension to i64
@@ -5006,7 +5005,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook4yoga4Node20setLayoutHadOverflowEb(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i1 noundef zeroext %hadOverflow) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node20setLayoutHadOverflowEb(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i1 noundef zeroext %hadOverflow) local_unnamed_addr #11 align 2 {
 entry:
   %hadOverflow_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 7, i32 7
   %bf.load.i = load i8, ptr %hadOverflow_.i, align 8
@@ -5018,7 +5017,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node18setLayoutDimensionEfNS0_9DimensionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %LengthValue, i8 noundef zeroext %dimension) local_unnamed_addr #13 align 2 {
+define void @_ZN8facebook4yoga4Node18setLayoutDimensionEfNS0_9DimensionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %LengthValue, i8 noundef zeroext %dimension) local_unnamed_addr #12 align 2 {
 entry:
   %dimensions_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 7, i32 8
   %conv.i = zext i8 %dimension to i64
@@ -5297,7 +5296,7 @@ if.else:                                          ; preds = %entry, %_ZNK8facebo
   br i1 %4, label %switch.lookup, label %sw.epilog.i6
 
 sw.epilog.i6:                                     ; preds = %if.else
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %if.else
@@ -5397,7 +5396,7 @@ if.else:                                          ; preds = %entry, %_ZNK8facebo
   br i1 %4, label %switch.lookup, label %sw.epilog.i6
 
 sw.epilog.i6:                                     ; preds = %if.else
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
 switch.lookup:                                    ; preds = %if.else
@@ -5526,8 +5525,8 @@ return:                                           ; preds = %if.end18, %if.then1
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4Node16resolveDimensionEv(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN8facebook4yoga4Node16resolveDimensionEv(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca [2 x i8], align 1
   store i8 0, ptr %ref.tmp2, align 1
@@ -5736,8 +5735,8 @@ for.end:                                          ; preds = %for.inc
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN8facebook4yoga4Node16resolveDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %ownerDirection) local_unnamed_addr #15 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef zeroext i8 @_ZN8facebook4yoga4Node16resolveDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %ownerDirection) local_unnamed_addr #14 align 2 {
 entry:
   %style_ = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 6
   %bf.load.i = load i8, ptr %style_, align 8
@@ -5749,7 +5748,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children_ = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 10
   %0 = load ptr, ptr %children_, align 8
@@ -5763,16 +5762,7 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE5clearEv.exit
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 2
-  %2 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %cmp.i.i = icmp eq ptr %2, %0
-  br i1 %cmp.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE13shrink_to_fitEv.exit, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE5clearEv.exit
-  %call3.i.i = tail call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIPN8facebook4yoga4NodeESaIS4_EELb1EE8_S_do_itERS6_(ptr noundef nonnull align 8 dereferenceable(24) %children_) #27
-  br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE13shrink_to_fitEv.exit
-
-_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE13shrink_to_fitEv.exit: ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE5clearEv.exit, %if.end.i.i
+  %call.i = tail call noundef zeroext i1 @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE16_M_shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %children_)
   ret void
 }
 
@@ -5820,7 +5810,7 @@ for.end:                                          ; preds = %if.end, %entry
 declare noundef ptr @_ZNK8facebook4yoga6Config9cloneNodeEPK6YGNodeS4_m(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this) local_unnamed_addr #17 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this) local_unnamed_addr #14 align 2 {
 entry:
   %owner_ = getelementptr inbounds %"class.facebook::yoga::Node", ptr %this, i64 0, i32 9
   %0 = load ptr, ptr %owner_, align 8
@@ -5994,7 +5984,7 @@ _ZN8facebook4yoga4NodeaSEOS1_.exit.thread:        ; preds = %entry
   br label %_ZN8facebook4yoga4NodeD2Ev.exit
 
 _ZN8facebook4yoga4NodeaSEOS1_.exit:               ; preds = %entry
-  call void @_ZdlPv(ptr noundef nonnull %4) #24
+  call void @_ZdlPv(ptr noundef nonnull %4) #22
   %.pr = load ptr, ptr %children_2.i, align 8
   %config_3.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %ref.tmp, i64 0, i32 11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %config_.i, ptr noundef nonnull align 8 dereferenceable(24) %config_3.i, i64 24, i1 false)
@@ -6002,7 +5992,7 @@ _ZN8facebook4yoga4NodeaSEOS1_.exit:               ; preds = %entry
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook4yoga4NodeD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN8facebook4yoga4NodeaSEOS1_.exit
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #24
+  call void @_ZdlPv(ptr noundef nonnull %.pr) #22
   br label %_ZN8facebook4yoga4NodeD2Ev.exit
 
 _ZN8facebook4yoga4NodeD2Ev.exit:                  ; preds = %_ZN8facebook4yoga4NodeaSEOS1_.exit.thread, %_ZN8facebook4yoga4NodeaSEOS1_.exit, %if.then.i.i.i.i
@@ -6010,9 +6000,9 @@ _ZN8facebook4yoga4NodeD2Ev.exit:                  ; preds = %_ZN8facebook4yoga4N
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #18 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
-  tail call void @_ZSt9terminatev() #28
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
+  tail call void @_ZSt9terminatev() #26
   unreachable
 }
 
@@ -6021,106 +6011,110 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
 
 declare noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef) local_unnamed_addr #20
+declare void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #21
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIPN8facebook4yoga4NodeESaIS4_EELb1EE8_S_do_itERS6_(ptr noundef nonnull align 8 dereferenceable(24) %__c) local_unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-invoke.cont11:
-  %0 = load ptr, ptr %__c, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %__c, i64 0, i32 1
-  %1 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
-  %cmp.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, 1152921504606846975
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
+define linkonce_odr noundef zeroext i1 @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE16_M_shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %0 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %1 = load ptr, ptr %this, align 8
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %2 = load ptr, ptr %_M_finish.i, align 8
+  %sub.ptr.lhs.cast.i1 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i3 = sub i64 %sub.ptr.lhs.cast.i1, %sub.ptr.rhs.cast.i
+  %cmp = icmp eq ptr %0, %2
+  br i1 %cmp, label %return, label %if.end
 
-if.then.i.i.i:                                    ; preds = %invoke.cont11
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #25
-          to label %.noexc.i unwind label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i
+if.end:                                           ; preds = %entry
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i3, 9223372036854775800
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
 
-.noexc.i:                                         ; preds = %if.then.i.i.i
+if.then.i.i.i.i:                                  ; preds = %if.end
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #23
+          to label %.noexc.i.i unwind label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i.i
+
+.noexc.i.i:                                       ; preds = %if.then.i.i.i.i
   unreachable
 
-_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i: ; preds = %invoke.cont11
-  %cmp.not.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not.i.i.i, label %invoke.cont21, label %if.then.i.i.i.i.i.i.i.i.i.i
+_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i: ; preds = %if.end
+  %cmp.not.i.i.i.i = icmp eq ptr %2, %1
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont21.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
-  %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #26
-          to label %call5.i.i.i.i.noexc.i unwind label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i
+if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
+  %call5.i.i.i.i1.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i3) #24
+          to label %call5.i.i.i.i.noexc.i.i unwind label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i.i
 
-call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %0, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
-  br label %invoke.cont21
+call5.i.i.i.i.noexc.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i3, i1 false)
+  br label %invoke.cont21.i
 
-_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i: ; preds = %if.then.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %exn.slot.0 = extractvalue { ptr, i32 } %2, 0
-  %3 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #27
+  %exn.slot.0.i = extractvalue { ptr, i32 } %3, 0
+  %4 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0.i) #25
   invoke void @__cxa_end_catch()
-          to label %return unwind label %terminate.lpad
+          to label %return unwind label %terminate.lpad.i
 
-invoke.cont21:                                    ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i, %call5.i.i.i.i.noexc.i
-  %ref.tmp.sroa.0.0 = phi ptr [ %call5.i.i.i.i1.i, %call5.i.i.i.i.noexc.i ], [ null, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
-  %ref.tmp.sroa.9.0 = getelementptr inbounds ptr, ptr %ref.tmp.sroa.0.0, i64 %sub.ptr.div.i.i.i.i.i.i
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %__c, i64 0, i32 2
-  store ptr %ref.tmp.sroa.0.0, ptr %__c, align 8
-  store ptr %ref.tmp.sroa.9.0, ptr %_M_finish.i, align 8
-  store ptr %ref.tmp.sroa.9.0, ptr %_M_end_of_storage.i4.i.i, align 8
-  %tobool.not.i.i.i4 = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i4, label %return, label %if.then.i.i.i5
+invoke.cont21.i:                                  ; preds = %call5.i.i.i.i.noexc.i.i, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
+  %ref.tmp.sroa.0.0.i = phi ptr [ %call5.i.i.i.i1.i.i, %call5.i.i.i.i.noexc.i.i ], [ null, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i ]
+  %ref.tmp.sroa.9.0.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.i, i64 %sub.ptr.sub.i3
+  store ptr %ref.tmp.sroa.0.0.i, ptr %this, align 8
+  store ptr %ref.tmp.sroa.9.0.i, ptr %_M_finish.i, align 8
+  store ptr %ref.tmp.sroa.9.0.i, ptr %_M_end_of_storage.i, align 8
+  %tobool.not.i.i.i4.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i.i.i4.i, label %return, label %if.then.i.i.i5.i
 
-if.then.i.i.i5:                                   ; preds = %invoke.cont21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+if.then.i.i.i5.i:                                 ; preds = %invoke.cont21.i
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i5, %invoke.cont21, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i
-  %retval.0 = phi i1 [ false, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i ], [ true, %invoke.cont21 ], [ true, %if.then.i.i.i5 ]
-  ret i1 %retval.0
-
-terminate.lpad:                                   ; preds = %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i
-  %4 = landingpad { ptr, i32 }
+terminate.lpad.i:                                 ; preds = %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i.i
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #28
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #26
   unreachable
+
+return:                                           ; preds = %if.then.i.i.i5.i, %invoke.cont21.i, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i.i, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i.i ], [ true, %invoke.cont21.i ], [ true, %if.then.i.i.i5.i ]
+  ret i1 %retval.0
 }
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_Node.cpp() #22 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_Node.cpp() #20 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #23
+declare i8 @llvm.umax.i8(i8, i8) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #23
+declare float @llvm.fabs.f32(float) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6128,29 +6122,27 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { builtin nounwind }
-attributes #25 = { noreturn }
-attributes #26 = { builtin allocsize(0) }
-attributes #27 = { nounwind }
-attributes #28 = { noreturn nounwind }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { noreturn }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { nounwind }
+attributes #26 = { noreturn nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

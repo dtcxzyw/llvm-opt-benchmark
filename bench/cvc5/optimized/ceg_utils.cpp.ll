@@ -811,8 +811,7 @@ if.else.i53:                                      ; preds = %_ZNSt6vectorIN4cvc5
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %30 = getelementptr %"class.cvc5::internal::NodeTemplate", ptr %26, i64 %sub.ptr.div.i.i
+  %30 = getelementptr i8, ptr %26, i64 %sub.ptr.sub.i.i
   %add.ptr.i.i = getelementptr %"class.cvc5::internal::NodeTemplate", ptr %30, i64 -1
   %31 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !5
   store ptr %31, ptr %new_theta, align 8, !alias.scope !5
@@ -1788,7 +1787,7 @@ _ZNKSt6vectorIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE12_M_c
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
-  %add.ptr = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %add.ptr, align 8
   %d_type.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %d_type2.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %__args, i64 0, i32 1

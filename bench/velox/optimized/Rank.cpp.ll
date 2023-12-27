@@ -420,7 +420,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont2
   store ptr %call5.i.i.i.i2.i, ptr %signatures, align 16
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %signatures, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 16
   %2 = load <2 x ptr>, ptr %ref.tmp, align 16
@@ -950,7 +950,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont2
   store ptr %call5.i.i.i.i2.i, ptr %signatures, align 16
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %signatures, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 16
   %2 = load <2 x ptr>, ptr %ref.tmp, align 16
@@ -1469,7 +1469,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont2
   store ptr %call5.i.i.i.i2.i, ptr %signatures, align 16
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %signatures, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 16
   %2 = load <2 x ptr>, ptr %ref.tmp, align 16
@@ -1988,7 +1988,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont2
   store ptr %call5.i.i.i.i2.i, ptr %signatures, align 16
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %signatures, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 16
   %2 = load <2 x ptr>, ptr %ref.tmp, align 16
@@ -2507,7 +2507,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont2
   store ptr %call5.i.i.i.i2.i, ptr %signatures, align 16
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %signatures, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 16
   %2 = load <2 x ptr>, ptr %ref.tmp, align 16

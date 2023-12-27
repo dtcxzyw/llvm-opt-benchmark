@@ -3450,7 +3450,7 @@ invoke.cont12:                                    ; preds = %if.end11
 cleanup:                                          ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string.23", ptr %agg.result, i64 0, i32 1
   store i64 %16, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %17, i64 %16
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %17, i64 %add.ptr.idx.i
   store i16 0, ptr %arrayidx.i.i.i, align 2
   %.pre14 = load ptr, ptr %__out, align 8
   %cmp.i.i.i8 = icmp eq ptr %.pre14, %2
@@ -3581,11 +3581,11 @@ if.end5.sink.split.i.i:                           ; preds = %if.else.i.i, %if.th
   %12 = load ptr, ptr %__outstr, align 8
   %arrayidx.i.i.i = getelementptr inbounds i16, ptr %12, i64 %add2
   store i16 0, ptr %arrayidx.i.i.i, align 2
-  %.pre68 = load i64, ptr %_M_string_length.i, align 8
+  %.pre72 = load i64, ptr %_M_string_length.i, align 8
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6resizeEm.exit
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6resizeEm.exit: ; preds = %if.else.i.i, %if.end5.sink.split.i.i
-  %13 = phi i64 [ %7, %if.else.i.i ], [ %.pre68, %if.end5.sink.split.i.i ]
+  %13 = phi i64 [ %7, %if.else.i.i ], [ %.pre72, %if.end5.sink.split.i.i ]
   %14 = load ptr, ptr %__outstr, align 8
   %add.ptr = getelementptr inbounds i16, ptr %14, i64 %__outchars.0
   store ptr %add.ptr, ptr %__outnext, align 8
@@ -3626,7 +3626,7 @@ do.end:                                           ; preds = %memptr.end
   br i1 %cmp16, label %if.then17, label %do.end.if.end21_crit_edge
 
 do.end.if.end21_crit_edge:                        ; preds = %do.end
-  %.pre69 = load i64, ptr %_M_string_length.i, align 8
+  %.pre73 = load i64, ptr %_M_string_length.i, align 8
   br label %if.end21
 
 if.then17:                                        ; preds = %do.end
@@ -3636,7 +3636,7 @@ if.then17:                                        ; preds = %do.end
   br label %return
 
 if.end21:                                         ; preds = %land.rhs, %do.end.if.end21_crit_edge
-  %24 = phi i64 [ %.pre69, %do.end.if.end21_crit_edge ], [ %23, %land.rhs ]
+  %24 = phi i64 [ %.pre73, %do.end.if.end21_crit_edge ], [ %23, %land.rhs ]
   %cmp.i.i27 = icmp ult i64 %24, %sub.ptr.div
   br i1 %cmp.i.i27, label %if.then.i.i32, label %if.else.i.i28
 
@@ -3692,13 +3692,13 @@ if.else.i.i28:                                    ; preds = %if.end21
 if.end5.sink.split.i.i30:                         ; preds = %if.else.i.i28, %if.then.i21.i.i.i.i45, %for.body.i.i.i.i.i.preheader.i44
   store i64 %sub.ptr.div, ptr %_M_string_length.i, align 8
   %28 = load ptr, ptr %__outstr, align 8
-  %arrayidx.i.i.i31 = getelementptr inbounds i16, ptr %28, i64 %sub.ptr.div
+  %arrayidx.i.i.i31 = getelementptr inbounds i8, ptr %28, i64 %sub.ptr.sub10
   store i16 0, ptr %arrayidx.i.i.i31, align 2
-  %.pre70 = load ptr, ptr %__next, align 8
+  %.pre74 = load ptr, ptr %__next, align 8
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6resizeEm.exit51
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6resizeEm.exit51: ; preds = %if.else.i.i28, %if.end5.sink.split.i.i30
-  %29 = phi ptr [ %22, %if.else.i.i28 ], [ %.pre70, %if.end5.sink.split.i.i30 ]
+  %29 = phi ptr [ %22, %if.else.i.i28 ], [ %.pre74, %if.end5.sink.split.i.i30 ]
   %sub.ptr.lhs.cast22 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast23 = ptrtoint ptr %__first to i64
   %sub.ptr.sub24 = sub i64 %sub.ptr.lhs.cast22, %sub.ptr.rhs.cast23

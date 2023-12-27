@@ -576,7 +576,7 @@ common.resume:                                    ; preds = %ehcleanup280.thread
   resume { ptr, i32 } %common.resume.op
 
 _ZN5eastl6vectorINS_8optionalIiEENS_9allocatorEEC2ESt16initializer_listIS2_ERKS3_.exit: ; preds = %_ZN5eastl8optionalIiEC2ERKS1_.exit.i.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.eastl::optional", ptr %call.i.i.i.i.i1.i, i64 4
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 32
   invoke void @_ZN5eastl10quick_sortIPNS_8optionalIiEEEEvT_S4_(ptr noundef %call.i.i.i.i.i1.i, ptr noundef nonnull %add.ptr.i.i.i)
           to label %invoke.cont643 unwind label %lpad638
 

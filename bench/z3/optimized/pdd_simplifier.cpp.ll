@@ -10790,7 +10790,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %__buffer, i64 %div
+  %add.ptr.idx = shl nsw i64 %div, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %__buffer, i64 %add.ptr.idx
   tail call void @_ZSt22__chunk_insertion_sortIPPN2dd6solver8equationElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_(ptr noundef %__first, ptr noundef %add.ptr, i64 noundef 7)
   %cmp16.i = icmp sgt i64 %sub.ptr.div, 14
   br i1 %cmp16.i, label %while.body.i, label %_ZSt24__merge_sort_with_bufferIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_.exit
@@ -10799,7 +10800,7 @@ while.body.i:                                     ; preds = %if.else, %while.bod
   %__step_size.017.i = phi i64 [ %mul3.i, %while.body.i ], [ 7, %if.else ]
   tail call void @_ZSt17__merge_sort_loopIPPN2dd6solver8equationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_T2_(ptr noundef %__first, ptr noundef %add.ptr, ptr noundef %__buffer, i64 noundef %__step_size.017.i)
   %mul.i = shl nuw nsw i64 %__step_size.017.i, 1
-  tail call void @_ZSt17__merge_sort_loopIPPN2dd6solver8equationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_T2_(ptr noundef %__buffer, ptr noundef nonnull %add.ptr.i, ptr noundef %__first, i64 noundef %mul.i)
+  tail call void @_ZSt17__merge_sort_loopIPPN2dd6solver8equationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_T2_(ptr noundef %__buffer, ptr noundef %add.ptr.i, ptr noundef %__first, i64 noundef %mul.i)
   %mul3.i = shl nsw i64 %__step_size.017.i, 2
   %cmp.i = icmp slt i64 %mul3.i, %div
   br i1 %cmp.i, label %while.body.i, label %_ZSt24__merge_sort_with_bufferIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_.exit, !llvm.loop !90
@@ -10807,7 +10808,7 @@ while.body.i:                                     ; preds = %if.else, %while.bod
 _ZSt24__merge_sort_with_bufferIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_.exit: ; preds = %while.body.i, %if.else
   %sub.ptr.sub.i30 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i31 = ashr exact i64 %sub.ptr.sub.i30, 3
-  %add.ptr.i32 = getelementptr inbounds ptr, ptr %__buffer, i64 %sub.ptr.div.i31
+  %add.ptr.i32 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i30
   tail call void @_ZSt22__chunk_insertion_sortIPPN2dd6solver8equationElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_(ptr noundef %add.ptr, ptr noundef %__last, i64 noundef 7)
   %cmp16.i33 = icmp sgt i64 %sub.ptr.div.i31, 7
   br i1 %cmp16.i33, label %while.body.i34, label %if.end
@@ -10816,7 +10817,7 @@ while.body.i34:                                   ; preds = %_ZSt24__merge_sort_
   %__step_size.017.i35 = phi i64 [ %mul3.i37, %while.body.i34 ], [ 7, %_ZSt24__merge_sort_with_bufferIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_.exit ]
   tail call void @_ZSt17__merge_sort_loopIPPN2dd6solver8equationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_T2_(ptr noundef %add.ptr, ptr noundef %__last, ptr noundef %__buffer, i64 noundef %__step_size.017.i35)
   %mul.i36 = shl nuw nsw i64 %__step_size.017.i35, 1
-  tail call void @_ZSt17__merge_sort_loopIPPN2dd6solver8equationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_T2_(ptr noundef %__buffer, ptr noundef nonnull %add.ptr.i32, ptr noundef %add.ptr, i64 noundef %mul.i36)
+  tail call void @_ZSt17__merge_sort_loopIPPN2dd6solver8equationES4_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_T0_T1_T2_(ptr noundef %__buffer, ptr noundef %add.ptr.i32, ptr noundef %add.ptr, i64 noundef %mul.i36)
   %mul3.i37 = shl nsw i64 %__step_size.017.i35, 2
   %cmp.i38 = icmp slt i64 %mul3.i37, %sub.ptr.div.i31
   br i1 %cmp.i38, label %while.body.i34, label %if.end, !llvm.loop !90
@@ -11088,8 +11089,7 @@ for.body.i:                                       ; preds = %if.end3, %for.body.
 
 if.end10:                                         ; preds = %if.end3
   %sub.ptr.sub13 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast4
-  %sub.ptr.div14 = ashr exact i64 %sub.ptr.sub13, 3
-  %add.ptr = getelementptr inbounds ptr, ptr %__first, i64 %sub.ptr.div14
+  %add.ptr = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub13
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end10
@@ -11123,26 +11123,26 @@ _ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit: ; preds = %if.then19, %if
   br label %return
 
 if.end25:                                         ; preds = %if.then17
-  %cmp2968 = icmp sgt i64 %sub15, 0
-  br i1 %cmp2968, label %for.body.preheader, label %for.end
+  %cmp2967 = icmp sgt i64 %sub15, 0
+  br i1 %cmp2967, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end25
   %add.ptr26 = getelementptr ptr, ptr %__p.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %__i.071 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %__q.070 = phi ptr [ %incdec.ptr30, %for.body ], [ %add.ptr26, %for.body.preheader ]
-  %__p.169 = phi ptr [ %incdec.ptr, %for.body ], [ %__p.0, %for.body.preheader ]
-  %3 = load ptr, ptr %__p.169, align 8
-  %4 = load ptr, ptr %__q.070, align 8
-  store ptr %4, ptr %__p.169, align 8
-  store ptr %3, ptr %__q.070, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %__p.169, i64 1
-  %incdec.ptr30 = getelementptr inbounds ptr, ptr %__q.070, i64 1
-  %inc = add nuw nsw i64 %__i.071, 1
-  %exitcond78.not = icmp eq i64 %inc, %sub15
-  br i1 %exitcond78.not, label %for.end, label %for.body, !llvm.loop !94
+  %__i.070 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %__q.069 = phi ptr [ %incdec.ptr30, %for.body ], [ %add.ptr26, %for.body.preheader ]
+  %__p.168 = phi ptr [ %incdec.ptr, %for.body ], [ %__p.0, %for.body.preheader ]
+  %3 = load ptr, ptr %__p.168, align 8
+  %4 = load ptr, ptr %__q.069, align 8
+  store ptr %4, ptr %__p.168, align 8
+  store ptr %3, ptr %__q.069, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %__p.168, i64 1
+  %incdec.ptr30 = getelementptr inbounds ptr, ptr %__q.069, i64 1
+  %inc = add nuw nsw i64 %__i.070, 1
+  %exitcond77.not = icmp eq i64 %inc, %sub15
+  br i1 %exitcond77.not, label %for.end, label %for.body, !llvm.loop !94
 
 for.end:                                          ; preds = %for.body, %if.end25
   %__p.1.lcssa = phi ptr [ %__p.0, %if.end25 ], [ %incdec.ptr, %for.body ]
@@ -11162,40 +11162,40 @@ if.else35:                                        ; preds = %for.cond
 if.then38:                                        ; preds = %if.else35
   %add.ptr41 = getelementptr inbounds ptr, ptr %add.ptr40, i64 -1
   %5 = load ptr, ptr %add.ptr41, align 8
-  %tobool.not.i.i.i.i.i43 = icmp eq ptr %add.ptr41, %__p.0
-  br i1 %tobool.not.i.i.i.i.i43, label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit, label %if.then.i.i.i.i.i44
+  %tobool.not.i.i.i.i.i42 = icmp eq ptr %add.ptr41, %__p.0
+  br i1 %tobool.not.i.i.i.i.i42, label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit, label %if.then.i.i.i.i.i43
 
-if.then.i.i.i.i.i44:                              ; preds = %if.then38
+if.then.i.i.i.i.i43:                              ; preds = %if.then38
   %sub.ptr.lhs.cast.i.i.i.i.i39 = ptrtoint ptr %add.ptr41 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i40 = ptrtoint ptr %__p.0 to i64
   %sub.ptr.sub.i.i.i.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i39, %sub.ptr.rhs.cast.i.i.i.i.i40
-  %sub.ptr.div.i.i.i.i.i42 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i41, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i42
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds ptr, ptr %add.ptr40, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i45, ptr nonnull align 8 %__p.0, i64 %sub.ptr.sub.i.i.i.i.i41, i1 false)
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i41, 3
+  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr40, i64 %.pre.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i44, ptr nonnull align 8 %__p.0, i64 %sub.ptr.sub.i.i.i.i.i41, i1 false)
   br label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit
 
-_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit: ; preds = %if.then38, %if.then.i.i.i.i.i44
+_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit: ; preds = %if.then38, %if.then.i.i.i.i.i43
   store ptr %5, ptr %__p.0, align 8
   br label %return
 
 if.end46:                                         ; preds = %if.else35
   %idx.neg = sub i64 0, %sub15
   %add.ptr49 = getelementptr inbounds ptr, ptr %add.ptr40, i64 %idx.neg
-  %cmp5364 = icmp sgt i64 %__k.0, 0
-  br i1 %cmp5364, label %for.body54, label %for.end59
+  %cmp5363 = icmp sgt i64 %__k.0, 0
+  br i1 %cmp5363, label %for.body54, label %for.end59
 
 for.body54:                                       ; preds = %if.end46, %for.body54
-  %__i50.067 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
-  %__q47.066 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.265 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds ptr, ptr %__p.265, i64 -1
-  %incdec.ptr56 = getelementptr inbounds ptr, ptr %__q47.066, i64 -1
+  %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
+  %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
+  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds ptr, ptr %__p.264, i64 -1
+  %incdec.ptr56 = getelementptr inbounds ptr, ptr %__q47.065, i64 -1
   %6 = load ptr, ptr %incdec.ptr55, align 8
   %7 = load ptr, ptr %incdec.ptr56, align 8
   store ptr %7, ptr %incdec.ptr55, align 8
   store ptr %6, ptr %incdec.ptr56, align 8
-  %inc58 = add nuw nsw i64 %__i50.067, 1
+  %inc58 = add nuw nsw i64 %__i50.066, 1
   %exitcond.not = icmp eq i64 %inc58, %__k.0
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !95
 
@@ -11242,8 +11242,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then
   br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit
 
 _ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit: ; preds = %if.then, %if.then.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__buffer, i64 %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i
   %cmp14.i = icmp ne ptr %__middle.tr.lcssa, %__first.tr.lcssa
   %cmp115.i = icmp ne ptr %__middle.tr.lcssa, %__last
   %0 = and i1 %cmp14.i, %cmp115.i
@@ -11323,73 +11322,73 @@ if.else:                                          ; preds = %if.else.lr.ph, %_ZS
 if.then3:                                         ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i52 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %tobool.not.i.i.i.i.i53 = icmp eq ptr %__middle.tr190, %__last
-  br i1 %tobool.not.i.i.i.i.i53, label %if.end27, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit57.thread
+  br i1 %tobool.not.i.i.i.i.i53, label %if.end27, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit56.thread
 
-_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit57.thread: ; preds = %if.then3
+_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit56.thread: ; preds = %if.then3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.tr190, i64 %sub.ptr.sub.i.i.i.i.i52, i1 false)
-  %sub.ptr.div.i.i.i.i.i55201 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i52, 3
-  %cmp.i58203 = icmp eq ptr %__first.tr189, %__middle.tr190
-  br i1 %cmp.i58203, label %if.then.i.i.i.i.i.i, label %if.end3.i
+  %cmp.i57202 = icmp eq ptr %__first.tr189, %__middle.tr190
+  br i1 %cmp.i57202, label %if.then.i.i.i.i.i.i, label %if.end3.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit57.thread
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i55201
+if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit56.thread
+  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i52, 3
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__last, i64 %.pre.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i52, i1 false)
   br label %if.end27
 
-if.end3.i:                                        ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit57.thread
-  %add.ptr.i.i.i.i.i56202 = getelementptr inbounds ptr, ptr %__buffer, i64 %sub.ptr.div.i.i.i.i.i55201
-  %incdec.ptr4.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i56202, i64 -1
-  br label %while.body.i60.outer
+if.end3.i:                                        ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit56.thread
+  %add.ptr.i.i.i.i.i55201 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i52
+  %incdec.ptr4.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i55201, i64 -1
+  br label %while.body.i59.outer
 
-while.body.i60.outer:                             ; preds = %if.then6.i, %if.end3.i
+while.body.i59.outer:                             ; preds = %if.then6.i, %if.end3.i
   %__last1.addr.0.i.ph.pn = phi ptr [ %__middle.tr190, %if.end3.i ], [ %__last1.addr.0.i.ph, %if.then6.i ]
   %__last2.addr.0.i.ph = phi ptr [ %incdec.ptr4.i, %if.end3.i ], [ %__last2.addr.0.i, %if.then6.i ]
   %__result.addr.0.i.ph = phi ptr [ %__last, %if.end3.i ], [ %incdec.ptr7.i, %if.then6.i ]
   %__last1.addr.0.i.ph = getelementptr inbounds ptr, ptr %__last1.addr.0.i.ph.pn, i64 -1
-  br label %while.body.i60
+  br label %while.body.i59
 
-while.body.i60:                                   ; preds = %while.body.i60.outer, %if.end18.i
-  %__last2.addr.0.i = phi ptr [ %incdec.ptr19.i, %if.end18.i ], [ %__last2.addr.0.i.ph, %while.body.i60.outer ]
-  %__result.addr.0.i = phi ptr [ %incdec.ptr7.i, %if.end18.i ], [ %__result.addr.0.i.ph, %while.body.i60.outer ]
+while.body.i59:                                   ; preds = %while.body.i59.outer, %if.end18.i
+  %__last2.addr.0.i = phi ptr [ %incdec.ptr19.i, %if.end18.i ], [ %__last2.addr.0.i.ph, %while.body.i59.outer ]
+  %__result.addr.0.i = phi ptr [ %incdec.ptr7.i, %if.end18.i ], [ %__result.addr.0.i.ph, %while.body.i59.outer ]
   %14 = load ptr, ptr %__last2.addr.0.i, align 8
   %15 = load ptr, ptr %__last1.addr.0.i.ph, align 8
-  %m_poly.i.i.i.i61 = getelementptr inbounds %"class.dd::solver::equation", ptr %14, i64 0, i32 2
-  %m.i.i.i.i62 = getelementptr inbounds %"class.dd::solver::equation", ptr %14, i64 0, i32 2, i32 1
-  %16 = load ptr, ptr %m.i.i.i.i62, align 8
-  %17 = load i32, ptr %m_poly.i.i.i.i61, align 8
-  %m_level2var.i.i.i.i.i63 = getelementptr inbounds %"class.dd::pdd_manager", ptr %16, i64 0, i32 10
+  %m_poly.i.i.i.i60 = getelementptr inbounds %"class.dd::solver::equation", ptr %14, i64 0, i32 2
+  %m.i.i.i.i61 = getelementptr inbounds %"class.dd::solver::equation", ptr %14, i64 0, i32 2, i32 1
+  %16 = load ptr, ptr %m.i.i.i.i61, align 8
+  %17 = load i32, ptr %m_poly.i.i.i.i60, align 8
+  %m_level2var.i.i.i.i.i62 = getelementptr inbounds %"class.dd::pdd_manager", ptr %16, i64 0, i32 10
   %18 = load ptr, ptr %16, align 8
-  %idxprom.i.i.i.i.i.i.i64 = zext i32 %17 to i64
-  %arrayidx.i.i.i.i.i.i.i65 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %18, i64 %idxprom.i.i.i.i.i.i.i64
-  %bf.load.i.i.i.i.i.i66 = load i32, ptr %arrayidx.i.i.i.i.i.i.i65, align 4
-  %bf.lshr.i.i.i.i.i.i67 = lshr i32 %bf.load.i.i.i.i.i.i66, 10
-  %19 = load ptr, ptr %m_level2var.i.i.i.i.i63, align 8
-  %idxprom.i.i.i.i.i.i68 = zext nneg i32 %bf.lshr.i.i.i.i.i.i67 to i64
-  %arrayidx.i.i.i.i.i.i69 = getelementptr inbounds i32, ptr %19, i64 %idxprom.i.i.i.i.i.i68
-  %20 = load i32, ptr %arrayidx.i.i.i.i.i.i69, align 4
-  %m_poly.i1.i.i.i70 = getelementptr inbounds %"class.dd::solver::equation", ptr %15, i64 0, i32 2
-  %m.i2.i.i.i71 = getelementptr inbounds %"class.dd::solver::equation", ptr %15, i64 0, i32 2, i32 1
-  %21 = load ptr, ptr %m.i2.i.i.i71, align 8
-  %22 = load i32, ptr %m_poly.i1.i.i.i70, align 8
-  %m_level2var.i.i3.i.i.i72 = getelementptr inbounds %"class.dd::pdd_manager", ptr %21, i64 0, i32 10
+  %idxprom.i.i.i.i.i.i.i63 = zext i32 %17 to i64
+  %arrayidx.i.i.i.i.i.i.i64 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %18, i64 %idxprom.i.i.i.i.i.i.i63
+  %bf.load.i.i.i.i.i.i65 = load i32, ptr %arrayidx.i.i.i.i.i.i.i64, align 4
+  %bf.lshr.i.i.i.i.i.i66 = lshr i32 %bf.load.i.i.i.i.i.i65, 10
+  %19 = load ptr, ptr %m_level2var.i.i.i.i.i62, align 8
+  %idxprom.i.i.i.i.i.i67 = zext nneg i32 %bf.lshr.i.i.i.i.i.i66 to i64
+  %arrayidx.i.i.i.i.i.i68 = getelementptr inbounds i32, ptr %19, i64 %idxprom.i.i.i.i.i.i67
+  %20 = load i32, ptr %arrayidx.i.i.i.i.i.i68, align 4
+  %m_poly.i1.i.i.i69 = getelementptr inbounds %"class.dd::solver::equation", ptr %15, i64 0, i32 2
+  %m.i2.i.i.i70 = getelementptr inbounds %"class.dd::solver::equation", ptr %15, i64 0, i32 2, i32 1
+  %21 = load ptr, ptr %m.i2.i.i.i70, align 8
+  %22 = load i32, ptr %m_poly.i1.i.i.i69, align 8
+  %m_level2var.i.i3.i.i.i71 = getelementptr inbounds %"class.dd::pdd_manager", ptr %21, i64 0, i32 10
   %23 = load ptr, ptr %21, align 8
-  %idxprom.i.i.i.i4.i.i.i73 = zext i32 %22 to i64
-  %arrayidx.i.i.i.i5.i.i.i74 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %23, i64 %idxprom.i.i.i.i4.i.i.i73
-  %bf.load.i.i.i6.i.i.i75 = load i32, ptr %arrayidx.i.i.i.i5.i.i.i74, align 4
-  %bf.lshr.i.i.i7.i.i.i76 = lshr i32 %bf.load.i.i.i6.i.i.i75, 10
-  %24 = load ptr, ptr %m_level2var.i.i3.i.i.i72, align 8
-  %idxprom.i.i.i8.i.i.i77 = zext nneg i32 %bf.lshr.i.i.i7.i.i.i76 to i64
-  %arrayidx.i.i.i9.i.i.i78 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i.i.i8.i.i.i77
-  %25 = load i32, ptr %arrayidx.i.i.i9.i.i.i78, align 4
-  %cmp.i.i.i79 = icmp ult i32 %20, %25
+  %idxprom.i.i.i.i4.i.i.i72 = zext i32 %22 to i64
+  %arrayidx.i.i.i.i5.i.i.i73 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %23, i64 %idxprom.i.i.i.i4.i.i.i72
+  %bf.load.i.i.i6.i.i.i74 = load i32, ptr %arrayidx.i.i.i.i5.i.i.i73, align 4
+  %bf.lshr.i.i.i7.i.i.i75 = lshr i32 %bf.load.i.i.i6.i.i.i74, 10
+  %24 = load ptr, ptr %m_level2var.i.i3.i.i.i71, align 8
+  %idxprom.i.i.i8.i.i.i76 = zext nneg i32 %bf.lshr.i.i.i7.i.i.i75 to i64
+  %arrayidx.i.i.i9.i.i.i77 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i.i.i8.i.i.i76
+  %25 = load i32, ptr %arrayidx.i.i.i9.i.i.i77, align 4
+  %cmp.i.i.i78 = icmp ult i32 %20, %25
   %incdec.ptr7.i = getelementptr inbounds ptr, ptr %__result.addr.0.i, i64 -1
-  br i1 %cmp.i.i.i79, label %if.then6.i, label %if.else14.i
+  br i1 %cmp.i.i.i78, label %if.then6.i, label %if.else14.i
 
-if.then6.i:                                       ; preds = %while.body.i60
+if.then6.i:                                       ; preds = %while.body.i59
   store ptr %15, ptr %incdec.ptr7.i, align 8
   %cmp8.i = icmp eq ptr %__last1.addr.0.i.ph, %__first.tr189
-  br i1 %cmp8.i, label %if.then9.i, label %while.body.i60.outer, !llvm.loop !98
+  br i1 %cmp8.i, label %if.then9.i, label %while.body.i59.outer, !llvm.loop !98
 
 if.then9.i:                                       ; preds = %if.then6.i
   %incdec.ptr10.i = getelementptr inbounds ptr, ptr %__last2.addr.0.i, i64 1
@@ -11406,14 +11405,14 @@ if.then.i.i.i.i.i26.i:                            ; preds = %if.then9.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i27.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i22.i, i1 false)
   br label %if.end27
 
-if.else14.i:                                      ; preds = %while.body.i60
+if.else14.i:                                      ; preds = %while.body.i59
   store ptr %14, ptr %incdec.ptr7.i, align 8
   %cmp16.i = icmp eq ptr %__last2.addr.0.i, %__buffer
   br i1 %cmp16.i, label %if.end27, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.else14.i
   %incdec.ptr19.i = getelementptr inbounds ptr, ptr %__last2.addr.0.i, i64 -1
-  br label %while.body.i60, !llvm.loop !98
+  br label %while.body.i59, !llvm.loop !98
 
 if.else7:                                         ; preds = %if.else
   br i1 %cmp.not194, label %if.then9, label %if.else14
@@ -11428,52 +11427,52 @@ if.then9:                                         ; preds = %if.else7
 
 while.body.lr.ph.i:                               ; preds = %if.then9
   %26 = load ptr, ptr %incdec.ptr.i.i, align 8
-  %m_poly.i1.i.i.i84 = getelementptr inbounds %"class.dd::solver::equation", ptr %26, i64 0, i32 2
-  %m.i2.i.i.i85 = getelementptr inbounds %"class.dd::solver::equation", ptr %26, i64 0, i32 2, i32 1
-  %27 = load ptr, ptr %m.i2.i.i.i85, align 8
-  %28 = load i32, ptr %m_poly.i1.i.i.i84, align 8
-  %m_level2var.i.i3.i.i.i86 = getelementptr inbounds %"class.dd::pdd_manager", ptr %27, i64 0, i32 10
+  %m_poly.i1.i.i.i83 = getelementptr inbounds %"class.dd::solver::equation", ptr %26, i64 0, i32 2
+  %m.i2.i.i.i84 = getelementptr inbounds %"class.dd::solver::equation", ptr %26, i64 0, i32 2, i32 1
+  %27 = load ptr, ptr %m.i2.i.i.i84, align 8
+  %28 = load i32, ptr %m_poly.i1.i.i.i83, align 8
+  %m_level2var.i.i3.i.i.i85 = getelementptr inbounds %"class.dd::pdd_manager", ptr %27, i64 0, i32 10
   %29 = load ptr, ptr %27, align 8
-  %idxprom.i.i.i.i4.i.i.i87 = zext i32 %28 to i64
-  %arrayidx.i.i.i.i5.i.i.i88 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %29, i64 %idxprom.i.i.i.i4.i.i.i87
-  %bf.load.i.i.i6.i.i.i89 = load i32, ptr %arrayidx.i.i.i.i5.i.i.i88, align 4
-  %bf.lshr.i.i.i7.i.i.i90 = lshr i32 %bf.load.i.i.i6.i.i.i89, 10
-  %30 = load ptr, ptr %m_level2var.i.i3.i.i.i86, align 8
-  %idxprom.i.i.i8.i.i.i91 = zext nneg i32 %bf.lshr.i.i.i7.i.i.i90 to i64
-  %arrayidx.i.i.i9.i.i.i92 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i.i8.i.i.i91
-  %31 = load i32, ptr %arrayidx.i.i.i9.i.i.i92, align 4
-  br label %while.body.i93
+  %idxprom.i.i.i.i4.i.i.i86 = zext i32 %28 to i64
+  %arrayidx.i.i.i.i5.i.i.i87 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %29, i64 %idxprom.i.i.i.i4.i.i.i86
+  %bf.load.i.i.i6.i.i.i88 = load i32, ptr %arrayidx.i.i.i.i5.i.i.i87, align 4
+  %bf.lshr.i.i.i7.i.i.i89 = lshr i32 %bf.load.i.i.i6.i.i.i88, 10
+  %30 = load ptr, ptr %m_level2var.i.i3.i.i.i85, align 8
+  %idxprom.i.i.i8.i.i.i90 = zext nneg i32 %bf.lshr.i.i.i7.i.i.i89 to i64
+  %arrayidx.i.i.i9.i.i.i91 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i.i8.i.i.i90
+  %31 = load i32, ptr %arrayidx.i.i.i9.i.i.i91, align 4
+  br label %while.body.i92
 
-while.body.i93:                                   ; preds = %while.body.i93, %while.body.lr.ph.i
-  %__first.addr.014.i = phi ptr [ %__middle.tr190, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i93 ]
-  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i93 ]
+while.body.i92:                                   ; preds = %while.body.i92, %while.body.lr.ph.i
+  %__first.addr.014.i = phi ptr [ %__middle.tr190, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i92 ]
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i92 ]
   %shr.i = lshr i64 %__len.013.i, 1
   %incdec.ptr4.sink.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.014.i, i64 %shr.i
   %32 = load ptr, ptr %incdec.ptr4.sink.i.i.i, align 8
-  %m_poly.i.i.i.i95 = getelementptr inbounds %"class.dd::solver::equation", ptr %32, i64 0, i32 2
-  %m.i.i.i.i96 = getelementptr inbounds %"class.dd::solver::equation", ptr %32, i64 0, i32 2, i32 1
-  %33 = load ptr, ptr %m.i.i.i.i96, align 8
-  %34 = load i32, ptr %m_poly.i.i.i.i95, align 8
-  %m_level2var.i.i.i.i.i97 = getelementptr inbounds %"class.dd::pdd_manager", ptr %33, i64 0, i32 10
+  %m_poly.i.i.i.i94 = getelementptr inbounds %"class.dd::solver::equation", ptr %32, i64 0, i32 2
+  %m.i.i.i.i95 = getelementptr inbounds %"class.dd::solver::equation", ptr %32, i64 0, i32 2, i32 1
+  %33 = load ptr, ptr %m.i.i.i.i95, align 8
+  %34 = load i32, ptr %m_poly.i.i.i.i94, align 8
+  %m_level2var.i.i.i.i.i96 = getelementptr inbounds %"class.dd::pdd_manager", ptr %33, i64 0, i32 10
   %35 = load ptr, ptr %33, align 8
-  %idxprom.i.i.i.i.i.i.i98 = zext i32 %34 to i64
-  %arrayidx.i.i.i.i.i.i.i99 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %35, i64 %idxprom.i.i.i.i.i.i.i98
-  %bf.load.i.i.i.i.i.i100 = load i32, ptr %arrayidx.i.i.i.i.i.i.i99, align 4
-  %bf.lshr.i.i.i.i.i.i101 = lshr i32 %bf.load.i.i.i.i.i.i100, 10
-  %36 = load ptr, ptr %m_level2var.i.i.i.i.i97, align 8
-  %idxprom.i.i.i.i.i.i102 = zext nneg i32 %bf.lshr.i.i.i.i.i.i101 to i64
-  %arrayidx.i.i.i.i.i.i103 = getelementptr inbounds i32, ptr %36, i64 %idxprom.i.i.i.i.i.i102
-  %37 = load i32, ptr %arrayidx.i.i.i.i.i.i103, align 4
+  %idxprom.i.i.i.i.i.i.i97 = zext i32 %34 to i64
+  %arrayidx.i.i.i.i.i.i.i98 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %35, i64 %idxprom.i.i.i.i.i.i.i97
+  %bf.load.i.i.i.i.i.i99 = load i32, ptr %arrayidx.i.i.i.i.i.i.i98, align 4
+  %bf.lshr.i.i.i.i.i.i100 = lshr i32 %bf.load.i.i.i.i.i.i99, 10
+  %36 = load ptr, ptr %m_level2var.i.i.i.i.i96, align 8
+  %idxprom.i.i.i.i.i.i101 = zext nneg i32 %bf.lshr.i.i.i.i.i.i100 to i64
+  %arrayidx.i.i.i.i.i.i102 = getelementptr inbounds i32, ptr %36, i64 %idxprom.i.i.i.i.i.i101
+  %37 = load i32, ptr %arrayidx.i.i.i.i.i.i102, align 4
   %cmp.i.i8.i = icmp ult i32 %37, %31
-  %incdec.ptr.i104 = getelementptr inbounds ptr, ptr %incdec.ptr4.sink.i.i.i, i64 1
+  %incdec.ptr.i103 = getelementptr inbounds ptr, ptr %incdec.ptr4.sink.i.i.i, i64 1
   %38 = xor i64 %shr.i, -1
   %sub2.i = add nsw i64 %__len.013.i, %38
   %__len.1.i = select i1 %cmp.i.i8.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i104, ptr %__first.addr.014.i
-  %cmp.i105 = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i105, label %while.body.i93, label %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !91
+  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i103, ptr %__first.addr.014.i
+  %cmp.i104 = icmp sgt i64 %__len.1.i, 0
+  br i1 %cmp.i104, label %while.body.i92, label %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !91
 
-_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %while.body.i93
+_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %while.body.i92
   %.pre = ptrtoint ptr %__first.addr.1.i to i64
   br label %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit
 
@@ -11486,120 +11485,119 @@ _ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valI
 
 if.else14:                                        ; preds = %if.else7
   %div15 = sdiv i64 %__len2.tr193, 2
-  %incdec.ptr.i.i117 = getelementptr inbounds ptr, ptr %__middle.tr190, i64 %div15
-  %sub.ptr.rhs.cast.i.i.i120 = ptrtoint ptr %__first.tr189 to i64
-  %sub.ptr.sub.i.i.i121 = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i120
-  %sub.ptr.div.i.i.i122 = ashr exact i64 %sub.ptr.sub.i.i.i121, 3
-  %cmp12.i123 = icmp sgt i64 %sub.ptr.div.i.i.i122, 0
-  br i1 %cmp12.i123, label %while.body.lr.ph.i126, label %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit
+  %incdec.ptr.i.i116 = getelementptr inbounds ptr, ptr %__middle.tr190, i64 %div15
+  %sub.ptr.rhs.cast.i.i.i119 = ptrtoint ptr %__first.tr189 to i64
+  %sub.ptr.sub.i.i.i120 = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i119
+  %sub.ptr.div.i.i.i121 = ashr exact i64 %sub.ptr.sub.i.i.i120, 3
+  %cmp12.i122 = icmp sgt i64 %sub.ptr.div.i.i.i121, 0
+  br i1 %cmp12.i122, label %while.body.lr.ph.i125, label %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit
 
-while.body.lr.ph.i126:                            ; preds = %if.else14
-  %39 = load ptr, ptr %incdec.ptr.i.i117, align 8
-  %m_poly.i.i.i.i127 = getelementptr inbounds %"class.dd::solver::equation", ptr %39, i64 0, i32 2
-  %m.i.i.i.i128 = getelementptr inbounds %"class.dd::solver::equation", ptr %39, i64 0, i32 2, i32 1
-  %40 = load ptr, ptr %m.i.i.i.i128, align 8
-  %41 = load i32, ptr %m_poly.i.i.i.i127, align 8
-  %m_level2var.i.i.i.i.i129 = getelementptr inbounds %"class.dd::pdd_manager", ptr %40, i64 0, i32 10
+while.body.lr.ph.i125:                            ; preds = %if.else14
+  %39 = load ptr, ptr %incdec.ptr.i.i116, align 8
+  %m_poly.i.i.i.i126 = getelementptr inbounds %"class.dd::solver::equation", ptr %39, i64 0, i32 2
+  %m.i.i.i.i127 = getelementptr inbounds %"class.dd::solver::equation", ptr %39, i64 0, i32 2, i32 1
+  %40 = load ptr, ptr %m.i.i.i.i127, align 8
+  %41 = load i32, ptr %m_poly.i.i.i.i126, align 8
+  %m_level2var.i.i.i.i.i128 = getelementptr inbounds %"class.dd::pdd_manager", ptr %40, i64 0, i32 10
   %42 = load ptr, ptr %40, align 8
-  %idxprom.i.i.i.i.i.i.i130 = zext i32 %41 to i64
-  %arrayidx.i.i.i.i.i.i.i131 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %42, i64 %idxprom.i.i.i.i.i.i.i130
-  %bf.load.i.i.i.i.i.i132 = load i32, ptr %arrayidx.i.i.i.i.i.i.i131, align 4
-  %bf.lshr.i.i.i.i.i.i133 = lshr i32 %bf.load.i.i.i.i.i.i132, 10
-  %43 = load ptr, ptr %m_level2var.i.i.i.i.i129, align 8
-  %idxprom.i.i.i.i.i.i134 = zext nneg i32 %bf.lshr.i.i.i.i.i.i133 to i64
-  %arrayidx.i.i.i.i.i.i135 = getelementptr inbounds i32, ptr %43, i64 %idxprom.i.i.i.i.i.i134
-  %44 = load i32, ptr %arrayidx.i.i.i.i.i.i135, align 4
-  br label %while.body.i136
+  %idxprom.i.i.i.i.i.i.i129 = zext i32 %41 to i64
+  %arrayidx.i.i.i.i.i.i.i130 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %42, i64 %idxprom.i.i.i.i.i.i.i129
+  %bf.load.i.i.i.i.i.i131 = load i32, ptr %arrayidx.i.i.i.i.i.i.i130, align 4
+  %bf.lshr.i.i.i.i.i.i132 = lshr i32 %bf.load.i.i.i.i.i.i131, 10
+  %43 = load ptr, ptr %m_level2var.i.i.i.i.i128, align 8
+  %idxprom.i.i.i.i.i.i133 = zext nneg i32 %bf.lshr.i.i.i.i.i.i132 to i64
+  %arrayidx.i.i.i.i.i.i134 = getelementptr inbounds i32, ptr %43, i64 %idxprom.i.i.i.i.i.i133
+  %44 = load i32, ptr %arrayidx.i.i.i.i.i.i134, align 4
+  br label %while.body.i135
 
-while.body.i136:                                  ; preds = %while.body.i136, %while.body.lr.ph.i126
-  %__first.addr.014.i137 = phi ptr [ %__first.tr189, %while.body.lr.ph.i126 ], [ %__first.addr.1.i157, %while.body.i136 ]
-  %__len.013.i138 = phi i64 [ %sub.ptr.div.i.i.i122, %while.body.lr.ph.i126 ], [ %__len.1.i156, %while.body.i136 ]
-  %shr.i139 = lshr i64 %__len.013.i138, 1
-  %incdec.ptr4.sink.i.i.i143 = getelementptr inbounds ptr, ptr %__first.addr.014.i137, i64 %shr.i139
-  %45 = load ptr, ptr %incdec.ptr4.sink.i.i.i143, align 8
-  %m_poly.i1.i.i.i144 = getelementptr inbounds %"class.dd::solver::equation", ptr %45, i64 0, i32 2
-  %m.i2.i.i.i145 = getelementptr inbounds %"class.dd::solver::equation", ptr %45, i64 0, i32 2, i32 1
-  %46 = load ptr, ptr %m.i2.i.i.i145, align 8
-  %47 = load i32, ptr %m_poly.i1.i.i.i144, align 8
-  %m_level2var.i.i3.i.i.i146 = getelementptr inbounds %"class.dd::pdd_manager", ptr %46, i64 0, i32 10
+while.body.i135:                                  ; preds = %while.body.i135, %while.body.lr.ph.i125
+  %__first.addr.014.i136 = phi ptr [ %__first.tr189, %while.body.lr.ph.i125 ], [ %__first.addr.1.i156, %while.body.i135 ]
+  %__len.013.i137 = phi i64 [ %sub.ptr.div.i.i.i121, %while.body.lr.ph.i125 ], [ %__len.1.i155, %while.body.i135 ]
+  %shr.i138 = lshr i64 %__len.013.i137, 1
+  %incdec.ptr4.sink.i.i.i142 = getelementptr inbounds ptr, ptr %__first.addr.014.i136, i64 %shr.i138
+  %45 = load ptr, ptr %incdec.ptr4.sink.i.i.i142, align 8
+  %m_poly.i1.i.i.i143 = getelementptr inbounds %"class.dd::solver::equation", ptr %45, i64 0, i32 2
+  %m.i2.i.i.i144 = getelementptr inbounds %"class.dd::solver::equation", ptr %45, i64 0, i32 2, i32 1
+  %46 = load ptr, ptr %m.i2.i.i.i144, align 8
+  %47 = load i32, ptr %m_poly.i1.i.i.i143, align 8
+  %m_level2var.i.i3.i.i.i145 = getelementptr inbounds %"class.dd::pdd_manager", ptr %46, i64 0, i32 10
   %48 = load ptr, ptr %46, align 8
-  %idxprom.i.i.i.i4.i.i.i147 = zext i32 %47 to i64
-  %arrayidx.i.i.i.i5.i.i.i148 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %48, i64 %idxprom.i.i.i.i4.i.i.i147
-  %bf.load.i.i.i6.i.i.i149 = load i32, ptr %arrayidx.i.i.i.i5.i.i.i148, align 4
-  %bf.lshr.i.i.i7.i.i.i150 = lshr i32 %bf.load.i.i.i6.i.i.i149, 10
-  %49 = load ptr, ptr %m_level2var.i.i3.i.i.i146, align 8
-  %idxprom.i.i.i8.i.i.i151 = zext nneg i32 %bf.lshr.i.i.i7.i.i.i150 to i64
-  %arrayidx.i.i.i9.i.i.i152 = getelementptr inbounds i32, ptr %49, i64 %idxprom.i.i.i8.i.i.i151
-  %50 = load i32, ptr %arrayidx.i.i.i9.i.i.i152, align 4
-  %cmp.i.i8.i153 = icmp ult i32 %44, %50
-  %incdec.ptr.i154 = getelementptr inbounds ptr, ptr %incdec.ptr4.sink.i.i.i143, i64 1
-  %51 = xor i64 %shr.i139, -1
-  %sub2.i155 = add nsw i64 %__len.013.i138, %51
-  %__len.1.i156 = select i1 %cmp.i.i8.i153, i64 %shr.i139, i64 %sub2.i155
-  %__first.addr.1.i157 = select i1 %cmp.i.i8.i153, ptr %__first.addr.014.i137, ptr %incdec.ptr.i154
-  %cmp.i158 = icmp sgt i64 %__len.1.i156, 0
-  br i1 %cmp.i158, label %while.body.i136, label %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !92
+  %idxprom.i.i.i.i4.i.i.i146 = zext i32 %47 to i64
+  %arrayidx.i.i.i.i5.i.i.i147 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %48, i64 %idxprom.i.i.i.i4.i.i.i146
+  %bf.load.i.i.i6.i.i.i148 = load i32, ptr %arrayidx.i.i.i.i5.i.i.i147, align 4
+  %bf.lshr.i.i.i7.i.i.i149 = lshr i32 %bf.load.i.i.i6.i.i.i148, 10
+  %49 = load ptr, ptr %m_level2var.i.i3.i.i.i145, align 8
+  %idxprom.i.i.i8.i.i.i150 = zext nneg i32 %bf.lshr.i.i.i7.i.i.i149 to i64
+  %arrayidx.i.i.i9.i.i.i151 = getelementptr inbounds i32, ptr %49, i64 %idxprom.i.i.i8.i.i.i150
+  %50 = load i32, ptr %arrayidx.i.i.i9.i.i.i151, align 4
+  %cmp.i.i8.i152 = icmp ult i32 %44, %50
+  %incdec.ptr.i153 = getelementptr inbounds ptr, ptr %incdec.ptr4.sink.i.i.i142, i64 1
+  %51 = xor i64 %shr.i138, -1
+  %sub2.i154 = add nsw i64 %__len.013.i137, %51
+  %__len.1.i155 = select i1 %cmp.i.i8.i152, i64 %shr.i138, i64 %sub2.i154
+  %__first.addr.1.i156 = select i1 %cmp.i.i8.i152, ptr %__first.addr.014.i136, ptr %incdec.ptr.i153
+  %cmp.i157 = icmp sgt i64 %__len.1.i155, 0
+  br i1 %cmp.i157, label %while.body.i135, label %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !92
 
-_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %while.body.i136
-  %.pre200 = ptrtoint ptr %__first.addr.1.i157 to i64
+_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %while.body.i135
+  %.pre200 = ptrtoint ptr %__first.addr.1.i156 to i64
   br label %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit, %if.else14
-  %sub.ptr.lhs.cast.i.i159.pre-phi = phi i64 [ %.pre200, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i120, %if.else14 ]
-  %__first.addr.0.lcssa.i125 = phi ptr [ %__first.addr.1.i157, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %__first.tr189, %if.else14 ]
-  %sub.ptr.sub.i.i161 = sub i64 %sub.ptr.lhs.cast.i.i159.pre-phi, %sub.ptr.rhs.cast.i.i.i120
-  %sub.ptr.div.i.i162 = ashr exact i64 %sub.ptr.sub.i.i161, 3
+  %sub.ptr.lhs.cast.i.i158.pre-phi = phi i64 [ %.pre200, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i119, %if.else14 ]
+  %__first.addr.0.lcssa.i124 = phi ptr [ %__first.addr.1.i156, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %__first.tr189, %if.else14 ]
+  %sub.ptr.sub.i.i160 = sub i64 %sub.ptr.lhs.cast.i.i158.pre-phi, %sub.ptr.rhs.cast.i.i.i119
+  %sub.ptr.div.i.i161 = ashr exact i64 %sub.ptr.sub.i.i160, 3
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit, %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit
-  %__first_cut.0 = phi ptr [ %incdec.ptr.i.i, %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i125, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ]
-  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ], [ %incdec.ptr.i.i117, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ]
+  %__first_cut.0 = phi ptr [ %incdec.ptr.i.i, %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i124, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ]
+  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ], [ %incdec.ptr.i.i116, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i, %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ], [ %div15, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ]
-  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ], [ %sub.ptr.div.i.i162, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ]
+  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ], [ %sub.ptr.div.i.i161, %_ZSt13__upper_boundIPPN2dd6solver8equationES3_N9__gnu_cxx5__ops14_Val_comp_iterINS0_10simplifier15compare_top_varEEEET_SB_SB_RKT0_T1_.exit ]
   %sub = sub nsw i64 %__len1.tr192, %__len11.0
-  %cmp.i163 = icmp sle i64 %sub, %__len22.0
+  %cmp.i162 = icmp sle i64 %sub, %__len22.0
   %cmp1.not.i = icmp sgt i64 %__len22.0, %__buffer_size
-  %or.cond.i = or i1 %cmp1.not.i, %cmp.i163
-  br i1 %or.cond.i, label %if.else5.i, label %if.then.i164
+  %or.cond.i = or i1 %cmp1.not.i, %cmp.i162
+  br i1 %or.cond.i, label %if.else5.i, label %if.then.i163
 
-if.then.i164:                                     ; preds = %if.end
+if.then.i163:                                     ; preds = %if.end
   %tobool.not.i = icmp eq i64 %__len22.0, 0
   br i1 %tobool.not.i, label %_ZSt17__rotate_adaptiveIPPN2dd6solver8equationES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, label %if.then2.i
 
-if.then2.i:                                       ; preds = %if.then.i164
-  %sub.ptr.lhs.cast.i.i.i.i.i.i165 = ptrtoint ptr %__second_cut.0 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i166 = ptrtoint ptr %__middle.tr190 to i64
-  %sub.ptr.sub.i.i.i.i.i.i167 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i165, %sub.ptr.rhs.cast.i.i.i.i.i.i166
-  %tobool.not.i.i.i.i.i.i168 = icmp eq ptr %__second_cut.0, %__middle.tr190
-  br i1 %tobool.not.i.i.i.i.i.i168, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i170, label %if.then.i.i.i.i.i.i169
+if.then2.i:                                       ; preds = %if.then.i163
+  %sub.ptr.lhs.cast.i.i.i.i.i.i164 = ptrtoint ptr %__second_cut.0 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i165 = ptrtoint ptr %__middle.tr190 to i64
+  %sub.ptr.sub.i.i.i.i.i.i166 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i164, %sub.ptr.rhs.cast.i.i.i.i.i.i165
+  %tobool.not.i.i.i.i.i.i167 = icmp eq ptr %__second_cut.0, %__middle.tr190
+  br i1 %tobool.not.i.i.i.i.i.i167, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i169, label %if.then.i.i.i.i.i.i168
 
-if.then.i.i.i.i.i.i169:                           ; preds = %if.then2.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.tr190, i64 %sub.ptr.sub.i.i.i.i.i.i167, i1 false)
-  br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i170
+if.then.i.i.i.i.i.i168:                           ; preds = %if.then2.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.tr190, i64 %sub.ptr.sub.i.i.i.i.i.i166, i1 false)
+  br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i169
 
-_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i170: ; preds = %if.then.i.i.i.i.i.i169, %if.then2.i
-  %tobool.not.i.i.i.i.i28.i = icmp eq ptr %__first_cut.0, %__middle.tr190
-  br i1 %tobool.not.i.i.i.i.i28.i, label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i, label %if.then.i.i.i.i.i29.i
+_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i169: ; preds = %if.then.i.i.i.i.i.i168, %if.then2.i
+  %tobool.not.i.i.i.i.i27.i = icmp eq ptr %__first_cut.0, %__middle.tr190
+  br i1 %tobool.not.i.i.i.i.i27.i, label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i, label %if.then.i.i.i.i.i28.i
 
-if.then.i.i.i.i.i29.i:                            ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i170
+if.then.i.i.i.i.i28.i:                            ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i169
   %sub.ptr.rhs.cast.i.i.i.i.i25.i = ptrtoint ptr %__first_cut.0 to i64
-  %sub.ptr.sub.i.i.i.i.i26.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i166, %sub.ptr.rhs.cast.i.i.i.i.i25.i
-  %sub.ptr.div.i.i.i.i.i27.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i26.i, 3
-  %.pre.i.i.i.i.i.i171 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i27.i
-  %add.ptr.i.i.i.i.i30.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i.i171
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i30.i, ptr align 8 %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i26.i, i1 false)
+  %sub.ptr.sub.i.i.i.i.i26.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i165, %sub.ptr.rhs.cast.i.i.i.i.i25.i
+  %sub.ptr.div.i.i.i.i.i.i170 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i26.i, 3
+  %.pre.i.i.i.i.i.i171 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i170
+  %add.ptr.i.i.i.i.i29.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i.i171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i29.i, ptr align 8 %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i26.i, i1 false)
   br label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i
 
-_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i: ; preds = %if.then.i.i.i.i.i29.i, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i170
-  br i1 %tobool.not.i.i.i.i.i.i168, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit38.i, label %if.then.i.i.i.i.i35.i
+_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i: ; preds = %if.then.i.i.i.i.i28.i, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i169
+  br i1 %tobool.not.i.i.i.i.i.i167, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit36.i, label %if.then.i.i.i.i.i34.i
 
-if.then.i.i.i.i.i35.i:                            ; preds = %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.0, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i.i167, i1 false)
-  br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit38.i
+if.then.i.i.i.i.i34.i:                            ; preds = %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.0, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i.i166, i1 false)
+  br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit36.i
 
-_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit38.i: ; preds = %if.then.i.i.i.i.i35.i, %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i
-  %sub.ptr.div.i.i.i.i.i36.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i167, 3
-  %add.ptr.i.i.i.i.i37.i = getelementptr inbounds ptr, ptr %__first_cut.0, i64 %sub.ptr.div.i.i.i.i.i36.i
+_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit36.i: ; preds = %if.then.i.i.i.i.i34.i, %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i
+  %add.ptr.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i.i166
   br label %_ZSt17__rotate_adaptiveIPPN2dd6solver8equationES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
 if.else5.i:                                       ; preds = %if.end
@@ -11611,46 +11609,46 @@ if.then7.i:                                       ; preds = %if.else5.i
   br i1 %tobool8.not.i, label %_ZSt17__rotate_adaptiveIPPN2dd6solver8equationES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, label %if.then9.i172
 
 if.then9.i172:                                    ; preds = %if.then7.i
-  %sub.ptr.lhs.cast.i.i.i.i.i39.i = ptrtoint ptr %__middle.tr190 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i40.i = ptrtoint ptr %__first_cut.0 to i64
-  %sub.ptr.sub.i.i.i.i.i41.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i39.i, %sub.ptr.rhs.cast.i.i.i.i.i40.i
-  %tobool.not.i.i.i.i.i42.i = icmp eq ptr %__first_cut.0, %__middle.tr190
-  br i1 %tobool.not.i.i.i.i.i42.i, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit46.i, label %if.then.i.i.i.i.i43.i
+  %sub.ptr.lhs.cast.i.i.i.i.i37.i = ptrtoint ptr %__middle.tr190 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i38.i = ptrtoint ptr %__first_cut.0 to i64
+  %sub.ptr.sub.i.i.i.i.i39.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i37.i, %sub.ptr.rhs.cast.i.i.i.i.i38.i
+  %tobool.not.i.i.i.i.i40.i = icmp eq ptr %__first_cut.0, %__middle.tr190
+  br i1 %tobool.not.i.i.i.i.i40.i, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit43.i, label %if.then.i.i.i.i.i41.i
 
-if.then.i.i.i.i.i43.i:                            ; preds = %if.then9.i172
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i41.i, i1 false)
-  br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit46.i
+if.then.i.i.i.i.i41.i:                            ; preds = %if.then9.i172
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i39.i, i1 false)
+  br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit43.i
 
-_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit46.i: ; preds = %if.then.i.i.i.i.i43.i, %if.then9.i172
-  %tobool.not.i.i.i.i.i50.i = icmp eq ptr %__second_cut.0, %__middle.tr190
-  br i1 %tobool.not.i.i.i.i.i50.i, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit54.i, label %if.then.i.i.i.i.i51.i
+_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit43.i: ; preds = %if.then.i.i.i.i.i41.i, %if.then9.i172
+  %tobool.not.i.i.i.i.i47.i = icmp eq ptr %__second_cut.0, %__middle.tr190
+  br i1 %tobool.not.i.i.i.i.i47.i, label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit50.i, label %if.then.i.i.i.i.i48.i
 
-if.then.i.i.i.i.i51.i:                            ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit46.i
-  %sub.ptr.lhs.cast.i.i.i.i.i47.i = ptrtoint ptr %__second_cut.0 to i64
-  %sub.ptr.sub.i.i.i.i.i49.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i47.i, %sub.ptr.lhs.cast.i.i.i.i.i39.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.0, ptr align 8 %__middle.tr190, i64 %sub.ptr.sub.i.i.i.i.i49.i, i1 false)
-  br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit54.i
+if.then.i.i.i.i.i48.i:                            ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit43.i
+  %sub.ptr.lhs.cast.i.i.i.i.i44.i = ptrtoint ptr %__second_cut.0 to i64
+  %sub.ptr.sub.i.i.i.i.i46.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i44.i, %sub.ptr.lhs.cast.i.i.i.i.i37.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.0, ptr align 8 %__middle.tr190, i64 %sub.ptr.sub.i.i.i.i.i46.i, i1 false)
+  br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit50.i
 
-_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit54.i: ; preds = %if.then.i.i.i.i.i51.i, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit46.i
-  %sub.ptr.div.i.i.i.i.i58.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i41.i, 3
-  %.pre.i.i.i.i.i60.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i58.i
-  br i1 %tobool.not.i.i.i.i.i42.i, label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit64.i, label %if.then.i.i.i.i.i61.i
+_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit50.i: ; preds = %if.then.i.i.i.i.i48.i, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit43.i
+  %sub.ptr.div.i.i.i.i.i54.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i39.i, 3
+  %.pre.i.i.i.i.i56.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i54.i
+  br i1 %tobool.not.i.i.i.i.i40.i, label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit60.i, label %if.then.i.i.i.i.i57.i
 
-if.then.i.i.i.i.i61.i:                            ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit54.i
-  %add.ptr.i.i.i.i.i62.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i60.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i62.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i41.i, i1 false)
-  br label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit64.i
+if.then.i.i.i.i.i57.i:                            ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit50.i
+  %add.ptr.i.i.i.i.i58.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i56.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i58.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i39.i, i1 false)
+  br label %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit60.i
 
-_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit64.i: ; preds = %if.then.i.i.i.i.i61.i, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit54.i
-  %add.ptr2.i.i.i.i.i63.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i60.i
+_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit60.i: ; preds = %if.then.i.i.i.i.i57.i, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit50.i
+  %add.ptr2.i.i.i.i.i59.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i56.i
   br label %_ZSt17__rotate_adaptiveIPPN2dd6solver8equationES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
 if.else14.i173:                                   ; preds = %if.else5.i
   %call.i.i = tail call noundef ptr @_ZNSt3_V28__rotateIPPN2dd6solver8equationEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %__first_cut.0, ptr noundef %__middle.tr190, ptr noundef %__second_cut.0)
   br label %_ZSt17__rotate_adaptiveIPPN2dd6solver8equationES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
-_ZSt17__rotate_adaptiveIPPN2dd6solver8equationES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit: ; preds = %if.then.i164, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit38.i, %if.then7.i, %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit64.i, %if.else14.i173
-  %retval.0.i = phi ptr [ %add.ptr.i.i.i.i.i37.i, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit38.i ], [ %add.ptr2.i.i.i.i.i63.i, %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit64.i ], [ %call.i.i, %if.else14.i173 ], [ %__first_cut.0, %if.then.i164 ], [ %__second_cut.0, %if.then7.i ]
+_ZSt17__rotate_adaptiveIPPN2dd6solver8equationES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit: ; preds = %if.then.i163, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit36.i, %if.then7.i, %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit60.i, %if.else14.i173
+  %retval.0.i = phi ptr [ %add.ptr.i.i.i.i.i35.i, %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit36.i ], [ %add.ptr2.i.i.i.i.i59.i, %_ZSt13move_backwardIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit60.i ], [ %call.i.i, %if.else14.i173 ], [ %__first_cut.0, %if.then.i163 ], [ %__second_cut.0, %if.then7.i ]
   tail call void @_ZSt16__merge_adaptiveIPPN2dd6solver8equationElS4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %__first.tr189, ptr noundef %__first_cut.0, ptr noundef %retval.0.i, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
   %sub24 = sub nsw i64 %__len2.tr193, %__len22.0
   %cmp.not = icmp sgt i64 %sub, %sub24
@@ -11935,19 +11933,19 @@ define linkonce_odr hidden void @_ZSt17__merge_sort_loopIPPN2dd6solver8equationE
 entry:
   %mul = shl nsw i64 %__step_size, 1
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast74 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub75 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast74
-  %sub.ptr.div76 = ashr exact i64 %sub.ptr.sub75, 3
-  %cmp.not77 = icmp slt i64 %sub.ptr.div76, %mul
-  br i1 %cmp.not77, label %while.end, label %while.body.lr.ph
+  %sub.ptr.rhs.cast72 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub73 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast72
+  %sub.ptr.div74 = ashr exact i64 %sub.ptr.sub73, 3
+  %cmp.not75 = icmp slt i64 %sub.ptr.div74, %mul
+  br i1 %cmp.not75, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %cmp123.i.not = icmp eq i64 %__step_size, 0
-  br i1 %cmp123.i.not, label %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us, label %while.body
+  %cmp122.i.not = icmp eq i64 %__step_size, 0
+  br i1 %cmp122.i.not, label %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us, label %while.body
 
 _ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us: ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us
-  %__first.addr.079.us = phi ptr [ %add.ptr2.us, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us ], [ %__first, %while.body.lr.ph ]
-  %add.ptr2.us = getelementptr inbounds ptr, ptr %__first.addr.079.us, i64 %mul
+  %__first.addr.077.us = phi ptr [ %add.ptr2.us, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us ], [ %__first, %while.body.lr.ph ]
+  %add.ptr2.us = getelementptr inbounds ptr, ptr %__first.addr.077.us, i64 %mul
   %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr2.us to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
   %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 3
@@ -11955,18 +11953,18 @@ _ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterI
   br i1 %cmp.not.us, label %while.end, label %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us, !llvm.loop !100
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit
-  %__first.addr.079 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit ], [ %__first, %while.body.lr.ph ]
-  %__result.addr.078 = phi ptr [ %add.ptr.i.i.i.i.i20.i, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit ], [ %__result, %while.body.lr.ph ]
-  %add.ptr = getelementptr inbounds ptr, ptr %__first.addr.079, i64 %__step_size
-  %add.ptr2 = getelementptr inbounds ptr, ptr %__first.addr.079, i64 %mul
+  %__first.addr.077 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit ], [ %__first, %while.body.lr.ph ]
+  %__result.addr.076 = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit ], [ %__result, %while.body.lr.ph ]
+  %add.ptr = getelementptr inbounds ptr, ptr %__first.addr.077, i64 %__step_size
+  %add.ptr2 = getelementptr inbounds ptr, ptr %__first.addr.077, i64 %mul
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i
-  %__result.addr.026.i = phi ptr [ %incdec.ptr3.i, %while.body.i ], [ %__result.addr.078, %while.body ]
-  %__first1.addr.025.i = phi ptr [ %__first1.addr.1.i, %while.body.i ], [ %__first.addr.079, %while.body ]
-  %__first2.addr.024.i = phi ptr [ %__first2.addr.1.i, %while.body.i ], [ %add.ptr, %while.body ]
-  %0 = load ptr, ptr %__first2.addr.024.i, align 8
-  %1 = load ptr, ptr %__first1.addr.025.i, align 8
+  %__result.addr.025.i = phi ptr [ %incdec.ptr3.i, %while.body.i ], [ %__result.addr.076, %while.body ]
+  %__first1.addr.024.i = phi ptr [ %__first1.addr.1.i, %while.body.i ], [ %__first.addr.077, %while.body ]
+  %__first2.addr.023.i = phi ptr [ %__first2.addr.1.i, %while.body.i ], [ %add.ptr, %while.body ]
+  %0 = load ptr, ptr %__first2.addr.023.i, align 8
+  %1 = load ptr, ptr %__first1.addr.024.i, align 8
   %m_poly.i.i.i.i = getelementptr inbounds %"class.dd::solver::equation", ptr %0, i64 0, i32 2
   %m.i.i.i.i = getelementptr inbounds %"class.dd::solver::equation", ptr %0, i64 0, i32 2, i32 1
   %2 = load ptr, ptr %m.i.i.i.i, align 8
@@ -11998,12 +11996,12 @@ while.body.i:                                     ; preds = %while.body, %while.
   %cmp.i.i.i = icmp ult i32 %6, %11
   %.sink.i = select i1 %cmp.i.i.i, ptr %0, ptr %1
   %__first2.addr.1.idx.i = zext i1 %cmp.i.i.i to i64
-  %__first2.addr.1.i = getelementptr inbounds ptr, ptr %__first2.addr.024.i, i64 %__first2.addr.1.idx.i
+  %__first2.addr.1.i = getelementptr inbounds ptr, ptr %__first2.addr.023.i, i64 %__first2.addr.1.idx.i
   %not.cmp.i.i.i = xor i1 %cmp.i.i.i, true
   %__first1.addr.1.idx.i = zext i1 %not.cmp.i.i.i to i64
-  %__first1.addr.1.i = getelementptr inbounds ptr, ptr %__first1.addr.025.i, i64 %__first1.addr.1.idx.i
-  store ptr %.sink.i, ptr %__result.addr.026.i, align 8
-  %incdec.ptr3.i = getelementptr inbounds ptr, ptr %__result.addr.026.i, i64 1
+  %__first1.addr.1.i = getelementptr inbounds ptr, ptr %__first1.addr.024.i, i64 %__first1.addr.1.idx.i
+  store ptr %.sink.i, ptr %__result.addr.025.i, align 8
+  %incdec.ptr3.i = getelementptr inbounds ptr, ptr %__result.addr.025.i, i64 1
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp1.i = icmp ne ptr %__first2.addr.1.i, %add.ptr2
   %12 = select i1 %cmp.i, i1 %cmp1.i, i1 false
@@ -12021,8 +12019,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.loopexi
   br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i
 
 _ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %while.end.i.loopexit
-  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %incdec.ptr3.i, i64 %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr3.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i14.i = ptrtoint ptr %add.ptr2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i15.i = ptrtoint ptr %__first2.addr.1.i to i64
   %sub.ptr.sub.i.i.i.i.i16.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i14.i, %sub.ptr.rhs.cast.i.i.i.i.i15.i
@@ -12034,76 +12031,75 @@ if.then.i.i.i.i.i18.i:                            ; preds = %_ZSt4moveIPPN2dd6so
   br label %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit
 
 _ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit: ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i, %if.then.i.i.i.i.i18.i
-  %sub.ptr.div.i.i.i.i.i19.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i16.i, 3
-  %add.ptr.i.i.i.i.i20.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i19.i
+  %add.ptr.i.i.i.i.i19.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i16.i
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !100
 
 while.end:                                        ; preds = %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us, %entry
-  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us ], [ %add.ptr.i.i.i.i.i20.i, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit ]
+  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr2.us, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us ], [ %add.ptr2, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit ]
-  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div76, %entry ], [ %sub.ptr.div.us, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us ], [ %sub.ptr.div, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit ]
+  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div74, %entry ], [ %sub.ptr.div.us, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit.us ], [ %sub.ptr.div, %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
   %add.ptr9 = getelementptr inbounds ptr, ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
-  %cmp22.i17 = icmp ne i64 %.sroa.speculated, 0
-  %cmp123.i18 = icmp ne ptr %add.ptr9, %__last
-  %13 = and i1 %cmp22.i17, %cmp123.i18
-  br i1 %13, label %while.body.i38, label %while.end.i19
+  %cmp21.i17 = icmp ne i64 %.sroa.speculated, 0
+  %cmp122.i18 = icmp ne ptr %add.ptr9, %__last
+  %13 = and i1 %cmp21.i17, %cmp122.i18
+  br i1 %13, label %while.body.i36, label %while.end.i19
 
-while.body.i38:                                   ; preds = %while.end, %while.body.i38
-  %__result.addr.026.i39 = phi ptr [ %incdec.ptr3.i67, %while.body.i38 ], [ %__result.addr.0.lcssa, %while.end ]
-  %__first1.addr.025.i40 = phi ptr [ %__first1.addr.1.i66, %while.body.i38 ], [ %__first.addr.0.lcssa, %while.end ]
-  %__first2.addr.024.i41 = phi ptr [ %__first2.addr.1.i63, %while.body.i38 ], [ %add.ptr9, %while.end ]
-  %14 = load ptr, ptr %__first2.addr.024.i41, align 8
-  %15 = load ptr, ptr %__first1.addr.025.i40, align 8
-  %m_poly.i.i.i.i42 = getelementptr inbounds %"class.dd::solver::equation", ptr %14, i64 0, i32 2
-  %m.i.i.i.i43 = getelementptr inbounds %"class.dd::solver::equation", ptr %14, i64 0, i32 2, i32 1
-  %16 = load ptr, ptr %m.i.i.i.i43, align 8
-  %17 = load i32, ptr %m_poly.i.i.i.i42, align 8
-  %m_level2var.i.i.i.i.i44 = getelementptr inbounds %"class.dd::pdd_manager", ptr %16, i64 0, i32 10
+while.body.i36:                                   ; preds = %while.end, %while.body.i36
+  %__result.addr.025.i37 = phi ptr [ %incdec.ptr3.i65, %while.body.i36 ], [ %__result.addr.0.lcssa, %while.end ]
+  %__first1.addr.024.i38 = phi ptr [ %__first1.addr.1.i64, %while.body.i36 ], [ %__first.addr.0.lcssa, %while.end ]
+  %__first2.addr.023.i39 = phi ptr [ %__first2.addr.1.i61, %while.body.i36 ], [ %add.ptr9, %while.end ]
+  %14 = load ptr, ptr %__first2.addr.023.i39, align 8
+  %15 = load ptr, ptr %__first1.addr.024.i38, align 8
+  %m_poly.i.i.i.i40 = getelementptr inbounds %"class.dd::solver::equation", ptr %14, i64 0, i32 2
+  %m.i.i.i.i41 = getelementptr inbounds %"class.dd::solver::equation", ptr %14, i64 0, i32 2, i32 1
+  %16 = load ptr, ptr %m.i.i.i.i41, align 8
+  %17 = load i32, ptr %m_poly.i.i.i.i40, align 8
+  %m_level2var.i.i.i.i.i42 = getelementptr inbounds %"class.dd::pdd_manager", ptr %16, i64 0, i32 10
   %18 = load ptr, ptr %16, align 8
-  %idxprom.i.i.i.i.i.i.i45 = zext i32 %17 to i64
-  %arrayidx.i.i.i.i.i.i.i46 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %18, i64 %idxprom.i.i.i.i.i.i.i45
-  %bf.load.i.i.i.i.i.i47 = load i32, ptr %arrayidx.i.i.i.i.i.i.i46, align 4
-  %bf.lshr.i.i.i.i.i.i48 = lshr i32 %bf.load.i.i.i.i.i.i47, 10
-  %19 = load ptr, ptr %m_level2var.i.i.i.i.i44, align 8
-  %idxprom.i.i.i.i.i.i49 = zext nneg i32 %bf.lshr.i.i.i.i.i.i48 to i64
-  %arrayidx.i.i.i.i.i.i50 = getelementptr inbounds i32, ptr %19, i64 %idxprom.i.i.i.i.i.i49
-  %20 = load i32, ptr %arrayidx.i.i.i.i.i.i50, align 4
-  %m_poly.i1.i.i.i51 = getelementptr inbounds %"class.dd::solver::equation", ptr %15, i64 0, i32 2
-  %m.i2.i.i.i52 = getelementptr inbounds %"class.dd::solver::equation", ptr %15, i64 0, i32 2, i32 1
-  %21 = load ptr, ptr %m.i2.i.i.i52, align 8
-  %22 = load i32, ptr %m_poly.i1.i.i.i51, align 8
-  %m_level2var.i.i3.i.i.i53 = getelementptr inbounds %"class.dd::pdd_manager", ptr %21, i64 0, i32 10
+  %idxprom.i.i.i.i.i.i.i43 = zext i32 %17 to i64
+  %arrayidx.i.i.i.i.i.i.i44 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %18, i64 %idxprom.i.i.i.i.i.i.i43
+  %bf.load.i.i.i.i.i.i45 = load i32, ptr %arrayidx.i.i.i.i.i.i.i44, align 4
+  %bf.lshr.i.i.i.i.i.i46 = lshr i32 %bf.load.i.i.i.i.i.i45, 10
+  %19 = load ptr, ptr %m_level2var.i.i.i.i.i42, align 8
+  %idxprom.i.i.i.i.i.i47 = zext nneg i32 %bf.lshr.i.i.i.i.i.i46 to i64
+  %arrayidx.i.i.i.i.i.i48 = getelementptr inbounds i32, ptr %19, i64 %idxprom.i.i.i.i.i.i47
+  %20 = load i32, ptr %arrayidx.i.i.i.i.i.i48, align 4
+  %m_poly.i1.i.i.i49 = getelementptr inbounds %"class.dd::solver::equation", ptr %15, i64 0, i32 2
+  %m.i2.i.i.i50 = getelementptr inbounds %"class.dd::solver::equation", ptr %15, i64 0, i32 2, i32 1
+  %21 = load ptr, ptr %m.i2.i.i.i50, align 8
+  %22 = load i32, ptr %m_poly.i1.i.i.i49, align 8
+  %m_level2var.i.i3.i.i.i51 = getelementptr inbounds %"class.dd::pdd_manager", ptr %21, i64 0, i32 10
   %23 = load ptr, ptr %21, align 8
-  %idxprom.i.i.i.i4.i.i.i54 = zext i32 %22 to i64
-  %arrayidx.i.i.i.i5.i.i.i55 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %23, i64 %idxprom.i.i.i.i4.i.i.i54
-  %bf.load.i.i.i6.i.i.i56 = load i32, ptr %arrayidx.i.i.i.i5.i.i.i55, align 4
-  %bf.lshr.i.i.i7.i.i.i57 = lshr i32 %bf.load.i.i.i6.i.i.i56, 10
-  %24 = load ptr, ptr %m_level2var.i.i3.i.i.i53, align 8
-  %idxprom.i.i.i8.i.i.i58 = zext nneg i32 %bf.lshr.i.i.i7.i.i.i57 to i64
-  %arrayidx.i.i.i9.i.i.i59 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i.i.i8.i.i.i58
-  %25 = load i32, ptr %arrayidx.i.i.i9.i.i.i59, align 4
-  %cmp.i.i.i60 = icmp ult i32 %20, %25
-  %.sink.i61 = select i1 %cmp.i.i.i60, ptr %14, ptr %15
-  %__first2.addr.1.idx.i62 = zext i1 %cmp.i.i.i60 to i64
-  %__first2.addr.1.i63 = getelementptr inbounds ptr, ptr %__first2.addr.024.i41, i64 %__first2.addr.1.idx.i62
-  %not.cmp.i.i.i64 = xor i1 %cmp.i.i.i60, true
-  %__first1.addr.1.idx.i65 = zext i1 %not.cmp.i.i.i64 to i64
-  %__first1.addr.1.i66 = getelementptr inbounds ptr, ptr %__first1.addr.025.i40, i64 %__first1.addr.1.idx.i65
-  store ptr %.sink.i61, ptr %__result.addr.026.i39, align 8
-  %incdec.ptr3.i67 = getelementptr inbounds ptr, ptr %__result.addr.026.i39, i64 1
-  %cmp.i68 = icmp ne ptr %__first1.addr.1.i66, %add.ptr9
-  %cmp1.i69 = icmp ne ptr %__first2.addr.1.i63, %__last
-  %26 = select i1 %cmp.i68, i1 %cmp1.i69, i1 false
-  br i1 %26, label %while.body.i38, label %while.end.i19, !llvm.loop !101
+  %idxprom.i.i.i.i4.i.i.i52 = zext i32 %22 to i64
+  %arrayidx.i.i.i.i5.i.i.i53 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %23, i64 %idxprom.i.i.i.i4.i.i.i52
+  %bf.load.i.i.i6.i.i.i54 = load i32, ptr %arrayidx.i.i.i.i5.i.i.i53, align 4
+  %bf.lshr.i.i.i7.i.i.i55 = lshr i32 %bf.load.i.i.i6.i.i.i54, 10
+  %24 = load ptr, ptr %m_level2var.i.i3.i.i.i51, align 8
+  %idxprom.i.i.i8.i.i.i56 = zext nneg i32 %bf.lshr.i.i.i7.i.i.i55 to i64
+  %arrayidx.i.i.i9.i.i.i57 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i.i.i8.i.i.i56
+  %25 = load i32, ptr %arrayidx.i.i.i9.i.i.i57, align 4
+  %cmp.i.i.i58 = icmp ult i32 %20, %25
+  %.sink.i59 = select i1 %cmp.i.i.i58, ptr %14, ptr %15
+  %__first2.addr.1.idx.i60 = zext i1 %cmp.i.i.i58 to i64
+  %__first2.addr.1.i61 = getelementptr inbounds ptr, ptr %__first2.addr.023.i39, i64 %__first2.addr.1.idx.i60
+  %not.cmp.i.i.i62 = xor i1 %cmp.i.i.i58, true
+  %__first1.addr.1.idx.i63 = zext i1 %not.cmp.i.i.i62 to i64
+  %__first1.addr.1.i64 = getelementptr inbounds ptr, ptr %__first1.addr.024.i38, i64 %__first1.addr.1.idx.i63
+  store ptr %.sink.i59, ptr %__result.addr.025.i37, align 8
+  %incdec.ptr3.i65 = getelementptr inbounds ptr, ptr %__result.addr.025.i37, i64 1
+  %cmp.i66 = icmp ne ptr %__first1.addr.1.i64, %add.ptr9
+  %cmp1.i67 = icmp ne ptr %__first2.addr.1.i61, %__last
+  %26 = select i1 %cmp.i66, i1 %cmp1.i67, i1 false
+  br i1 %26, label %while.body.i36, label %while.end.i19, !llvm.loop !101
 
-while.end.i19:                                    ; preds = %while.body.i38, %while.end
-  %__first2.addr.0.lcssa.i20 = phi ptr [ %add.ptr9, %while.end ], [ %__first2.addr.1.i63, %while.body.i38 ]
-  %__first1.addr.0.lcssa.i21 = phi ptr [ %__first.addr.0.lcssa, %while.end ], [ %__first1.addr.1.i66, %while.body.i38 ]
-  %__result.addr.0.lcssa.i22 = phi ptr [ %__result.addr.0.lcssa, %while.end ], [ %incdec.ptr3.i67, %while.body.i38 ]
+while.end.i19:                                    ; preds = %while.body.i36, %while.end
+  %__first2.addr.0.lcssa.i20 = phi ptr [ %add.ptr9, %while.end ], [ %__first2.addr.1.i61, %while.body.i36 ]
+  %__first1.addr.0.lcssa.i21 = phi ptr [ %__first.addr.0.lcssa, %while.end ], [ %__first1.addr.1.i64, %while.body.i36 ]
+  %__result.addr.0.lcssa.i22 = phi ptr [ %__result.addr.0.lcssa, %while.end ], [ %incdec.ptr3.i65, %while.body.i36 ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i23 = ptrtoint ptr %add.ptr9 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i24 = ptrtoint ptr %__first1.addr.0.lcssa.i21 to i64
   %sub.ptr.sub.i.i.i.i.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i23, %sub.ptr.rhs.cast.i.i.i.i.i.i24
@@ -12115,18 +12111,17 @@ if.then.i.i.i.i.i.i27:                            ; preds = %while.end.i19
   br label %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i28
 
 _ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i28: ; preds = %if.then.i.i.i.i.i.i27, %while.end.i19
-  %tobool.not.i.i.i.i.i17.i34 = icmp eq ptr %__first2.addr.0.lcssa.i20, %__last
-  br i1 %tobool.not.i.i.i.i.i17.i34, label %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit70, label %if.then.i.i.i.i.i18.i35
+  %tobool.not.i.i.i.i.i17.i33 = icmp eq ptr %__first2.addr.0.lcssa.i20, %__last
+  br i1 %tobool.not.i.i.i.i.i17.i33, label %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit68, label %if.then.i.i.i.i.i18.i34
 
-if.then.i.i.i.i.i18.i35:                          ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i28
-  %sub.ptr.rhs.cast.i.i.i.i.i15.i32 = ptrtoint ptr %__first2.addr.0.lcssa.i20 to i64
-  %sub.ptr.sub.i.i.i.i.i16.i33 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i.i.i15.i32
-  %sub.ptr.div.i.i.i.i.i.i29 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i25, 3
-  %add.ptr.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %__result.addr.0.lcssa.i22, i64 %sub.ptr.div.i.i.i.i.i.i29
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i30, ptr align 8 %__first2.addr.0.lcssa.i20, i64 %sub.ptr.sub.i.i.i.i.i16.i33, i1 false)
-  br label %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit70
+if.then.i.i.i.i.i18.i34:                          ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i28
+  %sub.ptr.rhs.cast.i.i.i.i.i15.i31 = ptrtoint ptr %__first2.addr.0.lcssa.i20 to i64
+  %sub.ptr.sub.i.i.i.i.i16.i32 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i.i.i15.i31
+  %add.ptr.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__result.addr.0.lcssa.i22, i64 %sub.ptr.sub.i.i.i.i.i.i25
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i29, ptr align 8 %__first2.addr.0.lcssa.i20, i64 %sub.ptr.sub.i.i.i.i.i16.i32, i1 false)
+  br label %_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit68
 
-_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit70: ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i28, %if.then.i.i.i.i.i18.i35
+_ZSt12__move_mergeIPPN2dd6solver8equationES4_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10simplifier15compare_top_varEEEET0_T_SC_SC_SC_SB_T1_.exit68: ; preds = %_ZSt4moveIPPN2dd6solver8equationES4_ET0_T_S6_S5_.exit.i28, %if.then.i.i.i.i.i18.i34
   ret void
 }
 

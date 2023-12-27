@@ -418,8 +418,7 @@ if.end23.i:                                       ; preds = %if.end16.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %21 = getelementptr i64, ptr %19, i64 %sub.ptr.div.i
+  %21 = getelementptr i8, ptr %19, i64 %sub.ptr.sub.i
   %arrayidx26.i = getelementptr i64, ptr %21, i64 1
   br label %return.sink.split.i
 

@@ -2601,22 +2601,22 @@ for.end:                                          ; preds = %_ZNSt10unique_ptrIN
   %sub.ptr.lhs.cast.i.i82 = ptrtoint ptr %.pre to i64
   %sub.ptr.rhs.cast.i.i83 = ptrtoint ptr %.pre598 to i64
   %sub.ptr.sub.i.i84 = sub i64 %sub.ptr.lhs.cast.i.i82, %sub.ptr.rhs.cast.i.i83
-  %sub.ptr.div.i.i85 = sdiv exact i64 %sub.ptr.sub.i.i84, 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %DagNotMatches, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, %.pre598
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread, label %cond.true.i.i.i.i
 
 _ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread: ; preds = %for.end.thread, %for.end
-  %sub.ptr.div.i.i85609 = phi i64 [ 0, %for.end.thread ], [ %sub.ptr.div.i.i85, %for.end ]
-  %_M_finish.i.i81608 = phi ptr [ %_M_finish.i.i81601, %for.end.thread ], [ %_M_finish.i.i81, %for.end ]
+  %sub.ptr.sub.i.i84608 = phi i64 [ 0, %for.end.thread ], [ %sub.ptr.sub.i.i84, %for.end ]
+  %_M_finish.i.i81607 = phi ptr [ %_M_finish.i.i81601, %for.end.thread ], [ %_M_finish.i.i81, %for.end ]
   %_M_finish.i.i.i86563 = getelementptr inbounds %"struct.std::_Vector_base<llvh::FileCheckPattern, std::allocator<llvh::FileCheckPattern>>::_Vector_impl_data", ptr %DagNotMatches, i64 0, i32 1
-  %add.ptr.i.i.i564 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr null, i64 %sub.ptr.div.i.i85609
+  %add.ptr.i.i.i564 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i84608
   %_M_end_of_storage.i.i.i87565 = getelementptr inbounds %"struct.std::_Vector_base<llvh::FileCheckPattern, std::allocator<llvh::FileCheckPattern>>::_Vector_impl_data", ptr %DagNotMatches, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %DagNotMatches, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i564, ptr %_M_end_of_storage.i.i.i87565, align 8
   br label %_ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EEC2ERKS3_.exit
 
 cond.true.i.i.i.i:                                ; preds = %for.end
+  %sub.ptr.div.i.i85 = sdiv exact i64 %sub.ptr.sub.i.i84, 136
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i85, 67818912035696880
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i
 
@@ -2629,7 +2629,7 @@ _ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i: ; preds =
   store ptr %call5.i.i.i.i.i.i, ptr %DagNotMatches, align 8
   %_M_finish.i.i.i86 = getelementptr inbounds %"struct.std::_Vector_base<llvh::FileCheckPattern, std::allocator<llvh::FileCheckPattern>>::_Vector_impl_data", ptr %DagNotMatches, i64 0, i32 1
   store ptr %call5.i.i.i.i.i.i, ptr %_M_finish.i.i.i86, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.div.i.i85
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i84
   %_M_end_of_storage.i.i.i87 = getelementptr inbounds %"struct.std::_Vector_base<llvh::FileCheckPattern, std::allocator<llvh::FileCheckPattern>>::_Vector_impl_data", ptr %DagNotMatches, i64 0, i32 2
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i87, align 8
   br label %for.body.i.i.i.i.i
@@ -2644,7 +2644,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EEC2ERKS3_.exit, label %for.body.i.i.i.i.i, !llvm.loop !65
 
 _ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EEC2ERKS3_.exit: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread
-  %_M_finish.i.i81607 = phi ptr [ %_M_finish.i.i81608, %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread ], [ %_M_finish.i.i81, %for.body.i.i.i.i.i ]
+  %_M_finish.i.i81606 = phi ptr [ %_M_finish.i.i81607, %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread ], [ %_M_finish.i.i81, %for.body.i.i.i.i.i ]
   %_M_end_of_storage.i.i.i87568 = phi ptr [ %_M_end_of_storage.i.i.i87565, %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread ], [ %_M_end_of_storage.i.i.i87, %for.body.i.i.i.i.i ]
   %_M_finish.i.i.i86566 = phi ptr [ %_M_finish.i.i.i86563, %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread ], [ %_M_finish.i.i.i86, %for.body.i.i.i.i.i ]
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -3543,7 +3543,7 @@ if.then.i.i.i485:                                 ; preds = %_ZSt8_DestroyIPN4ll
 
 _ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4llvh16FileCheckPatternES1_EvT_S3_RSaIT0_E.exit.i, %if.then.i.i.i485
   %137 = load ptr, ptr %ImplicitNegativeChecks, align 8
-  %138 = load ptr, ptr %_M_finish.i.i81607, align 8
+  %138 = load ptr, ptr %_M_finish.i.i81606, align 8
   %cmp.not3.i.i.i.i487 = icmp eq ptr %137, %138
   br i1 %cmp.not3.i.i.i.i487, label %_ZSt8_DestroyIPN4llvh16FileCheckPatternES1_EvT_S3_RSaIT0_E.exit.i501, label %for.body.i.i.i.i488
 
@@ -3689,7 +3689,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPN4ll
 
 _ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4llvh16FileCheckPatternES1_EvT_S3_RSaIT0_E.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -3723,15 +3723,14 @@ for.body.i.i.i.i.i25:                             ; preds = %for.body.i.i.i.i.i2
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %for.body.i.i.i.i.i25
   %.pre = load ptr, ptr %_M_finish.i19, align 8
-  %.pre74 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i to i64
+  %.pre73 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i to i64
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, %if.then27
-  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre74, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %if.then27 ]
+  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre73, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %if.then27 ]
   %10 = phi ptr [ %.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit ], [ %9, %if.then27 ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 136
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %3, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
   %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %10
   br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i28
 
@@ -3784,15 +3783,14 @@ _ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %fo
   %.pre70 = ptrtoint ptr %.pre66 to i64
   %.pre71 = ptrtoint ptr %.pre67 to i64
   %.pre72 = sub i64 %.pre70, %.pre71
-  %.pre73 = sdiv exact i64 %.pre72, 136
   br label %_ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit.loopexit, %if.else49
-  %sub.ptr.div.i61.pre-phi = phi i64 [ %.pre73, %_ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
+  %sub.ptr.sub.i60.pre-phi = phi i64 [ %.pre72, %_ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit.loopexit ], [ %sub.ptr.sub.i22, %if.else49 ]
   %13 = phi ptr [ %.pre68, %_ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit.loopexit ], [ %0, %if.else49 ]
   %14 = phi ptr [ %.pre66, %_ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit.loopexit ], [ %9, %if.else49 ]
   %15 = phi ptr [ %.pre65, %_ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit.loopexit ], [ %1, %if.else49 ]
-  %add.ptr62 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %15, i64 %sub.ptr.div.i61.pre-phi
+  %add.ptr62 = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i60.pre-phi
   %cmp.not5.i.i.i.i = icmp eq ptr %add.ptr62, %13
   br i1 %cmp.not5.i.i.i.i, label %if.end69, label %for.body.i.i.i.i
 
@@ -3807,7 +3805,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPN4llvh16
 
 if.end69:                                         ; preds = %_ZSt8_DestroyIN4llvh16FileCheckPatternEEvPT_.exit.i.i.i34, %for.body.i.i.i.i, %_ZSt4copyIPN4llvh16FileCheckPatternES2_ET0_T_S4_S3_.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE13_M_deallocateEPS1_m.exit
   %16 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %16, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %16, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<llvh::FileCheckPattern, std::allocator<llvh::FileCheckPattern>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
@@ -3989,23 +3987,24 @@ _ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.
   %cond.i10.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIPKN4llvh16FileCheckPatternEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store ptr %PatItr.sroa.0.0201, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i
+  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
 
 if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %7, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i
+  br label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
 
-_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
   %tobool.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
-if.then.i21.i.i.i:                                ; preds = %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i
+if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %7) #22
   br label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i21.i.i.i, %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i.i
+_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
   store ptr %cond.i10.i.i.i, ptr %NotStrings, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i85, align 8
   %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
@@ -7525,7 +7524,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorISt4pai
 
 _ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -7592,15 +7591,14 @@ _ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %
   %.pre58 = ptrtoint ptr %.pre55 to i64
   %.pre59 = ptrtoint ptr %.pre56 to i64
   %.pre60 = sub i64 %.pre58, %.pre59
-  %.pre61 = sdiv exact i64 %.pre60, 24
   br label %_ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit: ; preds = %_ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit.loopexit, %if.else49
-  %sub.ptr.div.i52.pre-phi = phi i64 [ %.pre61, %_ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
+  %sub.ptr.sub.i51.pre-phi = phi i64 [ %.pre60, %_ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit.loopexit ], [ %sub.ptr.sub.i22, %if.else49 ]
   %12 = phi ptr [ %.pre57, %_ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit.loopexit ], [ %0, %if.else49 ]
   %13 = phi ptr [ %.pre55, %_ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit.loopexit ], [ %9, %if.else49 ]
   %14 = phi ptr [ %.pre, %_ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit.loopexit ], [ %1, %if.else49 ]
-  %add.ptr62 = getelementptr inbounds %"struct.std::pair", ptr %14, i64 %sub.ptr.div.i52.pre-phi
+  %add.ptr62 = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub.i51.pre-phi
   %cmp.not5.i.i.i.i = icmp eq ptr %add.ptr62, %12
   br i1 %cmp.not5.i.i.i.i, label %if.end69, label %for.body.i.i.i.i
 
@@ -7615,7 +7613,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPSt4pairI
 
 if.end69:                                         ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i, %if.then27, %_ZSt4copyIPSt4pairIN4llvh9StringRefEjES4_ET0_T_S6_S5_.exit, %_ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE13_M_deallocateEPS3_m.exit
   %15 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds %"struct.std::pair", ptr %15, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<llvh::StringRef, unsigned int>, std::allocator<std::pair<llvh::StringRef, unsigned int>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75

@@ -3462,8 +3462,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 104
-  %7 = getelementptr %"struct.duckdb::LambdaColumnInfo", ptr %0, i64 %sub.ptr.div.i
+  %7 = getelementptr i8, ptr %0, i64 %sub.ptr.sub.i
   %add.ptr.i.i = getelementptr %"struct.duckdb::LambdaColumnInfo", ptr %7, i64 -1
   ret ptr %add.ptr.i.i
 
@@ -4045,8 +4044,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 104
-  %7 = getelementptr %"class.duckdb::Vector", ptr %0, i64 %sub.ptr.div.i
+  %7 = getelementptr i8, ptr %0, i64 %sub.ptr.sub.i
   %add.ptr.i.i = getelementptr %"class.duckdb::Vector", ptr %7, i64 -1
   ret ptr %add.ptr.i.i
 

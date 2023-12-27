@@ -13680,8 +13680,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_
 if.then19:                                        ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %add.ptr.i14 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %replacementsBegin.coerce, i64 %sub.ptr.div.i
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %replacementsBegin.coerce, i64 %sub.ptr.sub.i
   %30 = load ptr, ptr %add.ptr.i14, align 8
   store ptr %30, ptr %agg.result, align 8
   %bf.load.i.i15 = load i64, ptr %30, align 8
@@ -17823,8 +17822,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal8TypeNodeESt6vectorIS4
 if.then19:                                        ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %add.ptr.i14 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %replacementsBegin.coerce, i64 %sub.ptr.div.i
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %replacementsBegin.coerce, i64 %sub.ptr.sub.i
   %30 = load ptr, ptr %add.ptr.i14, align 8
   store ptr %30, ptr %agg.result, align 8
   %bf.load.i.i15 = load i64, ptr %30, align 8

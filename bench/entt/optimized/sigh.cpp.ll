@@ -6719,8 +6719,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 for.body.i228:                                    ; preds = %cleanup.cont60.critedge, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i221
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar) #22
   store i32 0, ptr %cnt, align 4, !tbaa !52
-  %add.ptr.i.i233 = getelementptr inbounds %"class.entt::delegate.107", ptr %call5.i.i.i.i89, i64 1
-  %fn.i.i234 = getelementptr inbounds %"class.entt::delegate.107", ptr %call5.i.i.i.i89, i64 1, i32 1
+  %add.ptr.i.i233 = getelementptr inbounds i8, ptr %call5.i.i.i.i89, i64 16
+  %fn.i.i234 = getelementptr inbounds i8, ptr %call5.i.i.i.i89, i64 24
   %42 = load ptr, ptr %fn.i.i234, align 8, !tbaa !104
   %43 = load ptr, ptr %add.ptr.i.i233, align 8, !tbaa !106
   %call.i.i243 = invoke noundef zeroext i1 %42(ptr noundef %43, i32 noundef 42)
@@ -7286,8 +7286,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 for.body.i221:                                    ; preds = %cleanup.cont60.critedge, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i214
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar) #22
   store i32 0, ptr %cnt, align 4, !tbaa !52
-  %add.ptr.i.i226 = getelementptr inbounds %"class.entt::delegate.128", ptr %call5.i.i.i.i78, i64 1
-  %fn.i.i227 = getelementptr inbounds %"class.entt::delegate.128", ptr %call5.i.i.i.i78, i64 1, i32 1
+  %add.ptr.i.i226 = getelementptr inbounds i8, ptr %call5.i.i.i.i78, i64 16
+  %fn.i.i227 = getelementptr inbounds i8, ptr %call5.i.i.i.i78, i64 24
   %23 = load ptr, ptr %fn.i.i227, align 8, !tbaa !133
   %24 = load ptr, ptr %add.ptr.i.i226, align 8, !tbaa !135
   invoke void %23(ptr noundef %24, i32 noundef 42)
@@ -11314,14 +11314,13 @@ invoke.cont95:                                    ; preds = %_ZN4entt4sinkINS_4s
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.pre97 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copy, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %.pre97
   br i1 %cmp.not.i.i.i.i.i, label %cleanup.cont136.thread, label %cond.true.i.i.i.i.i
 
 cleanup.cont136.thread:                           ; preds = %invoke.cont95
   %_M_finish.i.i.i.i7781369 = getelementptr inbounds %"struct.std::_Vector_base<entt::delegate<void (int)>, std::allocator<entt::delegate<void (int)>>>::_Vector_impl_data", ptr %copy, i64 0, i32 1
-  %add.ptr.i.i.i.i7791370 = getelementptr inbounds %"class.entt::delegate.128", ptr null, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i7791370 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage.i.i.i.i1371 = getelementptr inbounds %"struct.std::_Vector_base<entt::delegate<void (int)>, std::allocator<entt::delegate<void (int)>>>::_Vector_impl_data", ptr %copy, i64 0, i32 2
   store ptr %add.ptr.i.i.i.i7791370, ptr %_M_end_of_storage.i.i.i.i1371, align 8, !tbaa !219
   store ptr null, ptr %_M_finish.i.i.i.i7781369, align 8, !tbaa !225
@@ -11332,6 +11331,7 @@ cleanup.cont136.thread:                           ; preds = %invoke.cont95
   br label %if.else150
 
 cond.true.i.i.i.i.i:                              ; preds = %invoke.cont95
+  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8delegateIFviEEEEE8allocateERS4_m.exit.i.i.i.i.i, !prof !226
 
@@ -11355,7 +11355,7 @@ _ZNSt12_Vector_baseIN4entt8delegateIFviEEESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = 
   store ptr %call5.i.i.i.i4.i.i4.i781, ptr %copy, align 8, !tbaa !224
   %_M_finish.i.i.i.i778 = getelementptr inbounds %"struct.std::_Vector_base<entt::delegate<void (int)>, std::allocator<entt::delegate<void (int)>>>::_Vector_impl_data", ptr %copy, i64 0, i32 1
   store ptr %call5.i.i.i.i4.i.i4.i781, ptr %_M_finish.i.i.i.i778, align 8, !tbaa !225
-  %add.ptr.i.i.i.i779 = getelementptr inbounds %"class.entt::delegate.128", ptr %call5.i.i.i.i4.i.i4.i781, i64 %sub.ptr.div.i.i.i118123
+  %add.ptr.i.i.i.i779 = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i.i4.i781, i64 %sub.ptr.sub.i.i.i117124
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<entt::delegate<void (int)>, std::allocator<entt::delegate<void (int)>>>::_Vector_impl_data", ptr %copy, i64 0, i32 2
   store ptr %add.ptr.i.i.i.i779, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !219
   br label %for.body.i.i.i.i.i.i
@@ -13867,7 +13867,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN4entt
 
 _ZNSt12_Vector_baseIN4entt8delegateIFvvEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i, %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !45
-  %add.ptr = getelementptr inbounds %"class.entt::delegate.94", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !47
   br label %if.end69
 
@@ -13925,7 +13925,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPN4entt8d
 
 if.end69:                                         ; preds = %for.body.i.i.i.i, %_ZSt4copyIPN4entt8delegateIFvvEEES4_ET0_T_S6_S5_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIN4entt8delegateIFvvEEESaIS3_EE13_M_deallocateEPS3_m.exit
   %12 = load ptr, ptr %this, align 8, !tbaa !45
-  %add.ptr72 = getelementptr inbounds %"class.entt::delegate.94", ptr %12, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<entt::delegate<void ()>, std::allocator<entt::delegate<void ()>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8, !tbaa !72
   br label %if.end75
@@ -15035,7 +15035,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN4entt
 
 _ZNSt12_Vector_baseIN4entt8delegateIFviEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i, %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !224
-  %add.ptr = getelementptr inbounds %"class.entt::delegate.128", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !219
   br label %if.end69
 
@@ -15093,7 +15093,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPN4entt8d
 
 if.end69:                                         ; preds = %for.body.i.i.i.i, %_ZSt4copyIPN4entt8delegateIFviEEES4_ET0_T_S6_S5_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIN4entt8delegateIFviEEESaIS3_EE13_M_deallocateEPS3_m.exit
   %12 = load ptr, ptr %this, align 8, !tbaa !224
-  %add.ptr72 = getelementptr inbounds %"class.entt::delegate.128", ptr %12, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<entt::delegate<void (int)>, std::allocator<entt::delegate<void (int)>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8, !tbaa !225
   br label %if.end75

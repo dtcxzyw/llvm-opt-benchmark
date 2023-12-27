@@ -131,7 +131,7 @@ entry:
   ret i32 2048
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @yyjson_alc_pool_init(ptr noundef writeonly %alc, ptr noundef %buf, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %alc, null
@@ -250,8 +250,8 @@ return:                                           ; preds = %if.then7, %pool_siz
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @pool_realloc(ptr nocapture noundef %ctx_ptr, ptr noundef %ptr, i64 noundef %old_size, i64 noundef %size) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal ptr @pool_realloc(ptr nocapture noundef %ctx_ptr, ptr noundef %ptr, i64 noundef %old_size, i64 noundef %size) #3 {
 entry:
   %add.ptr = getelementptr inbounds %struct.pool_chunk, ptr %ptr, i64 -1
   %0 = load i64, ptr %ctx_ptr, align 8
@@ -505,7 +505,7 @@ if.end26:                                         ; preds = %if.then20, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define dso_local ptr @yyjson_alc_dyn_new() local_unnamed_addr #5 {
+define dso_local ptr @yyjson_alc_dyn_new() local_unnamed_addr #4 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
   %tobool.not = icmp eq ptr %call.i, null
@@ -528,28 +528,28 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias ptr @default_malloc(ptr nocapture readnone %ctx, i64 noundef %size) #6 {
+define internal noalias ptr @default_malloc(ptr nocapture readnone %ctx, i64 noundef %size) #5 {
 entry:
   %call = tail call noalias ptr @malloc(i64 noundef %size) #24
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias ptr @default_realloc(ptr nocapture readnone %ctx, ptr nocapture noundef %ptr, i64 %old_size, i64 noundef %size) #7 {
+define internal noalias ptr @default_realloc(ptr nocapture readnone %ctx, ptr nocapture noundef %ptr, i64 %old_size, i64 noundef %size) #6 {
 entry:
   %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %size) #25
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @default_free(ptr nocapture readnone %ctx, ptr nocapture noundef %ptr) #7 {
+define internal void @default_free(ptr nocapture readnone %ctx, ptr nocapture noundef %ptr) #6 {
 entry:
   tail call void @free(ptr noundef %ptr) #26
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dyn_malloc(ptr nocapture noundef %ctx_ptr, i64 noundef %size) #8 {
+define internal ptr @dyn_malloc(ptr nocapture noundef %ctx_ptr, i64 noundef %size) #7 {
 entry:
   %add.i.i = add i64 %size, 4111
   %and.i.i = and i64 %add.i.i, -4096
@@ -626,7 +626,7 @@ return:                                           ; preds = %if.then34, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dyn_realloc(ptr nocapture noundef %ctx_ptr, ptr noundef %ptr, i64 %old_size, i64 noundef %size) #8 {
+define internal ptr @dyn_realloc(ptr nocapture noundef %ctx_ptr, ptr noundef %ptr, i64 %old_size, i64 noundef %size) #7 {
 entry:
   %add.ptr = getelementptr inbounds %struct.dyn_chunk, ptr %ptr, i64 -1
   %add.i.i = add i64 %size, 4111
@@ -761,10 +761,10 @@ for.end:                                          ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @yyjson_alc_dyn_free(ptr noundef %alc) local_unnamed_addr #8 {
+define dso_local void @yyjson_alc_dyn_free(ptr noundef %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %alc, null
   br i1 %tobool.not, label %return, label %if.end
@@ -806,7 +806,7 @@ return:                                           ; preds = %entry, %for.end16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @unsafe_yyjson_str_pool_grow(ptr nocapture noundef %pool, ptr nocapture noundef readonly %alc, i64 noundef %len) local_unnamed_addr #8 {
+define dso_local zeroext i1 @unsafe_yyjson_str_pool_grow(ptr nocapture noundef %pool, ptr nocapture noundef readonly %alc, i64 noundef %len) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ugt i64 %len, -17
   br i1 %cmp, label %return, label %if.end
@@ -851,7 +851,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @unsafe_yyjson_val_pool_grow(ptr nocapture noundef %pool, ptr nocapture noundef readonly %alc, i64 noundef %count) local_unnamed_addr #8 {
+define dso_local zeroext i1 @unsafe_yyjson_val_pool_grow(ptr nocapture noundef %pool, ptr nocapture noundef readonly %alc, i64 noundef %count) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ugt i64 %count, 768614336404564649
   br i1 %cmp, label %return, label %if.end
@@ -897,7 +897,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local zeroext i1 @yyjson_mut_doc_set_str_pool_size(ptr noundef writeonly %doc, i64 noundef %len) local_unnamed_addr #10 {
+define dso_local zeroext i1 @yyjson_mut_doc_set_str_pool_size(ptr noundef writeonly %doc, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %doc, null
   %0 = add i64 %len, -1
@@ -916,7 +916,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local zeroext i1 @yyjson_mut_doc_set_val_pool_size(ptr noundef writeonly %doc, i64 noundef %count) local_unnamed_addr #10 {
+define dso_local zeroext i1 @yyjson_mut_doc_set_val_pool_size(ptr noundef writeonly %doc, i64 noundef %count) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %doc, null
   %0 = add i64 %count, -1
@@ -936,7 +936,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @yyjson_mut_doc_free(ptr noundef %doc) local_unnamed_addr #8 {
+define dso_local void @yyjson_mut_doc_free(ptr noundef %doc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -980,7 +980,7 @@ if.end:                                           ; preds = %unsafe_yyjson_val_p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_doc_new(ptr noundef readonly %alc) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_mut_doc_new(ptr noundef readonly %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %alc, null
   %spec.store.select = select i1 %tobool.not, ptr @YYJSON_DEFAULT_ALC, ptr %alc
@@ -1010,7 +1010,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly %doc, ptr noundef readonly %alc) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly %doc, ptr noundef readonly %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1091,7 +1091,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_val_mut_copy(ptr noundef %m_doc, ptr noundef %i_vals) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_val_mut_copy(ptr noundef %m_doc, ptr noundef %i_vals) local_unnamed_addr #7 {
 entry:
   %tobool = icmp ne ptr %m_doc, null
   %tobool1 = icmp ne ptr %i_vals, null
@@ -1367,7 +1367,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_doc_mut_copy(ptr noundef readonly %doc, ptr noundef readonly %alc) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_mut_doc_mut_copy(ptr noundef readonly %doc, ptr noundef readonly %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1478,7 +1478,7 @@ return:                                           ; preds = %if.end3, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef readonly %val) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef readonly %val) local_unnamed_addr #7 {
 entry:
   %tobool = icmp ne ptr %doc, null
   %tobool1 = icmp ne ptr %val, null
@@ -1495,7 +1495,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr nocapture noundef readonly %m_vals) unnamed_addr #8 {
+define internal fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr nocapture noundef readonly %m_vals) unnamed_addr #7 {
 entry:
   %alc1.i = getelementptr inbounds %struct.yyjson_mut_doc, ptr %m_doc, i64 0, i32 1
   %val_pool.i = getelementptr inbounds %struct.yyjson_mut_doc, ptr %m_doc, i64 0, i32 3
@@ -1685,7 +1685,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_doc_imut_copy(ptr noundef readonly %mdoc, ptr noundef %alc) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_mut_doc_imut_copy(ptr noundef readonly %mdoc, ptr noundef %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %mdoc, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1701,7 +1701,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_val_imut_copy(ptr noundef readonly %mval, ptr noundef readonly %alc) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_mut_val_imut_copy(ptr noundef readonly %mval, ptr noundef readonly %alc) local_unnamed_addr #7 {
 entry:
   %val_num = alloca i64, align 8
   %str_sum = alloca i64, align 8
@@ -1772,7 +1772,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @yyjson_mut_stat(ptr nocapture noundef readonly %val, ptr nocapture noundef %val_sum, ptr nocapture noundef %str_sum) unnamed_addr #4 {
+define internal fastcc void @yyjson_mut_stat(ptr nocapture noundef readonly %val, ptr nocapture noundef %val_sum, ptr nocapture noundef %str_sum) unnamed_addr #10 {
 entry:
   %0 = load i64, ptr %val, align 8
   %conv.i51 = trunc i64 %0 to i32
@@ -1860,7 +1860,7 @@ if.end48:                                         ; preds = %if.end34, %if.then,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @yyjson_imut_copy(ptr nocapture noundef %val_ptr, ptr nocapture noundef %buf_ptr, ptr nocapture noundef readonly %mval) unnamed_addr #4 {
+define internal fastcc i64 @yyjson_imut_copy(ptr nocapture noundef %val_ptr, ptr nocapture noundef %buf_ptr, ptr nocapture noundef readonly %mval) unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr %val_ptr, align 8
   %1 = load i64, ptr %mval, align 8
@@ -3078,7 +3078,7 @@ return:                                           ; preds = %if.end53, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %val, ptr noundef %ptr, i64 noundef %ptr_len, ptr noundef %new_val, ptr noundef %doc, i1 noundef zeroext %create_parent, i1 noundef zeroext %insert_new, ptr noundef writeonly %ctx, ptr noundef writeonly %err) local_unnamed_addr #8 {
+define dso_local zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %val, ptr noundef %ptr, i64 noundef %ptr_len, ptr noundef %new_val, ptr noundef %doc, i1 noundef zeroext %create_parent, i1 noundef zeroext %insert_new, ptr noundef writeonly %ctx, ptr noundef writeonly %err) local_unnamed_addr #7 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 %ptr_len
   br label %while.body
@@ -5193,7 +5193,7 @@ if.end11:                                         ; preds = %if.end9, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_patch(ptr noundef %doc, ptr noundef %orig, ptr noundef %patch, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_patch(ptr noundef %doc, ptr noundef %orig, ptr noundef %patch, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %err_tmp = alloca %struct.yyjson_patch_err, align 8
   %tobool.not = icmp eq ptr %err, null
@@ -6341,7 +6341,7 @@ return:                                           ; preds = %entry, %sw.bb20, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_patch(ptr noundef %doc, ptr noundef readonly %orig, ptr noundef readonly %patch, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_mut_patch(ptr noundef %doc, ptr noundef readonly %orig, ptr noundef readonly %patch, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %err_tmp = alloca %struct.yyjson_patch_err, align 8
   %tobool.not = icmp eq ptr %err, null
@@ -7456,7 +7456,7 @@ return:                                           ; preds = %yyjson_mut_arr_iter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_merge_patch(ptr noundef %doc, ptr noundef %orig, ptr noundef %patch) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_merge_patch(ptr noundef %doc, ptr noundef %orig, ptr noundef %patch) local_unnamed_addr #7 {
 entry:
   %local_orig = alloca %struct.yyjson_val, align 16
   %tobool.i218.not = icmp eq ptr %patch, null
@@ -7811,7 +7811,7 @@ return:                                           ; preds = %yyjson_mut_is_obj.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_merge_patch(ptr noundef %doc, ptr noundef readonly %orig, ptr noundef readonly %patch) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_mut_merge_patch(ptr noundef %doc, ptr noundef readonly %orig, ptr noundef readonly %patch) local_unnamed_addr #7 {
 entry:
   %local_orig = alloca %struct.yyjson_mut_val, align 8
   %tobool.i174.not = icmp eq ptr %patch, null
@@ -8208,7 +8208,7 @@ return:                                           ; preds = %yyjson_mut_is_obj.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_read_opts(ptr noundef %dat, i64 noundef %len, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_read_opts(ptr noundef %dat, i64 noundef %len, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %exp.i.i = alloca i32, align 4
   %big_full.i.i = alloca %struct.bigint, align 8
@@ -8607,12 +8607,10 @@ if.end88.i:                                       ; preds = %if.then79.i
   %sub.ptr.lhs.cast89.i = ptrtoint ptr %incdec.ptr70.i to i64
   %sub.ptr.rhs.cast90.i = ptrtoint ptr %val_hdr.i.0 to i64
   %sub.ptr.sub91.i = sub i64 %sub.ptr.lhs.cast89.i, %sub.ptr.rhs.cast90.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub91.i, 4
-  %add.ptr92.i = getelementptr inbounds %struct.yyjson_val, ptr %call85.i, i64 %sub.ptr.div.i
+  %add.ptr92.i = getelementptr inbounds i8, ptr %call85.i, i64 %sub.ptr.sub91.i
   %sub.ptr.lhs.cast93.i = ptrtoint ptr %ctn.i.0 to i64
   %sub.ptr.sub95.i = sub i64 %sub.ptr.lhs.cast93.i, %sub.ptr.rhs.cast90.i
-  %sub.ptr.div96.i = ashr exact i64 %sub.ptr.sub95.i, 4
-  %add.ptr97.i = getelementptr inbounds %struct.yyjson_val, ptr %call85.i, i64 %sub.ptr.div96.i
+  %add.ptr97.i = getelementptr inbounds i8, ptr %call85.i, i64 %sub.ptr.sub95.i
   %36 = getelementptr %struct.yyjson_val, ptr %call85.i, i64 %add81.i
   %add.ptr99.i = getelementptr %struct.yyjson_val, ptr %36, i64 -2
   br label %if.end100.i
@@ -8869,12 +8867,10 @@ if.end323.i:                                      ; preds = %if.then312.i
   %sub.ptr.lhs.cast324.i = ptrtoint ptr %incdec.ptr303.i to i64
   %sub.ptr.rhs.cast325.i = ptrtoint ptr %val_hdr.i.2.ph to i64
   %sub.ptr.sub326.i = sub i64 %sub.ptr.lhs.cast324.i, %sub.ptr.rhs.cast325.i
-  %sub.ptr.div327.i = ashr exact i64 %sub.ptr.sub326.i, 4
-  %add.ptr328.i = getelementptr inbounds %struct.yyjson_val, ptr %call320.i, i64 %sub.ptr.div327.i
+  %add.ptr328.i = getelementptr inbounds i8, ptr %call320.i, i64 %sub.ptr.sub326.i
   %sub.ptr.lhs.cast329.i = ptrtoint ptr %ctn.i.2.ph to i64
   %sub.ptr.sub331.i = sub i64 %sub.ptr.lhs.cast329.i, %sub.ptr.rhs.cast325.i
-  %sub.ptr.div332.i = ashr exact i64 %sub.ptr.sub331.i, 4
-  %add.ptr333.i = getelementptr inbounds %struct.yyjson_val, ptr %call320.i, i64 %sub.ptr.div332.i
+  %add.ptr333.i = getelementptr inbounds i8, ptr %call320.i, i64 %sub.ptr.sub331.i
   %42 = getelementptr %struct.yyjson_val, ptr %call320.i, i64 %add315.i
   %add.ptr335.i = getelementptr %struct.yyjson_val, ptr %42, i64 -2
   br label %if.end336.i
@@ -11515,12 +11511,10 @@ if.end373.i:                                      ; preds = %if.then362.i
   %sub.ptr.lhs.cast374.i = ptrtoint ptr %incdec.ptr353.i to i64
   %sub.ptr.rhs.cast375.i = ptrtoint ptr %val_hdr.i.2.ph to i64
   %sub.ptr.sub376.i = sub i64 %sub.ptr.lhs.cast374.i, %sub.ptr.rhs.cast375.i
-  %sub.ptr.div377.i = ashr exact i64 %sub.ptr.sub376.i, 4
-  %add.ptr378.i = getelementptr inbounds %struct.yyjson_val, ptr %call370.i, i64 %sub.ptr.div377.i
+  %add.ptr378.i = getelementptr inbounds i8, ptr %call370.i, i64 %sub.ptr.sub376.i
   %sub.ptr.lhs.cast379.i = ptrtoint ptr %ctn.i.2.ph to i64
   %sub.ptr.sub381.i = sub i64 %sub.ptr.lhs.cast379.i, %sub.ptr.rhs.cast375.i
-  %sub.ptr.div382.i = ashr exact i64 %sub.ptr.sub381.i, 4
-  %add.ptr383.i = getelementptr inbounds %struct.yyjson_val, ptr %call370.i, i64 %sub.ptr.div382.i
+  %add.ptr383.i = getelementptr inbounds i8, ptr %call370.i, i64 %sub.ptr.sub381.i
   %273 = getelementptr %struct.yyjson_val, ptr %call370.i, i64 %add365.i
   %add.ptr385.i = getelementptr %struct.yyjson_val, ptr %273, i64 -2
   br label %if.end386.i
@@ -12591,12 +12585,10 @@ if.end425.i:                                      ; preds = %if.then414.i
   %sub.ptr.lhs.cast426.i = ptrtoint ptr %incdec.ptr405.i to i64
   %sub.ptr.rhs.cast427.i = ptrtoint ptr %val_hdr.i.2.ph to i64
   %sub.ptr.sub428.i = sub i64 %sub.ptr.lhs.cast426.i, %sub.ptr.rhs.cast427.i
-  %sub.ptr.div429.i = ashr exact i64 %sub.ptr.sub428.i, 4
-  %add.ptr430.i = getelementptr inbounds %struct.yyjson_val, ptr %call422.i, i64 %sub.ptr.div429.i
+  %add.ptr430.i = getelementptr inbounds i8, ptr %call422.i, i64 %sub.ptr.sub428.i
   %sub.ptr.lhs.cast431.i = ptrtoint ptr %ctn.i.2.ph to i64
   %sub.ptr.sub433.i = sub i64 %sub.ptr.lhs.cast431.i, %sub.ptr.rhs.cast427.i
-  %sub.ptr.div434.i = ashr exact i64 %sub.ptr.sub433.i, 4
-  %add.ptr435.i = getelementptr inbounds %struct.yyjson_val, ptr %call422.i, i64 %sub.ptr.div434.i
+  %add.ptr435.i = getelementptr inbounds i8, ptr %call422.i, i64 %sub.ptr.sub433.i
   %415 = getelementptr %struct.yyjson_val, ptr %call422.i, i64 %add417.i
   %add.ptr437.i = getelementptr %struct.yyjson_val, ptr %415, i64 -2
   br label %if.end438.i
@@ -12636,12 +12628,10 @@ if.end476.i:                                      ; preds = %if.then465.i
   %sub.ptr.lhs.cast477.i = ptrtoint ptr %incdec.ptr456.i to i64
   %sub.ptr.rhs.cast478.i = ptrtoint ptr %val_hdr.i.2.ph to i64
   %sub.ptr.sub479.i = sub i64 %sub.ptr.lhs.cast477.i, %sub.ptr.rhs.cast478.i
-  %sub.ptr.div480.i = ashr exact i64 %sub.ptr.sub479.i, 4
-  %add.ptr481.i = getelementptr inbounds %struct.yyjson_val, ptr %call473.i, i64 %sub.ptr.div480.i
+  %add.ptr481.i = getelementptr inbounds i8, ptr %call473.i, i64 %sub.ptr.sub479.i
   %sub.ptr.lhs.cast482.i = ptrtoint ptr %ctn.i.2.ph to i64
   %sub.ptr.sub484.i = sub i64 %sub.ptr.lhs.cast482.i, %sub.ptr.rhs.cast478.i
-  %sub.ptr.div485.i = ashr exact i64 %sub.ptr.sub484.i, 4
-  %add.ptr486.i = getelementptr inbounds %struct.yyjson_val, ptr %call473.i, i64 %sub.ptr.div485.i
+  %add.ptr486.i = getelementptr inbounds i8, ptr %call473.i, i64 %sub.ptr.sub484.i
   %416 = getelementptr %struct.yyjson_val, ptr %call473.i, i64 %add468.i
   %add.ptr488.i = getelementptr %struct.yyjson_val, ptr %416, i64 -2
   br label %if.end489.i
@@ -12682,12 +12672,10 @@ if.end527.i:                                      ; preds = %if.then516.i
   %sub.ptr.lhs.cast528.i = ptrtoint ptr %incdec.ptr507.i to i64
   %sub.ptr.rhs.cast529.i = ptrtoint ptr %val_hdr.i.2.ph to i64
   %sub.ptr.sub530.i = sub i64 %sub.ptr.lhs.cast528.i, %sub.ptr.rhs.cast529.i
-  %sub.ptr.div531.i = ashr exact i64 %sub.ptr.sub530.i, 4
-  %add.ptr532.i = getelementptr inbounds %struct.yyjson_val, ptr %call524.i, i64 %sub.ptr.div531.i
+  %add.ptr532.i = getelementptr inbounds i8, ptr %call524.i, i64 %sub.ptr.sub530.i
   %sub.ptr.lhs.cast533.i = ptrtoint ptr %ctn.i.2.ph to i64
   %sub.ptr.sub535.i = sub i64 %sub.ptr.lhs.cast533.i, %sub.ptr.rhs.cast529.i
-  %sub.ptr.div536.i = ashr exact i64 %sub.ptr.sub535.i, 4
-  %add.ptr537.i = getelementptr inbounds %struct.yyjson_val, ptr %call524.i, i64 %sub.ptr.div536.i
+  %add.ptr537.i = getelementptr inbounds i8, ptr %call524.i, i64 %sub.ptr.sub535.i
   %417 = getelementptr %struct.yyjson_val, ptr %call524.i, i64 %add519.i
   %add.ptr539.i = getelementptr %struct.yyjson_val, ptr %417, i64 -2
   br label %if.end540.i
@@ -12831,12 +12819,10 @@ if.end643.i:                                      ; preds = %if.then632.i
   %sub.ptr.lhs.cast644.i = ptrtoint ptr %incdec.ptr623.i to i64
   %sub.ptr.rhs.cast645.i = ptrtoint ptr %val_hdr.i.2.ph to i64
   %sub.ptr.sub646.i = sub i64 %sub.ptr.lhs.cast644.i, %sub.ptr.rhs.cast645.i
-  %sub.ptr.div647.i = ashr exact i64 %sub.ptr.sub646.i, 4
-  %add.ptr648.i = getelementptr inbounds %struct.yyjson_val, ptr %call640.i, i64 %sub.ptr.div647.i
+  %add.ptr648.i = getelementptr inbounds i8, ptr %call640.i, i64 %sub.ptr.sub646.i
   %sub.ptr.lhs.cast649.i = ptrtoint ptr %ctn.i.2.ph to i64
   %sub.ptr.sub651.i = sub i64 %sub.ptr.lhs.cast649.i, %sub.ptr.rhs.cast645.i
-  %sub.ptr.div652.i = ashr exact i64 %sub.ptr.sub651.i, 4
-  %add.ptr653.i = getelementptr inbounds %struct.yyjson_val, ptr %call640.i, i64 %sub.ptr.div652.i
+  %add.ptr653.i = getelementptr inbounds i8, ptr %call640.i, i64 %sub.ptr.sub651.i
   %429 = getelementptr %struct.yyjson_val, ptr %call640.i, i64 %add635.i
   %add.ptr655.i = getelementptr %struct.yyjson_val, ptr %429, i64 -2
   %.pre11055 = load i8, ptr %39, align 1
@@ -13267,12 +13253,10 @@ if.end777.i:                                      ; preds = %if.then766.i
   %sub.ptr.lhs.cast778.i = ptrtoint ptr %incdec.ptr757.i to i64
   %sub.ptr.rhs.cast779.i = ptrtoint ptr %val_hdr.i.11 to i64
   %sub.ptr.sub780.i = sub i64 %sub.ptr.lhs.cast778.i, %sub.ptr.rhs.cast779.i
-  %sub.ptr.div781.i = ashr exact i64 %sub.ptr.sub780.i, 4
-  %add.ptr782.i = getelementptr inbounds %struct.yyjson_val, ptr %call774.i, i64 %sub.ptr.div781.i
+  %add.ptr782.i = getelementptr inbounds i8, ptr %call774.i, i64 %sub.ptr.sub780.i
   %sub.ptr.lhs.cast783.i = ptrtoint ptr %ctn.i.11 to i64
   %sub.ptr.sub785.i = sub i64 %sub.ptr.lhs.cast783.i, %sub.ptr.rhs.cast779.i
-  %sub.ptr.div786.i = ashr exact i64 %sub.ptr.sub785.i, 4
-  %add.ptr787.i = getelementptr inbounds %struct.yyjson_val, ptr %call774.i, i64 %sub.ptr.div786.i
+  %add.ptr787.i = getelementptr inbounds i8, ptr %call774.i, i64 %sub.ptr.sub785.i
   %465 = getelementptr %struct.yyjson_val, ptr %call774.i, i64 %add769.i
   %add.ptr789.i = getelementptr %struct.yyjson_val, ptr %465, i64 -2
   br label %if.end790.i
@@ -13517,12 +13501,10 @@ if.end1013.i:                                     ; preds = %if.then1002.i
   %sub.ptr.lhs.cast1014.i = ptrtoint ptr %incdec.ptr993.i to i64
   %sub.ptr.rhs.cast1015.i = ptrtoint ptr %val_hdr.i.13.ph to i64
   %sub.ptr.sub1016.i = sub i64 %sub.ptr.lhs.cast1014.i, %sub.ptr.rhs.cast1015.i
-  %sub.ptr.div1017.i = ashr exact i64 %sub.ptr.sub1016.i, 4
-  %add.ptr1018.i = getelementptr inbounds %struct.yyjson_val, ptr %call1010.i, i64 %sub.ptr.div1017.i
+  %add.ptr1018.i = getelementptr inbounds i8, ptr %call1010.i, i64 %sub.ptr.sub1016.i
   %sub.ptr.lhs.cast1019.i = ptrtoint ptr %ctn.i.13.ph to i64
   %sub.ptr.sub1021.i = sub i64 %sub.ptr.lhs.cast1019.i, %sub.ptr.rhs.cast1015.i
-  %sub.ptr.div1022.i = ashr exact i64 %sub.ptr.sub1021.i, 4
-  %add.ptr1023.i = getelementptr inbounds %struct.yyjson_val, ptr %call1010.i, i64 %sub.ptr.div1022.i
+  %add.ptr1023.i = getelementptr inbounds i8, ptr %call1010.i, i64 %sub.ptr.sub1021.i
   %471 = getelementptr %struct.yyjson_val, ptr %call1010.i, i64 %add1005.i
   %add.ptr1025.i = getelementptr %struct.yyjson_val, ptr %471, i64 -2
   br label %if.end1026.i
@@ -19376,12 +19358,10 @@ if.end76.i:                                       ; preds = %if.then67.i
   %sub.ptr.lhs.cast77.i = ptrtoint ptr %incdec.ptr58.i to i64
   %sub.ptr.rhs.cast78.i = ptrtoint ptr %val_hdr.i404.0 to i64
   %sub.ptr.sub79.i = sub i64 %sub.ptr.lhs.cast77.i, %sub.ptr.rhs.cast78.i
-  %sub.ptr.div.i521 = ashr exact i64 %sub.ptr.sub79.i, 4
-  %add.ptr80.i = getelementptr inbounds %struct.yyjson_val, ptr %call73.i, i64 %sub.ptr.div.i521
+  %add.ptr80.i = getelementptr inbounds i8, ptr %call73.i, i64 %sub.ptr.sub79.i
   %sub.ptr.lhs.cast81.i = ptrtoint ptr %ctn.i408.0 to i64
   %sub.ptr.sub83.i = sub i64 %sub.ptr.lhs.cast81.i, %sub.ptr.rhs.cast78.i
-  %sub.ptr.div84.i = ashr exact i64 %sub.ptr.sub83.i, 4
-  %add.ptr85.i = getelementptr inbounds %struct.yyjson_val, ptr %call73.i, i64 %sub.ptr.div84.i
+  %add.ptr85.i = getelementptr inbounds i8, ptr %call73.i, i64 %sub.ptr.sub83.i
   %1086 = getelementptr %struct.yyjson_val, ptr %call73.i, i64 %add69.i
   %add.ptr87.i = getelementptr %struct.yyjson_val, ptr %1086, i64 -2
   br label %if.end88.i516
@@ -19450,12 +19430,10 @@ if.end129.i:                                      ; preds = %if.then118.i
   %sub.ptr.lhs.cast130.i = ptrtoint ptr %incdec.ptr109.i to i64
   %sub.ptr.rhs.cast131.i = ptrtoint ptr %val_hdr.i404.2.ph to i64
   %sub.ptr.sub132.i = sub i64 %sub.ptr.lhs.cast130.i, %sub.ptr.rhs.cast131.i
-  %sub.ptr.div133.i = ashr exact i64 %sub.ptr.sub132.i, 4
-  %add.ptr134.i = getelementptr inbounds %struct.yyjson_val, ptr %call126.i, i64 %sub.ptr.div133.i
+  %add.ptr134.i = getelementptr inbounds i8, ptr %call126.i, i64 %sub.ptr.sub132.i
   %sub.ptr.lhs.cast135.i = ptrtoint ptr %ctn.i408.2.ph to i64
   %sub.ptr.sub137.i = sub i64 %sub.ptr.lhs.cast135.i, %sub.ptr.rhs.cast131.i
-  %sub.ptr.div138.i = ashr exact i64 %sub.ptr.sub137.i, 4
-  %add.ptr139.i = getelementptr inbounds %struct.yyjson_val, ptr %call126.i, i64 %sub.ptr.div138.i
+  %add.ptr139.i = getelementptr inbounds i8, ptr %call126.i, i64 %sub.ptr.sub137.i
   %1090 = getelementptr %struct.yyjson_val, ptr %call126.i, i64 %add121.i
   %add.ptr141.i = getelementptr %struct.yyjson_val, ptr %1090, i64 -2
   br label %if.end142.i
@@ -22096,12 +22074,10 @@ if.end179.i:                                      ; preds = %if.then168.i
   %sub.ptr.lhs.cast180.i = ptrtoint ptr %incdec.ptr159.i to i64
   %sub.ptr.rhs.cast181.i = ptrtoint ptr %val_hdr.i404.2.ph to i64
   %sub.ptr.sub182.i = sub i64 %sub.ptr.lhs.cast180.i, %sub.ptr.rhs.cast181.i
-  %sub.ptr.div183.i = ashr exact i64 %sub.ptr.sub182.i, 4
-  %add.ptr184.i = getelementptr inbounds %struct.yyjson_val, ptr %call176.i, i64 %sub.ptr.div183.i
+  %add.ptr184.i = getelementptr inbounds i8, ptr %call176.i, i64 %sub.ptr.sub182.i
   %sub.ptr.lhs.cast185.i = ptrtoint ptr %ctn.i408.2.ph to i64
   %sub.ptr.sub187.i = sub i64 %sub.ptr.lhs.cast185.i, %sub.ptr.rhs.cast181.i
-  %sub.ptr.div188.i = ashr exact i64 %sub.ptr.sub187.i, 4
-  %add.ptr189.i = getelementptr inbounds %struct.yyjson_val, ptr %call176.i, i64 %sub.ptr.div188.i
+  %add.ptr189.i = getelementptr inbounds i8, ptr %call176.i, i64 %sub.ptr.sub187.i
   %1321 = getelementptr %struct.yyjson_val, ptr %call176.i, i64 %add171.i
   %add.ptr191.i = getelementptr %struct.yyjson_val, ptr %1321, i64 -2
   br label %if.end192.i
@@ -23172,12 +23148,10 @@ if.end231.i:                                      ; preds = %if.then220.i
   %sub.ptr.lhs.cast232.i = ptrtoint ptr %incdec.ptr211.i to i64
   %sub.ptr.rhs.cast233.i = ptrtoint ptr %val_hdr.i404.2.ph to i64
   %sub.ptr.sub234.i = sub i64 %sub.ptr.lhs.cast232.i, %sub.ptr.rhs.cast233.i
-  %sub.ptr.div235.i = ashr exact i64 %sub.ptr.sub234.i, 4
-  %add.ptr236.i = getelementptr inbounds %struct.yyjson_val, ptr %call228.i, i64 %sub.ptr.div235.i
+  %add.ptr236.i = getelementptr inbounds i8, ptr %call228.i, i64 %sub.ptr.sub234.i
   %sub.ptr.lhs.cast237.i = ptrtoint ptr %ctn.i408.2.ph to i64
   %sub.ptr.sub239.i = sub i64 %sub.ptr.lhs.cast237.i, %sub.ptr.rhs.cast233.i
-  %sub.ptr.div240.i = ashr exact i64 %sub.ptr.sub239.i, 4
-  %add.ptr241.i533 = getelementptr inbounds %struct.yyjson_val, ptr %call228.i, i64 %sub.ptr.div240.i
+  %add.ptr241.i533 = getelementptr inbounds i8, ptr %call228.i, i64 %sub.ptr.sub239.i
   %1463 = getelementptr %struct.yyjson_val, ptr %call228.i, i64 %add223.i
   %add.ptr243.i = getelementptr %struct.yyjson_val, ptr %1463, i64 -2
   br label %if.end244.i
@@ -23217,12 +23191,10 @@ if.end282.i:                                      ; preds = %if.then271.i
   %sub.ptr.lhs.cast283.i = ptrtoint ptr %incdec.ptr262.i to i64
   %sub.ptr.rhs.cast284.i = ptrtoint ptr %val_hdr.i404.2.ph to i64
   %sub.ptr.sub285.i = sub i64 %sub.ptr.lhs.cast283.i, %sub.ptr.rhs.cast284.i
-  %sub.ptr.div286.i = ashr exact i64 %sub.ptr.sub285.i, 4
-  %add.ptr287.i = getelementptr inbounds %struct.yyjson_val, ptr %call279.i, i64 %sub.ptr.div286.i
+  %add.ptr287.i = getelementptr inbounds i8, ptr %call279.i, i64 %sub.ptr.sub285.i
   %sub.ptr.lhs.cast288.i = ptrtoint ptr %ctn.i408.2.ph to i64
   %sub.ptr.sub290.i = sub i64 %sub.ptr.lhs.cast288.i, %sub.ptr.rhs.cast284.i
-  %sub.ptr.div291.i = ashr exact i64 %sub.ptr.sub290.i, 4
-  %add.ptr292.i = getelementptr inbounds %struct.yyjson_val, ptr %call279.i, i64 %sub.ptr.div291.i
+  %add.ptr292.i = getelementptr inbounds i8, ptr %call279.i, i64 %sub.ptr.sub290.i
   %1464 = getelementptr %struct.yyjson_val, ptr %call279.i, i64 %add274.i
   %add.ptr294.i = getelementptr %struct.yyjson_val, ptr %1464, i64 -2
   br label %if.end295.i
@@ -23263,12 +23235,10 @@ if.end333.i:                                      ; preds = %if.then322.i532
   %sub.ptr.lhs.cast334.i = ptrtoint ptr %incdec.ptr313.i to i64
   %sub.ptr.rhs.cast335.i = ptrtoint ptr %val_hdr.i404.2.ph to i64
   %sub.ptr.sub336.i = sub i64 %sub.ptr.lhs.cast334.i, %sub.ptr.rhs.cast335.i
-  %sub.ptr.div337.i = ashr exact i64 %sub.ptr.sub336.i, 4
-  %add.ptr338.i = getelementptr inbounds %struct.yyjson_val, ptr %call330.i, i64 %sub.ptr.div337.i
+  %add.ptr338.i = getelementptr inbounds i8, ptr %call330.i, i64 %sub.ptr.sub336.i
   %sub.ptr.lhs.cast339.i = ptrtoint ptr %ctn.i408.2.ph to i64
   %sub.ptr.sub341.i = sub i64 %sub.ptr.lhs.cast339.i, %sub.ptr.rhs.cast335.i
-  %sub.ptr.div342.i = ashr exact i64 %sub.ptr.sub341.i, 4
-  %add.ptr343.i = getelementptr inbounds %struct.yyjson_val, ptr %call330.i, i64 %sub.ptr.div342.i
+  %add.ptr343.i = getelementptr inbounds i8, ptr %call330.i, i64 %sub.ptr.sub341.i
   %1465 = getelementptr %struct.yyjson_val, ptr %call330.i, i64 %add325.i
   %add.ptr345.i = getelementptr %struct.yyjson_val, ptr %1465, i64 -2
   br label %if.end346.i531
@@ -23412,12 +23382,10 @@ if.end447.i:                                      ; preds = %if.then436.i
   %sub.ptr.lhs.cast448.i = ptrtoint ptr %incdec.ptr427.i to i64
   %sub.ptr.rhs.cast449.i = ptrtoint ptr %val_hdr.i404.2.ph to i64
   %sub.ptr.sub450.i = sub i64 %sub.ptr.lhs.cast448.i, %sub.ptr.rhs.cast449.i
-  %sub.ptr.div451.i = ashr exact i64 %sub.ptr.sub450.i, 4
-  %add.ptr452.i = getelementptr inbounds %struct.yyjson_val, ptr %call444.i, i64 %sub.ptr.div451.i
+  %add.ptr452.i = getelementptr inbounds i8, ptr %call444.i, i64 %sub.ptr.sub450.i
   %sub.ptr.lhs.cast453.i = ptrtoint ptr %ctn.i408.2.ph to i64
   %sub.ptr.sub455.i = sub i64 %sub.ptr.lhs.cast453.i, %sub.ptr.rhs.cast449.i
-  %sub.ptr.div456.i = ashr exact i64 %sub.ptr.sub455.i, 4
-  %add.ptr457.i = getelementptr inbounds %struct.yyjson_val, ptr %call444.i, i64 %sub.ptr.div456.i
+  %add.ptr457.i = getelementptr inbounds i8, ptr %call444.i, i64 %sub.ptr.sub455.i
   %1477 = getelementptr %struct.yyjson_val, ptr %call444.i, i64 %add439.i
   %add.ptr459.i = getelementptr %struct.yyjson_val, ptr %1477, i64 -2
   %.pre11063 = load i8, ptr %1087, align 1
@@ -23902,12 +23870,10 @@ if.end571.i:                                      ; preds = %if.then560.i
   %sub.ptr.lhs.cast572.i = ptrtoint ptr %incdec.ptr551.i to i64
   %sub.ptr.rhs.cast573.i = ptrtoint ptr %val_hdr.i404.11 to i64
   %sub.ptr.sub574.i = sub i64 %sub.ptr.lhs.cast572.i, %sub.ptr.rhs.cast573.i
-  %sub.ptr.div575.i = ashr exact i64 %sub.ptr.sub574.i, 4
-  %add.ptr576.i = getelementptr inbounds %struct.yyjson_val, ptr %call568.i, i64 %sub.ptr.div575.i
+  %add.ptr576.i = getelementptr inbounds i8, ptr %call568.i, i64 %sub.ptr.sub574.i
   %sub.ptr.lhs.cast577.i = ptrtoint ptr %ctn.i408.11 to i64
   %sub.ptr.sub579.i = sub i64 %sub.ptr.lhs.cast577.i, %sub.ptr.rhs.cast573.i
-  %sub.ptr.div580.i = ashr exact i64 %sub.ptr.sub579.i, 4
-  %add.ptr581.i = getelementptr inbounds %struct.yyjson_val, ptr %call568.i, i64 %sub.ptr.div580.i
+  %add.ptr581.i = getelementptr inbounds i8, ptr %call568.i, i64 %sub.ptr.sub579.i
   %1523 = getelementptr %struct.yyjson_val, ptr %call568.i, i64 %add563.i
   %add.ptr583.i = getelementptr %struct.yyjson_val, ptr %1523, i64 -2
   br label %if.end584.i
@@ -23965,12 +23931,10 @@ if.end622.i:                                      ; preds = %if.then611.i
   %sub.ptr.lhs.cast623.i = ptrtoint ptr %incdec.ptr602.i to i64
   %sub.ptr.rhs.cast624.i = ptrtoint ptr %val_hdr.i404.13.ph to i64
   %sub.ptr.sub625.i = sub i64 %sub.ptr.lhs.cast623.i, %sub.ptr.rhs.cast624.i
-  %sub.ptr.div626.i = ashr exact i64 %sub.ptr.sub625.i, 4
-  %add.ptr627.i = getelementptr inbounds %struct.yyjson_val, ptr %call619.i, i64 %sub.ptr.div626.i
+  %add.ptr627.i = getelementptr inbounds i8, ptr %call619.i, i64 %sub.ptr.sub625.i
   %sub.ptr.lhs.cast628.i = ptrtoint ptr %ctn.i408.13.ph to i64
   %sub.ptr.sub630.i = sub i64 %sub.ptr.lhs.cast628.i, %sub.ptr.rhs.cast624.i
-  %sub.ptr.div631.i = ashr exact i64 %sub.ptr.sub630.i, 4
-  %add.ptr632.i = getelementptr inbounds %struct.yyjson_val, ptr %call619.i, i64 %sub.ptr.div631.i
+  %add.ptr632.i = getelementptr inbounds i8, ptr %call619.i, i64 %sub.ptr.sub630.i
   %1526 = getelementptr %struct.yyjson_val, ptr %call619.i, i64 %add614.i
   %add.ptr634.i = getelementptr %struct.yyjson_val, ptr %1526, i64 -2
   br label %if.end635.i
@@ -34457,7 +34421,7 @@ return:                                           ; preds = %while.end28, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_read_file(ptr noundef readonly %path, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_read_file(ptr noundef readonly %path, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_read_err, align 8
   %tobool.not = icmp eq ptr %err, null
@@ -34505,7 +34469,7 @@ return:                                           ; preds = %if.end22, %do.body1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_read_fp(ptr noundef %file, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_read_fp(ptr noundef %file, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_read_err, align 8
   %alc = alloca %struct.yyjson_alc, align 8
@@ -34729,8 +34693,8 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #16
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #16
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @yyjson_read_number(ptr noundef %dat, ptr noundef writeonly %val, i32 noundef %flg, ptr nocapture noundef readnone %alc, ptr noundef writeonly %err) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local ptr @yyjson_read_number(ptr noundef %dat, ptr noundef writeonly %val, i32 noundef %flg, ptr nocapture noundef readnone %alc, ptr noundef writeonly %err) local_unnamed_addr #3 {
 entry:
   %exp.i = alloca i32, align 4
   %big_full.i = alloca %struct.bigint, align 8
@@ -37347,7 +37311,7 @@ return:                                           ; preds = %if.end.i.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_val_write_opts(ptr noundef readonly %val, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef writeonly %dat_len, ptr noundef writeonly %err) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_val_write_opts(ptr noundef readonly %val, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef writeonly %dat_len, ptr noundef writeonly %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %tobool.not = icmp eq ptr %alc_ptr, null
@@ -47702,7 +47666,7 @@ return:                                           ; preds = %if.end590.i.cont, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_write_opts(ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_write_opts(ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -47718,7 +47682,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @yyjson_val_write_file(ptr noundef readonly %path, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local zeroext i1 @yyjson_val_write_file(ptr noundef readonly %path, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %dat_len = alloca i64, align 8
@@ -47804,7 +47768,7 @@ return:                                           ; preds = %if.end, %write_dat_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @yyjson_val_write_fp(ptr noundef %fp, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local zeroext i1 @yyjson_val_write_fp(ptr noundef %fp, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %dat_len = alloca i64, align 8
@@ -47857,7 +47821,7 @@ return:                                           ; preds = %if.end, %write_dat_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @yyjson_write_file(ptr noundef %path, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local zeroext i1 @yyjson_write_file(ptr noundef %path, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -47873,7 +47837,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @yyjson_write_fp(ptr noundef %fp, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local zeroext i1 @yyjson_write_fp(ptr noundef %fp, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err.i = alloca %struct.yyjson_write_err, align 8
   %dat_len.i = alloca i64, align 8
@@ -47939,14 +47903,14 @@ yyjson_val_write_fp.exit:                         ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_val_write_opts(ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_mut_val_write_opts(ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %call = tail call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %val, i64 noundef 0, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %val, i64 noundef %estimated_val_num, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef writeonly %dat_len, ptr noundef writeonly %err) unnamed_addr #8 {
+define internal fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %val, i64 noundef %estimated_val_num, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef writeonly %dat_len, ptr noundef writeonly %err) unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %tobool.not = icmp eq ptr %alc_ptr, null
@@ -58363,7 +58327,7 @@ return:                                           ; preds = %if.end606.i.cont, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_write_opts(ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local ptr @yyjson_mut_write_opts(ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -58415,7 +58379,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @yyjson_mut_val_write_file(ptr noundef readonly %path, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local zeroext i1 @yyjson_mut_val_write_file(ptr noundef readonly %path, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %dat_len = alloca i64, align 8
@@ -58501,7 +58465,7 @@ return:                                           ; preds = %if.end, %write_dat_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @yyjson_mut_val_write_fp(ptr noundef %fp, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local zeroext i1 @yyjson_mut_val_write_fp(ptr noundef %fp, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %dat_len = alloca i64, align 8
@@ -58554,7 +58518,7 @@ return:                                           ; preds = %if.end, %write_dat_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @yyjson_mut_write_file(ptr noundef %path, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local zeroext i1 @yyjson_mut_write_file(ptr noundef %path, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -58570,7 +58534,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @yyjson_mut_write_fp(ptr noundef %fp, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #8 {
+define dso_local zeroext i1 @yyjson_mut_write_fp(ptr noundef %fp, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err.i = alloca %struct.yyjson_write_err, align 8
   %dat_len.i = alloca i64, align 8
@@ -59604,16 +59568,16 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

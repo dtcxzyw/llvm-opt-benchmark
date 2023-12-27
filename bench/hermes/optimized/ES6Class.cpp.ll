@@ -20140,9 +20140,9 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i.i:         ; preds = %if.end28.i.i.i.i
 if.then.i.i.i.i.i:                                ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i.i, %if.end13.i.i.i.i
   %11 = phi ptr [ %.pre.i.i11, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end13.i.i.i.i ]
   %12 = phi i32 [ %.pre.i.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i ], [ %10, %if.end13.i.i.i.i ]
-  %conv.i35.i.i.i.i = zext i32 %12 to i64
+  %conv.i34.i.i.i.i = zext i32 %12 to i64
   %13 = load ptr, ptr %agg.tmp, align 8
-  %add.ptr.i65.i.idx.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i.i, 3
+  %add.ptr.i65.i.idx.i.i.i = shl nuw nsw i64 %conv.i34.i.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 8 %13, i64 %add.ptr.i65.i.idx.i.i.i, i1 false)
   br label %return.sink.split.i.i.i.i
 
@@ -20462,9 +20462,9 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i.i50:       ; preds = %if.end28.i.i.i.i47
 if.then.i.i.i.i42.i:                              ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i.i50, %if.end13.i.i.i.i40
   %63 = phi ptr [ %.pre.i.i51, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i50 ], [ %add.ptr.i.i.i.i.i.i.i35, %if.end13.i.i.i.i40 ]
   %64 = phi i32 [ %.pre.i.i.i48, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i50 ], [ %62, %if.end13.i.i.i.i40 ]
-  %conv.i35.i.i.i.i42 = zext i32 %64 to i64
+  %conv.i34.i.i.i.i42 = zext i32 %64 to i64
   %65 = load ptr, ptr %agg.tmp19, align 8
-  %add.ptr.i65.i.idx.i.i.i43 = shl nuw nsw i64 %conv.i35.i.i.i.i42, 3
+  %add.ptr.i65.i.idx.i.i.i43 = shl nuw nsw i64 %conv.i34.i.i.i.i42, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr align 8 %65, i64 %add.ptr.i65.i.idx.i.i.i43, i1 false)
   br label %return.sink.split.i.i.i.i44
 
@@ -20869,11 +20869,10 @@ if.then6:                                         ; preds = %if.end
   %sub.ptr.lhs.cast = ptrtoint ptr %I to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %7 = load ptr, ptr %this, align 8
-  %add.ptr9 = getelementptr inbounds ptr, ptr %7, i64 %sub.ptr.div
+  %add.ptr9 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub
   %.pre = load i32, ptr %Size.i, align 8
   %.pre32 = zext i32 %.pre to i64
   br label %if.end10
@@ -24275,9 +24274,9 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i.i:         ; preds = %if.end28.i.i.i.i
 if.then.i.i.i.i.i53:                              ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i.i, %if.end13.i.i.i.i
   %92 = phi ptr [ %.pre.i.i59, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i ], [ %add.ptr.i.i.i.i.i.i.i49, %if.end13.i.i.i.i ]
   %93 = phi i32 [ %.pre.i.i.i57, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i ], [ %91, %if.end13.i.i.i.i ]
-  %conv.i35.i.i.i.i = zext i32 %93 to i64
+  %conv.i34.i.i.i.i = zext i32 %93 to i64
   %94 = load ptr, ptr %agg.tmp37, align 8
-  %add.ptr.i65.i.idx.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i.i, 3
+  %add.ptr.i65.i.idx.i.i.i = shl nuw nsw i64 %conv.i34.i.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 8 %94, i64 %add.ptr.i65.i.idx.i.i.i, i1 false)
   br label %return.sink.split.i.i.i.i
 

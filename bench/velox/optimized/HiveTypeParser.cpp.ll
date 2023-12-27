@@ -441,7 +441,7 @@ invoke.cont13:                                    ; preds = %.noexc34
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont13
   store ptr %call5.i.i.i.i303, ptr %ref.tmp, align 8
-  %add.ptr.i297 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i303, i64 2
+  %add.ptr.i297 = getelementptr inbounds i8, ptr %call5.i.i.i.i303, i64 64
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i297, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i.i.i.i298
@@ -633,7 +633,7 @@ invoke.cont48:                                    ; preds = %.noexc58
 
 call5.i.i.i.i.noexc328:                           ; preds = %invoke.cont48
   store ptr %call5.i.i.i.i329, ptr %ref.tmp37, align 8
-  %add.ptr.i307 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i329, i64 2
+  %add.ptr.i307 = getelementptr inbounds i8, ptr %call5.i.i.i.i329, i64 64
   %_M_end_of_storage.i308 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp37, i64 0, i32 2
   store ptr %add.ptr.i307, ptr %_M_end_of_storage.i308, align 8
   br label %for.body.i.i.i.i.i309
@@ -825,7 +825,7 @@ invoke.cont98:                                    ; preds = %.noexc121
 
 call5.i.i.i.i.noexc355:                           ; preds = %invoke.cont98
   store ptr %call5.i.i.i.i356, ptr %ref.tmp87, align 8
-  %add.ptr.i334 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i356, i64 2
+  %add.ptr.i334 = getelementptr inbounds i8, ptr %call5.i.i.i.i356, i64 64
   %_M_end_of_storage.i335 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp87, i64 0, i32 2
   store ptr %add.ptr.i334, ptr %_M_end_of_storage.i335, align 8
   br label %for.body.i.i.i.i.i336
@@ -1009,7 +1009,7 @@ invoke.cont146:                                   ; preds = %.noexc184
 
 call5.i.i.i.i.noexc382:                           ; preds = %invoke.cont146
   store ptr %call5.i.i.i.i383, ptr %ref.tmp135, align 8
-  %add.ptr.i361 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i383, i64 2
+  %add.ptr.i361 = getelementptr inbounds i8, ptr %call5.i.i.i.i383, i64 64
   %_M_end_of_storage.i362 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp135, i64 0, i32 2
   store ptr %add.ptr.i361, ptr %_M_end_of_storage.i362, align 8
   br label %for.body.i.i.i.i.i363
@@ -1205,7 +1205,7 @@ invoke.cont197:                                   ; preds = %.noexc247
 
 call5.i.i.i.i.noexc409:                           ; preds = %invoke.cont197
   store ptr %call5.i.i.i.i410, ptr %ref.tmp186, align 8
-  %add.ptr.i388 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i410, i64 2
+  %add.ptr.i388 = getelementptr inbounds i8, ptr %call5.i.i.i.i410, i64 64
   %_M_end_of_storage.i389 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp186, i64 0, i32 2
   store ptr %add.ptr.i388, ptr %_M_end_of_storage.i389, align 8
   br label %for.body.i.i.i.i.i390
@@ -1653,7 +1653,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i15, ptr %ref.tmp, align 8
-  %add.ptr.i13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i15, i64 1
+  %add.ptr.i13 = getelementptr inbounds i8, ptr %call5.i.i.i.i15, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i13, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -1825,7 +1825,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -1998,7 +1998,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -2213,7 +2213,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -2386,7 +2386,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -2559,7 +2559,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -2732,7 +2732,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -2905,7 +2905,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -3078,7 +3078,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -3251,7 +3251,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -3424,7 +3424,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -3597,7 +3597,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -3770,7 +3770,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -3943,7 +3943,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -4116,7 +4116,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -4289,7 +4289,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -4462,7 +4462,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -4635,7 +4635,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -4808,7 +4808,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont
   store ptr %call5.i.i.i.i16, ptr %ref.tmp, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i16, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i16, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i14, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)

@@ -816,7 +816,7 @@ invoke.cont.i:                                    ; preds = %_ZN5arrow7compute10
 
 call5.i.i.i.i.noexc.i.i:                          ; preds = %invoke.cont.i
   store ptr %call5.i.i.i.i2.i.i, ptr %agg.tmp.i, align 8
-  %add.ptr.i1.i.i = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i, i64 1
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 40
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i, i64 0, i32 2
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %type_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i, i64 0, i32 1
@@ -1319,7 +1319,7 @@ invoke.cont.i57:                                  ; preds = %invoke.cont4
 
 call5.i.i.i.i.noexc.i.i66:                        ; preds = %invoke.cont.i57
   store ptr %call5.i.i.i.i2.i.i62, ptr %agg.tmp.i43, align 8
-  %add.ptr.i1.i.i67 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i62, i64 1
+  %add.ptr.i1.i.i67 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i62, i64 40
   %_M_end_of_storage.i.i.i68 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i43, i64 0, i32 2
   store ptr %add.ptr.i1.i.i67, ptr %_M_end_of_storage.i.i.i68, align 8
   %type_.i.i.i.i.i.i.i.i.i69 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i62, i64 0, i32 1
@@ -1822,7 +1822,7 @@ invoke.cont.i263:                                 ; preds = %invoke.cont6
 
 call5.i.i.i.i.noexc.i.i272:                       ; preds = %invoke.cont.i263
   store ptr %call5.i.i.i.i2.i.i268, ptr %agg.tmp.i249, align 8
-  %add.ptr.i1.i.i273 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i268, i64 1
+  %add.ptr.i1.i.i273 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i268, i64 40
   %_M_end_of_storage.i.i.i274 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i249, i64 0, i32 2
   store ptr %add.ptr.i1.i.i273, ptr %_M_end_of_storage.i.i.i274, align 8
   %type_.i.i.i.i.i.i.i.i.i275 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i268, i64 0, i32 1
@@ -2451,7 +2451,7 @@ invoke.cont.i517:                                 ; preds = %_ZN5arrow7compute10
 
 call5.i.i.i.i.noexc.i.i526:                       ; preds = %invoke.cont.i517
   store ptr %call5.i.i.i.i2.i.i522, ptr %agg.tmp.i503, align 8
-  %add.ptr.i1.i.i527 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i522, i64 1
+  %add.ptr.i1.i.i527 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i522, i64 40
   %_M_end_of_storage.i.i.i528 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i503, i64 0, i32 2
   store ptr %add.ptr.i1.i.i527, ptr %_M_end_of_storage.i.i.i528, align 8
   %type_.i.i.i.i.i.i.i.i.i529 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i522, i64 0, i32 1
@@ -2954,7 +2954,7 @@ invoke.cont.i722:                                 ; preds = %invoke.cont18
 
 call5.i.i.i.i.noexc.i.i731:                       ; preds = %invoke.cont.i722
   store ptr %call5.i.i.i.i2.i.i727, ptr %agg.tmp.i708, align 8
-  %add.ptr.i1.i.i732 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i727, i64 1
+  %add.ptr.i1.i.i732 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i727, i64 40
   %_M_end_of_storage.i.i.i733 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i708, i64 0, i32 2
   store ptr %add.ptr.i1.i.i732, ptr %_M_end_of_storage.i.i.i733, align 8
   %type_.i.i.i.i.i.i.i.i.i734 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i727, i64 0, i32 1
@@ -3457,7 +3457,7 @@ invoke.cont.i928:                                 ; preds = %invoke.cont20
 
 call5.i.i.i.i.noexc.i.i937:                       ; preds = %invoke.cont.i928
   store ptr %call5.i.i.i.i2.i.i933, ptr %agg.tmp.i914, align 8
-  %add.ptr.i1.i.i938 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i933, i64 1
+  %add.ptr.i1.i.i938 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i933, i64 40
   %_M_end_of_storage.i.i.i939 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i914, i64 0, i32 2
   store ptr %add.ptr.i1.i.i938, ptr %_M_end_of_storage.i.i.i939, align 8
   %type_.i.i.i.i.i.i.i.i.i940 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i933, i64 0, i32 1
@@ -4086,7 +4086,7 @@ invoke.cont.i1182:                                ; preds = %_ZN5arrow7compute10
 
 call5.i.i.i.i.noexc.i.i1191:                      ; preds = %invoke.cont.i1182
   store ptr %call5.i.i.i.i2.i.i1187, ptr %agg.tmp.i1168, align 8
-  %add.ptr.i1.i.i1192 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i1187, i64 1
+  %add.ptr.i1.i.i1192 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1187, i64 40
   %_M_end_of_storage.i.i.i1193 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i1168, i64 0, i32 2
   store ptr %add.ptr.i1.i.i1192, ptr %_M_end_of_storage.i.i.i1193, align 8
   %type_.i.i.i.i.i.i.i.i.i1194 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i1187, i64 0, i32 1
@@ -4589,7 +4589,7 @@ invoke.cont.i1387:                                ; preds = %invoke.cont32
 
 call5.i.i.i.i.noexc.i.i1396:                      ; preds = %invoke.cont.i1387
   store ptr %call5.i.i.i.i2.i.i1392, ptr %agg.tmp.i1373, align 8
-  %add.ptr.i1.i.i1397 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i1392, i64 1
+  %add.ptr.i1.i.i1397 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1392, i64 40
   %_M_end_of_storage.i.i.i1398 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i1373, i64 0, i32 2
   store ptr %add.ptr.i1.i.i1397, ptr %_M_end_of_storage.i.i.i1398, align 8
   %type_.i.i.i.i.i.i.i.i.i1399 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i1392, i64 0, i32 1
@@ -5092,7 +5092,7 @@ invoke.cont.i1593:                                ; preds = %invoke.cont34
 
 call5.i.i.i.i.noexc.i.i1602:                      ; preds = %invoke.cont.i1593
   store ptr %call5.i.i.i.i2.i.i1598, ptr %agg.tmp.i1579, align 8
-  %add.ptr.i1.i.i1603 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i1598, i64 1
+  %add.ptr.i1.i.i1603 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1598, i64 40
   %_M_end_of_storage.i.i.i1604 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i1579, i64 0, i32 2
   store ptr %add.ptr.i1.i.i1603, ptr %_M_end_of_storage.i.i.i1604, align 8
   %type_.i.i.i.i.i.i.i.i.i1605 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i1598, i64 0, i32 1
@@ -5721,7 +5721,7 @@ invoke.cont.i1847:                                ; preds = %_ZN5arrow7compute10
 
 call5.i.i.i.i.noexc.i.i1856:                      ; preds = %invoke.cont.i1847
   store ptr %call5.i.i.i.i2.i.i1852, ptr %agg.tmp.i1833, align 8
-  %add.ptr.i1.i.i1857 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i1852, i64 1
+  %add.ptr.i1.i.i1857 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1852, i64 40
   %_M_end_of_storage.i.i.i1858 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i1833, i64 0, i32 2
   store ptr %add.ptr.i1.i.i1857, ptr %_M_end_of_storage.i.i.i1858, align 8
   %type_.i.i.i.i.i.i.i.i.i1859 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i1852, i64 0, i32 1
@@ -6224,7 +6224,7 @@ invoke.cont.i2052:                                ; preds = %invoke.cont46
 
 call5.i.i.i.i.noexc.i.i2061:                      ; preds = %invoke.cont.i2052
   store ptr %call5.i.i.i.i2.i.i2057, ptr %agg.tmp.i2038, align 8
-  %add.ptr.i1.i.i2062 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i2057, i64 1
+  %add.ptr.i1.i.i2062 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2057, i64 40
   %_M_end_of_storage.i.i.i2063 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i2038, i64 0, i32 2
   store ptr %add.ptr.i1.i.i2062, ptr %_M_end_of_storage.i.i.i2063, align 8
   %type_.i.i.i.i.i.i.i.i.i2064 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i2057, i64 0, i32 1
@@ -6727,7 +6727,7 @@ invoke.cont.i2258:                                ; preds = %invoke.cont48
 
 call5.i.i.i.i.noexc.i.i2267:                      ; preds = %invoke.cont.i2258
   store ptr %call5.i.i.i.i2.i.i2263, ptr %agg.tmp.i2244, align 8
-  %add.ptr.i1.i.i2268 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i2263, i64 1
+  %add.ptr.i1.i.i2268 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2263, i64 40
   %_M_end_of_storage.i.i.i2269 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i2244, i64 0, i32 2
   store ptr %add.ptr.i1.i.i2268, ptr %_M_end_of_storage.i.i.i2269, align 8
   %type_.i.i.i.i.i.i.i.i.i2270 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i2263, i64 0, i32 1
@@ -7356,7 +7356,7 @@ invoke.cont.i2512:                                ; preds = %_ZN5arrow7compute10
 
 call5.i.i.i.i.noexc.i.i2521:                      ; preds = %invoke.cont.i2512
   store ptr %call5.i.i.i.i2.i.i2517, ptr %agg.tmp.i2498, align 8
-  %add.ptr.i1.i.i2522 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i2517, i64 1
+  %add.ptr.i1.i.i2522 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2517, i64 40
   %_M_end_of_storage.i.i.i2523 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data", ptr %agg.tmp.i2498, i64 0, i32 2
   store ptr %add.ptr.i1.i.i2522, ptr %_M_end_of_storage.i.i.i2523, align 8
   %type_.i.i.i.i.i.i.i.i.i2524 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i.i2517, i64 0, i32 1
@@ -8096,7 +8096,7 @@ _ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEC2ERKS4_.exit2800: ; p
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEC2ERKS4_.exit2800
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 6
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 96
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::compute::internal::CastFunction>, std::allocator<std::shared_ptr<arrow::compute::internal::CastFunction>>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -23228,7 +23228,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit651: ; preds = %while.end173, %
 
 _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit651
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp177, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.72", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp177, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %_M_finish.i.i657 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp177, i64 0, i32 1
@@ -23330,7 +23330,7 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEEC2ERKS2_.exit691: ; preds = %invoke.cont191
 
 call5.i.i.i.i.noexc.i697:                         ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEEC2ERKS2_.exit691
   store ptr %call5.i.i.i.i2.i693, ptr %agg.tmp183, align 8
-  %add.ptr.i1.i698 = getelementptr inbounds %"class.std::shared_ptr.66", ptr %call5.i.i.i.i2.i693, i64 2
+  %add.ptr.i1.i698 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i693, i64 32
   %_M_end_of_storage.i.i699 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::ArrayData>, std::allocator<std::shared_ptr<arrow::ArrayData>>>::_Vector_impl_data", ptr %agg.tmp183, i64 0, i32 2
   store ptr %add.ptr.i1.i698, ptr %_M_end_of_storage.i.i699, align 8
   br label %for.body.i.i.i.i.i.i700
@@ -26744,7 +26744,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit651: ; preds = %while.end168, %
 
 _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit651
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp172, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.72", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp172, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %_M_finish.i.i657 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp172, i64 0, i32 1
@@ -26846,7 +26846,7 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEEC2ERKS2_.exit691: ; preds = %invoke.cont186
 
 call5.i.i.i.i.noexc.i697:                         ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEEC2ERKS2_.exit691
   store ptr %call5.i.i.i.i2.i693, ptr %agg.tmp178, align 8
-  %add.ptr.i1.i698 = getelementptr inbounds %"class.std::shared_ptr.66", ptr %call5.i.i.i.i2.i693, i64 2
+  %add.ptr.i1.i698 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i693, i64 32
   %_M_end_of_storage.i.i699 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::ArrayData>, std::allocator<std::shared_ptr<arrow::ArrayData>>>::_Vector_impl_data", ptr %agg.tmp178, i64 0, i32 2
   store ptr %add.ptr.i1.i698, ptr %_M_end_of_storage.i.i699, align 8
   br label %for.body.i.i.i.i.i.i700
@@ -30202,7 +30202,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit670: ; preds = %while.end168, %
 
 _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit670
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp172, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.72", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp172, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %_M_finish.i.i676 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp172, i64 0, i32 1
@@ -30304,7 +30304,7 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEEC2ERKS2_.exit710: ; preds = %invoke.cont186
 
 call5.i.i.i.i.noexc.i716:                         ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEEC2ERKS2_.exit710
   store ptr %call5.i.i.i.i2.i712, ptr %agg.tmp178, align 8
-  %add.ptr.i1.i717 = getelementptr inbounds %"class.std::shared_ptr.66", ptr %call5.i.i.i.i2.i712, i64 2
+  %add.ptr.i1.i717 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i712, i64 32
   %_M_end_of_storage.i.i718 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::ArrayData>, std::allocator<std::shared_ptr<arrow::ArrayData>>>::_Vector_impl_data", ptr %agg.tmp178, i64 0, i32 2
   store ptr %add.ptr.i1.i717, ptr %_M_end_of_storage.i.i718, align 8
   br label %for.body.i.i.i.i.i.i719
@@ -36952,7 +36952,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52: ; preds = %_ZNSt10shared_ptrI
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp29, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.72", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp29, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i

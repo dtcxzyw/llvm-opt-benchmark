@@ -821,10 +821,9 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_
 if.then:                                          ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %d_match = getelementptr inbounds %"class.cvc5::internal::TypeMatcher", ptr %this, i64 0, i32 1
   %15 = load ptr, ptr %d_match, align 8
-  %add.ptr.i45 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %15, i64 %sub.ptr.div.i
+  %add.ptr.i45 = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i
   %16 = load ptr, ptr %add.ptr.i45, align 8
   %17 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %17, 0
@@ -863,7 +862,7 @@ _ZNK4cvc58internal8TypeNode6isNullEv.exit:        ; preds = %if.then, %init.chec
   %20 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   %cmp.i46 = icmp eq ptr %16, %20
   %21 = load ptr, ptr %d_match, align 8
-  %add.ptr.i128 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %21, i64 %sub.ptr.div.i
+  %add.ptr.i128 = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub.i
   br i1 %cmp.i46, label %if.end52, label %cond.end44
 
 cond.end44:                                       ; preds = %_ZNK4cvc58internal8TypeNode6isNullEv.exit

@@ -1283,7 +1283,6 @@ _ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE
   %24 = load ptr, ptr %_M_finish.i.i35, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i32
-  %sub.ptr.div.i9.i = ashr exact i64 %sub.ptr.sub.i8.i, 3
   %mul.i.i.i.i = shl nuw nsw i64 %add, 3
   %call5.i.i.i.i36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #19
           to label %call5.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp
@@ -1320,7 +1319,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorIN9grpc
 
 _ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %call5.i.i.i.i36, ptr %inner_, align 8
-  %add.ptr.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %call5.i.i.i.i36, i64 %sub.ptr.div.i9.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i36, i64 %sub.ptr.sub.i8.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i35, align 8
   %add.ptr21.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %call5.i.i.i.i36, i64 %add
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8

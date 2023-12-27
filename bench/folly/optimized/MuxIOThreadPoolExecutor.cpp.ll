@@ -4130,7 +4130,6 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5folly9EventBaseESt14default_deleteIS2_EESaI
   %51 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !59
   %sub.ptr.lhs.cast.i30.i = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i32.i = sub i64 %sub.ptr.lhs.cast.i30.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i33.i = ashr exact i64 %sub.ptr.sub.i32.i, 3
   %mul.i.i.i.i = shl nuw nsw i64 %48, 3
   %call5.i.i.i.i127 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #41
           to label %call5.i.i.i.i.noexc unwind label %lpad43
@@ -4210,7 +4209,7 @@ if.then.i.i125:                                   ; preds = %_ZNSt6vectorISt10un
 _ZNSt12_Vector_baseISt10unique_ptrIN5folly9EventBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %if.then.i.i125, %_ZNSt6vectorISt10unique_ptrIN5folly9EventBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   %.pre = phi i64 [ %.pre.pre, %if.then.i.i125 ], [ %48, %_ZNSt6vectorISt10unique_ptrIN5folly9EventBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i ]
   store ptr %call5.i.i.i.i127, ptr %evbs_, align 32, !tbaa !61
-  %add.ptr.i126 = getelementptr inbounds %"class.std::unique_ptr.151", ptr %call5.i.i.i.i127, i64 %sub.ptr.div.i33.i
+  %add.ptr.i126 = getelementptr inbounds i8, ptr %call5.i.i.i.i127, i64 %sub.ptr.sub.i32.i
   store ptr %add.ptr.i126, ptr %_M_finish.i.i, align 8, !tbaa !59
   %add.ptr21.i = getelementptr inbounds %"class.std::unique_ptr.151", ptr %call5.i.i.i.i127, i64 %48
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 16, !tbaa !243
@@ -16332,7 +16331,6 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5folly9EventBaseESt14default_deleteIS2_EESaI
   %35 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !59
   %sub.ptr.lhs.cast.i30.i = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i32.i = sub i64 %sub.ptr.lhs.cast.i30.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i33.i = ashr exact i64 %sub.ptr.sub.i32.i, 3
   %mul.i.i.i.i = shl nuw nsw i64 %32, 3
   %call5.i.i.i.i123 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #41
           to label %call5.i.i.i.i.noexc unwind label %lpad40
@@ -16412,7 +16410,7 @@ if.then.i.i122:                                   ; preds = %_ZNSt6vectorISt10un
 _ZNSt12_Vector_baseISt10unique_ptrIN5folly9EventBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %if.then.i.i122, %_ZNSt6vectorISt10unique_ptrIN5folly9EventBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   %.pre = phi i64 [ %.pre.pre, %if.then.i.i122 ], [ %32, %_ZNSt6vectorISt10unique_ptrIN5folly9EventBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i ]
   store ptr %call5.i.i.i.i123, ptr %evbs_, align 32, !tbaa !61
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.151", ptr %call5.i.i.i.i123, i64 %sub.ptr.div.i33.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i123, i64 %sub.ptr.sub.i32.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8, !tbaa !59
   %add.ptr21.i = getelementptr inbounds %"class.std::unique_ptr.151", ptr %call5.i.i.i.i123, i64 %32
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 16, !tbaa !243
@@ -19593,8 +19591,7 @@ lpad46:                                           ; preds = %invoke.cont47, %con
 cleanup.done60:                                   ; preds = %cleanup.done25
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.2.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
-  %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.0", ptr %0, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   %call10.i = tail call ptr @_ZNSt6vectorISt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESaIS4_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS4_S6_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %add.ptr.i.i)
   %15 = load ptr, ptr %state, align 8, !tbaa !24
   %call72 = tail call i64 @_ZNK5folly18ThreadPoolExecutor6Thread11usedCpuTimeEv(ptr noundef nonnull align 64 dereferenceable(64) %15)

@@ -12024,25 +12024,28 @@ land.lhs.true:                                    ; preds = %if.end21
 
 if.then27:                                        ; preds = %land.lhs.true
   %add.ptr.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %15, i64 %13
-  %add.ptr.i5.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %15, i64 %sub.ptr.div.i
+  %add.ptr.i5.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i, %14
+  br i1 %cmp.i.not.i.i, label %if.end49, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.then27
   %cmp.i1.not.i.i = icmp eq ptr %14, %add.ptr.i5.i
   br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %if.then27
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %if.then.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i, ptr nonnull align 8 %add.ptr.i5.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 8 %add.ptr.i5.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i = load ptr, ptr %_M_finish.i, align 8
   %.pre9.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then27, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i, %if.then27 ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i, %if.then27 ]
-  %16 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %14, %if.then27 ]
+if.end.i.i:                                       ; preds = %if.then.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
+  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i, %if.then.i.i ]
+  %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i, %if.then.i.i ]
+  %16 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %14, %if.then.i.i ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %add.ptr.i6.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %add.ptr.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %16, %add.ptr.i6.i
   br i1 %tobool.not.i.i.i, label %if.end49, label %if.then.i.i.i
 
@@ -12050,7 +12053,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %add.ptr.i6.i, ptr %_M_finish.i, align 8
   br label %if.end49
 
-if.end49:                                         ; preds = %if.then.i.i.i, %if.end.i.i, %land.lhs.true, %if.end21
+if.end49:                                         ; preds = %if.then.i.i.i, %if.end.i.i, %if.then27, %land.lhs.true, %if.end21
   %17 = load ptr, ptr %this, align 8
   %storeTokens_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %17, i64 0, i32 8
   %18 = load i8, ptr %storeTokens_.i, align 2
@@ -12067,40 +12070,38 @@ if.then52:                                        ; preds = %if.end49
   %_M_finish.i12 = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %17, i64 0, i32 21, i32 0, i32 0, i32 0, i32 1
   %22 = load ptr, ptr %_M_finish.i12, align 8
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %20 to i64
-  %sub.ptr.lhs.cast.i1.i18 = ptrtoint ptr %22 to i64
-  %sub.ptr.sub.i3.i19 = sub i64 %sub.ptr.lhs.cast.i1.i18, %sub.ptr.rhs.cast.i.i14
-  %sub.ptr.div.i4.i20 = sdiv exact i64 %sub.ptr.sub.i3.i19, 24
-  %add.ptr.i5.i21 = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %20, i64 %sub.ptr.div.i4.i20
-  %cmp.i.not.i.i22 = icmp eq i64 %21, %sub.ptr.div.i4.i20
-  br i1 %cmp.i.not.i.i22, label %if.end74, label %if.then.i.i23
+  %sub.ptr.lhs.cast.i1.i17 = ptrtoint ptr %22 to i64
+  %sub.ptr.sub.i3.i18 = sub i64 %sub.ptr.lhs.cast.i1.i17, %sub.ptr.rhs.cast.i.i14
+  %add.ptr.i5.i19 = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i3.i18
+  %cmp.i.not.i.i20 = icmp eq ptr %add.ptr.i11, %22
+  br i1 %cmp.i.not.i.i20, label %if.end74, label %if.then.i.i21
 
-if.then.i.i23:                                    ; preds = %if.then52
-  %cmp.i1.not.i.i25 = icmp eq ptr %22, %add.ptr.i5.i21
-  br i1 %cmp.i1.not.i.i25, label %if.end.i.i31, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
+if.then.i.i21:                                    ; preds = %if.then52
+  %cmp.i1.not.i.i23 = icmp eq ptr %22, %add.ptr.i5.i19
+  br i1 %cmp.i1.not.i.i23, label %if.end.i.i29, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %if.then.i.i23
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i27 = ptrtoint ptr %add.ptr.i5.i21 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i28 = sub i64 %sub.ptr.lhs.cast.i1.i18, %sub.ptr.rhs.cast.i.i.i.i.i.i.i27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i11, ptr align 8 %add.ptr.i5.i21, i64 %sub.ptr.sub.i.i.i.i.i.i.i28, i1 false)
-  %.pre.i.i29 = load ptr, ptr %_M_finish.i12, align 8
-  %.pre9.i.i30 = ptrtoint ptr %.pre.i.i29 to i64
-  br label %if.end.i.i31
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %if.then.i.i21
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i25 = ptrtoint ptr %add.ptr.i5.i19 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i26 = sub i64 %sub.ptr.lhs.cast.i1.i17, %sub.ptr.rhs.cast.i.i.i.i.i.i.i25
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i11, ptr align 8 %add.ptr.i5.i19, i64 %sub.ptr.sub.i.i.i.i.i.i.i26, i1 false)
+  %.pre.i.i27 = load ptr, ptr %_M_finish.i12, align 8
+  %.pre9.i.i28 = ptrtoint ptr %.pre.i.i27 to i64
+  br label %if.end.i.i29
 
-if.end.i.i31:                                     ; preds = %if.then.i.i23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i32 = phi i64 [ %.pre9.i.i30, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i1.i18, %if.then.i.i23 ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i33 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i27, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i1.i18, %if.then.i.i23 ]
-  %23 = phi ptr [ %.pre.i.i29, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %22, %if.then.i.i23 ]
-  %sub.ptr.sub.i.i.i34 = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i32, %sub.ptr.rhs.cast.i.pre-phi.i.i33
-  %sub.ptr.div.i.i.i35 = sdiv exact i64 %sub.ptr.sub.i.i.i34, 24
-  %add.ptr.i6.i36 = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %add.ptr.i11, i64 %sub.ptr.div.i.i.i35
-  %tobool.not.i.i.i37 = icmp eq ptr %23, %add.ptr.i6.i36
-  br i1 %tobool.not.i.i.i37, label %if.end74, label %if.then.i.i.i38
+if.end.i.i29:                                     ; preds = %if.then.i.i21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
+  %sub.ptr.lhs.cast.i.pre-phi.i.i30 = phi i64 [ %.pre9.i.i28, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i1.i17, %if.then.i.i21 ]
+  %sub.ptr.rhs.cast.i.pre-phi.i.i31 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i25, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i1.i17, %if.then.i.i21 ]
+  %23 = phi ptr [ %.pre.i.i27, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser11StoredTokenESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %22, %if.then.i.i21 ]
+  %sub.ptr.sub.i.i.i32 = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i30, %sub.ptr.rhs.cast.i.pre-phi.i.i31
+  %add.ptr.i6.i33 = getelementptr inbounds i8, ptr %add.ptr.i11, i64 %sub.ptr.sub.i.i.i32
+  %tobool.not.i.i.i34 = icmp eq ptr %23, %add.ptr.i6.i33
+  br i1 %tobool.not.i.i.i34, label %if.end74, label %if.then.i.i.i35
 
-if.then.i.i.i38:                                  ; preds = %if.end.i.i31
-  store ptr %add.ptr.i6.i36, ptr %_M_finish.i12, align 8
+if.then.i.i.i35:                                  ; preds = %if.end.i.i29
+  store ptr %add.ptr.i6.i33, ptr %_M_finish.i12, align 8
   br label %if.end74
 
-if.end74:                                         ; preds = %if.then.i.i.i38, %if.end.i.i31, %if.then52, %if.end49
+if.end74:                                         ; preds = %if.then.i.i.i35, %if.end.i.i29, %if.then52, %if.end49
   ret void
 }
 

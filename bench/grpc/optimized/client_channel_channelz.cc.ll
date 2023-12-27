@@ -1458,7 +1458,7 @@ invoke.cont246:                                   ; preds = %_ZNSt8_Rb_treeINSt7
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont246
   store ptr %call5.i.i.i.i402, ptr %ref.tmp206, align 8
-  %add.ptr.i399 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i402, i64 1
+  %add.ptr.i399 = getelementptr inbounds i8, ptr %call5.i.i.i.i402, i64 56
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %ref.tmp206, i64 0, i32 2
   store ptr %add.ptr.i399, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_(ptr noundef nonnull align 8 dereferenceable(49) %call5.i.i.i.i402, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp208)

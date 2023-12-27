@@ -3274,7 +3274,6 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i71 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i72 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i73 = sub i64 %sub.ptr.lhs.cast.i71, %sub.ptr.rhs.cast.i72
-  %sub.ptr.div.i74 = ashr exact i64 %sub.ptr.sub.i73, 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e_idx) #18
   %_M_finish.i75 = getelementptr inbounds %"struct.std::_Vector_base<std::reference_wrapper<duckdb::Expression>, std::allocator<std::reference_wrapper<duckdb::Expression>>>::_Vector_impl_data", ptr %entries, i64 0, i32 1
   store i64 0, ptr %e_idx, align 8, !tbaa !87
@@ -3446,14 +3445,13 @@ lpad23:                                           ; preds = %invoke.cont22
 
 if.else:                                          ; preds = %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit
   %27 = load ptr, ptr %bindings, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds %"class.std::reference_wrapper", ptr %27, i64 %sub.ptr.div.i74
+  %add.ptr.i = getelementptr inbounds i8, ptr %27, i64 %sub.ptr.sub.i73
   %28 = load ptr, ptr %_M_finish.i70, align 8, !tbaa !3
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i20.i = sub i64 %sub.ptr.lhs.cast.i18.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i21.i = ashr exact i64 %sub.ptr.sub.i20.i, 3
-  %add.ptr.i22.i = getelementptr inbounds %"class.std::reference_wrapper", ptr %27, i64 %sub.ptr.div.i21.i
-  %cmp.i.not.i.i92 = icmp eq i64 %sub.ptr.div.i74, %sub.ptr.div.i21.i
+  %add.ptr.i22.i = getelementptr inbounds i8, ptr %27, i64 %sub.ptr.sub.i20.i
+  %cmp.i.not.i.i92 = icmp eq i64 %sub.ptr.sub.i73, %sub.ptr.sub.i20.i
   br i1 %cmp.i.not.i.i92, label %invoke.cont41, label %if.then.i.i93
 
 if.then.i.i93:                                    ; preds = %if.else
@@ -3473,8 +3471,7 @@ if.end.i.i94:                                     ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb10ExpressionEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i ], [ %sub.ptr.lhs.cast.i18.i, %if.then.i.i93 ]
   %29 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb10ExpressionEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i ], [ %28, %if.then.i.i93 ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %add.ptr.i23.i = getelementptr inbounds %"class.std::reference_wrapper", ptr %add.ptr.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i23.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %29, %add.ptr.i23.i
   br i1 %tobool.not.i.i.i, label %invoke.cont41, label %invoke.cont.i.i.i
 

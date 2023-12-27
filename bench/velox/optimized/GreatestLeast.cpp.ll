@@ -1139,7 +1139,7 @@ invoke.cont36.i:                                  ; preds = %invoke.cont.i41
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont36.i
   store ptr %call5.i.i.i.i215.i, ptr %types.i, align 8, !noalias !4
-  %add.ptr.i212.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i215.i, i64 10
+  %add.ptr.i212.i = getelementptr inbounds i8, ptr %call5.i.i.i.i215.i, i64 320
   %_M_end_of_storage.i213.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %types.i, i64 0, i32 2
   store ptr %add.ptr.i212.i, ptr %_M_end_of_storage.i213.i, align 8, !noalias !4
   br label %for.body.i.i.i.i.i.i
@@ -2731,7 +2731,7 @@ invoke.cont36.i:                                  ; preds = %invoke.cont.i41
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont36.i
   store ptr %call5.i.i.i.i215.i, ptr %types.i, align 8, !noalias !14
-  %add.ptr.i212.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i215.i, i64 10
+  %add.ptr.i212.i = getelementptr inbounds i8, ptr %call5.i.i.i.i215.i, i64 320
   %_M_end_of_storage.i213.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %types.i, i64 0, i32 2
   store ptr %add.ptr.i212.i, ptr %_M_end_of_storage.i213.i, align 8, !noalias !14
   br label %for.body.i.i.i.i.i.i
@@ -5411,8 +5411,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIbSaIb
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
-  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i20, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i20
   %cmp20.i.i.i.i.i.not.i = icmp eq i32 %__position.coerce1, 0
   br i1 %cmp20.i.i.i.i.i.not.i, label %_ZNSt13_Bit_iteratorppEi.exit, label %for.body.i.i.i.i.i.preheader.i
 

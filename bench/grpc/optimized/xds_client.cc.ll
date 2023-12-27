@@ -6874,21 +6874,20 @@ call.i.i.noexc:                                   ; preds = %if.then.i65
   %sub.ptr.lhs.cast.i.i.i106 = ptrtoint ptr %68 to i64
   %sub.ptr.rhs.cast.i.i.i107 = ptrtoint ptr %69 to i64
   %sub.ptr.sub.i.i.i108 = sub i64 %sub.ptr.lhs.cast.i.i.i106, %sub.ptr.rhs.cast.i.i.i107
-  %sub.ptr.div.i.i.i109 = ashr exact i64 %sub.ptr.sub.i.i.i108, 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %query_params.i103, i8 0, i64 24, i1 false), !noalias !43
   %cmp.not.i.i.i.i.i110 = icmp eq ptr %68, %69
   br i1 %cmp.not.i.i.i.i.i110, label %invoke.cont.i.i118.thread, label %cond.true.i.i.i.i.i111
 
 invoke.cont.i.i118.thread:                        ; preds = %.noexc128
   %_M_finish.i.i.i.i120189 = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::ResourceTimer", ptr %call.i.i70, i64 0, i32 2, i32 1, i32 1, i32 0, i32 0, i32 0, i32 1
-  %add.ptr.i.i.i.i121190 = getelementptr inbounds %"struct.grpc_core::URI::QueryParam", ptr null, i64 %sub.ptr.div.i.i.i109
+  %add.ptr.i.i.i.i121190 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i108
   %_M_end_of_storage.i.i.i.i122191 = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::ResourceTimer", ptr %call.i.i70, i64 0, i32 2, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query_params.i103, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i121190, ptr %_M_end_of_storage.i.i.i.i122191, align 8, !noalias !43
   br label %_ZN9grpc_core14MakeOrphanableINS_9XdsClient12ChannelState12AdsCallState13ResourceTimerEJRPKNS_15XdsResourceTypeERKNS1_15XdsResourceNameEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_.exit.i
 
 cond.true.i.i.i.i.i111:                           ; preds = %.noexc128
-  %cmp.i.i.i.i.i.i.i112 = icmp ugt i64 %sub.ptr.div.i.i.i109, 144115188075855871
+  %cmp.i.i.i.i.i.i.i112 = icmp ugt i64 %sub.ptr.sub.i.i.i108, 9223372036854775744
   br i1 %cmp.i.i.i.i.i.i.i112, label %if.then3.i.i.i.i.i.i.i126, label %_ZNSt16allocator_traitsISaIN9grpc_core3URI10QueryParamEEE8allocateERS3_m.exit.i.i.i.i.i113
 
 if.then3.i.i.i.i.i.i.i126:                        ; preds = %cond.true.i.i.i.i.i111
@@ -6906,7 +6905,7 @@ invoke.cont.i.i118:                               ; preds = %_ZNSt16allocator_tr
   store ptr %call5.i.i.i.i2.i6.i2.i114, ptr %query_params.i103, align 8, !noalias !43
   %_M_finish.i.i.i.i120 = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::ResourceTimer", ptr %call.i.i70, i64 0, i32 2, i32 1, i32 1, i32 0, i32 0, i32 0, i32 1
   store ptr %call5.i.i.i.i2.i6.i2.i114, ptr %_M_finish.i.i.i.i120, align 8, !noalias !43
-  %add.ptr.i.i.i.i121 = getelementptr inbounds %"struct.grpc_core::URI::QueryParam", ptr %call5.i.i.i.i2.i6.i2.i114, i64 %sub.ptr.div.i.i.i109
+  %add.ptr.i.i.i.i121 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i2.i114, i64 %sub.ptr.sub.i.i.i108
   %_M_end_of_storage.i.i.i.i122 = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::ResourceTimer", ptr %call.i.i70, i64 0, i32 2, i32 1, i32 1, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i.i.i.i121, ptr %_M_end_of_storage.i.i.i.i122, align 8, !noalias !43
   br label %for.body.i142
@@ -25410,13 +25409,11 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
   %sub.ptr.lhs.cast1.i = ptrtoint ptr %__last2 to i64
   %sub.ptr.rhs.cast2.i = ptrtoint ptr %__first2 to i64
   %sub.ptr.sub3.i = sub i64 %sub.ptr.lhs.cast1.i, %sub.ptr.rhs.cast2.i
-  %sub.ptr.div4.i = ashr exact i64 %sub.ptr.sub3.i, 6
-  %cmp.i = icmp slt i64 %sub.ptr.div4.i, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::URI::QueryParam", ptr %__first1, i64 %sub.ptr.div4.i
+  %cmp.i = icmp slt i64 %sub.ptr.sub3.i, %sub.ptr.sub.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %__first1, i64 %sub.ptr.sub3.i
   %cond.i = select i1 %cmp.i, ptr %add.ptr.i, ptr %__last1
   %cmp.not28 = icmp eq ptr %cond.i, %__first1
   br i1 %cmp.not28, label %for.end, label %for.body

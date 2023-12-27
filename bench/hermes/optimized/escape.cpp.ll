@@ -565,7 +565,7 @@ if.end.i.i.i.i:                                   ; preds = %for.end
   store i64 %conv.i.i178, ptr %67, align 8, !alias.scope !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %66, i64 %add.ptr.i.idx.i.i, i1 false)
   store i64 %conv.i.i178, ptr %_M_string_length.i.i.i, align 8, !alias.scope !4
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i.i.i.i, i64 %conv.i.i178
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #11
   %68 = load ptr, ptr %ref.tmp.i, align 8
@@ -2347,7 +2347,7 @@ if.end.i.i.i.i:                                   ; preds = %while.end
   store i64 %conv.i.i793, ptr %210, align 8, !alias.scope !10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %209, i64 %add.ptr.i.idx.i.i, i1 false)
   store i64 %conv.i.i793, ptr %_M_string_length.i.i.i, align 8, !alias.scope !10
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i.i.i.i, i64 %conv.i.i793
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #11
   %211 = load ptr, ptr %ref.tmp.i, align 8
@@ -2918,7 +2918,7 @@ if.end.i.i.i.i:                                   ; preds = %for.end53
   store i64 %conv.i.i165, ptr %53, align 8, !alias.scope !16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %51, i64 %add.ptr.i.idx.i.i, i1 false)
   store i64 %conv.i.i165, ptr %_M_string_length.i.i.i, align 8, !alias.scope !16
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i.i.i.i, i64 %conv.i.i165
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #11
   %54 = load ptr, ptr %ref.tmp.i, align 8
@@ -4057,7 +4057,7 @@ if.end.i.i.i.i:                                   ; preds = %for.end149
   store i64 %conv.i.i400, ptr %119, align 8, !alias.scope !24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %117, i64 %add.ptr.i.idx.i.i, i1 false)
   store i64 %conv.i.i400, ptr %_M_string_length.i.i.i, align 8, !alias.scope !24
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i.i.i.i, i64 %conv.i.i400
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #11
   %120 = load ptr, ptr %ref.tmp.i, align 8
@@ -4260,7 +4260,6 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %I to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
@@ -4345,7 +4344,7 @@ _ZN4llvh15SmallVectorImplIDsE6appendIN6hermes2vm10StringView14const_iteratorEvEE
   %9 = trunc i64 %retval.0.i.i.i.i to i32
   %conv.i10.i = add i32 %8, %9
   store i32 %conv.i10.i, ptr %Size.i, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %7, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4368,7 +4367,7 @@ _ZN4llvh15SmallVectorImplIDsE7reserveEm.exit:     ; preds = %if.end, %if.then.i2
   %conv.i30.pre-phi = phi i64 [ %conv.i, %if.end ], [ %.pre86, %if.then.i27 ]
   %11 = phi i32 [ %1, %if.end ], [ %.pre82, %if.then.i27 ]
   %12 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i27 ]
-  %add.ptr10 = getelementptr inbounds i16, ptr %12, i64 %sub.ptr.div
+  %add.ptr10 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub
   %add.ptr.i83 = getelementptr inbounds i16, ptr %12, i64 %conv.i30.pre-phi
   %sub.ptr.lhs.cast12 = ptrtoint ptr %add.ptr.i83 to i64
   %sub.ptr.rhs.cast13 = ptrtoint ptr %add.ptr10 to i64
@@ -4462,7 +4461,7 @@ if.end31:                                         ; preds = %_ZN4llvh15SmallVect
   %20 = trunc i64 %retval.0.i.i.i.i to i32
   %conv.i59 = add i32 %11, %20
   store i32 %conv.i59, ptr %Size.i, align 8
-  %cmp.not.i.i = icmp eq i64 %sub.ptr.div, %conv.i30.pre-phi
+  %cmp.not.i.i = icmp eq ptr %add.ptr10, %add.ptr.i83
   br i1 %cmp.not.i.i, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end31

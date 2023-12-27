@@ -541,7 +541,7 @@ _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_delete
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::unique_ptr<duckdb::BaseStatistics>, std::allocator<duckdb::unique_ptr<duckdb::BaseStatistics>>>::_Vector_impl_data", ptr %stored_group_stats, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i636, i8 0, i64 %sub.ptr.sub.i, i1 false), !tbaa !36
   store ptr %call5.i.i.i.i636, ptr %stored_group_stats, align 8, !tbaa !38
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.49", ptr %call5.i.i.i.i636, i64 %sub.ptr.div.i
+  %add.ptr37.i = getelementptr inbounds i8, ptr %call5.i.i.i.i636, i64 %sub.ptr.sub.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i450, align 8, !tbaa !40
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !41
   br label %for.body72

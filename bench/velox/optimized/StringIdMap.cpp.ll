@@ -502,13 +502,15 @@ if.else.i151:                                     ; preds = %land.rhs.i.i.i, %if
   %arrayidx.i.i.i.i139.le = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i138, i64 0, i64 %conv9.i128
   %28 = load i32, ptr %arrayidx.i.i.i.i139.le, align 4
   %idx.ext8.i152 = zext i32 %28 to i64
+  %add.ptr9.i153.idx = mul nuw nsw i64 %idx.ext8.i152, 40
   br label %call.i158.noexc
 
 call.i158.noexc:                                  ; preds = %if.end20.i123, %while.end.i120, %if.else.i151
-  %sub.ptr.sub.i.i = phi i64 [ %idx.ext8.i152, %if.else.i151 ], [ 0, %while.end.i120 ], [ 0, %if.end20.i123 ]
-  %conv3.i = trunc i64 %sub.ptr.sub.i.i to i32
+  %sub.ptr.sub.i.i = phi i64 [ %add.ptr9.i153.idx, %if.else.i151 ], [ 0, %while.end.i120 ], [ 0, %if.end20.i123 ]
+  %sub.ptr.div.i.i = udiv exact i64 %sub.ptr.sub.i.i, 40
+  %conv3.i = trunc i64 %sub.ptr.div.i.i to i32
   %29 = load ptr, ptr %stringToId_, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.std::pair", ptr %29, i64 %sub.ptr.sub.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %29, i64 %sub.ptr.sub.i.i
   %call.i.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #22
   %call2.i.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #22
   %call.i2.i.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i.i.i.i.i, i64 noundef %call2.i.i.i.i.i, i64 noundef 3339675911)

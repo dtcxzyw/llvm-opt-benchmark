@@ -1747,7 +1747,7 @@ if.then.i13.i:                                    ; preds = %call5.i.i.i.i.i.noe
 
 _ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %if.then.i13.i, %call5.i.i.i.i.i.noexc
   store ptr %call5.i.i.i.i.i121, ptr %fields, align 8
-  %add.ptr.i120 = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i121, i64 1
+  %add.ptr.i120 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i121, i64 8
   store ptr %add.ptr.i120, ptr %_M_finish.i118, align 8
   store ptr %add.ptr.i120, ptr %_M_end_of_storage.i.i, align 8
   br label %if.end18
@@ -1762,7 +1762,7 @@ if.else.i:                                        ; preds = %invoke.cont13
 
 if.then25.i:                                      ; preds = %if.else.i
   %.pre.i = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %tobool.not.i19.i = icmp eq ptr %.pre.i, %add.ptr.i.i.i.i.i.i
   br i1 %tobool.not.i19.i, label %if.end18, label %invoke.cont.i.i
 
@@ -1771,7 +1771,7 @@ invoke.cont.i.i:                                  ; preds = %if.then25.i
   br label %if.end18
 
 _ZSt22__uninitialized_copy_aIPKPKN6google8protobuf15FieldDescriptorEPS4_S4_ET0_T_S9_S8_RSaIT1_E.exit.i: ; preds = %if.else.i
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end18
 

@@ -2920,7 +2920,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEC2
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEC2ERKS6_.exit21
   store ptr %call5.i.i.i.i5.i, ptr %ref.tmp1, align 8
-  %add.ptr.i4.i = getelementptr inbounds %"class.std::shared_ptr.5", ptr %call5.i.i.i.i5.i, i64 3
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i, i64 48
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::functions::prestosql::(anonymous namespace)::Matcher>, std::allocator<std::shared_ptr<facebook::velox::functions::prestosql::(anonymous namespace)::Matcher>>>::_Vector_impl_data", ptr %ref.tmp1, i64 0, i32 2
   store ptr %add.ptr.i4.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -3168,7 +3168,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEC2
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEC2ERKS6_.exit11
   store ptr %call5.i.i.i.i5.i, ptr %ref.tmp1, align 8
-  %add.ptr.i4.i = getelementptr inbounds %"class.std::shared_ptr.5", ptr %call5.i.i.i.i5.i, i64 2
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::functions::prestosql::(anonymous namespace)::Matcher>, std::allocator<std::shared_ptr<facebook::velox::functions::prestosql::(anonymous namespace)::Matcher>>>::_Vector_impl_data", ptr %ref.tmp1, i64 0, i32 2
   store ptr %add.ptr.i4.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i

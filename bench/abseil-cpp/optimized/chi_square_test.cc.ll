@@ -1744,176 +1744,176 @@ entry:
   %expected = getelementptr inbounds %struct.anon.27, ptr %specs, i64 0, i32 1
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   store ptr %call5.i.i.i.i2.i, ptr %expected, align 8
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i, i64 10
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 40
   %_M_end_of_storage.i.i = getelementptr inbounds %struct.anon.27, ptr %specs, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(40) @constinit, i64 40, i1 false)
   %_M_finish.i.i = getelementptr inbounds %struct.anon.27, ptr %specs, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 16
   %call5.i.i.i.i2.i33 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-          to label %invoke.cont12 unwind label %if.then.i.i.i140
+          to label %invoke.cont12 unwind label %if.then.i.i.i149
 
 invoke.cont12:                                    ; preds = %entry
   %actual = getelementptr inbounds %struct.anon.27, ptr %specs, i64 0, i32 2
   store ptr %call5.i.i.i.i2.i33, ptr %actual, align 16
-  %add.ptr.i1.i38 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i33, i64 10
+  %add.ptr.i1.i38 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i33, i64 40
   %_M_end_of_storage.i.i39 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i1.i38, ptr %_M_end_of_storage.i.i39, align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i33, ptr noundef nonnull align 4 dereferenceable(40) @constinit.45, i64 40, i1 false)
-  %_M_finish.i.i40 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  store ptr %add.ptr.i1.i38, ptr %_M_finish.i.i40, align 8
+  %_M_finish.i.i41 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  store ptr %add.ptr.i1.i38, ptr %_M_finish.i.i41, align 8
   %arrayinit.element = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1
   store i32 151, ptr %arrayinit.element, align 8
   %expected14 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %expected14, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i43 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-          to label %invoke.cont23 unwind label %lpad.i44
+  %call5.i.i.i.i2.i44 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+          to label %invoke.cont23 unwind label %lpad.i45
 
-lpad.i44:                                         ; preds = %invoke.cont12
+lpad.i45:                                         ; preds = %invoke.cont12
   %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup128
 
 invoke.cont23:                                    ; preds = %invoke.cont12
-  store ptr %call5.i.i.i.i2.i43, ptr %expected14, align 16
-  %add.ptr.i1.i48 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i43, i64 10
-  %_M_end_of_storage.i.i49 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 1, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i1.i48, ptr %_M_end_of_storage.i.i49, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i43, ptr noundef nonnull align 4 dereferenceable(40) @constinit.46, i64 40, i1 false)
-  %_M_finish.i.i50 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 1, i32 0, i32 0, i32 0, i32 1
-  store ptr %add.ptr.i1.i48, ptr %_M_finish.i.i50, align 8
+  store ptr %call5.i.i.i.i2.i44, ptr %expected14, align 16
+  %add.ptr.i1.i49 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i44, i64 40
+  %_M_end_of_storage.i.i50 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 1, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i1.i49, ptr %_M_end_of_storage.i.i50, align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i44, ptr noundef nonnull align 4 dereferenceable(40) @constinit.46, i64 40, i1 false)
+  %_M_finish.i.i52 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 1, i32 0, i32 0, i32 0, i32 1
+  store ptr %add.ptr.i1.i49, ptr %_M_finish.i.i52, align 8
   %actual24 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %actual24, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i53 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-          to label %invoke.cont33 unwind label %if.then.i.i.i136
+  %call5.i.i.i.i2.i55 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+          to label %invoke.cont33 unwind label %if.then.i.i.i145
 
 invoke.cont33:                                    ; preds = %invoke.cont23
-  store ptr %call5.i.i.i.i2.i53, ptr %actual24, align 8
-  %add.ptr.i1.i58 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i53, i64 10
-  %_M_end_of_storage.i.i59 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 2, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i1.i58, ptr %_M_end_of_storage.i.i59, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i53, ptr noundef nonnull align 4 dereferenceable(40) @constinit.47, i64 40, i1 false)
-  %_M_finish.i.i60 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 2, i32 0, i32 0, i32 0, i32 1
-  store ptr %add.ptr.i1.i58, ptr %_M_finish.i.i60, align 16
+  store ptr %call5.i.i.i.i2.i55, ptr %actual24, align 8
+  %add.ptr.i1.i60 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i55, i64 40
+  %_M_end_of_storage.i.i61 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 2, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i1.i60, ptr %_M_end_of_storage.i.i61, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i55, ptr noundef nonnull align 4 dereferenceable(40) @constinit.47, i64 40, i1 false)
+  %_M_finish.i.i63 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 1, i32 2, i32 0, i32 0, i32 0, i32 1
+  store ptr %add.ptr.i1.i60, ptr %_M_finish.i.i63, align 16
   %arrayinit.element35 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2
   store i32 154, ptr %arrayinit.element35, align 16
   %expected37 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %expected37, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i63 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-          to label %invoke.cont46 unwind label %lpad.i64
+  %call5.i.i.i.i2.i66 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+          to label %invoke.cont46 unwind label %lpad.i67
 
-lpad.i64:                                         ; preds = %invoke.cont33
+lpad.i67:                                         ; preds = %invoke.cont33
   %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup128
 
 invoke.cont46:                                    ; preds = %invoke.cont33
-  store ptr %call5.i.i.i.i2.i63, ptr %expected37, align 8
-  %add.ptr.i1.i68 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i63, i64 10
-  %_M_end_of_storage.i.i69 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 1, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i1.i68, ptr %_M_end_of_storage.i.i69, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i63, ptr noundef nonnull align 4 dereferenceable(40) @constinit.49, i64 40, i1 false)
-  %_M_finish.i.i70 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 1, i32 0, i32 0, i32 0, i32 1
-  store ptr %add.ptr.i1.i68, ptr %_M_finish.i.i70, align 16
+  store ptr %call5.i.i.i.i2.i66, ptr %expected37, align 8
+  %add.ptr.i1.i71 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i66, i64 40
+  %_M_end_of_storage.i.i72 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 1, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i1.i71, ptr %_M_end_of_storage.i.i72, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i66, ptr noundef nonnull align 4 dereferenceable(40) @constinit.49, i64 40, i1 false)
+  %_M_finish.i.i74 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 1, i32 0, i32 0, i32 0, i32 1
+  store ptr %add.ptr.i1.i71, ptr %_M_finish.i.i74, align 16
   %actual47 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %actual47, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i73 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-          to label %invoke.cont56 unwind label %if.then.i.i.i132
+  %call5.i.i.i.i2.i77 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+          to label %invoke.cont56 unwind label %if.then.i.i.i141
 
 invoke.cont56:                                    ; preds = %invoke.cont46
-  store ptr %call5.i.i.i.i2.i73, ptr %actual47, align 16
-  %add.ptr.i1.i78 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i73, i64 10
-  %_M_end_of_storage.i.i79 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 2, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i1.i78, ptr %_M_end_of_storage.i.i79, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i73, ptr noundef nonnull align 4 dereferenceable(40) @constinit.49, i64 40, i1 false)
-  %_M_finish.i.i80 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 2, i32 0, i32 0, i32 0, i32 1
-  store ptr %add.ptr.i1.i78, ptr %_M_finish.i.i80, align 8
+  store ptr %call5.i.i.i.i2.i77, ptr %actual47, align 16
+  %add.ptr.i1.i82 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i77, i64 40
+  %_M_end_of_storage.i.i83 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 2, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i1.i82, ptr %_M_end_of_storage.i.i83, align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %call5.i.i.i.i2.i77, ptr noundef nonnull align 4 dereferenceable(40) @constinit.49, i64 40, i1 false)
+  %_M_finish.i.i85 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 2, i32 2, i32 0, i32 0, i32 0, i32 1
+  store ptr %add.ptr.i1.i82, ptr %_M_finish.i.i85, align 8
   %arrayinit.element58 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3
   store i32 157, ptr %arrayinit.element58, align 8
   %expected60 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %expected60, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i83 = invoke noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #17
-          to label %invoke.cont69 unwind label %lpad.i84
+  %call5.i.i.i.i2.i88 = invoke noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #17
+          to label %invoke.cont69 unwind label %lpad.i89
 
-lpad.i84:                                         ; preds = %invoke.cont56
+lpad.i89:                                         ; preds = %invoke.cont56
   %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup128
 
 invoke.cont69:                                    ; preds = %invoke.cont56
-  store ptr %call5.i.i.i.i2.i83, ptr %expected60, align 16
-  %add.ptr.i1.i88 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i83, i64 7
-  %_M_end_of_storage.i.i89 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 1, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i1.i88, ptr %_M_end_of_storage.i.i89, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call5.i.i.i.i2.i83, ptr noundef nonnull align 4 dereferenceable(28) @constinit.50, i64 28, i1 false)
-  %_M_finish.i.i90 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 1, i32 0, i32 0, i32 0, i32 1
-  store ptr %add.ptr.i1.i88, ptr %_M_finish.i.i90, align 8
+  store ptr %call5.i.i.i.i2.i88, ptr %expected60, align 16
+  %add.ptr.i1.i93 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i88, i64 28
+  %_M_end_of_storage.i.i94 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 1, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i1.i93, ptr %_M_end_of_storage.i.i94, align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call5.i.i.i.i2.i88, ptr noundef nonnull align 4 dereferenceable(28) @constinit.50, i64 28, i1 false)
+  %_M_finish.i.i96 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 1, i32 0, i32 0, i32 0, i32 1
+  store ptr %add.ptr.i1.i93, ptr %_M_finish.i.i96, align 8
   %actual70 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %actual70, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i93 = invoke noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #17
-          to label %invoke.cont79 unwind label %if.then.i.i.i128
+  %call5.i.i.i.i2.i99 = invoke noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #17
+          to label %invoke.cont79 unwind label %if.then.i.i.i137
 
 invoke.cont79:                                    ; preds = %invoke.cont69
-  store ptr %call5.i.i.i.i2.i93, ptr %actual70, align 8
-  %add.ptr.i1.i98 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i93, i64 7
-  %_M_end_of_storage.i.i99 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 2, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i1.i98, ptr %_M_end_of_storage.i.i99, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call5.i.i.i.i2.i93, ptr noundef nonnull align 4 dereferenceable(28) @constinit.51, i64 28, i1 false)
-  %_M_finish.i.i100 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 2, i32 0, i32 0, i32 0, i32 1
-  store ptr %add.ptr.i1.i98, ptr %_M_finish.i.i100, align 16
+  store ptr %call5.i.i.i.i2.i99, ptr %actual70, align 8
+  %add.ptr.i1.i104 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i99, i64 28
+  %_M_end_of_storage.i.i105 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 2, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i1.i104, ptr %_M_end_of_storage.i.i105, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call5.i.i.i.i2.i99, ptr noundef nonnull align 4 dereferenceable(28) @constinit.51, i64 28, i1 false)
+  %_M_finish.i.i107 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 3, i32 2, i32 0, i32 0, i32 0, i32 1
+  store ptr %add.ptr.i1.i104, ptr %_M_finish.i.i107, align 16
   %arrayinit.element81 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4
   store i32 158, ptr %arrayinit.element81, align 16
   %expected83 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %expected83, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i103 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #17
-          to label %invoke.cont92 unwind label %lpad.i104
+  %call5.i.i.i.i2.i110 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #17
+          to label %invoke.cont92 unwind label %lpad.i111
 
-lpad.i104:                                        ; preds = %invoke.cont79
+lpad.i111:                                        ; preds = %invoke.cont79
   %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup128
 
 invoke.cont92:                                    ; preds = %invoke.cont79
-  store ptr %call5.i.i.i.i2.i103, ptr %expected83, align 8
-  %add.ptr.i1.i108 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i103, i64 1
-  %_M_end_of_storage.i.i109 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 1, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i1.i108, ptr %_M_end_of_storage.i.i109, align 8
-  store i32 1, ptr %call5.i.i.i.i2.i103, align 4
-  %_M_finish.i.i110 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 1, i32 0, i32 0, i32 0, i32 1
-  store ptr %add.ptr.i1.i108, ptr %_M_finish.i.i110, align 16
+  store ptr %call5.i.i.i.i2.i110, ptr %expected83, align 8
+  %add.ptr.i1.i115 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i110, i64 4
+  %_M_end_of_storage.i.i116 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 1, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i1.i115, ptr %_M_end_of_storage.i.i116, align 8
+  store i32 1, ptr %call5.i.i.i.i2.i110, align 4
+  %_M_finish.i.i118 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  store ptr %add.ptr.i1.i115, ptr %_M_finish.i.i118, align 16
   %actual93 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %actual93, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i113 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #17
+  %call5.i.i.i.i2.i121 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #17
           to label %invoke.cont102 unwind label %if.then.i.i.i
 
 invoke.cont102:                                   ; preds = %invoke.cont92
-  store ptr %call5.i.i.i.i2.i113, ptr %actual93, align 16
-  %add.ptr.i1.i118 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i113, i64 1
-  %_M_end_of_storage.i.i119 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 2, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i1.i118, ptr %_M_end_of_storage.i.i119, align 16
-  store i32 23, ptr %call5.i.i.i.i2.i113, align 4
-  %_M_finish.i.i120 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 2, i32 0, i32 0, i32 0, i32 1
-  store ptr %add.ptr.i1.i118, ptr %_M_finish.i.i120, align 8
+  store ptr %call5.i.i.i.i2.i121, ptr %actual93, align 16
+  %add.ptr.i1.i126 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i121, i64 4
+  %_M_end_of_storage.i.i127 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 2, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i1.i126, ptr %_M_end_of_storage.i.i127, align 16
+  store i32 23, ptr %call5.i.i.i.i2.i121, align 4
+  %_M_finish.i.i129 = getelementptr inbounds %struct.anon.27, ptr %specs, i64 4, i32 2, i32 0, i32 0, i32 0, i32 1
+  store ptr %add.ptr.i1.i126, ptr %_M_finish.i.i129, align 8
   %add.ptr = getelementptr inbounds %struct.anon.27, ptr %specs, i64 5
   %message_.i.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont102, %_ZN7testing15AssertionResultD2Ev.exit
-  %__begin1.0.ptr175 = phi ptr [ %specs, %invoke.cont102 ], [ %__begin1.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %__begin1.0.idx174 = phi i64 [ 0, %invoke.cont102 ], [ %__begin1.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
-  invoke void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_161, ptr noundef nonnull @.str.3, i32 noundef 161, ptr noundef nonnull align 4 dereferenceable(4) %__begin1.0.ptr175)
+  %__begin1.0.ptr184 = phi ptr [ %specs, %invoke.cont102 ], [ %__begin1.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %__begin1.0.idx183 = phi i64 [ 0, %invoke.cont102 ], [ %__begin1.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  invoke void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_161, ptr noundef nonnull @.str.3, i32 noundef 161, ptr noundef nonnull align 4 dereferenceable(4) %__begin1.0.ptr184)
           to label %for.cond138.preheader unwind label %lpad136
 
 for.cond138.preheader:                            ; preds = %for.body
-  %expected139 = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr175, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr175, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %expected139 = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr184, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr184, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %4 = load ptr, ptr %_M_finish.i, align 8
   %5 = load ptr, ptr %expected139, align 8
-  %cmp140168.not = icmp eq ptr %4, %5
-  br i1 %cmp140168.not, label %for.cond138.preheader.for.end_crit_edge, label %for.body141.lr.ph
+  %cmp140177.not = icmp eq ptr %4, %5
+  br i1 %cmp140177.not, label %for.cond138.preheader.for.end_crit_edge, label %for.body141.lr.ph
 
 for.cond138.preheader.for.end_crit_edge:          ; preds = %for.cond138.preheader
-  %actual154.phi.trans.insert = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr175, i64 0, i32 2
+  %actual154.phi.trans.insert = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr184, i64 0, i32 2
   %.pre = load ptr, ptr %actual154.phi.trans.insert, align 8
   br label %for.end
 
@@ -1922,24 +1922,24 @@ for.body141.lr.ph:                                ; preds = %for.cond138.prehead
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %actual142 = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr175, i64 0, i32 2
+  %actual142 = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr184, i64 0, i32 2
   %6 = load ptr, ptr %actual142, align 8
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body141
 
 for.body141:                                      ; preds = %for.body141.lr.ph, %for.body141
   %indvars.iv = phi i64 [ 0, %for.body141.lr.ph ], [ %indvars.iv.next, %for.body141 ]
-  %chi_square.0169 = phi double [ 0.000000e+00, %for.body141.lr.ph ], [ %add, %for.body141 ]
+  %chi_square.0178 = phi double [ 0.000000e+00, %for.body141.lr.ph ], [ %add, %for.body141 ]
   %add.ptr.i = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
   %7 = load i32, ptr %add.ptr.i, align 4
-  %add.ptr.i123 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
-  %8 = load i32, ptr %add.ptr.i123, align 4
+  %add.ptr.i132 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %8 = load i32, ptr %add.ptr.i132, align 4
   %sub = sub nsw i32 %7, %8
   %conv148 = sitofp i32 %sub to double
   %mul = fmul double %conv148, %conv148
   %conv152 = sitofp i32 %8 to double
   %div = fdiv double %mul, %conv152
-  %add = fadd double %chi_square.0169, %div
+  %add = fadd double %chi_square.0178, %div
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
   br i1 %exitcond.not, label %for.end, label %for.body141, !llvm.loop !5
@@ -1947,36 +1947,36 @@ for.body141:                                      ; preds = %for.body141.lr.ph, 
 if.then.i.i.i:                                    ; preds = %invoke.cont92
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i103) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i110) #16
   br label %ehcleanup128
 
-if.then.i.i.i128:                                 ; preds = %invoke.cont69
+if.then.i.i.i137:                                 ; preds = %invoke.cont69
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i83) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i88) #16
   br label %ehcleanup128
 
-if.then.i.i.i132:                                 ; preds = %invoke.cont46
+if.then.i.i.i141:                                 ; preds = %invoke.cont46
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i63) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i66) #16
   br label %ehcleanup128
 
-if.then.i.i.i136:                                 ; preds = %invoke.cont23
+if.then.i.i.i145:                                 ; preds = %invoke.cont23
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i43) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i44) #16
   br label %ehcleanup128
 
-if.then.i.i.i140:                                 ; preds = %entry
+if.then.i.i.i149:                                 ; preds = %entry
   %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i) #16
   br label %eh.resume
 
-ehcleanup128:                                     ; preds = %lpad.i104, %lpad.i84, %lpad.i64, %lpad.i44, %if.then.i.i.i, %if.then.i.i.i128, %if.then.i.i.i132, %if.then.i.i.i136
-  %.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %12, %if.then.i.i.i136 ], [ %0, %lpad.i44 ], [ %11, %if.then.i.i.i132 ], [ %1, %lpad.i64 ], [ %10, %if.then.i.i.i128 ], [ %2, %lpad.i84 ], [ %9, %if.then.i.i.i ], [ %3, %lpad.i104 ]
-  %arrayinit.endOfInit.6.ph = phi ptr [ %arrayinit.element, %if.then.i.i.i136 ], [ %arrayinit.element, %lpad.i44 ], [ %arrayinit.element35, %if.then.i.i.i132 ], [ %arrayinit.element35, %lpad.i64 ], [ %arrayinit.element58, %if.then.i.i.i128 ], [ %arrayinit.element58, %lpad.i84 ], [ %arrayinit.element81, %if.then.i.i.i ], [ %arrayinit.element81, %lpad.i104 ]
+ehcleanup128:                                     ; preds = %lpad.i111, %lpad.i89, %lpad.i67, %lpad.i45, %if.then.i.i.i, %if.then.i.i.i137, %if.then.i.i.i141, %if.then.i.i.i145
+  %.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %12, %if.then.i.i.i145 ], [ %0, %lpad.i45 ], [ %11, %if.then.i.i.i141 ], [ %1, %lpad.i67 ], [ %10, %if.then.i.i.i137 ], [ %2, %lpad.i89 ], [ %9, %if.then.i.i.i ], [ %3, %lpad.i111 ]
+  %arrayinit.endOfInit.6.ph = phi ptr [ %arrayinit.element, %if.then.i.i.i145 ], [ %arrayinit.element, %lpad.i45 ], [ %arrayinit.element35, %if.then.i.i.i141 ], [ %arrayinit.element35, %lpad.i67 ], [ %arrayinit.element58, %if.then.i.i.i137 ], [ %arrayinit.element58, %lpad.i89 ], [ %arrayinit.element81, %if.then.i.i.i ], [ %arrayinit.element81, %lpad.i111 ]
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %ehcleanup128, %arraydestroy.body
@@ -1994,8 +1994,8 @@ lpad136:                                          ; preds = %for.body
 for.end:                                          ; preds = %for.body141, %for.cond138.preheader.for.end_crit_edge
   %15 = phi ptr [ %.pre, %for.cond138.preheader.for.end_crit_edge ], [ %6, %for.body141 ]
   %chi_square.0.lcssa = phi double [ 0.000000e+00, %for.cond138.preheader.for.end_crit_edge ], [ %add, %for.body141 ]
-  %_M_finish.i.i143 = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr175, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %_M_finish.i.i143, align 8
+  %_M_finish.i.i152 = getelementptr inbounds %struct.anon.27, ptr %__begin1.0.ptr184, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %16 = load ptr, ptr %_M_finish.i.i152, align 8
   %cmp.i12.i = icmp ne ptr %15, %16
   %cmp.i413.i = icmp ne ptr %5, %4
   %or.cond14.i = and i1 %cmp.i413.i, %cmp.i12.i
@@ -2102,24 +2102,24 @@ lpad189:                                          ; preds = %invoke.cont188
 ehcleanup192:                                     ; preds = %lpad189, %lpad185
   %.pn27 = phi { ptr, i32 } [ %27, %lpad189 ], [ %26, %lpad185 ]
   %28 = load ptr, ptr %ref.tmp181, align 8
-  %cmp.not.i.i145 = icmp eq ptr %28, null
-  br i1 %cmp.not.i.i145, label %_ZN7testing7MessageD2Ev.exit149, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i146
+  %cmp.not.i.i154 = icmp eq ptr %28, null
+  br i1 %cmp.not.i.i154, label %_ZN7testing7MessageD2Ev.exit158, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i155
 
-_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i146: ; preds = %ehcleanup192
-  %vtable.i.i.i147 = load ptr, ptr %28, align 8
-  %vfn.i.i.i148 = getelementptr inbounds ptr, ptr %vtable.i.i.i147, i64 1
-  %29 = load ptr, ptr %vfn.i.i.i148, align 8
+_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i155: ; preds = %ehcleanup192
+  %vtable.i.i.i156 = load ptr, ptr %28, align 8
+  %vfn.i.i.i157 = getelementptr inbounds ptr, ptr %vtable.i.i.i156, i64 1
+  %29 = load ptr, ptr %vfn.i.i.i157, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(128) %28) #15
-  br label %_ZN7testing7MessageD2Ev.exit149
+  br label %_ZN7testing7MessageD2Ev.exit158
 
-_ZN7testing7MessageD2Ev.exit149:                  ; preds = %ehcleanup192, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i146
+_ZN7testing7MessageD2Ev.exit158:                  ; preds = %ehcleanup192, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i155
   store ptr null, ptr %ref.tmp181, align 8
   br label %ehcleanup193
 
 if.end:                                           ; preds = %invoke.cont179, %_ZN7testing7MessageD2Ev.exit
   %30 = load ptr, ptr %message_.i.i, align 8
-  %cmp.not.i.i150 = icmp eq ptr %30, null
-  br i1 %cmp.not.i.i150, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+  %cmp.not.i.i159 = icmp eq ptr %30, null
+  br i1 %cmp.not.i.i159, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #15
@@ -2129,13 +2129,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i.i, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_161) #15
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx174, 56
+  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx183, 56
   %__begin1.0.ptr = getelementptr inbounds i8, ptr %specs, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 280
   br i1 %cmp.not, label %arraydestroy.body197, label %for.body
 
-ehcleanup193:                                     ; preds = %_ZN7testing7MessageD2Ev.exit149, %lpad182
-  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %_ZN7testing7MessageD2Ev.exit149 ], [ %25, %lpad182 ]
+ehcleanup193:                                     ; preds = %_ZN7testing7MessageD2Ev.exit158, %lpad182
+  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %_ZN7testing7MessageD2Ev.exit158 ], [ %25, %lpad182 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar) #15
   br label %ehcleanup194
 
@@ -2184,8 +2184,8 @@ arraydestroy.body204:                             ; preds = %arraydestroy.body20
   %arraydestroy.done207 = icmp eq ptr %arraydestroy.element206, %specs
   br i1 %arraydestroy.done207, label %eh.resume, label %arraydestroy.body204
 
-eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body204, %if.then.i.i.i140
-  %.pn27.pn.pn.pn.pn = phi { ptr, i32 } [ %13, %if.then.i.i.i140 ], [ %.pn27.pn.pn.pn, %arraydestroy.body204 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph, %arraydestroy.body ]
+eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body204, %if.then.i.i.i149
+  %.pn27.pn.pn.pn.pn = phi { ptr, i32 } [ %13, %if.then.i.i.i149 ], [ %.pn27.pn.pn.pn, %arraydestroy.body204 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph, %arraydestroy.body ]
   resume { ptr, i32 } %.pn27.pn.pn.pn.pn
 }
 

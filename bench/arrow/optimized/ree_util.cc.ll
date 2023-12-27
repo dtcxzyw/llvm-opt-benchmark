@@ -118,7 +118,7 @@ $_ZN5arrow4util13StringBuilderIJRA17_KcRKlRA22_S2_lRA11_S2_RlSA_SB_RA2_S2_EEENSt
 @.str.19 = private unnamed_addr constant [11 x i8] c", length: \00", align 1
 @.str.20 = private unnamed_addr constant [2 x i8] c")\00", align 1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5arrow8ree_util16LogicalNullCountERKNS_9ArraySpanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 5
@@ -342,7 +342,7 @@ return:                                           ; preds = %for.body.i24, %for.
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl16ERNS1_19PhysicalIndexFinderIsEEl(ptr nocapture noundef nonnull align 8 dereferenceable(144) %self, i64 noundef %i) local_unnamed_addr #1 {
 entry:
   %offset.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %self, i64 0, i32 3
@@ -443,7 +443,7 @@ _ZN5arrow8ree_util8internal21FindPhysicalIndexImplIsEElRNS1_19PhysicalIndexFinde
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl32ERNS1_19PhysicalIndexFinderIiEEl(ptr nocapture noundef nonnull align 8 dereferenceable(144) %self, i64 noundef %i) local_unnamed_addr #1 {
 entry:
   %offset.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %self, i64 0, i32 3
@@ -544,7 +544,7 @@ _ZN5arrow8ree_util8internal21FindPhysicalIndexImplIiEElRNS1_19PhysicalIndexFinde
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl64ERNS1_19PhysicalIndexFinderIlEEl(ptr nocapture noundef nonnull align 8 dereferenceable(144) %self, i64 noundef %i) local_unnamed_addr #1 {
 entry:
   %offset.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %self, i64 0, i32 3
@@ -641,7 +641,7 @@ _ZN5arrow8ree_util8internal21FindPhysicalIndexImplIlEElRNS1_19PhysicalIndexFinde
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5arrow8ree_util17FindPhysicalIndexERKNS_9ArraySpanEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span, i64 noundef %i, i64 noundef %absolute_offset) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 5
@@ -732,7 +732,7 @@ return:                                           ; preds = %while.body.i.i.i.i2
   ret i64 %sub.ptr.div.i.i.i.i47
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5arrow8ree_util18FindPhysicalLengthERKNS_9ArraySpanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 5
@@ -786,7 +786,7 @@ if.end.i.i.i:                                     ; preds = %_ZN5arrow8ree_util8
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %sub.i.i.i = sub nsw i64 %5, %sub.ptr.div.i.i.i.i.i.i
   %sub1.i.i.i = add nsw i64 %6, -1
   %add.i.i.i.i = add nsw i64 %sub1.i.i.i, %7
@@ -848,7 +848,7 @@ if.end.i.i.i15:                                   ; preds = %_ZN5arrow8ree_util8
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i17 = ptrtoint ptr %add.ptr.i.i.i.i8 to i64
   %sub.ptr.sub.i.i.i.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i16, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i17
   %sub.ptr.div.i.i.i.i.i.i19 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i18, 2
-  %add.ptr.i.i.i20 = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i8, i64 %sub.ptr.div.i.i.i.i.i.i19
+  %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i.i.i18
   %sub.i.i.i21 = sub nsw i64 %5, %sub.ptr.div.i.i.i.i.i.i19
   %sub1.i.i.i22 = add nsw i64 %6, -1
   %add.i.i.i.i23 = add nsw i64 %sub1.i.i.i22, %7
@@ -909,7 +909,7 @@ if.end.i.i.i72:                                   ; preds = %_ZN5arrow8ree_util8
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i74 = ptrtoint ptr %add.ptr.i.i.i.i65 to i64
   %sub.ptr.sub.i.i.i.i.i.i75 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i73, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i74
   %sub.ptr.div.i.i.i.i.i.i76 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i75, 3
-  %add.ptr.i.i.i77 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i65, i64 %sub.ptr.div.i.i.i.i.i.i76
+  %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i65, i64 %sub.ptr.sub.i.i.i.i.i.i75
   %sub.i.i.i78 = sub nsw i64 %5, %sub.ptr.div.i.i.i.i.i.i76
   %sub1.i.i.i79 = add nsw i64 %6, -1
   %add.i.i.i.i80 = add nsw i64 %sub1.i.i.i79, %7
@@ -945,7 +945,7 @@ return:                                           ; preds = %_ZN5arrow8ree_util8
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define { i64, i64 } @_ZN5arrow8ree_util17FindPhysicalRangeERKNS_9ArraySpanEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 5
@@ -995,7 +995,7 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i: ; preds = %wh
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i
-  %add.ptr.i = getelementptr inbounds i16, ptr %add.ptr.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i.i
   %sub.i = sub nsw i64 %5, %sub.ptr.div.i.i.i.i
   %sub1.i = add i64 %offset, -1
   %add.i.i = add i64 %sub1.i, %length
@@ -1057,7 +1057,7 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i: ; preds = %wh
   br i1 %cmp.i22, label %return, label %if.end.i23
 
 if.end.i23:                                       ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i
-  %add.ptr.i24 = getelementptr inbounds i32, ptr %add.ptr.i.i15, i64 %sub.ptr.div.i.i.i.i21
+  %add.ptr.i24 = getelementptr inbounds i8, ptr %add.ptr.i.i15, i64 %sub.ptr.sub.i.i.i.i20
   %sub.i25 = sub nsw i64 %5, %sub.ptr.div.i.i.i.i21
   %sub1.i26 = add i64 %offset, -1
   %add.i.i27 = add i64 %sub1.i26, %length
@@ -1118,7 +1118,7 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i: ; preds = %wh
   br i1 %cmp.i77, label %return, label %if.end.i78
 
 if.end.i78:                                       ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i
-  %add.ptr.i79 = getelementptr inbounds i64, ptr %add.ptr.i.i70, i64 %sub.ptr.div.i.i.i.i76
+  %add.ptr.i79 = getelementptr inbounds i8, ptr %add.ptr.i.i70, i64 %sub.ptr.sub.i.i.i.i75
   %sub.i80 = sub nsw i64 %5, %sub.ptr.div.i.i.i.i76
   %sub1.i81 = add i64 %offset, -1
   %add.i.i82 = add i64 %sub1.i81, %length
@@ -2571,8 +2571,8 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

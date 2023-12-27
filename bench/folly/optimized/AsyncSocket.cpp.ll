@@ -15551,7 +15551,7 @@ _ZNKSt6vectorIN5folly11AsyncReader12ReadCallback16ZeroCopyMemStore5EntryESaIS4_E
           to label %call5.i.i.i.i.noexc unwind label %lpad3.i.i
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIN5folly11AsyncReader12ReadCallback16ZeroCopyMemStore5EntryESaIS4_EE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i = getelementptr inbounds %"struct.folly::AsyncReader::ReadCallback::ZeroCopyMemStore::Entry", ptr %call5.i.i.i.i8, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i
   %4 = shl nuw nsw i64 %sub.i.i.i, 5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i, i8 0, i64 %4, i1 false), !noalias !421
   %cmp.not6.i.i.i.i = icmp eq ptr %1, %0
@@ -15576,7 +15576,7 @@ if.then.i74.i:                                    ; preds = %_ZNSt6vectorIN5foll
 
 _ZNSt12_Vector_baseIN5folly11AsyncReader12ReadCallback16ZeroCopyMemStore5EntryESaIS4_EE13_M_deallocateEPS4_m.exit75.i: ; preds = %if.then.i74.i, %_ZNSt6vectorIN5folly11AsyncReader12ReadCallback16ZeroCopyMemStore5EntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   store ptr %call5.i.i.i.i8, ptr %entries_.i.i, align 8, !tbaa !441, !noalias !421
-  %add.ptr37.i = getelementptr inbounds %"struct.folly::AsyncReader::ReadCallback::ZeroCopyMemStore::Entry", ptr %call5.i.i.i.i8, i64 %entries
+  %add.ptr37.i = getelementptr inbounds %"struct.folly::AsyncReader::ReadCallback::ZeroCopyMemStore::Entry", ptr %add.ptr.i, i64 %sub.i.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !440, !noalias !421
   %add.ptr40.i = getelementptr inbounds %"struct.folly::AsyncReader::ReadCallback::ZeroCopyMemStore::Entry", ptr %call5.i.i.i.i8, i64 %cond.i.i
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !442, !noalias !421
@@ -21642,7 +21642,6 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %constp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %tobool.not.i = icmp sgt i64 %0, -1
   %capacity_.i.i.i = getelementptr inbounds %"class.folly::small_vector.93", ptr %this, i64 0, i32 1, i32 0, i32 1
   %6 = load i64, ptr %capacity_.i.i.i, align 8
@@ -21651,6 +21650,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end
+  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %add = add nuw nsw i64 %and.i.i.i, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #41
   store ptr %t, ptr %ref.tmp, align 8, !tbaa !24
@@ -21659,7 +21659,7 @@ if.then8:                                         ; preds = %if.end
   br label %if.end17
 
 if.else:                                          ; preds = %if.end
-  %add.ptr10 = getelementptr inbounds %"class.std::shared_ptr.16", ptr %cond.i.i, i64 %sub.ptr.div
+  %add.ptr10 = getelementptr inbounds i8, ptr %cond.i.i, i64 %sub.ptr.sub
   %add.ptr15 = getelementptr inbounds %"class.std::shared_ptr.16", ptr %add.ptr.i, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp16) #41
   store ptr %t, ptr %ref.tmp16, align 8, !tbaa !24
@@ -21674,7 +21674,7 @@ if.end17:                                         ; preds = %if.else, %if.then8
   %7 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i45 = icmp slt i64 %storemerge, 0
   %cond.i.i46 = select i1 %tobool.not5.i.i45, ptr %7, ptr %u.i.i
-  %add.ptr19 = getelementptr inbounds %"class.std::shared_ptr.16", ptr %cond.i.i46, i64 %sub.ptr.div
+  %add.ptr19 = getelementptr inbounds i8, ptr %cond.i.i46, i64 %sub.ptr.sub
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end17, %_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE9push_backEOSA_.exit

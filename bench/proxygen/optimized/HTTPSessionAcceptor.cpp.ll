@@ -4648,8 +4648,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN4fizz15ProtocolVersionESaIS1_EEC2ERKS3_.exit
 
 _ZNSt6vectorIN4fizz15ProtocolVersionESaIS1_EEC2ERKS3_.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %supportedCiphers = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 2
   %supportedCiphers4 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 2
@@ -4720,21 +4719,21 @@ invoke.cont:                                      ; preds = %invoke.cont.i24
 
 cond.true.i.i.i.i37:                              ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i38 = icmp ugt i64 %sub.ptr.div.i.i35, 4611686018427387903
-  br i1 %cmp.i.i.i.i.i.i38, label %if.then3.i.i.i.i.i.i52, label %_ZNSt16allocator_traitsISaIN4fizz15SignatureSchemeEEE8allocateERS2_m.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i38, label %if.then3.i.i.i.i.i.i51, label %_ZNSt16allocator_traitsISaIN4fizz15SignatureSchemeEEE8allocateERS2_m.exit.i.i.i.i
 
-if.then3.i.i.i.i.i.i52:                           ; preds = %cond.true.i.i.i.i37
+if.then3.i.i.i.i.i.i51:                           ; preds = %cond.true.i.i.i.i37
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
-          to label %.noexc53 unwind label %lpad6
+          to label %.noexc52 unwind label %lpad6
 
-.noexc53:                                         ; preds = %if.then3.i.i.i.i.i.i52
+.noexc52:                                         ; preds = %if.then3.i.i.i.i.i.i51
   unreachable
 
 _ZNSt16allocator_traitsISaIN4fizz15SignatureSchemeEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i37
-  %call5.i.i.i.i2.i6.i3954 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i34) #25
+  %call5.i.i.i.i2.i6.i3953 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i34) #25
           to label %invoke.cont.i40 unwind label %lpad6
 
 invoke.cont.i40:                                  ; preds = %_ZNSt16allocator_traitsISaIN4fizz15SignatureSchemeEEE8allocateERS2_m.exit.i.i.i.i, %invoke.cont
-  %cond.i.i.i.i41 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i3954, %_ZNSt16allocator_traitsISaIN4fizz15SignatureSchemeEEE8allocateERS2_m.exit.i.i.i.i ]
+  %cond.i.i.i.i41 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i3953, %_ZNSt16allocator_traitsISaIN4fizz15SignatureSchemeEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i41, ptr %supportedSigSchemes, align 8
   %_M_finish.i.i.i42 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   store ptr %cond.i.i.i.i41, ptr %_M_finish.i.i.i42, align 8
@@ -4754,111 +4753,109 @@ if.then.i.i.i.i.i.i.i.i.i49:                      ; preds = %invoke.cont.i40
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i49, %invoke.cont.i40
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i50 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i47, 1
-  %add.ptr.i.i.i.i.i.i.i.i.i51 = getelementptr inbounds i16, ptr %cond.i.i.i.i41, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i50
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i51, ptr %_M_finish.i.i.i42, align 8
+  %add.ptr.i.i.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %cond.i.i.i.i41, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i47
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i50, ptr %_M_finish.i.i.i42, align 8
   %supportedGroups = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 4
   %supportedGroups8 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 4
-  %_M_finish.i.i55 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  %17 = load ptr, ptr %_M_finish.i.i55, align 8
+  %_M_finish.i.i54 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %17 = load ptr, ptr %_M_finish.i.i54, align 8
   %18 = load ptr, ptr %supportedGroups8, align 8
-  %sub.ptr.lhs.cast.i.i56 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i.i57 = ptrtoint ptr %18 to i64
-  %sub.ptr.sub.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i56, %sub.ptr.rhs.cast.i.i57
-  %sub.ptr.div.i.i59 = ashr exact i64 %sub.ptr.sub.i.i58, 1
+  %sub.ptr.lhs.cast.i.i55 = ptrtoint ptr %17 to i64
+  %sub.ptr.rhs.cast.i.i56 = ptrtoint ptr %18 to i64
+  %sub.ptr.sub.i.i57 = sub i64 %sub.ptr.lhs.cast.i.i55, %sub.ptr.rhs.cast.i.i56
+  %sub.ptr.div.i.i58 = ashr exact i64 %sub.ptr.sub.i.i57, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportedGroups, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i60 = icmp eq ptr %17, %18
-  br i1 %cmp.not.i.i.i.i60, label %invoke.cont.i64, label %cond.true.i.i.i.i61
+  %cmp.not.i.i.i.i59 = icmp eq ptr %17, %18
+  br i1 %cmp.not.i.i.i.i59, label %invoke.cont.i63, label %cond.true.i.i.i.i60
 
-cond.true.i.i.i.i61:                              ; preds = %invoke.cont7
-  %cmp.i.i.i.i.i.i62 = icmp ugt i64 %sub.ptr.div.i.i59, 4611686018427387903
-  br i1 %cmp.i.i.i.i.i.i62, label %if.then3.i.i.i.i.i.i76, label %_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i
+cond.true.i.i.i.i60:                              ; preds = %invoke.cont7
+  %cmp.i.i.i.i.i.i61 = icmp ugt i64 %sub.ptr.div.i.i58, 4611686018427387903
+  br i1 %cmp.i.i.i.i.i.i61, label %if.then3.i.i.i.i.i.i74, label %_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i
 
-if.then3.i.i.i.i.i.i76:                           ; preds = %cond.true.i.i.i.i61
+if.then3.i.i.i.i.i.i74:                           ; preds = %cond.true.i.i.i.i60
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
-          to label %.noexc77 unwind label %lpad9
+          to label %.noexc75 unwind label %lpad9
 
-.noexc77:                                         ; preds = %if.then3.i.i.i.i.i.i76
+.noexc75:                                         ; preds = %if.then3.i.i.i.i.i.i74
   unreachable
 
-_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i61
-  %call5.i.i.i.i2.i6.i6378 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i58) #25
-          to label %invoke.cont.i64 unwind label %lpad9
+_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i60
+  %call5.i.i.i.i2.i6.i6276 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i57) #25
+          to label %invoke.cont.i63 unwind label %lpad9
 
-invoke.cont.i64:                                  ; preds = %_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i, %invoke.cont7
-  %cond.i.i.i.i65 = phi ptr [ null, %invoke.cont7 ], [ %call5.i.i.i.i2.i6.i6378, %_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i ]
-  store ptr %cond.i.i.i.i65, ptr %supportedGroups, align 8
-  %_M_finish.i.i.i66 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  store ptr %cond.i.i.i.i65, ptr %_M_finish.i.i.i66, align 8
-  %add.ptr.i.i.i67 = getelementptr inbounds i16, ptr %cond.i.i.i.i65, i64 %sub.ptr.div.i.i59
-  %_M_end_of_storage.i.i.i68 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i.i.i67, ptr %_M_end_of_storage.i.i.i68, align 8
+invoke.cont.i63:                                  ; preds = %_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i, %invoke.cont7
+  %cond.i.i.i.i64 = phi ptr [ null, %invoke.cont7 ], [ %call5.i.i.i.i2.i6.i6276, %_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i ]
+  store ptr %cond.i.i.i.i64, ptr %supportedGroups, align 8
+  %_M_finish.i.i.i65 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  store ptr %cond.i.i.i.i64, ptr %_M_finish.i.i.i65, align 8
+  %add.ptr.i.i.i66 = getelementptr inbounds i16, ptr %cond.i.i.i.i64, i64 %sub.ptr.div.i.i58
+  %_M_end_of_storage.i.i.i67 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i.i.i66, ptr %_M_end_of_storage.i.i.i67, align 8
   %19 = load ptr, ptr %supportedGroups8, align 8
-  %20 = load ptr, ptr %_M_finish.i.i55, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i69 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i70 = ptrtoint ptr %19 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i69, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i70
-  %tobool.not.i.i.i.i.i.i.i.i.i72 = icmp eq ptr %20, %19
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i72, label %invoke.cont10, label %if.then.i.i.i.i.i.i.i.i.i73
+  %20 = load ptr, ptr %_M_finish.i.i54, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i68 = ptrtoint ptr %20 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i69 = ptrtoint ptr %19 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i70 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i68, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i69
+  %tobool.not.i.i.i.i.i.i.i.i.i71 = icmp eq ptr %20, %19
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i71, label %invoke.cont10, label %if.then.i.i.i.i.i.i.i.i.i72
 
-if.then.i.i.i.i.i.i.i.i.i73:                      ; preds = %invoke.cont.i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i.i.i.i65, ptr align 2 %19, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i71, i1 false)
+if.then.i.i.i.i.i.i.i.i.i72:                      ; preds = %invoke.cont.i63
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i.i.i.i64, ptr align 2 %19, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i70, i1 false)
   br label %invoke.cont10
 
-invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i73, %invoke.cont.i64
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i74 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i71, 1
-  %add.ptr.i.i.i.i.i.i.i.i.i75 = getelementptr inbounds i16, ptr %cond.i.i.i.i65, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i74
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i75, ptr %_M_finish.i.i.i66, align 8
+invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i72, %invoke.cont.i63
+  %add.ptr.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %cond.i.i.i.i64, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i70
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i73, ptr %_M_finish.i.i.i65, align 8
   %supportedPskModes = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 5
   %supportedPskModes11 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 5
-  %_M_finish.i.i79 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %21 = load ptr, ptr %_M_finish.i.i79, align 8
+  %_M_finish.i.i77 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %21 = load ptr, ptr %_M_finish.i.i77, align 8
   %22 = load ptr, ptr %supportedPskModes11, align 8
-  %sub.ptr.lhs.cast.i.i80 = ptrtoint ptr %21 to i64
-  %sub.ptr.rhs.cast.i.i81 = ptrtoint ptr %22 to i64
-  %sub.ptr.sub.i.i82 = sub i64 %sub.ptr.lhs.cast.i.i80, %sub.ptr.rhs.cast.i.i81
+  %sub.ptr.lhs.cast.i.i78 = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i.i79 = ptrtoint ptr %22 to i64
+  %sub.ptr.sub.i.i80 = sub i64 %sub.ptr.lhs.cast.i.i78, %sub.ptr.rhs.cast.i.i79
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportedPskModes, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i83 = icmp eq ptr %21, %22
-  br i1 %cmp.not.i.i.i.i83, label %invoke.cont.i86, label %cond.true.i.i.i.i84
+  %cmp.not.i.i.i.i81 = icmp eq ptr %21, %22
+  br i1 %cmp.not.i.i.i.i81, label %invoke.cont.i84, label %cond.true.i.i.i.i82
 
-cond.true.i.i.i.i84:                              ; preds = %invoke.cont10
-  %cmp.i.i.i.i.i.i85 = icmp slt i64 %sub.ptr.sub.i.i82, 0
-  br i1 %cmp.i.i.i.i.i.i85, label %if.end.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4fizz18PskKeyExchangeModeEEE8allocateERS2_m.exit.i.i.i.i
+cond.true.i.i.i.i82:                              ; preds = %invoke.cont10
+  %cmp.i.i.i.i.i.i83 = icmp slt i64 %sub.ptr.sub.i.i80, 0
+  br i1 %cmp.i.i.i.i.i.i83, label %if.end.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4fizz18PskKeyExchangeModeEEE8allocateERS2_m.exit.i.i.i.i
 
-if.end.i.i.i.i.i.i:                               ; preds = %cond.true.i.i.i.i84
+if.end.i.i.i.i.i.i:                               ; preds = %cond.true.i.i.i.i82
   invoke void @_ZSt17__throw_bad_allocv() #28
-          to label %.noexc97 unwind label %lpad12
+          to label %.noexc95 unwind label %lpad12
 
-.noexc97:                                         ; preds = %if.end.i.i.i.i.i.i
+.noexc95:                                         ; preds = %if.end.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN4fizz18PskKeyExchangeModeEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i84
-  %call5.i.i.i.i1.i5.i98 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i82) #25
-          to label %invoke.cont.i86 unwind label %lpad12
+_ZNSt16allocator_traitsISaIN4fizz18PskKeyExchangeModeEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i82
+  %call5.i.i.i.i1.i5.i96 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i80) #25
+          to label %invoke.cont.i84 unwind label %lpad12
 
-invoke.cont.i86:                                  ; preds = %_ZNSt16allocator_traitsISaIN4fizz18PskKeyExchangeModeEEE8allocateERS2_m.exit.i.i.i.i, %invoke.cont10
-  %cond.i.i.i.i87 = phi ptr [ null, %invoke.cont10 ], [ %call5.i.i.i.i1.i5.i98, %_ZNSt16allocator_traitsISaIN4fizz18PskKeyExchangeModeEEE8allocateERS2_m.exit.i.i.i.i ]
-  store ptr %cond.i.i.i.i87, ptr %supportedPskModes, align 8
-  %_M_finish.i.i.i88 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  store ptr %cond.i.i.i.i87, ptr %_M_finish.i.i.i88, align 8
-  %add.ptr.i.i.i89 = getelementptr inbounds i8, ptr %cond.i.i.i.i87, i64 %sub.ptr.sub.i.i82
-  %_M_end_of_storage.i.i.i90 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i.i.i89, ptr %_M_end_of_storage.i.i.i90, align 8
+invoke.cont.i84:                                  ; preds = %_ZNSt16allocator_traitsISaIN4fizz18PskKeyExchangeModeEEE8allocateERS2_m.exit.i.i.i.i, %invoke.cont10
+  %cond.i.i.i.i85 = phi ptr [ null, %invoke.cont10 ], [ %call5.i.i.i.i1.i5.i96, %_ZNSt16allocator_traitsISaIN4fizz18PskKeyExchangeModeEEE8allocateERS2_m.exit.i.i.i.i ]
+  store ptr %cond.i.i.i.i85, ptr %supportedPskModes, align 8
+  %_M_finish.i.i.i86 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  store ptr %cond.i.i.i.i85, ptr %_M_finish.i.i.i86, align 8
+  %add.ptr.i.i.i87 = getelementptr inbounds i8, ptr %cond.i.i.i.i85, i64 %sub.ptr.sub.i.i80
+  %_M_end_of_storage.i.i.i88 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i.i.i87, ptr %_M_end_of_storage.i.i.i88, align 8
   %23 = load ptr, ptr %supportedPskModes11, align 8
-  %24 = load ptr, ptr %_M_finish.i.i79, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i91 = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i92 = ptrtoint ptr %23 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i91, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i92
-  %tobool.not.i.i.i.i.i.i.i.i.i94 = icmp eq ptr %24, %23
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i94, label %invoke.cont13, label %if.then.i.i.i.i.i.i.i.i.i95
+  %24 = load ptr, ptr %_M_finish.i.i77, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i89 = ptrtoint ptr %24 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i90 = ptrtoint ptr %23 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i89, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i90
+  %tobool.not.i.i.i.i.i.i.i.i.i92 = icmp eq ptr %24, %23
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i92, label %invoke.cont13, label %if.then.i.i.i.i.i.i.i.i.i93
 
-if.then.i.i.i.i.i.i.i.i.i95:                      ; preds = %invoke.cont.i86
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %cond.i.i.i.i87, ptr align 1 %23, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i93, i1 false)
+if.then.i.i.i.i.i.i.i.i.i93:                      ; preds = %invoke.cont.i84
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %cond.i.i.i.i85, ptr align 1 %23, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i91, i1 false)
   br label %invoke.cont13
 
-invoke.cont13:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i95, %invoke.cont.i86
-  %add.ptr.i.i.i.i.i.i.i.i.i96 = getelementptr inbounds i8, ptr %cond.i.i.i.i87, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i93
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i96, ptr %_M_finish.i.i.i88, align 8
+invoke.cont13:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i93, %invoke.cont.i84
+  %add.ptr.i.i.i.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %cond.i.i.i.i85, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i91
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i94, ptr %_M_finish.i.i.i86, align 8
   %acceptEarlyData = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 6
   %acceptEarlyData14 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %acceptEarlyData, ptr noundef nonnull align 8 dereferenceable(5) %acceptEarlyData14, i64 5, i1 false)
@@ -4882,74 +4879,73 @@ invoke.cont2.i:                                   ; preds = %invoke.cont13
 _ZN5folly8OptionalItEC2ERKS1_.exit:               ; preds = %invoke.cont13, %invoke.cont2.i
   %paddingModulo = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 13
   store i8 0, ptr %paddingModulo, align 2
-  %hasValue.i.i99 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 13, i32 0, i32 1
-  store i8 0, ptr %hasValue.i.i99, align 4
-  %hasValue.i.i.i100 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 13, i32 0, i32 1
-  %28 = load i8, ptr %hasValue.i.i.i100, align 4
+  %hasValue.i.i97 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 13, i32 0, i32 1
+  store i8 0, ptr %hasValue.i.i97, align 4
+  %hasValue.i.i.i98 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 13, i32 0, i32 1
+  %28 = load i8, ptr %hasValue.i.i.i98, align 4
   %29 = and i8 %28, 1
-  %tobool.i.i.not.i101 = icmp eq i8 %29, 0
-  br i1 %tobool.i.i.not.i101, label %_ZN5folly8OptionalItEC2ERKS1_.exit103, label %invoke.cont2.i102
+  %tobool.i.i.not.i99 = icmp eq i8 %29, 0
+  br i1 %tobool.i.i.not.i99, label %_ZN5folly8OptionalItEC2ERKS1_.exit101, label %invoke.cont2.i100
 
-invoke.cont2.i102:                                ; preds = %_ZN5folly8OptionalItEC2ERKS1_.exit
+invoke.cont2.i100:                                ; preds = %_ZN5folly8OptionalItEC2ERKS1_.exit
   %paddingModulo16 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 13
   %30 = load i16, ptr %paddingModulo16, align 2
   store i16 %30, ptr %paddingModulo, align 2
-  store i8 1, ptr %hasValue.i.i99, align 4
-  br label %_ZN5folly8OptionalItEC2ERKS1_.exit103
+  store i8 1, ptr %hasValue.i.i97, align 4
+  br label %_ZN5folly8OptionalItEC2ERKS1_.exit101
 
-_ZN5folly8OptionalItEC2ERKS1_.exit103:            ; preds = %_ZN5folly8OptionalItEC2ERKS1_.exit, %invoke.cont2.i102
+_ZN5folly8OptionalItEC2ERKS1_.exit101:            ; preds = %_ZN5folly8OptionalItEC2ERKS1_.exit, %invoke.cont2.i100
   %supportedCompressionAlgorithms = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 14
   %supportedCompressionAlgorithms17 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 14
-  %_M_finish.i.i104 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 14, i32 0, i32 0, i32 0, i32 1
-  %31 = load ptr, ptr %_M_finish.i.i104, align 8
+  %_M_finish.i.i102 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 14, i32 0, i32 0, i32 0, i32 1
+  %31 = load ptr, ptr %_M_finish.i.i102, align 8
   %32 = load ptr, ptr %supportedCompressionAlgorithms17, align 8
-  %sub.ptr.lhs.cast.i.i105 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i.i106 = ptrtoint ptr %32 to i64
-  %sub.ptr.sub.i.i107 = sub i64 %sub.ptr.lhs.cast.i.i105, %sub.ptr.rhs.cast.i.i106
-  %sub.ptr.div.i.i108 = ashr exact i64 %sub.ptr.sub.i.i107, 1
+  %sub.ptr.lhs.cast.i.i103 = ptrtoint ptr %31 to i64
+  %sub.ptr.rhs.cast.i.i104 = ptrtoint ptr %32 to i64
+  %sub.ptr.sub.i.i105 = sub i64 %sub.ptr.lhs.cast.i.i103, %sub.ptr.rhs.cast.i.i104
+  %sub.ptr.div.i.i106 = ashr exact i64 %sub.ptr.sub.i.i105, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportedCompressionAlgorithms, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i109 = icmp eq ptr %31, %32
-  br i1 %cmp.not.i.i.i.i109, label %invoke.cont.i113, label %cond.true.i.i.i.i110
+  %cmp.not.i.i.i.i107 = icmp eq ptr %31, %32
+  br i1 %cmp.not.i.i.i.i107, label %invoke.cont.i111, label %cond.true.i.i.i.i108
 
-cond.true.i.i.i.i110:                             ; preds = %_ZN5folly8OptionalItEC2ERKS1_.exit103
-  %cmp.i.i.i.i.i.i111 = icmp ugt i64 %sub.ptr.div.i.i108, 4611686018427387903
-  br i1 %cmp.i.i.i.i.i.i111, label %if.then3.i.i.i.i.i.i125, label %_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i
+cond.true.i.i.i.i108:                             ; preds = %_ZN5folly8OptionalItEC2ERKS1_.exit101
+  %cmp.i.i.i.i.i.i109 = icmp ugt i64 %sub.ptr.div.i.i106, 4611686018427387903
+  br i1 %cmp.i.i.i.i.i.i109, label %if.then3.i.i.i.i.i.i122, label %_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i
 
-if.then3.i.i.i.i.i.i125:                          ; preds = %cond.true.i.i.i.i110
+if.then3.i.i.i.i.i.i122:                          ; preds = %cond.true.i.i.i.i108
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
-          to label %.noexc126 unwind label %lpad18
+          to label %.noexc123 unwind label %lpad18
 
-.noexc126:                                        ; preds = %if.then3.i.i.i.i.i.i125
+.noexc123:                                        ; preds = %if.then3.i.i.i.i.i.i122
   unreachable
 
-_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i110
-  %call5.i.i.i.i2.i6.i112127 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i107) #25
-          to label %invoke.cont.i113 unwind label %lpad18
+_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i108
+  %call5.i.i.i.i2.i6.i110124 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i105) #25
+          to label %invoke.cont.i111 unwind label %lpad18
 
-invoke.cont.i113:                                 ; preds = %_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i, %_ZN5folly8OptionalItEC2ERKS1_.exit103
-  %cond.i.i.i.i114 = phi ptr [ null, %_ZN5folly8OptionalItEC2ERKS1_.exit103 ], [ %call5.i.i.i.i2.i6.i112127, %_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i ]
-  store ptr %cond.i.i.i.i114, ptr %supportedCompressionAlgorithms, align 8
-  %_M_finish.i.i.i115 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 14, i32 0, i32 0, i32 0, i32 1
-  store ptr %cond.i.i.i.i114, ptr %_M_finish.i.i.i115, align 8
-  %add.ptr.i.i.i116 = getelementptr inbounds i16, ptr %cond.i.i.i.i114, i64 %sub.ptr.div.i.i108
-  %_M_end_of_storage.i.i.i117 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 14, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i.i.i116, ptr %_M_end_of_storage.i.i.i117, align 8
+invoke.cont.i111:                                 ; preds = %_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i, %_ZN5folly8OptionalItEC2ERKS1_.exit101
+  %cond.i.i.i.i112 = phi ptr [ null, %_ZN5folly8OptionalItEC2ERKS1_.exit101 ], [ %call5.i.i.i.i2.i6.i110124, %_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i ]
+  store ptr %cond.i.i.i.i112, ptr %supportedCompressionAlgorithms, align 8
+  %_M_finish.i.i.i113 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 14, i32 0, i32 0, i32 0, i32 1
+  store ptr %cond.i.i.i.i112, ptr %_M_finish.i.i.i113, align 8
+  %add.ptr.i.i.i114 = getelementptr inbounds i16, ptr %cond.i.i.i.i112, i64 %sub.ptr.div.i.i106
+  %_M_end_of_storage.i.i.i115 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 14, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i.i.i114, ptr %_M_end_of_storage.i.i.i115, align 8
   %33 = load ptr, ptr %supportedCompressionAlgorithms17, align 8
-  %34 = load ptr, ptr %_M_finish.i.i104, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i118 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i119 = ptrtoint ptr %33 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i120 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i118, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i119
-  %tobool.not.i.i.i.i.i.i.i.i.i121 = icmp eq ptr %34, %33
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i121, label %invoke.cont19, label %if.then.i.i.i.i.i.i.i.i.i122
+  %34 = load ptr, ptr %_M_finish.i.i102, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i116 = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i117 = ptrtoint ptr %33 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i118 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i116, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i117
+  %tobool.not.i.i.i.i.i.i.i.i.i119 = icmp eq ptr %34, %33
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i119, label %invoke.cont19, label %if.then.i.i.i.i.i.i.i.i.i120
 
-if.then.i.i.i.i.i.i.i.i.i122:                     ; preds = %invoke.cont.i113
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i.i.i.i114, ptr align 2 %33, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i120, i1 false)
+if.then.i.i.i.i.i.i.i.i.i120:                     ; preds = %invoke.cont.i111
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i.i.i.i112, ptr align 2 %33, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i118, i1 false)
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i122, %invoke.cont.i113
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i123 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i120, 1
-  %add.ptr.i.i.i.i.i.i.i.i.i124 = getelementptr inbounds i16, ptr %cond.i.i.i.i114, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i123
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i124, ptr %_M_finish.i.i.i115, align 8
+invoke.cont19:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i120, %invoke.cont.i111
+  %add.ptr.i.i.i.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %cond.i.i.i.i112, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i118
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i121, ptr %_M_finish.i.i.i113, align 8
   %transportOptions = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %this, i64 0, i32 15
   %transportOptions20 = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 15
   %35 = load i16, ptr %transportOptions20, align 8
@@ -4962,8 +4958,8 @@ invoke.cont19:                                    ; preds = %if.then.i.i.i.i.i.i
   %_M_refcount3.i.i.i = getelementptr inbounds %"struct.wangle::FizzConfig", ptr %0, i64 0, i32 15, i32 2, i32 0, i32 1
   %37 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %37, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i128 = icmp eq ptr %37, null
-  br i1 %cmp.not.i.i.i.i128, label %_ZN4fizz13AsyncFizzBase16TransportOptionsC2ERKS1_.exit, label %if.then.i.i.i.i
+  %cmp.not.i.i.i.i125 = icmp eq ptr %37, null
+  br i1 %cmp.not.i.i.i.i125, label %_ZN4fizz13AsyncFizzBase16TransportOptionsC2ERKS1_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont19
   %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %37, i64 0, i32 1
@@ -4992,12 +4988,12 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
           cleanup
   br label %ehcleanup23
 
-lpad6:                                            ; preds = %_ZNSt16allocator_traitsISaIN4fizz15SignatureSchemeEEE8allocateERS2_m.exit.i.i.i.i, %if.then3.i.i.i.i.i.i52
+lpad6:                                            ; preds = %_ZNSt16allocator_traitsISaIN4fizz15SignatureSchemeEEE8allocateERS2_m.exit.i.i.i.i, %if.then3.i.i.i.i.i.i51
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup22
 
-lpad9:                                            ; preds = %_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i, %if.then3.i.i.i.i.i.i76
+lpad9:                                            ; preds = %_ZNSt16allocator_traitsISaIN4fizz10NamedGroupEEE8allocateERS2_m.exit.i.i.i.i, %if.then3.i.i.i.i.i.i74
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup21
@@ -5007,53 +5003,53 @@ lpad12:                                           ; preds = %_ZNSt16allocator_tr
           cleanup
   br label %ehcleanup
 
-lpad18:                                           ; preds = %_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i, %if.then3.i.i.i.i.i.i125
+lpad18:                                           ; preds = %_ZNSt16allocator_traitsISaIN4fizz31CertificateCompressionAlgorithmEEE8allocateERS2_m.exit.i.i.i.i, %if.then3.i.i.i.i.i.i122
   %45 = landingpad { ptr, i32 }
           cleanup
   %46 = load ptr, ptr %supportedPskModes, align 8
-  %tobool.not.i.i.i130 = icmp eq ptr %46, null
-  br i1 %tobool.not.i.i.i130, label %ehcleanup, label %if.then.i.i.i131
+  %tobool.not.i.i.i127 = icmp eq ptr %46, null
+  br i1 %tobool.not.i.i.i127, label %ehcleanup, label %if.then.i.i.i128
 
-if.then.i.i.i131:                                 ; preds = %lpad18
+if.then.i.i.i128:                                 ; preds = %lpad18
   tail call void @_ZdlPv(ptr noundef nonnull %46) #23
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %if.then.i.i.i131, %lpad18, %lpad12
-  %.pn = phi { ptr, i32 } [ %44, %lpad12 ], [ %45, %lpad18 ], [ %45, %if.then.i.i.i131 ]
+ehcleanup:                                        ; preds = %if.then.i.i.i128, %lpad18, %lpad12
+  %.pn = phi { ptr, i32 } [ %44, %lpad12 ], [ %45, %lpad18 ], [ %45, %if.then.i.i.i128 ]
   %47 = load ptr, ptr %supportedGroups, align 8
-  %tobool.not.i.i.i133 = icmp eq ptr %47, null
-  br i1 %tobool.not.i.i.i133, label %ehcleanup21, label %if.then.i.i.i134
+  %tobool.not.i.i.i130 = icmp eq ptr %47, null
+  br i1 %tobool.not.i.i.i130, label %ehcleanup21, label %if.then.i.i.i131
 
-if.then.i.i.i134:                                 ; preds = %ehcleanup
+if.then.i.i.i131:                                 ; preds = %ehcleanup
   tail call void @_ZdlPv(ptr noundef nonnull %47) #23
   br label %ehcleanup21
 
-ehcleanup21:                                      ; preds = %if.then.i.i.i134, %ehcleanup, %lpad9
-  %.pn.pn = phi { ptr, i32 } [ %43, %lpad9 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i134 ]
+ehcleanup21:                                      ; preds = %if.then.i.i.i131, %ehcleanup, %lpad9
+  %.pn.pn = phi { ptr, i32 } [ %43, %lpad9 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i131 ]
   %48 = load ptr, ptr %supportedSigSchemes, align 8
-  %tobool.not.i.i.i136 = icmp eq ptr %48, null
-  br i1 %tobool.not.i.i.i136, label %ehcleanup22, label %if.then.i.i.i137
+  %tobool.not.i.i.i133 = icmp eq ptr %48, null
+  br i1 %tobool.not.i.i.i133, label %ehcleanup22, label %if.then.i.i.i134
 
-if.then.i.i.i137:                                 ; preds = %ehcleanup21
+if.then.i.i.i134:                                 ; preds = %ehcleanup21
   tail call void @_ZdlPv(ptr noundef nonnull %48) #23
   br label %ehcleanup22
 
-ehcleanup22:                                      ; preds = %if.then.i.i.i137, %ehcleanup21, %lpad6
-  %.pn.pn.pn = phi { ptr, i32 } [ %42, %lpad6 ], [ %.pn.pn, %ehcleanup21 ], [ %.pn.pn, %if.then.i.i.i137 ]
+ehcleanup22:                                      ; preds = %if.then.i.i.i134, %ehcleanup21, %lpad6
+  %.pn.pn.pn = phi { ptr, i32 } [ %42, %lpad6 ], [ %.pn.pn, %ehcleanup21 ], [ %.pn.pn, %if.then.i.i.i134 ]
   tail call void @_ZNSt6vectorIS_IN4fizz11CipherSuiteESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %supportedCiphers) #24
   br label %ehcleanup23
 
 ehcleanup23:                                      ; preds = %lpad, %if.then.i.i.i, %lpad10.i, %ehcleanup22
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup22 ], [ %41, %lpad ], [ %11, %if.then.i.i.i ], [ %11, %lpad10.i ]
   %49 = load ptr, ptr %supportedVersions, align 8
-  %tobool.not.i.i.i139 = icmp eq ptr %49, null
-  br i1 %tobool.not.i.i.i139, label %_ZNSt6vectorIN4fizz15ProtocolVersionESaIS1_EED2Ev.exit, label %if.then.i.i.i140
+  %tobool.not.i.i.i136 = icmp eq ptr %49, null
+  br i1 %tobool.not.i.i.i136, label %_ZNSt6vectorIN4fizz15ProtocolVersionESaIS1_EED2Ev.exit, label %if.then.i.i.i137
 
-if.then.i.i.i140:                                 ; preds = %ehcleanup23
+if.then.i.i.i137:                                 ; preds = %ehcleanup23
   tail call void @_ZdlPv(ptr noundef nonnull %49) #23
   br label %_ZNSt6vectorIN4fizz15ProtocolVersionESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN4fizz15ProtocolVersionESaIS1_EED2Ev.exit: ; preds = %ehcleanup23, %if.then.i.i.i140
+_ZNSt6vectorIN4fizz15ProtocolVersionESaIS1_EED2Ev.exit: ; preds = %ehcleanup23, %if.then.i.i.i137
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -7146,8 +7142,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %cond.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"class.std::vector.327", ptr %__first.sroa.0.014, i64 1
   %incdec.ptr = getelementptr inbounds %"class.std::vector.327", ptr %__cur.015, i64 1

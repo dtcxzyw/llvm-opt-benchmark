@@ -312,8 +312,7 @@ if.end7:                                          ; preds = %if.end
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 40
-  %arrayidx = getelementptr inbounds %struct.cert_pkey_st, ptr %call3, i64 %sub.ptr.div
+  %arrayidx = getelementptr inbounds i8, ptr %call3, i64 %sub.ptr.sub
   store ptr %arrayidx, ptr %call, align 8
   %references = getelementptr inbounds %struct.cert_st, ptr %call, i64 0, i32 22
   store atomic i32 1, ptr %references seq_cst, align 4

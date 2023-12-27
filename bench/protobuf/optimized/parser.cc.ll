@@ -40,7 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.google::protobuf::json_internal::MessagePath::Component" = type <{ i32, [4 x i8], %"class.std::basic_string_view", %"class.std::basic_string_view", i32, [4 x i8] }>
 %"class.absl::lts_20230802::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data" = type { ptr }
 %"class.absl::lts_20230802::Cleanup" = type { %"class.absl::lts_20230802::cleanup_internal::Storage" }
@@ -87,6 +86,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.189 = type { ptr }
 %union.anon.190 = type { ptr }
 %union.anon.191 = type { i64 }
+%"struct.google::protobuf::json_internal::MessagePath::Component" = type <{ i32, [4 x i8], %"class.std::basic_string_view", %"class.std::basic_string_view", i32, [4 x i8] }>
 %"class.google::protobuf::FileDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.absl::lts_20230802::StatusOr.73" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData.74" }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData.74" = type { %union.anon.75, %union.anon.76 }
@@ -630,7 +630,7 @@ entry:
   %4 = extractvalue { i64, ptr } %call2, 1
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   store ptr %call5.i.i.i.i2.i.i, ptr %path, align 8
-  %add.ptr.i1.i.i = getelementptr inbounds %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %call5.i.i.i.i2.i.i, i64 1
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 48
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::json_internal::MessagePath::Component, std::allocator<google::protobuf::json_internal::MessagePath::Component>>::_Vector_impl_data", ptr %path, i64 0, i32 2
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 11, ptr %call5.i.i.i.i2.i.i, align 8
@@ -3701,7 +3701,7 @@ invoke.cont2:                                     ; preds = %entry
   %0 = extractvalue { i64, ptr } %call, 1
   %1 = extractvalue { i64, ptr } %call, 0
   store ptr %call5.i.i.i.i2.i.i12, ptr %path, align 8
-  %add.ptr.i1.i.i = getelementptr inbounds %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %call5.i.i.i.i2.i.i12, i64 1
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i12, i64 48
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::json_internal::MessagePath::Component, std::allocator<google::protobuf::json_internal::MessagePath::Component>>::_Vector_impl_data", ptr %path, i64 0, i32 2
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 11, ptr %call5.i.i.i.i2.i.i12, align 8

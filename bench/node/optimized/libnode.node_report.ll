@@ -4494,7 +4494,6 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %546 = load ptr, ptr %_M_finish.i.i291, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %546 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i9.i = ashr exact i64 %sub.ptr.sub.i8.i, 5
   %mul.i.i.i.i = shl nuw nsw i64 %add.i.i281, 5
   %call5.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #29
   %cmp.not5.i.i.i.i = icmp eq ptr %545, %546
@@ -4525,7 +4524,7 @@ if.then.i.i295:                                   ; preds = %_ZNSt6vectorINSt7__
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %if.then.i.i295, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %worker_infos, align 8
-  %add.ptr.i296 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i9.i
+  %add.ptr.i296 = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i8.i
   store ptr %add.ptr.i296, ptr %_M_finish.i.i291, align 8
   %add.ptr21.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i, i64 %add.i.i281
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8

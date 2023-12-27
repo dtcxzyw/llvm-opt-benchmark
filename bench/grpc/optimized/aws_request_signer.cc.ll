@@ -1306,7 +1306,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %call5.i.i.i.i.noexc602 unwind label %lpad22
 
 call5.i.i.i.i.noexc602:                           ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i585 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i603, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i585 = getelementptr inbounds i8, ptr %call5.i.i.i.i603, i64 %sub.ptr.sub.i.i.i
   store i64 1, ptr %add.ptr.i585, align 8
   %_M_str.i.i.i.i587 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i603, i64 %sub.ptr.div.i.i.i, i32 1
   store ptr @.str.5, ptr %_M_str.i.i.i.i587, align 8
@@ -1472,7 +1472,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %call5.i.i.i.i.noexc651 unwind label %lpad22
 
 call5.i.i.i.i.noexc651:                           ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i609
-  %add.ptr.i622 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i652, i64 %sub.ptr.div.i.i.i610
+  %add.ptr.i622 = getelementptr inbounds i8, ptr %call5.i.i.i.i652, i64 %sub.ptr.sub.i.i.i607
   store i64 1, ptr %add.ptr.i622, align 8
   %_M_str.i.i.i.i624 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i652, i64 %sub.ptr.div.i.i.i610, i32 1
   store ptr @.str.5, ptr %_M_str.i.i.i.i624, align 8
@@ -1667,7 +1667,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %call5.i.i.i.i.noexc701 unwind label %lpad63.loopexit.split-lp
 
 call5.i.i.i.i.noexc701:                           ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i659
-  %add.ptr.i672 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i702, i64 %sub.ptr.div.i.i.i660
+  %add.ptr.i672 = getelementptr inbounds i8, ptr %call5.i.i.i.i702, i64 %sub.ptr.sub.i.i.i657
   store i64 1, ptr %add.ptr.i672, align 8
   %_M_str.i.i.i.i674 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i702, i64 %sub.ptr.div.i.i.i660, i32 1
   store ptr @.str.5, ptr %_M_str.i.i.i.i674, align 8
@@ -2046,7 +2046,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %call5.i.i.i.i.noexc751 unwind label %lpad160.loopexit
 
 call5.i.i.i.i.noexc751:                           ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i709
-  %add.ptr.i722 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i752, i64 %sub.ptr.div.i.i.i710
+  %add.ptr.i722 = getelementptr inbounds i8, ptr %call5.i.i.i.i752, i64 %sub.ptr.sub.i.i.i707
   store i64 1, ptr %add.ptr.i722, align 8
   %_M_str.i.i.i.i724 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i752, i64 %sub.ptr.div.i.i.i710, i32 1
   store ptr @.str.11, ptr %_M_str.i.i.i.i724, align 8
@@ -2144,7 +2144,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %call5.i.i.i.i.noexc801 unwind label %lpad160.loopexit
 
 call5.i.i.i.i.noexc801:                           ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i759
-  %add.ptr.i772 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i802, i64 %sub.ptr.div.i.i.i760
+  %add.ptr.i772 = getelementptr inbounds i8, ptr %call5.i.i.i.i802, i64 %sub.ptr.sub.i.i.i757
   store i64 1, ptr %add.ptr.i772, align 8
   %_M_str.i.i.i.i774 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i802, i64 %sub.ptr.div.i.i.i760, i32 1
   store ptr @.str.5, ptr %_M_str.i.i.i.i774, align 8
@@ -2327,7 +2327,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %call5.i.i.i.i.noexc851 unwind label %lpad175
 
 call5.i.i.i.i.noexc851:                           ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i809
-  %add.ptr.i822 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i852, i64 %sub.ptr.div.i.i.i810
+  %add.ptr.i822 = getelementptr inbounds i8, ptr %call5.i.i.i.i852, i64 %sub.ptr.sub.i.i.i807
   store i64 1, ptr %add.ptr.i822, align 8
   %_M_str.i.i.i.i824 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i852, i64 %sub.ptr.div.i.i.i810, i32 1
   store ptr @.str.5, ptr %_M_str.i.i.i.i824, align 8
@@ -2586,7 +2586,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %call5.i.i.i.i.noexc901 unwind label %lpad205
 
 call5.i.i.i.i.noexc901:                           ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i859
-  %add.ptr.i872 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i902, i64 %sub.ptr.div.i.i.i860
+  %add.ptr.i872 = getelementptr inbounds i8, ptr %call5.i.i.i.i902, i64 %sub.ptr.sub.i.i.i857
   store i64 1, ptr %add.ptr.i872, align 8
   %_M_str.i.i.i.i874 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i902, i64 %sub.ptr.div.i.i.i860, i32 1
   store ptr @.str.5, ptr %_M_str.i.i.i.i874, align 8
@@ -2733,7 +2733,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %for.body.i.i.i.i975.preheader unwind label %lpad216
 
 for.body.i.i.i.i975.preheader:                    ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i958
-  %add.ptr.i971 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i1001, i64 1
+  %add.ptr.i971 = getelementptr inbounds i8, ptr %call5.i.i.i.i1001, i64 16
   store i64 1, ptr %add.ptr.i971, align 8
   %_M_str.i.i.i.i973 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i1001, i64 1, i32 1
   store ptr @.str.5, ptr %_M_str.i.i.i.i973, align 8
@@ -2792,7 +2792,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %call5.i.i.i.i.noexc1050 unwind label %lpad216
 
 call5.i.i.i.i.noexc1050:                          ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i1008
-  %add.ptr.i1021 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i1051, i64 %sub.ptr.div.i.i.i1009
+  %add.ptr.i1021 = getelementptr inbounds i8, ptr %call5.i.i.i.i1051, i64 %sub.ptr.sub.i.i.i1006
   store i64 1, ptr %add.ptr.i1021, align 8
   %_M_str.i.i.i.i1023 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i1051, i64 %sub.ptr.div.i.i.i1009, i32 1
   store ptr @.str.5, ptr %_M_str.i.i.i.i1023, align 8
@@ -2947,7 +2947,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
           to label %call5.i.i.i.i.noexc1100 unwind label %lpad246
 
 call5.i.i.i.i.noexc1100:                          ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i1058
-  %add.ptr.i1071 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i1101, i64 %sub.ptr.div.i.i.i1059
+  %add.ptr.i1071 = getelementptr inbounds i8, ptr %call5.i.i.i.i1101, i64 %sub.ptr.sub.i.i.i1056
   store i64 1, ptr %add.ptr.i1071, align 8
   %_M_str.i.i.i.i1073 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i1101, i64 %sub.ptr.div.i.i.i1059, i32 1
   store ptr @.str.5, ptr %_M_str.i.i.i.i1073, align 8

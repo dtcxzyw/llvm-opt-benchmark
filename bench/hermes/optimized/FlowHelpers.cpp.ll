@@ -151,8 +151,8 @@ entry:
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %call822 = call noundef zeroext i1 @_ZN6hermes6parser7JSLexer24isCurrentTokenADirectiveEv(ptr noundef nonnull align 8 dereferenceable(1128) %lexer) #8
-  br i1 %call822, label %while.body, label %while.end
+  %call821 = call noundef zeroext i1 @_ZN6hermes6parser7JSLexer24isCurrentTokenADirectiveEv(ptr noundef nonnull align 8 dereferenceable(1128) %lexer) #8
+  br i1 %call821, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end
   %call9 = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer, i32 noundef 0) #8
@@ -178,7 +178,6 @@ while.cond.while.end_crit_edge:                   ; preds = %if.end
 
 while.end:                                        ; preds = %while.cond.while.end_crit_edge, %entry
   %numComments.0.in.lcssa = phi i64 [ %sub.ptr.sub.i.i.i10.le, %while.cond.while.end_crit_edge ], [ %sub.ptr.sub.i.i.i, %entry ]
-  %numComments.0 = sdiv exact i64 %numComments.0.in.lcssa, 24
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::parser::StoredComment, std::allocator<hermes::parser::StoredComment>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::parser::StoredComment, std::allocator<hermes::parser::StoredComment>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
@@ -190,13 +189,12 @@ while.end:                                        ; preds = %while.cond.while.en
   %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8, !noalias !6
   store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commentStorage_.i, i8 0, i64 24, i1 false), !noalias !6
-  %add.ptr.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %10, i64 %numComments.0
+  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %numComments.0.in.lcssa
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i4.i = sdiv exact i64 %sub.ptr.sub.i3.i, 24
-  %add.ptr.i5.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %10, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i = icmp eq i64 %numComments.0, %sub.ptr.div.i4.i
+  %add.ptr.i5.i = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i3.i
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i, %11
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end
@@ -207,12 +205,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vect
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 8 %add.ptr.i5.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
-  %13 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 24
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
-  %sub.ptr.sub.i.i.i17.pre-phi = phi i64 [ %13, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ 0, %if.then.i.i ]
-  %add.ptr.i6.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %add.ptr.i, i64 %sub.ptr.sub.i.i.i17.pre-phi
+  %sub.ptr.sub.i.i.i17.pre-phi = phi i64 [ %sub.ptr.sub.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ 0, %if.then.i.i ]
+  %add.ptr.i6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i.i17.pre-phi
   %tobool.not.i.i.i = icmp eq ptr %11, %add.ptr.i6.i
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.then.i.i.i
 
@@ -222,56 +219,56 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 _ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit: ; preds = %while.end, %if.end.i.i, %if.then.i.i.i
   %tokenStorage_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 21
-  %14 = load ptr, ptr %tokenStorage_.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %tokenStorage_.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
-  call void @_ZdlPv(ptr noundef nonnull %14) #9
+  call void @_ZdlPv(ptr noundef nonnull %13) #9
   br label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
-  %15 = load ptr, ptr %commentStorage_.i, align 8
-  %tobool.not.i.i.i1.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %commentStorage_.i, align 8
+  %tobool.not.i.i.i1.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i1.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #9
+  call void @_ZdlPv(ptr noundef nonnull %14) #9
   br label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i2.i, %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EED2Ev.exit.i
   %rawStorage_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 18
-  %16 = load ptr, ptr %rawStorage_.i, align 8
+  %15 = load ptr, ptr %rawStorage_.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 18, i32 0, i32 1
-  %cmp.i.i.i.i.i = icmp eq ptr %16, %add.ptr.i.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp eq ptr %15, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh11SmallStringILj256EED2Ev.exit.i, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i
-  call void @free(ptr noundef %16) #8
+  call void @free(ptr noundef %15) #8
   br label %_ZN4llvh11SmallStringILj256EED2Ev.exit.i
 
 _ZN4llvh11SmallStringILj256EED2Ev.exit.i:         ; preds = %if.then.i.i.i3.i, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit.i
   %tmpStorage_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 17
-  %17 = load ptr, ptr %tmpStorage_.i, align 8
+  %16 = load ptr, ptr %tmpStorage_.i, align 8
   %add.ptr.i.i.i.i.i4.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 17, i32 0, i32 1
-  %cmp.i.i.i.i5.i = icmp eq ptr %17, %add.ptr.i.i.i.i.i4.i
+  %cmp.i.i.i.i5.i = icmp eq ptr %16, %add.ptr.i.i.i.i.i4.i
   br i1 %cmp.i.i.i.i5.i, label %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i, label %if.then.i.i.i6.i
 
 if.then.i.i.i6.i:                                 ; preds = %_ZN4llvh11SmallStringILj256EED2Ev.exit.i
-  call void @free(ptr noundef %17) #8
+  call void @free(ptr noundef %16) #8
   br label %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i
 
 _ZN4llvh11SmallStringILj256EED2Ev.exit7.i:        ; preds = %if.then.i.i.i6.i, %_ZN4llvh11SmallStringILj256EED2Ev.exit.i
   %ownStrTab_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %lexer, i64 0, i32 3
-  %18 = load ptr, ptr %ownStrTab_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %ownStrTab_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i, label %_ZN6hermes6parser7JSLexerD2Ev.exit, label %_ZNKSt14default_deleteIN6hermes11StringTableEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN6hermes11StringTableEEclEPS1_.exit.i.i: ; preds = %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i
-  %strMap_.i.i.i.i = getelementptr inbounds %"class.hermes::StringTable", ptr %18, i64 0, i32 1
-  %19 = load ptr, ptr %strMap_.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %19) #8
-  call void @_ZdlPv(ptr noundef nonnull %18) #9
+  %strMap_.i.i.i.i = getelementptr inbounds %"class.hermes::StringTable", ptr %17, i64 0, i32 1
+  %18 = load ptr, ptr %strMap_.i.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %18) #8
+  call void @_ZdlPv(ptr noundef nonnull %17) #9
   br label %_ZN6hermes6parser7JSLexerD2Ev.exit
 
 _ZN6hermes6parser7JSLexerD2Ev.exit:               ; preds = %_ZN4llvh11SmallStringILj256EED2Ev.exit7.i, %_ZNKSt14default_deleteIN6hermes11StringTableEEclEPS1_.exit.i.i

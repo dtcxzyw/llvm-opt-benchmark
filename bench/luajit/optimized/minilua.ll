@@ -3081,8 +3081,7 @@ luaM_realloc_.exit:                               ; preds = %cond.true
   %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 40
-  %add.ptr = getelementptr inbounds %struct.CallInfo, ptr %call.i, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %ci, align 8
   %add.ptr13 = getelementptr inbounds %struct.CallInfo, ptr %call.i, i64 %conv4
   %add.ptr14 = getelementptr inbounds %struct.CallInfo, ptr %add.ptr13, i64 -1
@@ -4295,8 +4294,7 @@ luaM_realloc_.exit:                               ; preds = %cond.true
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %add.ptr.i = getelementptr inbounds %struct.lua_TValue, ptr %call.i, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i, ptr %top.i, align 8
   %openupval.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 24
   %up.028.i = load ptr, ptr %openupval.i, align 8
@@ -4313,9 +4311,8 @@ for.body.i:                                       ; preds = %luaM_realloc_.exit,
   %13 = load ptr, ptr %v.i, align 8
   %sub.ptr.lhs.cast2.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub4.i = sub i64 %sub.ptr.lhs.cast2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div5.i = ashr exact i64 %sub.ptr.sub4.i, 4
   %14 = load ptr, ptr %stack, align 8
-  %add.ptr7.i = getelementptr inbounds %struct.lua_TValue, ptr %14, i64 %sub.ptr.div5.i
+  %add.ptr7.i = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub4.i
   store ptr %add.ptr7.i, ptr %v.i, align 8
   %up.0.i = load ptr, ptr %up.030.i, align 8
   %cmp.not.i = icmp eq ptr %up.0.i, null
@@ -4335,24 +4332,21 @@ for.body12.i:                                     ; preds = %for.end.i, %for.bod
   %17 = load ptr, ptr %top13.i, align 8
   %sub.ptr.lhs.cast14.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub16.i = sub i64 %sub.ptr.lhs.cast14.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div17.i = ashr exact i64 %sub.ptr.sub16.i, 4
   %18 = load ptr, ptr %stack, align 8
-  %add.ptr19.i = getelementptr inbounds %struct.lua_TValue, ptr %18, i64 %sub.ptr.div17.i
+  %add.ptr19.i = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub16.i
   store ptr %add.ptr19.i, ptr %top13.i, align 8
   %19 = load ptr, ptr %ci.032.i, align 8
   %sub.ptr.lhs.cast21.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub23.i = sub i64 %sub.ptr.lhs.cast21.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div24.i = ashr exact i64 %sub.ptr.sub23.i, 4
   %20 = load ptr, ptr %stack, align 8
-  %add.ptr26.i = getelementptr inbounds %struct.lua_TValue, ptr %20, i64 %sub.ptr.div24.i
+  %add.ptr26.i = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub23.i
   store ptr %add.ptr26.i, ptr %ci.032.i, align 8
   %func.i = getelementptr inbounds %struct.CallInfo, ptr %ci.032.i, i64 0, i32 1
   %21 = load ptr, ptr %func.i, align 8
   %sub.ptr.lhs.cast28.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub30.i = sub i64 %sub.ptr.lhs.cast28.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div31.i = ashr exact i64 %sub.ptr.sub30.i, 4
   %22 = load ptr, ptr %stack, align 8
-  %add.ptr33.i = getelementptr inbounds %struct.lua_TValue, ptr %22, i64 %sub.ptr.div31.i
+  %add.ptr33.i = getelementptr inbounds i8, ptr %22, i64 %sub.ptr.sub30.i
   store ptr %add.ptr33.i, ptr %func.i, align 8
   %incdec.ptr.i = getelementptr inbounds %struct.CallInfo, ptr %ci.032.i, i64 1
   %23 = load ptr, ptr %ci10.i, align 8
@@ -4364,9 +4358,8 @@ correctstack.exit:                                ; preds = %for.body12.i, %for.
   %24 = load ptr, ptr %base37.i, align 8
   %sub.ptr.lhs.cast38.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub40.i = sub i64 %sub.ptr.lhs.cast38.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div41.i = ashr exact i64 %sub.ptr.sub40.i, 4
   %25 = load ptr, ptr %stack, align 8
-  %add.ptr43.i = getelementptr inbounds %struct.lua_TValue, ptr %25, i64 %sub.ptr.div41.i
+  %add.ptr43.i = getelementptr inbounds i8, ptr %25, i64 %sub.ptr.sub40.i
   store ptr %add.ptr43.i, ptr %base37.i, align 8
   ret void
 }
@@ -6691,8 +6684,7 @@ if.end921.i:                                      ; preds = %if.then919.i, %sw.b
   %sub.ptr.lhs.cast.i = ptrtoint ptr %362 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %358 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %add.ptr925.i = getelementptr inbounds %struct.lua_TValue, ptr %361, i64 %sub.ptr.div.i
+  %add.ptr925.i = getelementptr inbounds i8, ptr %361, i64 %sub.ptr.sub.i
   store ptr %add.ptr925.i, ptr %add.ptr913.i, align 8
   store ptr %add.ptr925.i, ptr %base1.i, align 8
   %363 = load ptr, ptr %top1267.i, align 8

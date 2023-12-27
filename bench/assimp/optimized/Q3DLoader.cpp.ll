@@ -1115,7 +1115,6 @@ _ZNSt12_Vector_baseIN6Assimp11Q3DImporter4FaceESaIS2_EE11_M_allocateEm.exit.i: ;
   %102 = load ptr, ptr %_M_finish.i.i434, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %102 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i431
-  %sub.ptr.div.i9.i = sdiv exact i64 %sub.ptr.sub.i8.i, 56
   %mul.i.i.i.i = mul nuw nsw i64 %conv151, 56
   %call5.i.i.i.i439 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #23
           to label %call5.i.i.i.i.noexc unwind label %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1169,7 +1168,7 @@ if.then.i.i437:                                   ; preds = %_ZNSt6vectorIN6Assi
 
 _ZNSt12_Vector_baseIN6Assimp11Q3DImporter4FaceESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %if.then.i.i437, %_ZNSt6vectorIN6Assimp11Q3DImporter4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %call5.i.i.i.i439, ptr %faces150, align 8
-  %add.ptr.i438 = getelementptr inbounds %"struct.Assimp::Q3DImporter::Face", ptr %call5.i.i.i.i439, i64 %sub.ptr.div.i9.i
+  %add.ptr.i438 = getelementptr inbounds i8, ptr %call5.i.i.i.i439, i64 %sub.ptr.sub.i8.i
   store ptr %add.ptr.i438, ptr %_M_finish.i.i434, align 8
   %add.ptr21.i = getelementptr inbounds %"struct.Assimp::Q3DImporter::Face", ptr %call5.i.i.i.i439, i64 %conv151
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
@@ -3084,7 +3083,7 @@ new.ctorloop:                                     ; preds = %invoke.cont561
   %369 = mul nsw i64 %sub.ptr.div.i1180, 24
   %370 = add nsw i64 %369, -24
   %371 = urem i64 %370, 24
-  %372 = sub nsw i64 %370, %371
+  %372 = sub nuw nsw i64 %370, %371
   %373 = add nsw i64 %372, 24
   call void @llvm.memset.p0.i64(ptr align 8 %.ptr, i8 0, i64 %373, i1 false)
   br label %arrayctor.cont
@@ -3206,7 +3205,7 @@ _ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.els
           to label %call5.i.i.i.i.i.noexc unwind label %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %add.ptr.i.i1199 = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i1201, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i1199 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i1201, i64 %sub.ptr.sub.i.i.i.i
   store i32 %p.01754, ptr %add.ptr.i.i1199, align 4
   %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i1201, i64 %sub.ptr.div.i.i.i.i, i32 1
   store i32 %q.01751, ptr %second.i.i.i.i.i, align 4
@@ -3538,7 +3537,7 @@ invoke.cont749:                                   ; preds = %for.end745
 new.ctorloop752:                                  ; preds = %invoke.cont749
   %426 = add nsw i64 %425, -12
   %427 = urem i64 %426, 12
-  %428 = sub nsw i64 %426, %427
+  %428 = sub nuw nsw i64 %426, %427
   %429 = add nsw i64 %428, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call750, i8 0, i64 %429, i1 false)
   br label %arrayctor.cont758
@@ -3554,7 +3553,7 @@ invoke.cont761:                                   ; preds = %arrayctor.cont758
 new.ctorloop764:                                  ; preds = %invoke.cont761
   %430 = add nsw i64 %425, -12
   %431 = urem i64 %430, 12
-  %432 = sub nsw i64 %430, %431
+  %432 = sub nuw nsw i64 %430, %431
   %433 = add nsw i64 %432, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call762, i8 0, i64 %433, i1 false)
   br label %arrayctor.cont770
@@ -3576,7 +3575,7 @@ invoke.cont777:                                   ; preds = %if.then774
 new.ctorloop780:                                  ; preds = %invoke.cont777
   %435 = add nsw i64 %425, -12
   %436 = urem i64 %435, 12
-  %437 = sub nsw i64 %435, %436
+  %437 = sub nuw nsw i64 %435, %436
   %438 = add nsw i64 %437, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call778, i8 0, i64 %438, i1 false)
   br label %arrayctor.cont786
@@ -4634,7 +4633,6 @@ _ZNSt12_Vector_baseIN6Assimp11Q3DImporter8MaterialESaIS2_EE11_M_allocateEm.exit.
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i5 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i8 = sdiv exact i64 %sub.ptr.sub.i7, 1072
   %mul.i.i.i.i = mul nuw nsw i64 %__n, 1072
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #23
   %cmp.not7.i.i.i.i.i = icmp eq ptr %1, %2
@@ -4707,7 +4705,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN6Assi
 
 _ZNSt12_Vector_baseIN6Assimp11Q3DImporter8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.Assimp::Q3DImporter::Material", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i8
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i7
   store ptr %add.ptr, ptr %_M_finish.i, align 8
   %add.ptr26 = getelementptr inbounds %"struct.Assimp::Q3DImporter::Material", ptr %call5.i.i.i.i, i64 %__n
   store ptr %add.ptr26, ptr %_M_end_of_storage.i, align 8
@@ -4783,7 +4781,6 @@ _ZNSt12_Vector_baseIN6Assimp11Q3DImporter4MeshESaIS2_EE11_M_allocateEm.exit: ; p
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i6 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i9 = sdiv exact i64 %sub.ptr.sub.i8, 104
   %mul.i.i.i = mul nuw nsw i64 %__n, 104
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
   %cmp.not5.i.i.i = icmp eq ptr %1, %2
@@ -4853,7 +4850,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN6Assi
 
 _ZNSt12_Vector_baseIN6Assimp11Q3DImporter4MeshESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp11Q3DImporter4MeshESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.Assimp::Q3DImporter::Mesh", ptr %call5.i.i.i, i64 %sub.ptr.div.i9
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i8
   store ptr %add.ptr, ptr %_M_finish.i, align 8
   %add.ptr21 = getelementptr inbounds %"struct.Assimp::Q3DImporter::Mesh", ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8
@@ -6371,7 +6368,7 @@ _ZNKSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12_M_check_lenEmPKc.exit: ;
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 1072
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
-  %add.ptr = getelementptr inbounds %"struct.Assimp::Q3DImporter::Material", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i32 0, ptr %add.ptr, align 4
   %data.i.i.i.i = getelementptr inbounds %struct.aiString, ptr %add.ptr, i64 0, i32 1
   store i8 0, ptr %data.i.i.i.i, align 4

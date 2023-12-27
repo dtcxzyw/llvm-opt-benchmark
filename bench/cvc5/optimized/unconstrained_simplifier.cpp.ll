@@ -946,7 +946,7 @@ _ZNKSt6vectorIN4cvc58internal13preprocessing6passes28unc_preprocess_stack_elemen
           to label %call5.i.i.i.i.noexc160 unwind label %lpad49.loopexit
 
 call5.i.i.i.i.noexc160:                           ; preds = %_ZNKSt6vectorIN4cvc58internal13preprocessing6passes28unc_preprocess_stack_elementESaIS4_EE12_M_check_lenEmPKc.exit.i115
-  %add.ptr.i128 = getelementptr inbounds %"struct.cvc5::internal::preprocessing::passes::unc_preprocess_stack_element", ptr %call5.i.i.i.i161, i64 %sub.ptr.div.i.i.i116
+  %add.ptr.i128 = getelementptr inbounds i8, ptr %call5.i.i.i.i161, i64 %sub.ptr.sub.i.i.i113
   store ptr %25, ptr %add.ptr.i128, align 8
   %parent.i.i.i.i129 = getelementptr inbounds %"struct.cvc5::internal::preprocessing::passes::unc_preprocess_stack_element", ptr %call5.i.i.i.i161, i64 %sub.ptr.div.i.i.i116, i32 1
   store ptr %26, ptr %parent.i.i.i.i129, align 8
@@ -1159,7 +1159,7 @@ _ZNKSt6vectorIN4cvc58internal13preprocessing6passes28unc_preprocess_stack_elemen
           to label %call5.i.i.i.i.noexc213 unwind label %lpad113.loopexit
 
 call5.i.i.i.i.noexc213:                           ; preds = %_ZNKSt6vectorIN4cvc58internal13preprocessing6passes28unc_preprocess_stack_elementESaIS4_EE12_M_check_lenEmPKc.exit.i168
-  %add.ptr.i181 = getelementptr inbounds %"struct.cvc5::internal::preprocessing::passes::unc_preprocess_stack_element", ptr %call5.i.i.i.i214, i64 %sub.ptr.div.i.i.i169
+  %add.ptr.i181 = getelementptr inbounds i8, ptr %call5.i.i.i.i214, i64 %sub.ptr.sub.i.i.i166
   store ptr %35, ptr %add.ptr.i181, align 8
   %parent.i.i.i.i182 = getelementptr inbounds %"struct.cvc5::internal::preprocessing::passes::unc_preprocess_stack_element", ptr %call5.i.i.i.i214, i64 %sub.ptr.div.i.i.i169, i32 1
   store ptr %36, ptr %parent.i.i.i.i182, align 8

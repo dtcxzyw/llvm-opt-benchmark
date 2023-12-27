@@ -738,7 +738,7 @@ lpad.i:                                           ; preds = %if.then1
 
 invoke.cont10:                                    ; preds = %if.then1
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp, align 8
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i, i64 4
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i, align 4
@@ -783,8 +783,8 @@ terminate.lpad.i:                                 ; preds = %if.end
 
 if.end14:                                         ; preds = %if.end
   %.pre = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre652 = and i8 %.pre, 1
-  %tobool15.not = icmp eq i8 %.pre652, 0
+  %.pre662 = and i8 %.pre, 1
+  %tobool15.not = icmp eq i8 %.pre662, 0
   br i1 %tobool15.not, label %if.end558, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
@@ -849,9 +849,9 @@ terminate.lpad.i56:                               ; preds = %if.end28
   unreachable
 
 if.end30:                                         ; preds = %if.end28
-  %.pre629 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre653 = and i8 %.pre629, 1
-  %tobool31.not = icmp eq i8 %.pre653, 0
+  %.pre639 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre663 = and i8 %.pre639, 1
+  %tobool31.not = icmp eq i8 %.pre663, 0
   br i1 %tobool31.not, label %if.end558, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
@@ -904,12 +904,12 @@ lpad.i74:                                         ; preds = %if.then37
 
 invoke.cont53:                                    ; preds = %if.then37
   store ptr %call5.i.i.i.i2.i73, ptr %ref.tmp41, align 8
-  %add.ptr.i1.i78 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i73, i64 4
+  %add.ptr.i1.i78 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i73, i64 16
   %_M_end_of_storage.i.i79 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp41, i64 0, i32 2
   store ptr %add.ptr.i1.i78, ptr %_M_end_of_storage.i.i79, align 8
   store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i73, align 4
-  %_M_finish.i.i80 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp41, i64 0, i32 1
-  store ptr %add.ptr.i1.i78, ptr %_M_finish.i.i80, align 8
+  %_M_finish.i.i81 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp41, i64 0, i32 1
+  store ptr %add.ptr.i1.i78, ptr %_M_finish.i.i81, align 8
   %vtable54 = load ptr, ptr %30, align 8
   %vfn55 = getelementptr inbounds ptr, ptr %vtable54, i64 5
   %32 = load ptr, ptr %vfn55, align 8
@@ -918,10 +918,10 @@ invoke.cont53:                                    ; preds = %if.then37
 
 invoke.cont57:                                    ; preds = %invoke.cont53
   %33 = load ptr, ptr %ref.tmp41, align 8
-  %tobool.not.i.i.i83 = icmp eq ptr %33, null
-  br i1 %tobool.not.i.i.i83, label %if.end60, label %if.then.i.i.i84
+  %tobool.not.i.i.i84 = icmp eq ptr %33, null
+  br i1 %tobool.not.i.i.i84, label %if.end60, label %if.then.i.i.i85
 
-if.then.i.i.i84:                                  ; preds = %invoke.cont57
+if.then.i.i.i85:                                  ; preds = %invoke.cont57
   call void @_ZdlPv(ptr noundef nonnull %33) #23
   br label %if.end60
 
@@ -929,18 +929,18 @@ lpad56:                                           ; preds = %invoke.cont53
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load ptr, ptr %ref.tmp41, align 8
-  %tobool.not.i.i.i87 = icmp eq ptr %35, null
-  br i1 %tobool.not.i.i.i87, label %eh.resume, label %if.then.i.i.i88
+  %tobool.not.i.i.i88 = icmp eq ptr %35, null
+  br i1 %tobool.not.i.i.i88, label %eh.resume, label %if.then.i.i.i89
 
-if.then.i.i.i88:                                  ; preds = %lpad56
+if.then.i.i.i89:                                  ; preds = %lpad56
   call void @_ZdlPv(ptr noundef nonnull %35) #23
   br label %eh.resume
 
-if.end60:                                         ; preds = %if.then.i.i.i84, %invoke.cont57, %invoke.cont35
+if.end60:                                         ; preds = %if.then.i.i.i85, %invoke.cont57, %invoke.cont35
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter33, ptr noundef null, ptr noundef null)
-          to label %if.end62 unwind label %terminate.lpad.i91
+          to label %if.end62 unwind label %terminate.lpad.i92
 
-terminate.lpad.i91:                               ; preds = %if.end60
+terminate.lpad.i92:                               ; preds = %if.end60
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
@@ -948,67 +948,67 @@ terminate.lpad.i91:                               ; preds = %if.end60
   unreachable
 
 if.end62:                                         ; preds = %if.end60
-  %.pre630 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre655 = and i8 %.pre630, 1
-  %tobool63.not = icmp eq i8 %.pre655, 0
+  %.pre640 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre665 = and i8 %.pre640, 1
+  %tobool63.not = icmp eq i8 %.pre665, 0
   br i1 %tobool63.not, label %if.end558, label %if.then64
 
 if.then64:                                        ; preds = %if.end62
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %38 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !37
-  %atomic-temp.i.0.i.i.i.i93 = inttoptr i64 %38 to ptr
-  %tobool.i.not.i.i.i94 = icmp eq i64 %38, 0
-  br i1 %tobool.i.not.i.i.i94, label %cond.false.i.i.i.i104, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i95
+  %atomic-temp.i.0.i.i.i.i94 = inttoptr i64 %38 to ptr
+  %tobool.i.not.i.i.i95 = icmp eq i64 %38, 0
+  br i1 %tobool.i.not.i.i.i95, label %cond.false.i.i.i.i105, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i96
 
-cond.false.i.i.i.i104:                            ; preds = %if.then64
-  %call2.i.i.i.i105 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !37
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i95
+cond.false.i.i.i.i105:                            ; preds = %if.then64
+  %call2.i.i.i.i106 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !37
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i96
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i95: ; preds = %cond.false.i.i.i.i104, %if.then64
-  %cond.i.i.i.i96 = phi ptr [ %call2.i.i.i.i105, %cond.false.i.i.i.i104 ], [ %atomic-temp.i.0.i.i.i.i93, %if.then64 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i96: ; preds = %cond.false.i.i.i.i105, %if.then64
+  %cond.i.i.i.i97 = phi ptr [ %call2.i.i.i.i106, %cond.false.i.i.i.i105 ], [ %atomic-temp.i.0.i.i.i.i94, %if.then64 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %state_.i.i97 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i96, i64 0, i32 3
-  %39 = load atomic i32, ptr %state_.i.i97 acquire, align 4, !noalias !43
-  %cmp.not.i.i98 = icmp eq i32 %39, 2
-  br i1 %cmp.not.i.i98, label %invoke.cont67, label %if.then.i.i99
+  %state_.i.i98 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i97, i64 0, i32 3
+  %39 = load atomic i32, ptr %state_.i.i98 acquire, align 4, !noalias !43
+  %cmp.not.i.i99 = icmp eq i32 %39, 2
+  br i1 %cmp.not.i.i99, label %invoke.cont67, label %if.then.i.i100
 
-if.then.i.i99:                                    ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i95
-  %vtable.i.i100 = load ptr, ptr %cond.i.i.i.i96, align 8, !noalias !43
-  %vfn.i.i101 = getelementptr inbounds ptr, ptr %vtable.i.i100, i64 3
-  %40 = load ptr, ptr %vfn.i.i101, align 8, !noalias !43
-  call void %40(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i96), !noalias !43
+if.then.i.i100:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i96
+  %vtable.i.i101 = load ptr, ptr %cond.i.i.i.i97, align 8, !noalias !43
+  %vfn.i.i102 = getelementptr inbounds ptr, ptr %vtable.i.i101, i64 3
+  %40 = load ptr, ptr %vfn.i.i102, align 8, !noalias !43
+  call void %40(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i97), !noalias !43
   br label %invoke.cont67
 
-invoke.cont67:                                    ; preds = %if.then.i.i99, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i95
-  %instance_weak_fast_.i.i102 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i96, i64 0, i32 9
+invoke.cont67:                                    ; preds = %if.then.i.i100, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i96
+  %instance_weak_fast_.i.i103 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i97, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter65, i8 0, i64 16, i1 false), !alias.scope !47
-  %41 = load ptr, ptr %instance_weak_fast_.i.i102, align 8, !noalias !47
-  %ptrRaw_.i.i.i.i.i103 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i96, i64 0, i32 9, i32 1
-  %42 = load ptr, ptr %ptrRaw_.i.i.i.i.i103, align 8, !noalias !47
+  %41 = load ptr, ptr %instance_weak_fast_.i.i103, align 8, !noalias !47
+  %ptrRaw_.i.i.i.i.i104 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i97, i64 0, i32 9, i32 1
+  %42 = load ptr, ptr %ptrRaw_.i.i.i.i.i104, align 8, !noalias !47
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter65, ptr noundef %41, ptr noundef %42)
   %43 = load ptr, ptr %reporter65, align 8
-  %cmp.i.i107.not = icmp eq ptr %43, null
-  br i1 %cmp.i.i107.not, label %if.end92, label %if.then69
+  %cmp.i.i108.not = icmp eq ptr %43, null
+  br i1 %cmp.i.i108.not, label %if.end92, label %if.then69
 
 if.then69:                                        ; preds = %invoke.cont67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp73, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i108 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %invoke.cont85 unwind label %lpad.i109
+  %call5.i.i.i.i2.i109 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+          to label %invoke.cont85 unwind label %lpad.i110
 
-lpad.i109:                                        ; preds = %if.then69
+lpad.i110:                                        ; preds = %if.then69
   %44 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 invoke.cont85:                                    ; preds = %if.then69
-  store ptr %call5.i.i.i.i2.i108, ptr %ref.tmp73, align 8
-  %add.ptr.i1.i113 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i108, i64 4
-  %_M_end_of_storage.i.i114 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp73, i64 0, i32 2
-  store ptr %add.ptr.i1.i113, ptr %_M_end_of_storage.i.i114, align 8
-  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i108, align 4
-  %_M_finish.i.i115 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp73, i64 0, i32 1
-  store ptr %add.ptr.i1.i113, ptr %_M_finish.i.i115, align 8
+  store ptr %call5.i.i.i.i2.i109, ptr %ref.tmp73, align 8
+  %add.ptr.i1.i114 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i109, i64 16
+  %_M_end_of_storage.i.i115 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp73, i64 0, i32 2
+  store ptr %add.ptr.i1.i114, ptr %_M_end_of_storage.i.i115, align 8
+  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i109, align 4
+  %_M_finish.i.i117 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp73, i64 0, i32 1
+  store ptr %add.ptr.i1.i114, ptr %_M_finish.i.i117, align 8
   %vtable86 = load ptr, ptr %43, align 8
   %vfn87 = getelementptr inbounds ptr, ptr %vtable86, i64 5
   %45 = load ptr, ptr %vfn87, align 8
@@ -1017,10 +1017,10 @@ invoke.cont85:                                    ; preds = %if.then69
 
 invoke.cont89:                                    ; preds = %invoke.cont85
   %46 = load ptr, ptr %ref.tmp73, align 8
-  %tobool.not.i.i.i118 = icmp eq ptr %46, null
-  br i1 %tobool.not.i.i.i118, label %if.end92, label %if.then.i.i.i119
+  %tobool.not.i.i.i120 = icmp eq ptr %46, null
+  br i1 %tobool.not.i.i.i120, label %if.end92, label %if.then.i.i.i121
 
-if.then.i.i.i119:                                 ; preds = %invoke.cont89
+if.then.i.i.i121:                                 ; preds = %invoke.cont89
   call void @_ZdlPv(ptr noundef nonnull %46) #23
   br label %if.end92
 
@@ -1028,18 +1028,18 @@ lpad88:                                           ; preds = %invoke.cont85
   %47 = landingpad { ptr, i32 }
           cleanup
   %48 = load ptr, ptr %ref.tmp73, align 8
-  %tobool.not.i.i.i122 = icmp eq ptr %48, null
-  br i1 %tobool.not.i.i.i122, label %eh.resume, label %if.then.i.i.i123
+  %tobool.not.i.i.i124 = icmp eq ptr %48, null
+  br i1 %tobool.not.i.i.i124, label %eh.resume, label %if.then.i.i.i125
 
-if.then.i.i.i123:                                 ; preds = %lpad88
+if.then.i.i.i125:                                 ; preds = %lpad88
   call void @_ZdlPv(ptr noundef nonnull %48) #23
   br label %eh.resume
 
-if.end92:                                         ; preds = %if.then.i.i.i119, %invoke.cont89, %invoke.cont67
+if.end92:                                         ; preds = %if.then.i.i.i121, %invoke.cont89, %invoke.cont67
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter65, ptr noundef null, ptr noundef null)
-          to label %if.end94 unwind label %terminate.lpad.i126
+          to label %if.end94 unwind label %terminate.lpad.i128
 
-terminate.lpad.i126:                              ; preds = %if.end92
+terminate.lpad.i128:                              ; preds = %if.end92
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
@@ -1047,67 +1047,67 @@ terminate.lpad.i126:                              ; preds = %if.end92
   unreachable
 
 if.end94:                                         ; preds = %if.end92
-  %.pre631 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre657 = and i8 %.pre631, 1
-  %tobool95.not = icmp eq i8 %.pre657, 0
+  %.pre641 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre667 = and i8 %.pre641, 1
+  %tobool95.not = icmp eq i8 %.pre667, 0
   br i1 %tobool95.not, label %if.end558, label %if.then96
 
 if.then96:                                        ; preds = %if.end94
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %51 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !48
-  %atomic-temp.i.0.i.i.i.i128 = inttoptr i64 %51 to ptr
-  %tobool.i.not.i.i.i129 = icmp eq i64 %51, 0
-  br i1 %tobool.i.not.i.i.i129, label %cond.false.i.i.i.i139, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i130
+  %atomic-temp.i.0.i.i.i.i130 = inttoptr i64 %51 to ptr
+  %tobool.i.not.i.i.i131 = icmp eq i64 %51, 0
+  br i1 %tobool.i.not.i.i.i131, label %cond.false.i.i.i.i141, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i132
 
-cond.false.i.i.i.i139:                            ; preds = %if.then96
-  %call2.i.i.i.i140 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !48
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i130
+cond.false.i.i.i.i141:                            ; preds = %if.then96
+  %call2.i.i.i.i142 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !48
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i132
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i130: ; preds = %cond.false.i.i.i.i139, %if.then96
-  %cond.i.i.i.i131 = phi ptr [ %call2.i.i.i.i140, %cond.false.i.i.i.i139 ], [ %atomic-temp.i.0.i.i.i.i128, %if.then96 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i132: ; preds = %cond.false.i.i.i.i141, %if.then96
+  %cond.i.i.i.i133 = phi ptr [ %call2.i.i.i.i142, %cond.false.i.i.i.i141 ], [ %atomic-temp.i.0.i.i.i.i130, %if.then96 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %state_.i.i132 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i131, i64 0, i32 3
-  %52 = load atomic i32, ptr %state_.i.i132 acquire, align 4, !noalias !54
-  %cmp.not.i.i133 = icmp eq i32 %52, 2
-  br i1 %cmp.not.i.i133, label %invoke.cont99, label %if.then.i.i134
+  %state_.i.i134 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i133, i64 0, i32 3
+  %52 = load atomic i32, ptr %state_.i.i134 acquire, align 4, !noalias !54
+  %cmp.not.i.i135 = icmp eq i32 %52, 2
+  br i1 %cmp.not.i.i135, label %invoke.cont99, label %if.then.i.i136
 
-if.then.i.i134:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i130
-  %vtable.i.i135 = load ptr, ptr %cond.i.i.i.i131, align 8, !noalias !54
-  %vfn.i.i136 = getelementptr inbounds ptr, ptr %vtable.i.i135, i64 3
-  %53 = load ptr, ptr %vfn.i.i136, align 8, !noalias !54
-  call void %53(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i131), !noalias !54
+if.then.i.i136:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i132
+  %vtable.i.i137 = load ptr, ptr %cond.i.i.i.i133, align 8, !noalias !54
+  %vfn.i.i138 = getelementptr inbounds ptr, ptr %vtable.i.i137, i64 3
+  %53 = load ptr, ptr %vfn.i.i138, align 8, !noalias !54
+  call void %53(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i133), !noalias !54
   br label %invoke.cont99
 
-invoke.cont99:                                    ; preds = %if.then.i.i134, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i130
-  %instance_weak_fast_.i.i137 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i131, i64 0, i32 9
+invoke.cont99:                                    ; preds = %if.then.i.i136, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i132
+  %instance_weak_fast_.i.i139 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i133, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter97, i8 0, i64 16, i1 false), !alias.scope !58
-  %54 = load ptr, ptr %instance_weak_fast_.i.i137, align 8, !noalias !58
-  %ptrRaw_.i.i.i.i.i138 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i131, i64 0, i32 9, i32 1
-  %55 = load ptr, ptr %ptrRaw_.i.i.i.i.i138, align 8, !noalias !58
+  %54 = load ptr, ptr %instance_weak_fast_.i.i139, align 8, !noalias !58
+  %ptrRaw_.i.i.i.i.i140 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i133, i64 0, i32 9, i32 1
+  %55 = load ptr, ptr %ptrRaw_.i.i.i.i.i140, align 8, !noalias !58
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter97, ptr noundef %54, ptr noundef %55)
   %56 = load ptr, ptr %reporter97, align 8
-  %cmp.i.i142.not = icmp eq ptr %56, null
-  br i1 %cmp.i.i142.not, label %if.end124, label %if.then101
+  %cmp.i.i144.not = icmp eq ptr %56, null
+  br i1 %cmp.i.i144.not, label %if.end124, label %if.then101
 
 if.then101:                                       ; preds = %invoke.cont99
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp105, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i143 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %invoke.cont117 unwind label %lpad.i144
+  %call5.i.i.i.i2.i145 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+          to label %invoke.cont117 unwind label %lpad.i146
 
-lpad.i144:                                        ; preds = %if.then101
+lpad.i146:                                        ; preds = %if.then101
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 invoke.cont117:                                   ; preds = %if.then101
-  store ptr %call5.i.i.i.i2.i143, ptr %ref.tmp105, align 8
-  %add.ptr.i1.i148 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i143, i64 4
-  %_M_end_of_storage.i.i149 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp105, i64 0, i32 2
-  store ptr %add.ptr.i1.i148, ptr %_M_end_of_storage.i.i149, align 8
-  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i143, align 4
-  %_M_finish.i.i150 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp105, i64 0, i32 1
-  store ptr %add.ptr.i1.i148, ptr %_M_finish.i.i150, align 8
+  store ptr %call5.i.i.i.i2.i145, ptr %ref.tmp105, align 8
+  %add.ptr.i1.i150 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i145, i64 16
+  %_M_end_of_storage.i.i151 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp105, i64 0, i32 2
+  store ptr %add.ptr.i1.i150, ptr %_M_end_of_storage.i.i151, align 8
+  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i145, align 4
+  %_M_finish.i.i153 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp105, i64 0, i32 1
+  store ptr %add.ptr.i1.i150, ptr %_M_finish.i.i153, align 8
   %vtable118 = load ptr, ptr %56, align 8
   %vfn119 = getelementptr inbounds ptr, ptr %vtable118, i64 5
   %58 = load ptr, ptr %vfn119, align 8
@@ -1116,10 +1116,10 @@ invoke.cont117:                                   ; preds = %if.then101
 
 invoke.cont121:                                   ; preds = %invoke.cont117
   %59 = load ptr, ptr %ref.tmp105, align 8
-  %tobool.not.i.i.i153 = icmp eq ptr %59, null
-  br i1 %tobool.not.i.i.i153, label %if.end124, label %if.then.i.i.i154
+  %tobool.not.i.i.i156 = icmp eq ptr %59, null
+  br i1 %tobool.not.i.i.i156, label %if.end124, label %if.then.i.i.i157
 
-if.then.i.i.i154:                                 ; preds = %invoke.cont121
+if.then.i.i.i157:                                 ; preds = %invoke.cont121
   call void @_ZdlPv(ptr noundef nonnull %59) #23
   br label %if.end124
 
@@ -1127,18 +1127,18 @@ lpad120:                                          ; preds = %invoke.cont117
   %60 = landingpad { ptr, i32 }
           cleanup
   %61 = load ptr, ptr %ref.tmp105, align 8
-  %tobool.not.i.i.i157 = icmp eq ptr %61, null
-  br i1 %tobool.not.i.i.i157, label %eh.resume, label %if.then.i.i.i158
+  %tobool.not.i.i.i160 = icmp eq ptr %61, null
+  br i1 %tobool.not.i.i.i160, label %eh.resume, label %if.then.i.i.i161
 
-if.then.i.i.i158:                                 ; preds = %lpad120
+if.then.i.i.i161:                                 ; preds = %lpad120
   call void @_ZdlPv(ptr noundef nonnull %61) #23
   br label %eh.resume
 
-if.end124:                                        ; preds = %if.then.i.i.i154, %invoke.cont121, %invoke.cont99
+if.end124:                                        ; preds = %if.then.i.i.i157, %invoke.cont121, %invoke.cont99
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter97, ptr noundef null, ptr noundef null)
-          to label %if.end126 unwind label %terminate.lpad.i161
+          to label %if.end126 unwind label %terminate.lpad.i164
 
-terminate.lpad.i161:                              ; preds = %if.end124
+terminate.lpad.i164:                              ; preds = %if.end124
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
@@ -1146,48 +1146,48 @@ terminate.lpad.i161:                              ; preds = %if.end124
   unreachable
 
 if.end126:                                        ; preds = %if.end124
-  %.pre632 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre659 = and i8 %.pre632, 1
-  %tobool127.not = icmp eq i8 %.pre659, 0
+  %.pre642 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre669 = and i8 %.pre642, 1
+  %tobool127.not = icmp eq i8 %.pre669, 0
   br i1 %tobool127.not, label %if.end558, label %if.then128
 
 if.then128:                                       ; preds = %if.end126
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %64 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !59
-  %atomic-temp.i.0.i.i.i.i163 = inttoptr i64 %64 to ptr
-  %tobool.i.not.i.i.i164 = icmp eq i64 %64, 0
-  br i1 %tobool.i.not.i.i.i164, label %cond.false.i.i.i.i174, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i165
+  %atomic-temp.i.0.i.i.i.i166 = inttoptr i64 %64 to ptr
+  %tobool.i.not.i.i.i167 = icmp eq i64 %64, 0
+  br i1 %tobool.i.not.i.i.i167, label %cond.false.i.i.i.i177, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i168
 
-cond.false.i.i.i.i174:                            ; preds = %if.then128
-  %call2.i.i.i.i175 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !59
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i165
+cond.false.i.i.i.i177:                            ; preds = %if.then128
+  %call2.i.i.i.i178 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !59
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i168
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i165: ; preds = %cond.false.i.i.i.i174, %if.then128
-  %cond.i.i.i.i166 = phi ptr [ %call2.i.i.i.i175, %cond.false.i.i.i.i174 ], [ %atomic-temp.i.0.i.i.i.i163, %if.then128 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i168: ; preds = %cond.false.i.i.i.i177, %if.then128
+  %cond.i.i.i.i169 = phi ptr [ %call2.i.i.i.i178, %cond.false.i.i.i.i177 ], [ %atomic-temp.i.0.i.i.i.i166, %if.then128 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %state_.i.i167 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i166, i64 0, i32 3
-  %65 = load atomic i32, ptr %state_.i.i167 acquire, align 4, !noalias !65
-  %cmp.not.i.i168 = icmp eq i32 %65, 2
-  br i1 %cmp.not.i.i168, label %invoke.cont131, label %if.then.i.i169
+  %state_.i.i170 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i169, i64 0, i32 3
+  %65 = load atomic i32, ptr %state_.i.i170 acquire, align 4, !noalias !65
+  %cmp.not.i.i171 = icmp eq i32 %65, 2
+  br i1 %cmp.not.i.i171, label %invoke.cont131, label %if.then.i.i172
 
-if.then.i.i169:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i165
-  %vtable.i.i170 = load ptr, ptr %cond.i.i.i.i166, align 8, !noalias !65
-  %vfn.i.i171 = getelementptr inbounds ptr, ptr %vtable.i.i170, i64 3
-  %66 = load ptr, ptr %vfn.i.i171, align 8, !noalias !65
-  call void %66(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i166), !noalias !65
+if.then.i.i172:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i168
+  %vtable.i.i173 = load ptr, ptr %cond.i.i.i.i169, align 8, !noalias !65
+  %vfn.i.i174 = getelementptr inbounds ptr, ptr %vtable.i.i173, i64 3
+  %66 = load ptr, ptr %vfn.i.i174, align 8, !noalias !65
+  call void %66(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i169), !noalias !65
   br label %invoke.cont131
 
-invoke.cont131:                                   ; preds = %if.then.i.i169, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i165
-  %instance_weak_fast_.i.i172 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i166, i64 0, i32 9
+invoke.cont131:                                   ; preds = %if.then.i.i172, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i168
+  %instance_weak_fast_.i.i175 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i169, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter129, i8 0, i64 16, i1 false), !alias.scope !69
-  %67 = load ptr, ptr %instance_weak_fast_.i.i172, align 8, !noalias !69
-  %ptrRaw_.i.i.i.i.i173 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i166, i64 0, i32 9, i32 1
-  %68 = load ptr, ptr %ptrRaw_.i.i.i.i.i173, align 8, !noalias !69
+  %67 = load ptr, ptr %instance_weak_fast_.i.i175, align 8, !noalias !69
+  %ptrRaw_.i.i.i.i.i176 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i169, i64 0, i32 9, i32 1
+  %68 = load ptr, ptr %ptrRaw_.i.i.i.i.i176, align 8, !noalias !69
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter129, ptr noundef %67, ptr noundef %68)
   %69 = load ptr, ptr %reporter129, align 8
-  %cmp.i.i177.not = icmp eq ptr %69, null
-  br i1 %cmp.i.i177.not, label %if.end140, label %if.then133
+  %cmp.i.i180.not = icmp eq ptr %69, null
+  br i1 %cmp.i.i180.not, label %if.end140, label %if.then133
 
 if.then133:                                       ; preds = %invoke.cont131
   %vtable137 = load ptr, ptr %69, align 8
@@ -1203,9 +1203,9 @@ lpad130:                                          ; preds = %if.then133
 
 if.end140:                                        ; preds = %if.then133, %invoke.cont131
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter129, ptr noundef null, ptr noundef null)
-          to label %if.end142 unwind label %terminate.lpad.i178
+          to label %if.end142 unwind label %terminate.lpad.i181
 
-terminate.lpad.i178:                              ; preds = %if.end140
+terminate.lpad.i181:                              ; preds = %if.end140
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
@@ -1213,48 +1213,48 @@ terminate.lpad.i178:                              ; preds = %if.end140
   unreachable
 
 if.end142:                                        ; preds = %if.end140
-  %.pre633 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre661 = and i8 %.pre633, 1
-  %tobool143.not = icmp eq i8 %.pre661, 0
+  %.pre643 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre671 = and i8 %.pre643, 1
+  %tobool143.not = icmp eq i8 %.pre671, 0
   br i1 %tobool143.not, label %if.end558, label %if.then144
 
 if.then144:                                       ; preds = %if.end142
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %74 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !70
-  %atomic-temp.i.0.i.i.i.i180 = inttoptr i64 %74 to ptr
-  %tobool.i.not.i.i.i181 = icmp eq i64 %74, 0
-  br i1 %tobool.i.not.i.i.i181, label %cond.false.i.i.i.i191, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i182
+  %atomic-temp.i.0.i.i.i.i183 = inttoptr i64 %74 to ptr
+  %tobool.i.not.i.i.i184 = icmp eq i64 %74, 0
+  br i1 %tobool.i.not.i.i.i184, label %cond.false.i.i.i.i194, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i185
 
-cond.false.i.i.i.i191:                            ; preds = %if.then144
-  %call2.i.i.i.i192 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !70
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i182
+cond.false.i.i.i.i194:                            ; preds = %if.then144
+  %call2.i.i.i.i195 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !70
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i185
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i182: ; preds = %cond.false.i.i.i.i191, %if.then144
-  %cond.i.i.i.i183 = phi ptr [ %call2.i.i.i.i192, %cond.false.i.i.i.i191 ], [ %atomic-temp.i.0.i.i.i.i180, %if.then144 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i185: ; preds = %cond.false.i.i.i.i194, %if.then144
+  %cond.i.i.i.i186 = phi ptr [ %call2.i.i.i.i195, %cond.false.i.i.i.i194 ], [ %atomic-temp.i.0.i.i.i.i183, %if.then144 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %state_.i.i184 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i183, i64 0, i32 3
-  %75 = load atomic i32, ptr %state_.i.i184 acquire, align 4, !noalias !76
-  %cmp.not.i.i185 = icmp eq i32 %75, 2
-  br i1 %cmp.not.i.i185, label %invoke.cont147, label %if.then.i.i186
+  %state_.i.i187 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i186, i64 0, i32 3
+  %75 = load atomic i32, ptr %state_.i.i187 acquire, align 4, !noalias !76
+  %cmp.not.i.i188 = icmp eq i32 %75, 2
+  br i1 %cmp.not.i.i188, label %invoke.cont147, label %if.then.i.i189
 
-if.then.i.i186:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i182
-  %vtable.i.i187 = load ptr, ptr %cond.i.i.i.i183, align 8, !noalias !76
-  %vfn.i.i188 = getelementptr inbounds ptr, ptr %vtable.i.i187, i64 3
-  %76 = load ptr, ptr %vfn.i.i188, align 8, !noalias !76
-  call void %76(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i183), !noalias !76
+if.then.i.i189:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i185
+  %vtable.i.i190 = load ptr, ptr %cond.i.i.i.i186, align 8, !noalias !76
+  %vfn.i.i191 = getelementptr inbounds ptr, ptr %vtable.i.i190, i64 3
+  %76 = load ptr, ptr %vfn.i.i191, align 8, !noalias !76
+  call void %76(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i186), !noalias !76
   br label %invoke.cont147
 
-invoke.cont147:                                   ; preds = %if.then.i.i186, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i182
-  %instance_weak_fast_.i.i189 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i183, i64 0, i32 9
+invoke.cont147:                                   ; preds = %if.then.i.i189, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i185
+  %instance_weak_fast_.i.i192 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i186, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter145, i8 0, i64 16, i1 false), !alias.scope !80
-  %77 = load ptr, ptr %instance_weak_fast_.i.i189, align 8, !noalias !80
-  %ptrRaw_.i.i.i.i.i190 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i183, i64 0, i32 9, i32 1
-  %78 = load ptr, ptr %ptrRaw_.i.i.i.i.i190, align 8, !noalias !80
+  %77 = load ptr, ptr %instance_weak_fast_.i.i192, align 8, !noalias !80
+  %ptrRaw_.i.i.i.i.i193 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i186, i64 0, i32 9, i32 1
+  %78 = load ptr, ptr %ptrRaw_.i.i.i.i.i193, align 8, !noalias !80
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter145, ptr noundef %77, ptr noundef %78)
   %79 = load ptr, ptr %reporter145, align 8
-  %cmp.i.i194.not = icmp eq ptr %79, null
-  br i1 %cmp.i.i194.not, label %if.end156, label %if.then149
+  %cmp.i.i197.not = icmp eq ptr %79, null
+  br i1 %cmp.i.i197.not, label %if.end156, label %if.then149
 
 if.then149:                                       ; preds = %invoke.cont147
   %vtable153 = load ptr, ptr %79, align 8
@@ -1270,9 +1270,9 @@ lpad146:                                          ; preds = %if.then149
 
 if.end156:                                        ; preds = %if.then149, %invoke.cont147
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter145, ptr noundef null, ptr noundef null)
-          to label %if.end158 unwind label %terminate.lpad.i195
+          to label %if.end158 unwind label %terminate.lpad.i198
 
-terminate.lpad.i195:                              ; preds = %if.end156
+terminate.lpad.i198:                              ; preds = %if.end156
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
@@ -1280,48 +1280,48 @@ terminate.lpad.i195:                              ; preds = %if.end156
   unreachable
 
 if.end158:                                        ; preds = %if.end156
-  %.pre634 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre663 = and i8 %.pre634, 1
-  %tobool159.not = icmp eq i8 %.pre663, 0
+  %.pre644 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre673 = and i8 %.pre644, 1
+  %tobool159.not = icmp eq i8 %.pre673, 0
   br i1 %tobool159.not, label %if.end558, label %if.then160
 
 if.then160:                                       ; preds = %if.end158
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %84 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !81
-  %atomic-temp.i.0.i.i.i.i197 = inttoptr i64 %84 to ptr
-  %tobool.i.not.i.i.i198 = icmp eq i64 %84, 0
-  br i1 %tobool.i.not.i.i.i198, label %cond.false.i.i.i.i208, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i199
+  %atomic-temp.i.0.i.i.i.i200 = inttoptr i64 %84 to ptr
+  %tobool.i.not.i.i.i201 = icmp eq i64 %84, 0
+  br i1 %tobool.i.not.i.i.i201, label %cond.false.i.i.i.i211, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i202
 
-cond.false.i.i.i.i208:                            ; preds = %if.then160
-  %call2.i.i.i.i209 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !81
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i199
+cond.false.i.i.i.i211:                            ; preds = %if.then160
+  %call2.i.i.i.i212 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !81
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i202
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i199: ; preds = %cond.false.i.i.i.i208, %if.then160
-  %cond.i.i.i.i200 = phi ptr [ %call2.i.i.i.i209, %cond.false.i.i.i.i208 ], [ %atomic-temp.i.0.i.i.i.i197, %if.then160 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i202: ; preds = %cond.false.i.i.i.i211, %if.then160
+  %cond.i.i.i.i203 = phi ptr [ %call2.i.i.i.i212, %cond.false.i.i.i.i211 ], [ %atomic-temp.i.0.i.i.i.i200, %if.then160 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %state_.i.i201 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i200, i64 0, i32 3
-  %85 = load atomic i32, ptr %state_.i.i201 acquire, align 4, !noalias !87
-  %cmp.not.i.i202 = icmp eq i32 %85, 2
-  br i1 %cmp.not.i.i202, label %invoke.cont163, label %if.then.i.i203
+  %state_.i.i204 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i203, i64 0, i32 3
+  %85 = load atomic i32, ptr %state_.i.i204 acquire, align 4, !noalias !87
+  %cmp.not.i.i205 = icmp eq i32 %85, 2
+  br i1 %cmp.not.i.i205, label %invoke.cont163, label %if.then.i.i206
 
-if.then.i.i203:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i199
-  %vtable.i.i204 = load ptr, ptr %cond.i.i.i.i200, align 8, !noalias !87
-  %vfn.i.i205 = getelementptr inbounds ptr, ptr %vtable.i.i204, i64 3
-  %86 = load ptr, ptr %vfn.i.i205, align 8, !noalias !87
-  call void %86(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i200), !noalias !87
+if.then.i.i206:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i202
+  %vtable.i.i207 = load ptr, ptr %cond.i.i.i.i203, align 8, !noalias !87
+  %vfn.i.i208 = getelementptr inbounds ptr, ptr %vtable.i.i207, i64 3
+  %86 = load ptr, ptr %vfn.i.i208, align 8, !noalias !87
+  call void %86(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i203), !noalias !87
   br label %invoke.cont163
 
-invoke.cont163:                                   ; preds = %if.then.i.i203, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i199
-  %instance_weak_fast_.i.i206 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i200, i64 0, i32 9
+invoke.cont163:                                   ; preds = %if.then.i.i206, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i202
+  %instance_weak_fast_.i.i209 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i203, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter161, i8 0, i64 16, i1 false), !alias.scope !91
-  %87 = load ptr, ptr %instance_weak_fast_.i.i206, align 8, !noalias !91
-  %ptrRaw_.i.i.i.i.i207 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i200, i64 0, i32 9, i32 1
-  %88 = load ptr, ptr %ptrRaw_.i.i.i.i.i207, align 8, !noalias !91
+  %87 = load ptr, ptr %instance_weak_fast_.i.i209, align 8, !noalias !91
+  %ptrRaw_.i.i.i.i.i210 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i203, i64 0, i32 9, i32 1
+  %88 = load ptr, ptr %ptrRaw_.i.i.i.i.i210, align 8, !noalias !91
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter161, ptr noundef %87, ptr noundef %88)
   %89 = load ptr, ptr %reporter161, align 8
-  %cmp.i.i211.not = icmp eq ptr %89, null
-  br i1 %cmp.i.i211.not, label %if.end172, label %if.then165
+  %cmp.i.i214.not = icmp eq ptr %89, null
+  br i1 %cmp.i.i214.not, label %if.end172, label %if.then165
 
 if.then165:                                       ; preds = %invoke.cont163
   %vtable169 = load ptr, ptr %89, align 8
@@ -1337,9 +1337,9 @@ lpad162:                                          ; preds = %if.then165
 
 if.end172:                                        ; preds = %if.then165, %invoke.cont163
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter161, ptr noundef null, ptr noundef null)
-          to label %if.end174 unwind label %terminate.lpad.i212
+          to label %if.end174 unwind label %terminate.lpad.i215
 
-terminate.lpad.i212:                              ; preds = %if.end172
+terminate.lpad.i215:                              ; preds = %if.end172
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
@@ -1347,48 +1347,48 @@ terminate.lpad.i212:                              ; preds = %if.end172
   unreachable
 
 if.end174:                                        ; preds = %if.end172
-  %.pre635 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre665 = and i8 %.pre635, 1
-  %tobool175.not = icmp eq i8 %.pre665, 0
+  %.pre645 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre675 = and i8 %.pre645, 1
+  %tobool175.not = icmp eq i8 %.pre675, 0
   br i1 %tobool175.not, label %if.end558, label %if.then176
 
 if.then176:                                       ; preds = %if.end174
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %94 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !92
-  %atomic-temp.i.0.i.i.i.i214 = inttoptr i64 %94 to ptr
-  %tobool.i.not.i.i.i215 = icmp eq i64 %94, 0
-  br i1 %tobool.i.not.i.i.i215, label %cond.false.i.i.i.i225, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i216
+  %atomic-temp.i.0.i.i.i.i217 = inttoptr i64 %94 to ptr
+  %tobool.i.not.i.i.i218 = icmp eq i64 %94, 0
+  br i1 %tobool.i.not.i.i.i218, label %cond.false.i.i.i.i228, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i219
 
-cond.false.i.i.i.i225:                            ; preds = %if.then176
-  %call2.i.i.i.i226 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !92
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i216
+cond.false.i.i.i.i228:                            ; preds = %if.then176
+  %call2.i.i.i.i229 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !92
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i219
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i216: ; preds = %cond.false.i.i.i.i225, %if.then176
-  %cond.i.i.i.i217 = phi ptr [ %call2.i.i.i.i226, %cond.false.i.i.i.i225 ], [ %atomic-temp.i.0.i.i.i.i214, %if.then176 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i219: ; preds = %cond.false.i.i.i.i228, %if.then176
+  %cond.i.i.i.i220 = phi ptr [ %call2.i.i.i.i229, %cond.false.i.i.i.i228 ], [ %atomic-temp.i.0.i.i.i.i217, %if.then176 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %state_.i.i218 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i217, i64 0, i32 3
-  %95 = load atomic i32, ptr %state_.i.i218 acquire, align 4, !noalias !98
-  %cmp.not.i.i219 = icmp eq i32 %95, 2
-  br i1 %cmp.not.i.i219, label %invoke.cont179, label %if.then.i.i220
+  %state_.i.i221 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i220, i64 0, i32 3
+  %95 = load atomic i32, ptr %state_.i.i221 acquire, align 4, !noalias !98
+  %cmp.not.i.i222 = icmp eq i32 %95, 2
+  br i1 %cmp.not.i.i222, label %invoke.cont179, label %if.then.i.i223
 
-if.then.i.i220:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i216
-  %vtable.i.i221 = load ptr, ptr %cond.i.i.i.i217, align 8, !noalias !98
-  %vfn.i.i222 = getelementptr inbounds ptr, ptr %vtable.i.i221, i64 3
-  %96 = load ptr, ptr %vfn.i.i222, align 8, !noalias !98
-  call void %96(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i217), !noalias !98
+if.then.i.i223:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i219
+  %vtable.i.i224 = load ptr, ptr %cond.i.i.i.i220, align 8, !noalias !98
+  %vfn.i.i225 = getelementptr inbounds ptr, ptr %vtable.i.i224, i64 3
+  %96 = load ptr, ptr %vfn.i.i225, align 8, !noalias !98
+  call void %96(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i220), !noalias !98
   br label %invoke.cont179
 
-invoke.cont179:                                   ; preds = %if.then.i.i220, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i216
-  %instance_weak_fast_.i.i223 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i217, i64 0, i32 9
+invoke.cont179:                                   ; preds = %if.then.i.i223, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i219
+  %instance_weak_fast_.i.i226 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i220, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter177, i8 0, i64 16, i1 false), !alias.scope !102
-  %97 = load ptr, ptr %instance_weak_fast_.i.i223, align 8, !noalias !102
-  %ptrRaw_.i.i.i.i.i224 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i217, i64 0, i32 9, i32 1
-  %98 = load ptr, ptr %ptrRaw_.i.i.i.i.i224, align 8, !noalias !102
+  %97 = load ptr, ptr %instance_weak_fast_.i.i226, align 8, !noalias !102
+  %ptrRaw_.i.i.i.i.i227 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i220, i64 0, i32 9, i32 1
+  %98 = load ptr, ptr %ptrRaw_.i.i.i.i.i227, align 8, !noalias !102
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter177, ptr noundef %97, ptr noundef %98)
   %99 = load ptr, ptr %reporter177, align 8
-  %cmp.i.i228.not = icmp eq ptr %99, null
-  br i1 %cmp.i.i228.not, label %if.end188, label %if.then181
+  %cmp.i.i231.not = icmp eq ptr %99, null
+  br i1 %cmp.i.i231.not, label %if.end188, label %if.then181
 
 if.then181:                                       ; preds = %invoke.cont179
   %vtable185 = load ptr, ptr %99, align 8
@@ -1404,9 +1404,9 @@ lpad178:                                          ; preds = %if.then181
 
 if.end188:                                        ; preds = %if.then181, %invoke.cont179
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter177, ptr noundef null, ptr noundef null)
-          to label %if.end190 unwind label %terminate.lpad.i229
+          to label %if.end190 unwind label %terminate.lpad.i232
 
-terminate.lpad.i229:                              ; preds = %if.end188
+terminate.lpad.i232:                              ; preds = %if.end188
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
@@ -1414,48 +1414,48 @@ terminate.lpad.i229:                              ; preds = %if.end188
   unreachable
 
 if.end190:                                        ; preds = %if.end188
-  %.pre636 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre667 = and i8 %.pre636, 1
-  %tobool191.not = icmp eq i8 %.pre667, 0
+  %.pre646 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre677 = and i8 %.pre646, 1
+  %tobool191.not = icmp eq i8 %.pre677, 0
   br i1 %tobool191.not, label %if.end558, label %if.then192
 
 if.then192:                                       ; preds = %if.end190
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %104 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !103
-  %atomic-temp.i.0.i.i.i.i231 = inttoptr i64 %104 to ptr
-  %tobool.i.not.i.i.i232 = icmp eq i64 %104, 0
-  br i1 %tobool.i.not.i.i.i232, label %cond.false.i.i.i.i242, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i233
+  %atomic-temp.i.0.i.i.i.i234 = inttoptr i64 %104 to ptr
+  %tobool.i.not.i.i.i235 = icmp eq i64 %104, 0
+  br i1 %tobool.i.not.i.i.i235, label %cond.false.i.i.i.i245, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i236
 
-cond.false.i.i.i.i242:                            ; preds = %if.then192
-  %call2.i.i.i.i243 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !103
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i233
+cond.false.i.i.i.i245:                            ; preds = %if.then192
+  %call2.i.i.i.i246 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !103
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i236
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i233: ; preds = %cond.false.i.i.i.i242, %if.then192
-  %cond.i.i.i.i234 = phi ptr [ %call2.i.i.i.i243, %cond.false.i.i.i.i242 ], [ %atomic-temp.i.0.i.i.i.i231, %if.then192 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i236: ; preds = %cond.false.i.i.i.i245, %if.then192
+  %cond.i.i.i.i237 = phi ptr [ %call2.i.i.i.i246, %cond.false.i.i.i.i245 ], [ %atomic-temp.i.0.i.i.i.i234, %if.then192 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
-  %state_.i.i235 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i234, i64 0, i32 3
-  %105 = load atomic i32, ptr %state_.i.i235 acquire, align 4, !noalias !109
-  %cmp.not.i.i236 = icmp eq i32 %105, 2
-  br i1 %cmp.not.i.i236, label %invoke.cont195, label %if.then.i.i237
+  %state_.i.i238 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i237, i64 0, i32 3
+  %105 = load atomic i32, ptr %state_.i.i238 acquire, align 4, !noalias !109
+  %cmp.not.i.i239 = icmp eq i32 %105, 2
+  br i1 %cmp.not.i.i239, label %invoke.cont195, label %if.then.i.i240
 
-if.then.i.i237:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i233
-  %vtable.i.i238 = load ptr, ptr %cond.i.i.i.i234, align 8, !noalias !109
-  %vfn.i.i239 = getelementptr inbounds ptr, ptr %vtable.i.i238, i64 3
-  %106 = load ptr, ptr %vfn.i.i239, align 8, !noalias !109
-  call void %106(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i234), !noalias !109
+if.then.i.i240:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i236
+  %vtable.i.i241 = load ptr, ptr %cond.i.i.i.i237, align 8, !noalias !109
+  %vfn.i.i242 = getelementptr inbounds ptr, ptr %vtable.i.i241, i64 3
+  %106 = load ptr, ptr %vfn.i.i242, align 8, !noalias !109
+  call void %106(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i237), !noalias !109
   br label %invoke.cont195
 
-invoke.cont195:                                   ; preds = %if.then.i.i237, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i233
-  %instance_weak_fast_.i.i240 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i234, i64 0, i32 9
+invoke.cont195:                                   ; preds = %if.then.i.i240, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i236
+  %instance_weak_fast_.i.i243 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i237, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter193, i8 0, i64 16, i1 false), !alias.scope !113
-  %107 = load ptr, ptr %instance_weak_fast_.i.i240, align 8, !noalias !113
-  %ptrRaw_.i.i.i.i.i241 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i234, i64 0, i32 9, i32 1
-  %108 = load ptr, ptr %ptrRaw_.i.i.i.i.i241, align 8, !noalias !113
+  %107 = load ptr, ptr %instance_weak_fast_.i.i243, align 8, !noalias !113
+  %ptrRaw_.i.i.i.i.i244 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i237, i64 0, i32 9, i32 1
+  %108 = load ptr, ptr %ptrRaw_.i.i.i.i.i244, align 8, !noalias !113
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter193, ptr noundef %107, ptr noundef %108)
   %109 = load ptr, ptr %reporter193, align 8
-  %cmp.i.i245.not = icmp eq ptr %109, null
-  br i1 %cmp.i.i245.not, label %if.end204, label %if.then197
+  %cmp.i.i248.not = icmp eq ptr %109, null
+  br i1 %cmp.i.i248.not, label %if.end204, label %if.then197
 
 if.then197:                                       ; preds = %invoke.cont195
   %vtable201 = load ptr, ptr %109, align 8
@@ -1471,9 +1471,9 @@ lpad194:                                          ; preds = %if.then197
 
 if.end204:                                        ; preds = %if.then197, %invoke.cont195
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter193, ptr noundef null, ptr noundef null)
-          to label %if.end206 unwind label %terminate.lpad.i246
+          to label %if.end206 unwind label %terminate.lpad.i249
 
-terminate.lpad.i246:                              ; preds = %if.end204
+terminate.lpad.i249:                              ; preds = %if.end204
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
@@ -1481,48 +1481,48 @@ terminate.lpad.i246:                              ; preds = %if.end204
   unreachable
 
 if.end206:                                        ; preds = %if.end204
-  %.pre637 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre669 = and i8 %.pre637, 1
-  %tobool207.not = icmp eq i8 %.pre669, 0
+  %.pre647 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre679 = and i8 %.pre647, 1
+  %tobool207.not = icmp eq i8 %.pre679, 0
   br i1 %tobool207.not, label %if.end558, label %if.then208
 
 if.then208:                                       ; preds = %if.end206
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %114 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !114
-  %atomic-temp.i.0.i.i.i.i248 = inttoptr i64 %114 to ptr
-  %tobool.i.not.i.i.i249 = icmp eq i64 %114, 0
-  br i1 %tobool.i.not.i.i.i249, label %cond.false.i.i.i.i259, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i250
+  %atomic-temp.i.0.i.i.i.i251 = inttoptr i64 %114 to ptr
+  %tobool.i.not.i.i.i252 = icmp eq i64 %114, 0
+  br i1 %tobool.i.not.i.i.i252, label %cond.false.i.i.i.i262, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i253
 
-cond.false.i.i.i.i259:                            ; preds = %if.then208
-  %call2.i.i.i.i260 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !114
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i250
+cond.false.i.i.i.i262:                            ; preds = %if.then208
+  %call2.i.i.i.i263 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !114
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i253
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i250: ; preds = %cond.false.i.i.i.i259, %if.then208
-  %cond.i.i.i.i251 = phi ptr [ %call2.i.i.i.i260, %cond.false.i.i.i.i259 ], [ %atomic-temp.i.0.i.i.i.i248, %if.then208 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i253: ; preds = %cond.false.i.i.i.i262, %if.then208
+  %cond.i.i.i.i254 = phi ptr [ %call2.i.i.i.i263, %cond.false.i.i.i.i262 ], [ %atomic-temp.i.0.i.i.i.i251, %if.then208 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  %state_.i.i252 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i251, i64 0, i32 3
-  %115 = load atomic i32, ptr %state_.i.i252 acquire, align 4, !noalias !120
-  %cmp.not.i.i253 = icmp eq i32 %115, 2
-  br i1 %cmp.not.i.i253, label %invoke.cont211, label %if.then.i.i254
+  %state_.i.i255 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i254, i64 0, i32 3
+  %115 = load atomic i32, ptr %state_.i.i255 acquire, align 4, !noalias !120
+  %cmp.not.i.i256 = icmp eq i32 %115, 2
+  br i1 %cmp.not.i.i256, label %invoke.cont211, label %if.then.i.i257
 
-if.then.i.i254:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i250
-  %vtable.i.i255 = load ptr, ptr %cond.i.i.i.i251, align 8, !noalias !120
-  %vfn.i.i256 = getelementptr inbounds ptr, ptr %vtable.i.i255, i64 3
-  %116 = load ptr, ptr %vfn.i.i256, align 8, !noalias !120
-  call void %116(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i251), !noalias !120
+if.then.i.i257:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i253
+  %vtable.i.i258 = load ptr, ptr %cond.i.i.i.i254, align 8, !noalias !120
+  %vfn.i.i259 = getelementptr inbounds ptr, ptr %vtable.i.i258, i64 3
+  %116 = load ptr, ptr %vfn.i.i259, align 8, !noalias !120
+  call void %116(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i254), !noalias !120
   br label %invoke.cont211
 
-invoke.cont211:                                   ; preds = %if.then.i.i254, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i250
-  %instance_weak_fast_.i.i257 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i251, i64 0, i32 9
+invoke.cont211:                                   ; preds = %if.then.i.i257, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i253
+  %instance_weak_fast_.i.i260 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i254, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter209, i8 0, i64 16, i1 false), !alias.scope !124
-  %117 = load ptr, ptr %instance_weak_fast_.i.i257, align 8, !noalias !124
-  %ptrRaw_.i.i.i.i.i258 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i251, i64 0, i32 9, i32 1
-  %118 = load ptr, ptr %ptrRaw_.i.i.i.i.i258, align 8, !noalias !124
+  %117 = load ptr, ptr %instance_weak_fast_.i.i260, align 8, !noalias !124
+  %ptrRaw_.i.i.i.i.i261 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i254, i64 0, i32 9, i32 1
+  %118 = load ptr, ptr %ptrRaw_.i.i.i.i.i261, align 8, !noalias !124
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter209, ptr noundef %117, ptr noundef %118)
   %119 = load ptr, ptr %reporter209, align 8
-  %cmp.i.i262.not = icmp eq ptr %119, null
-  br i1 %cmp.i.i262.not, label %if.end220, label %if.then213
+  %cmp.i.i265.not = icmp eq ptr %119, null
+  br i1 %cmp.i.i265.not, label %if.end220, label %if.then213
 
 if.then213:                                       ; preds = %invoke.cont211
   %vtable217 = load ptr, ptr %119, align 8
@@ -1538,9 +1538,9 @@ lpad210:                                          ; preds = %if.then213
 
 if.end220:                                        ; preds = %if.then213, %invoke.cont211
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter209, ptr noundef null, ptr noundef null)
-          to label %if.end222 unwind label %terminate.lpad.i263
+          to label %if.end222 unwind label %terminate.lpad.i266
 
-terminate.lpad.i263:                              ; preds = %if.end220
+terminate.lpad.i266:                              ; preds = %if.end220
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
@@ -1548,67 +1548,67 @@ terminate.lpad.i263:                              ; preds = %if.end220
   unreachable
 
 if.end222:                                        ; preds = %if.end220
-  %.pre638 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre671 = and i8 %.pre638, 1
-  %tobool223.not = icmp eq i8 %.pre671, 0
+  %.pre648 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre681 = and i8 %.pre648, 1
+  %tobool223.not = icmp eq i8 %.pre681, 0
   br i1 %tobool223.not, label %if.end558, label %if.then224
 
 if.then224:                                       ; preds = %if.end222
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %124 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !125
-  %atomic-temp.i.0.i.i.i.i265 = inttoptr i64 %124 to ptr
-  %tobool.i.not.i.i.i266 = icmp eq i64 %124, 0
-  br i1 %tobool.i.not.i.i.i266, label %cond.false.i.i.i.i276, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i267
+  %atomic-temp.i.0.i.i.i.i268 = inttoptr i64 %124 to ptr
+  %tobool.i.not.i.i.i269 = icmp eq i64 %124, 0
+  br i1 %tobool.i.not.i.i.i269, label %cond.false.i.i.i.i279, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i270
 
-cond.false.i.i.i.i276:                            ; preds = %if.then224
-  %call2.i.i.i.i277 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !125
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i267
+cond.false.i.i.i.i279:                            ; preds = %if.then224
+  %call2.i.i.i.i280 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !125
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i270
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i267: ; preds = %cond.false.i.i.i.i276, %if.then224
-  %cond.i.i.i.i268 = phi ptr [ %call2.i.i.i.i277, %cond.false.i.i.i.i276 ], [ %atomic-temp.i.0.i.i.i.i265, %if.then224 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i270: ; preds = %cond.false.i.i.i.i279, %if.then224
+  %cond.i.i.i.i271 = phi ptr [ %call2.i.i.i.i280, %cond.false.i.i.i.i279 ], [ %atomic-temp.i.0.i.i.i.i268, %if.then224 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %state_.i.i269 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i268, i64 0, i32 3
-  %125 = load atomic i32, ptr %state_.i.i269 acquire, align 4, !noalias !131
-  %cmp.not.i.i270 = icmp eq i32 %125, 2
-  br i1 %cmp.not.i.i270, label %invoke.cont227, label %if.then.i.i271
+  %state_.i.i272 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i271, i64 0, i32 3
+  %125 = load atomic i32, ptr %state_.i.i272 acquire, align 4, !noalias !131
+  %cmp.not.i.i273 = icmp eq i32 %125, 2
+  br i1 %cmp.not.i.i273, label %invoke.cont227, label %if.then.i.i274
 
-if.then.i.i271:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i267
-  %vtable.i.i272 = load ptr, ptr %cond.i.i.i.i268, align 8, !noalias !131
-  %vfn.i.i273 = getelementptr inbounds ptr, ptr %vtable.i.i272, i64 3
-  %126 = load ptr, ptr %vfn.i.i273, align 8, !noalias !131
-  call void %126(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i268), !noalias !131
+if.then.i.i274:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i270
+  %vtable.i.i275 = load ptr, ptr %cond.i.i.i.i271, align 8, !noalias !131
+  %vfn.i.i276 = getelementptr inbounds ptr, ptr %vtable.i.i275, i64 3
+  %126 = load ptr, ptr %vfn.i.i276, align 8, !noalias !131
+  call void %126(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i271), !noalias !131
   br label %invoke.cont227
 
-invoke.cont227:                                   ; preds = %if.then.i.i271, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i267
-  %instance_weak_fast_.i.i274 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i268, i64 0, i32 9
+invoke.cont227:                                   ; preds = %if.then.i.i274, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i270
+  %instance_weak_fast_.i.i277 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i271, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter225, i8 0, i64 16, i1 false), !alias.scope !135
-  %127 = load ptr, ptr %instance_weak_fast_.i.i274, align 8, !noalias !135
-  %ptrRaw_.i.i.i.i.i275 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i268, i64 0, i32 9, i32 1
-  %128 = load ptr, ptr %ptrRaw_.i.i.i.i.i275, align 8, !noalias !135
+  %127 = load ptr, ptr %instance_weak_fast_.i.i277, align 8, !noalias !135
+  %ptrRaw_.i.i.i.i.i278 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i271, i64 0, i32 9, i32 1
+  %128 = load ptr, ptr %ptrRaw_.i.i.i.i.i278, align 8, !noalias !135
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter225, ptr noundef %127, ptr noundef %128)
   %129 = load ptr, ptr %reporter225, align 8
-  %cmp.i.i279.not = icmp eq ptr %129, null
-  br i1 %cmp.i.i279.not, label %if.end252, label %if.then229
+  %cmp.i.i282.not = icmp eq ptr %129, null
+  br i1 %cmp.i.i282.not, label %if.end252, label %if.then229
 
 if.then229:                                       ; preds = %invoke.cont227
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp233, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i280 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %invoke.cont245 unwind label %lpad.i281
+  %call5.i.i.i.i2.i283 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+          to label %invoke.cont245 unwind label %lpad.i284
 
-lpad.i281:                                        ; preds = %if.then229
+lpad.i284:                                        ; preds = %if.then229
   %130 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 invoke.cont245:                                   ; preds = %if.then229
-  store ptr %call5.i.i.i.i2.i280, ptr %ref.tmp233, align 8
-  %add.ptr.i1.i285 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i280, i64 4
-  %_M_end_of_storage.i.i286 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp233, i64 0, i32 2
-  store ptr %add.ptr.i1.i285, ptr %_M_end_of_storage.i.i286, align 8
-  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i280, align 4
-  %_M_finish.i.i287 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp233, i64 0, i32 1
-  store ptr %add.ptr.i1.i285, ptr %_M_finish.i.i287, align 8
+  store ptr %call5.i.i.i.i2.i283, ptr %ref.tmp233, align 8
+  %add.ptr.i1.i288 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i283, i64 16
+  %_M_end_of_storage.i.i289 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp233, i64 0, i32 2
+  store ptr %add.ptr.i1.i288, ptr %_M_end_of_storage.i.i289, align 8
+  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i283, align 4
+  %_M_finish.i.i291 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp233, i64 0, i32 1
+  store ptr %add.ptr.i1.i288, ptr %_M_finish.i.i291, align 8
   %vtable246 = load ptr, ptr %129, align 8
   %vfn247 = getelementptr inbounds ptr, ptr %vtable246, i64 5
   %131 = load ptr, ptr %vfn247, align 8
@@ -1617,10 +1617,10 @@ invoke.cont245:                                   ; preds = %if.then229
 
 invoke.cont249:                                   ; preds = %invoke.cont245
   %132 = load ptr, ptr %ref.tmp233, align 8
-  %tobool.not.i.i.i290 = icmp eq ptr %132, null
-  br i1 %tobool.not.i.i.i290, label %if.end252, label %if.then.i.i.i291
+  %tobool.not.i.i.i294 = icmp eq ptr %132, null
+  br i1 %tobool.not.i.i.i294, label %if.end252, label %if.then.i.i.i295
 
-if.then.i.i.i291:                                 ; preds = %invoke.cont249
+if.then.i.i.i295:                                 ; preds = %invoke.cont249
   call void @_ZdlPv(ptr noundef nonnull %132) #23
   br label %if.end252
 
@@ -1628,18 +1628,18 @@ lpad248:                                          ; preds = %invoke.cont245
   %133 = landingpad { ptr, i32 }
           cleanup
   %134 = load ptr, ptr %ref.tmp233, align 8
-  %tobool.not.i.i.i294 = icmp eq ptr %134, null
-  br i1 %tobool.not.i.i.i294, label %eh.resume, label %if.then.i.i.i295
+  %tobool.not.i.i.i298 = icmp eq ptr %134, null
+  br i1 %tobool.not.i.i.i298, label %eh.resume, label %if.then.i.i.i299
 
-if.then.i.i.i295:                                 ; preds = %lpad248
+if.then.i.i.i299:                                 ; preds = %lpad248
   call void @_ZdlPv(ptr noundef nonnull %134) #23
   br label %eh.resume
 
-if.end252:                                        ; preds = %if.then.i.i.i291, %invoke.cont249, %invoke.cont227
+if.end252:                                        ; preds = %if.then.i.i.i295, %invoke.cont249, %invoke.cont227
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter225, ptr noundef null, ptr noundef null)
-          to label %if.end254 unwind label %terminate.lpad.i298
+          to label %if.end254 unwind label %terminate.lpad.i302
 
-terminate.lpad.i298:                              ; preds = %if.end252
+terminate.lpad.i302:                              ; preds = %if.end252
   %135 = landingpad { ptr, i32 }
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
@@ -1647,67 +1647,67 @@ terminate.lpad.i298:                              ; preds = %if.end252
   unreachable
 
 if.end254:                                        ; preds = %if.end252
-  %.pre639 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre673 = and i8 %.pre639, 1
-  %tobool255.not = icmp eq i8 %.pre673, 0
+  %.pre649 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre683 = and i8 %.pre649, 1
+  %tobool255.not = icmp eq i8 %.pre683, 0
   br i1 %tobool255.not, label %if.end558, label %if.then256
 
 if.then256:                                       ; preds = %if.end254
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
   %137 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !136
-  %atomic-temp.i.0.i.i.i.i300 = inttoptr i64 %137 to ptr
-  %tobool.i.not.i.i.i301 = icmp eq i64 %137, 0
-  br i1 %tobool.i.not.i.i.i301, label %cond.false.i.i.i.i311, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i302
+  %atomic-temp.i.0.i.i.i.i304 = inttoptr i64 %137 to ptr
+  %tobool.i.not.i.i.i305 = icmp eq i64 %137, 0
+  br i1 %tobool.i.not.i.i.i305, label %cond.false.i.i.i.i315, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i306
 
-cond.false.i.i.i.i311:                            ; preds = %if.then256
-  %call2.i.i.i.i312 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !136
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i302
+cond.false.i.i.i.i315:                            ; preds = %if.then256
+  %call2.i.i.i.i316 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !136
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i306
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i302: ; preds = %cond.false.i.i.i.i311, %if.then256
-  %cond.i.i.i.i303 = phi ptr [ %call2.i.i.i.i312, %cond.false.i.i.i.i311 ], [ %atomic-temp.i.0.i.i.i.i300, %if.then256 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i306: ; preds = %cond.false.i.i.i.i315, %if.then256
+  %cond.i.i.i.i307 = phi ptr [ %call2.i.i.i.i316, %cond.false.i.i.i.i315 ], [ %atomic-temp.i.0.i.i.i.i304, %if.then256 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  %state_.i.i304 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i303, i64 0, i32 3
-  %138 = load atomic i32, ptr %state_.i.i304 acquire, align 4, !noalias !142
-  %cmp.not.i.i305 = icmp eq i32 %138, 2
-  br i1 %cmp.not.i.i305, label %invoke.cont259, label %if.then.i.i306
+  %state_.i.i308 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i307, i64 0, i32 3
+  %138 = load atomic i32, ptr %state_.i.i308 acquire, align 4, !noalias !142
+  %cmp.not.i.i309 = icmp eq i32 %138, 2
+  br i1 %cmp.not.i.i309, label %invoke.cont259, label %if.then.i.i310
 
-if.then.i.i306:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i302
-  %vtable.i.i307 = load ptr, ptr %cond.i.i.i.i303, align 8, !noalias !142
-  %vfn.i.i308 = getelementptr inbounds ptr, ptr %vtable.i.i307, i64 3
-  %139 = load ptr, ptr %vfn.i.i308, align 8, !noalias !142
-  call void %139(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i303), !noalias !142
+if.then.i.i310:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i306
+  %vtable.i.i311 = load ptr, ptr %cond.i.i.i.i307, align 8, !noalias !142
+  %vfn.i.i312 = getelementptr inbounds ptr, ptr %vtable.i.i311, i64 3
+  %139 = load ptr, ptr %vfn.i.i312, align 8, !noalias !142
+  call void %139(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i307), !noalias !142
   br label %invoke.cont259
 
-invoke.cont259:                                   ; preds = %if.then.i.i306, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i302
-  %instance_weak_fast_.i.i309 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i303, i64 0, i32 9
+invoke.cont259:                                   ; preds = %if.then.i.i310, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i306
+  %instance_weak_fast_.i.i313 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i307, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter257, i8 0, i64 16, i1 false), !alias.scope !146
-  %140 = load ptr, ptr %instance_weak_fast_.i.i309, align 8, !noalias !146
-  %ptrRaw_.i.i.i.i.i310 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i303, i64 0, i32 9, i32 1
-  %141 = load ptr, ptr %ptrRaw_.i.i.i.i.i310, align 8, !noalias !146
+  %140 = load ptr, ptr %instance_weak_fast_.i.i313, align 8, !noalias !146
+  %ptrRaw_.i.i.i.i.i314 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i307, i64 0, i32 9, i32 1
+  %141 = load ptr, ptr %ptrRaw_.i.i.i.i.i314, align 8, !noalias !146
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter257, ptr noundef %140, ptr noundef %141)
   %142 = load ptr, ptr %reporter257, align 8
-  %cmp.i.i314.not = icmp eq ptr %142, null
-  br i1 %cmp.i.i314.not, label %if.end284, label %if.then261
+  %cmp.i.i318.not = icmp eq ptr %142, null
+  br i1 %cmp.i.i318.not, label %if.end284, label %if.then261
 
 if.then261:                                       ; preds = %invoke.cont259
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp265, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i315 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %invoke.cont277 unwind label %lpad.i316
+  %call5.i.i.i.i2.i319 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+          to label %invoke.cont277 unwind label %lpad.i320
 
-lpad.i316:                                        ; preds = %if.then261
+lpad.i320:                                        ; preds = %if.then261
   %143 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 invoke.cont277:                                   ; preds = %if.then261
-  store ptr %call5.i.i.i.i2.i315, ptr %ref.tmp265, align 8
-  %add.ptr.i1.i320 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i315, i64 4
-  %_M_end_of_storage.i.i321 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp265, i64 0, i32 2
-  store ptr %add.ptr.i1.i320, ptr %_M_end_of_storage.i.i321, align 8
-  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i315, align 4
-  %_M_finish.i.i322 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp265, i64 0, i32 1
-  store ptr %add.ptr.i1.i320, ptr %_M_finish.i.i322, align 8
+  store ptr %call5.i.i.i.i2.i319, ptr %ref.tmp265, align 8
+  %add.ptr.i1.i324 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i319, i64 16
+  %_M_end_of_storage.i.i325 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp265, i64 0, i32 2
+  store ptr %add.ptr.i1.i324, ptr %_M_end_of_storage.i.i325, align 8
+  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i319, align 4
+  %_M_finish.i.i327 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp265, i64 0, i32 1
+  store ptr %add.ptr.i1.i324, ptr %_M_finish.i.i327, align 8
   %vtable278 = load ptr, ptr %142, align 8
   %vfn279 = getelementptr inbounds ptr, ptr %vtable278, i64 5
   %144 = load ptr, ptr %vfn279, align 8
@@ -1716,10 +1716,10 @@ invoke.cont277:                                   ; preds = %if.then261
 
 invoke.cont281:                                   ; preds = %invoke.cont277
   %145 = load ptr, ptr %ref.tmp265, align 8
-  %tobool.not.i.i.i325 = icmp eq ptr %145, null
-  br i1 %tobool.not.i.i.i325, label %if.end284, label %if.then.i.i.i326
+  %tobool.not.i.i.i330 = icmp eq ptr %145, null
+  br i1 %tobool.not.i.i.i330, label %if.end284, label %if.then.i.i.i331
 
-if.then.i.i.i326:                                 ; preds = %invoke.cont281
+if.then.i.i.i331:                                 ; preds = %invoke.cont281
   call void @_ZdlPv(ptr noundef nonnull %145) #23
   br label %if.end284
 
@@ -1727,18 +1727,18 @@ lpad280:                                          ; preds = %invoke.cont277
   %146 = landingpad { ptr, i32 }
           cleanup
   %147 = load ptr, ptr %ref.tmp265, align 8
-  %tobool.not.i.i.i329 = icmp eq ptr %147, null
-  br i1 %tobool.not.i.i.i329, label %eh.resume, label %if.then.i.i.i330
+  %tobool.not.i.i.i334 = icmp eq ptr %147, null
+  br i1 %tobool.not.i.i.i334, label %eh.resume, label %if.then.i.i.i335
 
-if.then.i.i.i330:                                 ; preds = %lpad280
+if.then.i.i.i335:                                 ; preds = %lpad280
   call void @_ZdlPv(ptr noundef nonnull %147) #23
   br label %eh.resume
 
-if.end284:                                        ; preds = %if.then.i.i.i326, %invoke.cont281, %invoke.cont259
+if.end284:                                        ; preds = %if.then.i.i.i331, %invoke.cont281, %invoke.cont259
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter257, ptr noundef null, ptr noundef null)
-          to label %if.end286 unwind label %terminate.lpad.i333
+          to label %if.end286 unwind label %terminate.lpad.i338
 
-terminate.lpad.i333:                              ; preds = %if.end284
+terminate.lpad.i338:                              ; preds = %if.end284
   %148 = landingpad { ptr, i32 }
           catch ptr null
   %149 = extractvalue { ptr, i32 } %148, 0
@@ -1746,48 +1746,48 @@ terminate.lpad.i333:                              ; preds = %if.end284
   unreachable
 
 if.end286:                                        ; preds = %if.end284
-  %.pre640 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre675 = and i8 %.pre640, 1
-  %tobool287.not = icmp eq i8 %.pre675, 0
+  %.pre650 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre685 = and i8 %.pre650, 1
+  %tobool287.not = icmp eq i8 %.pre685, 0
   br i1 %tobool287.not, label %if.end558, label %if.then288
 
 if.then288:                                       ; preds = %if.end286
   call void @llvm.experimental.noalias.scope.decl(metadata !147)
   %150 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !147
-  %atomic-temp.i.0.i.i.i.i335 = inttoptr i64 %150 to ptr
-  %tobool.i.not.i.i.i336 = icmp eq i64 %150, 0
-  br i1 %tobool.i.not.i.i.i336, label %cond.false.i.i.i.i346, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i337
+  %atomic-temp.i.0.i.i.i.i340 = inttoptr i64 %150 to ptr
+  %tobool.i.not.i.i.i341 = icmp eq i64 %150, 0
+  br i1 %tobool.i.not.i.i.i341, label %cond.false.i.i.i.i351, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i342
 
-cond.false.i.i.i.i346:                            ; preds = %if.then288
-  %call2.i.i.i.i347 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !147
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i337
+cond.false.i.i.i.i351:                            ; preds = %if.then288
+  %call2.i.i.i.i352 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !147
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i342
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i337: ; preds = %cond.false.i.i.i.i346, %if.then288
-  %cond.i.i.i.i338 = phi ptr [ %call2.i.i.i.i347, %cond.false.i.i.i.i346 ], [ %atomic-temp.i.0.i.i.i.i335, %if.then288 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i342: ; preds = %cond.false.i.i.i.i351, %if.then288
+  %cond.i.i.i.i343 = phi ptr [ %call2.i.i.i.i352, %cond.false.i.i.i.i351 ], [ %atomic-temp.i.0.i.i.i.i340, %if.then288 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !150)
-  %state_.i.i339 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i338, i64 0, i32 3
-  %151 = load atomic i32, ptr %state_.i.i339 acquire, align 4, !noalias !153
-  %cmp.not.i.i340 = icmp eq i32 %151, 2
-  br i1 %cmp.not.i.i340, label %invoke.cont291, label %if.then.i.i341
+  %state_.i.i344 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i343, i64 0, i32 3
+  %151 = load atomic i32, ptr %state_.i.i344 acquire, align 4, !noalias !153
+  %cmp.not.i.i345 = icmp eq i32 %151, 2
+  br i1 %cmp.not.i.i345, label %invoke.cont291, label %if.then.i.i346
 
-if.then.i.i341:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i337
-  %vtable.i.i342 = load ptr, ptr %cond.i.i.i.i338, align 8, !noalias !153
-  %vfn.i.i343 = getelementptr inbounds ptr, ptr %vtable.i.i342, i64 3
-  %152 = load ptr, ptr %vfn.i.i343, align 8, !noalias !153
-  call void %152(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i338), !noalias !153
+if.then.i.i346:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i342
+  %vtable.i.i347 = load ptr, ptr %cond.i.i.i.i343, align 8, !noalias !153
+  %vfn.i.i348 = getelementptr inbounds ptr, ptr %vtable.i.i347, i64 3
+  %152 = load ptr, ptr %vfn.i.i348, align 8, !noalias !153
+  call void %152(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i343), !noalias !153
   br label %invoke.cont291
 
-invoke.cont291:                                   ; preds = %if.then.i.i341, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i337
-  %instance_weak_fast_.i.i344 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i338, i64 0, i32 9
+invoke.cont291:                                   ; preds = %if.then.i.i346, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i342
+  %instance_weak_fast_.i.i349 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i343, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter289, i8 0, i64 16, i1 false), !alias.scope !157
-  %153 = load ptr, ptr %instance_weak_fast_.i.i344, align 8, !noalias !157
-  %ptrRaw_.i.i.i.i.i345 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i338, i64 0, i32 9, i32 1
-  %154 = load ptr, ptr %ptrRaw_.i.i.i.i.i345, align 8, !noalias !157
+  %153 = load ptr, ptr %instance_weak_fast_.i.i349, align 8, !noalias !157
+  %ptrRaw_.i.i.i.i.i350 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i343, i64 0, i32 9, i32 1
+  %154 = load ptr, ptr %ptrRaw_.i.i.i.i.i350, align 8, !noalias !157
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter289, ptr noundef %153, ptr noundef %154)
   %155 = load ptr, ptr %reporter289, align 8
-  %cmp.i.i349.not = icmp eq ptr %155, null
-  br i1 %cmp.i.i349.not, label %if.end300, label %if.then293
+  %cmp.i.i354.not = icmp eq ptr %155, null
+  br i1 %cmp.i.i354.not, label %if.end300, label %if.then293
 
 if.then293:                                       ; preds = %invoke.cont291
   %vtable297 = load ptr, ptr %155, align 8
@@ -1803,9 +1803,9 @@ lpad290:                                          ; preds = %if.then293
 
 if.end300:                                        ; preds = %if.then293, %invoke.cont291
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter289, ptr noundef null, ptr noundef null)
-          to label %if.end302 unwind label %terminate.lpad.i350
+          to label %if.end302 unwind label %terminate.lpad.i355
 
-terminate.lpad.i350:                              ; preds = %if.end300
+terminate.lpad.i355:                              ; preds = %if.end300
   %158 = landingpad { ptr, i32 }
           catch ptr null
   %159 = extractvalue { ptr, i32 } %158, 0
@@ -1813,48 +1813,48 @@ terminate.lpad.i350:                              ; preds = %if.end300
   unreachable
 
 if.end302:                                        ; preds = %if.end300
-  %.pre641 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre677 = and i8 %.pre641, 1
-  %tobool303.not = icmp eq i8 %.pre677, 0
+  %.pre651 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre687 = and i8 %.pre651, 1
+  %tobool303.not = icmp eq i8 %.pre687, 0
   br i1 %tobool303.not, label %if.end558, label %if.then304
 
 if.then304:                                       ; preds = %if.end302
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %160 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !158
-  %atomic-temp.i.0.i.i.i.i352 = inttoptr i64 %160 to ptr
-  %tobool.i.not.i.i.i353 = icmp eq i64 %160, 0
-  br i1 %tobool.i.not.i.i.i353, label %cond.false.i.i.i.i363, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i354
+  %atomic-temp.i.0.i.i.i.i357 = inttoptr i64 %160 to ptr
+  %tobool.i.not.i.i.i358 = icmp eq i64 %160, 0
+  br i1 %tobool.i.not.i.i.i358, label %cond.false.i.i.i.i368, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i359
 
-cond.false.i.i.i.i363:                            ; preds = %if.then304
-  %call2.i.i.i.i364 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !158
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i354
+cond.false.i.i.i.i368:                            ; preds = %if.then304
+  %call2.i.i.i.i369 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !158
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i359
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i354: ; preds = %cond.false.i.i.i.i363, %if.then304
-  %cond.i.i.i.i355 = phi ptr [ %call2.i.i.i.i364, %cond.false.i.i.i.i363 ], [ %atomic-temp.i.0.i.i.i.i352, %if.then304 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i359: ; preds = %cond.false.i.i.i.i368, %if.then304
+  %cond.i.i.i.i360 = phi ptr [ %call2.i.i.i.i369, %cond.false.i.i.i.i368 ], [ %atomic-temp.i.0.i.i.i.i357, %if.then304 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  %state_.i.i356 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i355, i64 0, i32 3
-  %161 = load atomic i32, ptr %state_.i.i356 acquire, align 4, !noalias !164
-  %cmp.not.i.i357 = icmp eq i32 %161, 2
-  br i1 %cmp.not.i.i357, label %invoke.cont307, label %if.then.i.i358
+  %state_.i.i361 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i360, i64 0, i32 3
+  %161 = load atomic i32, ptr %state_.i.i361 acquire, align 4, !noalias !164
+  %cmp.not.i.i362 = icmp eq i32 %161, 2
+  br i1 %cmp.not.i.i362, label %invoke.cont307, label %if.then.i.i363
 
-if.then.i.i358:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i354
-  %vtable.i.i359 = load ptr, ptr %cond.i.i.i.i355, align 8, !noalias !164
-  %vfn.i.i360 = getelementptr inbounds ptr, ptr %vtable.i.i359, i64 3
-  %162 = load ptr, ptr %vfn.i.i360, align 8, !noalias !164
-  call void %162(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i355), !noalias !164
+if.then.i.i363:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i359
+  %vtable.i.i364 = load ptr, ptr %cond.i.i.i.i360, align 8, !noalias !164
+  %vfn.i.i365 = getelementptr inbounds ptr, ptr %vtable.i.i364, i64 3
+  %162 = load ptr, ptr %vfn.i.i365, align 8, !noalias !164
+  call void %162(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i360), !noalias !164
   br label %invoke.cont307
 
-invoke.cont307:                                   ; preds = %if.then.i.i358, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i354
-  %instance_weak_fast_.i.i361 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i355, i64 0, i32 9
+invoke.cont307:                                   ; preds = %if.then.i.i363, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i359
+  %instance_weak_fast_.i.i366 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i360, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !165)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter305, i8 0, i64 16, i1 false), !alias.scope !168
-  %163 = load ptr, ptr %instance_weak_fast_.i.i361, align 8, !noalias !168
-  %ptrRaw_.i.i.i.i.i362 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i355, i64 0, i32 9, i32 1
-  %164 = load ptr, ptr %ptrRaw_.i.i.i.i.i362, align 8, !noalias !168
+  %163 = load ptr, ptr %instance_weak_fast_.i.i366, align 8, !noalias !168
+  %ptrRaw_.i.i.i.i.i367 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i360, i64 0, i32 9, i32 1
+  %164 = load ptr, ptr %ptrRaw_.i.i.i.i.i367, align 8, !noalias !168
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter305, ptr noundef %163, ptr noundef %164)
   %165 = load ptr, ptr %reporter305, align 8
-  %cmp.i.i366.not = icmp eq ptr %165, null
-  br i1 %cmp.i.i366.not, label %if.end316, label %if.then309
+  %cmp.i.i371.not = icmp eq ptr %165, null
+  br i1 %cmp.i.i371.not, label %if.end316, label %if.then309
 
 if.then309:                                       ; preds = %invoke.cont307
   %vtable313 = load ptr, ptr %165, align 8
@@ -1870,9 +1870,9 @@ lpad306:                                          ; preds = %if.then309
 
 if.end316:                                        ; preds = %if.then309, %invoke.cont307
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter305, ptr noundef null, ptr noundef null)
-          to label %if.end318 unwind label %terminate.lpad.i367
+          to label %if.end318 unwind label %terminate.lpad.i372
 
-terminate.lpad.i367:                              ; preds = %if.end316
+terminate.lpad.i372:                              ; preds = %if.end316
   %168 = landingpad { ptr, i32 }
           catch ptr null
   %169 = extractvalue { ptr, i32 } %168, 0
@@ -1880,48 +1880,48 @@ terminate.lpad.i367:                              ; preds = %if.end316
   unreachable
 
 if.end318:                                        ; preds = %if.end316
-  %.pre642 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre679 = and i8 %.pre642, 1
-  %tobool319.not = icmp eq i8 %.pre679, 0
+  %.pre652 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre689 = and i8 %.pre652, 1
+  %tobool319.not = icmp eq i8 %.pre689, 0
   br i1 %tobool319.not, label %if.end558, label %if.then320
 
 if.then320:                                       ; preds = %if.end318
   call void @llvm.experimental.noalias.scope.decl(metadata !169)
   %170 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !169
-  %atomic-temp.i.0.i.i.i.i369 = inttoptr i64 %170 to ptr
-  %tobool.i.not.i.i.i370 = icmp eq i64 %170, 0
-  br i1 %tobool.i.not.i.i.i370, label %cond.false.i.i.i.i380, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i371
+  %atomic-temp.i.0.i.i.i.i374 = inttoptr i64 %170 to ptr
+  %tobool.i.not.i.i.i375 = icmp eq i64 %170, 0
+  br i1 %tobool.i.not.i.i.i375, label %cond.false.i.i.i.i385, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i376
 
-cond.false.i.i.i.i380:                            ; preds = %if.then320
-  %call2.i.i.i.i381 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !169
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i371
+cond.false.i.i.i.i385:                            ; preds = %if.then320
+  %call2.i.i.i.i386 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !169
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i376
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i371: ; preds = %cond.false.i.i.i.i380, %if.then320
-  %cond.i.i.i.i372 = phi ptr [ %call2.i.i.i.i381, %cond.false.i.i.i.i380 ], [ %atomic-temp.i.0.i.i.i.i369, %if.then320 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i376: ; preds = %cond.false.i.i.i.i385, %if.then320
+  %cond.i.i.i.i377 = phi ptr [ %call2.i.i.i.i386, %cond.false.i.i.i.i385 ], [ %atomic-temp.i.0.i.i.i.i374, %if.then320 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !172)
-  %state_.i.i373 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i372, i64 0, i32 3
-  %171 = load atomic i32, ptr %state_.i.i373 acquire, align 4, !noalias !175
-  %cmp.not.i.i374 = icmp eq i32 %171, 2
-  br i1 %cmp.not.i.i374, label %invoke.cont323, label %if.then.i.i375
+  %state_.i.i378 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i377, i64 0, i32 3
+  %171 = load atomic i32, ptr %state_.i.i378 acquire, align 4, !noalias !175
+  %cmp.not.i.i379 = icmp eq i32 %171, 2
+  br i1 %cmp.not.i.i379, label %invoke.cont323, label %if.then.i.i380
 
-if.then.i.i375:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i371
-  %vtable.i.i376 = load ptr, ptr %cond.i.i.i.i372, align 8, !noalias !175
-  %vfn.i.i377 = getelementptr inbounds ptr, ptr %vtable.i.i376, i64 3
-  %172 = load ptr, ptr %vfn.i.i377, align 8, !noalias !175
-  call void %172(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i372), !noalias !175
+if.then.i.i380:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i376
+  %vtable.i.i381 = load ptr, ptr %cond.i.i.i.i377, align 8, !noalias !175
+  %vfn.i.i382 = getelementptr inbounds ptr, ptr %vtable.i.i381, i64 3
+  %172 = load ptr, ptr %vfn.i.i382, align 8, !noalias !175
+  call void %172(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i377), !noalias !175
   br label %invoke.cont323
 
-invoke.cont323:                                   ; preds = %if.then.i.i375, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i371
-  %instance_weak_fast_.i.i378 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i372, i64 0, i32 9
+invoke.cont323:                                   ; preds = %if.then.i.i380, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i376
+  %instance_weak_fast_.i.i383 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i377, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter321, i8 0, i64 16, i1 false), !alias.scope !179
-  %173 = load ptr, ptr %instance_weak_fast_.i.i378, align 8, !noalias !179
-  %ptrRaw_.i.i.i.i.i379 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i372, i64 0, i32 9, i32 1
-  %174 = load ptr, ptr %ptrRaw_.i.i.i.i.i379, align 8, !noalias !179
+  %173 = load ptr, ptr %instance_weak_fast_.i.i383, align 8, !noalias !179
+  %ptrRaw_.i.i.i.i.i384 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i377, i64 0, i32 9, i32 1
+  %174 = load ptr, ptr %ptrRaw_.i.i.i.i.i384, align 8, !noalias !179
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter321, ptr noundef %173, ptr noundef %174)
   %175 = load ptr, ptr %reporter321, align 8
-  %cmp.i.i383.not = icmp eq ptr %175, null
-  br i1 %cmp.i.i383.not, label %if.end332, label %if.then325
+  %cmp.i.i388.not = icmp eq ptr %175, null
+  br i1 %cmp.i.i388.not, label %if.end332, label %if.then325
 
 if.then325:                                       ; preds = %invoke.cont323
   %vtable329 = load ptr, ptr %175, align 8
@@ -1937,9 +1937,9 @@ lpad322:                                          ; preds = %if.then325
 
 if.end332:                                        ; preds = %if.then325, %invoke.cont323
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter321, ptr noundef null, ptr noundef null)
-          to label %if.end334 unwind label %terminate.lpad.i384
+          to label %if.end334 unwind label %terminate.lpad.i389
 
-terminate.lpad.i384:                              ; preds = %if.end332
+terminate.lpad.i389:                              ; preds = %if.end332
   %178 = landingpad { ptr, i32 }
           catch ptr null
   %179 = extractvalue { ptr, i32 } %178, 0
@@ -1947,48 +1947,48 @@ terminate.lpad.i384:                              ; preds = %if.end332
   unreachable
 
 if.end334:                                        ; preds = %if.end332
-  %.pre643 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre681 = and i8 %.pre643, 1
-  %tobool335.not = icmp eq i8 %.pre681, 0
+  %.pre653 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre691 = and i8 %.pre653, 1
+  %tobool335.not = icmp eq i8 %.pre691, 0
   br i1 %tobool335.not, label %if.end558, label %if.then336
 
 if.then336:                                       ; preds = %if.end334
   call void @llvm.experimental.noalias.scope.decl(metadata !180)
   %180 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !180
-  %atomic-temp.i.0.i.i.i.i386 = inttoptr i64 %180 to ptr
-  %tobool.i.not.i.i.i387 = icmp eq i64 %180, 0
-  br i1 %tobool.i.not.i.i.i387, label %cond.false.i.i.i.i397, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i388
+  %atomic-temp.i.0.i.i.i.i391 = inttoptr i64 %180 to ptr
+  %tobool.i.not.i.i.i392 = icmp eq i64 %180, 0
+  br i1 %tobool.i.not.i.i.i392, label %cond.false.i.i.i.i402, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i393
 
-cond.false.i.i.i.i397:                            ; preds = %if.then336
-  %call2.i.i.i.i398 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !180
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i388
+cond.false.i.i.i.i402:                            ; preds = %if.then336
+  %call2.i.i.i.i403 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !180
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i393
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i388: ; preds = %cond.false.i.i.i.i397, %if.then336
-  %cond.i.i.i.i389 = phi ptr [ %call2.i.i.i.i398, %cond.false.i.i.i.i397 ], [ %atomic-temp.i.0.i.i.i.i386, %if.then336 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i393: ; preds = %cond.false.i.i.i.i402, %if.then336
+  %cond.i.i.i.i394 = phi ptr [ %call2.i.i.i.i403, %cond.false.i.i.i.i402 ], [ %atomic-temp.i.0.i.i.i.i391, %if.then336 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !183)
-  %state_.i.i390 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i389, i64 0, i32 3
-  %181 = load atomic i32, ptr %state_.i.i390 acquire, align 4, !noalias !186
-  %cmp.not.i.i391 = icmp eq i32 %181, 2
-  br i1 %cmp.not.i.i391, label %invoke.cont339, label %if.then.i.i392
+  %state_.i.i395 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i394, i64 0, i32 3
+  %181 = load atomic i32, ptr %state_.i.i395 acquire, align 4, !noalias !186
+  %cmp.not.i.i396 = icmp eq i32 %181, 2
+  br i1 %cmp.not.i.i396, label %invoke.cont339, label %if.then.i.i397
 
-if.then.i.i392:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i388
-  %vtable.i.i393 = load ptr, ptr %cond.i.i.i.i389, align 8, !noalias !186
-  %vfn.i.i394 = getelementptr inbounds ptr, ptr %vtable.i.i393, i64 3
-  %182 = load ptr, ptr %vfn.i.i394, align 8, !noalias !186
-  call void %182(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i389), !noalias !186
+if.then.i.i397:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i393
+  %vtable.i.i398 = load ptr, ptr %cond.i.i.i.i394, align 8, !noalias !186
+  %vfn.i.i399 = getelementptr inbounds ptr, ptr %vtable.i.i398, i64 3
+  %182 = load ptr, ptr %vfn.i.i399, align 8, !noalias !186
+  call void %182(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i394), !noalias !186
   br label %invoke.cont339
 
-invoke.cont339:                                   ; preds = %if.then.i.i392, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i388
-  %instance_weak_fast_.i.i395 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i389, i64 0, i32 9
+invoke.cont339:                                   ; preds = %if.then.i.i397, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i393
+  %instance_weak_fast_.i.i400 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i394, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !187)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter337, i8 0, i64 16, i1 false), !alias.scope !190
-  %183 = load ptr, ptr %instance_weak_fast_.i.i395, align 8, !noalias !190
-  %ptrRaw_.i.i.i.i.i396 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i389, i64 0, i32 9, i32 1
-  %184 = load ptr, ptr %ptrRaw_.i.i.i.i.i396, align 8, !noalias !190
+  %183 = load ptr, ptr %instance_weak_fast_.i.i400, align 8, !noalias !190
+  %ptrRaw_.i.i.i.i.i401 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i394, i64 0, i32 9, i32 1
+  %184 = load ptr, ptr %ptrRaw_.i.i.i.i.i401, align 8, !noalias !190
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter337, ptr noundef %183, ptr noundef %184)
   %185 = load ptr, ptr %reporter337, align 8
-  %cmp.i.i400.not = icmp eq ptr %185, null
-  br i1 %cmp.i.i400.not, label %if.end348, label %if.then341
+  %cmp.i.i405.not = icmp eq ptr %185, null
+  br i1 %cmp.i.i405.not, label %if.end348, label %if.then341
 
 if.then341:                                       ; preds = %invoke.cont339
   %vtable345 = load ptr, ptr %185, align 8
@@ -2004,9 +2004,9 @@ lpad338:                                          ; preds = %if.then341
 
 if.end348:                                        ; preds = %if.then341, %invoke.cont339
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter337, ptr noundef null, ptr noundef null)
-          to label %if.end350 unwind label %terminate.lpad.i401
+          to label %if.end350 unwind label %terminate.lpad.i406
 
-terminate.lpad.i401:                              ; preds = %if.end348
+terminate.lpad.i406:                              ; preds = %if.end348
   %188 = landingpad { ptr, i32 }
           catch ptr null
   %189 = extractvalue { ptr, i32 } %188, 0
@@ -2014,48 +2014,48 @@ terminate.lpad.i401:                              ; preds = %if.end348
   unreachable
 
 if.end350:                                        ; preds = %if.end348
-  %.pre644 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre683 = and i8 %.pre644, 1
-  %tobool351.not = icmp eq i8 %.pre683, 0
+  %.pre654 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre693 = and i8 %.pre654, 1
+  %tobool351.not = icmp eq i8 %.pre693, 0
   br i1 %tobool351.not, label %if.end558, label %if.then352
 
 if.then352:                                       ; preds = %if.end350
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
   %190 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !191
-  %atomic-temp.i.0.i.i.i.i403 = inttoptr i64 %190 to ptr
-  %tobool.i.not.i.i.i404 = icmp eq i64 %190, 0
-  br i1 %tobool.i.not.i.i.i404, label %cond.false.i.i.i.i414, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i405
+  %atomic-temp.i.0.i.i.i.i408 = inttoptr i64 %190 to ptr
+  %tobool.i.not.i.i.i409 = icmp eq i64 %190, 0
+  br i1 %tobool.i.not.i.i.i409, label %cond.false.i.i.i.i419, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i410
 
-cond.false.i.i.i.i414:                            ; preds = %if.then352
-  %call2.i.i.i.i415 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !191
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i405
+cond.false.i.i.i.i419:                            ; preds = %if.then352
+  %call2.i.i.i.i420 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !191
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i410
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i405: ; preds = %cond.false.i.i.i.i414, %if.then352
-  %cond.i.i.i.i406 = phi ptr [ %call2.i.i.i.i415, %cond.false.i.i.i.i414 ], [ %atomic-temp.i.0.i.i.i.i403, %if.then352 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i410: ; preds = %cond.false.i.i.i.i419, %if.then352
+  %cond.i.i.i.i411 = phi ptr [ %call2.i.i.i.i420, %cond.false.i.i.i.i419 ], [ %atomic-temp.i.0.i.i.i.i408, %if.then352 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %state_.i.i407 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i406, i64 0, i32 3
-  %191 = load atomic i32, ptr %state_.i.i407 acquire, align 4, !noalias !197
-  %cmp.not.i.i408 = icmp eq i32 %191, 2
-  br i1 %cmp.not.i.i408, label %invoke.cont355, label %if.then.i.i409
+  %state_.i.i412 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i411, i64 0, i32 3
+  %191 = load atomic i32, ptr %state_.i.i412 acquire, align 4, !noalias !197
+  %cmp.not.i.i413 = icmp eq i32 %191, 2
+  br i1 %cmp.not.i.i413, label %invoke.cont355, label %if.then.i.i414
 
-if.then.i.i409:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i405
-  %vtable.i.i410 = load ptr, ptr %cond.i.i.i.i406, align 8, !noalias !197
-  %vfn.i.i411 = getelementptr inbounds ptr, ptr %vtable.i.i410, i64 3
-  %192 = load ptr, ptr %vfn.i.i411, align 8, !noalias !197
-  call void %192(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i406), !noalias !197
+if.then.i.i414:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i410
+  %vtable.i.i415 = load ptr, ptr %cond.i.i.i.i411, align 8, !noalias !197
+  %vfn.i.i416 = getelementptr inbounds ptr, ptr %vtable.i.i415, i64 3
+  %192 = load ptr, ptr %vfn.i.i416, align 8, !noalias !197
+  call void %192(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i411), !noalias !197
   br label %invoke.cont355
 
-invoke.cont355:                                   ; preds = %if.then.i.i409, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i405
-  %instance_weak_fast_.i.i412 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i406, i64 0, i32 9
+invoke.cont355:                                   ; preds = %if.then.i.i414, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i410
+  %instance_weak_fast_.i.i417 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i411, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter353, i8 0, i64 16, i1 false), !alias.scope !201
-  %193 = load ptr, ptr %instance_weak_fast_.i.i412, align 8, !noalias !201
-  %ptrRaw_.i.i.i.i.i413 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i406, i64 0, i32 9, i32 1
-  %194 = load ptr, ptr %ptrRaw_.i.i.i.i.i413, align 8, !noalias !201
+  %193 = load ptr, ptr %instance_weak_fast_.i.i417, align 8, !noalias !201
+  %ptrRaw_.i.i.i.i.i418 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i411, i64 0, i32 9, i32 1
+  %194 = load ptr, ptr %ptrRaw_.i.i.i.i.i418, align 8, !noalias !201
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter353, ptr noundef %193, ptr noundef %194)
   %195 = load ptr, ptr %reporter353, align 8
-  %cmp.i.i417.not = icmp eq ptr %195, null
-  br i1 %cmp.i.i417.not, label %if.end364, label %if.then357
+  %cmp.i.i422.not = icmp eq ptr %195, null
+  br i1 %cmp.i.i422.not, label %if.end364, label %if.then357
 
 if.then357:                                       ; preds = %invoke.cont355
   %vtable361 = load ptr, ptr %195, align 8
@@ -2071,9 +2071,9 @@ lpad354:                                          ; preds = %if.then357
 
 if.end364:                                        ; preds = %if.then357, %invoke.cont355
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter353, ptr noundef null, ptr noundef null)
-          to label %if.end366 unwind label %terminate.lpad.i418
+          to label %if.end366 unwind label %terminate.lpad.i423
 
-terminate.lpad.i418:                              ; preds = %if.end364
+terminate.lpad.i423:                              ; preds = %if.end364
   %198 = landingpad { ptr, i32 }
           catch ptr null
   %199 = extractvalue { ptr, i32 } %198, 0
@@ -2081,67 +2081,67 @@ terminate.lpad.i418:                              ; preds = %if.end364
   unreachable
 
 if.end366:                                        ; preds = %if.end364
-  %.pre645 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre685 = and i8 %.pre645, 1
-  %tobool367.not = icmp eq i8 %.pre685, 0
+  %.pre655 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre695 = and i8 %.pre655, 1
+  %tobool367.not = icmp eq i8 %.pre695, 0
   br i1 %tobool367.not, label %if.end558, label %if.then368
 
 if.then368:                                       ; preds = %if.end366
   call void @llvm.experimental.noalias.scope.decl(metadata !202)
   %200 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !202
-  %atomic-temp.i.0.i.i.i.i420 = inttoptr i64 %200 to ptr
-  %tobool.i.not.i.i.i421 = icmp eq i64 %200, 0
-  br i1 %tobool.i.not.i.i.i421, label %cond.false.i.i.i.i431, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i422
+  %atomic-temp.i.0.i.i.i.i425 = inttoptr i64 %200 to ptr
+  %tobool.i.not.i.i.i426 = icmp eq i64 %200, 0
+  br i1 %tobool.i.not.i.i.i426, label %cond.false.i.i.i.i436, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i427
 
-cond.false.i.i.i.i431:                            ; preds = %if.then368
-  %call2.i.i.i.i432 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !202
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i422
+cond.false.i.i.i.i436:                            ; preds = %if.then368
+  %call2.i.i.i.i437 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !202
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i427
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i422: ; preds = %cond.false.i.i.i.i431, %if.then368
-  %cond.i.i.i.i423 = phi ptr [ %call2.i.i.i.i432, %cond.false.i.i.i.i431 ], [ %atomic-temp.i.0.i.i.i.i420, %if.then368 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i427: ; preds = %cond.false.i.i.i.i436, %if.then368
+  %cond.i.i.i.i428 = phi ptr [ %call2.i.i.i.i437, %cond.false.i.i.i.i436 ], [ %atomic-temp.i.0.i.i.i.i425, %if.then368 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !205)
-  %state_.i.i424 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i423, i64 0, i32 3
-  %201 = load atomic i32, ptr %state_.i.i424 acquire, align 4, !noalias !208
-  %cmp.not.i.i425 = icmp eq i32 %201, 2
-  br i1 %cmp.not.i.i425, label %invoke.cont371, label %if.then.i.i426
+  %state_.i.i429 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i428, i64 0, i32 3
+  %201 = load atomic i32, ptr %state_.i.i429 acquire, align 4, !noalias !208
+  %cmp.not.i.i430 = icmp eq i32 %201, 2
+  br i1 %cmp.not.i.i430, label %invoke.cont371, label %if.then.i.i431
 
-if.then.i.i426:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i422
-  %vtable.i.i427 = load ptr, ptr %cond.i.i.i.i423, align 8, !noalias !208
-  %vfn.i.i428 = getelementptr inbounds ptr, ptr %vtable.i.i427, i64 3
-  %202 = load ptr, ptr %vfn.i.i428, align 8, !noalias !208
-  call void %202(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i423), !noalias !208
+if.then.i.i431:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i427
+  %vtable.i.i432 = load ptr, ptr %cond.i.i.i.i428, align 8, !noalias !208
+  %vfn.i.i433 = getelementptr inbounds ptr, ptr %vtable.i.i432, i64 3
+  %202 = load ptr, ptr %vfn.i.i433, align 8, !noalias !208
+  call void %202(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i428), !noalias !208
   br label %invoke.cont371
 
-invoke.cont371:                                   ; preds = %if.then.i.i426, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i422
-  %instance_weak_fast_.i.i429 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i423, i64 0, i32 9
+invoke.cont371:                                   ; preds = %if.then.i.i431, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i427
+  %instance_weak_fast_.i.i434 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i428, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !209)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter369, i8 0, i64 16, i1 false), !alias.scope !212
-  %203 = load ptr, ptr %instance_weak_fast_.i.i429, align 8, !noalias !212
-  %ptrRaw_.i.i.i.i.i430 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i423, i64 0, i32 9, i32 1
-  %204 = load ptr, ptr %ptrRaw_.i.i.i.i.i430, align 8, !noalias !212
+  %203 = load ptr, ptr %instance_weak_fast_.i.i434, align 8, !noalias !212
+  %ptrRaw_.i.i.i.i.i435 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i428, i64 0, i32 9, i32 1
+  %204 = load ptr, ptr %ptrRaw_.i.i.i.i.i435, align 8, !noalias !212
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter369, ptr noundef %203, ptr noundef %204)
   %205 = load ptr, ptr %reporter369, align 8
-  %cmp.i.i434.not = icmp eq ptr %205, null
-  br i1 %cmp.i.i434.not, label %if.end396, label %if.then373
+  %cmp.i.i439.not = icmp eq ptr %205, null
+  br i1 %cmp.i.i439.not, label %if.end396, label %if.then373
 
 if.then373:                                       ; preds = %invoke.cont371
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp377, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i435 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %invoke.cont389 unwind label %lpad.i436
+  %call5.i.i.i.i2.i440 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+          to label %invoke.cont389 unwind label %lpad.i441
 
-lpad.i436:                                        ; preds = %if.then373
+lpad.i441:                                        ; preds = %if.then373
   %206 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 invoke.cont389:                                   ; preds = %if.then373
-  store ptr %call5.i.i.i.i2.i435, ptr %ref.tmp377, align 8
-  %add.ptr.i1.i440 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i435, i64 4
-  %_M_end_of_storage.i.i441 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp377, i64 0, i32 2
-  store ptr %add.ptr.i1.i440, ptr %_M_end_of_storage.i.i441, align 8
-  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i435, align 4
-  %_M_finish.i.i442 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp377, i64 0, i32 1
-  store ptr %add.ptr.i1.i440, ptr %_M_finish.i.i442, align 8
+  store ptr %call5.i.i.i.i2.i440, ptr %ref.tmp377, align 8
+  %add.ptr.i1.i445 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i440, i64 16
+  %_M_end_of_storage.i.i446 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp377, i64 0, i32 2
+  store ptr %add.ptr.i1.i445, ptr %_M_end_of_storage.i.i446, align 8
+  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i440, align 4
+  %_M_finish.i.i448 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp377, i64 0, i32 1
+  store ptr %add.ptr.i1.i445, ptr %_M_finish.i.i448, align 8
   %vtable390 = load ptr, ptr %205, align 8
   %vfn391 = getelementptr inbounds ptr, ptr %vtable390, i64 5
   %207 = load ptr, ptr %vfn391, align 8
@@ -2150,10 +2150,10 @@ invoke.cont389:                                   ; preds = %if.then373
 
 invoke.cont393:                                   ; preds = %invoke.cont389
   %208 = load ptr, ptr %ref.tmp377, align 8
-  %tobool.not.i.i.i445 = icmp eq ptr %208, null
-  br i1 %tobool.not.i.i.i445, label %if.end396, label %if.then.i.i.i446
+  %tobool.not.i.i.i451 = icmp eq ptr %208, null
+  br i1 %tobool.not.i.i.i451, label %if.end396, label %if.then.i.i.i452
 
-if.then.i.i.i446:                                 ; preds = %invoke.cont393
+if.then.i.i.i452:                                 ; preds = %invoke.cont393
   call void @_ZdlPv(ptr noundef nonnull %208) #23
   br label %if.end396
 
@@ -2161,18 +2161,18 @@ lpad392:                                          ; preds = %invoke.cont389
   %209 = landingpad { ptr, i32 }
           cleanup
   %210 = load ptr, ptr %ref.tmp377, align 8
-  %tobool.not.i.i.i449 = icmp eq ptr %210, null
-  br i1 %tobool.not.i.i.i449, label %eh.resume, label %if.then.i.i.i450
+  %tobool.not.i.i.i455 = icmp eq ptr %210, null
+  br i1 %tobool.not.i.i.i455, label %eh.resume, label %if.then.i.i.i456
 
-if.then.i.i.i450:                                 ; preds = %lpad392
+if.then.i.i.i456:                                 ; preds = %lpad392
   call void @_ZdlPv(ptr noundef nonnull %210) #23
   br label %eh.resume
 
-if.end396:                                        ; preds = %if.then.i.i.i446, %invoke.cont393, %invoke.cont371
+if.end396:                                        ; preds = %if.then.i.i.i452, %invoke.cont393, %invoke.cont371
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter369, ptr noundef null, ptr noundef null)
-          to label %if.end398 unwind label %terminate.lpad.i453
+          to label %if.end398 unwind label %terminate.lpad.i459
 
-terminate.lpad.i453:                              ; preds = %if.end396
+terminate.lpad.i459:                              ; preds = %if.end396
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
@@ -2180,67 +2180,67 @@ terminate.lpad.i453:                              ; preds = %if.end396
   unreachable
 
 if.end398:                                        ; preds = %if.end396
-  %.pre646 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre687 = and i8 %.pre646, 1
-  %tobool399.not = icmp eq i8 %.pre687, 0
+  %.pre656 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre697 = and i8 %.pre656, 1
+  %tobool399.not = icmp eq i8 %.pre697, 0
   br i1 %tobool399.not, label %if.end558, label %if.then400
 
 if.then400:                                       ; preds = %if.end398
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %213 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !213
-  %atomic-temp.i.0.i.i.i.i455 = inttoptr i64 %213 to ptr
-  %tobool.i.not.i.i.i456 = icmp eq i64 %213, 0
-  br i1 %tobool.i.not.i.i.i456, label %cond.false.i.i.i.i466, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i457
+  %atomic-temp.i.0.i.i.i.i461 = inttoptr i64 %213 to ptr
+  %tobool.i.not.i.i.i462 = icmp eq i64 %213, 0
+  br i1 %tobool.i.not.i.i.i462, label %cond.false.i.i.i.i472, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i463
 
-cond.false.i.i.i.i466:                            ; preds = %if.then400
-  %call2.i.i.i.i467 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !213
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i457
+cond.false.i.i.i.i472:                            ; preds = %if.then400
+  %call2.i.i.i.i473 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !213
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i463
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i457: ; preds = %cond.false.i.i.i.i466, %if.then400
-  %cond.i.i.i.i458 = phi ptr [ %call2.i.i.i.i467, %cond.false.i.i.i.i466 ], [ %atomic-temp.i.0.i.i.i.i455, %if.then400 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i463: ; preds = %cond.false.i.i.i.i472, %if.then400
+  %cond.i.i.i.i464 = phi ptr [ %call2.i.i.i.i473, %cond.false.i.i.i.i472 ], [ %atomic-temp.i.0.i.i.i.i461, %if.then400 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !216)
-  %state_.i.i459 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i458, i64 0, i32 3
-  %214 = load atomic i32, ptr %state_.i.i459 acquire, align 4, !noalias !219
-  %cmp.not.i.i460 = icmp eq i32 %214, 2
-  br i1 %cmp.not.i.i460, label %invoke.cont403, label %if.then.i.i461
+  %state_.i.i465 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i464, i64 0, i32 3
+  %214 = load atomic i32, ptr %state_.i.i465 acquire, align 4, !noalias !219
+  %cmp.not.i.i466 = icmp eq i32 %214, 2
+  br i1 %cmp.not.i.i466, label %invoke.cont403, label %if.then.i.i467
 
-if.then.i.i461:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i457
-  %vtable.i.i462 = load ptr, ptr %cond.i.i.i.i458, align 8, !noalias !219
-  %vfn.i.i463 = getelementptr inbounds ptr, ptr %vtable.i.i462, i64 3
-  %215 = load ptr, ptr %vfn.i.i463, align 8, !noalias !219
-  call void %215(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i458), !noalias !219
+if.then.i.i467:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i463
+  %vtable.i.i468 = load ptr, ptr %cond.i.i.i.i464, align 8, !noalias !219
+  %vfn.i.i469 = getelementptr inbounds ptr, ptr %vtable.i.i468, i64 3
+  %215 = load ptr, ptr %vfn.i.i469, align 8, !noalias !219
+  call void %215(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i464), !noalias !219
   br label %invoke.cont403
 
-invoke.cont403:                                   ; preds = %if.then.i.i461, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i457
-  %instance_weak_fast_.i.i464 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i458, i64 0, i32 9
+invoke.cont403:                                   ; preds = %if.then.i.i467, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i463
+  %instance_weak_fast_.i.i470 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i464, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !220)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter401, i8 0, i64 16, i1 false), !alias.scope !223
-  %216 = load ptr, ptr %instance_weak_fast_.i.i464, align 8, !noalias !223
-  %ptrRaw_.i.i.i.i.i465 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i458, i64 0, i32 9, i32 1
-  %217 = load ptr, ptr %ptrRaw_.i.i.i.i.i465, align 8, !noalias !223
+  %216 = load ptr, ptr %instance_weak_fast_.i.i470, align 8, !noalias !223
+  %ptrRaw_.i.i.i.i.i471 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i464, i64 0, i32 9, i32 1
+  %217 = load ptr, ptr %ptrRaw_.i.i.i.i.i471, align 8, !noalias !223
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter401, ptr noundef %216, ptr noundef %217)
   %218 = load ptr, ptr %reporter401, align 8
-  %cmp.i.i469.not = icmp eq ptr %218, null
-  br i1 %cmp.i.i469.not, label %if.end428, label %if.then405
+  %cmp.i.i475.not = icmp eq ptr %218, null
+  br i1 %cmp.i.i475.not, label %if.end428, label %if.then405
 
 if.then405:                                       ; preds = %invoke.cont403
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp409, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i470 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %invoke.cont421 unwind label %lpad.i471
+  %call5.i.i.i.i2.i476 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+          to label %invoke.cont421 unwind label %lpad.i477
 
-lpad.i471:                                        ; preds = %if.then405
+lpad.i477:                                        ; preds = %if.then405
   %219 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 invoke.cont421:                                   ; preds = %if.then405
-  store ptr %call5.i.i.i.i2.i470, ptr %ref.tmp409, align 8
-  %add.ptr.i1.i475 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i470, i64 4
-  %_M_end_of_storage.i.i476 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp409, i64 0, i32 2
-  store ptr %add.ptr.i1.i475, ptr %_M_end_of_storage.i.i476, align 8
-  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i470, align 4
-  %_M_finish.i.i477 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp409, i64 0, i32 1
-  store ptr %add.ptr.i1.i475, ptr %_M_finish.i.i477, align 8
+  store ptr %call5.i.i.i.i2.i476, ptr %ref.tmp409, align 8
+  %add.ptr.i1.i481 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i476, i64 16
+  %_M_end_of_storage.i.i482 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp409, i64 0, i32 2
+  store ptr %add.ptr.i1.i481, ptr %_M_end_of_storage.i.i482, align 8
+  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i476, align 4
+  %_M_finish.i.i484 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp409, i64 0, i32 1
+  store ptr %add.ptr.i1.i481, ptr %_M_finish.i.i484, align 8
   %vtable422 = load ptr, ptr %218, align 8
   %vfn423 = getelementptr inbounds ptr, ptr %vtable422, i64 5
   %220 = load ptr, ptr %vfn423, align 8
@@ -2249,10 +2249,10 @@ invoke.cont421:                                   ; preds = %if.then405
 
 invoke.cont425:                                   ; preds = %invoke.cont421
   %221 = load ptr, ptr %ref.tmp409, align 8
-  %tobool.not.i.i.i480 = icmp eq ptr %221, null
-  br i1 %tobool.not.i.i.i480, label %if.end428, label %if.then.i.i.i481
+  %tobool.not.i.i.i487 = icmp eq ptr %221, null
+  br i1 %tobool.not.i.i.i487, label %if.end428, label %if.then.i.i.i488
 
-if.then.i.i.i481:                                 ; preds = %invoke.cont425
+if.then.i.i.i488:                                 ; preds = %invoke.cont425
   call void @_ZdlPv(ptr noundef nonnull %221) #23
   br label %if.end428
 
@@ -2260,18 +2260,18 @@ lpad424:                                          ; preds = %invoke.cont421
   %222 = landingpad { ptr, i32 }
           cleanup
   %223 = load ptr, ptr %ref.tmp409, align 8
-  %tobool.not.i.i.i484 = icmp eq ptr %223, null
-  br i1 %tobool.not.i.i.i484, label %eh.resume, label %if.then.i.i.i485
+  %tobool.not.i.i.i491 = icmp eq ptr %223, null
+  br i1 %tobool.not.i.i.i491, label %eh.resume, label %if.then.i.i.i492
 
-if.then.i.i.i485:                                 ; preds = %lpad424
+if.then.i.i.i492:                                 ; preds = %lpad424
   call void @_ZdlPv(ptr noundef nonnull %223) #23
   br label %eh.resume
 
-if.end428:                                        ; preds = %if.then.i.i.i481, %invoke.cont425, %invoke.cont403
+if.end428:                                        ; preds = %if.then.i.i.i488, %invoke.cont425, %invoke.cont403
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter401, ptr noundef null, ptr noundef null)
-          to label %if.end430 unwind label %terminate.lpad.i488
+          to label %if.end430 unwind label %terminate.lpad.i495
 
-terminate.lpad.i488:                              ; preds = %if.end428
+terminate.lpad.i495:                              ; preds = %if.end428
   %224 = landingpad { ptr, i32 }
           catch ptr null
   %225 = extractvalue { ptr, i32 } %224, 0
@@ -2279,67 +2279,67 @@ terminate.lpad.i488:                              ; preds = %if.end428
   unreachable
 
 if.end430:                                        ; preds = %if.end428
-  %.pre647 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre689 = and i8 %.pre647, 1
-  %tobool431.not = icmp eq i8 %.pre689, 0
+  %.pre657 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre699 = and i8 %.pre657, 1
+  %tobool431.not = icmp eq i8 %.pre699, 0
   br i1 %tobool431.not, label %if.end558, label %if.then432
 
 if.then432:                                       ; preds = %if.end430
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %226 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !224
-  %atomic-temp.i.0.i.i.i.i490 = inttoptr i64 %226 to ptr
-  %tobool.i.not.i.i.i491 = icmp eq i64 %226, 0
-  br i1 %tobool.i.not.i.i.i491, label %cond.false.i.i.i.i501, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i492
+  %atomic-temp.i.0.i.i.i.i497 = inttoptr i64 %226 to ptr
+  %tobool.i.not.i.i.i498 = icmp eq i64 %226, 0
+  br i1 %tobool.i.not.i.i.i498, label %cond.false.i.i.i.i508, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i499
 
-cond.false.i.i.i.i501:                            ; preds = %if.then432
-  %call2.i.i.i.i502 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !224
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i492
+cond.false.i.i.i.i508:                            ; preds = %if.then432
+  %call2.i.i.i.i509 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !224
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i499
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i492: ; preds = %cond.false.i.i.i.i501, %if.then432
-  %cond.i.i.i.i493 = phi ptr [ %call2.i.i.i.i502, %cond.false.i.i.i.i501 ], [ %atomic-temp.i.0.i.i.i.i490, %if.then432 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i499: ; preds = %cond.false.i.i.i.i508, %if.then432
+  %cond.i.i.i.i500 = phi ptr [ %call2.i.i.i.i509, %cond.false.i.i.i.i508 ], [ %atomic-temp.i.0.i.i.i.i497, %if.then432 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !227)
-  %state_.i.i494 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i493, i64 0, i32 3
-  %227 = load atomic i32, ptr %state_.i.i494 acquire, align 4, !noalias !230
-  %cmp.not.i.i495 = icmp eq i32 %227, 2
-  br i1 %cmp.not.i.i495, label %invoke.cont435, label %if.then.i.i496
+  %state_.i.i501 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i500, i64 0, i32 3
+  %227 = load atomic i32, ptr %state_.i.i501 acquire, align 4, !noalias !230
+  %cmp.not.i.i502 = icmp eq i32 %227, 2
+  br i1 %cmp.not.i.i502, label %invoke.cont435, label %if.then.i.i503
 
-if.then.i.i496:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i492
-  %vtable.i.i497 = load ptr, ptr %cond.i.i.i.i493, align 8, !noalias !230
-  %vfn.i.i498 = getelementptr inbounds ptr, ptr %vtable.i.i497, i64 3
-  %228 = load ptr, ptr %vfn.i.i498, align 8, !noalias !230
-  call void %228(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i493), !noalias !230
+if.then.i.i503:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i499
+  %vtable.i.i504 = load ptr, ptr %cond.i.i.i.i500, align 8, !noalias !230
+  %vfn.i.i505 = getelementptr inbounds ptr, ptr %vtable.i.i504, i64 3
+  %228 = load ptr, ptr %vfn.i.i505, align 8, !noalias !230
+  call void %228(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i500), !noalias !230
   br label %invoke.cont435
 
-invoke.cont435:                                   ; preds = %if.then.i.i496, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i492
-  %instance_weak_fast_.i.i499 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i493, i64 0, i32 9
+invoke.cont435:                                   ; preds = %if.then.i.i503, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i499
+  %instance_weak_fast_.i.i506 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i500, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !231)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter433, i8 0, i64 16, i1 false), !alias.scope !234
-  %229 = load ptr, ptr %instance_weak_fast_.i.i499, align 8, !noalias !234
-  %ptrRaw_.i.i.i.i.i500 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i493, i64 0, i32 9, i32 1
-  %230 = load ptr, ptr %ptrRaw_.i.i.i.i.i500, align 8, !noalias !234
+  %229 = load ptr, ptr %instance_weak_fast_.i.i506, align 8, !noalias !234
+  %ptrRaw_.i.i.i.i.i507 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i500, i64 0, i32 9, i32 1
+  %230 = load ptr, ptr %ptrRaw_.i.i.i.i.i507, align 8, !noalias !234
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter433, ptr noundef %229, ptr noundef %230)
   %231 = load ptr, ptr %reporter433, align 8
-  %cmp.i.i504.not = icmp eq ptr %231, null
-  br i1 %cmp.i.i504.not, label %if.end460, label %if.then437
+  %cmp.i.i511.not = icmp eq ptr %231, null
+  br i1 %cmp.i.i511.not, label %if.end460, label %if.then437
 
 if.then437:                                       ; preds = %invoke.cont435
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp441, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i505 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %invoke.cont453 unwind label %lpad.i506
+  %call5.i.i.i.i2.i512 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+          to label %invoke.cont453 unwind label %lpad.i513
 
-lpad.i506:                                        ; preds = %if.then437
+lpad.i513:                                        ; preds = %if.then437
   %232 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 invoke.cont453:                                   ; preds = %if.then437
-  store ptr %call5.i.i.i.i2.i505, ptr %ref.tmp441, align 8
-  %add.ptr.i1.i510 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i505, i64 4
-  %_M_end_of_storage.i.i511 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp441, i64 0, i32 2
-  store ptr %add.ptr.i1.i510, ptr %_M_end_of_storage.i.i511, align 8
-  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i505, align 4
-  %_M_finish.i.i512 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp441, i64 0, i32 1
-  store ptr %add.ptr.i1.i510, ptr %_M_finish.i.i512, align 8
+  store ptr %call5.i.i.i.i2.i512, ptr %ref.tmp441, align 8
+  %add.ptr.i1.i517 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i512, i64 16
+  %_M_end_of_storage.i.i518 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp441, i64 0, i32 2
+  store ptr %add.ptr.i1.i517, ptr %_M_end_of_storage.i.i518, align 8
+  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i512, align 4
+  %_M_finish.i.i520 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp441, i64 0, i32 1
+  store ptr %add.ptr.i1.i517, ptr %_M_finish.i.i520, align 8
   %vtable454 = load ptr, ptr %231, align 8
   %vfn455 = getelementptr inbounds ptr, ptr %vtable454, i64 5
   %233 = load ptr, ptr %vfn455, align 8
@@ -2348,10 +2348,10 @@ invoke.cont453:                                   ; preds = %if.then437
 
 invoke.cont457:                                   ; preds = %invoke.cont453
   %234 = load ptr, ptr %ref.tmp441, align 8
-  %tobool.not.i.i.i515 = icmp eq ptr %234, null
-  br i1 %tobool.not.i.i.i515, label %if.end460, label %if.then.i.i.i516
+  %tobool.not.i.i.i523 = icmp eq ptr %234, null
+  br i1 %tobool.not.i.i.i523, label %if.end460, label %if.then.i.i.i524
 
-if.then.i.i.i516:                                 ; preds = %invoke.cont457
+if.then.i.i.i524:                                 ; preds = %invoke.cont457
   call void @_ZdlPv(ptr noundef nonnull %234) #23
   br label %if.end460
 
@@ -2359,18 +2359,18 @@ lpad456:                                          ; preds = %invoke.cont453
   %235 = landingpad { ptr, i32 }
           cleanup
   %236 = load ptr, ptr %ref.tmp441, align 8
-  %tobool.not.i.i.i519 = icmp eq ptr %236, null
-  br i1 %tobool.not.i.i.i519, label %eh.resume, label %if.then.i.i.i520
+  %tobool.not.i.i.i527 = icmp eq ptr %236, null
+  br i1 %tobool.not.i.i.i527, label %eh.resume, label %if.then.i.i.i528
 
-if.then.i.i.i520:                                 ; preds = %lpad456
+if.then.i.i.i528:                                 ; preds = %lpad456
   call void @_ZdlPv(ptr noundef nonnull %236) #23
   br label %eh.resume
 
-if.end460:                                        ; preds = %if.then.i.i.i516, %invoke.cont457, %invoke.cont435
+if.end460:                                        ; preds = %if.then.i.i.i524, %invoke.cont457, %invoke.cont435
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter433, ptr noundef null, ptr noundef null)
-          to label %if.end462 unwind label %terminate.lpad.i523
+          to label %if.end462 unwind label %terminate.lpad.i531
 
-terminate.lpad.i523:                              ; preds = %if.end460
+terminate.lpad.i531:                              ; preds = %if.end460
   %237 = landingpad { ptr, i32 }
           catch ptr null
   %238 = extractvalue { ptr, i32 } %237, 0
@@ -2378,48 +2378,48 @@ terminate.lpad.i523:                              ; preds = %if.end460
   unreachable
 
 if.end462:                                        ; preds = %if.end460
-  %.pre648 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre691 = and i8 %.pre648, 1
-  %tobool463.not = icmp eq i8 %.pre691, 0
+  %.pre658 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre701 = and i8 %.pre658, 1
+  %tobool463.not = icmp eq i8 %.pre701, 0
   br i1 %tobool463.not, label %if.end558, label %if.then464
 
 if.then464:                                       ; preds = %if.end462
   call void @llvm.experimental.noalias.scope.decl(metadata !235)
   %239 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !235
-  %atomic-temp.i.0.i.i.i.i525 = inttoptr i64 %239 to ptr
-  %tobool.i.not.i.i.i526 = icmp eq i64 %239, 0
-  br i1 %tobool.i.not.i.i.i526, label %cond.false.i.i.i.i536, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i527
+  %atomic-temp.i.0.i.i.i.i533 = inttoptr i64 %239 to ptr
+  %tobool.i.not.i.i.i534 = icmp eq i64 %239, 0
+  br i1 %tobool.i.not.i.i.i534, label %cond.false.i.i.i.i544, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i535
 
-cond.false.i.i.i.i536:                            ; preds = %if.then464
-  %call2.i.i.i.i537 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !235
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i527
+cond.false.i.i.i.i544:                            ; preds = %if.then464
+  %call2.i.i.i.i545 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !235
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i535
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i527: ; preds = %cond.false.i.i.i.i536, %if.then464
-  %cond.i.i.i.i528 = phi ptr [ %call2.i.i.i.i537, %cond.false.i.i.i.i536 ], [ %atomic-temp.i.0.i.i.i.i525, %if.then464 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i535: ; preds = %cond.false.i.i.i.i544, %if.then464
+  %cond.i.i.i.i536 = phi ptr [ %call2.i.i.i.i545, %cond.false.i.i.i.i544 ], [ %atomic-temp.i.0.i.i.i.i533, %if.then464 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !238)
-  %state_.i.i529 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i528, i64 0, i32 3
-  %240 = load atomic i32, ptr %state_.i.i529 acquire, align 4, !noalias !241
-  %cmp.not.i.i530 = icmp eq i32 %240, 2
-  br i1 %cmp.not.i.i530, label %invoke.cont467, label %if.then.i.i531
+  %state_.i.i537 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i536, i64 0, i32 3
+  %240 = load atomic i32, ptr %state_.i.i537 acquire, align 4, !noalias !241
+  %cmp.not.i.i538 = icmp eq i32 %240, 2
+  br i1 %cmp.not.i.i538, label %invoke.cont467, label %if.then.i.i539
 
-if.then.i.i531:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i527
-  %vtable.i.i532 = load ptr, ptr %cond.i.i.i.i528, align 8, !noalias !241
-  %vfn.i.i533 = getelementptr inbounds ptr, ptr %vtable.i.i532, i64 3
-  %241 = load ptr, ptr %vfn.i.i533, align 8, !noalias !241
-  call void %241(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i528), !noalias !241
+if.then.i.i539:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i535
+  %vtable.i.i540 = load ptr, ptr %cond.i.i.i.i536, align 8, !noalias !241
+  %vfn.i.i541 = getelementptr inbounds ptr, ptr %vtable.i.i540, i64 3
+  %241 = load ptr, ptr %vfn.i.i541, align 8, !noalias !241
+  call void %241(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i536), !noalias !241
   br label %invoke.cont467
 
-invoke.cont467:                                   ; preds = %if.then.i.i531, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i527
-  %instance_weak_fast_.i.i534 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i528, i64 0, i32 9
+invoke.cont467:                                   ; preds = %if.then.i.i539, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i535
+  %instance_weak_fast_.i.i542 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i536, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !242)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter465, i8 0, i64 16, i1 false), !alias.scope !245
-  %242 = load ptr, ptr %instance_weak_fast_.i.i534, align 8, !noalias !245
-  %ptrRaw_.i.i.i.i.i535 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i528, i64 0, i32 9, i32 1
-  %243 = load ptr, ptr %ptrRaw_.i.i.i.i.i535, align 8, !noalias !245
+  %242 = load ptr, ptr %instance_weak_fast_.i.i542, align 8, !noalias !245
+  %ptrRaw_.i.i.i.i.i543 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i536, i64 0, i32 9, i32 1
+  %243 = load ptr, ptr %ptrRaw_.i.i.i.i.i543, align 8, !noalias !245
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter465, ptr noundef %242, ptr noundef %243)
   %244 = load ptr, ptr %reporter465, align 8
-  %cmp.i.i539.not = icmp eq ptr %244, null
-  br i1 %cmp.i.i539.not, label %if.end476, label %if.then469
+  %cmp.i.i547.not = icmp eq ptr %244, null
+  br i1 %cmp.i.i547.not, label %if.end476, label %if.then469
 
 if.then469:                                       ; preds = %invoke.cont467
   %vtable473 = load ptr, ptr %244, align 8
@@ -2435,9 +2435,9 @@ lpad466:                                          ; preds = %if.then469
 
 if.end476:                                        ; preds = %if.then469, %invoke.cont467
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter465, ptr noundef null, ptr noundef null)
-          to label %if.end478 unwind label %terminate.lpad.i540
+          to label %if.end478 unwind label %terminate.lpad.i548
 
-terminate.lpad.i540:                              ; preds = %if.end476
+terminate.lpad.i548:                              ; preds = %if.end476
   %247 = landingpad { ptr, i32 }
           catch ptr null
   %248 = extractvalue { ptr, i32 } %247, 0
@@ -2445,67 +2445,67 @@ terminate.lpad.i540:                              ; preds = %if.end476
   unreachable
 
 if.end478:                                        ; preds = %if.end476
-  %.pre649 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre693 = and i8 %.pre649, 1
-  %tobool479.not = icmp eq i8 %.pre693, 0
+  %.pre659 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre703 = and i8 %.pre659, 1
+  %tobool479.not = icmp eq i8 %.pre703, 0
   br i1 %tobool479.not, label %if.end558, label %if.then480
 
 if.then480:                                       ; preds = %if.end478
   call void @llvm.experimental.noalias.scope.decl(metadata !246)
   %249 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !246
-  %atomic-temp.i.0.i.i.i.i542 = inttoptr i64 %249 to ptr
-  %tobool.i.not.i.i.i543 = icmp eq i64 %249, 0
-  br i1 %tobool.i.not.i.i.i543, label %cond.false.i.i.i.i553, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i544
+  %atomic-temp.i.0.i.i.i.i550 = inttoptr i64 %249 to ptr
+  %tobool.i.not.i.i.i551 = icmp eq i64 %249, 0
+  br i1 %tobool.i.not.i.i.i551, label %cond.false.i.i.i.i561, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i552
 
-cond.false.i.i.i.i553:                            ; preds = %if.then480
-  %call2.i.i.i.i554 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !246
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i544
+cond.false.i.i.i.i561:                            ; preds = %if.then480
+  %call2.i.i.i.i562 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !246
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i552
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i544: ; preds = %cond.false.i.i.i.i553, %if.then480
-  %cond.i.i.i.i545 = phi ptr [ %call2.i.i.i.i554, %cond.false.i.i.i.i553 ], [ %atomic-temp.i.0.i.i.i.i542, %if.then480 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i552: ; preds = %cond.false.i.i.i.i561, %if.then480
+  %cond.i.i.i.i553 = phi ptr [ %call2.i.i.i.i562, %cond.false.i.i.i.i561 ], [ %atomic-temp.i.0.i.i.i.i550, %if.then480 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !249)
-  %state_.i.i546 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i545, i64 0, i32 3
-  %250 = load atomic i32, ptr %state_.i.i546 acquire, align 4, !noalias !252
-  %cmp.not.i.i547 = icmp eq i32 %250, 2
-  br i1 %cmp.not.i.i547, label %invoke.cont483, label %if.then.i.i548
+  %state_.i.i554 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i553, i64 0, i32 3
+  %250 = load atomic i32, ptr %state_.i.i554 acquire, align 4, !noalias !252
+  %cmp.not.i.i555 = icmp eq i32 %250, 2
+  br i1 %cmp.not.i.i555, label %invoke.cont483, label %if.then.i.i556
 
-if.then.i.i548:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i544
-  %vtable.i.i549 = load ptr, ptr %cond.i.i.i.i545, align 8, !noalias !252
-  %vfn.i.i550 = getelementptr inbounds ptr, ptr %vtable.i.i549, i64 3
-  %251 = load ptr, ptr %vfn.i.i550, align 8, !noalias !252
-  call void %251(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i545), !noalias !252
+if.then.i.i556:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i552
+  %vtable.i.i557 = load ptr, ptr %cond.i.i.i.i553, align 8, !noalias !252
+  %vfn.i.i558 = getelementptr inbounds ptr, ptr %vtable.i.i557, i64 3
+  %251 = load ptr, ptr %vfn.i.i558, align 8, !noalias !252
+  call void %251(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i553), !noalias !252
   br label %invoke.cont483
 
-invoke.cont483:                                   ; preds = %if.then.i.i548, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i544
-  %instance_weak_fast_.i.i551 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i545, i64 0, i32 9
+invoke.cont483:                                   ; preds = %if.then.i.i556, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i552
+  %instance_weak_fast_.i.i559 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i553, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !253)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter481, i8 0, i64 16, i1 false), !alias.scope !256
-  %252 = load ptr, ptr %instance_weak_fast_.i.i551, align 8, !noalias !256
-  %ptrRaw_.i.i.i.i.i552 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i545, i64 0, i32 9, i32 1
-  %253 = load ptr, ptr %ptrRaw_.i.i.i.i.i552, align 8, !noalias !256
+  %252 = load ptr, ptr %instance_weak_fast_.i.i559, align 8, !noalias !256
+  %ptrRaw_.i.i.i.i.i560 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i553, i64 0, i32 9, i32 1
+  %253 = load ptr, ptr %ptrRaw_.i.i.i.i.i560, align 8, !noalias !256
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter481, ptr noundef %252, ptr noundef %253)
   %254 = load ptr, ptr %reporter481, align 8
-  %cmp.i.i556.not = icmp eq ptr %254, null
-  br i1 %cmp.i.i556.not, label %if.end508, label %if.then485
+  %cmp.i.i564.not = icmp eq ptr %254, null
+  br i1 %cmp.i.i564.not, label %if.end508, label %if.then485
 
 if.then485:                                       ; preds = %invoke.cont483
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp489, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i557 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %invoke.cont501 unwind label %lpad.i558
+  %call5.i.i.i.i2.i565 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+          to label %invoke.cont501 unwind label %lpad.i566
 
-lpad.i558:                                        ; preds = %if.then485
+lpad.i566:                                        ; preds = %if.then485
   %255 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 invoke.cont501:                                   ; preds = %if.then485
-  store ptr %call5.i.i.i.i2.i557, ptr %ref.tmp489, align 8
-  %add.ptr.i1.i562 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i557, i64 4
-  %_M_end_of_storage.i.i563 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp489, i64 0, i32 2
-  store ptr %add.ptr.i1.i562, ptr %_M_end_of_storage.i.i563, align 8
-  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i557, align 4
-  %_M_finish.i.i564 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp489, i64 0, i32 1
-  store ptr %add.ptr.i1.i562, ptr %_M_finish.i.i564, align 8
+  store ptr %call5.i.i.i.i2.i565, ptr %ref.tmp489, align 8
+  %add.ptr.i1.i570 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i565, i64 16
+  %_M_end_of_storage.i.i571 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp489, i64 0, i32 2
+  store ptr %add.ptr.i1.i570, ptr %_M_end_of_storage.i.i571, align 8
+  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i565, align 4
+  %_M_finish.i.i573 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp489, i64 0, i32 1
+  store ptr %add.ptr.i1.i570, ptr %_M_finish.i.i573, align 8
   %vtable502 = load ptr, ptr %254, align 8
   %vfn503 = getelementptr inbounds ptr, ptr %vtable502, i64 5
   %256 = load ptr, ptr %vfn503, align 8
@@ -2514,10 +2514,10 @@ invoke.cont501:                                   ; preds = %if.then485
 
 invoke.cont505:                                   ; preds = %invoke.cont501
   %257 = load ptr, ptr %ref.tmp489, align 8
-  %tobool.not.i.i.i567 = icmp eq ptr %257, null
-  br i1 %tobool.not.i.i.i567, label %if.end508, label %if.then.i.i.i568
+  %tobool.not.i.i.i576 = icmp eq ptr %257, null
+  br i1 %tobool.not.i.i.i576, label %if.end508, label %if.then.i.i.i577
 
-if.then.i.i.i568:                                 ; preds = %invoke.cont505
+if.then.i.i.i577:                                 ; preds = %invoke.cont505
   call void @_ZdlPv(ptr noundef nonnull %257) #23
   br label %if.end508
 
@@ -2525,18 +2525,18 @@ lpad504:                                          ; preds = %invoke.cont501
   %258 = landingpad { ptr, i32 }
           cleanup
   %259 = load ptr, ptr %ref.tmp489, align 8
-  %tobool.not.i.i.i571 = icmp eq ptr %259, null
-  br i1 %tobool.not.i.i.i571, label %eh.resume, label %if.then.i.i.i572
+  %tobool.not.i.i.i580 = icmp eq ptr %259, null
+  br i1 %tobool.not.i.i.i580, label %eh.resume, label %if.then.i.i.i581
 
-if.then.i.i.i572:                                 ; preds = %lpad504
+if.then.i.i.i581:                                 ; preds = %lpad504
   call void @_ZdlPv(ptr noundef nonnull %259) #23
   br label %eh.resume
 
-if.end508:                                        ; preds = %if.then.i.i.i568, %invoke.cont505, %invoke.cont483
+if.end508:                                        ; preds = %if.then.i.i.i577, %invoke.cont505, %invoke.cont483
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter481, ptr noundef null, ptr noundef null)
-          to label %if.end510 unwind label %terminate.lpad.i575
+          to label %if.end510 unwind label %terminate.lpad.i584
 
-terminate.lpad.i575:                              ; preds = %if.end508
+terminate.lpad.i584:                              ; preds = %if.end508
   %260 = landingpad { ptr, i32 }
           catch ptr null
   %261 = extractvalue { ptr, i32 } %260, 0
@@ -2544,67 +2544,67 @@ terminate.lpad.i575:                              ; preds = %if.end508
   unreachable
 
 if.end510:                                        ; preds = %if.end508
-  %.pre650 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre695 = and i8 %.pre650, 1
-  %262 = icmp eq i8 %.pre695, 0
+  %.pre660 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre705 = and i8 %.pre660, 1
+  %262 = icmp eq i8 %.pre705, 0
   br i1 %262, label %if.end558, label %if.then512
 
 if.then512:                                       ; preds = %if.end510
   call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %263 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !257
-  %atomic-temp.i.0.i.i.i.i577 = inttoptr i64 %263 to ptr
-  %tobool.i.not.i.i.i578 = icmp eq i64 %263, 0
-  br i1 %tobool.i.not.i.i.i578, label %cond.false.i.i.i.i588, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i579
+  %atomic-temp.i.0.i.i.i.i586 = inttoptr i64 %263 to ptr
+  %tobool.i.not.i.i.i587 = icmp eq i64 %263, 0
+  br i1 %tobool.i.not.i.i.i587, label %cond.false.i.i.i.i597, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i588
 
-cond.false.i.i.i.i588:                            ; preds = %if.then512
-  %call2.i.i.i.i589 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !257
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i579
+cond.false.i.i.i.i597:                            ; preds = %if.then512
+  %call2.i.i.i.i598 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !257
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i588
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i579: ; preds = %cond.false.i.i.i.i588, %if.then512
-  %cond.i.i.i.i580 = phi ptr [ %call2.i.i.i.i589, %cond.false.i.i.i.i588 ], [ %atomic-temp.i.0.i.i.i.i577, %if.then512 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i588: ; preds = %cond.false.i.i.i.i597, %if.then512
+  %cond.i.i.i.i589 = phi ptr [ %call2.i.i.i.i598, %cond.false.i.i.i.i597 ], [ %atomic-temp.i.0.i.i.i.i586, %if.then512 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
-  %state_.i.i581 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i580, i64 0, i32 3
-  %264 = load atomic i32, ptr %state_.i.i581 acquire, align 4, !noalias !263
-  %cmp.not.i.i582 = icmp eq i32 %264, 2
-  br i1 %cmp.not.i.i582, label %invoke.cont515, label %if.then.i.i583
+  %state_.i.i590 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i589, i64 0, i32 3
+  %264 = load atomic i32, ptr %state_.i.i590 acquire, align 4, !noalias !263
+  %cmp.not.i.i591 = icmp eq i32 %264, 2
+  br i1 %cmp.not.i.i591, label %invoke.cont515, label %if.then.i.i592
 
-if.then.i.i583:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i579
-  %vtable.i.i584 = load ptr, ptr %cond.i.i.i.i580, align 8, !noalias !263
-  %vfn.i.i585 = getelementptr inbounds ptr, ptr %vtable.i.i584, i64 3
-  %265 = load ptr, ptr %vfn.i.i585, align 8, !noalias !263
-  call void %265(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i580), !noalias !263
+if.then.i.i592:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i588
+  %vtable.i.i593 = load ptr, ptr %cond.i.i.i.i589, align 8, !noalias !263
+  %vfn.i.i594 = getelementptr inbounds ptr, ptr %vtable.i.i593, i64 3
+  %265 = load ptr, ptr %vfn.i.i594, align 8, !noalias !263
+  call void %265(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i589), !noalias !263
   br label %invoke.cont515
 
-invoke.cont515:                                   ; preds = %if.then.i.i583, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i579
-  %instance_weak_fast_.i.i586 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i580, i64 0, i32 9
+invoke.cont515:                                   ; preds = %if.then.i.i592, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i588
+  %instance_weak_fast_.i.i595 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i589, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !264)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter513, i8 0, i64 16, i1 false), !alias.scope !267
-  %266 = load ptr, ptr %instance_weak_fast_.i.i586, align 8, !noalias !267
-  %ptrRaw_.i.i.i.i.i587 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i580, i64 0, i32 9, i32 1
-  %267 = load ptr, ptr %ptrRaw_.i.i.i.i.i587, align 8, !noalias !267
+  %266 = load ptr, ptr %instance_weak_fast_.i.i595, align 8, !noalias !267
+  %ptrRaw_.i.i.i.i.i596 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i589, i64 0, i32 9, i32 1
+  %267 = load ptr, ptr %ptrRaw_.i.i.i.i.i596, align 8, !noalias !267
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter513, ptr noundef %266, ptr noundef %267)
   %268 = load ptr, ptr %reporter513, align 8
-  %cmp.i.i591.not = icmp eq ptr %268, null
-  br i1 %cmp.i.i591.not, label %if.end540, label %if.then517
+  %cmp.i.i600.not = icmp eq ptr %268, null
+  br i1 %cmp.i.i600.not, label %if.end540, label %if.then517
 
 if.then517:                                       ; preds = %invoke.cont515
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp521, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i592 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %invoke.cont533 unwind label %lpad.i593
+  %call5.i.i.i.i2.i601 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+          to label %invoke.cont533 unwind label %lpad.i602
 
-lpad.i593:                                        ; preds = %if.then517
+lpad.i602:                                        ; preds = %if.then517
   %269 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 invoke.cont533:                                   ; preds = %if.then517
-  store ptr %call5.i.i.i.i2.i592, ptr %ref.tmp521, align 8
-  %add.ptr.i1.i597 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i592, i64 4
-  %_M_end_of_storage.i.i598 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp521, i64 0, i32 2
-  store ptr %add.ptr.i1.i597, ptr %_M_end_of_storage.i.i598, align 8
-  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i592, align 4
-  %_M_finish.i.i599 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp521, i64 0, i32 1
-  store ptr %add.ptr.i1.i597, ptr %_M_finish.i.i599, align 8
+  store ptr %call5.i.i.i.i2.i601, ptr %ref.tmp521, align 8
+  %add.ptr.i1.i606 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i601, i64 16
+  %_M_end_of_storage.i.i607 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp521, i64 0, i32 2
+  store ptr %add.ptr.i1.i606, ptr %_M_end_of_storage.i.i607, align 8
+  store <4 x i32> <i32 50, i32 90, i32 99, i32 100>, ptr %call5.i.i.i.i2.i601, align 4
+  %_M_finish.i.i609 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %ref.tmp521, i64 0, i32 1
+  store ptr %add.ptr.i1.i606, ptr %_M_finish.i.i609, align 8
   %vtable534 = load ptr, ptr %268, align 8
   %vfn535 = getelementptr inbounds ptr, ptr %vtable534, i64 5
   %270 = load ptr, ptr %vfn535, align 8
@@ -2613,10 +2613,10 @@ invoke.cont533:                                   ; preds = %if.then517
 
 invoke.cont537:                                   ; preds = %invoke.cont533
   %271 = load ptr, ptr %ref.tmp521, align 8
-  %tobool.not.i.i.i602 = icmp eq ptr %271, null
-  br i1 %tobool.not.i.i.i602, label %if.end540, label %if.then.i.i.i603
+  %tobool.not.i.i.i612 = icmp eq ptr %271, null
+  br i1 %tobool.not.i.i.i612, label %if.end540, label %if.then.i.i.i613
 
-if.then.i.i.i603:                                 ; preds = %invoke.cont537
+if.then.i.i.i613:                                 ; preds = %invoke.cont537
   call void @_ZdlPv(ptr noundef nonnull %271) #23
   br label %if.end540
 
@@ -2624,18 +2624,18 @@ lpad536:                                          ; preds = %invoke.cont533
   %272 = landingpad { ptr, i32 }
           cleanup
   %273 = load ptr, ptr %ref.tmp521, align 8
-  %tobool.not.i.i.i606 = icmp eq ptr %273, null
-  br i1 %tobool.not.i.i.i606, label %eh.resume, label %if.then.i.i.i607
+  %tobool.not.i.i.i616 = icmp eq ptr %273, null
+  br i1 %tobool.not.i.i.i616, label %eh.resume, label %if.then.i.i.i617
 
-if.then.i.i.i607:                                 ; preds = %lpad536
+if.then.i.i.i617:                                 ; preds = %lpad536
   call void @_ZdlPv(ptr noundef nonnull %273) #23
   br label %eh.resume
 
-if.end540:                                        ; preds = %if.then.i.i.i603, %invoke.cont537, %invoke.cont515
+if.end540:                                        ; preds = %if.then.i.i.i613, %invoke.cont537, %invoke.cont515
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter513, ptr noundef null, ptr noundef null)
-          to label %if.end542 unwind label %terminate.lpad.i610
+          to label %if.end542 unwind label %terminate.lpad.i620
 
-terminate.lpad.i610:                              ; preds = %if.end540
+terminate.lpad.i620:                              ; preds = %if.end540
   %274 = landingpad { ptr, i32 }
           catch ptr null
   %275 = extractvalue { ptr, i32 } %274, 0
@@ -2643,48 +2643,48 @@ terminate.lpad.i610:                              ; preds = %if.end540
   unreachable
 
 if.end542:                                        ; preds = %if.end540
-  %.pre651 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
-  %.pre697 = and i8 %.pre651, 1
-  %276 = icmp eq i8 %.pre697, 0
+  %.pre661 = load i8, ptr @_ZN8facebook5velox17BaseStatsReporter10registeredE, align 1
+  %.pre707 = and i8 %.pre661, 1
+  %276 = icmp eq i8 %.pre707, 0
   br i1 %276, label %if.end558, label %if.then544
 
 if.then544:                                       ; preds = %if.end542
   call void @llvm.experimental.noalias.scope.decl(metadata !268)
   %277 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg acquire, align 8, !noalias !268
-  %atomic-temp.i.0.i.i.i.i612 = inttoptr i64 %277 to ptr
-  %tobool.i.not.i.i.i613 = icmp eq i64 %277, 0
-  br i1 %tobool.i.not.i.i.i613, label %cond.false.i.i.i.i623, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i614
+  %atomic-temp.i.0.i.i.i.i622 = inttoptr i64 %277 to ptr
+  %tobool.i.not.i.i.i623 = icmp eq i64 %277, 0
+  br i1 %tobool.i.not.i.i.i623, label %cond.false.i.i.i.i633, label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i624
 
-cond.false.i.i.i.i623:                            ; preds = %if.then544
-  %call2.i.i.i.i624 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !268
-  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i614
+cond.false.i.i.i.i633:                            ; preds = %if.then544
+  %call2.i.i.i.i634 = call noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb0EEEPvRNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderIN8facebook5velox17BaseStatsReporterEE4ImplINS0_10DefaultTagES9_EEvEERT_vE3arg), !noalias !268
+  br label %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i624
 
-_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i614: ; preds = %cond.false.i.i.i.i623, %if.then544
-  %cond.i.i.i.i615 = phi ptr [ %call2.i.i.i.i624, %cond.false.i.i.i.i623 ], [ %atomic-temp.i.0.i.i.i.i612, %if.then544 ]
+_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i624: ; preds = %cond.false.i.i.i.i633, %if.then544
+  %cond.i.i.i.i625 = phi ptr [ %call2.i.i.i.i634, %cond.false.i.i.i.i633 ], [ %atomic-temp.i.0.i.i.i.i622, %if.then544 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !271)
-  %state_.i.i616 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i615, i64 0, i32 3
-  %278 = load atomic i32, ptr %state_.i.i616 acquire, align 4, !noalias !274
-  %cmp.not.i.i617 = icmp eq i32 %278, 2
-  br i1 %cmp.not.i.i617, label %invoke.cont547, label %if.then.i.i618
+  %state_.i.i626 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i625, i64 0, i32 3
+  %278 = load atomic i32, ptr %state_.i.i626 acquire, align 4, !noalias !274
+  %cmp.not.i.i627 = icmp eq i32 %278, 2
+  br i1 %cmp.not.i.i627, label %invoke.cont547, label %if.then.i.i628
 
-if.then.i.i618:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i614
-  %vtable.i.i619 = load ptr, ptr %cond.i.i.i.i615, align 8, !noalias !274
-  %vfn.i.i620 = getelementptr inbounds ptr, ptr %vtable.i.i619, i64 3
-  %279 = load ptr, ptr %vfn.i.i620, align 8, !noalias !274
-  call void %279(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i615), !noalias !274
+if.then.i.i628:                                   ; preds = %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i624
+  %vtable.i.i629 = load ptr, ptr %cond.i.i.i.i625, align 8, !noalias !274
+  %vfn.i.i630 = getelementptr inbounds ptr, ptr %vtable.i.i629, i64 3
+  %279 = load ptr, ptr %vfn.i.i630, align 8, !noalias !274
+  call void %279(ptr noundef nonnull align 8 dereferenceable(2304) %cond.i.i.i.i625), !noalias !274
   br label %invoke.cont547
 
-invoke.cont547:                                   ; preds = %if.then.i.i618, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i614
-  %instance_weak_fast_.i.i621 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i615, i64 0, i32 9
+invoke.cont547:                                   ; preds = %if.then.i.i628, %_ZN5folly9SingletonIN8facebook5velox17BaseStatsReporterENS_6detail10DefaultTagES5_E8getEntryEv.exit.i624
+  %instance_weak_fast_.i.i631 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i625, i64 0, i32 9
   call void @llvm.experimental.noalias.scope.decl(metadata !275)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reporter545, i8 0, i64 16, i1 false), !alias.scope !278
-  %280 = load ptr, ptr %instance_weak_fast_.i.i621, align 8, !noalias !278
-  %ptrRaw_.i.i.i.i.i622 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i615, i64 0, i32 9, i32 1
-  %281 = load ptr, ptr %ptrRaw_.i.i.i.i.i622, align 8, !noalias !278
+  %280 = load ptr, ptr %instance_weak_fast_.i.i631, align 8, !noalias !278
+  %ptrRaw_.i.i.i.i.i632 = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %cond.i.i.i.i625, i64 0, i32 9, i32 1
+  %281 = load ptr, ptr %ptrRaw_.i.i.i.i.i632, align 8, !noalias !278
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter545, ptr noundef %280, ptr noundef %281)
   %282 = load ptr, ptr %reporter545, align 8
-  %cmp.i.i626.not = icmp eq ptr %282, null
-  br i1 %cmp.i.i626.not, label %if.end556, label %if.then549
+  %cmp.i.i636.not = icmp eq ptr %282, null
+  br i1 %cmp.i.i636.not, label %if.end556, label %if.then549
 
 if.then549:                                       ; preds = %invoke.cont547
   %vtable553 = load ptr, ptr %282, align 8
@@ -2700,9 +2700,9 @@ lpad546:                                          ; preds = %if.then549
 
 if.end556:                                        ; preds = %if.then549, %invoke.cont547
   invoke void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEE5resetEPNS_6detail23ReadMostlySharedPtrCoreIS4_EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %reporter545, ptr noundef null, ptr noundef null)
-          to label %if.end558 unwind label %terminate.lpad.i627
+          to label %if.end558 unwind label %terminate.lpad.i637
 
-terminate.lpad.i627:                              ; preds = %if.end556
+terminate.lpad.i637:                              ; preds = %if.end556
   %285 = landingpad { ptr, i32 }
           catch ptr null
   %286 = extractvalue { ptr, i32 } %285, 0
@@ -2712,9 +2712,9 @@ terminate.lpad.i627:                              ; preds = %if.end556
 if.end558:                                        ; preds = %entry, %if.end14, %if.end30, %if.end62, %if.end94, %if.end126, %if.end142, %if.end158, %if.end174, %if.end190, %if.end206, %if.end222, %if.end254, %if.end286, %if.end302, %if.end318, %if.end334, %if.end350, %if.end366, %if.end398, %if.end430, %if.end462, %if.end478, %if.end510, %if.end556, %if.end542
   ret void
 
-eh.resume:                                        ; preds = %if.then.i.i.i607, %lpad536, %lpad.i593, %if.then.i.i.i572, %lpad504, %lpad.i558, %if.then.i.i.i520, %lpad456, %lpad.i506, %if.then.i.i.i485, %lpad424, %lpad.i471, %if.then.i.i.i450, %lpad392, %lpad.i436, %if.then.i.i.i330, %lpad280, %lpad.i316, %if.then.i.i.i295, %lpad248, %lpad.i281, %if.then.i.i.i158, %lpad120, %lpad.i144, %if.then.i.i.i123, %lpad88, %lpad.i109, %if.then.i.i.i88, %lpad56, %lpad.i74, %if.then.i.i.i38, %lpad11, %lpad.i, %lpad546, %lpad466, %lpad354, %lpad338, %lpad322, %lpad306, %lpad290, %lpad210, %lpad194, %lpad178, %lpad162, %lpad146, %lpad130, %lpad18
-  %reporter545.sink = phi ptr [ %reporter545, %lpad546 ], [ %reporter465, %lpad466 ], [ %reporter353, %lpad354 ], [ %reporter337, %lpad338 ], [ %reporter321, %lpad322 ], [ %reporter305, %lpad306 ], [ %reporter289, %lpad290 ], [ %reporter209, %lpad210 ], [ %reporter193, %lpad194 ], [ %reporter177, %lpad178 ], [ %reporter161, %lpad162 ], [ %reporter145, %lpad146 ], [ %reporter129, %lpad130 ], [ %reporter17, %lpad18 ], [ %reporter, %lpad.i ], [ %reporter, %lpad11 ], [ %reporter, %if.then.i.i.i38 ], [ %reporter33, %lpad.i74 ], [ %reporter33, %lpad56 ], [ %reporter33, %if.then.i.i.i88 ], [ %reporter65, %lpad.i109 ], [ %reporter65, %lpad88 ], [ %reporter65, %if.then.i.i.i123 ], [ %reporter97, %lpad.i144 ], [ %reporter97, %lpad120 ], [ %reporter97, %if.then.i.i.i158 ], [ %reporter225, %lpad.i281 ], [ %reporter225, %lpad248 ], [ %reporter225, %if.then.i.i.i295 ], [ %reporter257, %lpad.i316 ], [ %reporter257, %lpad280 ], [ %reporter257, %if.then.i.i.i330 ], [ %reporter369, %lpad.i436 ], [ %reporter369, %lpad392 ], [ %reporter369, %if.then.i.i.i450 ], [ %reporter401, %lpad.i471 ], [ %reporter401, %lpad424 ], [ %reporter401, %if.then.i.i.i485 ], [ %reporter433, %lpad.i506 ], [ %reporter433, %lpad456 ], [ %reporter433, %if.then.i.i.i520 ], [ %reporter481, %lpad.i558 ], [ %reporter481, %lpad504 ], [ %reporter481, %if.then.i.i.i572 ], [ %reporter513, %lpad.i593 ], [ %reporter513, %lpad536 ], [ %reporter513, %if.then.i.i.i607 ]
-  %.pn33 = phi { ptr, i32 } [ %284, %lpad546 ], [ %246, %lpad466 ], [ %197, %lpad354 ], [ %187, %lpad338 ], [ %177, %lpad322 ], [ %167, %lpad306 ], [ %157, %lpad290 ], [ %121, %lpad210 ], [ %111, %lpad194 ], [ %101, %lpad178 ], [ %91, %lpad162 ], [ %81, %lpad146 ], [ %71, %lpad130 ], [ %22, %lpad18 ], [ %8, %lpad.i ], [ %11, %lpad11 ], [ %11, %if.then.i.i.i38 ], [ %31, %lpad.i74 ], [ %34, %lpad56 ], [ %34, %if.then.i.i.i88 ], [ %44, %lpad.i109 ], [ %47, %lpad88 ], [ %47, %if.then.i.i.i123 ], [ %57, %lpad.i144 ], [ %60, %lpad120 ], [ %60, %if.then.i.i.i158 ], [ %130, %lpad.i281 ], [ %133, %lpad248 ], [ %133, %if.then.i.i.i295 ], [ %143, %lpad.i316 ], [ %146, %lpad280 ], [ %146, %if.then.i.i.i330 ], [ %206, %lpad.i436 ], [ %209, %lpad392 ], [ %209, %if.then.i.i.i450 ], [ %219, %lpad.i471 ], [ %222, %lpad424 ], [ %222, %if.then.i.i.i485 ], [ %232, %lpad.i506 ], [ %235, %lpad456 ], [ %235, %if.then.i.i.i520 ], [ %255, %lpad.i558 ], [ %258, %lpad504 ], [ %258, %if.then.i.i.i572 ], [ %269, %lpad.i593 ], [ %272, %lpad536 ], [ %272, %if.then.i.i.i607 ]
+eh.resume:                                        ; preds = %if.then.i.i.i617, %lpad536, %lpad.i602, %if.then.i.i.i581, %lpad504, %lpad.i566, %if.then.i.i.i528, %lpad456, %lpad.i513, %if.then.i.i.i492, %lpad424, %lpad.i477, %if.then.i.i.i456, %lpad392, %lpad.i441, %if.then.i.i.i335, %lpad280, %lpad.i320, %if.then.i.i.i299, %lpad248, %lpad.i284, %if.then.i.i.i161, %lpad120, %lpad.i146, %if.then.i.i.i125, %lpad88, %lpad.i110, %if.then.i.i.i89, %lpad56, %lpad.i74, %if.then.i.i.i38, %lpad11, %lpad.i, %lpad546, %lpad466, %lpad354, %lpad338, %lpad322, %lpad306, %lpad290, %lpad210, %lpad194, %lpad178, %lpad162, %lpad146, %lpad130, %lpad18
+  %reporter545.sink = phi ptr [ %reporter545, %lpad546 ], [ %reporter465, %lpad466 ], [ %reporter353, %lpad354 ], [ %reporter337, %lpad338 ], [ %reporter321, %lpad322 ], [ %reporter305, %lpad306 ], [ %reporter289, %lpad290 ], [ %reporter209, %lpad210 ], [ %reporter193, %lpad194 ], [ %reporter177, %lpad178 ], [ %reporter161, %lpad162 ], [ %reporter145, %lpad146 ], [ %reporter129, %lpad130 ], [ %reporter17, %lpad18 ], [ %reporter, %lpad.i ], [ %reporter, %lpad11 ], [ %reporter, %if.then.i.i.i38 ], [ %reporter33, %lpad.i74 ], [ %reporter33, %lpad56 ], [ %reporter33, %if.then.i.i.i89 ], [ %reporter65, %lpad.i110 ], [ %reporter65, %lpad88 ], [ %reporter65, %if.then.i.i.i125 ], [ %reporter97, %lpad.i146 ], [ %reporter97, %lpad120 ], [ %reporter97, %if.then.i.i.i161 ], [ %reporter225, %lpad.i284 ], [ %reporter225, %lpad248 ], [ %reporter225, %if.then.i.i.i299 ], [ %reporter257, %lpad.i320 ], [ %reporter257, %lpad280 ], [ %reporter257, %if.then.i.i.i335 ], [ %reporter369, %lpad.i441 ], [ %reporter369, %lpad392 ], [ %reporter369, %if.then.i.i.i456 ], [ %reporter401, %lpad.i477 ], [ %reporter401, %lpad424 ], [ %reporter401, %if.then.i.i.i492 ], [ %reporter433, %lpad.i513 ], [ %reporter433, %lpad456 ], [ %reporter433, %if.then.i.i.i528 ], [ %reporter481, %lpad.i566 ], [ %reporter481, %lpad504 ], [ %reporter481, %if.then.i.i.i581 ], [ %reporter513, %lpad.i602 ], [ %reporter513, %lpad536 ], [ %reporter513, %if.then.i.i.i617 ]
+  %.pn33 = phi { ptr, i32 } [ %284, %lpad546 ], [ %246, %lpad466 ], [ %197, %lpad354 ], [ %187, %lpad338 ], [ %177, %lpad322 ], [ %167, %lpad306 ], [ %157, %lpad290 ], [ %121, %lpad210 ], [ %111, %lpad194 ], [ %101, %lpad178 ], [ %91, %lpad162 ], [ %81, %lpad146 ], [ %71, %lpad130 ], [ %22, %lpad18 ], [ %8, %lpad.i ], [ %11, %lpad11 ], [ %11, %if.then.i.i.i38 ], [ %31, %lpad.i74 ], [ %34, %lpad56 ], [ %34, %if.then.i.i.i89 ], [ %44, %lpad.i110 ], [ %47, %lpad88 ], [ %47, %if.then.i.i.i125 ], [ %57, %lpad.i146 ], [ %60, %lpad120 ], [ %60, %if.then.i.i.i161 ], [ %130, %lpad.i284 ], [ %133, %lpad248 ], [ %133, %if.then.i.i.i299 ], [ %143, %lpad.i320 ], [ %146, %lpad280 ], [ %146, %if.then.i.i.i335 ], [ %206, %lpad.i441 ], [ %209, %lpad392 ], [ %209, %if.then.i.i.i456 ], [ %219, %lpad.i477 ], [ %222, %lpad424 ], [ %222, %if.then.i.i.i492 ], [ %232, %lpad.i513 ], [ %235, %lpad456 ], [ %235, %if.then.i.i.i528 ], [ %255, %lpad.i566 ], [ %258, %lpad504 ], [ %258, %if.then.i.i.i581 ], [ %269, %lpad.i602 ], [ %272, %lpad536 ], [ %272, %if.then.i.i.i617 ]
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %reporter545.sink) #25
   resume { ptr, i32 } %.pn33
 }
@@ -10265,21 +10265,25 @@ _ZNKSt6vectorIN5folly6detail14TypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit: ;
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 4
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
-  %add.ptr = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %call5.i.i.i, i64 %sub.ptr.div.i
-  %2 = load <2 x i64>, ptr %__args, align 8
-  store <2 x i64> %2, ptr %add.ptr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
+  %2 = load i64, ptr %__args, align 8
+  store i64 %2, ptr %add.ptr, align 8
+  %tag_ti_.i.i.i = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
+  %tag_ti_3.i.i.i = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %__args, i64 0, i32 1
+  %3 = load i64, ptr %tag_ti_3.i.i.i, align 8
+  store i64 %3, ptr %tag_ti_.i.i.i, align 8
   %cmp.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not7.i.i.i.i.i, label %invoke.cont10, label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN5folly6detail14TypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i.i.i
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN5folly6detail14TypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %_ZNKSt6vectorIN5folly6detail14TypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %3 = load i64, ptr %__first.addr.08.i.i.i.i.i, align 8
-  store i64 %3, ptr %__cur.09.i.i.i.i.i, align 8
+  %4 = load i64, ptr %__first.addr.08.i.i.i.i.i, align 8
+  store i64 %4, ptr %__cur.09.i.i.i.i.i, align 8
   %tag_ti_.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1
   %tag_ti_3.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %__first.addr.08.i.i.i.i.i, i64 0, i32 1
-  %4 = load i64, ptr %tag_ti_3.i.i.i.i.i.i.i, align 8
-  store i64 %4, ptr %tag_ti_.i.i.i.i.i.i.i, align 8
+  %5 = load i64, ptr %tag_ti_3.i.i.i.i.i.i.i, align 8
+  store i64 %5, ptr %tag_ti_.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %__first.addr.08.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %__cur.09.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
@@ -10294,12 +10298,12 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.inc.i.i.i.i.i21:                              ; preds = %invoke.cont10, %for.inc.i.i.i.i.i21
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i27, %for.inc.i.i.i.i.i21 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i26, %for.inc.i.i.i.i.i21 ], [ %__position.coerce, %invoke.cont10 ]
-  %5 = load i64, ptr %__first.addr.08.i.i.i.i.i23, align 8
-  store i64 %5, ptr %__cur.09.i.i.i.i.i22, align 8
+  %6 = load i64, ptr %__first.addr.08.i.i.i.i.i23, align 8
+  store i64 %6, ptr %__cur.09.i.i.i.i.i22, align 8
   %tag_ti_.i.i.i.i.i.i.i24 = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 1
   %tag_ti_3.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %__first.addr.08.i.i.i.i.i23, i64 0, i32 1
-  %6 = load i64, ptr %tag_ti_3.i.i.i.i.i.i.i25, align 8
-  store i64 %6, ptr %tag_ti_.i.i.i.i.i.i.i24, align 8
+  %7 = load i64, ptr %tag_ti_3.i.i.i.i.i.i.i25, align 8
+  store i64 %7, ptr %tag_ti_.i.i.i.i.i.i.i24, align 8
   %incdec.ptr.i.i.i.i.i26 = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %__first.addr.08.i.i.i.i.i23, i64 1
   %incdec.ptr1.i.i.i.i.i27 = getelementptr inbounds %"class.folly::detail::TypeDescriptor", ptr %__cur.09.i.i.i.i.i22, i64 1
   %cmp.not.i.i.i.i.i28 = icmp eq ptr %incdec.ptr.i.i.i.i.i26, %0
@@ -10832,7 +10836,7 @@ if.else.i.i:                                      ; preds = %if.end
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i34.invoke, label %_ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i35.invoke, label %_ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 _ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
@@ -10854,23 +10858,24 @@ _ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i: ; p
   %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i1, %_ZNSt16allocator_traitsISaIPN5folly10TLRefCountEEE8allocateERS3_m.exit.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store ptr %0, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
+  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
 if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %4, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
+  br label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
 
-_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
-if.then.i21.i.i.i:                                ; preds = %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
+if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   br label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i21.i.i.i, %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
+_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
   store ptr %cond.i10.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
@@ -10898,13 +10903,13 @@ if.else.i.i7:                                     ; preds = %invoke.cont
   %sub.ptr.rhs.cast.i.i.i.i.i9 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i.i.i10 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i8, %sub.ptr.rhs.cast.i.i.i.i.i9
   %cmp.i.i.i.i11 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i10, 9223372036854775800
-  br i1 %cmp.i.i.i.i11, label %if.then.i.i.i.i34.invoke, label %_ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i12
+  br i1 %cmp.i.i.i.i11, label %if.then.i.i.i.i35.invoke, label %_ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i12
 
-if.then.i.i.i.i34.invoke:                         ; preds = %if.else.i.i7, %if.else.i.i
+if.then.i.i.i.i35.invoke:                         ; preds = %if.else.i.i7, %if.else.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #27
-          to label %if.then.i.i.i.i34.cont unwind label %terminate.lpad
+          to label %if.then.i.i.i.i35.cont unwind label %terminate.lpad
 
-if.then.i.i.i.i34.cont:                           ; preds = %if.then.i.i.i.i34.invoke
+if.then.i.i.i.i35.cont:                           ; preds = %if.then.i.i.i.i35.invoke
   unreachable
 
 _ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i12: ; preds = %if.else.i.i7
@@ -10920,49 +10925,50 @@ _ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i12: ; p
 
 _ZNSt16allocator_traitsISaIPN5folly10TLRefCountEEE8allocateERS3_m.exit.i.i.i.i21: ; preds = %_ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i12
   %mul.i.i.i.i.i.i22 = shl nuw nsw i64 %cond.i.i.i.i19, 3
-  %call5.i.i.i.i.i.i37 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i22) #22
+  %call5.i.i.i.i.i.i38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i22) #22
           to label %_ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i23 unwind label %terminate.lpad
 
 _ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i23: ; preds = %_ZNSt16allocator_traitsISaIPN5folly10TLRefCountEEE8allocateERS3_m.exit.i.i.i.i21, %_ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i12
-  %cond.i10.i.i.i24 = phi ptr [ null, %_ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i12 ], [ %call5.i.i.i.i.i.i37, %_ZNSt16allocator_traitsISaIPN5folly10TLRefCountEEE8allocateERS3_m.exit.i.i.i.i21 ]
+  %cond.i10.i.i.i24 = phi ptr [ null, %_ZNKSt6vectorIPN5folly10TLRefCountESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i12 ], [ %call5.i.i.i.i.i.i38, %_ZNSt16allocator_traitsISaIPN5folly10TLRefCountEEE8allocateERS3_m.exit.i.i.i.i21 ]
   %add.ptr.i.i.i25 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i24, i64 %sub.ptr.div.i.i.i.i.i13
   store ptr %weakCount_, ptr %add.ptr.i.i.i25, align 8
-  %cmp.i.i.i11.i.i.i26 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i13, 0
-  br i1 %cmp.i.i.i11.i.i.i26, label %if.then.i.i.i12.i.i.i33, label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i27
+  %cmp.i.i.i11.i.i.i26 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i10, 0
+  br i1 %cmp.i.i.i11.i.i.i26, label %if.then.i.i.i12.i.i.i34, label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i27
 
-if.then.i.i.i12.i.i.i33:                          ; preds = %_ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i23
+if.then.i.i.i12.i.i.i34:                          ; preds = %_ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i23
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i24, ptr align 8 %9, i64 %sub.ptr.sub.i.i.i.i.i10, i1 false)
-  br label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i27
+  br label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i27
 
-_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i27: ; preds = %if.then.i.i.i12.i.i.i33, %_ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i23
-  %incdec.ptr.i.i.i28 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i25, i64 1
-  %tobool.not.i.i.i.i29 = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i.i.i29, label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i31, label %if.then.i21.i.i.i30
+_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i27: ; preds = %if.then.i.i.i12.i.i.i34, %_ZNSt12_Vector_baseIPN5folly10TLRefCountESaIS2_EE11_M_allocateEm.exit.i.i.i23
+  %add.ptr.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %cond.i10.i.i.i24, i64 %sub.ptr.sub.i.i.i.i.i10
+  %incdec.ptr.i.i.i29 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i28, i64 1
+  %tobool.not.i.i.i.i30 = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i.i30, label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i32, label %if.then.i20.i.i.i31
 
-if.then.i21.i.i.i30:                              ; preds = %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i27
+if.then.i20.i.i.i31:                              ; preds = %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i27
   tail call void @_ZdlPv(ptr noundef nonnull %9) #23
-  br label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i31
+  br label %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i32
 
-_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i31: ; preds = %if.then.i21.i.i.i30, %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i27
+_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i32: ; preds = %if.then.i20.i.i.i31, %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i27
   store ptr %cond.i10.i.i.i24, ptr %this, align 8
-  store ptr %incdec.ptr.i.i.i28, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i32 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i24, i64 %cond.i.i.i.i19
-  store ptr %add.ptr19.i.i.i32, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %incdec.ptr.i.i.i29, ptr %_M_finish.i.i, align 8
+  %add.ptr19.i.i.i33 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i24, i64 %cond.i.i.i.i19
+  store ptr %add.ptr19.i.i.i33, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i31, %if.then.i.i5
+invoke.cont6:                                     ; preds = %_ZNSt6vectorIPN5folly10TLRefCountESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i32, %if.then.i.i5
   %10 = load ptr, ptr %ptr, align 8
   %call_.i = getelementptr inbounds %"class.folly::Function.109", ptr %ref.tmp7, i64 0, i32 1
   %exec_.i = getelementptr inbounds %"class.folly::Function.109", ptr %ref.tmp7, i64 0, i32 2
   store ptr %10, ptr %ref.tmp7, align 16
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_24ReadMostlyMainPtrDeleterINS_10TLRefCountEE3addIN8facebook5velox17BaseStatsReporterEEEvNS_17ReadMostlyMainPtrIT_S7_EEEUlvE_EEvRNS1_4DataE, ptr %call_.i, align 16
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i, align 8
-  %_M_finish.i.i39 = getelementptr inbounds %"class.folly::ReadMostlyMainPtrDeleter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %11 = load ptr, ptr %_M_finish.i.i39, align 8
-  %_M_end_of_storage.i.i40 = getelementptr inbounds %"class.folly::ReadMostlyMainPtrDeleter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %12 = load ptr, ptr %_M_end_of_storage.i.i40, align 8
-  %cmp.not.i.i41 = icmp eq ptr %11, %12
-  br i1 %cmp.not.i.i41, label %if.else.i.i44, label %invoke.cont9.thread
+  %_M_finish.i.i40 = getelementptr inbounds %"class.folly::ReadMostlyMainPtrDeleter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %11 = load ptr, ptr %_M_finish.i.i40, align 8
+  %_M_end_of_storage.i.i41 = getelementptr inbounds %"class.folly::ReadMostlyMainPtrDeleter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %12 = load ptr, ptr %_M_end_of_storage.i.i41, align 8
+  %cmp.not.i.i42 = icmp eq ptr %11, %12
+  br i1 %cmp.not.i.i42, label %if.else.i.i45, label %invoke.cont9.thread
 
 invoke.cont9.thread:                              ; preds = %invoke.cont6
   %call_.i.i.i.i.i = getelementptr inbounds %"class.folly::Function.109", ptr %11, i64 0, i32 1
@@ -10970,23 +10976,23 @@ invoke.cont9.thread:                              ; preds = %invoke.cont6
   %exec_.i.i.i.i.i = getelementptr inbounds %"class.folly::Function.109", ptr %11, i64 0, i32 2
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp7, i64 16, i1 false)
-  %13 = load ptr, ptr %_M_finish.i.i39, align 8
-  %incdec.ptr.i.i43 = getelementptr inbounds %"class.folly::Function.109", ptr %13, i64 1
-  store ptr %incdec.ptr.i.i43, ptr %_M_finish.i.i39, align 8
+  %13 = load ptr, ptr %_M_finish.i.i40, align 8
+  %incdec.ptr.i.i44 = getelementptr inbounds %"class.folly::Function.109", ptr %13, i64 1
+  store ptr %incdec.ptr.i.i44, ptr %_M_finish.i.i40, align 8
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
-if.else.i.i44:                                    ; preds = %invoke.cont6
+if.else.i.i45:                                    ; preds = %invoke.cont6
   %decrefs_ = getelementptr inbounds %"class.folly::ReadMostlyMainPtrDeleter", ptr %this, i64 0, i32 1
   invoke void @_ZNSt6vectorIN5folly8FunctionIFvvEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %decrefs_, ptr %11, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp7)
           to label %invoke.cont9 unwind label %terminate.lpad
 
-invoke.cont9:                                     ; preds = %if.else.i.i44
-  %.pre48 = load ptr, ptr %exec_.i, align 8
-  %tobool.not.i.i = icmp eq ptr %.pre48, null
+invoke.cont9:                                     ; preds = %if.else.i.i45
+  %.pre49 = load ptr, ptr %exec_.i, align 8
+  %tobool.not.i.i = icmp eq ptr %.pre49, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont9
-  %call.i.i = call noundef i64 %.pre48(i32 noundef 1, ptr noundef nonnull %ref.tmp7, ptr noundef null) #25
+  %call.i.i = call noundef i64 %.pre49(i32 noundef 1, ptr noundef nonnull %ref.tmp7, ptr noundef null) #25
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
 _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %invoke.cont9.thread, %invoke.cont9, %if.end.i.i
@@ -10996,7 +11002,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %invoke.cont9.thread
 return:                                           ; preds = %entry, %_ZN5folly8FunctionIFvvEED2Ev.exit
   ret void
 
-terminate.lpad:                                   ; preds = %if.then.i.i.i.i34.invoke, %if.else.i.i44, %_ZNSt16allocator_traitsISaIPN5folly10TLRefCountEEE8allocateERS3_m.exit.i.i.i.i21, %_ZNSt16allocator_traitsISaIPN5folly10TLRefCountEEE8allocateERS3_m.exit.i.i.i.i
+terminate.lpad:                                   ; preds = %if.then.i.i.i.i35.invoke, %if.else.i.i45, %_ZNSt16allocator_traitsISaIPN5folly10TLRefCountEEE8allocateERS3_m.exit.i.i.i.i21, %_ZNSt16allocator_traitsISaIPN5folly10TLRefCountEEE8allocateERS3_m.exit.i.i.i.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
@@ -11170,7 +11176,7 @@ _ZNKSt6vectorIN5folly8FunctionIFvvEEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds =
   br i1 %tobool.not.i.i.i.i, label %_ZNSt16allocator_traitsISaIN5folly8FunctionIFvvEEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5folly8FunctionIFvvEEESaIS3_EE12_M_check_lenEmPKc.exit
-  %add.ptr = getelementptr inbounds %"class.folly::Function.109", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %call.i.i.i.i = tail call noundef i64 %3(i32 noundef 0, ptr noundef nonnull %__args, ptr noundef nonnull %add.ptr) #25
   br label %_ZNSt16allocator_traitsISaIN5folly8FunctionIFvvEEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
 

@@ -909,7 +909,6 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_if
   %sub.ptr.lhs.cast.i.i.i.i95 = ptrtoint ptr %out.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i.i96 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i.i97 = sub i64 %sub.ptr.lhs.cast.i.i.i.i95, %sub.ptr.rhs.cast.i.i.i.i96
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i97, 5
   %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %out.coerce0, i64 0, i32 1
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %out.coerce0, i64 0, i32 2
@@ -952,12 +951,12 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %invoke.cont11
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i98
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %11, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i.i.i97
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont11 unwind label %lpad
 
 if.else21.i.i.i:                                  ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit
-  %add.ptr.i37.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %11, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i37.i.i.i = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i.i.i97
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i37.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont11 unwind label %lpad
 
@@ -1130,7 +1129,6 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_if
   %sub.ptr.lhs.cast.i.i.i.i138 = ptrtoint ptr %out.sroa.5.0282 to i64
   %sub.ptr.rhs.cast.i.i.i.i139 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i.i.i140 = sub i64 %sub.ptr.lhs.cast.i.i.i.i138, %sub.ptr.rhs.cast.i.i.i.i139
-  %sub.ptr.div.i.i.i.i141 = ashr exact i64 %sub.ptr.sub.i.i.i.i140, 5
   %32 = load ptr, ptr %_M_finish.i.i.i142, align 8, !tbaa !13
   %33 = load ptr, ptr %_M_end_of_storage.i.i.i143, align 8, !tbaa !22
   %cmp.not.i.i.i144 = icmp eq ptr %32, %33
@@ -1172,18 +1170,18 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %invoke.cont38
 
 if.else.i.i.i147:                                 ; preds = %if.then.i.i.i145
-  %add.ptr.i.i.i.i148 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 %sub.ptr.div.i.i.i.i141
+  %add.ptr.i.i.i.i148 = getelementptr inbounds i8, ptr %31, i64 %sub.ptr.sub.i.i.i.i140
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i.i.i.i148, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30)
           to label %invoke.cont38 unwind label %lpad33
 
 if.else21.i.i.i162:                               ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit136
-  %add.ptr.i37.i.i.i163 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 %sub.ptr.div.i.i.i.i141
+  %add.ptr.i37.i.i.i163 = getelementptr inbounds i8, ptr %31, i64 %sub.ptr.sub.i.i.i.i140
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i37.i.i.i163, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30)
           to label %invoke.cont38 unwind label %lpad33
 
 invoke.cont38:                                    ; preds = %if.else21.i.i.i162, %if.else.i.i.i147, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i154
   %38 = load ptr, ptr %out.coerce0, align 8, !tbaa !25
-  %add.ptr.i.i.i149 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %38, i64 %sub.ptr.div.i.i.i.i141
+  %add.ptr.i.i.i149 = getelementptr inbounds i8, ptr %38, i64 %sub.ptr.sub.i.i.i.i140
   %incdec.ptr.i.i150 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i149, i64 1
   %39 = load ptr, ptr %ref.tmp30, align 8, !tbaa !15
   %cmp.i.i.i167 = icmp eq ptr %39, %23
@@ -1330,7 +1328,6 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_if
   %sub.ptr.lhs.cast.i.i.i.i218 = ptrtoint ptr %out.sroa.5.2 to i64
   %sub.ptr.rhs.cast.i.i.i.i219 = ptrtoint ptr %53 to i64
   %sub.ptr.sub.i.i.i.i220 = sub i64 %sub.ptr.lhs.cast.i.i.i.i218, %sub.ptr.rhs.cast.i.i.i.i219
-  %sub.ptr.div.i.i.i.i221 = ashr exact i64 %sub.ptr.sub.i.i.i.i220, 5
   %54 = load ptr, ptr %_M_finish.i.i.i142, align 8, !tbaa !13
   %55 = load ptr, ptr %_M_end_of_storage.i.i.i143, align 8, !tbaa !22
   %cmp.not.i.i.i224 = icmp eq ptr %54, %55
@@ -1372,12 +1369,12 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %invoke.cont58
 
 if.else.i.i.i227:                                 ; preds = %if.then.i.i.i225
-  %add.ptr.i.i.i.i228 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %53, i64 %sub.ptr.div.i.i.i.i221
+  %add.ptr.i.i.i.i228 = getelementptr inbounds i8, ptr %53, i64 %sub.ptr.sub.i.i.i.i220
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i.i.i.i228, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50)
           to label %invoke.cont58 unwind label %lpad53
 
 if.else21.i.i.i242:                               ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit216
-  %add.ptr.i37.i.i.i243 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %53, i64 %sub.ptr.div.i.i.i.i221
+  %add.ptr.i37.i.i.i243 = getelementptr inbounds i8, ptr %53, i64 %sub.ptr.sub.i.i.i.i220
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i37.i.i.i243, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50)
           to label %invoke.cont58 unwind label %lpad53
 
@@ -1996,7 +1993,6 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_if
   %sub.ptr.lhs.cast.i.i.i.i78 = ptrtoint ptr %out.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i.i79 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i80 = sub i64 %sub.ptr.lhs.cast.i.i.i.i78, %sub.ptr.rhs.cast.i.i.i.i79
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i80, 5
   %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %out.coerce0, i64 0, i32 1
   %13 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %out.coerce0, i64 0, i32 2
@@ -2039,12 +2035,12 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %invoke.cont
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i81
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %12, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i.i.i.i80
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 if.else21.i.i.i:                                  ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit
-  %add.ptr.i37.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %12, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i37.i.i.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i.i.i.i80
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i37.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -2198,7 +2194,6 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_if
   %sub.ptr.lhs.cast.i.i.i.i116 = ptrtoint ptr %out.sroa.4.0260 to i64
   %sub.ptr.rhs.cast.i.i.i.i117 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i.i.i118 = sub i64 %sub.ptr.lhs.cast.i.i.i.i116, %sub.ptr.rhs.cast.i.i.i.i117
-  %sub.ptr.div.i.i.i.i119 = ashr exact i64 %sub.ptr.sub.i.i.i.i118, 5
   %31 = load ptr, ptr %_M_finish.i.i.i120, align 8, !tbaa !13
   %32 = load ptr, ptr %_M_end_of_storage.i.i.i121, align 8, !tbaa !22
   %cmp.not.i.i.i122 = icmp eq ptr %31, %32
@@ -2240,18 +2235,18 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %invoke.cont24
 
 if.else.i.i.i125:                                 ; preds = %if.then.i.i.i123
-  %add.ptr.i.i.i.i126 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %30, i64 %sub.ptr.div.i.i.i.i119
+  %add.ptr.i.i.i.i126 = getelementptr inbounds i8, ptr %30, i64 %sub.ptr.sub.i.i.i.i118
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i.i.i.i126, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
           to label %invoke.cont24 unwind label %lpad23
 
 if.else21.i.i.i140:                               ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit114
-  %add.ptr.i37.i.i.i141 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %30, i64 %sub.ptr.div.i.i.i.i119
+  %add.ptr.i37.i.i.i141 = getelementptr inbounds i8, ptr %30, i64 %sub.ptr.sub.i.i.i.i118
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i37.i.i.i141, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %if.else21.i.i.i140, %if.else.i.i.i125, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i132
   %37 = load ptr, ptr %out.coerce0, align 8, !tbaa !25
-  %add.ptr.i.i.i127 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %37, i64 %sub.ptr.div.i.i.i.i119
+  %add.ptr.i.i.i127 = getelementptr inbounds i8, ptr %37, i64 %sub.ptr.sub.i.i.i.i118
   %incdec.ptr.i.i128 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i127, i64 1
   %38 = load ptr, ptr %ref.tmp18, align 8, !tbaa !15
   %cmp.i.i.i145 = icmp eq ptr %38, %1
@@ -2397,7 +2392,6 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_if
   %sub.ptr.lhs.cast.i.i.i.i196 = ptrtoint ptr %out.sroa.4.2 to i64
   %sub.ptr.rhs.cast.i.i.i.i197 = ptrtoint ptr %52 to i64
   %sub.ptr.sub.i.i.i.i198 = sub i64 %sub.ptr.lhs.cast.i.i.i.i196, %sub.ptr.rhs.cast.i.i.i.i197
-  %sub.ptr.div.i.i.i.i199 = ashr exact i64 %sub.ptr.sub.i.i.i.i198, 5
   %53 = load ptr, ptr %_M_finish.i.i.i120, align 8, !tbaa !13
   %54 = load ptr, ptr %_M_end_of_storage.i.i.i121, align 8, !tbaa !22
   %cmp.not.i.i.i202 = icmp eq ptr %53, %54
@@ -2439,12 +2433,12 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %invoke.cont42
 
 if.else.i.i.i205:                                 ; preds = %if.then.i.i.i203
-  %add.ptr.i.i.i.i206 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %52, i64 %sub.ptr.div.i.i.i.i199
+  %add.ptr.i.i.i.i206 = getelementptr inbounds i8, ptr %52, i64 %sub.ptr.sub.i.i.i.i198
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i.i.i.i206, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36)
           to label %invoke.cont42 unwind label %lpad41
 
 if.else21.i.i.i220:                               ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit194
-  %add.ptr.i37.i.i.i221 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %52, i64 %sub.ptr.div.i.i.i.i199
+  %add.ptr.i37.i.i.i221 = getelementptr inbounds i8, ptr %52, i64 %sub.ptr.sub.i.i.i.i198
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %out.coerce0, ptr %add.ptr.i37.i.i.i221, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -2896,7 +2890,7 @@ entry:
   ret ptr %this
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5folly12json_pointerC2ESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %tokens) unnamed_addr #15 align 2 {
 entry:
   %0 = load <2 x ptr>, ptr %tokens, align 8, !tbaa !13
@@ -2941,7 +2935,7 @@ attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -3692,7 +3692,7 @@ _ZNKSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i86: ;
           to label %for.body.i.i.i.i.i99.preheader unwind label %lpad57
 
 for.body.i.i.i.i.i99.preheader:                   ; preds = %_ZNKSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i86
-  %add.ptr.i.i96 = getelementptr inbounds %"struct.Assimp::AttachmentInfo", ptr %call5.i.i.i.i.i115, i64 1
+  %add.ptr.i.i96 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i115, i64 16
   store ptr %call86, ptr %add.ptr.i.i96, align 8
   %attachToNode.i.i.i.i.i97 = getelementptr inbounds %"struct.Assimp::AttachmentInfo", ptr %call5.i.i.i.i.i115, i64 1, i32 1
   store ptr %call112, ptr %attachToNode.i.i.i.i.i97, align 8
@@ -3733,7 +3733,7 @@ if.end132:                                        ; preds = %invoke.cont125
           to label %call5.i.i.i.i.i.noexc163 unwind label %lpad57
 
 call5.i.i.i.i.i.noexc163:                         ; preds = %if.end132
-  %add.ptr.i.i145 = getelementptr inbounds %"struct.Assimp::AttachmentInfo", ptr %call5.i.i.i.i.i164, i64 2
+  %add.ptr.i.i145 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i164, i64 32
   store ptr %call96, ptr %add.ptr.i.i145, align 8
   %attachToNode.i.i.i.i.i146 = getelementptr inbounds %"struct.Assimp::AttachmentInfo", ptr %call5.i.i.i.i.i164, i64 2, i32 1
   store ptr %call126, ptr %attachToNode.i.i.i.i.i146, align 8
@@ -5216,7 +5216,7 @@ invoke.cont356:                                   ; preds = %arrayctor.cont
 new.ctorloop359:                                  ; preds = %invoke.cont356
   %74 = add nsw i64 %73, -12
   %75 = urem i64 %74, 12
-  %76 = sub nsw i64 %74, %75
+  %76 = sub nuw nsw i64 %74, %75
   %77 = add nsw i64 %76, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call357, i8 0, i64 %77, i1 false)
   br label %arrayctor.cont365
@@ -5237,7 +5237,7 @@ invoke.cont368:                                   ; preds = %arrayctor.cont365
 new.ctorloop371:                                  ; preds = %invoke.cont368
   %80 = add nsw i64 %79, -12
   %81 = urem i64 %80, 12
-  %82 = sub nsw i64 %80, %81
+  %82 = sub nuw nsw i64 %80, %81
   %83 = add nsw i64 %82, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call369, i8 0, i64 %83, i1 false)
   br label %arrayctor.cont377
@@ -5258,7 +5258,7 @@ invoke.cont380:                                   ; preds = %arrayctor.cont377
 new.ctorloop383:                                  ; preds = %invoke.cont380
   %86 = add nsw i64 %85, -12
   %87 = urem i64 %86, 12
-  %88 = sub nsw i64 %86, %87
+  %88 = sub nuw nsw i64 %86, %87
   %89 = add nsw i64 %88, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call381, i8 0, i64 %89, i1 false)
   br label %arrayctor.cont389

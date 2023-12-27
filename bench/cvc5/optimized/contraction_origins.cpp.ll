@@ -225,13 +225,13 @@ _ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17Con
   br label %if.end16
 
 lpad.loopexit:                                    ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEEE8allocateERS9_m.exit.i.i.i100
-  %lpad.loopexit175 = landingpad { ptr, i32 }
+  %lpad.loopexit176 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-lpad.loopexit.split-lp:                           ; preds = %for.end, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEEE8allocateERS9_m.exit.i.i.i, %if.then.i.i.i113, %if.then.i134, %if.then.i.i147, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EEEE8allocateERSC_m.exit.i.i
-  %origins.sroa.0.1.ph = phi ptr [ null, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEEE8allocateERS9_m.exit.i.i.i ], [ %origins.sroa.0.3.lcssa, %for.end ], [ null, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EEEE8allocateERSC_m.exit.i.i ], [ null, %if.then.i134 ], [ null, %if.then.i.i147 ], [ %origins.sroa.0.3187, %if.then.i.i.i113 ]
-  %lpad.loopexit.split-lp176 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp:                           ; preds = %for.end, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEEE8allocateERS9_m.exit.i.i.i, %if.then.i.i.i114, %if.then.i135, %if.then.i.i148, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EEEE8allocateERSC_m.exit.i.i
+  %origins.sroa.0.1.ph = phi ptr [ null, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEEE8allocateERS9_m.exit.i.i.i ], [ %origins.sroa.0.3.lcssa, %for.end ], [ null, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EEEE8allocateERSC_m.exit.i.i ], [ null, %if.then.i135 ], [ null, %if.then.i.i148 ], [ %origins.sroa.0.3188, %if.then.i.i.i114 ]
+  %lpad.loopexit.split-lp177 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -241,8 +241,8 @@ if.end16:                                         ; preds = %if.then, %_ZNSt8_Rb
   %5 = load ptr, ptr %originVariables, align 8
   %_M_finish.i46 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %originVariables, i64 0, i32 1
   %6 = load ptr, ptr %_M_finish.i46, align 8
-  %cmp.i47.not183 = icmp eq ptr %5, %6
-  br i1 %cmp.i47.not183, label %for.end, label %for.body.lr.ph
+  %cmp.i47.not184 = icmp eq ptr %5, %6
+  br i1 %cmp.i47.not184, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end16
   %_M_parent.i.i.i.i48 = getelementptr inbounds i8, ptr %this, i64 16
@@ -257,15 +257,15 @@ for.bodythread-pre-split:                         ; preds = %for.inc
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.bodythread-pre-split
   %9 = phi ptr [ %.pr, %for.bodythread-pre-split ], [ %7, %for.body.lr.ph ]
-  %origins.sroa.0.3187 = phi ptr [ %origins.sroa.0.5, %for.bodythread-pre-split ], [ %origins.sroa.0.2, %for.body.lr.ph ]
-  %origins.sroa.9.2186 = phi ptr [ %origins.sroa.9.4, %for.bodythread-pre-split ], [ %origins.sroa.18.1, %for.body.lr.ph ]
-  %__begin4.sroa.0.0185 = phi ptr [ %incdec.ptr.i118, %for.bodythread-pre-split ], [ %5, %for.body.lr.ph ]
-  %origins.sroa.18.2184 = phi ptr [ %origins.sroa.18.4, %for.bodythread-pre-split ], [ %origins.sroa.18.1, %for.body.lr.ph ]
+  %origins.sroa.0.3188 = phi ptr [ %origins.sroa.0.5, %for.bodythread-pre-split ], [ %origins.sroa.0.2, %for.body.lr.ph ]
+  %origins.sroa.9.2187 = phi ptr [ %origins.sroa.9.4, %for.bodythread-pre-split ], [ %origins.sroa.18.1, %for.body.lr.ph ]
+  %__begin4.sroa.0.0186 = phi ptr [ %incdec.ptr.i119, %for.bodythread-pre-split ], [ %5, %for.body.lr.ph ]
+  %origins.sroa.18.2185 = phi ptr [ %origins.sroa.18.4, %for.bodythread-pre-split ], [ %origins.sroa.18.1, %for.body.lr.ph ]
   %cmp.not5.i.i.i50 = icmp eq ptr %9, null
   br i1 %cmp.not5.i.i.i50, label %for.inc, label %while.body.lr.ph.i.i.i51
 
 while.body.lr.ph.i.i.i51:                         ; preds = %for.body
-  %10 = load ptr, ptr %__begin4.sroa.0.0185, align 8
+  %10 = load ptr, ptr %__begin4.sroa.0.0186, align 8
   %bf.load3.i.i.i.i.i52 = load i64, ptr %10, align 8
   %bf.clear4.i.i.i.i.i53 = and i64 %bf.load3.i.i.i.i.i52, 1099511627775
   br label %while.body.i.i.i54
@@ -300,27 +300,27 @@ invoke.cont25:                                    ; preds = %_ZNSt8_Rb_treeIN4cv
 
 if.then33:                                        ; preds = %invoke.cont25
   %second35 = getelementptr inbounds %"struct.std::_Rb_tree_node.37", ptr %__y.addr.1.i.i.i63, i64 0, i32 1, i32 0, i64 8
-  %cmp.not.i82 = icmp eq ptr %origins.sroa.9.2186, %origins.sroa.18.2184
+  %cmp.not.i82 = icmp eq ptr %origins.sroa.9.2187, %origins.sroa.18.2185
   br i1 %cmp.not.i82, label %if.else.i86, label %if.then.i83
 
 if.then.i83:                                      ; preds = %if.then33
   %13 = load ptr, ptr %second35, align 8
-  store ptr %13, ptr %origins.sroa.9.2186, align 8
-  %incdec.ptr.i84 = getelementptr inbounds ptr, ptr %origins.sroa.9.2186, i64 1
+  store ptr %13, ptr %origins.sroa.9.2187, align 8
+  %incdec.ptr.i84 = getelementptr inbounds ptr, ptr %origins.sroa.9.2187, i64 1
   br label %for.inc
 
 if.else.i86:                                      ; preds = %if.then33
-  %sub.ptr.lhs.cast.i.i.i.i87 = ptrtoint ptr %origins.sroa.9.2186 to i64
-  %sub.ptr.rhs.cast.i.i.i.i88 = ptrtoint ptr %origins.sroa.0.3187 to i64
+  %sub.ptr.lhs.cast.i.i.i.i87 = ptrtoint ptr %origins.sroa.9.2187 to i64
+  %sub.ptr.rhs.cast.i.i.i.i88 = ptrtoint ptr %origins.sroa.0.3188 to i64
   %sub.ptr.sub.i.i.i.i89 = sub i64 %sub.ptr.lhs.cast.i.i.i.i87, %sub.ptr.rhs.cast.i.i.i.i88
   %cmp.i.i.i90 = icmp eq i64 %sub.ptr.sub.i.i.i.i89, 9223372036854775800
-  br i1 %cmp.i.i.i90, label %if.then.i.i.i113, label %_ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12_M_check_lenEmPKc.exit.i.i91
+  br i1 %cmp.i.i.i90, label %if.then.i.i.i114, label %_ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12_M_check_lenEmPKc.exit.i.i91
 
-if.then.i.i.i113:                                 ; preds = %if.else.i86
+if.then.i.i.i114:                                 ; preds = %if.else.i86
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #19
-          to label %.noexc114 unwind label %lpad.loopexit.split-lp
+          to label %.noexc115 unwind label %lpad.loopexit.split-lp
 
-.noexc114:                                        ; preds = %if.then.i.i.i113
+.noexc115:                                        ; preds = %if.then.i.i.i114
   unreachable
 
 _ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12_M_check_lenEmPKc.exit.i.i91: ; preds = %if.else.i86
@@ -336,40 +336,41 @@ _ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17Co
 
 _ZNSt16allocator_traitsISaIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEEE8allocateERS9_m.exit.i.i.i100: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12_M_check_lenEmPKc.exit.i.i91
   %mul.i.i.i.i.i101 = shl nuw nsw i64 %cond.i.i.i98, 3
-  %call5.i.i.i.i.i116 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i101) #18
+  %call5.i.i.i.i.i117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i101) #18
           to label %_ZNSt12_Vector_baseIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_M_allocateEm.exit.i.i102 unwind label %lpad.loopexit
 
 _ZNSt12_Vector_baseIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_M_allocateEm.exit.i.i102: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEEE8allocateERS9_m.exit.i.i.i100, %_ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12_M_check_lenEmPKc.exit.i.i91
-  %cond.i10.i.i103 = phi ptr [ null, %_ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12_M_check_lenEmPKc.exit.i.i91 ], [ %call5.i.i.i.i.i116, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEEE8allocateERS9_m.exit.i.i.i100 ]
+  %cond.i10.i.i103 = phi ptr [ null, %_ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12_M_check_lenEmPKc.exit.i.i91 ], [ %call5.i.i.i.i.i117, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEEE8allocateERS9_m.exit.i.i.i100 ]
   %add.ptr.i.i104 = getelementptr inbounds ptr, ptr %cond.i10.i.i103, i64 %sub.ptr.div.i.i.i.i92
   %14 = load ptr, ptr %second35, align 8
   store ptr %14, ptr %add.ptr.i.i104, align 8
-  %cmp.i.i.i11.i.i105 = icmp sgt i64 %sub.ptr.div.i.i.i.i92, 0
-  br i1 %cmp.i.i.i11.i.i105, label %if.then.i.i.i12.i.i112, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit20.i.i106
+  %cmp.i.i.i11.i.i105 = icmp sgt i64 %sub.ptr.sub.i.i.i.i89, 0
+  br i1 %cmp.i.i.i11.i.i105, label %if.then.i.i.i12.i.i113, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i106
 
-if.then.i.i.i12.i.i112:                           ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_M_allocateEm.exit.i.i102
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i103, ptr align 8 %origins.sroa.0.3187, i64 %sub.ptr.sub.i.i.i.i89, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit20.i.i106
+if.then.i.i.i12.i.i113:                           ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_M_allocateEm.exit.i.i102
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i103, ptr align 8 %origins.sroa.0.3188, i64 %sub.ptr.sub.i.i.i.i89, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i106
 
-_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit20.i.i106: ; preds = %if.then.i.i.i12.i.i112, %_ZNSt12_Vector_baseIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_M_allocateEm.exit.i.i102
-  %incdec.ptr.i.i107 = getelementptr inbounds ptr, ptr %add.ptr.i.i104, i64 1
-  %tobool.not.i.i.i108 = icmp eq ptr %origins.sroa.0.3187, null
-  br i1 %tobool.not.i.i.i108, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i110, label %if.then.i21.i.i109
+_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i106: ; preds = %if.then.i.i.i12.i.i113, %_ZNSt12_Vector_baseIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_M_allocateEm.exit.i.i102
+  %add.ptr.i.i.i.i.i107 = getelementptr inbounds i8, ptr %cond.i10.i.i103, i64 %sub.ptr.sub.i.i.i.i89
+  %incdec.ptr.i.i108 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i107, i64 1
+  %tobool.not.i.i.i109 = icmp eq ptr %origins.sroa.0.3188, null
+  br i1 %tobool.not.i.i.i109, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i111, label %if.then.i20.i.i110
 
-if.then.i21.i.i109:                               ; preds = %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit20.i.i106
-  tail call void @_ZdlPv(ptr noundef nonnull %origins.sroa.0.3187) #20
-  br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i110
+if.then.i20.i.i110:                               ; preds = %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i106
+  tail call void @_ZdlPv(ptr noundef nonnull %origins.sroa.0.3188) #20
+  br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i111
 
-_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i110: ; preds = %if.then.i21.i.i109, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit20.i.i106
-  %add.ptr19.i.i111 = getelementptr inbounds ptr, ptr %cond.i10.i.i103, i64 %cond.i.i.i98
+_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i111: ; preds = %if.then.i20.i.i110, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i106
+  %add.ptr19.i.i112 = getelementptr inbounds ptr, ptr %cond.i10.i.i103, i64 %cond.i.i.i98
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i110, %if.then.i83, %invoke.cont25
-  %origins.sroa.18.4 = phi ptr [ %origins.sroa.18.2184, %invoke.cont25 ], [ %add.ptr19.i.i111, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i110 ], [ %origins.sroa.18.2184, %if.then.i83 ], [ %origins.sroa.18.2184, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.18.2184, %for.body ]
-  %origins.sroa.9.4 = phi ptr [ %origins.sroa.9.2186, %invoke.cont25 ], [ %incdec.ptr.i.i107, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i110 ], [ %incdec.ptr.i84, %if.then.i83 ], [ %origins.sroa.9.2186, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.9.2186, %for.body ]
-  %origins.sroa.0.5 = phi ptr [ %origins.sroa.0.3187, %invoke.cont25 ], [ %cond.i10.i.i103, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i110 ], [ %origins.sroa.0.3187, %if.then.i83 ], [ %origins.sroa.0.3187, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.0.3187, %for.body ]
-  %incdec.ptr.i118 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__begin4.sroa.0.0185, i64 1
-  %cmp.i47.not = icmp eq ptr %incdec.ptr.i118, %6
+for.inc:                                          ; preds = %for.body, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i111, %if.then.i83, %invoke.cont25
+  %origins.sroa.18.4 = phi ptr [ %origins.sroa.18.2185, %invoke.cont25 ], [ %add.ptr19.i.i112, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i111 ], [ %origins.sroa.18.2185, %if.then.i83 ], [ %origins.sroa.18.2185, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.18.2185, %for.body ]
+  %origins.sroa.9.4 = phi ptr [ %origins.sroa.9.2187, %invoke.cont25 ], [ %incdec.ptr.i.i108, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i111 ], [ %incdec.ptr.i84, %if.then.i83 ], [ %origins.sroa.9.2187, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.9.2187, %for.body ]
+  %origins.sroa.0.5 = phi ptr [ %origins.sroa.0.3188, %invoke.cont25 ], [ %cond.i10.i.i103, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i111 ], [ %origins.sroa.0.3188, %if.then.i83 ], [ %origins.sroa.0.3188, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.0.3188, %for.body ]
+  %incdec.ptr.i119 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__begin4.sroa.0.0186, i64 1
+  %cmp.i47.not = icmp eq ptr %incdec.ptr.i119, %6
   br i1 %cmp.i47.not, label %for.end, label %for.bodythread-pre-split, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.body.lr.ph, %if.end16
@@ -387,8 +388,8 @@ invoke.cont41:                                    ; preds = %for.end
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
   %16 = trunc i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %16, 1048575
-  %cmp.i.i119 = icmp ult i32 %bf.cast.i.i, 1048574
-  br i1 %cmp.i.i119, label %if.then.i.i, label %if.else.i.i
+  %cmp.i.i120 = icmp ult i32 %bf.cast.i.i, 1048574
+  br i1 %cmp.i.i120, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont41
   %bf.value.i.i = add i64 %bf.load.i.i, 1099511627776
@@ -415,36 +416,36 @@ invoke.cont45:                                    ; preds = %if.else.i.i, %if.th
   store ptr %origins.sroa.9.2.lcssa, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::icp::ContractionOriginManager::ContractionOrigin", ptr %call42, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
   store ptr %origins.sroa.18.2.lcssa, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %_M_finish.i121 = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::icp::ContractionOriginManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %17 = load ptr, ptr %_M_finish.i121, align 8
-  %_M_end_of_storage.i122 = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::icp::ContractionOriginManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %18 = load ptr, ptr %_M_end_of_storage.i122, align 8
-  %cmp.not.i123 = icmp eq ptr %17, %18
-  br i1 %cmp.not.i123, label %if.else.i128, label %if.then.i124
+  %_M_finish.i122 = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::icp::ContractionOriginManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %17 = load ptr, ptr %_M_finish.i122, align 8
+  %_M_end_of_storage.i123 = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::icp::ContractionOriginManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %18 = load ptr, ptr %_M_end_of_storage.i123, align 8
+  %cmp.not.i124 = icmp eq ptr %17, %18
+  br i1 %cmp.not.i124, label %if.else.i129, label %if.then.i125
 
-if.then.i124:                                     ; preds = %invoke.cont45
+if.then.i125:                                     ; preds = %invoke.cont45
   store ptr %call42, ptr %17, align 8
-  %19 = load ptr, ptr %_M_finish.i121, align 8
-  %incdec.ptr.i125 = getelementptr inbounds %"class.std::unique_ptr", ptr %19, i64 1
-  store ptr %incdec.ptr.i125, ptr %_M_finish.i121, align 8
+  %19 = load ptr, ptr %_M_finish.i122, align 8
+  %incdec.ptr.i126 = getelementptr inbounds %"class.std::unique_ptr", ptr %19, i64 1
+  store ptr %incdec.ptr.i126, ptr %_M_finish.i122, align 8
   br label %invoke.cont47
 
-if.else.i128:                                     ; preds = %invoke.cont45
+if.else.i129:                                     ; preds = %invoke.cont45
   %20 = load ptr, ptr %d_allocations, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i141 = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i141, label %if.then.i.i147, label %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE12_M_check_lenEmPKc.exit.i
+  %cmp.i.i142 = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
+  br i1 %cmp.i.i142, label %if.then.i.i148, label %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE12_M_check_lenEmPKc.exit.i
 
-if.then.i.i147:                                   ; preds = %if.else.i128
+if.then.i.i148:                                   ; preds = %if.else.i129
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #19
-          to label %.noexc148 unwind label %lpad.loopexit.split-lp
+          to label %.noexc149 unwind label %lpad.loopexit.split-lp
 
-.noexc148:                                        ; preds = %if.then.i.i147
+.noexc149:                                        ; preds = %if.then.i.i148
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i128
+_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i129
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
@@ -457,15 +458,15 @@ _ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOri
 
 _ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EEEE8allocateERSC_m.exit.i.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 3
-  %call5.i.i.i.i149 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #18
+  %call5.i.i.i.i150 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #18
           to label %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_M_allocateEm.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EEEE8allocateERSC_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE12_M_check_lenEmPKc.exit.i
-  %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i149, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EEEE8allocateERSC_m.exit.i.i ]
-  %add.ptr.i142 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  store ptr %call42, ptr %add.ptr.i142, align 8
-  %cmp.not5.i.i.i.i143 = icmp eq ptr %20, %17
-  br i1 %cmp.not5.i.i.i.i143, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i, label %for.body.i.i.i.i
+  %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i150, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EEEE8allocateERSC_m.exit.i.i ]
+  %add.ptr.i143 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
+  store ptr %call42, ptr %add.ptr.i143, align 8
+  %cmp.not5.i.i.i.i144 = icmp eq ptr %20, %17
+  br i1 %cmp.not5.i.i.i.i144, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_M_allocateEm.exit.i ]
@@ -477,28 +478,28 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !12, !noalias !9
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i144 = icmp eq ptr %incdec.ptr.i.i.i.i, %17
-  br i1 %cmp.not.i.i.i.i144, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !14
+  %cmp.not.i.i.i.i145 = icmp eq ptr %incdec.ptr.i.i.i.i, %17
+  br i1 %cmp.not.i.i.i.i145, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !14
 
 _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i145 = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i146 = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i.i, i64 1
   %tobool.not.i.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i, label %.noexc129, label %if.then.i20.i
+  br i1 %tobool.not.i.i, label %.noexc130, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i
   tail call void @_ZdlPv(ptr noundef nonnull %20) #20
-  br label %.noexc129
+  br label %.noexc130
 
-.noexc129:                                        ; preds = %if.then.i20.i, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i
+.noexc130:                                        ; preds = %if.then.i20.i, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i
   store ptr %cond.i10.i, ptr %d_allocations, align 8
-  store ptr %incdec.ptr.i145, ptr %_M_finish.i121, align 8
+  store ptr %incdec.ptr.i146, ptr %_M_finish.i122, align 8
   %add.ptr19.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %cond.i.i
-  store ptr %add.ptr19.i, ptr %_M_end_of_storage.i122, align 8
+  store ptr %add.ptr19.i, ptr %_M_end_of_storage.i123, align 8
   br label %invoke.cont47
 
-invoke.cont47:                                    ; preds = %.noexc129, %if.then.i124
-  %22 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %.noexc129 ], [ %19, %if.then.i124 ]
+invoke.cont47:                                    ; preds = %.noexc130, %if.then.i125
+  %22 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %.noexc130 ], [ %19, %if.then.i125 ]
   %23 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
@@ -506,7 +507,7 @@ invoke.cont47:                                    ; preds = %.noexc129, %if.then
   %24 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not5.i.i.i.i = icmp eq ptr %24, null
-  br i1 %cmp.not5.i.i.i.i, label %if.then.i134, label %while.body.lr.ph.i.i.i.i
+  br i1 %cmp.not5.i.i.i.i, label %if.then.i135, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %invoke.cont47
   %25 = load ptr, ptr %targetVariable, align 8
@@ -531,25 +532,25 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit.i, label %while.body.i.i.i.i, !llvm.loop !5
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit.i: ; preds = %while.body.i.i.i.i
-  %cmp.i.i131 = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i131, label %if.then.i134, label %lor.rhs.i
+  %cmp.i.i132 = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
+  br i1 %cmp.i.i132, label %if.then.i135, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.37", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
   %27 = load ptr, ptr %_M_storage.i.i.i, align 8
   %bf.load3.i.i.i = load i64, ptr %27, align 8
   %bf.clear4.i.i.i = and i64 %bf.load3.i.i.i, 1099511627775
-  %cmp.i.i.i132 = icmp ult i64 %bf.clear4.i.i.i.i.i.i, %bf.clear4.i.i.i
-  br i1 %cmp.i.i.i132, label %if.then.i134, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit
+  %cmp.i.i.i133 = icmp ult i64 %bf.clear4.i.i.i.i.i.i, %bf.clear4.i.i.i
+  br i1 %cmp.i.i.i133, label %if.then.i135, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit
 
-if.then.i134:                                     ; preds = %lor.rhs.i, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit.i, %invoke.cont47
+if.then.i135:                                     ; preds = %lor.rhs.i, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit.i, %invoke.cont47
   %__y.addr.0.lcssa.i.i.i9.i = phi ptr [ %add.ptr.i.i.i.i, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %add.ptr.i.i.i.i, %invoke.cont47 ]
   store ptr %targetVariable, ptr %ref.tmp9.i, align 8
-  %call12.i135 = invoke ptr @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESO_IJEEEEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i136 = invoke ptr @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESO_IJEEEEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit unwind label %lpad.loopexit.split-lp
 
-_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit: ; preds = %if.then.i134, %lor.rhs.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call12.i135, %if.then.i134 ]
+_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit: ; preds = %if.then.i135, %lor.rhs.i
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call12.i136, %if.then.i135 ]
   %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.37", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
@@ -563,16 +564,16 @@ lpad44:                                           ; preds = %if.then13.i.i
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad44
-  %origins.sroa.0.6 = phi ptr [ %origins.sroa.0.3.lcssa, %lpad44 ], [ %origins.sroa.0.3187, %lpad.loopexit ], [ %origins.sroa.0.1.ph, %lpad.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %28, %lpad44 ], [ %lpad.loopexit175, %lpad.loopexit ], [ %lpad.loopexit.split-lp176, %lpad.loopexit.split-lp ]
-  %tobool.not.i.i.i138 = icmp eq ptr %origins.sroa.0.6, null
-  br i1 %tobool.not.i.i.i138, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit140, label %if.then.i.i.i139
+  %origins.sroa.0.6 = phi ptr [ %origins.sroa.0.3.lcssa, %lpad44 ], [ %origins.sroa.0.3188, %lpad.loopexit ], [ %origins.sroa.0.1.ph, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %28, %lpad44 ], [ %lpad.loopexit176, %lpad.loopexit ], [ %lpad.loopexit.split-lp177, %lpad.loopexit.split-lp ]
+  %tobool.not.i.i.i139 = icmp eq ptr %origins.sroa.0.6, null
+  br i1 %tobool.not.i.i.i139, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit141, label %if.then.i.i.i140
 
-if.then.i.i.i139:                                 ; preds = %ehcleanup
+if.then.i.i.i140:                                 ; preds = %ehcleanup
   call void @_ZdlPv(ptr noundef nonnull %origins.sroa.0.6) #20
-  br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit140
+  br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit141
 
-_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit140: ; preds = %ehcleanup, %if.then.i.i.i139
+_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit141: ; preds = %ehcleanup, %if.then.i.i.i140
   resume { ptr, i32 } %.pn
 }
 

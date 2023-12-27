@@ -75,7 +75,6 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %where.sroa.0.0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl_data", ptr %arrayidx, i64 0, i32 2
   %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, %8
@@ -95,7 +94,7 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %7, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i.i.i
   %add.ptr.i6.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %6, i64 -1
   %11 = load i64, ptr %add.ptr.i6.i.i, align 8
   store i64 %11, ptr %6, align 8
@@ -152,7 +151,7 @@ _ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i.i.i.i.i.i.
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit
 
 if.else21.i.i:                                    ; preds = %for.end
-  %add.ptr.i7.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %7, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i.i.i
   tail call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, ptr %add.ptr.i7.i.i, ptr noundef nonnull align 8 dereferenceable(8) %factory)
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEOS5_.exit
 

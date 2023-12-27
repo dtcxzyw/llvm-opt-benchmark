@@ -4648,8 +4648,7 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %begin to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %cmp.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, 576460752303423487
+  %cmp.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -4664,7 +4663,7 @@ _ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EE17_S_check_init_lenEmRK
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EE11_M_allocateEm.exit.thread.i.i, label %for.body.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i
-  %add.ptr5.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr null, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr5.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
   %_M_end_of_storage6.i.i = getelementptr inbounds %"class.spdlog::logger", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr5.i.i, ptr %_M_end_of_storage6.i.i, align 8
   br label %invoke.cont
@@ -4675,7 +4674,7 @@ for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorISt10sh
 
 call5.i.i.i.i.noexc.i:                            ; preds = %for.body.i.i.i.i.preheader.i.i
   store ptr %call5.i.i.i.i1.i, ptr %sinks_, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i1.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds %"class.spdlog::logger", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i

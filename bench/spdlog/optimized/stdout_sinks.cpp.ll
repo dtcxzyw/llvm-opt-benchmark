@@ -5643,7 +5643,7 @@ entry:
 
 call5.i.i.i.i.noexc.i.i:                          ; preds = %entry
   store ptr %call5.i.i.i.i1.i.i, ptr %sinks_.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.126", ptr %call5.i.i.i.i1.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i, i64 16
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.spdlog::logger", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %0, ptr %call5.i.i.i.i1.i.i, align 8

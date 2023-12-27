@@ -21025,8 +21025,7 @@ if.then.i.i1042:                                  ; preds = %if.then.i1041
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %data.0.lcssa.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %294 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %add.ptr5.i.i = getelementptr inbounds i32, ptr %294, i64 %sub.ptr.div.i.i
+  %add.ptr5.i.i = getelementptr inbounds i8, ptr %294, i64 %sub.ptr.sub.i.i
   %298 = load i32, ptr %add.ptr3.i.i, align 4
   store i32 %298, ptr %add.ptr5.i.i, align 4
   %.pre.i.i = load i32, ptr @_ZZL20ShowDemoWindowTablesvE9selection, align 8

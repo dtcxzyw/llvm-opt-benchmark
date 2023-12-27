@@ -166,7 +166,7 @@ for.body.i.i:                                     ; preds = %invoke.cont.i, %for
 
 _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsIPKNS_5ArrayEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit: ; preds = %for.body.i.i, %invoke.cont.i
   %offset.1.i = phi i64 [ 0, %invoke.cont.i ], [ %add.i.i.i, %for.body.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %3, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i
   store i64 %offset.1.i, ptr %add.ptr.i.i, align 8, !noalias !9
   %cached_chunk_ = getelementptr inbounds %"struct.arrow::internal::ChunkResolver", ptr %this, i64 0, i32 1
   store i64 0, ptr %cached_chunk_, align 8

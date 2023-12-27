@@ -1497,7 +1497,7 @@ invoke.cont69:                                    ; preds = %.noexc56
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont69
   store ptr %call5.i.i.i.i87, ptr %ref.tmp61, align 8
-  %add.ptr.i85 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i87, i64 2
+  %add.ptr.i85 = getelementptr inbounds i8, ptr %call5.i.i.i.i87, i64 64
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp61, i64 0, i32 2
   store ptr %add.ptr.i85, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i.i.i.i

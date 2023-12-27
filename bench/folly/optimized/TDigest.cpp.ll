@@ -410,8 +410,7 @@ while.end97:                                      ; preds = %invoke.cont26
   %sub.ptr.lhs.cast.i.i428 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i429 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i430 = sub i64 %sub.ptr.lhs.cast.i.i428, %sub.ptr.rhs.cast.i.i429
-  %sub.ptr.div.i.i431 = ashr exact i64 %sub.ptr.sub.i.i430, 4
-  %add.ptr.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %12, i64 %sub.ptr.div.i.i431
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i.i430
   invoke void @_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvNS7_IPS2_S4_EET_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %centroids, ptr %add.ptr.i.i, ptr %10, ptr %11)
           to label %invoke.cont117 unwind label %lpad116
 
@@ -1122,7 +1121,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.then.i.i.i.i.i, %invoke.cont
-  %add.ptr = getelementptr inbounds double, ptr %call3, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call3, i64 %sub.ptr.sub.i
   invoke void @_ZN5folly6detail17double_radix_sortEmPmPdS2_(i64 noundef %sub.ptr.div.i, ptr noundef nonnull %call2, ptr noundef nonnull %call3, ptr noundef nonnull %add.ptr)
           to label %while.end unwind label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
@@ -1170,21 +1169,20 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i.thread, label %cond.true.i.i.i.i.i
 
 invoke.cont.i.i.thread:                           ; preds = %if.then
   %_M_finish.i.i.i.i328 = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %add.ptr.i.i.i.i329 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr null, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i329 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage.i.i.i.i330 = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i329, ptr %_M_end_of_storage.i.i.i.i330, align 8, !tbaa !24
   br label %_ZN5folly7TDigestC2ERKS0_.exit
 
 cond.true.i.i.i.i.i:                              ; preds = %if.then
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, 576460752303423487
+  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i, label %invoke.cont.i.i, !prof !50
 
 if.then3.i.i.i.i.i.i.i:                           ; preds = %cond.true.i.i.i.i.i
@@ -1196,7 +1194,7 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i.i.i
   store ptr %call5.i.i.i.i4.i20.i.i, ptr %agg.result, align 8, !tbaa !23
   %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
   store ptr %call5.i.i.i.i4.i20.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !22
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %call5.i.i.i.i4.i20.i.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i20.i.i, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !24
   br label %for.body.i.i.i.i.i.i
@@ -2266,7 +2264,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 _ZSt22__uninitialized_move_aIPN5folly7TDigest8CentroidES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %for.body.i.i.i.i.i
   %.pre200 = load ptr, ptr %_M_finish, align 8, !tbaa !22
-  %add.ptr27 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.pre200, i64 %sub.ptr.div.i.i.i
+  %add.ptr27 = getelementptr inbounds i8, ptr %.pre200, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr27, ptr %_M_finish, align 8, !tbaa !22
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i141, label %if.then.i.i.i.i.i
@@ -2285,7 +2283,7 @@ if.then.i.i.i.i.i141:                             ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce, i64 %sub.ptr.div.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
   %cmp.i.not13.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not13.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i
 
@@ -2321,7 +2319,7 @@ for.body.i.i.i.i.i146:                            ; preds = %_ZSt22__uninitializ
 
 if.then.i.i.i.i.i158:                             ; preds = %for.body.i.i.i.i.i146
   %.pre199 = load ptr, ptr %_M_finish, align 8, !tbaa !22
-  %add.ptr58 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.pre199, i64 %sub.ptr.div.i
+  %add.ptr58 = getelementptr inbounds i8, ptr %.pre199, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8, !tbaa !22
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__position.coerce, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
   br label %if.end109
@@ -2756,8 +2754,7 @@ land.rhs.i.preheader:                             ; preds = %if.then
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first.coerce.tr.lcssa to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__first.coerce.tr.lcssa, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__buffer, i64 %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i, %land.rhs.i.preheader
@@ -2814,18 +2811,18 @@ if.then15:                                        ; preds = %if.else
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit122.thread: ; preds = %if.then15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce.tr190, i64 %sub.ptr.sub.i.i.i.i.i117, i1 false)
-  %sub.ptr.div.i.i.i.i.i120205 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i117, 4
   %cmp.i.i207 = icmp eq ptr %__first.coerce.tr189, %__middle.coerce.tr190
   br i1 %cmp.i.i207, label %if.then.i.i.i.i.i.i, label %if.end7.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit122.thread
+  %sub.ptr.div.i.i.i.i.i120205 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i117, 4
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i120205
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__last.coerce, i64 %.pre.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i117, i1 false)
   br label %if.end89
 
 if.end7.i:                                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit122.thread
-  %add.ptr.i.i.i.i.i121206 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__buffer, i64 %sub.ptr.div.i.i.i.i.i120205
+  %add.ptr.i.i.i.i.i121206 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i117
   %incdec.ptr.i125 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %add.ptr.i.i.i.i.i121206, i64 -1
   br label %while.body.i126.outer
 
@@ -3025,8 +3022,7 @@ if.then.i.i.i.i.i74:                              ; preds = %_ZSt13move_backward
   br label %_ZSt4moveIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
 
 _ZSt4moveIPN5folly7TDigest8CentroidEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit: ; preds = %if.then.i.i.i.i.i74, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
-  %sub.ptr.div.i.i.i.i.i75 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %add.ptr.i.i.i.i.i76 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce, i64 %sub.ptr.div.i.i.i.i.i75
+  %add.ptr.i.i.i.i.i76 = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i
   br label %cleanup
 
 if.else20:                                        ; preds = %entry
@@ -3107,8 +3103,7 @@ for.body.i.i.i:                                   ; preds = %if.end5.i.i, %for.b
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
   %sub.ptr.sub.i87.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i81.i.i
-  %sub.ptr.div.i88.i.i = ashr exact i64 %sub.ptr.sub.i87.i.i, 4
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce, i64 %sub.ptr.div.i88.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i87.i.i
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.backedge, %if.end16.i.i
@@ -3253,7 +3248,7 @@ cleanup:                                          ; preds = %for.cond.cleanup49.
   ret ptr %retval.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %q) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !26
@@ -3442,7 +3437,7 @@ attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind }
 attributes #14 = { builtin nounwind }

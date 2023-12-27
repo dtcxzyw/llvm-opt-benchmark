@@ -1275,7 +1275,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPSt4p
 
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit, %if.then.i
   store ptr %call11, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %call11, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call11, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -1308,15 +1308,14 @@ for.body.i.i.i.i.i:                               ; preds = %if.then27, %for.bod
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit.loopexit: ; preds = %for.body.i.i.i.i.i
   %.pre = load ptr, ptr %_M_finish.i19, align 8
-  %.pre64 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i to i64
+  %.pre63 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i to i64
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit.loopexit, %if.then27
-  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre64, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %if.then27 ]
+  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre63, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %if.then27 ]
   %8 = phi ptr [ %.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit.loopexit ], [ %7, %if.then27 ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 6
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %3, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
   %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %8
   br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i26
 
@@ -1355,21 +1354,20 @@ _ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET
   %.pre60 = ptrtoint ptr %.pre57 to i64
   %.pre61 = ptrtoint ptr %.pre58 to i64
   %.pre62 = sub i64 %.pre60, %.pre61
-  %.pre63 = ashr exact i64 %.pre62, 6
   br label %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit
 
 _ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit: ; preds = %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit.loopexit, %if.else49
-  %sub.ptr.div.i55.pre-phi = phi i64 [ %.pre63, %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
+  %sub.ptr.sub.i54.pre-phi = phi i64 [ %.pre62, %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit.loopexit ], [ %sub.ptr.sub.i22, %if.else49 ]
   %9 = phi ptr [ %.pre59, %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit.loopexit ], [ %0, %if.else49 ]
   %10 = phi ptr [ %.pre57, %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit.loopexit ], [ %7, %if.else49 ]
   %11 = phi ptr [ %.pre56, %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit.loopexit ], [ %1, %if.else49 ]
-  %add.ptr62 = getelementptr inbounds %"struct.std::pair", ptr %11, i64 %sub.ptr.div.i55.pre-phi
+  %add.ptr62 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i54.pre-phi
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_(ptr noundef %add.ptr62, ptr noundef %9, ptr noundef %10)
   br label %if.end69
 
 if.end69:                                         ; preds = %for.body.i.i.i26, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit, %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit
   %12 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds %"struct.std::pair", ptr %12, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
@@ -1435,7 +1433,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPN19O
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_4dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exit, %if.then.i
   store ptr %call11, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %call11, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call11, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -1449,49 +1447,48 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp26.not, label %if.else49, label %for.cond.i.i.preheader
 
 for.cond.i.i.preheader:                           ; preds = %if.else
-  %cmp.i.i76 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i76, label %for.body.i.i, label %_ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit
+  %cmp.i.i75 = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i75, label %for.body.i.i, label %_ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit
 
 for.body.i.i:                                     ; preds = %for.cond.i.i.preheader, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i
-  %__n.0.i.i79 = phi i64 [ %dec.i.i, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i ], [ %sub.ptr.div.i, %for.cond.i.i.preheader ]
-  %__result.addr.0.i.i78 = phi ptr [ %incdec.ptr1.i.i, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i ], [ %3, %for.cond.i.i.preheader ]
-  %__first.addr.0.i.i77 = phi ptr [ %incdec.ptr.i.i, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i ], [ %1, %for.cond.i.i.preheader ]
-  %cmp.not.i.i = icmp eq ptr %__result.addr.0.i.i78, %__first.addr.0.i.i77
+  %__n.0.i.i78 = phi i64 [ %dec.i.i, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i ], [ %sub.ptr.div.i, %for.cond.i.i.preheader ]
+  %__result.addr.0.i.i77 = phi ptr [ %incdec.ptr1.i.i, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i ], [ %3, %for.cond.i.i.preheader ]
+  %__first.addr.0.i.i76 = phi ptr [ %incdec.ptr.i.i, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i ], [ %1, %for.cond.i.i.preheader ]
+  %cmp.not.i.i = icmp eq ptr %__result.addr.0.i.i77, %__first.addr.0.i.i76
   br i1 %cmp.not.i.i, label %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %m_name.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i77, i64 0, i32 1
-  %m_name2.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i78, i64 0, i32 1
+  %m_name.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i76, i64 0, i32 1
+  %m_name2.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i77, i64 0, i32 1
   %call.i1.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name2.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i)
-  %m_value.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i77, i64 0, i32 2
-  %m_value3.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i78, i64 0, i32 2
+  %m_value.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i76, i64 0, i32 2
+  %m_value3.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i77, i64 0, i32 2
   %call4.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_value3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_value.i.i)
-  %m_attributes.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i77, i64 0, i32 3
-  %m_attributes5.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i78, i64 0, i32 3
+  %m_attributes.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i76, i64 0, i32 3
+  %m_attributes5.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i77, i64 0, i32 3
   %call6.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %m_attributes5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_attributes.i.i)
-  %m_elements.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i77, i64 0, i32 4
-  %m_elements7.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i78, i64 0, i32 4
+  %m_elements.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i76, i64 0, i32 4
+  %m_elements7.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i77, i64 0, i32 4
   %call8.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_elements7.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_elements.i.i)
   br label %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i
 
 _ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i: ; preds = %if.then.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i77, i64 1
-  %incdec.ptr1.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i78, i64 1
-  %dec.i.i = add nsw i64 %__n.0.i.i79, -1
-  %cmp.i.i = icmp sgt i64 %__n.0.i.i79, 1
+  %incdec.ptr.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i76, i64 1
+  %incdec.ptr1.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i77, i64 1
+  %dec.i.i = add nsw i64 %__n.0.i.i78, -1
+  %cmp.i.i = icmp sgt i64 %__n.0.i.i78, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit.loopexit, !llvm.loop !14
 
 _ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit.loopexit: ; preds = %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i
   %.pre = load ptr, ptr %_M_finish.i19, align 8
-  %.pre94 = ptrtoint ptr %incdec.ptr1.i.i to i64
+  %.pre92 = ptrtoint ptr %incdec.ptr1.i.i to i64
   br label %_ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit
 
 _ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit: ; preds = %_ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit.loopexit, %for.cond.i.i.preheader
-  %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre94, %_ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %for.cond.i.i.preheader ]
+  %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre92, %_ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %for.cond.i.i.preheader ]
   %9 = phi ptr [ %.pre, %_ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit.loopexit ], [ %8, %for.cond.i.i.preheader ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 120
-  %add.ptr.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %3, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i
   %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i, %9
   br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i26
 
@@ -1506,55 +1503,54 @@ for.body.i.i.i26:                                 ; preds = %_ZSt14__copy_move_a
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i26, !llvm.loop !15
 
 if.else49:                                        ; preds = %if.else
-  %cmp.i.i5480 = icmp sgt i64 %sub.ptr.sub.i22, 0
-  br i1 %cmp.i.i5480, label %for.body.i.i55, label %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit
+  %cmp.i.i5379 = icmp sgt i64 %sub.ptr.sub.i22, 0
+  br i1 %cmp.i.i5379, label %for.body.i.i54, label %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit
 
-for.body.i.i55:                                   ; preds = %if.else49, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i70
-  %__n.0.i.i5383 = phi i64 [ %dec.i.i73, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i70 ], [ %sub.ptr.div.i23, %if.else49 ]
-  %__result.addr.0.i.i5282 = phi ptr [ %incdec.ptr1.i.i72, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i70 ], [ %3, %if.else49 ]
-  %__first.addr.0.i.i5181 = phi ptr [ %incdec.ptr.i.i71, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i70 ], [ %1, %if.else49 ]
-  %cmp.not.i.i56 = icmp eq ptr %__result.addr.0.i.i5282, %__first.addr.0.i.i5181
-  br i1 %cmp.not.i.i56, label %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i70, label %if.then.i.i57
+for.body.i.i54:                                   ; preds = %if.else49, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i69
+  %__n.0.i.i5282 = phi i64 [ %dec.i.i72, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i69 ], [ %sub.ptr.div.i23, %if.else49 ]
+  %__result.addr.0.i.i5181 = phi ptr [ %incdec.ptr1.i.i71, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i69 ], [ %3, %if.else49 ]
+  %__first.addr.0.i.i5080 = phi ptr [ %incdec.ptr.i.i70, %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i69 ], [ %1, %if.else49 ]
+  %cmp.not.i.i55 = icmp eq ptr %__result.addr.0.i.i5181, %__first.addr.0.i.i5080
+  br i1 %cmp.not.i.i55, label %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i69, label %if.then.i.i56
 
-if.then.i.i57:                                    ; preds = %for.body.i.i55
-  %m_name.i.i58 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5181, i64 0, i32 1
-  %m_name2.i.i59 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5282, i64 0, i32 1
-  %call.i1.i60 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name2.i.i59, ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i58)
-  %m_value.i.i61 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5181, i64 0, i32 2
-  %m_value3.i.i62 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5282, i64 0, i32 2
-  %call4.i.i63 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_value3.i.i62, ptr noundef nonnull align 8 dereferenceable(32) %m_value.i.i61)
-  %m_attributes.i.i64 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5181, i64 0, i32 3
-  %m_attributes5.i.i65 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5282, i64 0, i32 3
-  %call6.i.i66 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %m_attributes5.i.i65, ptr noundef nonnull align 8 dereferenceable(24) %m_attributes.i.i64)
-  %m_elements.i.i67 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5181, i64 0, i32 4
-  %m_elements7.i.i68 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5282, i64 0, i32 4
-  %call8.i.i69 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_elements7.i.i68, ptr noundef nonnull align 8 dereferenceable(24) %m_elements.i.i67)
-  br label %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i70
+if.then.i.i56:                                    ; preds = %for.body.i.i54
+  %m_name.i.i57 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5080, i64 0, i32 1
+  %m_name2.i.i58 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5181, i64 0, i32 1
+  %call.i1.i59 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name2.i.i58, ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i57)
+  %m_value.i.i60 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5080, i64 0, i32 2
+  %m_value3.i.i61 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5181, i64 0, i32 2
+  %call4.i.i62 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_value3.i.i61, ptr noundef nonnull align 8 dereferenceable(32) %m_value.i.i60)
+  %m_attributes.i.i63 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5080, i64 0, i32 3
+  %m_attributes5.i.i64 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5181, i64 0, i32 3
+  %call6.i.i65 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %m_attributes5.i.i64, ptr noundef nonnull align 8 dereferenceable(24) %m_attributes.i.i63)
+  %m_elements.i.i66 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5080, i64 0, i32 4
+  %m_elements7.i.i67 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5181, i64 0, i32 4
+  %call8.i.i68 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_elements7.i.i67, ptr noundef nonnull align 8 dereferenceable(24) %m_elements.i.i66)
+  br label %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i69
 
-_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i70: ; preds = %if.then.i.i57, %for.body.i.i55
-  %incdec.ptr.i.i71 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5181, i64 1
-  %incdec.ptr1.i.i72 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5282, i64 1
-  %dec.i.i73 = add nsw i64 %__n.0.i.i5383, -1
-  %cmp.i.i54 = icmp sgt i64 %__n.0.i.i5383, 1
-  br i1 %cmp.i.i54, label %for.body.i.i55, label %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit, !llvm.loop !16
+_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i69: ; preds = %if.then.i.i56, %for.body.i.i54
+  %incdec.ptr.i.i70 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.0.i.i5080, i64 1
+  %incdec.ptr1.i.i71 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__result.addr.0.i.i5181, i64 1
+  %dec.i.i72 = add nsw i64 %__n.0.i.i5282, -1
+  %cmp.i.i53 = icmp sgt i64 %__n.0.i.i5282, 1
+  br i1 %cmp.i.i53, label %for.body.i.i54, label %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit, !llvm.loop !16
 
-_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit: ; preds = %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i70
-  %.pre86 = load ptr, ptr %__x, align 8
-  %.pre87 = load ptr, ptr %_M_finish.i19, align 8
-  %.pre88 = load ptr, ptr %this, align 8
-  %.pre89 = load ptr, ptr %_M_finish.i, align 8
+_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit: ; preds = %_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_.exit.i69
+  %.pre85 = load ptr, ptr %__x, align 8
+  %.pre86 = load ptr, ptr %_M_finish.i19, align 8
+  %.pre87 = load ptr, ptr %this, align 8
+  %.pre88 = load ptr, ptr %_M_finish.i, align 8
+  %.pre89 = ptrtoint ptr %.pre86 to i64
   %.pre90 = ptrtoint ptr %.pre87 to i64
-  %.pre91 = ptrtoint ptr %.pre88 to i64
-  %.pre92 = sub i64 %.pre90, %.pre91
-  %.pre93 = sdiv exact i64 %.pre92, 120
+  %.pre91 = sub i64 %.pre89, %.pre90
   br label %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit
 
 _ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit: ; preds = %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit, %if.else49
-  %sub.ptr.div.i39.pre-phi = phi i64 [ %.pre93, %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
-  %11 = phi ptr [ %.pre89, %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit ], [ %0, %if.else49 ]
-  %12 = phi ptr [ %.pre87, %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit ], [ %8, %if.else49 ]
-  %13 = phi ptr [ %.pre86, %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit ], [ %1, %if.else49 ]
-  %add.ptr62 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %13, i64 %sub.ptr.div.i39.pre-phi
+  %sub.ptr.sub.i38.pre-phi = phi i64 [ %.pre91, %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit ], [ %sub.ptr.sub.i22, %if.else49 ]
+  %11 = phi ptr [ %.pre88, %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit ], [ %0, %if.else49 ]
+  %12 = phi ptr [ %.pre86, %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit ], [ %8, %if.else49 ]
+  %13 = phi ptr [ %.pre85, %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit.loopexit ], [ %1, %if.else49 ]
+  %add.ptr62 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i38.pre-phi
   %cmp.not8.i.i.i.i = icmp eq ptr %add.ptr62, %11
   br i1 %cmp.not8.i.i.i.i, label %if.end69, label %for.body.i.i.i.i
 
@@ -1613,7 +1609,7 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont3.i.i.i.
 
 if.end69:                                         ; preds = %for.body.i.i.i26, %for.inc.i.i.i.i, %_ZSt14__copy_move_a2ILb0EPN19OpenColorIO_v2_4dev18FormatMetadataImplES2_ET1_T0_S4_S3_.exit, %_ZSt14__copy_move_a2ILb0EPKN19OpenColorIO_v2_4dev18FormatMetadataImplEPS1_ET1_T0_S6_S5_.exit, %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE13_M_deallocateEPS1_m.exit
   %21 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %21, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75

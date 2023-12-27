@@ -513,7 +513,7 @@ lpad10.loopexit.split-lp:                         ; preds = %invoke.cont8
 
 lpad10:                                           ; preds = %lpad10.loopexit.split-lp, %lpad10.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad10.loopexit ], [ %lpad.loopexit.split-lp, %lpad10.loopexit.split-lp ]
-  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %temp_buffer_holder_B) #16
+  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %temp_buffer_holder_B) #15
   br label %ehcleanup
 
 if.end:                                           ; preds = %for.inc102.i, %for.end68.i, %invoke.cont14
@@ -635,7 +635,7 @@ terminate.lpad.i:                                 ; preds = %for.end
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #17
+  call void @__clang_call_terminate(ptr %54) #16
   unreachable
 
 _ZN5arrow4util16TempVectorHolderItED2Ev.exit:     ; preds = %for.end
@@ -650,7 +650,7 @@ terminate.lpad.i60:                               ; preds = %_ZN5arrow4util16Tem
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #17
+  call void @__clang_call_terminate(ptr %59) #16
   unreachable
 
 _ZN5arrow4util16TempVectorHolderItED2Ev.exit61:   ; preds = %_ZN5arrow4util16TempVectorHolderItED2Ev.exit
@@ -658,7 +658,7 @@ _ZN5arrow4util16TempVectorHolderItED2Ev.exit61:   ; preds = %_ZN5arrow4util16Tem
 
 ehcleanup:                                        ; preds = %lpad10, %lpad
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad10 ], [ %32, %lpad ]
-  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %temp_buffer_holder_A) #16
+  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %temp_buffer_holder_A) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -1186,8 +1186,8 @@ if.end64:                                         ; preds = %if.end60, %if.then.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12EncoderNulls6DecodeEjjRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EE(i32 noundef %start_row, i32 noundef %num_rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %rows, ptr nocapture noundef readonly %cols) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5arrow7compute12EncoderNulls6DecodeEjjRKNS0_12RowTableImplEPSt6vectorINS0_14KeyColumnArrayESaIS6_EE(i32 noundef %start_row, i32 noundef %num_rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %rows, ptr nocapture noundef readonly %cols) local_unnamed_addr #3 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::KeyColumnArray, std::allocator<arrow::compute::KeyColumnArray>>::_Vector_impl_data", ptr %cols, i64 0, i32 1
   %null_masks_.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 2
@@ -1357,7 +1357,7 @@ for.end83:                                        ; preds = %for.inc81.us, %for.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %id_ = getelementptr inbounds %"class.arrow::util::TempVectorHolder", ptr %this, i64 0, i32 2
@@ -1375,7 +1375,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #16
   unreachable
 }
 
@@ -2050,8 +2050,8 @@ return:                                           ; preds = %entry, %for.end97
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute13EncoderBinary14EncodeSelectedEjPNS0_12RowTableImplERKNS0_14KeyColumnArrayEjPKt(i32 noundef %offset_within_row, ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %col, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5arrow7compute13EncoderBinary14EncodeSelectedEjPNS0_12RowTableImplERKNS0_14KeyColumnArrayEjPKt(i32 noundef %offset_within_row, ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %col, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #3 align 2 {
 entry:
   %is_null_type = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col, i64 0, i32 2, i32 1
   %0 = load i8, ptr %is_null_type, align 1
@@ -3251,8 +3251,8 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute16EncoderVarBinary14EncodeSelectedEjPNS0_12RowTableImplERKNS0_14KeyColumnArrayEjPKt(i32 noundef %ivarbinary, ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %cols, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5arrow7compute16EncoderVarBinary14EncodeSelectedEjPNS0_12RowTableImplERKNS0_14KeyColumnArrayEjPKt(i32 noundef %ivarbinary, ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %cols, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #3 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 5, i64 1
   %0 = load ptr, ptr %arrayidx.i.i, align 8
@@ -3350,8 +3350,8 @@ if.end:                                           ; preds = %for.body18, %for.bo
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12EncoderNulls14EncodeSelectedEPNS0_12RowTableImplERKSt6vectorINS0_14KeyColumnArrayESaIS5_EEjPKt(ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5arrow7compute12EncoderNulls14EncodeSelectedEPNS0_12RowTableImplERKSt6vectorINS0_14KeyColumnArrayESaIS5_EEjPKt(ptr nocapture noundef readonly %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols, i32 noundef %num_selected, ptr nocapture noundef readonly %selection) local_unnamed_addr #3 align 2 {
 entry:
   %null_masks_.i = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %rows, i64 0, i32 2
   %0 = load ptr, ptr %null_masks_.i, align 8
@@ -3457,7 +3457,7 @@ for.end22:                                        ; preds = %for.inc20.us, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrow7compute14EncoderInteger9IsBooleanERKNS0_17KeyColumnMetadataE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %metadata) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN5arrow7compute14EncoderInteger9IsBooleanERKNS0_17KeyColumnMetadataE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %metadata) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i8, ptr %metadata, align 4
   %1 = and i8 %0, 1
@@ -3481,7 +3481,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrow7compute14EncoderInteger13UsesTransformERKNS0_14KeyColumnArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %column) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN5arrow7compute14EncoderInteger13UsesTransformERKNS0_14KeyColumnArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %column) local_unnamed_addr #5 align 2 {
 entry:
   %metadata_.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %column, i64 0, i32 2
   %0 = load i8, ptr %metadata_.i, align 8
@@ -3893,7 +3893,7 @@ if.end165:                                        ; preds = %if.end162, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrow7compute13EncoderBinary9IsIntegerERKNS0_17KeyColumnMetadataE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %metadata) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN5arrow7compute13EncoderBinary9IsIntegerERKNS0_17KeyColumnMetadataE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %metadata) local_unnamed_addr #5 align 2 {
 entry:
   %is_null_type = getelementptr inbounds %"struct.arrow::compute::KeyColumnMetadata", ptr %metadata, i64 0, i32 1
   %0 = load i8, ptr %is_null_type, align 1
@@ -4634,7 +4634,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EhhEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EhhEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -4681,7 +4681,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EthEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EthEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -4728,7 +4728,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EjhEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EjhEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -4775,7 +4775,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EmhEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EmhEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -4822,7 +4822,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EhtEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EhtEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -4869,7 +4869,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EttEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EttEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -4916,7 +4916,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EjtEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EjtEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -4963,7 +4963,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EmtEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EmtEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -5010,7 +5010,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EhjEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EhjEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -5057,7 +5057,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EtjEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EtjEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -5104,7 +5104,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EjjEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EjjEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -5151,7 +5151,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EmjEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EmjEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -5198,7 +5198,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EhmEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EhmEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -5245,7 +5245,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EtmEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EtmEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -5292,7 +5292,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EjmEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EjmEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -5339,7 +5339,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EmmEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #5 comdat align 2 {
+define linkonce_odr void @_ZN5arrow7compute17EncoderBinaryPair9DecodeImpILb1EmmEEvjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_(i32 noundef %num_rows_to_skip, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %col1, ptr noundef %col2) #4 comdat align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %col1, i64 0, i32 1, i64 1
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -5388,12 +5388,12 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZN5arrow7compute16EncoderVarBinary17DecodeHelper_avx2EjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayE(i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(209), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #17
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -5402,7 +5402,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 declare void @_ZNK5arrow7compute14KeyColumnArray14WithBufferFromERKS1_i(ptr sret(%"class.arrow::compute::KeyColumnArray") align 8, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), i32 noundef) local_unnamed_addr #1
 
@@ -5464,7 +5464,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #17
   unreachable
 
 _ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
@@ -5479,7 +5479,7 @@ _ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit: 
 
 _ZNSt16allocator_traitsISaIN5arrow7compute14KeyColumnArrayEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 72
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
   br label %if.then.i.i.i22
 
 if.then.i.i.i22:                                  ; preds = %_ZNSt16allocator_traitsISaIN5arrow7compute14KeyColumnArrayEEE8allocateERS3_m.exit.i, %_ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit
@@ -5514,7 +5514,7 @@ _ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
   br i1 %tobool.not.i36, label %_ZNSt12_Vector_baseIN5arrow7compute14KeyColumnArrayESaIS2_EE13_M_deallocateEPS2_m.exit38, label %if.then.i37
 
 if.then.i37:                                      ; preds = %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #19
   br label %_ZNSt12_Vector_baseIN5arrow7compute14KeyColumnArrayESaIS2_EE13_M_deallocateEPS2_m.exit38
 
 _ZNSt12_Vector_baseIN5arrow7compute14KeyColumnArrayESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i37
@@ -5530,10 +5530,10 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
@@ -5588,7 +5588,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #17
   unreachable
 
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
@@ -5603,7 +5603,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
 
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 2
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
   br label %if.then.i.i.i22
 
 if.then.i.i.i22:                                  ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
@@ -5621,8 +5621,8 @@ if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i22
   br label %try.cont
 
 try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %if.then.i.i.i22
-  %cmp.i.i.i30.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i30.not, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, label %if.then.i.i.i31
+  %cmp.i.i.i30 = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i.i30, label %if.then.i.i.i31, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
 
 if.then.i.i.i31:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i19, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
@@ -5633,7 +5633,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %try.cont, %if.th
   br i1 %tobool.not.i32, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34, label %if.then.i33
 
 if.then.i33:                                      ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #19
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %if.then.i33
@@ -5653,41 +5653,40 @@ declare void @_ZN5arrow4util15TempVectorStack5allocEjPPhPi(ptr noundef nonnull a
 declare void @_ZN5arrow4util15TempVectorStack7releaseEij(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { noreturn }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { builtin nounwind }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { noreturn }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

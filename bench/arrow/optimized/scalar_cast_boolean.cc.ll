@@ -935,7 +935,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit169: ; preds = %_ZN5arrow7compu
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit169
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp44, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 40
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %type_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i, i64 0, i32 1
   %98 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i, i64 0, i32 1, i32 0, i32 1
@@ -1989,7 +1989,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit356: ; preds = %_ZN5arrow7compu
 
 call5.i.i.i.i.noexc.i367:                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit356
   store ptr %call5.i.i.i.i2.i362, ptr %agg.tmp109, align 8
-  %add.ptr.i1.i368 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i362, i64 1
+  %add.ptr.i1.i368 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i362, i64 40
   store ptr %add.ptr.i1.i368, ptr %_M_end_of_storage.i.i369, align 8
   %type_.i.i.i.i.i.i.i.i373 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i362, i64 0, i32 1
   %246 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i362, i64 0, i32 1, i32 0, i32 1
@@ -2954,7 +2954,7 @@ _ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEC2ERKS4_.exit: ; preds
 
 call5.i.i.i.i.noexc.i626:                         ; preds = %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEC2ERKS4_.exit
   store ptr %call5.i.i.i.i2.i622, ptr %agg.result, align 8
-  %add.ptr.i1.i627 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i622, i64 1
+  %add.ptr.i1.i627 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i622, i64 16
   %_M_end_of_storage.i.i628 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::compute::internal::CastFunction>, std::allocator<std::shared_ptr<arrow::compute::internal::CastFunction>>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
   store ptr %add.ptr.i1.i627, ptr %_M_end_of_storage.i.i628, align 8
   %384 = load <2 x ptr>, ptr %ref.tmp169, align 16
