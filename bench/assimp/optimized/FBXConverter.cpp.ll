@@ -11812,7 +11812,7 @@ invoke.cont14:                                    ; preds = %invoke.cont9
 new.ctorloop:                                     ; preds = %invoke.cont14
   %10 = add nsw i64 %9, -12
   %11 = urem i64 %10, 12
-  %12 = sub nsw i64 %10, %11
+  %12 = sub nuw nsw i64 %10, %11
   %13 = add nsw i64 %12, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call15, i8 0, i64 %13, i1 false)
   br label %arrayctor.cont
@@ -15478,7 +15478,7 @@ invoke.cont26:                                    ; preds = %if.end24
 new.ctorloop:                                     ; preds = %invoke.cont26
   %17 = add nsw i64 %16, -12
   %18 = urem i64 %17, 12
-  %19 = sub nsw i64 %17, %18
+  %19 = sub nuw nsw i64 %17, %18
   %20 = add nsw i64 %19, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call27, i8 0, i64 %20, i1 false)
   br label %arrayctor.cont
@@ -15536,7 +15536,7 @@ invoke.cont45:                                    ; preds = %if.then43
 new.ctorloop48:                                   ; preds = %invoke.cont45
   %26 = add nsw i64 %16, -12
   %27 = urem i64 %26, 12
-  %28 = sub nsw i64 %26, %27
+  %28 = sub nuw nsw i64 %26, %27
   %29 = add nsw i64 %28, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call46, i8 0, i64 %29, i1 false)
   br label %arrayctor.cont54
@@ -15579,8 +15579,7 @@ if.then65:                                        ; preds = %if.then62
   br i1 %tobool67.not, label %if.end115, label %if.else.i374
 
 if.else.i374:                                     ; preds = %if.then65
-  %sub.ptr.div.i153 = sdiv exact i64 %sub.ptr.sub.i152, 12
-  %cmp.i.i375 = icmp ugt i64 %sub.ptr.div.i153, 768614336404564650
+  %cmp.i.i375 = icmp slt i64 %sub.ptr.sub.i152, 0
   br i1 %cmp.i.i375, label %if.then.i.i380, label %_ZNSt16allocator_traitsISaI10aiVector3tIfEEE8allocateERS2_m.exit.i.i
 
 if.then.i.i380:                                   ; preds = %if.else.i374
@@ -15688,7 +15687,7 @@ invoke.cont93:                                    ; preds = %if.then91
 new.ctorloop96:                                   ; preds = %invoke.cont93
   %55 = add nsw i64 %16, -12
   %56 = urem i64 %55, 12
-  %57 = sub nsw i64 %55, %56
+  %57 = sub nuw nsw i64 %55, %56
   %58 = add nsw i64 %57, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call94, i8 0, i64 %58, i1 false)
   br label %arrayctor.cont102
@@ -15705,7 +15704,7 @@ invoke.cont104:                                   ; preds = %arrayctor.cont102
 new.ctorloop107:                                  ; preds = %invoke.cont104
   %59 = add nsw i64 %16, -12
   %60 = urem i64 %59, 12
-  %61 = sub nsw i64 %59, %60
+  %61 = sub nuw nsw i64 %59, %60
   %62 = add nsw i64 %61, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call105, i8 0, i64 %62, i1 false)
   br label %arrayctor.cont113
@@ -15719,7 +15718,7 @@ if.end115:                                        ; preds = %if.then65, %arrayct
   %binormals.1 = phi ptr [ %binormals.0.ph, %arrayctor.cont113 ], [ %call59, %invoke.cont58 ], [ null, %if.then65 ]
   %63 = add nsw i64 %16, -12
   %64 = urem i64 %63, 12
-  %65 = sub nsw i64 %63, %64
+  %65 = sub nuw nsw i64 %63, %64
   %66 = add nsw i64 %65, 12
   br label %for.body119
 
@@ -44891,7 +44890,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

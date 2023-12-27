@@ -2426,8 +2426,7 @@ cond.true.i.i.i.i:                                ; preds = %if.end
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 736
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i, 12531755484857032
+  %cmp.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %invoke.cont.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
@@ -2871,7 +2870,7 @@ new.ctorloop86:                                   ; preds = %if.then80
   %60 = mul nsw i64 %sub.ptr.div.i304, 24
   %61 = add nsw i64 %60, -24
   %62 = urem i64 %61, 24
-  %63 = sub nsw i64 %61, %62
+  %63 = sub nuw nsw i64 %61, %62
   %64 = add nsw i64 %63, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %59, i8 0, i64 %64, i1 false)
   br label %if.end93
@@ -2919,7 +2918,7 @@ arrayctor.cont105:                                ; preds = %arrayctor.loop101
 new.ctorloop114:                                  ; preds = %arrayctor.cont105
   %69 = add nsw i64 %68, -12
   %70 = urem i64 %69, 12
-  %71 = sub nsw i64 %69, %70
+  %71 = sub nuw nsw i64 %69, %70
   %72 = add nsw i64 %71, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call112, i8 0, i64 %72, i1 false)
   store ptr %call112, ptr %mVertices.i, align 8
@@ -3137,7 +3136,7 @@ invoke.cont227:                                   ; preds = %if.then224
 new.ctorloop230:                                  ; preds = %invoke.cont227
   %105 = add nsw i64 %104, -12
   %106 = urem i64 %105, 12
-  %107 = sub nsw i64 %105, %106
+  %107 = sub nuw nsw i64 %105, %106
   %108 = add nsw i64 %107, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call228, i8 0, i64 %108, i1 false)
   br label %arrayctor.cont236
