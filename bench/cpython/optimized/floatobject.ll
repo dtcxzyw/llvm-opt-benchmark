@@ -1897,20 +1897,19 @@ if.then:                                          ; preds = %entry, %PyObject_Ty
   br label %Compare
 
 if.else:                                          ; preds = %PyObject_TypeCheck.exit
-  %3 = tail call double @llvm.fabs.f64(double %v.val)
-  %4 = fcmp ueq double %3, 0x7FF0000000000000
-  %w.val65 = load ptr, ptr %1, align 8
-  %5 = getelementptr i8, ptr %w.val65, i64 168
-  %call4.val = load i64, ptr %5, align 8
-  %6 = and i64 %call4.val, 16777216
-  %tobool6.not = icmp eq i64 %6, 0
-  br i1 %4, label %if.then3, label %if.else9
+  %3 = tail call i1 @llvm.is.fpclass.f64(double %v.val, i32 504)
+  %w.val = load ptr, ptr %1, align 8
+  %4 = getelementptr i8, ptr %w.val, i64 168
+  %call10.val = load i64, ptr %4, align 8
+  %5 = and i64 %call10.val, 16777216
+  %tobool12.not = icmp eq i64 %5, 0
+  br i1 %3, label %if.else9, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  br i1 %tobool6.not, label %return, label %Compare
+  br i1 %tobool12.not, label %return, label %Compare
 
 if.else9:                                         ; preds = %if.else
-  br i1 %tobool6.not, label %return, label %if.then13
+  br i1 %tobool12.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.else9
   %cmp = fcmp une double %v.val, 0.000000e+00
@@ -1957,19 +1956,19 @@ if.then37:                                        ; preds = %if.end34
   %fneg = fneg double %v.val
   %idxprom = sext i32 %op to i64
   %arrayidx = getelementptr [0 x i32], ptr @_Py_SwappedOp, i64 0, i64 %idxprom
-  %7 = load i32, ptr %arrayidx, align 4
+  %6 = load i32, ptr %arrayidx, align 4
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %if.end34
   %i.0 = phi double [ %fneg, %if.then37 ], [ %v.val, %if.end34 ]
-  %op.addr.0 = phi i32 [ %7, %if.then37 ], [ %op, %if.end34 ]
+  %op.addr.0 = phi i32 [ %6, %if.then37 ], [ %op, %if.end34 ]
   %call39 = call double @frexp(double noundef %i.0, ptr noundef nonnull %exponent) #17
-  %8 = load i32, ptr %exponent, align 4
-  %cmp40 = icmp slt i32 %8, 0
+  %7 = load i32, ptr %exponent, align 4
+  %cmp40 = icmp slt i32 %7, 0
   br i1 %cmp40, label %Compare, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end38
-  %conv42 = zext nneg i32 %8 to i64
+  %conv42 = zext nneg i32 %7 to i64
   %cmp43 = icmp ugt i64 %call21, %conv42
   br i1 %cmp43, label %Compare, label %if.end46
 
@@ -1987,8 +1986,8 @@ if.then54:                                        ; preds = %if.end51
   br i1 %cmp56, label %Error, label %if.end61
 
 if.else60:                                        ; preds = %if.end51
-  %9 = load i32, ptr %w, align 8
-  %add.i = add i32 %9, 1
+  %8 = load i32, ptr %w, align 8
+  %add.i = add i32 %8, 1
   %cmp.i154 = icmp eq i32 %add.i, 0
   br i1 %cmp.i154, label %if.end61, label %if.end.i155
 
@@ -1999,8 +1998,8 @@ if.end.i155:                                      ; preds = %if.else60
 if.end61:                                         ; preds = %if.end.i155, %if.else60, %if.then54
   %ww.0 = phi ptr [ %call55, %if.then54 ], [ %w, %if.else60 ], [ %w, %if.end.i155 ]
   %call62 = call double @modf(double noundef %i.0, ptr noundef nonnull %intpart) #17
-  %10 = load double, ptr %intpart, align 8
-  %call63 = tail call ptr @PyLong_FromDouble(double noundef %10) #17
+  %9 = load double, ptr %intpart, align 8
+  %call63 = tail call ptr @PyLong_FromDouble(double noundef %9) #17
   %cmp64 = icmp eq ptr %call63, null
   br i1 %cmp64, label %Error, label %if.end67
 
@@ -2014,13 +2013,13 @@ if.then70:                                        ; preds = %if.end67
   br i1 %cmp72, label %Error, label %do.body
 
 do.body:                                          ; preds = %if.then70
-  %11 = load i64, ptr %ww.0, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i144.not = icmp eq i64 %12, 0
+  %10 = load i64, ptr %ww.0, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i144.not = icmp eq i64 %11, 0
   br i1 %cmp.i144.not, label %if.end.i137, label %do.end
 
 if.end.i137:                                      ; preds = %do.body
-  %dec.i138 = add i64 %11, -1
+  %dec.i138 = add i64 %10, -1
   store i64 %dec.i138, ptr %ww.0, align 8
   %cmp.i139 = icmp eq i64 %dec.i138, 0
   br i1 %cmp.i139, label %if.then1.i140, label %do.end
@@ -2035,13 +2034,13 @@ do.end:                                           ; preds = %if.end.i137, %if.th
   br i1 %cmp77, label %Error, label %do.body81
 
 do.body81:                                        ; preds = %do.end
-  %13 = load i64, ptr %call63, align 8
-  %14 = and i64 %13, 2147483648
-  %cmp.i147.not = icmp eq i64 %14, 0
+  %12 = load i64, ptr %call63, align 8
+  %13 = and i64 %12, 2147483648
+  %cmp.i147.not = icmp eq i64 %13, 0
   br i1 %cmp.i147.not, label %if.end.i128, label %do.end84
 
 if.end.i128:                                      ; preds = %do.body81
-  %dec.i129 = add i64 %13, -1
+  %dec.i129 = add i64 %12, -1
   store i64 %dec.i129, ptr %call63, align 8
   %cmp.i130 = icmp eq i64 %dec.i129, 0
   br i1 %cmp.i130, label %if.then1.i131, label %do.end84
@@ -2056,13 +2055,13 @@ do.end84:                                         ; preds = %if.end.i128, %if.th
   br i1 %cmp87, label %Error, label %do.body91
 
 do.body91:                                        ; preds = %do.end84
-  %15 = load i64, ptr %call76, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i151.not = icmp eq i64 %16, 0
+  %14 = load i64, ptr %call76, align 8
+  %15 = and i64 %14, 2147483648
+  %cmp.i151.not = icmp eq i64 %15, 0
   br i1 %cmp.i151.not, label %if.end.i, label %if.end95
 
 if.end.i:                                         ; preds = %do.body91
-  %dec.i = add i64 %15, -1
+  %dec.i = add i64 %14, -1
   store i64 %dec.i, ptr %call76, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %if.end95
@@ -2482,6 +2481,9 @@ declare double @llvm.copysign.f64(double, double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
 declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #7
@@ -4815,8 +4817,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %1 = tail call double @llvm.fabs.f64(double %x)
-  %or.cond = fcmp oeq double %1, 0x7FF0000000000000
+  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %x, i32 516)
   br i1 %or.cond, label %if.end11.sink.split, label %if.end11
 
 if.else:                                          ; preds = %entry
@@ -5026,32 +5027,30 @@ land.lhs.true.i:                                  ; preds = %if.end4.i
   br i1 %tobool.not.i, label %if.end9.thread.i, label %exit
 
 if.end9.i:                                        ; preds = %if.end4.i
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  br i1 %5, label %if.then10.i, label %if.end12.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.end12.i, label %if.then10.i
 
 if.end9.thread.i:                                 ; preds = %land.lhs.true.i
-  %6 = tail call double @llvm.fabs.f64(double %call.i)
-  %7 = fcmp ueq double %6, 0x7FF0000000000000
-  br i1 %7, label %if.then10.i, label %if.else20.i
+  %5 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %5, label %if.else20.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end9.thread.i, %if.end9.i
-  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %9 = load ptr, ptr %8, align 8
-  %interp.i.i.i.i = getelementptr inbounds %struct._ts, ptr %9, i64 0, i32 2
-  %10 = load ptr, ptr %interp.i.i.i.i, align 8
-  %free_list.i.i = getelementptr inbounds %struct._is, ptr %10, i64 0, i32 45, i32 1
-  %11 = load ptr, ptr %free_list.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %11, null
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %7 = load ptr, ptr %6, align 8
+  %interp.i.i.i.i = getelementptr inbounds %struct._ts, ptr %7, i64 0, i32 2
+  %8 = load ptr, ptr %interp.i.i.i.i, align 8
+  %free_list.i.i = getelementptr inbounds %struct._is, ptr %8, i64 0, i32 45, i32 1
+  %9 = load ptr, ptr %free_list.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
-  %float_state.i.i.i = getelementptr inbounds %struct._is, ptr %10, i64 0, i32 45
-  %12 = getelementptr i8, ptr %11, i64 8
-  %.val.i.i = load ptr, ptr %12, align 8
+  %float_state.i.i.i = getelementptr inbounds %struct._is, ptr %8, i64 0, i32 45
+  %10 = getelementptr i8, ptr %9, i64 8
+  %.val.i.i = load ptr, ptr %10, align 8
   store ptr %.val.i.i, ptr %free_list.i.i, align 8
-  %13 = load i32, ptr %float_state.i.i.i, align 8
-  %dec.i.i = add i32 %13, -1
+  %11 = load i32, ptr %float_state.i.i.i, align 8
+  %dec.i.i = add i32 %11, -1
   store i32 %dec.i.i, ptr %float_state.i.i.i, align 8
   br label %if.end6.i.i
 
@@ -5065,17 +5064,17 @@ if.then4.i.i:                                     ; preds = %if.else.i.i
   br label %exit
 
 if.end6.i.i:                                      ; preds = %if.else.i.i, %if.then.i.i
-  %op.0.i.i = phi ptr [ %11, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
+  %op.0.i.i = phi ptr [ %9, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
   %ob_type.i.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i.i, i64 0, i32 1
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i, align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
-  %15 = and i64 %14, 512
-  %tobool.not.i.i.i = icmp eq i64 %15, 0
+  %12 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
+  %13 = and i64 %12, 512
+  %tobool.not.i.i.i = icmp eq i64 %13, 0
   br i1 %tobool.not.i.i.i, label %_PyObject_Init.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end6.i.i
-  %16 = load i32, ptr @PyFloat_Type, align 8
-  %add.i.i.i.i = add i32 %16, 1
+  %14 = load i32, ptr @PyFloat_Type, align 8
+  %add.i.i.i.i = add i32 %14, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %_PyObject_Init.exit.i.i, label %if.end.i.i.i.i
 
@@ -5094,22 +5093,22 @@ if.end12.i:                                       ; preds = %if.end9.i
   br i1 %cmp13.i, label %if.then14.i, label %if.else.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %18 = load ptr, ptr %17, align 8
-  %interp.i.i.i13.i = getelementptr inbounds %struct._ts, ptr %18, i64 0, i32 2
-  %19 = load ptr, ptr %interp.i.i.i13.i, align 8
-  %free_list.i14.i = getelementptr inbounds %struct._is, ptr %19, i64 0, i32 45, i32 1
-  %20 = load ptr, ptr %free_list.i14.i, align 8
-  %cmp.not.i15.i = icmp eq ptr %20, null
+  %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %16 = load ptr, ptr %15, align 8
+  %interp.i.i.i13.i = getelementptr inbounds %struct._ts, ptr %16, i64 0, i32 2
+  %17 = load ptr, ptr %interp.i.i.i13.i, align 8
+  %free_list.i14.i = getelementptr inbounds %struct._is, ptr %17, i64 0, i32 45, i32 1
+  %18 = load ptr, ptr %free_list.i14.i, align 8
+  %cmp.not.i15.i = icmp eq ptr %18, null
   br i1 %cmp.not.i15.i, label %if.else.i31.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then14.i
-  %float_state.i.i17.i = getelementptr inbounds %struct._is, ptr %19, i64 0, i32 45
-  %21 = getelementptr i8, ptr %20, i64 8
-  %.val.i18.i = load ptr, ptr %21, align 8
+  %float_state.i.i17.i = getelementptr inbounds %struct._is, ptr %17, i64 0, i32 45
+  %19 = getelementptr i8, ptr %18, i64 8
+  %.val.i18.i = load ptr, ptr %19, align 8
   store ptr %.val.i18.i, ptr %free_list.i14.i, align 8
-  %22 = load i32, ptr %float_state.i.i17.i, align 8
-  %dec.i19.i = add i32 %22, -1
+  %20 = load i32, ptr %float_state.i.i17.i, align 8
+  %dec.i19.i = add i32 %20, -1
   store i32 %dec.i19.i, ptr %float_state.i.i17.i, align 8
   br label %if.end6.i20.i
 
@@ -5123,17 +5122,17 @@ if.then4.i34.i:                                   ; preds = %if.else.i31.i
   br label %exit
 
 if.end6.i20.i:                                    ; preds = %if.else.i31.i, %if.then.i16.i
-  %op.0.i21.i = phi ptr [ %20, %if.then.i16.i ], [ %call3.i32.i, %if.else.i31.i ]
+  %op.0.i21.i = phi ptr [ %18, %if.then.i16.i ], [ %call3.i32.i, %if.else.i31.i ]
   %ob_type.i.i.i22.i = getelementptr inbounds %struct._object, ptr %op.0.i21.i, i64 0, i32 1
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i22.i, align 8
-  %23 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
-  %24 = and i64 %23, 512
-  %tobool.not.i.i23.i = icmp eq i64 %24, 0
+  %21 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
+  %22 = and i64 %21, 512
+  %tobool.not.i.i23.i = icmp eq i64 %22, 0
   br i1 %tobool.not.i.i23.i, label %_PyObject_Init.exit.i28.i, label %if.then.i.i24.i
 
 if.then.i.i24.i:                                  ; preds = %if.end6.i20.i
-  %25 = load i32, ptr @PyFloat_Type, align 8
-  %add.i.i.i25.i = add i32 %25, 1
+  %23 = load i32, ptr @PyFloat_Type, align 8
+  %add.i.i.i25.i = add i32 %23, 1
   %cmp.i.i.i26.i = icmp eq i32 %add.i.i.i25.i, 0
   br i1 %cmp.i.i.i26.i, label %_PyObject_Init.exit.i28.i, label %if.end.i.i.i27.i
 
@@ -5153,22 +5152,22 @@ if.else.i:                                        ; preds = %if.end12.i
 
 if.then17.i:                                      ; preds = %if.else.i
   %mul18.i = fmul double %call.i, 0.000000e+00
-  %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %27 = load ptr, ptr %26, align 8
-  %interp.i.i.i37.i = getelementptr inbounds %struct._ts, ptr %27, i64 0, i32 2
-  %28 = load ptr, ptr %interp.i.i.i37.i, align 8
-  %free_list.i38.i = getelementptr inbounds %struct._is, ptr %28, i64 0, i32 45, i32 1
-  %29 = load ptr, ptr %free_list.i38.i, align 8
-  %cmp.not.i39.i = icmp eq ptr %29, null
+  %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %25 = load ptr, ptr %24, align 8
+  %interp.i.i.i37.i = getelementptr inbounds %struct._ts, ptr %25, i64 0, i32 2
+  %26 = load ptr, ptr %interp.i.i.i37.i, align 8
+  %free_list.i38.i = getelementptr inbounds %struct._is, ptr %26, i64 0, i32 45, i32 1
+  %27 = load ptr, ptr %free_list.i38.i, align 8
+  %cmp.not.i39.i = icmp eq ptr %27, null
   br i1 %cmp.not.i39.i, label %if.else.i55.i, label %if.then.i40.i
 
 if.then.i40.i:                                    ; preds = %if.then17.i
-  %float_state.i.i41.i = getelementptr inbounds %struct._is, ptr %28, i64 0, i32 45
-  %30 = getelementptr i8, ptr %29, i64 8
-  %.val.i42.i = load ptr, ptr %30, align 8
+  %float_state.i.i41.i = getelementptr inbounds %struct._is, ptr %26, i64 0, i32 45
+  %28 = getelementptr i8, ptr %27, i64 8
+  %.val.i42.i = load ptr, ptr %28, align 8
   store ptr %.val.i42.i, ptr %free_list.i38.i, align 8
-  %31 = load i32, ptr %float_state.i.i41.i, align 8
-  %dec.i43.i = add i32 %31, -1
+  %29 = load i32, ptr %float_state.i.i41.i, align 8
+  %dec.i43.i = add i32 %29, -1
   store i32 %dec.i43.i, ptr %float_state.i.i41.i, align 8
   br label %if.end6.i44.i
 
@@ -5182,17 +5181,17 @@ if.then4.i58.i:                                   ; preds = %if.else.i55.i
   br label %exit
 
 if.end6.i44.i:                                    ; preds = %if.else.i55.i, %if.then.i40.i
-  %op.0.i45.i = phi ptr [ %29, %if.then.i40.i ], [ %call3.i56.i, %if.else.i55.i ]
+  %op.0.i45.i = phi ptr [ %27, %if.then.i40.i ], [ %call3.i56.i, %if.else.i55.i ]
   %ob_type.i.i.i46.i = getelementptr inbounds %struct._object, ptr %op.0.i45.i, i64 0, i32 1
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i46.i, align 8
-  %32 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
-  %33 = and i64 %32, 512
-  %tobool.not.i.i47.i = icmp eq i64 %33, 0
+  %30 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
+  %31 = and i64 %30, 512
+  %tobool.not.i.i47.i = icmp eq i64 %31, 0
   br i1 %tobool.not.i.i47.i, label %_PyObject_Init.exit.i52.i, label %if.then.i.i48.i
 
 if.then.i.i48.i:                                  ; preds = %if.end6.i44.i
-  %34 = load i32, ptr @PyFloat_Type, align 8
-  %add.i.i.i49.i = add i32 %34, 1
+  %32 = load i32, ptr @PyFloat_Type, align 8
+  %add.i.i.i49.i = add i32 %32, 1
   %cmp.i.i.i50.i = icmp eq i32 %add.i.i.i49.i, 0
   br i1 %cmp.i.i.i50.i, label %_PyObject_Init.exit.i52.i, label %if.end.i.i.i51.i
 
@@ -5238,8 +5237,8 @@ if.then16.i.i:                                    ; preds = %do.end13.i.i
   br label %double_round.exit.i
 
 if.end18.i.i:                                     ; preds = %do.end13.i.i
-  %35 = load ptr, ptr %buf_end.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %35 to i64
+  %33 = load ptr, ptr %buf_end.i.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call526.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.i.i = add i64 %sub.ptr.sub.i.i, 8
@@ -5258,12 +5257,12 @@ if.then26.i.i:                                    ; preds = %if.then21.i.i
 if.end29.i.i:                                     ; preds = %if.then21.i.i, %if.end18.i.i
   %mybuflen.0.i.i = phi i64 [ %add.i.i, %if.then21.i.i ], [ 100, %if.end18.i.i ]
   %mybuf.0.i.i = phi ptr [ %call23.i.i, %if.then21.i.i ], [ %shortbuf.i.i, %if.end18.i.i ]
-  %36 = load i32, ptr %sign.i.i, align 4
-  %tobool.not.i63.i = icmp eq i32 %36, 0
+  %34 = load i32, ptr %sign.i.i, align 4
+  %tobool.not.i63.i = icmp eq i32 %34, 0
   %cond.i.i = select i1 %tobool.not.i63.i, ptr @.str.34, ptr @.str.33
-  %37 = load i32, ptr %decpt.i.i, align 4
+  %35 = load i32, ptr %decpt.i.i, align 4
   %conv30.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %sub.i.i = sub i32 %37, %conv30.i.i
+  %sub.i.i = sub i32 %35, %conv30.i.i
   %call31.i.i = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %mybuf.0.i.i, i64 noundef %mybuflen.0.i.i, ptr noundef nonnull @.str.32, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %call526.i.i, i32 noundef %sub.i.i) #17
   %call32.i.i = tail call ptr @__errno_location() #20
   store i32 0, ptr %call32.i.i, align 4
@@ -5285,35 +5284,35 @@ if.then52.i.i:                                    ; preds = %if.end29.i.i
 
 do.end54.i.i:                                     ; preds = %if.then52.i.i, %do.end45.thread.i.i
   %call4628.i.i = phi double [ %call4627.i.i, %do.end45.thread.i.i ], [ %call46.i.i, %if.then52.i.i ]
-  %38 = load i32, ptr %call32.i.i, align 4
-  %cmp56.i.i = icmp ne i32 %38, 34
-  %39 = call double @llvm.fabs.f64(double %call4628.i.i)
-  %cmp58.i.i = fcmp ult double %39, 1.000000e+00
+  %36 = load i32, ptr %call32.i.i, align 4
+  %cmp56.i.i = icmp ne i32 %36, 34
+  %37 = call double @llvm.fabs.f64(double %call4628.i.i)
+  %cmp58.i.i = fcmp ult double %37, 1.000000e+00
   %or.cond.i.i = select i1 %cmp56.i.i, i1 true, i1 %cmp58.i.i
   br i1 %or.cond.i.i, label %if.else.i65.i, label %if.then60.i.i
 
 if.then60.i.i:                                    ; preds = %do.end54.i.i
-  %40 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.35) #17
+  %38 = load ptr, ptr @PyExc_OverflowError, align 8
+  call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.35) #17
   br label %if.end62.i.i
 
 if.else.i65.i:                                    ; preds = %do.end54.i.i
-  %41 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %42 = load ptr, ptr %41, align 8
-  %interp.i.i.i.i.i = getelementptr inbounds %struct._ts, ptr %42, i64 0, i32 2
-  %43 = load ptr, ptr %interp.i.i.i.i.i, align 8
-  %free_list.i.i.i = getelementptr inbounds %struct._is, ptr %43, i64 0, i32 45, i32 1
-  %44 = load ptr, ptr %free_list.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %44, null
+  %39 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %40 = load ptr, ptr %39, align 8
+  %interp.i.i.i.i.i = getelementptr inbounds %struct._ts, ptr %40, i64 0, i32 2
+  %41 = load ptr, ptr %interp.i.i.i.i.i, align 8
+  %free_list.i.i.i = getelementptr inbounds %struct._is, ptr %41, i64 0, i32 45, i32 1
+  %42 = load ptr, ptr %free_list.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i66.i
 
 if.then.i.i66.i:                                  ; preds = %if.else.i65.i
-  %float_state.i.i.i.i = getelementptr inbounds %struct._is, ptr %43, i64 0, i32 45
-  %45 = getelementptr i8, ptr %44, i64 8
-  %.val.i.i.i = load ptr, ptr %45, align 8
+  %float_state.i.i.i.i = getelementptr inbounds %struct._is, ptr %41, i64 0, i32 45
+  %43 = getelementptr i8, ptr %42, i64 8
+  %.val.i.i.i = load ptr, ptr %43, align 8
   store ptr %.val.i.i.i, ptr %free_list.i.i.i, align 8
-  %46 = load i32, ptr %float_state.i.i.i.i, align 8
-  %dec.i.i.i = add i32 %46, -1
+  %44 = load i32, ptr %float_state.i.i.i.i, align 8
+  %dec.i.i.i = add i32 %44, -1
   store i32 %dec.i.i.i, ptr %float_state.i.i.i.i, align 8
   br label %if.end6.i.i.i
 
@@ -5327,17 +5326,17 @@ if.then4.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %if.end62.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i66.i
-  %op.0.i.i.i = phi ptr [ %44, %if.then.i.i66.i ], [ %call3.i.i.i, %if.else.i.i.i ]
+  %op.0.i.i.i = phi ptr [ %42, %if.then.i.i66.i ], [ %call3.i.i.i, %if.else.i.i.i ]
   %ob_type.i.i.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i.i.i, i64 0, i32 1
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i.i, align 8
-  %47 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
-  %48 = and i64 %47, 512
-  %tobool.not.i.i.i.i = icmp eq i64 %48, 0
+  %45 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
+  %46 = and i64 %45, 512
+  %tobool.not.i.i.i.i = icmp eq i64 %46, 0
   br i1 %tobool.not.i.i.i.i, label %_PyObject_Init.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end6.i.i.i
-  %49 = load i32, ptr @PyFloat_Type, align 8
-  %add.i.i.i.i.i = add i32 %49, 1
+  %47 = load i32, ptr @PyFloat_Type, align 8
+  %add.i.i.i.i.i = add i32 %47, 1
   %cmp.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_PyObject_Init.exit.i.i.i, label %if.end.i.i.i.i.i
 
@@ -6141,13 +6140,12 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i.i
 
 if.end4.i:                                        ; preds = %if.then.i.i, %if.then.i
   %x.2.i = phi double [ %.val.i, %if.then.i ], [ %call2.i18.i, %if.then.i.i ]
-  %5 = tail call double @llvm.fabs.f64(double %x.2.i)
-  %or.cond.i = fcmp ueq double %5, 0x7FF0000000000000
+  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %x.2.i, i32 519)
   br i1 %or.cond.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %6 = getelementptr i8, ptr %self, i64 16
-  %v.val.i.i = load double, ptr %6, align 8
+  %5 = getelementptr i8, ptr %self, i64 16
+  %v.val.i.i = load double, ptr %5, align 8
   %call1.i.i = tail call ptr @PyOS_double_to_string(double noundef %v.val.i.i, i8 noundef signext 114, i32 noundef 0, i32 noundef 2, ptr noundef null) #17
   %tobool.not.i19.i = icmp eq ptr %call1.i.i, null
   br i1 %tobool.not.i19.i, label %if.then.i22.i, label %if.end.i.i
@@ -6167,8 +6165,8 @@ if.end8.i:                                        ; preds = %if.end4.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end16.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %x.2.i)
-  %cmp11.i = fcmp oeq double %7, -1.000000e+00
+  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %x.2.i)
+  %cmp11.i = fcmp oeq double %6, -1.000000e+00
   br i1 %cmp11.i, label %if.then12.i, label %if.else14.i
 
 if.then12.i:                                      ; preds = %if.then10.i
@@ -6181,19 +6179,19 @@ if.else14.i:                                      ; preds = %if.then10.i
 
 if.end16.i:                                       ; preds = %if.end8.i, %land.lhs.true.i.i
   %x.24346.i = phi double [ %x.2.i, %if.end8.i ], [ -1.000000e+00, %land.lhs.true.i.i ]
-  %8 = phi double [ %5, %if.end8.i ], [ 1.000000e+00, %land.lhs.true.i.i ]
-  %call17.i = call double @frexp(double noundef %8, ptr noundef nonnull %e.i) #17
-  %9 = load i32, ptr %e.i, align 4
-  %sub.i = sub i32 -1021, %9
+  %7 = tail call double @llvm.fabs.f64(double %x.24346.i)
+  %call17.i = call double @frexp(double noundef %7, ptr noundef nonnull %e.i) #17
+  %8 = load i32, ptr %e.i, align 4
+  %sub.i = sub i32 -1021, %8
   %cond.i = tail call i32 @llvm.smax.i32(i32 %sub.i, i32 0)
   %sub20.i = sub nsw i32 1, %cond.i
   %call21.i = tail call double @ldexp(double noundef %call17.i, i32 noundef %sub20.i) #17
   %conv.i = fptosi double %call21.i to i32
-  %10 = load ptr, ptr @Py_hexdigits, align 8
+  %9 = load ptr, ptr @Py_hexdigits, align 8
   %idxprom.i.i = sext i32 %conv.i to i64
-  %arrayidx.i.i = getelementptr i8, ptr %10, i64 %idxprom.i.i
-  %11 = load i8, ptr %arrayidx.i.i, align 1
-  store i8 %11, ptr %s.i, align 16
+  %arrayidx.i.i = getelementptr i8, ptr %9, i64 %idxprom.i.i
+  %10 = load i8, ptr %arrayidx.i.i, align 1
+  store i8 %10, ptr %s.i, align 16
   %conv25.i = sitofp i32 %conv.i to double
   %sub26.i = fsub double %call21.i, %conv25.i
   %arrayidx28.i = getelementptr inbounds [16 x i8], ptr %s.i, i64 0, i64 1
@@ -6206,10 +6204,10 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %mul.i = fmul double %m.037.i, 1.600000e+01
   %conv32.i = fptosi double %mul.i to i32
   %idxprom.i24.i = sext i32 %conv32.i to i64
-  %arrayidx.i25.i = getelementptr i8, ptr %10, i64 %idxprom.i24.i
-  %12 = load i8, ptr %arrayidx.i25.i, align 1
+  %arrayidx.i25.i = getelementptr i8, ptr %9, i64 %idxprom.i24.i
+  %11 = load i8, ptr %arrayidx.i25.i, align 1
   %arrayidx35.i = getelementptr [16 x i8], ptr %s.i, i64 0, i64 %indvars.iv.i
-  store i8 %12, ptr %arrayidx35.i, align 1
+  store i8 %11, ptr %arrayidx35.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %conv38.i = sitofp i32 %conv32.i to double
   %sub39.i = fsub double %mul.i, %conv38.i
@@ -6217,7 +6215,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !25
 
 for.end.i:                                        ; preds = %for.body.i
-  %sub22.i = sub i32 %9, %sub20.i
+  %sub22.i = sub i32 %8, %sub20.i
   %arrayidx42.i = getelementptr inbounds [16 x i8], ptr %s.i, i64 0, i64 15
   store i8 0, ptr %arrayidx42.i, align 1
   %cmp43.i = icmp slt i32 %sub22.i, 0
@@ -6254,18 +6252,17 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %float_is_integer_impl.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %0 = tail call double @llvm.fabs.f64(double %call.i)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %1, label %float_is_integer_impl.exit, label %if.end3.i
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %0, label %if.end3.i, label %float_is_integer_impl.exit
 
 if.end3.i:                                        ; preds = %if.end.i
   %call4.i = tail call ptr @__errno_location() #20
   store i32 0, ptr %call4.i, align 4
-  %2 = tail call double @llvm.floor.f64(double %call.i)
-  %cmp5.i = fcmp oeq double %2, %call.i
+  %1 = tail call double @llvm.floor.f64(double %call.i)
+  %cmp5.i = fcmp oeq double %1, %call.i
   %cond.i = select i1 %cmp5.i, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
-  %3 = load i32, ptr %cond.i, align 8
-  %add.i.i.i = add i32 %3, 1
+  %2 = load i32, ptr %cond.i, align 8
+  %add.i.i.i = add i32 %2, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %float_is_integer_impl.exit, label %if.end.i.i.i
 

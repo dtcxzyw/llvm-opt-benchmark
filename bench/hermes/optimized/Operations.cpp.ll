@@ -5763,14 +5763,16 @@ sw.bb180.loopexit:                                ; preds = %while.body, %while.
 
 sw.bb180:                                         ; preds = %sw.bb180.loopexit, %sw.bb179
   %35 = phi double [ %.pre, %sw.bb179 ], [ %34, %sw.bb180.loopexit ]
-  %36 = tail call double @llvm.fabs.f64(double %35)
-  %or.cond5.i = fcmp one double %36, 0x7FF0000000000000
+  %or.cond5.i = tail call i1 @llvm.is.fpclass.f64(double %35, i32 519)
+  br i1 %or.cond5.i, label %return, label %_ZN6hermes2vm16isIntegralNumberEd.exit
+
+_ZN6hermes2vm16isIntegralNumberEd.exit:           ; preds = %sw.bb180
+  %36 = tail call noundef double @llvm.fabs.f64(double %35)
   %37 = tail call double @llvm.floor.f64(double %36)
   %cmp7.i = fcmp oeq double %37, %36
-  %or.cond = and i1 %or.cond5.i, %cmp7.i
-  br i1 %or.cond, label %if.end185, label %return
+  br i1 %cmp7.i, label %if.end185, label %return
 
-if.end185:                                        ; preds = %sw.bb180
+if.end185:                                        ; preds = %_ZN6hermes2vm16isIntegralNumberEd.exit
   %call188 = tail call { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive10fromDoubleERNS0_7RuntimeEd(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, double noundef %35) #18
   %38 = extractvalue { i32, i64 } %call188, 0
   %cmp.i121 = icmp eq i32 %38, 0
@@ -5797,8 +5799,8 @@ if.end192:                                        ; preds = %if.end185
 return.loopexit:                                  ; preds = %while.body, %while.body, %while.body, %while.body
   br label %return
 
-return:                                           ; preds = %sw.bb166, %sw.bb154, %if.end, %sw.bb70, %while.body, %return.loopexit, %sw.bb180, %if.end185, %if.end192, %sw.bb138, %sw.bb126, %sw.bb119, %sw.bb103, %sw.bb91, %sw.bb85, %sw.bb59, %sw.bb48, %sw.bb41, %sw.bb34, %sw.bb28, %sw.bb23
-  %retval.sroa.0.0 = phi i32 [ %bf.set.i134, %if.end192 ], [ %bf.set.i103, %sw.bb138 ], [ %bf.set.i92, %sw.bb126 ], [ %bf.set.i86, %sw.bb119 ], [ %bf.set.i77, %sw.bb103 ], [ %bf.set.i67, %sw.bb91 ], [ %bf.set.i61, %sw.bb85 ], [ %bf.set.i50, %sw.bb59 ], [ %bf.set.i46, %sw.bb48 ], [ %bf.set.i39, %sw.bb41 ], [ %bf.set.i35, %sw.bb34 ], [ %bf.set.i29, %sw.bb28 ], [ %bf.set.i, %sw.bb23 ], [ 0, %if.end185 ], [ 1, %sw.bb180 ], [ 1, %while.body ], [ 0, %sw.bb166 ], [ 0, %sw.bb154 ], [ 1, %if.end ], [ 0, %sw.bb70 ], [ 257, %return.loopexit ]
+return:                                           ; preds = %sw.bb166, %sw.bb154, %if.end, %sw.bb70, %while.body, %return.loopexit, %sw.bb180, %if.end185, %_ZN6hermes2vm16isIntegralNumberEd.exit, %if.end192, %sw.bb138, %sw.bb126, %sw.bb119, %sw.bb103, %sw.bb91, %sw.bb85, %sw.bb59, %sw.bb48, %sw.bb41, %sw.bb34, %sw.bb28, %sw.bb23
+  %retval.sroa.0.0 = phi i32 [ %bf.set.i134, %if.end192 ], [ %bf.set.i103, %sw.bb138 ], [ %bf.set.i92, %sw.bb126 ], [ %bf.set.i86, %sw.bb119 ], [ %bf.set.i77, %sw.bb103 ], [ %bf.set.i67, %sw.bb91 ], [ %bf.set.i61, %sw.bb85 ], [ %bf.set.i50, %sw.bb59 ], [ %bf.set.i46, %sw.bb48 ], [ %bf.set.i39, %sw.bb41 ], [ %bf.set.i35, %sw.bb34 ], [ %bf.set.i29, %sw.bb28 ], [ %bf.set.i, %sw.bb23 ], [ 1, %_ZN6hermes2vm16isIntegralNumberEd.exit ], [ 0, %if.end185 ], [ 1, %sw.bb180 ], [ 1, %while.body ], [ 0, %sw.bb166 ], [ 0, %sw.bb154 ], [ 1, %if.end ], [ 0, %sw.bb70 ], [ 257, %return.loopexit ]
   ret i32 %retval.sroa.0.0
 }
 
@@ -5970,11 +5972,11 @@ return:                                           ; preds = %if.end20, %_ZNSt8op
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN6hermes2vm16isIntegralNumberEd(double noundef %number) local_unnamed_addr #7 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %number)
-  %or.cond5 = fcmp ueq double %0, 0x7FF0000000000000
+  %or.cond5 = tail call i1 @llvm.is.fpclass.f64(double %number, i32 519)
   br i1 %or.cond5, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %0 = tail call noundef double @llvm.fabs.f64(double %number)
   %1 = tail call double @llvm.floor.f64(double %0)
   %cmp7 = fcmp oeq double %1, %0
   br label %return
@@ -9478,14 +9480,16 @@ return:                                           ; preds = %if.then181, %if.the
 define hidden { i32, i64 } @_ZN6hermes2vm14numberToBigIntERNS0_7RuntimeEd(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, double noundef %number) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %0 = tail call double @llvm.fabs.f64(double %number)
-  %or.cond5.i = fcmp one double %0, 0x7FF0000000000000
+  %or.cond5.i = tail call i1 @llvm.is.fpclass.f64(double %number, i32 519)
+  br i1 %or.cond5.i, label %if.then, label %_ZN6hermes2vm16isIntegralNumberEd.exit
+
+_ZN6hermes2vm16isIntegralNumberEd.exit:           ; preds = %entry
+  %0 = tail call noundef double @llvm.fabs.f64(double %number)
   %1 = tail call double @llvm.floor.f64(double %0)
   %cmp7.i = fcmp oeq double %1, %0
-  %or.cond = and i1 %or.cond5.i, %cmp7.i
-  br i1 %or.cond, label %if.end, label %if.then
+  br i1 %cmp7.i, label %if.end, label %if.then
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %entry, %_ZN6hermes2vm16isIntegralNumberEd.exit
   %rightKind_.i3.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 3
   store i32 1, ptr %rightKind_.i3.i, align 8
   %leftSize_.i4.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 4
@@ -9498,7 +9502,7 @@ if.then:                                          ; preds = %entry
   %call1 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #18
   br label %return
 
-if.end:                                           ; preds = %entry
+if.end:                                           ; preds = %_ZN6hermes2vm16isIntegralNumberEd.exit
   %call2 = tail call { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive10fromDoubleERNS0_7RuntimeEd(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, double noundef %number) #18
   %3 = extractvalue { i32, i64 } %call2, 0
   %4 = extractvalue { i32, i64 } %call2, 1
@@ -9905,6 +9909,9 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 declare { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), i32, ptr, i32, ptr noundef) local_unnamed_addr #1
 
 declare noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212), i64) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #6
 
 declare noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

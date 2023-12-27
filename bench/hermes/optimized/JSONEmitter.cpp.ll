@@ -320,27 +320,26 @@ define hidden void @_ZN6hermes11JSONEmitter9emitValueEd(ptr nocapture noundef no
 entry:
   %buf8 = alloca [32 x i8], align 16
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %0 = tail call double @llvm.fabs.f64(double %val)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.else, label %if.then
+  %0 = tail call noundef i1 @llvm.is.fpclass.f64(double %val, i32 504)
+  br i1 %0, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %call2 = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %val, ptr noundef nonnull %buf8, i64 noundef 32) #10
   %OS = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
-  %2 = load ptr, ptr %OS, align 8
+  %1 = load ptr, ptr %OS, align 8
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf8) #11
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 2
-  %3 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 3
-  %4 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %4 to i64
+  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %2 = load ptr, ptr %OutBufEnd.i5.i, align 8
+  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %3 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
   %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, %call.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call3.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull %buf8, i64 noundef %call.i.i) #10
+  %call3.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull %buf8, i64 noundef %call.i.i) #10
   br label %if.end
 
 if.end.i.i:                                       ; preds = %if.then
@@ -348,33 +347,33 @@ if.end.i.i:                                       ; preds = %if.then
   br i1 %tobool.not.i.i, label %if.end, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 16 %buf8, i64 %call.i.i, i1 false)
-  %5 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %call.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 16 %buf8, i64 %call.i.i, i1 false)
+  %4 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %call.i.i
   store ptr %add.ptr.i.i, ptr %OutBufCur.i6.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %OS5 = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %this, i64 0, i32 1
-  %6 = load ptr, ptr %OS5, align 8
-  %OutBufEnd.i5.i3 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 2
-  %7 = load ptr, ptr %OutBufEnd.i5.i3, align 8
-  %OutBufCur.i6.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 3
-  %8 = load ptr, ptr %OutBufCur.i6.i4, align 8
-  %sub.ptr.lhs.cast.i7.i5 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i8.i6 = ptrtoint ptr %8 to i64
+  %5 = load ptr, ptr %OS5, align 8
+  %OutBufEnd.i5.i3 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 2
+  %6 = load ptr, ptr %OutBufEnd.i5.i3, align 8
+  %OutBufCur.i6.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 3
+  %7 = load ptr, ptr %OutBufCur.i6.i4, align 8
+  %sub.ptr.lhs.cast.i7.i5 = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i8.i6 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i9.i7 = sub i64 %sub.ptr.lhs.cast.i7.i5, %sub.ptr.rhs.cast.i8.i6
   %cmp.i.i8 = icmp ult i64 %sub.ptr.sub.i9.i7, 4
   br i1 %cmp.i.i8, label %if.then.i.i14, label %if.then4.i.i11
 
 if.then.i.i14:                                    ; preds = %if.else
-  %call3.i.i15 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull @.str.2, i64 noundef 4) #10
+  %call3.i.i15 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull @.str.2, i64 noundef 4) #10
   br label %if.end
 
 if.then4.i.i11:                                   ; preds = %if.else
-  store i32 1819047278, ptr %8, align 1
-  %9 = load ptr, ptr %OutBufCur.i6.i4, align 8
-  %add.ptr.i.i12 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 1819047278, ptr %7, align 1
+  %8 = load ptr, ptr %OutBufCur.i6.i4, align 8
+  %add.ptr.i.i12 = getelementptr inbounds i8, ptr %8, i64 4
   store ptr %add.ptr.i.i12, ptr %OutBufCur.i6.i4, align 8
   br label %if.end
 
@@ -1547,6 +1546,9 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5w
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #5
+
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1666,7 +1668,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
@@ -1738,10 +1740,7 @@ _ZNK4llvh5Twine6concatERKS0_.exit:                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #7
+declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
@@ -1757,9 +1756,9 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }

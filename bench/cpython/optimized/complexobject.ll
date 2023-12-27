@@ -1134,15 +1134,16 @@ declare double @sin(double noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define dso_local double @_Py_c_abs(double %z.coerce0, double %z.coerce1) local_unnamed_addr #5 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond, label %if.then, label %if.end11
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce0, i32 504)
+  br i1 %0, label %lor.lhs.false, label %if.then
 
-if.then:                                          ; preds = %entry
-  %isinf = fcmp oeq double %0, 0x7FF0000000000000
+lor.lhs.false:                                    ; preds = %entry
+  %1 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %1, label %if.end11, label %if.then
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  %2 = tail call double @llvm.fabs.f64(double %z.coerce0) #16
+  %isinf = fcmp oeq double %2, 0x7FF0000000000000
   br i1 %isinf, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
@@ -1151,7 +1152,8 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %isinf5 = fcmp oeq double %2, 0x7FF0000000000000
+  %3 = tail call double @llvm.fabs.f64(double %z.coerce1) #16
+  %isinf5 = fcmp oeq double %3, 0x7FF0000000000000
   br i1 %isinf5, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end
@@ -1159,25 +1161,27 @@ if.then7:                                         ; preds = %if.end
   store i32 0, ptr %call9, align 4
   br label %return
 
-if.end11:                                         ; preds = %entry
+if.end11:                                         ; preds = %lor.lhs.false
   %call14 = tail call double @hypot(double noundef %z.coerce0, double noundef %z.coerce1) #15
-  %4 = tail call double @llvm.fabs.f64(double %call14)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %call16 = tail call ptr @__errno_location() #14
-  br i1 %5, label %if.then15, label %if.else
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call14, i32 504)
+  %call17 = tail call ptr @__errno_location() #14
+  br i1 %4, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end11
-  store i32 34, ptr %call16, align 4
+  store i32 34, ptr %call17, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end11
-  store i32 0, ptr %call16, align 4
+  store i32 0, ptr %call17, align 4
   br label %return
 
 return:                                           ; preds = %if.then15, %if.else, %if.end, %if.then7, %if.then2
   %retval.0 = phi double [ 0x7FF0000000000000, %if.then2 ], [ 0x7FF0000000000000, %if.then7 ], [ 0x7FF8000000000000, %if.end ], [ %call14, %if.else ], [ %call14, %if.then15 ]
   ret double %retval.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #2
@@ -3005,10 +3009,9 @@ if.end30:                                         ; preds = %if.else27, %c_powi.
   %call26.pn = phi { double, double } [ %call.pn.i, %c_powi.exit ], [ %call29, %if.else27 ]
   %p.sroa.4.0 = extractvalue { double, double } %call26.pn, 1
   %p.sroa.0.0 = extractvalue { double, double } %call26.pn, 0
-  %83 = tail call double @llvm.fabs.f64(double %p.sroa.0.0)
-  %or.cond.i = fcmp oeq double %83, 0x7FF0000000000000
+  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %p.sroa.0.0, i32 516)
   %cmp3.i = fcmp oeq double %p.sroa.4.0, 0x7FF0000000000000
-  %or.cond1.i = or i1 %cmp3.i, %or.cond.i
+  %or.cond1.i = or i1 %or.cond.i, %cmp3.i
   %cmp5.i = fcmp oeq double %p.sroa.4.0, 0xFFF0000000000000
   %or.cond2.i = or i1 %cmp5.i, %or.cond1.i
   br i1 %or.cond2.i, label %if.then.i39, label %if.else.i37
@@ -3027,20 +3030,20 @@ if.end14.sink.split.i:                            ; preds = %if.else.i37, %if.th
   br label %_Py_ADJUST_ERANGE2.exit
 
 _Py_ADJUST_ERANGE2.exit:                          ; preds = %if.then.i39, %if.else.i37, %if.end14.sink.split.i
-  %84 = phi i32 [ %82, %if.then.i39 ], [ %82, %if.else.i37 ], [ %.sink.i, %if.end14.sink.split.i ]
-  switch i32 %84, label %if.end43 [
+  %83 = phi i32 [ %82, %if.then.i39 ], [ %82, %if.else.i37 ], [ %.sink.i, %if.end14.sink.split.i ]
+  switch i32 %83, label %if.end43 [
     i32 33, label %if.then36
     i32 34, label %if.then41
   ]
 
 if.then36:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
-  %85 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
-  tail call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull @.str.8) #15
+  %84 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
+  tail call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.8) #15
   br label %return
 
 if.then41:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
-  %86 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %86, ptr noundef nonnull @.str.9) #15
+  %85 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull @.str.9) #15
   br label %return
 
 if.end43:                                         ; preds = %_Py_ADJUST_ERANGE2.exit
@@ -3055,14 +3058,14 @@ if.then.i48:                                      ; preds = %if.end43
 if.end.i:                                         ; preds = %if.end43
   %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i40, i64 0, i32 1
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
-  %87 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
-  %88 = and i64 %87, 512
-  %tobool.not.i.i42 = icmp eq i64 %88, 0
+  %86 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
+  %87 = and i64 %86, 512
+  %tobool.not.i.i42 = icmp eq i64 %87, 0
   br i1 %tobool.not.i.i42, label %_PyObject_Init.exit.i, label %if.then.i.i43
 
 if.then.i.i43:                                    ; preds = %if.end.i
-  %89 = load i32, ptr @PyComplex_Type, align 8
-  %add.i.i.i44 = add i32 %89, 1
+  %88 = load i32, ptr @PyComplex_Type, align 8
+  %add.i.i.i44 = add i32 %88, 1
   %cmp.i.i.i45 = icmp eq i32 %add.i.i.i44, 0
   br i1 %cmp.i.i.i45, label %_PyObject_Init.exit.i, label %if.end.i.i.i46
 
@@ -3191,15 +3194,16 @@ entry:
   %0 = load double, ptr %cval, align 8
   %1 = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1, i32 1
   %2 = load double, ptr %1, align 8
-  %3 = tail call double @llvm.fabs.f64(double %0)
-  %4 = fcmp ueq double %3, 0x7FF0000000000000
-  %5 = tail call double @llvm.fabs.f64(double %2)
-  %6 = fcmp ueq double %5, 0x7FF0000000000000
-  %or.cond.i = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond.i, label %if.then.i, label %if.end11.i
+  %3 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  br i1 %3, label %lor.lhs.false.i, label %if.then.i
 
-if.then.i:                                        ; preds = %entry
-  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+lor.lhs.false.i:                                  ; preds = %entry
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %2, i32 504)
+  br i1 %4, label %if.end11.i, label %if.then.i
+
+if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
+  %5 = tail call double @llvm.fabs.f64(double %0) #16
+  %isinf.i = fcmp oeq double %5, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -3207,19 +3211,19 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %if.end.sink.split
 
 if.end.i:                                         ; preds = %if.then.i
-  %isinf5.i = fcmp oeq double %5, 0x7FF0000000000000
+  %6 = tail call double @llvm.fabs.f64(double %2) #16
+  %isinf5.i = fcmp oeq double %6, 0x7FF0000000000000
   %call9.i = tail call ptr @__errno_location() #14
   br i1 %isinf5.i, label %if.end.sink.split, label %_Py_c_abs.exit
 
-if.end11.i:                                       ; preds = %entry
+if.end11.i:                                       ; preds = %lor.lhs.false.i
   %call14.i = tail call double @hypot(double noundef %0, double noundef %2) #15
-  %7 = tail call double @llvm.fabs.f64(double %call14.i)
-  %8 = fcmp ueq double %7, 0x7FF0000000000000
-  %call16.i = tail call ptr @__errno_location() #14
-  br i1 %8, label %_Py_c_abs.exit.thread5, label %if.end.sink.split
+  %7 = tail call i1 @llvm.is.fpclass.f64(double %call14.i, i32 504)
+  %call17.i = tail call ptr @__errno_location() #14
+  br i1 %7, label %if.end.sink.split, label %_Py_c_abs.exit.thread5
 
 _Py_c_abs.exit.thread5:                           ; preds = %if.end11.i
-  store i32 34, ptr %call16.i, align 4
+  store i32 34, ptr %call17.i, align 4
   br label %if.then
 
 _Py_c_abs.exit:                                   ; preds = %if.end.i
@@ -3228,14 +3232,14 @@ _Py_c_abs.exit:                                   ; preds = %if.end.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_Py_c_abs.exit.thread5, %_Py_c_abs.exit
-  %9 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.10) #15
+  %8 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.10) #15
   br label %return
 
 if.end.sink.split:                                ; preds = %if.end11.i, %if.end.i, %if.then2.i
-  %call16.i.sink = phi ptr [ %call.i, %if.then2.i ], [ %call9.i, %if.end.i ], [ %call16.i, %if.end11.i ]
+  %call17.i.sink = phi ptr [ %call.i, %if.then2.i ], [ %call9.i, %if.end.i ], [ %call17.i, %if.end11.i ]
   %retval.0.i4.ph = phi double [ 0x7FF0000000000000, %if.then2.i ], [ 0x7FF0000000000000, %if.end.i ], [ %call14.i, %if.end11.i ]
-  store i32 0, ptr %call16.i.sink, align 4
+  store i32 0, ptr %call17.i.sink, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %_Py_c_abs.exit
@@ -3988,6 +3992,7 @@ attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind willreturn memory(none) }
 attributes #15 = { nounwind }
+attributes #16 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

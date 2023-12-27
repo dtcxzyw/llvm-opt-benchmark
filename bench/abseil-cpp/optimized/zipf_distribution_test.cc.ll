@@ -4305,8 +4305,8 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %for.cond
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %agg.tmp.sroa.2.0.copyload.i.i.i.pre.i.i, %for.cond ]
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.i.pre.i.i, %for.cond ]
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = phi i64 [ %agg.tmp.sroa.2.0.copyload.i.i.i.pre.i.i, %for.cond ], [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i.i.pre.i.i, %for.cond ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i = zext i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i to i128
@@ -6700,7 +6700,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %for.cond
-  %2 = phi i64 [ %inc.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.pre.i.i, %for.cond ]
+  %2 = phi i64 [ %.pre.i.i, %for.cond ], [ %inc.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
   %inc.i.i.i.i.i = add i64 %2, 1
   store i64 %inc.i.i.i.i.i, ptr %g, align 8
   %rem.i.i.i.i.i = urem i64 %2, %sub.ptr.div.i.i.i.i.i.i

@@ -553,49 +553,50 @@ if.then29:                                        ; preds = %if.end25
 
 if.end33:                                         ; preds = %if.end25
   %conv = fptoui double %9 to i32
-  %cmp34.not = icmp ne i32 %conv, 10
-  %11 = tail call double @llvm.fabs.f64(double %number.0)
-  %12 = fcmp one double %11, 0x7FF0000000000000
-  %or.cond43 = select i1 %cmp34.not, i1 %12, i1 false
-  br i1 %or.cond43, label %if.then36, label %if.end45
+  %cmp34.not = icmp eq i32 %conv, 10
+  br i1 %cmp34.not, label %if.end45, label %land.lhs.true
 
-if.then36:                                        ; preds = %if.end33
+land.lhs.true:                                    ; preds = %if.end33
+  %11 = tail call noundef i1 @llvm.is.fpclass.f64(double %number.0, i32 504)
+  br i1 %11, label %if.then36, label %if.end45
+
+if.then36:                                        ; preds = %land.lhs.true
   %call39 = tail call ptr @_ZN6hermes2vm23numberToStringWithRadixERNS0_7RuntimeEdj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, double noundef %number.0, i32 noundef %conv) #13
   %retval.sroa.0.0.copyload.i29 = load i64, ptr %call39, align 8
   br label %return
 
-if.end45:                                         ; preds = %if.end9, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, %if.end33
-  %13 = fcmp uno double %number.0, 0.000000e+00
-  %14 = bitcast double %number.0 to i64
-  %retval.sroa.0.0.i30 = select i1 %13, i64 9221120237041090560, i64 %14
+if.end45:                                         ; preds = %if.end9, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, %land.lhs.true, %if.end33
+  %12 = fcmp uno double %number.0, 0.000000e+00
+  %13 = bitcast double %number.0 to i64
+  %retval.sroa.0.0.i30 = select i1 %12, i64 9221120237041090560, i64 %13
   %topGCScope_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %runtime, i64 0, i32 1
-  %15 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %15, i64 0, i32 4
-  %16 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %15, i64 0, i32 5
-  %17 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp ult ptr %16, %17
+  %14 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %14, i64 0, i32 4
+  %15 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %14, i64 0, i32 5
+  %16 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp ult ptr %15, %16
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end45
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %16, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %15, i64 1
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
-  store i64 %retval.sroa.0.0.i30, ptr %16, align 8
+  store i64 %retval.sroa.0.0.i30, ptr %15, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end45
-  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %15, i64 %retval.sroa.0.0.i30) #13
+  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %14, i64 %retval.sroa.0.0.i30) #13
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi ptr [ %16, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i = phi ptr [ %15, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %call56 = tail call ptr @_ZN6hermes2vm12toString_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i) #13
   %cmp.i.i31.not = icmp eq ptr %call56, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i31.not, label %return, label %if.end62
 
 if.end62:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
-  %18 = ptrtoint ptr %call56 to i64
-  %or.i.i.i.i = or i64 %18, -844424930131968
+  %17 = ptrtoint ptr %call56 to i64
+  %or.i.i.i.i = or i64 %17, -844424930131968
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.else15, %if.end62, %if.then36, %if.then29, %if.then6
@@ -2110,9 +2111,8 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %entry
 
 _ZNK6hermes2vm10NativeArgs6getArgEj.exit7:        ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
   %3 = bitcast i64 %retval.sroa.0.0.copyload.i to double
-  %4 = tail call double @llvm.fabs.f64(double %3)
-  %5 = fcmp one double %4, 0x7FF0000000000000
-  %conv.i = zext i1 %5 to i64
+  %4 = tail call noundef i1 @llvm.is.fpclass.f64(double %3, i32 504)
+  %conv.i = zext i1 %4 to i64
   %or.i.i = or disjoint i64 %conv.i, -1407374883553280
   br label %return
 
@@ -2134,22 +2134,23 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %entry
   %2 = load ptr, ptr %args, align 8, !noalias !10
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %2, i64 -1
   %retval.sroa.0.0.copyload.i = load i64, ptr %incdec.ptr.i.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %retval.sroa.0.0.copyload.i, -1970324836974593
+  %cmp.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i, -1970324836974592
   %3 = bitcast i64 %retval.sroa.0.0.copyload.i to double
-  %4 = tail call double @llvm.fabs.f64(double %3)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond = or i1 %cmp.i.i, %5
-  br i1 %or.cond, label %return, label %if.end15
+  br i1 %cmp.i.i, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit9, label %return
 
-if.end15:                                         ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
-  %6 = tail call double @llvm.trunc.f64(double %3)
-  %cmp = fcmp oeq double %6, %3
+_ZNK6hermes2vm10NativeArgs6getArgEj.exit9:        ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
+  %4 = tail call noundef i1 @llvm.is.fpclass.f64(double %3, i32 504)
+  br i1 %4, label %if.end15, label %return
+
+if.end15:                                         ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit9
+  %5 = tail call double @llvm.trunc.f64(double %3)
+  %cmp = fcmp oeq double %5, %3
   %conv.i = zext i1 %cmp to i64
   %or.i.i = or disjoint i64 %conv.i, -1407374883553280
   br label %return
 
-return:                                           ; preds = %entry, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, %if.end15
-  %retval.sroa.4.0 = phi i64 [ %or.i.i, %if.end15 ], [ -1407374883553280, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ -1407374883553280, %entry ]
+return:                                           ; preds = %entry, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit9, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, %if.end15
+  %retval.sroa.4.0 = phi i64 [ %or.i.i, %if.end15 ], [ -1407374883553280, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ -1407374883553280, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit9 ], [ -1407374883553280, %entry ]
   %.fca.1.insert = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
@@ -2194,27 +2195,28 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %entry
   %2 = load ptr, ptr %args, align 8, !noalias !10
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %2, i64 -1
   %retval.sroa.0.0.copyload.i = load i64, ptr %incdec.ptr.i.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %retval.sroa.0.0.copyload.i, -1970324836974593
+  %cmp.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i, -1970324836974592
   %3 = bitcast i64 %retval.sroa.0.0.copyload.i to double
-  %4 = tail call double @llvm.fabs.f64(double %3)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond = or i1 %cmp.i.i, %5
-  br i1 %or.cond, label %return, label %if.end15
+  br i1 %cmp.i.i, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit10, label %return
 
-if.end15:                                         ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
-  %6 = tail call double @llvm.trunc.f64(double %3)
-  %cmp = fcmp une double %6, %3
+_ZNK6hermes2vm10NativeArgs6getArgEj.exit10:       ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
+  %4 = tail call noundef i1 @llvm.is.fpclass.f64(double %3, i32 504)
+  br i1 %4, label %if.end15, label %return
+
+if.end15:                                         ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit10
+  %5 = tail call double @llvm.trunc.f64(double %3)
+  %cmp = fcmp une double %5, %3
   br i1 %cmp, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end15
-  %7 = tail call noundef double @llvm.fabs.f64(double %6)
-  %cmp24 = fcmp ole double %7, 0x433FFFFFFFFFFFFF
+  %6 = tail call noundef double @llvm.fabs.f64(double %5)
+  %cmp24 = fcmp ole double %6, 0x433FFFFFFFFFFFFF
   %conv.i = zext i1 %cmp24 to i64
   %or.i.i = or disjoint i64 %conv.i, -1407374883553280
   br label %return
 
-return:                                           ; preds = %entry, %if.end15, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, %if.end21
-  %retval.sroa.5.0 = phi i64 [ %or.i.i, %if.end21 ], [ -1407374883553280, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ -1407374883553280, %if.end15 ], [ -1407374883553280, %entry ]
+return:                                           ; preds = %entry, %if.end15, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit10, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, %if.end21
+  %retval.sroa.5.0 = phi i64 [ %or.i.i, %if.end21 ], [ -1407374883553280, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ -1407374883553280, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit10 ], [ -1407374883553280, %if.end15 ], [ -1407374883553280, %entry ]
   %.fca.1.insert = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %retval.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
@@ -2548,6 +2550,9 @@ _ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %if.end.i, %if.
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 declare i32 @_ZN6hermes2vm8JSObject25defineOwnPropertyInternalENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_19DefinePropertyFlagsENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), i32, i32, ptr, i32) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5

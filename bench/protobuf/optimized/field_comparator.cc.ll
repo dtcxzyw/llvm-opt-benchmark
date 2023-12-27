@@ -1060,18 +1060,18 @@ if.then28:                                        ; preds = %if.end26.thread, %i
   %21 = load double, ptr %tolerance.127, align 8
   %margin = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %tolerance.127, i64 0, i32 1
   %22 = load double, ptr %margin, align 8
-  %23 = tail call double @llvm.fabs.f64(double %value_1)
-  %24 = fcmp ueq double %23, 0x7FF0000000000000
-  br i1 %24, label %return, label %lor.lhs.false.i
+  %23 = tail call noundef i1 @llvm.is.fpclass.f64(double %value_1, i32 504)
+  br i1 %23, label %lor.lhs.false.i, label %return
 
 lor.lhs.false.i:                                  ; preds = %if.then28
-  %25 = tail call double @llvm.fabs.f64(double %value_2)
-  %26 = fcmp ueq double %25, 0x7FF0000000000000
-  br i1 %26, label %return, label %if.end.i
+  %24 = tail call noundef i1 @llvm.is.fpclass.f64(double %value_2, i32 504)
+  br i1 %24, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp.i.i13 = fcmp olt double %23, %25
-  %.sroa.speculated.i = select i1 %cmp.i.i13, double %25, double %23
+  %25 = tail call double @llvm.fabs.f64(double %value_1)
+  %26 = tail call double @llvm.fabs.f64(double %value_2)
+  %cmp.i.i13 = fcmp olt double %25, %26
+  %.sroa.speculated.i = select i1 %cmp.i.i13, double %26, double %25
   %mul.i = fmul double %.sroa.speculated.i, %21
   %sub.i = fsub double %value_1, %value_2
   %27 = tail call double @llvm.fabs.f64(double %sub.i)
@@ -1089,24 +1089,26 @@ if.else30:                                        ; preds = %if.end26
   br i1 %or.cond, label %if.end35, label %return
 
 if.end35:                                         ; preds = %if.else30
-  %30 = fcmp ueq double %28, 0x7FF0000000000000
-  %31 = fcmp ueq double %29, 0x7FF0000000000000
-  %or.cond32 = or i1 %30, %31
-  br i1 %or.cond32, label %return, label %if.end.i15
+  %30 = tail call noundef i1 @llvm.is.fpclass.f64(double %value_1, i32 504)
+  br i1 %30, label %lor.lhs.false.i15, label %return
 
-if.end.i15:                                       ; preds = %if.end35
-  %cmp.i.i16 = fcmp olt double %28, %29
-  %.sroa.speculated.i17 = select i1 %cmp.i.i16, double %29, double %28
-  %mul.i18 = fmul double %.sroa.speculated.i17, 0x3D00000000000000
-  %sub.i19 = fsub double %value_1, %value_2
-  %32 = tail call double @llvm.fabs.f64(double %sub.i19)
-  %cmp.i5.i20 = fcmp ogt double %mul.i18, 0x3D00000000000000
-  %.sroa.speculated7.i21 = select i1 %cmp.i5.i20, double %mul.i18, double 0x3D00000000000000
-  %cmp.i22 = fcmp ole double %32, %.sroa.speculated7.i21
+lor.lhs.false.i15:                                ; preds = %if.end35
+  %31 = tail call noundef i1 @llvm.is.fpclass.f64(double %value_2, i32 504)
+  br i1 %31, label %if.end.i16, label %return
+
+if.end.i16:                                       ; preds = %lor.lhs.false.i15
+  %cmp.i.i17 = fcmp olt double %28, %29
+  %.sroa.speculated.i18 = select i1 %cmp.i.i17, double %29, double %28
+  %mul.i19 = fmul double %.sroa.speculated.i18, 0x3D00000000000000
+  %sub.i20 = fsub double %value_1, %value_2
+  %32 = tail call double @llvm.fabs.f64(double %sub.i20)
+  %cmp.i5.i21 = fcmp ogt double %mul.i19, 0x3D00000000000000
+  %.sroa.speculated7.i22 = select i1 %cmp.i5.i21, double %mul.i19, double 0x3D00000000000000
+  %cmp.i23 = fcmp ole double %32, %.sroa.speculated7.i22
   br label %return
 
-return:                                           ; preds = %if.else, %if.end.i15, %if.end35, %if.end.i, %lor.lhs.false.i, %if.then28, %if.else30, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %if.else30 ], [ %cmp.i, %if.end.i ], [ false, %lor.lhs.false.i ], [ false, %if.then28 ], [ %cmp.i22, %if.end.i15 ], [ false, %if.end35 ], [ %or.cond29.mux, %if.else ]
+return:                                           ; preds = %if.else, %if.end.i16, %lor.lhs.false.i15, %if.end35, %if.end.i, %lor.lhs.false.i, %if.then28, %if.else30, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ true, %if.else30 ], [ %cmp.i, %if.end.i ], [ false, %lor.lhs.false.i ], [ false, %if.then28 ], [ %cmp.i23, %if.end.i16 ], [ false, %lor.lhs.false.i15 ], [ false, %if.end35 ], [ %or.cond29.mux, %if.else ]
   ret i1 %retval.0
 }
 
@@ -1234,21 +1236,23 @@ if.end26:                                         ; preds = %_ZN4absl12lts_20230
 
 if.then28:                                        ; preds = %if.end26.thread, %if.end26
   %tolerance.127 = phi ptr [ %second, %if.end26.thread ], [ %default_tolerance_, %if.end26 ]
-  %21 = tail call float @llvm.fabs.f32(float %value_1)
-  %22 = fcmp one float %21, 0x7FF0000000000000
-  %23 = tail call float @llvm.fabs.f32(float %value_2)
-  %24 = fcmp one float %23, 0x7FF0000000000000
-  %or.cond.i = and i1 %22, %24
-  br i1 %or.cond.i, label %if.end.i, label %return
-
-if.end.i:                                         ; preds = %if.then28
+  %21 = load double, ptr %tolerance.127, align 8
+  %conv = fptrunc double %21 to float
   %margin = getelementptr inbounds %"struct.google::protobuf::util::SimpleFieldComparator::Tolerance", ptr %tolerance.127, i64 0, i32 1
-  %25 = load double, ptr %margin, align 8
-  %conv29 = fptrunc double %25 to float
-  %26 = load double, ptr %tolerance.127, align 8
-  %conv = fptrunc double %26 to float
-  %cmp.i.i13 = fcmp olt float %21, %23
-  %.sroa.speculated.i = select i1 %cmp.i.i13, float %23, float %21
+  %22 = load double, ptr %margin, align 8
+  %conv29 = fptrunc double %22 to float
+  %23 = tail call noundef i1 @llvm.is.fpclass.f32(float %value_1, i32 504)
+  br i1 %23, label %lor.lhs.false.i, label %return
+
+lor.lhs.false.i:                                  ; preds = %if.then28
+  %24 = tail call noundef i1 @llvm.is.fpclass.f32(float %value_2, i32 504)
+  br i1 %24, label %if.end.i, label %return
+
+if.end.i:                                         ; preds = %lor.lhs.false.i
+  %25 = tail call noundef float @llvm.fabs.f32(float %value_1)
+  %26 = tail call noundef float @llvm.fabs.f32(float %value_2)
+  %cmp.i.i13 = fcmp olt float %25, %26
+  %.sroa.speculated.i = select i1 %cmp.i.i13, float %26, float %25
   %mul.i = fmul float %.sroa.speculated.i, %conv
   %sub.i = fsub float %value_1, %value_2
   %27 = tail call noundef float @llvm.fabs.f32(float %sub.i)
@@ -1266,12 +1270,14 @@ if.else31:                                        ; preds = %if.end26
   br i1 %or.cond31, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.else31
-  %30 = fcmp one float %28, 0x7FF0000000000000
-  %31 = fcmp one float %29, 0x7FF0000000000000
-  %or.cond.i14 = and i1 %30, %31
-  br i1 %or.cond.i14, label %if.end.i16, label %return
+  %30 = tail call noundef i1 @llvm.is.fpclass.f32(float %value_1, i32 504)
+  br i1 %30, label %lor.lhs.false.i15, label %return
 
-if.end.i16:                                       ; preds = %if.end38
+lor.lhs.false.i15:                                ; preds = %if.end38
+  %31 = tail call noundef i1 @llvm.is.fpclass.f32(float %value_2, i32 504)
+  br i1 %31, label %if.end.i16, label %return
+
+if.end.i16:                                       ; preds = %lor.lhs.false.i15
   %cmp.i.i17 = fcmp olt float %28, %29
   %.sroa.speculated.i18 = select i1 %cmp.i.i17, float %29, float %28
   %mul.i19 = fmul float %.sroa.speculated.i18, 0x3ED0000000000000
@@ -1282,8 +1288,8 @@ if.end.i16:                                       ; preds = %if.end38
   %cmp.i23 = fcmp ole float %32, %.sroa.speculated7.i22
   br label %return
 
-return:                                           ; preds = %if.else, %if.else31, %if.end.i16, %if.end38, %if.end.i, %if.then28, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %cmp.i, %if.end.i ], [ false, %if.then28 ], [ %cmp.i23, %if.end.i16 ], [ false, %if.end38 ], [ true, %if.else31 ], [ %or.cond28.mux, %if.else ]
+return:                                           ; preds = %if.else, %if.else31, %if.end.i16, %lor.lhs.false.i15, %if.end38, %if.end.i, %lor.lhs.false.i, %if.then28, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %cmp.i, %if.end.i ], [ false, %lor.lhs.false.i ], [ false, %if.then28 ], [ %cmp.i23, %if.end.i16 ], [ false, %lor.lhs.false.i15 ], [ false, %if.end38 ], [ true, %if.else31 ], [ %or.cond28.mux, %if.else ]
   ret i1 %retval.0
 }
 
@@ -1577,6 +1583,12 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #18

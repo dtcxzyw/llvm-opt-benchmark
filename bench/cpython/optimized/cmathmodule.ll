@@ -120,20 +120,17 @@ if.end:                                           ; preds = %entry
   %1 = extractvalue { double, double } %call, 0
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
-  %2 = tail call double @llvm.fabs.f64(double %1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %0)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond.i = select i1 %3, i1 true, i1 %5
-  br i1 %or.cond.i, label %if.then.i, label %if.end.i
+  %2 = tail call i1 @llvm.is.fpclass.f64(double %1, i32 504)
+  br i1 %2, label %lor.lhs.false.i, label %if.end.i.i
 
-if.then.i:                                        ; preds = %if.end
-  br i1 %3, label %if.end.i.i, label %if.then.i.i
+lor.lhs.false.i:                                  ; preds = %if.end
+  %3 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  br i1 %3, label %if.end.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.then.i
+if.then.i.i:                                      ; preds = %lor.lhs.false.i
   %cmp.i.i = fcmp une double %1, 0.000000e+00
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp2.i.i = fcmp oeq double %6, 1.000000e+00
+  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %cmp2.i.i = fcmp oeq double %4, 1.000000e+00
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.else4.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
@@ -144,77 +141,80 @@ if.else4.i.i:                                     ; preds = %if.then.i.i
   %.6.i.i = select i1 %cmp2.i.i, i64 3, i64 2
   br label %special_type.exit.i
 
-if.end.i.i:                                       ; preds = %if.then.i
-  %7 = fcmp uno double %1, 0.000000e+00
-  br i1 %7, label %special_type.exit.i, label %if.end9.i.i
+if.end.i.i:                                       ; preds = %if.end
+  %5 = fcmp uno double %1, 0.000000e+00
+  br i1 %5, label %special_type.exit.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
-  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp10.i.i = fcmp oeq double %8, 1.000000e+00
+  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %cmp10.i.i = fcmp oeq double %6, 1.000000e+00
   %.7.i.i = select i1 %cmp10.i.i, i64 5, i64 0
   br label %special_type.exit.i
 
 special_type.exit.i:                              ; preds = %if.end9.i.i, %if.end.i.i, %if.else4.i.i, %if.then1.i.i
   %retval.0.i.i = phi i64 [ %..i.i, %if.then1.i.i ], [ %.6.i.i, %if.else4.i.i ], [ 6, %if.end.i.i ], [ %.7.i.i, %if.end9.i.i ]
-  br i1 %5, label %if.end.i35.i, label %if.then.i27.i
+  %7 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  br i1 %7, label %if.then.i30.i, label %if.end.i25.i
 
-if.then.i27.i:                                    ; preds = %special_type.exit.i
-  %cmp.i28.i = fcmp une double %0, 0.000000e+00
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp2.i29.i = fcmp oeq double %9, 1.000000e+00
-  br i1 %cmp.i28.i, label %if.then1.i33.i, label %if.else4.i30.i
+if.then.i30.i:                                    ; preds = %special_type.exit.i
+  %cmp.i31.i = fcmp une double %0, 0.000000e+00
+  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %cmp2.i32.i = fcmp oeq double %8, 1.000000e+00
+  br i1 %cmp.i31.i, label %if.then1.i35.i, label %if.else4.i33.i
 
-if.then1.i33.i:                                   ; preds = %if.then.i27.i
-  %..i34.i = select i1 %cmp2.i29.i, i64 4, i64 1
+if.then1.i35.i:                                   ; preds = %if.then.i30.i
+  %..i36.i = select i1 %cmp2.i32.i, i64 4, i64 1
   br label %cmath_acos_impl.exit
 
-if.else4.i30.i:                                   ; preds = %if.then.i27.i
-  %.6.i31.i = select i1 %cmp2.i29.i, i64 3, i64 2
+if.else4.i33.i:                                   ; preds = %if.then.i30.i
+  %.6.i34.i = select i1 %cmp2.i32.i, i64 3, i64 2
   br label %cmath_acos_impl.exit
 
-if.end.i35.i:                                     ; preds = %special_type.exit.i
-  %10 = fcmp uno double %0, 0.000000e+00
-  br i1 %10, label %cmath_acos_impl.exit, label %if.end9.i36.i
+if.end.i25.i:                                     ; preds = %special_type.exit.i
+  %9 = fcmp uno double %0, 0.000000e+00
+  br i1 %9, label %cmath_acos_impl.exit, label %if.end9.i26.i
 
-if.end9.i36.i:                                    ; preds = %if.end.i35.i
-  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp10.i37.i = fcmp oeq double %11, 1.000000e+00
-  %.7.i38.i = select i1 %cmp10.i37.i, i64 5, i64 0
+if.end9.i26.i:                                    ; preds = %if.end.i25.i
+  %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %cmp10.i27.i = fcmp oeq double %10, 1.000000e+00
+  %.7.i28.i = select i1 %cmp10.i27.i, i64 5, i64 0
   br label %cmath_acos_impl.exit
 
-if.end.i:                                         ; preds = %if.end
-  %cmp.i = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
-  %cmp10.i = fcmp ogt double %4, 0x7FCFFFFFFFFFFFFF
-  %or.cond26.i = select i1 %cmp.i, i1 true, i1 %cmp10.i
-  br i1 %or.cond26.i, label %if.then11.i, label %if.else37.i
+if.end.i:                                         ; preds = %lor.lhs.false.i
+  %11 = tail call double @llvm.fabs.f64(double %1)
+  %cmp.i = fcmp ogt double %11, 0x7FCFFFFFFFFFFFFF
+  %12 = tail call double @llvm.fabs.f64(double %0)
+  %cmp10.i = fcmp ogt double %12, 0x7FCFFFFFFFFFFFFF
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp10.i
+  br i1 %or.cond.i, label %if.then11.i, label %if.else37.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call14.i = tail call double @atan2(double noundef %4, double noundef %1) #10
+  %call14.i = tail call double @atan2(double noundef %12, double noundef %1) #10
   %div.i = fmul double %1, 5.000000e-01
   %div21.i = fmul double %0, 5.000000e-01
   %call22.i = tail call double @hypot(double noundef %div.i, double noundef %div21.i) #10
   %call23.i = tail call double @log(double noundef %call22.i) #10
   %add.i = fadd double %call23.i, 0x3FF62E42FEFA39EF
-  %12 = fneg double %0
-  %fneg.i = tail call double @llvm.copysign.f64(double %add.i, double %12)
+  %13 = fneg double %0
+  %fneg.i = tail call double @llvm.copysign.f64(double %add.i, double %13)
   br label %cmath_acos_impl.exit.thread
 
 if.else37.i:                                      ; preds = %if.end.i
   %sub.i = fsub double 1.000000e+00, %1
   %fneg41.i = fneg double %0
   %call43.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub.i, double %fneg41.i)
-  %13 = extractvalue { double, double } %call43.i, 0
-  %14 = extractvalue { double, double } %call43.i, 1
+  %14 = extractvalue { double, double } %call43.i, 0
+  %15 = extractvalue { double, double } %call43.i, 1
   %add45.i = fadd double %1, 1.000000e+00
   %call50.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %add45.i, double %0)
-  %15 = extractvalue { double, double } %call50.i, 0
-  %16 = extractvalue { double, double } %call50.i, 1
-  %call53.i = tail call double @atan2(double noundef %13, double noundef %15) #10
+  %16 = extractvalue { double, double } %call50.i, 0
+  %17 = extractvalue { double, double } %call50.i, 1
+  %call53.i = tail call double @atan2(double noundef %14, double noundef %16) #10
   %mul.i = fmul double %call53.i, 2.000000e+00
-  %17 = fneg double %16
-  %neg.i = fmul double %13, %17
-  %18 = tail call double @llvm.fmuladd.f64(double %15, double %14, double %neg.i)
-  %call61.i = tail call double @asinh(double noundef %18) #10
+  %18 = fneg double %17
+  %neg.i = fmul double %14, %18
+  %19 = tail call double @llvm.fmuladd.f64(double %16, double %15, double %neg.i)
+  %call61.i = tail call double @asinh(double noundef %19) #10
   br label %cmath_acos_impl.exit.thread
 
 cmath_acos_impl.exit.thread:                      ; preds = %if.then11.i, %if.else37.i
@@ -223,9 +223,9 @@ cmath_acos_impl.exit.thread:                      ; preds = %if.then11.i, %if.el
   store i32 0, ptr %call2, align 4
   br label %if.else10
 
-cmath_acos_impl.exit:                             ; preds = %if.then1.i33.i, %if.else4.i30.i, %if.end.i35.i, %if.end9.i36.i
-  %retval.0.i32.i = phi i64 [ %..i34.i, %if.then1.i33.i ], [ %.6.i31.i, %if.else4.i30.i ], [ 6, %if.end.i35.i ], [ %.7.i38.i, %if.end9.i36.i ]
-  %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acos_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i32.i
+cmath_acos_impl.exit:                             ; preds = %if.then1.i35.i, %if.else4.i33.i, %if.end.i25.i, %if.end9.i26.i
+  %retval.0.i29.i = phi i64 [ %..i36.i, %if.then1.i35.i ], [ %.6.i34.i, %if.else4.i33.i ], [ 6, %if.end.i25.i ], [ %.7.i28.i, %if.end9.i26.i ]
+  %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acos_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i29.i
   %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx6.i, align 16
   %retval.sroa.3.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
   %retval.sroa.3.0.copyload.i = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx.i, align 8
@@ -255,20 +255,17 @@ if.end:                                           ; preds = %entry
   %1 = extractvalue { double, double } %call, 0
   %call2 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2, align 4
-  %2 = tail call double @llvm.fabs.f64(double %1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %0)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond.i = select i1 %3, i1 true, i1 %5
-  br i1 %or.cond.i, label %if.then.i, label %if.end.i
+  %2 = tail call i1 @llvm.is.fpclass.f64(double %1, i32 504)
+  br i1 %2, label %lor.lhs.false.i, label %if.end.i.i
 
-if.then.i:                                        ; preds = %if.end
-  br i1 %3, label %if.end.i.i, label %if.then.i.i
+lor.lhs.false.i:                                  ; preds = %if.end
+  %3 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  br i1 %3, label %if.end.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.then.i
+if.then.i.i:                                      ; preds = %lor.lhs.false.i
   %cmp.i.i = fcmp une double %1, 0.000000e+00
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp2.i.i = fcmp oeq double %6, 1.000000e+00
+  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %cmp2.i.i = fcmp oeq double %4, 1.000000e+00
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.else4.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
@@ -279,49 +276,52 @@ if.else4.i.i:                                     ; preds = %if.then.i.i
   %.6.i.i = select i1 %cmp2.i.i, i64 3, i64 2
   br label %special_type.exit.i
 
-if.end.i.i:                                       ; preds = %if.then.i
-  %7 = fcmp uno double %1, 0.000000e+00
-  br i1 %7, label %special_type.exit.i, label %if.end9.i.i
+if.end.i.i:                                       ; preds = %if.end
+  %5 = fcmp uno double %1, 0.000000e+00
+  br i1 %5, label %special_type.exit.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
-  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp10.i.i = fcmp oeq double %8, 1.000000e+00
+  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %cmp10.i.i = fcmp oeq double %6, 1.000000e+00
   %.7.i.i = select i1 %cmp10.i.i, i64 5, i64 0
   br label %special_type.exit.i
 
 special_type.exit.i:                              ; preds = %if.end9.i.i, %if.end.i.i, %if.else4.i.i, %if.then1.i.i
   %retval.0.i.i = phi i64 [ %..i.i, %if.then1.i.i ], [ %.6.i.i, %if.else4.i.i ], [ 6, %if.end.i.i ], [ %.7.i.i, %if.end9.i.i ]
-  br i1 %5, label %if.end.i30.i, label %if.then.i22.i
+  %7 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  br i1 %7, label %if.then.i25.i, label %if.end.i20.i
 
-if.then.i22.i:                                    ; preds = %special_type.exit.i
-  %cmp.i23.i = fcmp une double %0, 0.000000e+00
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp2.i24.i = fcmp oeq double %9, 1.000000e+00
-  br i1 %cmp.i23.i, label %if.then1.i28.i, label %if.else4.i25.i
+if.then.i25.i:                                    ; preds = %special_type.exit.i
+  %cmp.i26.i = fcmp une double %0, 0.000000e+00
+  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %cmp2.i27.i = fcmp oeq double %8, 1.000000e+00
+  br i1 %cmp.i26.i, label %if.then1.i30.i, label %if.else4.i28.i
 
-if.then1.i28.i:                                   ; preds = %if.then.i22.i
-  %..i29.i = select i1 %cmp2.i24.i, i64 4, i64 1
+if.then1.i30.i:                                   ; preds = %if.then.i25.i
+  %..i31.i = select i1 %cmp2.i27.i, i64 4, i64 1
   br label %cmath_acosh_impl.exit
 
-if.else4.i25.i:                                   ; preds = %if.then.i22.i
-  %.6.i26.i = select i1 %cmp2.i24.i, i64 3, i64 2
+if.else4.i28.i:                                   ; preds = %if.then.i25.i
+  %.6.i29.i = select i1 %cmp2.i27.i, i64 3, i64 2
   br label %cmath_acosh_impl.exit
 
-if.end.i30.i:                                     ; preds = %special_type.exit.i
-  %10 = fcmp uno double %0, 0.000000e+00
-  br i1 %10, label %cmath_acosh_impl.exit, label %if.end9.i31.i
+if.end.i20.i:                                     ; preds = %special_type.exit.i
+  %9 = fcmp uno double %0, 0.000000e+00
+  br i1 %9, label %cmath_acosh_impl.exit, label %if.end9.i21.i
 
-if.end9.i31.i:                                    ; preds = %if.end.i30.i
-  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp10.i32.i = fcmp oeq double %11, 1.000000e+00
-  %.7.i33.i = select i1 %cmp10.i32.i, i64 5, i64 0
+if.end9.i21.i:                                    ; preds = %if.end.i20.i
+  %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  %cmp10.i22.i = fcmp oeq double %10, 1.000000e+00
+  %.7.i23.i = select i1 %cmp10.i22.i, i64 5, i64 0
   br label %cmath_acosh_impl.exit
 
-if.end.i:                                         ; preds = %if.end
-  %cmp.i = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
-  %cmp10.i = fcmp ogt double %4, 0x7FCFFFFFFFFFFFFF
-  %or.cond21.i = select i1 %cmp.i, i1 true, i1 %cmp10.i
-  br i1 %or.cond21.i, label %if.then11.i, label %if.else.i
+if.end.i:                                         ; preds = %lor.lhs.false.i
+  %11 = tail call double @llvm.fabs.f64(double %1)
+  %cmp.i = fcmp ogt double %11, 0x7FCFFFFFFFFFFFFF
+  %12 = tail call double @llvm.fabs.f64(double %0)
+  %cmp10.i = fcmp ogt double %12, 0x7FCFFFFFFFFFFFFF
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp10.i
+  br i1 %or.cond.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %if.end.i
   %div.i = fmul double %1, 5.000000e-01
@@ -335,16 +335,16 @@ if.then11.i:                                      ; preds = %if.end.i
 if.else.i:                                        ; preds = %if.end.i
   %sub.i = fadd double %1, -1.000000e+00
   %call26.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub.i, double %0)
-  %12 = extractvalue { double, double } %call26.i, 0
-  %13 = extractvalue { double, double } %call26.i, 1
+  %13 = extractvalue { double, double } %call26.i, 0
+  %14 = extractvalue { double, double } %call26.i, 1
   %add28.i = fadd double %1, 1.000000e+00
   %call33.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %add28.i, double %0)
-  %14 = extractvalue { double, double } %call33.i, 0
-  %15 = extractvalue { double, double } %call33.i, 1
-  %mul38.i = fmul double %13, %15
-  %16 = tail call double @llvm.fmuladd.f64(double %12, double %14, double %mul38.i)
-  %call39.i = tail call double @asinh(double noundef %16) #10
-  %call43.i = tail call double @atan2(double noundef %13, double noundef %14) #10
+  %15 = extractvalue { double, double } %call33.i, 0
+  %16 = extractvalue { double, double } %call33.i, 1
+  %mul38.i = fmul double %14, %16
+  %17 = tail call double @llvm.fmuladd.f64(double %13, double %15, double %mul38.i)
+  %call39.i = tail call double @asinh(double noundef %17) #10
+  %call43.i = tail call double @atan2(double noundef %14, double noundef %15) #10
   %mul.i = fmul double %call43.i, 2.000000e+00
   br label %cmath_acosh_impl.exit.thread
 
@@ -354,9 +354,9 @@ cmath_acosh_impl.exit.thread:                     ; preds = %if.then11.i, %if.el
   store i32 0, ptr %call2, align 4
   br label %if.else10
 
-cmath_acosh_impl.exit:                            ; preds = %if.then1.i28.i, %if.else4.i25.i, %if.end.i30.i, %if.end9.i31.i
-  %retval.0.i27.i = phi i64 [ %..i29.i, %if.then1.i28.i ], [ %.6.i26.i, %if.else4.i25.i ], [ 6, %if.end.i30.i ], [ %.7.i33.i, %if.end9.i31.i ]
-  %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acosh_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i27.i
+cmath_acosh_impl.exit:                            ; preds = %if.then1.i30.i, %if.else4.i28.i, %if.end.i20.i, %if.end9.i21.i
+  %retval.0.i24.i = phi i64 [ %..i31.i, %if.then1.i30.i ], [ %.6.i29.i, %if.else4.i28.i ], [ 6, %if.end.i20.i ], [ %.7.i23.i, %if.end9.i21.i ]
+  %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acosh_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i24.i
   %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx6.i, align 16
   %retval.sroa.3.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
   %retval.sroa.3.0.copyload.i = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx.i, align 8
@@ -636,19 +636,22 @@ if.end:                                           ; preds = %entry
   %0 = extractvalue { double, double } %call, 1
   %1 = extractvalue { double, double } %call, 0
   %call2 = tail call ptr @__errno_location() #11
-  %2 = tail call double @llvm.fabs.f64(double %1)
-  %3 = fcmp one double %2, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %0)
-  %5 = fcmp one double %4, 0x7FF0000000000000
-  %or.cond27.not.i = select i1 %3, i1 %5, i1 false
-  br i1 %or.cond27.not.i, label %if.end45.i, label %if.then.i
+  %2 = tail call i1 @llvm.is.fpclass.f64(double %1, i32 504)
+  br i1 %2, label %lor.lhs.false.i, label %if.then.i
 
-if.then.i:                                        ; preds = %if.end
-  %isinf.i = fcmp oeq double %2, 0x7FF0000000000000
+lor.lhs.false.i:                                  ; preds = %if.end
+  %3 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  br i1 %3, label %if.end45.i, label %if.then.i
+
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end
+  %4 = tail call double @llvm.fabs.f64(double %1) #12
+  %isinf.i = fcmp oeq double %4, 0x7FF0000000000000
   br i1 %isinf.i, label %land.lhs.true.i, label %if.else20.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %0, i32 408)
+  %5 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  %cmp.i = fcmp une double %0, 0.000000e+00
+  %or.cond.i = select i1 %5, i1 %cmp.i, i1 false
   br i1 %or.cond.i, label %if.then5.i, label %if.else20.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
@@ -670,13 +673,12 @@ if.else.i:                                        ; preds = %if.then5.i
   br label %if.end27.i
 
 if.else20.i:                                      ; preds = %land.lhs.true.i, %if.then.i
-  %12 = fcmp ueq double %2, 0x7FF0000000000000
-  br i1 %12, label %if.end.i.i, label %if.then.i.i
+  br i1 %2, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else20.i
   %cmp.i.i = fcmp une double %1, 0.000000e+00
-  %13 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp2.i.i = fcmp oeq double %13, 1.000000e+00
+  %12 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %cmp2.i.i = fcmp oeq double %12, 1.000000e+00
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.else4.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
@@ -688,61 +690,63 @@ if.else4.i.i:                                     ; preds = %if.then.i.i
   br label %special_type.exit.i
 
 if.end.i.i:                                       ; preds = %if.else20.i
-  %14 = fcmp uno double %1, 0.000000e+00
-  br i1 %14, label %special_type.exit.i, label %if.end9.i.i
+  %13 = fcmp uno double %1, 0.000000e+00
+  br i1 %13, label %special_type.exit.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
-  %15 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
-  %cmp10.i.i = fcmp oeq double %15, 1.000000e+00
+  %14 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %cmp10.i.i = fcmp oeq double %14, 1.000000e+00
   %.7.i.i = select i1 %cmp10.i.i, i64 5, i64 0
   br label %special_type.exit.i
 
 special_type.exit.i:                              ; preds = %if.end9.i.i, %if.end.i.i, %if.else4.i.i, %if.then1.i.i
   %retval.0.i.i = phi i64 [ %..i.i, %if.then1.i.i ], [ %.6.i.i, %if.else4.i.i ], [ 6, %if.end.i.i ], [ %.7.i.i, %if.end9.i.i ]
-  br i1 %5, label %if.then.i30.i, label %if.end.i38.i
+  %15 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  br i1 %15, label %if.then.i33.i, label %if.end.i28.i
 
-if.then.i30.i:                                    ; preds = %special_type.exit.i
-  %cmp.i31.i = fcmp une double %0, 0.000000e+00
+if.then.i33.i:                                    ; preds = %special_type.exit.i
+  %cmp.i34.i = fcmp une double %0, 0.000000e+00
   %16 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp2.i32.i = fcmp oeq double %16, 1.000000e+00
-  br i1 %cmp.i31.i, label %if.then1.i36.i, label %if.else4.i33.i
+  %cmp2.i35.i = fcmp oeq double %16, 1.000000e+00
+  br i1 %cmp.i34.i, label %if.then1.i38.i, label %if.else4.i36.i
 
-if.then1.i36.i:                                   ; preds = %if.then.i30.i
-  %..i37.i = select i1 %cmp2.i32.i, i64 4, i64 1
-  br label %special_type.exit42.i
+if.then1.i38.i:                                   ; preds = %if.then.i33.i
+  %..i39.i = select i1 %cmp2.i35.i, i64 4, i64 1
+  br label %special_type.exit40.i
 
-if.else4.i33.i:                                   ; preds = %if.then.i30.i
-  %.6.i34.i = select i1 %cmp2.i32.i, i64 3, i64 2
-  br label %special_type.exit42.i
+if.else4.i36.i:                                   ; preds = %if.then.i33.i
+  %.6.i37.i = select i1 %cmp2.i35.i, i64 3, i64 2
+  br label %special_type.exit40.i
 
-if.end.i38.i:                                     ; preds = %special_type.exit.i
+if.end.i28.i:                                     ; preds = %special_type.exit.i
   %17 = fcmp uno double %0, 0.000000e+00
-  br i1 %17, label %special_type.exit42.i, label %if.end9.i39.i
+  br i1 %17, label %special_type.exit40.i, label %if.end9.i29.i
 
-if.end9.i39.i:                                    ; preds = %if.end.i38.i
+if.end9.i29.i:                                    ; preds = %if.end.i28.i
   %18 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %cmp10.i40.i = fcmp oeq double %18, 1.000000e+00
-  %.7.i41.i = select i1 %cmp10.i40.i, i64 5, i64 0
-  br label %special_type.exit42.i
+  %cmp10.i30.i = fcmp oeq double %18, 1.000000e+00
+  %.7.i31.i = select i1 %cmp10.i30.i, i64 5, i64 0
+  br label %special_type.exit40.i
 
-special_type.exit42.i:                            ; preds = %if.end9.i39.i, %if.end.i38.i, %if.else4.i33.i, %if.then1.i36.i
-  %retval.0.i35.i = phi i64 [ %..i37.i, %if.then1.i36.i ], [ %.6.i34.i, %if.else4.i33.i ], [ 6, %if.end.i38.i ], [ %.7.i41.i, %if.end9.i39.i ]
-  %arrayidx26.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @exp_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i35.i
+special_type.exit40.i:                            ; preds = %if.end9.i29.i, %if.end.i28.i, %if.else4.i36.i, %if.then1.i38.i
+  %retval.0.i32.i = phi i64 [ %..i39.i, %if.then1.i38.i ], [ %.6.i37.i, %if.else4.i36.i ], [ 6, %if.end.i28.i ], [ %.7.i31.i, %if.end9.i29.i ]
+  %arrayidx26.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @exp_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i32.i
   %19 = load <2 x double>, ptr %arrayidx26.i, align 16
   br label %if.end27.i
 
-if.end27.i:                                       ; preds = %special_type.exit42.i, %if.else.i, %if.then8.i
-  %20 = phi <2 x double> [ %8, %if.then8.i ], [ %11, %if.else.i ], [ %19, %special_type.exit42.i ]
-  %isinf29.i = fcmp oeq double %4, 0x7FF0000000000000
+if.end27.i:                                       ; preds = %special_type.exit40.i, %if.else.i, %if.then8.i
+  %20 = phi <2 x double> [ %8, %if.then8.i ], [ %11, %if.else.i ], [ %19, %special_type.exit40.i ]
+  %21 = tail call double @llvm.fabs.f64(double %0) #12
+  %isinf29.i = fcmp oeq double %21, 0x7FF0000000000000
   br i1 %isinf29.i, label %land.lhs.true31.i, label %if.else10
 
 land.lhs.true31.i:                                ; preds = %if.end27.i
   %cmp39.i = fcmp ogt double %1, 0.000000e+00
   %or.cond1.i = select i1 %isinf.i, i1 %cmp39.i, i1 false
-  %or.cond28.i = select i1 %3, i1 true, i1 %or.cond1.i
-  br i1 %or.cond28.i, label %if.then6, label %if.else10
+  %or.cond26.i = select i1 %2, i1 true, i1 %or.cond1.i
+  br i1 %or.cond26.i, label %if.then6, label %if.else10
 
-if.end45.i:                                       ; preds = %if.end
+if.end45.i:                                       ; preds = %lor.lhs.false.i
   %cmp48.i = fcmp ogt double %1, 0x4086232BDD7ABCD2
   br i1 %cmp48.i, label %if.then49.i, label %if.else61.i
 
@@ -751,52 +755,52 @@ if.then49.i:                                      ; preds = %if.end45.i
   %call51.i = tail call double @exp(double noundef %sub.i) #10
   %call53.i = tail call double @cos(double noundef %0) #10
   %call57.i = tail call double @sin(double noundef %0) #10
-  %21 = insertelement <2 x double> poison, double %call51.i, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = insertelement <2 x double> poison, double %call53.i, i64 0
-  %24 = insertelement <2 x double> %23, double %call57.i, i64 1
-  %25 = fmul <2 x double> %22, %24
-  %26 = fmul <2 x double> %25, <double 0x4005BF0A8B145769, double 0x4005BF0A8B145769>
+  %22 = insertelement <2 x double> poison, double %call51.i, i64 0
+  %23 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> zeroinitializer
+  %24 = insertelement <2 x double> poison, double %call53.i, i64 0
+  %25 = insertelement <2 x double> %24, double %call57.i, i64 1
+  %26 = fmul <2 x double> %23, %25
+  %27 = fmul <2 x double> %26, <double 0x4005BF0A8B145769, double 0x4005BF0A8B145769>
   br label %if.end72.i
 
 if.else61.i:                                      ; preds = %if.end45.i
   %call63.i = tail call double @exp(double noundef %1) #10
   %call65.i = tail call double @cos(double noundef %0) #10
   %call69.i = tail call double @sin(double noundef %0) #10
-  %27 = insertelement <2 x double> poison, double %call63.i, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = insertelement <2 x double> poison, double %call65.i, i64 0
-  %30 = insertelement <2 x double> %29, double %call69.i, i64 1
-  %31 = fmul <2 x double> %28, %30
+  %28 = insertelement <2 x double> poison, double %call63.i, i64 0
+  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
+  %30 = insertelement <2 x double> poison, double %call65.i, i64 0
+  %31 = insertelement <2 x double> %30, double %call69.i, i64 1
+  %32 = fmul <2 x double> %29, %31
   br label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.else61.i, %if.then49.i
-  %32 = phi <2 x double> [ %26, %if.then49.i ], [ %31, %if.else61.i ]
-  %33 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %32)
-  %34 = fcmp oeq <2 x double> %33, <double 0x7FF0000000000000, double 0x7FF0000000000000>
-  %35 = extractelement <2 x i1> %34, i64 0
-  %36 = extractelement <2 x i1> %34, i64 1
-  %or.cond29.i = select i1 %35, i1 true, i1 %36
-  br i1 %or.cond29.i, label %if.then9, label %if.else10
+  %33 = phi <2 x double> [ %27, %if.then49.i ], [ %32, %if.else61.i ]
+  %34 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %33)
+  %35 = fcmp oeq <2 x double> %34, <double 0x7FF0000000000000, double 0x7FF0000000000000>
+  %36 = extractelement <2 x i1> %35, i64 0
+  %37 = extractelement <2 x i1> %35, i64 1
+  %or.cond27.i = select i1 %36, i1 true, i1 %37
+  br i1 %or.cond27.i, label %if.then9, label %if.else10
 
 if.then6:                                         ; preds = %land.lhs.true31.i
   store i32 33, ptr %call2, align 4
-  %37 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.24) #10
+  %38 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.24) #10
   br label %exit
 
 if.then9:                                         ; preds = %if.end72.i
   store i32 34, ptr %call2, align 4
-  %38 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.25) #10
+  %39 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %39, ptr noundef nonnull @.str.25) #10
   br label %exit
 
 if.else10:                                        ; preds = %if.end72.i, %if.end27.i, %land.lhs.true31.i
-  %39 = phi <2 x double> [ %20, %land.lhs.true31.i ], [ %20, %if.end27.i ], [ %32, %if.end72.i ]
+  %40 = phi <2 x double> [ %20, %land.lhs.true31.i ], [ %20, %if.end27.i ], [ %33, %if.end72.i ]
   store i32 0, ptr %call2, align 4
-  %40 = extractelement <2 x double> %39, i64 0
-  %41 = extractelement <2 x double> %39, i64 1
-  %call11 = tail call ptr @PyComplex_FromCComplex(double %40, double %41) #10
+  %41 = extractelement <2 x double> %40, i64 0
+  %42 = extractelement <2 x double> %40, i64 1
+  %call11 = tail call ptr @PyComplex_FromCComplex(double %41, double %42) #10
   br label %exit
 
 exit:                                             ; preds = %entry, %if.else10, %if.then9, %if.then6
@@ -985,12 +989,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = extractvalue { double, double } %call, 1
   %1 = extractvalue { double, double } %call, 0
-  %2 = tail call double @llvm.fabs.f64(double %1)
-  %3 = fcmp one double %2, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %0)
-  %5 = fcmp one double %4, 0x7FF0000000000000
-  %6 = select i1 %3, i1 %5, i1 false
-  %conv.i = zext i1 %6 to i64
+  %2 = tail call i1 @llvm.is.fpclass.f64(double %1, i32 504)
+  %3 = tail call i1 @llvm.is.fpclass.f64(double %0, i32 504)
+  %4 = select i1 %2, i1 %3, i1 false
+  %conv.i = zext i1 %4 to i64
   %call.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i) #10
   br label %exit
 
@@ -1439,20 +1441,21 @@ land.lhs.true26:                                  ; preds = %if.else22
 if.end31:                                         ; preds = %if.else22, %land.lhs.true26, %if.then19
   %phi.0 = phi double [ %.val12, %if.then19 ], [ -1.000000e+00, %land.lhs.true26 ], [ %call24, %if.else22 ]
   %call.i = tail call ptr @__errno_location() #11
-  %6 = tail call double @llvm.fabs.f64(double %r.0)
-  %7 = fcmp ueq double %6, 0x7FF0000000000000
-  %8 = tail call double @llvm.fabs.f64(double %phi.0)
-  %9 = fcmp ueq double %8, 0x7FF0000000000000
-  %or.cond23.i = or i1 %7, %9
-  br i1 %or.cond23.i, label %if.then.i, label %if.else28.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %r.0, i32 504)
+  br i1 %6, label %lor.lhs.false.i, label %if.then.i
 
-if.then.i:                                        ; preds = %if.end31
-  %isinf.i = fcmp oeq double %6, 0x7FF0000000000000
+lor.lhs.false.i:                                  ; preds = %if.end31
+  %7 = tail call i1 @llvm.is.fpclass.f64(double %phi.0, i32 504)
+  br i1 %7, label %if.else28.i, label %if.then.i
+
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end31
+  %8 = tail call double @llvm.fabs.f64(double %r.0) #12
+  %isinf.i = fcmp oeq double %8, 0x7FF0000000000000
   br i1 %isinf.i, label %land.lhs.true.i, label %if.else12.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %phi.0, i32 408)
-  br i1 %or.cond.i, label %if.then2.i, label %if.else12.i
+  %9 = tail call i1 @llvm.is.fpclass.f64(double %phi.0, i32 408)
+  br i1 %9, label %if.then2.i, label %if.else12.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
   %cmp3.i = fcmp ogt double %r.0, 0.000000e+00
@@ -1475,7 +1478,7 @@ if.else.i:                                        ; preds = %if.then2.i
   br label %if.end17.i
 
 if.else12.i:                                      ; preds = %land.lhs.true.i, %if.then.i
-  br i1 %7, label %if.end.i.i, label %if.then.i.i
+  br i1 %6, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else12.i
   %cmp.i.i = fcmp une double %r.0, 0.000000e+00
@@ -1503,77 +1506,79 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
 
 special_type.exit.i:                              ; preds = %if.end9.i.i, %if.end.i.i, %if.else4.i.i, %if.then1.i.i
   %retval.0.i.i = phi i64 [ %..i.i, %if.then1.i.i ], [ %.6.i.i, %if.else4.i.i ], [ 6, %if.end.i.i ], [ %.7.i.i, %if.end9.i.i ]
-  br i1 %9, label %if.end.i34.i, label %if.then.i26.i
+  %20 = tail call i1 @llvm.is.fpclass.f64(double %phi.0, i32 504)
+  br i1 %20, label %if.then.i28.i, label %if.end.i23.i
 
-if.then.i26.i:                                    ; preds = %special_type.exit.i
-  %cmp.i27.i = fcmp une double %phi.0, 0.000000e+00
-  %20 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %phi.0)
-  %cmp2.i28.i = fcmp oeq double %20, 1.000000e+00
-  br i1 %cmp.i27.i, label %if.then1.i32.i, label %if.else4.i29.i
+if.then.i28.i:                                    ; preds = %special_type.exit.i
+  %cmp.i29.i = fcmp une double %phi.0, 0.000000e+00
+  %21 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %phi.0)
+  %cmp2.i30.i = fcmp oeq double %21, 1.000000e+00
+  br i1 %cmp.i29.i, label %if.then1.i33.i, label %if.else4.i31.i
 
-if.then1.i32.i:                                   ; preds = %if.then.i26.i
-  %..i33.i = select i1 %cmp2.i28.i, i64 4, i64 1
-  br label %special_type.exit38.i
+if.then1.i33.i:                                   ; preds = %if.then.i28.i
+  %..i34.i = select i1 %cmp2.i30.i, i64 4, i64 1
+  br label %special_type.exit35.i
 
-if.else4.i29.i:                                   ; preds = %if.then.i26.i
-  %.6.i30.i = select i1 %cmp2.i28.i, i64 3, i64 2
-  br label %special_type.exit38.i
+if.else4.i31.i:                                   ; preds = %if.then.i28.i
+  %.6.i32.i = select i1 %cmp2.i30.i, i64 3, i64 2
+  br label %special_type.exit35.i
 
-if.end.i34.i:                                     ; preds = %special_type.exit.i
-  %21 = fcmp uno double %phi.0, 0.000000e+00
-  br i1 %21, label %special_type.exit38.i, label %if.end9.i35.i
+if.end.i23.i:                                     ; preds = %special_type.exit.i
+  %22 = fcmp uno double %phi.0, 0.000000e+00
+  br i1 %22, label %special_type.exit35.i, label %if.end9.i24.i
 
-if.end9.i35.i:                                    ; preds = %if.end.i34.i
-  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %phi.0)
-  %cmp10.i36.i = fcmp oeq double %22, 1.000000e+00
-  %.7.i37.i = select i1 %cmp10.i36.i, i64 5, i64 0
-  br label %special_type.exit38.i
+if.end9.i24.i:                                    ; preds = %if.end.i23.i
+  %23 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %phi.0)
+  %cmp10.i25.i = fcmp oeq double %23, 1.000000e+00
+  %.7.i26.i = select i1 %cmp10.i25.i, i64 5, i64 0
+  br label %special_type.exit35.i
 
-special_type.exit38.i:                            ; preds = %if.end9.i35.i, %if.end.i34.i, %if.else4.i29.i, %if.then1.i32.i
-  %retval.0.i31.i = phi i64 [ %..i33.i, %if.then1.i32.i ], [ %.6.i30.i, %if.else4.i29.i ], [ 6, %if.end.i34.i ], [ %.7.i37.i, %if.end9.i35.i ]
-  %arrayidx16.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @rect_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i31.i
-  %23 = load <2 x double>, ptr %arrayidx16.i, align 16
+special_type.exit35.i:                            ; preds = %if.end9.i24.i, %if.end.i23.i, %if.else4.i31.i, %if.then1.i33.i
+  %retval.0.i27.i = phi i64 [ %..i34.i, %if.then1.i33.i ], [ %.6.i32.i, %if.else4.i31.i ], [ 6, %if.end.i23.i ], [ %.7.i26.i, %if.end9.i24.i ]
+  %arrayidx16.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @rect_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i27.i
+  %24 = load <2 x double>, ptr %arrayidx16.i, align 16
   br label %if.end17.i
 
-if.end17.i:                                       ; preds = %special_type.exit38.i, %if.else.i, %if.then4.i
-  %24 = phi <2 x double> [ %12, %if.then4.i ], [ %16, %if.else.i ], [ %23, %special_type.exit38.i ]
-  %or.cond24.i = fcmp one double %r.0, 0.000000e+00
-  %isinf21.i = fcmp oeq double %8, 0x7FF0000000000000
-  %or.cond25.i = and i1 %or.cond24.i, %isinf21.i
-  br i1 %or.cond25.i, label %math_error.exit.i, label %if.else48.i
+if.end17.i:                                       ; preds = %special_type.exit35.i, %if.else.i, %if.then4.i
+  %25 = phi <2 x double> [ %12, %if.then4.i ], [ %16, %if.else.i ], [ %24, %special_type.exit35.i ]
+  %or.cond.i = fcmp one double %r.0, 0.000000e+00
+  %26 = tail call double @llvm.fabs.f64(double %phi.0) #12
+  %isinf21.i = fcmp oeq double %26, 0x7FF0000000000000
+  %or.cond22.i = and i1 %or.cond.i, %isinf21.i
+  br i1 %or.cond22.i, label %math_error.exit.i, label %if.else48.i
 
-if.else28.i:                                      ; preds = %if.end31
+if.else28.i:                                      ; preds = %lor.lhs.false.i
   %cmp29.i = fcmp oeq double %phi.0, 0.000000e+00
   br i1 %cmp29.i, label %if.then30.i, label %if.else34.i
 
 if.then30.i:                                      ; preds = %if.else28.i
   %mul.i = fmul double %r.0, %phi.0
-  %25 = insertelement <2 x double> poison, double %r.0, i64 0
-  %26 = insertelement <2 x double> %25, double %mul.i, i64 1
+  %27 = insertelement <2 x double> poison, double %r.0, i64 0
+  %28 = insertelement <2 x double> %27, double %mul.i, i64 1
   br label %if.else48.i
 
 if.else34.i:                                      ; preds = %if.else28.i
   %call35.i = tail call double @cos(double noundef %phi.0) #10
   %call38.i = tail call double @sin(double noundef %phi.0) #10
-  %27 = insertelement <2 x double> poison, double %r.0, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = insertelement <2 x double> poison, double %call35.i, i64 0
-  %30 = insertelement <2 x double> %29, double %call38.i, i64 1
-  %31 = fmul <2 x double> %28, %30
+  %29 = insertelement <2 x double> poison, double %r.0, i64 0
+  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
+  %31 = insertelement <2 x double> poison, double %call35.i, i64 0
+  %32 = insertelement <2 x double> %31, double %call38.i, i64 1
+  %33 = fmul <2 x double> %30, %32
   br label %if.else48.i
 
 math_error.exit.i:                                ; preds = %if.end17.i
   store i32 33, ptr %call.i, align 4
-  %32 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.24) #10
+  %34 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.24) #10
   br label %exit
 
 if.else48.i:                                      ; preds = %if.else34.i, %if.then30.i, %if.end17.i
-  %33 = phi <2 x double> [ %31, %if.else34.i ], [ %26, %if.then30.i ], [ %24, %if.end17.i ]
+  %35 = phi <2 x double> [ %33, %if.else34.i ], [ %28, %if.then30.i ], [ %25, %if.end17.i ]
   store i32 0, ptr %call.i, align 4
-  %34 = extractelement <2 x double> %33, i64 0
-  %35 = extractelement <2 x double> %33, i64 1
-  %call49.i = tail call ptr @PyComplex_FromCComplex(double %34, double %35) #10
+  %36 = extractelement <2 x double> %35, i64 0
+  %37 = extractelement <2 x double> %35, i64 1
+  %call49.i = tail call ptr @PyComplex_FromCComplex(double %36, double %37) #10
   br label %exit
 
 exit:                                             ; preds = %if.else48.i, %math_error.exit.i, %land.lhs.true26, %land.lhs.true10, %lor.lhs.false
@@ -1822,22 +1827,19 @@ declare double @llvm.copysign.f64(double, double) #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc { double, double } @cmath_sqrt_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond29 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond29, label %if.then, label %if.end
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce0, i32 504)
+  br i1 %0, label %lor.lhs.false, label %if.end.i
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call, align 4
-  br i1 %1, label %if.end.i, label %if.then.i
+lor.lhs.false:                                    ; preds = %entry
+  %1 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %1, label %if.end, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then
+if.then.i:                                        ; preds = %lor.lhs.false
+  %call1 = tail call ptr @__errno_location() #11
+  store i32 0, ptr %call1, align 4
   %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %4, 1.000000e+00
+  %2 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %cmp2.i = fcmp oeq double %2, 1.000000e+00
   br i1 %cmp.i, label %if.then1.i, label %if.else4.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -1848,67 +1850,72 @@ if.else4.i:                                       ; preds = %if.then.i
   %.6.i = select i1 %cmp2.i, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.then
-  %5 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %5, label %special_type.exit, label %if.end9.i
+if.end.i:                                         ; preds = %entry
+  %call = tail call ptr @__errno_location() #11
+  store i32 0, ptr %call, align 4
+  %3 = fcmp uno double %z.coerce0, 0.000000e+00
+  br i1 %3, label %special_type.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %6, 1.000000e+00
+  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %cmp10.i = fcmp oeq double %4, 1.000000e+00
   %.7.i = select i1 %cmp10.i, i64 5, i64 0
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
   %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i38, label %if.then.i30
+  %5 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %5, label %if.then.i33, label %if.end.i28
 
-if.then.i30:                                      ; preds = %special_type.exit
-  %cmp.i31 = fcmp une double %z.coerce1, 0.000000e+00
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i32 = fcmp oeq double %7, 1.000000e+00
-  br i1 %cmp.i31, label %if.then1.i36, label %if.else4.i33
+if.then.i33:                                      ; preds = %special_type.exit
+  %cmp.i34 = fcmp une double %z.coerce1, 0.000000e+00
+  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp2.i35 = fcmp oeq double %6, 1.000000e+00
+  br i1 %cmp.i34, label %if.then1.i38, label %if.else4.i36
 
-if.then1.i36:                                     ; preds = %if.then.i30
-  %..i37 = select i1 %cmp2.i32, i64 4, i64 1
-  br label %special_type.exit42
+if.then1.i38:                                     ; preds = %if.then.i33
+  %..i39 = select i1 %cmp2.i35, i64 4, i64 1
+  br label %special_type.exit40
 
-if.else4.i33:                                     ; preds = %if.then.i30
-  %.6.i34 = select i1 %cmp2.i32, i64 3, i64 2
-  br label %special_type.exit42
+if.else4.i36:                                     ; preds = %if.then.i33
+  %.6.i37 = select i1 %cmp2.i35, i64 3, i64 2
+  br label %special_type.exit40
 
-if.end.i38:                                       ; preds = %special_type.exit
-  %8 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %8, label %special_type.exit42, label %if.end9.i39
+if.end.i28:                                       ; preds = %special_type.exit
+  %7 = fcmp uno double %z.coerce1, 0.000000e+00
+  br i1 %7, label %special_type.exit40, label %if.end9.i29
 
-if.end9.i39:                                      ; preds = %if.end.i38
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i40 = fcmp oeq double %9, 1.000000e+00
-  %.7.i41 = select i1 %cmp10.i40, i64 5, i64 0
-  br label %special_type.exit42
+if.end9.i29:                                      ; preds = %if.end.i28
+  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp10.i30 = fcmp oeq double %8, 1.000000e+00
+  %.7.i31 = select i1 %cmp10.i30, i64 5, i64 0
+  br label %special_type.exit40
 
-special_type.exit42:                              ; preds = %if.then1.i36, %if.else4.i33, %if.end.i38, %if.end9.i39
-  %retval.0.i35 = phi i64 [ %..i37, %if.then1.i36 ], [ %.6.i34, %if.else4.i33 ], [ 6, %if.end.i38 ], [ %.7.i41, %if.end9.i39 ]
-  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sqrt_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i35
+special_type.exit40:                              ; preds = %if.then1.i38, %if.else4.i36, %if.end.i28, %if.end9.i29
+  %retval.0.i32 = phi i64 [ %..i39, %if.then1.i38 ], [ %.6.i37, %if.else4.i36 ], [ 6, %if.end.i28 ], [ %.7.i31, %if.end9.i29 ]
+  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sqrt_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i32
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
   %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
   br label %return
 
-if.end:                                           ; preds = %entry
+if.end:                                           ; preds = %lor.lhs.false
   %cmp = fcmp oeq double %z.coerce0, 0.000000e+00
   %cmp9 = fcmp oeq double %z.coerce1, 0.000000e+00
   %or.cond = select i1 %cmp, i1 %cmp9, i1 false
   br i1 %or.cond, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %cmp17 = fcmp olt double %0, 0x10000000000000
-  %cmp19 = fcmp olt double %2, 0x10000000000000
+  %9 = tail call double @llvm.fabs.f64(double %z.coerce0)
+  %10 = tail call double @llvm.fabs.f64(double %z.coerce1)
+  %cmp17 = fcmp olt double %9, 0x10000000000000
+  %cmp19 = fcmp olt double %10, 0x10000000000000
   %or.cond1 = select i1 %cmp17, i1 %cmp19, i1 false
   br i1 %or.cond1, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end14
-  %call21 = tail call double @ldexp(double noundef %0, i32 noundef 53) #10
-  %call22 = tail call double @ldexp(double noundef %2, i32 noundef 53) #10
+  %call21 = tail call double @ldexp(double noundef %9, i32 noundef 53) #10
+  %call22 = tail call double @ldexp(double noundef %10, i32 noundef 53) #10
   %call23 = tail call double @hypot(double noundef %call21, double noundef %call22) #10
   %add = fadd double %call21, %call23
   %call24 = tail call double @sqrt(double noundef %add) #10
@@ -1916,8 +1923,8 @@ if.then20:                                        ; preds = %if.end14
   br label %if.end30
 
 if.else:                                          ; preds = %if.end14
-  %div = fmul double %0, 1.250000e-01
-  %div26 = fmul double %2, 1.250000e-01
+  %div = fmul double %9, 1.250000e-01
+  %div26 = fmul double %10, 1.250000e-01
   %call27 = tail call double @hypot(double noundef %div, double noundef %div26) #10
   %add28 = fadd double %div, %call27
   %call29 = tail call double @sqrt(double noundef %add28) #10
@@ -1927,19 +1934,19 @@ if.else:                                          ; preds = %if.end14
 if.end30:                                         ; preds = %if.else, %if.then20
   %s.0 = phi double [ %call25, %if.then20 ], [ %mul, %if.else ]
   %mul31 = fmul double %s.0, 2.000000e+00
-  %div32 = fdiv double %2, %mul31
+  %div32 = fdiv double %10, %mul31
   %cmp34 = fcmp ult double %z.coerce0, 0.000000e+00
-  %10 = tail call double @llvm.copysign.f64(double %div32, double %z.coerce1)
-  %11 = tail call double @llvm.copysign.f64(double %s.0, double %z.coerce1)
-  %r.sroa.5.0 = select i1 %cmp34, double %11, double %10
+  %11 = tail call double @llvm.copysign.f64(double %div32, double %z.coerce1)
+  %12 = tail call double @llvm.copysign.f64(double %s.0, double %z.coerce1)
+  %r.sroa.5.0 = select i1 %cmp34, double %12, double %11
   %r.sroa.0.0 = select i1 %cmp34, double %div32, double %s.0
   %call44 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call44, align 4
   br label %return
 
-return:                                           ; preds = %if.end, %if.end30, %special_type.exit42
-  %retval.sroa.0.0 = phi double [ %r.sroa.0.0, %if.end30 ], [ %retval.sroa.0.0.copyload, %special_type.exit42 ], [ 0.000000e+00, %if.end ]
-  %retval.sroa.4.0 = phi double [ %r.sroa.5.0, %if.end30 ], [ %retval.sroa.4.0.copyload, %special_type.exit42 ], [ %z.coerce1, %if.end ]
+return:                                           ; preds = %if.end, %if.end30, %special_type.exit40
+  %retval.sroa.0.0 = phi double [ %r.sroa.0.0, %if.end30 ], [ %retval.sroa.0.0.copyload, %special_type.exit40 ], [ 0.000000e+00, %if.end ]
+  %retval.sroa.4.0 = phi double [ %r.sroa.5.0, %if.end30 ], [ %retval.sroa.4.0.copyload, %special_type.exit40 ], [ %z.coerce1, %if.end ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -1960,22 +1967,19 @@ declare double @sqrt(double noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc { double, double } @cmath_asinh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond, label %if.then, label %if.end
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce0, i32 504)
+  br i1 %0, label %lor.lhs.false, label %if.end.i
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call, align 4
-  br i1 %1, label %if.end.i, label %if.then.i
+lor.lhs.false:                                    ; preds = %entry
+  %1 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %1, label %if.end, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then
+if.then.i:                                        ; preds = %lor.lhs.false
+  %call1 = tail call ptr @__errno_location() #11
+  store i32 0, ptr %call1, align 4
   %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %4, 1.000000e+00
+  %2 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %cmp2.i = fcmp oeq double %2, 1.000000e+00
   br i1 %cmp.i, label %if.then1.i, label %if.else4.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -1986,57 +1990,62 @@ if.else4.i:                                       ; preds = %if.then.i
   %.6.i = select i1 %cmp2.i, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.then
-  %5 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %5, label %special_type.exit, label %if.end9.i
+if.end.i:                                         ; preds = %entry
+  %call = tail call ptr @__errno_location() #11
+  store i32 0, ptr %call, align 4
+  %3 = fcmp uno double %z.coerce0, 0.000000e+00
+  br i1 %3, label %special_type.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %6, 1.000000e+00
+  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %cmp10.i = fcmp oeq double %4, 1.000000e+00
   %.7.i = select i1 %cmp10.i, i64 5, i64 0
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
   %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i38, label %if.then.i30
+  %5 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %5, label %if.then.i33, label %if.end.i28
 
-if.then.i30:                                      ; preds = %special_type.exit
-  %cmp.i31 = fcmp une double %z.coerce1, 0.000000e+00
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i32 = fcmp oeq double %7, 1.000000e+00
-  br i1 %cmp.i31, label %if.then1.i36, label %if.else4.i33
+if.then.i33:                                      ; preds = %special_type.exit
+  %cmp.i34 = fcmp une double %z.coerce1, 0.000000e+00
+  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp2.i35 = fcmp oeq double %6, 1.000000e+00
+  br i1 %cmp.i34, label %if.then1.i38, label %if.else4.i36
 
-if.then1.i36:                                     ; preds = %if.then.i30
-  %..i37 = select i1 %cmp2.i32, i64 4, i64 1
-  br label %special_type.exit42
+if.then1.i38:                                     ; preds = %if.then.i33
+  %..i39 = select i1 %cmp2.i35, i64 4, i64 1
+  br label %special_type.exit40
 
-if.else4.i33:                                     ; preds = %if.then.i30
-  %.6.i34 = select i1 %cmp2.i32, i64 3, i64 2
-  br label %special_type.exit42
+if.else4.i36:                                     ; preds = %if.then.i33
+  %.6.i37 = select i1 %cmp2.i35, i64 3, i64 2
+  br label %special_type.exit40
 
-if.end.i38:                                       ; preds = %special_type.exit
-  %8 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %8, label %special_type.exit42, label %if.end9.i39
+if.end.i28:                                       ; preds = %special_type.exit
+  %7 = fcmp uno double %z.coerce1, 0.000000e+00
+  br i1 %7, label %special_type.exit40, label %if.end9.i29
 
-if.end9.i39:                                      ; preds = %if.end.i38
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i40 = fcmp oeq double %9, 1.000000e+00
-  %.7.i41 = select i1 %cmp10.i40, i64 5, i64 0
-  br label %special_type.exit42
+if.end9.i29:                                      ; preds = %if.end.i28
+  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp10.i30 = fcmp oeq double %8, 1.000000e+00
+  %.7.i31 = select i1 %cmp10.i30, i64 5, i64 0
+  br label %special_type.exit40
 
-special_type.exit42:                              ; preds = %if.then1.i36, %if.else4.i33, %if.end.i38, %if.end9.i39
-  %retval.0.i35 = phi i64 [ %..i37, %if.then1.i36 ], [ %.6.i34, %if.else4.i33 ], [ 6, %if.end.i38 ], [ %.7.i41, %if.end9.i39 ]
-  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @asinh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i35
+special_type.exit40:                              ; preds = %if.then1.i38, %if.else4.i36, %if.end.i28, %if.end9.i29
+  %retval.0.i32 = phi i64 [ %..i39, %if.then1.i38 ], [ %.6.i37, %if.else4.i36 ], [ 6, %if.end.i28 ], [ %.7.i31, %if.end9.i29 ]
+  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @asinh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i32
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
   %retval.sroa.3.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %retval.sroa.3.0.copyload = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx, align 8
   br label %return
 
-if.end:                                           ; preds = %entry
-  %cmp = fcmp ogt double %0, 0x7FCFFFFFFFFFFFFF
-  %cmp10 = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
-  %or.cond29 = select i1 %cmp, i1 true, i1 %cmp10
-  br i1 %or.cond29, label %if.then11, label %if.else37
+if.end:                                           ; preds = %lor.lhs.false
+  %9 = tail call double @llvm.fabs.f64(double %z.coerce0)
+  %cmp = fcmp ogt double %9, 0x7FCFFFFFFFFFFFFF
+  %10 = tail call double @llvm.fabs.f64(double %z.coerce1)
+  %cmp10 = fcmp ogt double %10, 0x7FCFFFFFFFFFFFFF
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp10
+  br i1 %or.cond, label %if.then11, label %if.else37
 
 if.then11:                                        ; preds = %if.end
   %div23 = fmul double %z.coerce0, 5.000000e-01
@@ -2051,32 +2060,32 @@ if.else37:                                        ; preds = %if.end
   %add39 = fadd double %z.coerce1, 1.000000e+00
   %fneg42 = fneg double %z.coerce0
   %call44 = tail call fastcc { double, double } @cmath_sqrt_impl(double %add39, double %fneg42)
-  %10 = extractvalue { double, double } %call44, 0
-  %11 = extractvalue { double, double } %call44, 1
+  %11 = extractvalue { double, double } %call44, 0
+  %12 = extractvalue { double, double } %call44, 1
   %sub = fsub double 1.000000e+00, %z.coerce1
   %call50 = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub, double %z.coerce0)
-  %12 = extractvalue { double, double } %call50, 0
-  %13 = extractvalue { double, double } %call50, 1
-  %14 = fneg double %12
-  %neg = fmul double %11, %14
-  %15 = tail call double @llvm.fmuladd.f64(double %10, double %13, double %neg)
-  %call56 = tail call double @asinh(double noundef %15) #10
-  %16 = fneg double %11
-  %neg64 = fmul double %13, %16
-  %17 = tail call double @llvm.fmuladd.f64(double %10, double %12, double %neg64)
+  %13 = extractvalue { double, double } %call50, 0
+  %14 = extractvalue { double, double } %call50, 1
+  %15 = fneg double %13
+  %neg = fmul double %12, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %11, double %14, double %neg)
+  %call56 = tail call double @asinh(double noundef %16) #10
+  %17 = fneg double %12
+  %neg64 = fmul double %14, %17
+  %18 = tail call double @llvm.fmuladd.f64(double %11, double %13, double %neg64)
   br label %if.end67
 
 if.end67:                                         ; preds = %if.else37, %if.then11
-  %.sink = phi double [ %17, %if.else37 ], [ %0, %if.then11 ]
+  %.sink = phi double [ %18, %if.else37 ], [ %9, %if.then11 ]
   %r.sroa.0.1 = phi double [ %call56, %if.else37 ], [ %fneg30, %if.then11 ]
   %call65 = tail call double @atan2(double noundef %z.coerce1, double noundef %.sink) #10
   %call68 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call68, align 4
   br label %return
 
-return:                                           ; preds = %if.end67, %special_type.exit42
-  %retval.sroa.0.0 = phi double [ %r.sroa.0.1, %if.end67 ], [ %retval.sroa.0.0.copyload, %special_type.exit42 ]
-  %retval.sroa.3.0 = phi double [ %call65, %if.end67 ], [ %retval.sroa.3.0.copyload, %special_type.exit42 ]
+return:                                           ; preds = %if.end67, %special_type.exit40
+  %retval.sroa.0.0 = phi double [ %r.sroa.0.1, %if.end67 ], [ %retval.sroa.0.0.copyload, %special_type.exit40 ]
+  %retval.sroa.3.0 = phi double [ %call65, %if.end67 ], [ %retval.sroa.3.0.copyload, %special_type.exit40 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
@@ -2085,22 +2094,19 @@ return:                                           ; preds = %if.end67, %special_
 ; Function Attrs: nounwind uwtable
 define internal fastcc { double, double } @cmath_atanh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond, label %if.then, label %if.end
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce0, i32 504)
+  br i1 %0, label %lor.lhs.false, label %if.end.i
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call, align 4
-  br i1 %1, label %if.end.i, label %if.then.i
+lor.lhs.false:                                    ; preds = %entry
+  %1 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %1, label %if.end, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then
+if.then.i:                                        ; preds = %lor.lhs.false
+  %call50 = tail call ptr @__errno_location() #11
+  store i32 0, ptr %call50, align 4
   %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %4, 1.000000e+00
+  %2 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %cmp2.i = fcmp oeq double %2, 1.000000e+00
   br i1 %cmp.i, label %if.then1.i, label %if.else4.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -2111,73 +2117,77 @@ if.else4.i:                                       ; preds = %if.then.i
   %.6.i = select i1 %cmp2.i, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.then
-  %5 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %5, label %special_type.exit, label %if.end9.i
+if.end.i:                                         ; preds = %entry
+  %call = tail call ptr @__errno_location() #11
+  store i32 0, ptr %call, align 4
+  %3 = fcmp uno double %z.coerce0, 0.000000e+00
+  br i1 %3, label %special_type.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %6, 1.000000e+00
+  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %cmp10.i = fcmp oeq double %4, 1.000000e+00
   %.7.i = select i1 %cmp10.i, i64 5, i64 0
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
   %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i42, label %if.then.i34
+  %5 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %5, label %if.then.i37, label %if.end.i32
 
-if.then.i34:                                      ; preds = %special_type.exit
-  %cmp.i35 = fcmp une double %z.coerce1, 0.000000e+00
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i36 = fcmp oeq double %7, 1.000000e+00
-  br i1 %cmp.i35, label %if.then1.i40, label %if.else4.i37
+if.then.i37:                                      ; preds = %special_type.exit
+  %cmp.i38 = fcmp une double %z.coerce1, 0.000000e+00
+  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp2.i39 = fcmp oeq double %6, 1.000000e+00
+  br i1 %cmp.i38, label %if.then1.i42, label %if.else4.i40
 
-if.then1.i40:                                     ; preds = %if.then.i34
-  %..i41 = select i1 %cmp2.i36, i64 4, i64 1
-  br label %special_type.exit46
+if.then1.i42:                                     ; preds = %if.then.i37
+  %..i43 = select i1 %cmp2.i39, i64 4, i64 1
+  br label %special_type.exit44
 
-if.else4.i37:                                     ; preds = %if.then.i34
-  %.6.i38 = select i1 %cmp2.i36, i64 3, i64 2
-  br label %special_type.exit46
+if.else4.i40:                                     ; preds = %if.then.i37
+  %.6.i41 = select i1 %cmp2.i39, i64 3, i64 2
+  br label %special_type.exit44
 
-if.end.i42:                                       ; preds = %special_type.exit
-  %8 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %8, label %special_type.exit46, label %if.end9.i43
+if.end.i32:                                       ; preds = %special_type.exit
+  %7 = fcmp uno double %z.coerce1, 0.000000e+00
+  br i1 %7, label %special_type.exit44, label %if.end9.i33
 
-if.end9.i43:                                      ; preds = %if.end.i42
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i44 = fcmp oeq double %9, 1.000000e+00
-  %.7.i45 = select i1 %cmp10.i44, i64 5, i64 0
-  br label %special_type.exit46
+if.end9.i33:                                      ; preds = %if.end.i32
+  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp10.i34 = fcmp oeq double %8, 1.000000e+00
+  %.7.i35 = select i1 %cmp10.i34, i64 5, i64 0
+  br label %special_type.exit44
 
-special_type.exit46:                              ; preds = %if.then1.i40, %if.else4.i37, %if.end.i42, %if.end9.i43
-  %retval.0.i39 = phi i64 [ %..i41, %if.then1.i40 ], [ %.6.i38, %if.else4.i37 ], [ 6, %if.end.i42 ], [ %.7.i45, %if.end9.i43 ]
-  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @atanh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i39
+special_type.exit44:                              ; preds = %if.then1.i42, %if.else4.i40, %if.end.i32, %if.end9.i33
+  %retval.0.i36 = phi i64 [ %..i43, %if.then1.i42 ], [ %.6.i41, %if.else4.i40 ], [ 6, %if.end.i32 ], [ %.7.i35, %if.end9.i33 ]
+  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @atanh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i36
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
   %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
   br label %return
 
-if.end:                                           ; preds = %entry
+if.end:                                           ; preds = %lor.lhs.false
   %cmp = fcmp olt double %z.coerce0, 0.000000e+00
   br i1 %cmp, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %if.end
   %call10 = tail call { double, double } @_Py_c_neg(double %z.coerce0, double %z.coerce1) #10
-  %10 = extractvalue { double, double } %call10, 0
-  %11 = extractvalue { double, double } %call10, 1
-  %call11 = tail call fastcc { double, double } @cmath_atanh_impl(double %10, double %11)
-  %12 = extractvalue { double, double } %call11, 0
-  %13 = extractvalue { double, double } %call11, 1
-  %call12 = tail call { double, double } @_Py_c_neg(double %12, double %13) #10
-  %14 = extractvalue { double, double } %call12, 0
-  %15 = extractvalue { double, double } %call12, 1
+  %9 = extractvalue { double, double } %call10, 0
+  %10 = extractvalue { double, double } %call10, 1
+  %call11 = tail call fastcc { double, double } @cmath_atanh_impl(double %9, double %10)
+  %11 = extractvalue { double, double } %call11, 0
+  %12 = extractvalue { double, double } %call11, 1
+  %call12 = tail call { double, double } @_Py_c_neg(double %11, double %12) #10
+  %13 = extractvalue { double, double } %call12, 0
+  %14 = extractvalue { double, double } %call12, 1
   br label %return
 
 if.end13:                                         ; preds = %if.end
+  %15 = tail call double @llvm.fabs.f64(double %z.coerce1)
   %cmp17 = fcmp ogt double %z.coerce0, 0x5FDFFFFFFFFFFFFF
-  %cmp20 = fcmp ogt double %2, 0x5FDFFFFFFFFFFFFF
-  %or.cond32 = select i1 %cmp17, i1 true, i1 %cmp20
-  br i1 %or.cond32, label %if.then21, label %if.else
+  %cmp20 = fcmp ogt double %15, 0x5FDFFFFFFFFFFFFF
+  %or.cond = select i1 %cmp17, i1 true, i1 %cmp20
+  br i1 %or.cond, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end13
   %div = fmul double %z.coerce0, 5.000000e-01
@@ -2193,9 +2203,9 @@ if.then21:                                        ; preds = %if.end13
 
 if.else:                                          ; preds = %if.end13
   %cmp36 = fcmp oeq double %z.coerce0, 1.000000e+00
-  %cmp38 = fcmp olt double %2, 0x2000000000000000
-  %or.cond33 = select i1 %cmp36, i1 %cmp38, i1 false
-  br i1 %or.cond33, label %if.then39, label %if.else61
+  %cmp38 = fcmp olt double %15, 0x2000000000000000
+  %or.cond31 = select i1 %cmp36, i1 %cmp38, i1 false
+  br i1 %or.cond31, label %if.then39, label %if.else61
 
 if.then39:                                        ; preds = %if.else
   %cmp40 = fcmp oeq double %z.coerce1, 0.000000e+00
@@ -2207,13 +2217,13 @@ if.then41:                                        ; preds = %if.then39
   br label %return
 
 if.else46:                                        ; preds = %if.then39
-  %sqrt = tail call double @llvm.sqrt.f64(double %2)
-  %call48 = tail call double @hypot(double noundef %2, double noundef 2.000000e+00) #10
+  %sqrt = tail call double @llvm.sqrt.f64(double %15)
+  %call48 = tail call double @hypot(double noundef %15, double noundef 2.000000e+00) #10
   %call49 = tail call double @sqrt(double noundef %call48) #10
   %div50 = fdiv double %sqrt, %call49
   %call51 = tail call double @log(double noundef %div50) #10
   %fneg52 = fneg double %call51
-  %fneg54 = fneg double %2
+  %fneg54 = fneg double %15
   %call55 = tail call double @atan2(double noundef 2.000000e+00, double noundef %fneg54) #10
   %div56 = fmul double %call55, 5.000000e-01
   %16 = tail call double @llvm.copysign.f64(double %div56, double %z.coerce1)
@@ -2227,16 +2237,16 @@ if.else61:                                        ; preds = %if.else
   %mul67 = fmul double %z.coerce1, %z.coerce1
   %17 = tail call double @llvm.fmuladd.f64(double %sub, double %sub, double %mul67)
   %div68 = fdiv double %mul, %17
-  %cmp.i47 = fcmp oeq double %div68, 0.000000e+00
-  br i1 %cmp.i47, label %_Py_log1p.exit, label %if.else.i
+  %cmp.i45 = fcmp oeq double %div68, 0.000000e+00
+  br i1 %cmp.i45, label %_Py_log1p.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else61
   %call.i = tail call double @log1p(double noundef %div68) #10
   br label %_Py_log1p.exit
 
 _Py_log1p.exit:                                   ; preds = %if.else61, %if.else.i
-  %retval.0.i48 = phi double [ %call.i, %if.else.i ], [ %div68, %if.else61 ]
-  %div70 = fmul double %retval.0.i48, 2.500000e-01
+  %retval.0.i46 = phi double [ %call.i, %if.else.i ], [ %div68, %if.else61 ]
+  %div70 = fmul double %retval.0.i46, 2.500000e-01
   %mul73 = fmul double %z.coerce1, -2.000000e+00
   %add = fadd double %z.coerce0, 1.000000e+00
   %neg = fneg double %mul67
@@ -2247,9 +2257,9 @@ _Py_log1p.exit:                                   ; preds = %if.else61, %if.else
   store i32 0, ptr %call83, align 4
   br label %return
 
-return:                                           ; preds = %if.then21, %if.then41, %if.else46, %_Py_log1p.exit, %if.then8, %special_type.exit46
-  %retval.sroa.0.0 = phi double [ %14, %if.then8 ], [ %retval.sroa.0.0.copyload, %special_type.exit46 ], [ %div29, %if.then21 ], [ 0x7FF0000000000000, %if.then41 ], [ %fneg52, %if.else46 ], [ %div70, %_Py_log1p.exit ]
-  %retval.sroa.4.0 = phi double [ %15, %if.then8 ], [ %retval.sroa.4.0.copyload, %special_type.exit46 ], [ %fneg32, %if.then21 ], [ %z.coerce1, %if.then41 ], [ %16, %if.else46 ], [ %div81, %_Py_log1p.exit ]
+return:                                           ; preds = %if.then21, %if.then41, %if.else46, %_Py_log1p.exit, %if.then8, %special_type.exit44
+  %retval.sroa.0.0 = phi double [ %13, %if.then8 ], [ %retval.sroa.0.0.copyload, %special_type.exit44 ], [ %div29, %if.then21 ], [ 0x7FF0000000000000, %if.then41 ], [ %fneg52, %if.else46 ], [ %div70, %_Py_log1p.exit ]
+  %retval.sroa.4.0 = phi double [ %14, %if.then8 ], [ %retval.sroa.4.0.copyload, %special_type.exit44 ], [ %fneg32, %if.then21 ], [ %z.coerce1, %if.then41 ], [ %16, %if.else46 ], [ %div81, %_Py_log1p.exit ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -2263,19 +2273,22 @@ declare double @log1p(double noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
 define internal fastcc { double, double } @cmath_cosh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond24 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond24, label %if.then, label %if.end38
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce0, i32 504)
+  br i1 %0, label %lor.lhs.false, label %if.then
 
-if.then:                                          ; preds = %entry
-  %isinf = fcmp oeq double %0, 0x7FF0000000000000
+lor.lhs.false:                                    ; preds = %entry
+  %1 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %1, label %if.end38, label %if.then
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  %2 = tail call double @llvm.fabs.f64(double %z.coerce0) #12
+  %isinf = fcmp oeq double %2, 0x7FF0000000000000
   br i1 %isinf, label %land.lhs.true, label %if.else20
 
 land.lhs.true:                                    ; preds = %if.then
-  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 408)
+  %3 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  %cmp = fcmp une double %z.coerce1, 0.000000e+00
+  %or.cond = select i1 %3, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then5, label %if.else20
 
 if.then5:                                         ; preds = %land.lhs.true
@@ -2295,7 +2308,7 @@ if.else:                                          ; preds = %if.then5
   br label %if.end27
 
 if.else20:                                        ; preds = %land.lhs.true, %if.then
-  br i1 %1, label %if.end.i, label %if.then.i
+  br i1 %0, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else20
   %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
@@ -2323,48 +2336,50 @@ if.end9.i:                                        ; preds = %if.end.i
 
 special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
   %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i35, label %if.then.i27
+  %10 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %10, label %if.then.i30, label %if.end.i25
 
-if.then.i27:                                      ; preds = %special_type.exit
-  %cmp.i28 = fcmp une double %z.coerce1, 0.000000e+00
-  %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i29 = fcmp oeq double %10, 1.000000e+00
-  br i1 %cmp.i28, label %if.then1.i33, label %if.else4.i30
+if.then.i30:                                      ; preds = %special_type.exit
+  %cmp.i31 = fcmp une double %z.coerce1, 0.000000e+00
+  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp2.i32 = fcmp oeq double %11, 1.000000e+00
+  br i1 %cmp.i31, label %if.then1.i35, label %if.else4.i33
 
-if.then1.i33:                                     ; preds = %if.then.i27
-  %..i34 = select i1 %cmp2.i29, i64 4, i64 1
-  br label %special_type.exit39
+if.then1.i35:                                     ; preds = %if.then.i30
+  %..i36 = select i1 %cmp2.i32, i64 4, i64 1
+  br label %special_type.exit37
 
-if.else4.i30:                                     ; preds = %if.then.i27
-  %.6.i31 = select i1 %cmp2.i29, i64 3, i64 2
-  br label %special_type.exit39
+if.else4.i33:                                     ; preds = %if.then.i30
+  %.6.i34 = select i1 %cmp2.i32, i64 3, i64 2
+  br label %special_type.exit37
 
-if.end.i35:                                       ; preds = %special_type.exit
-  %11 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %11, label %special_type.exit39, label %if.end9.i36
+if.end.i25:                                       ; preds = %special_type.exit
+  %12 = fcmp uno double %z.coerce1, 0.000000e+00
+  br i1 %12, label %special_type.exit37, label %if.end9.i26
 
-if.end9.i36:                                      ; preds = %if.end.i35
-  %12 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i37 = fcmp oeq double %12, 1.000000e+00
-  %.7.i38 = select i1 %cmp10.i37, i64 5, i64 0
-  br label %special_type.exit39
+if.end9.i26:                                      ; preds = %if.end.i25
+  %13 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp10.i27 = fcmp oeq double %13, 1.000000e+00
+  %.7.i28 = select i1 %cmp10.i27, i64 5, i64 0
+  br label %special_type.exit37
 
-special_type.exit39:                              ; preds = %if.then1.i33, %if.else4.i30, %if.end.i35, %if.end9.i36
-  %retval.0.i32 = phi i64 [ %..i34, %if.then1.i33 ], [ %.6.i31, %if.else4.i30 ], [ 6, %if.end.i35 ], [ %.7.i38, %if.end9.i36 ]
-  %arrayidx26 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @cosh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i32
+special_type.exit37:                              ; preds = %if.then1.i35, %if.else4.i33, %if.end.i25, %if.end9.i26
+  %retval.0.i29 = phi i64 [ %..i36, %if.then1.i35 ], [ %.6.i34, %if.else4.i33 ], [ 6, %if.end.i25 ], [ %.7.i28, %if.end9.i26 ]
+  %arrayidx26 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @cosh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i29
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx26, align 16
   %retval.sroa.7.0.arrayidx26.sroa_idx = getelementptr inbounds i8, ptr %arrayidx26, i64 8
   %retval.sroa.7.0.copyload = load double, ptr %retval.sroa.7.0.arrayidx26.sroa_idx, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %if.then8, %if.else, %special_type.exit39
-  %retval.sroa.0.0 = phi double [ %4, %if.then8 ], [ %4, %if.else ], [ %retval.sroa.0.0.copyload, %special_type.exit39 ]
-  %retval.sroa.7.0 = phi double [ %5, %if.then8 ], [ %fneg, %if.else ], [ %retval.sroa.7.0.copyload, %special_type.exit39 ]
-  %isinf29 = fcmp une double %2, 0x7FF0000000000000
-  %13 = fcmp uno double %z.coerce0, 0.000000e+00
-  %or.cond25 = select i1 %isinf29, i1 true, i1 %13
+if.end27:                                         ; preds = %if.then8, %if.else, %special_type.exit37
+  %retval.sroa.0.0 = phi double [ %4, %if.then8 ], [ %4, %if.else ], [ %retval.sroa.0.0.copyload, %special_type.exit37 ]
+  %retval.sroa.7.0 = phi double [ %5, %if.then8 ], [ %fneg, %if.else ], [ %retval.sroa.7.0.copyload, %special_type.exit37 ]
+  %14 = tail call double @llvm.fabs.f64(double %z.coerce1) #12
+  %isinf29 = fcmp une double %14, 0x7FF0000000000000
+  %15 = fcmp uno double %z.coerce0, 0.000000e+00
+  %or.cond23 = select i1 %isinf29, i1 true, i1 %15
   %call36 = tail call ptr @__errno_location() #11
-  br i1 %or.cond25, label %if.else35, label %if.then33
+  br i1 %or.cond23, label %if.else35, label %if.then33
 
 if.then33:                                        ; preds = %if.end27
   store i32 33, ptr %call36, align 4
@@ -2374,23 +2389,24 @@ if.else35:                                        ; preds = %if.end27
   store i32 0, ptr %call36, align 4
   br label %return
 
-if.end38:                                         ; preds = %entry
-  %cmp41 = fcmp ogt double %0, 0x4086232BDD7ABCD2
+if.end38:                                         ; preds = %lor.lhs.false
+  %16 = tail call double @llvm.fabs.f64(double %z.coerce0)
+  %cmp41 = fcmp ogt double %16, 0x4086232BDD7ABCD2
   br i1 %cmp41, label %if.then42, label %if.else56
 
 if.then42:                                        ; preds = %if.end38
-  %14 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %sub = fsub double %z.coerce0, %14
+  %17 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %sub = fsub double %z.coerce0, %17
   %call46 = tail call double @cos(double noundef %z.coerce1) #10
   %call47 = tail call double @cosh(double noundef %sub) #10
   %call51 = tail call double @sin(double noundef %z.coerce1) #10
   %call52 = tail call double @sinh(double noundef %sub) #10
-  %15 = insertelement <2 x double> poison, double %call46, i64 0
-  %16 = insertelement <2 x double> %15, double %call51, i64 1
-  %17 = insertelement <2 x double> poison, double %call47, i64 0
-  %18 = insertelement <2 x double> %17, double %call52, i64 1
-  %19 = fmul <2 x double> %16, %18
-  %20 = fmul <2 x double> %19, <double 0x4005BF0A8B145769, double 0x4005BF0A8B145769>
+  %18 = insertelement <2 x double> poison, double %call46, i64 0
+  %19 = insertelement <2 x double> %18, double %call51, i64 1
+  %20 = insertelement <2 x double> poison, double %call47, i64 0
+  %21 = insertelement <2 x double> %20, double %call52, i64 1
+  %22 = fmul <2 x double> %19, %21
+  %23 = fmul <2 x double> %22, <double 0x4005BF0A8B145769, double 0x4005BF0A8B145769>
   br label %if.end69
 
 if.else56:                                        ; preds = %if.end38
@@ -2398,38 +2414,38 @@ if.else56:                                        ; preds = %if.end38
   %call60 = tail call double @cosh(double noundef %z.coerce0) #10
   %call64 = tail call double @sin(double noundef %z.coerce1) #10
   %call66 = tail call double @sinh(double noundef %z.coerce0) #10
-  %21 = insertelement <2 x double> poison, double %call58, i64 0
-  %22 = insertelement <2 x double> %21, double %call64, i64 1
-  %23 = insertelement <2 x double> poison, double %call60, i64 0
-  %24 = insertelement <2 x double> %23, double %call66, i64 1
-  %25 = fmul <2 x double> %22, %24
+  %24 = insertelement <2 x double> poison, double %call58, i64 0
+  %25 = insertelement <2 x double> %24, double %call64, i64 1
+  %26 = insertelement <2 x double> poison, double %call60, i64 0
+  %27 = insertelement <2 x double> %26, double %call66, i64 1
+  %28 = fmul <2 x double> %25, %27
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else56, %if.then42
-  %26 = phi <2 x double> [ %20, %if.then42 ], [ %25, %if.else56 ]
-  %27 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %26)
-  %28 = fcmp oeq <2 x double> %27, <double 0x7FF0000000000000, double 0x7FF0000000000000>
-  %29 = extractelement <2 x i1> %28, i64 0
-  %30 = extractelement <2 x i1> %28, i64 1
-  %or.cond26 = select i1 %29, i1 true, i1 %30
+  %29 = phi <2 x double> [ %23, %if.then42 ], [ %28, %if.else56 ]
+  %30 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %29)
+  %31 = fcmp oeq <2 x double> %30, <double 0x7FF0000000000000, double 0x7FF0000000000000>
+  %32 = extractelement <2 x i1> %31, i64 0
+  %33 = extractelement <2 x i1> %31, i64 1
+  %or.cond24 = select i1 %32, i1 true, i1 %33
   %call78 = tail call ptr @__errno_location() #11
-  br i1 %or.cond26, label %if.then77, label %if.else79
+  br i1 %or.cond24, label %if.then77, label %if.else79
 
 if.then77:                                        ; preds = %if.end69
   store i32 34, ptr %call78, align 4
-  %31 = extractelement <2 x double> %26, i64 0
-  %32 = extractelement <2 x double> %26, i64 1
+  %34 = extractelement <2 x double> %29, i64 0
+  %35 = extractelement <2 x double> %29, i64 1
   br label %return
 
 if.else79:                                        ; preds = %if.end69
   store i32 0, ptr %call78, align 4
-  %33 = extractelement <2 x double> %26, i64 0
-  %34 = extractelement <2 x double> %26, i64 1
+  %36 = extractelement <2 x double> %29, i64 0
+  %37 = extractelement <2 x double> %29, i64 1
   br label %return
 
 return:                                           ; preds = %if.then77, %if.else79, %if.then33, %if.else35
-  %retval.sroa.0.2 = phi double [ %31, %if.then77 ], [ %33, %if.else79 ], [ %retval.sroa.0.0, %if.else35 ], [ %retval.sroa.0.0, %if.then33 ]
-  %retval.sroa.7.2 = phi double [ %32, %if.then77 ], [ %34, %if.else79 ], [ %retval.sroa.7.0, %if.else35 ], [ %retval.sroa.7.0, %if.then33 ]
+  %retval.sroa.0.2 = phi double [ %34, %if.then77 ], [ %36, %if.else79 ], [ %retval.sroa.0.0, %if.else35 ], [ %retval.sroa.0.0, %if.then33 ]
+  %retval.sroa.7.2 = phi double [ %35, %if.then77 ], [ %37, %if.else79 ], [ %retval.sroa.7.0, %if.else35 ], [ %retval.sroa.7.0, %if.then33 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.7.2, 1
   ret { double, double } %.fca.1.insert
@@ -2465,22 +2481,19 @@ declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc { double, double } @c_log(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond39 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond39, label %if.then, label %if.end
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce0, i32 504)
+  br i1 %0, label %lor.lhs.false, label %if.end.i
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call, align 4
-  br i1 %1, label %if.end.i, label %if.then.i
+lor.lhs.false:                                    ; preds = %entry
+  %1 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %1, label %if.end, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then
+if.then.i:                                        ; preds = %lor.lhs.false
+  %call53 = tail call ptr @__errno_location() #11
+  store i32 0, ptr %call53, align 4
   %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
-  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp2.i = fcmp oeq double %4, 1.000000e+00
+  %2 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %cmp2.i = fcmp oeq double %2, 1.000000e+00
   br i1 %cmp.i, label %if.then1.i, label %if.else4.i
 
 if.then1.i:                                       ; preds = %if.then.i
@@ -2491,69 +2504,74 @@ if.else4.i:                                       ; preds = %if.then.i
   %.6.i = select i1 %cmp2.i, i64 3, i64 2
   br label %special_type.exit
 
-if.end.i:                                         ; preds = %if.then
-  %5 = fcmp uno double %z.coerce0, 0.000000e+00
-  br i1 %5, label %special_type.exit, label %if.end9.i
+if.end.i:                                         ; preds = %entry
+  %call = tail call ptr @__errno_location() #11
+  store i32 0, ptr %call, align 4
+  %3 = fcmp uno double %z.coerce0, 0.000000e+00
+  br i1 %3, label %special_type.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %cmp10.i = fcmp oeq double %6, 1.000000e+00
+  %4 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %cmp10.i = fcmp oeq double %4, 1.000000e+00
   %.7.i = select i1 %cmp10.i, i64 5, i64 0
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
   %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i48, label %if.then.i40
+  %5 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %5, label %if.then.i43, label %if.end.i38
 
-if.then.i40:                                      ; preds = %special_type.exit
-  %cmp.i41 = fcmp une double %z.coerce1, 0.000000e+00
-  %7 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i42 = fcmp oeq double %7, 1.000000e+00
-  br i1 %cmp.i41, label %if.then1.i46, label %if.else4.i43
+if.then.i43:                                      ; preds = %special_type.exit
+  %cmp.i44 = fcmp une double %z.coerce1, 0.000000e+00
+  %6 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp2.i45 = fcmp oeq double %6, 1.000000e+00
+  br i1 %cmp.i44, label %if.then1.i48, label %if.else4.i46
 
-if.then1.i46:                                     ; preds = %if.then.i40
-  %..i47 = select i1 %cmp2.i42, i64 4, i64 1
-  br label %special_type.exit52
+if.then1.i48:                                     ; preds = %if.then.i43
+  %..i49 = select i1 %cmp2.i45, i64 4, i64 1
+  br label %special_type.exit50
 
-if.else4.i43:                                     ; preds = %if.then.i40
-  %.6.i44 = select i1 %cmp2.i42, i64 3, i64 2
-  br label %special_type.exit52
+if.else4.i46:                                     ; preds = %if.then.i43
+  %.6.i47 = select i1 %cmp2.i45, i64 3, i64 2
+  br label %special_type.exit50
 
-if.end.i48:                                       ; preds = %special_type.exit
-  %8 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %8, label %special_type.exit52, label %if.end9.i49
+if.end.i38:                                       ; preds = %special_type.exit
+  %7 = fcmp uno double %z.coerce1, 0.000000e+00
+  br i1 %7, label %special_type.exit50, label %if.end9.i39
 
-if.end9.i49:                                      ; preds = %if.end.i48
-  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i50 = fcmp oeq double %9, 1.000000e+00
-  %.7.i51 = select i1 %cmp10.i50, i64 5, i64 0
-  br label %special_type.exit52
+if.end9.i39:                                      ; preds = %if.end.i38
+  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp10.i40 = fcmp oeq double %8, 1.000000e+00
+  %.7.i41 = select i1 %cmp10.i40, i64 5, i64 0
+  br label %special_type.exit50
 
-special_type.exit52:                              ; preds = %if.then1.i46, %if.else4.i43, %if.end.i48, %if.end9.i49
-  %retval.0.i45 = phi i64 [ %..i47, %if.then1.i46 ], [ %.6.i44, %if.else4.i43 ], [ 6, %if.end.i48 ], [ %.7.i51, %if.end9.i49 ]
-  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @log_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i45
+special_type.exit50:                              ; preds = %if.then1.i48, %if.else4.i46, %if.end.i38, %if.end9.i39
+  %retval.0.i42 = phi i64 [ %..i49, %if.then1.i48 ], [ %.6.i47, %if.else4.i46 ], [ 6, %if.end.i38 ], [ %.7.i41, %if.end9.i39 ]
+  %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @log_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i42
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
   %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
   br label %return
 
-if.end:                                           ; preds = %entry
-  %cmp = fcmp ogt double %0, 0x7FCFFFFFFFFFFFFF
-  %cmp10 = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
+if.end:                                           ; preds = %lor.lhs.false
+  %9 = tail call double @llvm.fabs.f64(double %z.coerce0)
+  %10 = tail call double @llvm.fabs.f64(double %z.coerce1)
+  %cmp = fcmp ogt double %9, 0x7FCFFFFFFFFFFFFF
+  %cmp10 = fcmp ogt double %10, 0x7FCFFFFFFFFFFFFF
   %or.cond = select i1 %cmp, i1 true, i1 %cmp10
   br i1 %or.cond, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end
-  %div = fmul double %0, 5.000000e-01
-  %div12 = fmul double %2, 5.000000e-01
+  %div = fmul double %9, 5.000000e-01
+  %div12 = fmul double %10, 5.000000e-01
   %call13 = tail call double @hypot(double noundef %div, double noundef %div12) #10
   %call14 = tail call double @log(double noundef %call13) #10
   %add = fadd double %call14, 0x3FE62E42FEFA39EF
   br label %if.end59
 
 if.else:                                          ; preds = %if.end
-  %cmp16 = fcmp olt double %0, 0x10000000000000
-  %cmp17 = fcmp olt double %2, 0x10000000000000
+  %cmp16 = fcmp olt double %9, 0x10000000000000
+  %cmp17 = fcmp olt double %10, 0x10000000000000
   %or.cond1 = select i1 %cmp16, i1 %cmp17, i1 false
   br i1 %or.cond1, label %if.then18, label %if.else36
 
@@ -2564,8 +2582,8 @@ if.then18:                                        ; preds = %if.else
   br i1 %or.cond2, label %if.then22, label %if.else28
 
 if.then22:                                        ; preds = %if.then18
-  %call23 = tail call double @ldexp(double noundef %0, i32 noundef 53) #10
-  %call24 = tail call double @ldexp(double noundef %2, i32 noundef 53) #10
+  %call23 = tail call double @ldexp(double noundef %9, i32 noundef 53) #10
+  %call24 = tail call double @ldexp(double noundef %10, i32 noundef 53) #10
   %call25 = tail call double @hypot(double noundef %call23, double noundef %call24) #10
   %call26 = tail call double @log(double noundef %call25) #10
   %sub = fadd double %call26, 0xC0425E4F7B2737FA
@@ -2578,30 +2596,30 @@ if.else28:                                        ; preds = %if.then18
   br label %return
 
 if.else36:                                        ; preds = %if.else
-  %call37 = tail call double @hypot(double noundef %0, double noundef %2) #10
+  %call37 = tail call double @hypot(double noundef %9, double noundef %10) #10
   %cmp38 = fcmp oge double %call37, 7.100000e-01
   %cmp40 = fcmp ole double %call37, 1.730000e+00
   %or.cond3 = and i1 %cmp38, %cmp40
   br i1 %or.cond3, label %if.then41, label %if.else54
 
 if.then41:                                        ; preds = %if.else36
-  %cmp42 = fcmp ogt double %0, %2
-  %cond = select i1 %cmp42, double %0, double %2
-  %cond47 = select i1 %cmp42, double %2, double %0
+  %cmp42 = fcmp ogt double %9, %10
+  %cond = select i1 %cmp42, double %9, double %10
+  %cond47 = select i1 %cmp42, double %10, double %9
   %sub48 = fadd double %cond, -1.000000e+00
   %add49 = fadd double %cond, 1.000000e+00
   %mul50 = fmul double %cond47, %cond47
-  %10 = tail call double @llvm.fmuladd.f64(double %sub48, double %add49, double %mul50)
-  %cmp.i53 = fcmp oeq double %10, 0.000000e+00
-  br i1 %cmp.i53, label %_Py_log1p.exit, label %if.else.i
+  %11 = tail call double @llvm.fmuladd.f64(double %sub48, double %add49, double %mul50)
+  %cmp.i51 = fcmp oeq double %11, 0.000000e+00
+  br i1 %cmp.i51, label %_Py_log1p.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then41
-  %call.i = tail call double @log1p(double noundef %10) #10
+  %call.i = tail call double @log1p(double noundef %11) #10
   br label %_Py_log1p.exit
 
 _Py_log1p.exit:                                   ; preds = %if.then41, %if.else.i
-  %retval.0.i54 = phi double [ %call.i, %if.else.i ], [ %10, %if.then41 ]
-  %div52 = fmul double %retval.0.i54, 5.000000e-01
+  %retval.0.i52 = phi double [ %call.i, %if.else.i ], [ %11, %if.then41 ]
+  %div52 = fmul double %retval.0.i52, 5.000000e-01
   br label %if.end59
 
 if.else54:                                        ; preds = %if.else36
@@ -2615,9 +2633,9 @@ if.end59:                                         ; preds = %if.then22, %if.else
   store i32 0, ptr %call64, align 4
   br label %return
 
-return:                                           ; preds = %if.end59, %if.else28, %special_type.exit52
-  %retval.sroa.0.0 = phi double [ %r.sroa.0.0, %if.end59 ], [ 0xFFF0000000000000, %if.else28 ], [ %retval.sroa.0.0.copyload, %special_type.exit52 ]
-  %retval.sroa.4.0 = phi double [ %call62, %if.end59 ], [ %call32, %if.else28 ], [ %retval.sroa.4.0.copyload, %special_type.exit52 ]
+return:                                           ; preds = %if.end59, %if.else28, %special_type.exit50
+  %retval.sroa.0.0 = phi double [ %r.sroa.0.0, %if.end59 ], [ 0xFFF0000000000000, %if.else28 ], [ %retval.sroa.0.0.copyload, %special_type.exit50 ]
+  %retval.sroa.4.0 = phi double [ %call62, %if.end59 ], [ %call32, %if.else28 ], [ %retval.sroa.4.0.copyload, %special_type.exit50 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -2634,19 +2652,22 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
 define internal fastcc { double, double } @cmath_sinh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond24 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond24, label %if.then, label %if.end38
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce0, i32 504)
+  br i1 %0, label %lor.lhs.false, label %if.then
 
-if.then:                                          ; preds = %entry
-  %isinf = fcmp oeq double %0, 0x7FF0000000000000
+lor.lhs.false:                                    ; preds = %entry
+  %1 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %1, label %if.end38, label %if.then
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  %2 = tail call double @llvm.fabs.f64(double %z.coerce0) #12
+  %isinf = fcmp oeq double %2, 0x7FF0000000000000
   br i1 %isinf, label %land.lhs.true, label %if.else20
 
 land.lhs.true:                                    ; preds = %if.then
-  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 408)
+  %3 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  %cmp = fcmp une double %z.coerce1, 0.000000e+00
+  %or.cond = select i1 %3, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then5, label %if.else20
 
 if.then5:                                         ; preds = %land.lhs.true
@@ -2670,7 +2691,7 @@ if.else:                                          ; preds = %if.then5
   br label %if.end27
 
 if.else20:                                        ; preds = %land.lhs.true, %if.then
-  br i1 %1, label %if.end.i, label %if.then.i
+  br i1 %0, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else20
   %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
@@ -2698,45 +2719,47 @@ if.end9.i:                                        ; preds = %if.end.i
 
 special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
   %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i35, label %if.then.i27
+  %14 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %14, label %if.then.i30, label %if.end.i25
 
-if.then.i27:                                      ; preds = %special_type.exit
-  %cmp.i28 = fcmp une double %z.coerce1, 0.000000e+00
-  %14 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i29 = fcmp oeq double %14, 1.000000e+00
-  br i1 %cmp.i28, label %if.then1.i33, label %if.else4.i30
+if.then.i30:                                      ; preds = %special_type.exit
+  %cmp.i31 = fcmp une double %z.coerce1, 0.000000e+00
+  %15 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp2.i32 = fcmp oeq double %15, 1.000000e+00
+  br i1 %cmp.i31, label %if.then1.i35, label %if.else4.i33
 
-if.then1.i33:                                     ; preds = %if.then.i27
-  %..i34 = select i1 %cmp2.i29, i64 4, i64 1
-  br label %special_type.exit39
+if.then1.i35:                                     ; preds = %if.then.i30
+  %..i36 = select i1 %cmp2.i32, i64 4, i64 1
+  br label %special_type.exit37
 
-if.else4.i30:                                     ; preds = %if.then.i27
-  %.6.i31 = select i1 %cmp2.i29, i64 3, i64 2
-  br label %special_type.exit39
+if.else4.i33:                                     ; preds = %if.then.i30
+  %.6.i34 = select i1 %cmp2.i32, i64 3, i64 2
+  br label %special_type.exit37
 
-if.end.i35:                                       ; preds = %special_type.exit
-  %15 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %15, label %special_type.exit39, label %if.end9.i36
+if.end.i25:                                       ; preds = %special_type.exit
+  %16 = fcmp uno double %z.coerce1, 0.000000e+00
+  br i1 %16, label %special_type.exit37, label %if.end9.i26
 
-if.end9.i36:                                      ; preds = %if.end.i35
-  %16 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i37 = fcmp oeq double %16, 1.000000e+00
-  %.7.i38 = select i1 %cmp10.i37, i64 5, i64 0
-  br label %special_type.exit39
+if.end9.i26:                                      ; preds = %if.end.i25
+  %17 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp10.i27 = fcmp oeq double %17, 1.000000e+00
+  %.7.i28 = select i1 %cmp10.i27, i64 5, i64 0
+  br label %special_type.exit37
 
-special_type.exit39:                              ; preds = %if.then1.i33, %if.else4.i30, %if.end.i35, %if.end9.i36
-  %retval.0.i32 = phi i64 [ %..i34, %if.then1.i33 ], [ %.6.i31, %if.else4.i30 ], [ 6, %if.end.i35 ], [ %.7.i38, %if.end9.i36 ]
-  %arrayidx26 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sinh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i32
-  %17 = load <2 x double>, ptr %arrayidx26, align 16
+special_type.exit37:                              ; preds = %if.then1.i35, %if.else4.i33, %if.end.i25, %if.end9.i26
+  %retval.0.i29 = phi i64 [ %..i36, %if.then1.i35 ], [ %.6.i34, %if.else4.i33 ], [ 6, %if.end.i25 ], [ %.7.i28, %if.end9.i26 ]
+  %arrayidx26 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sinh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i29
+  %18 = load <2 x double>, ptr %arrayidx26, align 16
   br label %if.end27
 
-if.end27:                                         ; preds = %if.then8, %if.else, %special_type.exit39
-  %18 = phi <2 x double> [ %6, %if.then8 ], [ %10, %if.else ], [ %17, %special_type.exit39 ]
-  %isinf29 = fcmp une double %2, 0x7FF0000000000000
-  %19 = fcmp uno double %z.coerce0, 0.000000e+00
-  %or.cond25 = select i1 %isinf29, i1 true, i1 %19
+if.end27:                                         ; preds = %if.then8, %if.else, %special_type.exit37
+  %19 = phi <2 x double> [ %6, %if.then8 ], [ %10, %if.else ], [ %18, %special_type.exit37 ]
+  %20 = tail call double @llvm.fabs.f64(double %z.coerce1) #12
+  %isinf29 = fcmp une double %20, 0x7FF0000000000000
+  %21 = fcmp uno double %z.coerce0, 0.000000e+00
+  %or.cond23 = select i1 %isinf29, i1 true, i1 %21
   %call36 = tail call ptr @__errno_location() #11
-  br i1 %or.cond25, label %if.else35, label %if.then33
+  br i1 %or.cond23, label %if.else35, label %if.then33
 
 if.then33:                                        ; preds = %if.end27
   store i32 33, ptr %call36, align 4
@@ -2746,23 +2769,24 @@ if.else35:                                        ; preds = %if.end27
   store i32 0, ptr %call36, align 4
   br label %return
 
-if.end38:                                         ; preds = %entry
-  %cmp41 = fcmp ogt double %0, 0x4086232BDD7ABCD2
+if.end38:                                         ; preds = %lor.lhs.false
+  %22 = tail call double @llvm.fabs.f64(double %z.coerce0)
+  %cmp41 = fcmp ogt double %22, 0x4086232BDD7ABCD2
   br i1 %cmp41, label %if.then42, label %if.else56
 
 if.then42:                                        ; preds = %if.end38
-  %20 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
-  %sub = fsub double %z.coerce0, %20
+  %23 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %sub = fsub double %z.coerce0, %23
   %call46 = tail call double @cos(double noundef %z.coerce1) #10
   %call47 = tail call double @sinh(double noundef %sub) #10
   %call51 = tail call double @sin(double noundef %z.coerce1) #10
   %call52 = tail call double @cosh(double noundef %sub) #10
-  %21 = insertelement <2 x double> poison, double %call46, i64 0
-  %22 = insertelement <2 x double> %21, double %call51, i64 1
-  %23 = insertelement <2 x double> poison, double %call47, i64 0
-  %24 = insertelement <2 x double> %23, double %call52, i64 1
-  %25 = fmul <2 x double> %22, %24
-  %26 = fmul <2 x double> %25, <double 0x4005BF0A8B145769, double 0x4005BF0A8B145769>
+  %24 = insertelement <2 x double> poison, double %call46, i64 0
+  %25 = insertelement <2 x double> %24, double %call51, i64 1
+  %26 = insertelement <2 x double> poison, double %call47, i64 0
+  %27 = insertelement <2 x double> %26, double %call52, i64 1
+  %28 = fmul <2 x double> %25, %27
+  %29 = fmul <2 x double> %28, <double 0x4005BF0A8B145769, double 0x4005BF0A8B145769>
   br label %if.end69
 
 if.else56:                                        ; preds = %if.end38
@@ -2770,22 +2794,22 @@ if.else56:                                        ; preds = %if.end38
   %call60 = tail call double @sinh(double noundef %z.coerce0) #10
   %call64 = tail call double @sin(double noundef %z.coerce1) #10
   %call66 = tail call double @cosh(double noundef %z.coerce0) #10
-  %27 = insertelement <2 x double> poison, double %call58, i64 0
-  %28 = insertelement <2 x double> %27, double %call64, i64 1
-  %29 = insertelement <2 x double> poison, double %call60, i64 0
-  %30 = insertelement <2 x double> %29, double %call66, i64 1
-  %31 = fmul <2 x double> %28, %30
+  %30 = insertelement <2 x double> poison, double %call58, i64 0
+  %31 = insertelement <2 x double> %30, double %call64, i64 1
+  %32 = insertelement <2 x double> poison, double %call60, i64 0
+  %33 = insertelement <2 x double> %32, double %call66, i64 1
+  %34 = fmul <2 x double> %31, %33
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else56, %if.then42
-  %32 = phi <2 x double> [ %26, %if.then42 ], [ %31, %if.else56 ]
-  %33 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %32)
-  %34 = fcmp oeq <2 x double> %33, <double 0x7FF0000000000000, double 0x7FF0000000000000>
-  %35 = extractelement <2 x i1> %34, i64 0
-  %36 = extractelement <2 x i1> %34, i64 1
-  %or.cond26 = select i1 %35, i1 true, i1 %36
+  %35 = phi <2 x double> [ %29, %if.then42 ], [ %34, %if.else56 ]
+  %36 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %35)
+  %37 = fcmp oeq <2 x double> %36, <double 0x7FF0000000000000, double 0x7FF0000000000000>
+  %38 = extractelement <2 x i1> %37, i64 0
+  %39 = extractelement <2 x i1> %37, i64 1
+  %or.cond24 = select i1 %38, i1 true, i1 %39
   %call78 = tail call ptr @__errno_location() #11
-  br i1 %or.cond26, label %if.then77, label %if.else79
+  br i1 %or.cond24, label %if.then77, label %if.else79
 
 if.then77:                                        ; preds = %if.end69
   store i32 34, ptr %call78, align 4
@@ -2796,30 +2820,33 @@ if.else79:                                        ; preds = %if.end69
   br label %return
 
 return:                                           ; preds = %if.then77, %if.else79, %if.then33, %if.else35
-  %37 = phi <2 x double> [ %32, %if.then77 ], [ %32, %if.else79 ], [ %18, %if.else35 ], [ %18, %if.then33 ]
-  %38 = extractelement <2 x double> %37, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %38, 0
-  %39 = extractelement <2 x double> %37, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %39, 1
+  %40 = phi <2 x double> [ %35, %if.then77 ], [ %35, %if.else79 ], [ %19, %if.else35 ], [ %19, %if.then33 ]
+  %41 = extractelement <2 x double> %40, i64 0
+  %.fca.0.insert = insertvalue { double, double } poison, double %41, 0
+  %42 = extractelement <2 x double> %40, i64 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %42, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
 define internal fastcc { double, double } @cmath_tanh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #7 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %z.coerce1)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond29 = select i1 %1, i1 true, i1 %3
-  br i1 %or.cond29, label %if.then, label %if.end41
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce0, i32 504)
+  br i1 %0, label %lor.lhs.false, label %if.then
 
-if.then:                                          ; preds = %entry
-  %isinf = fcmp oeq double %0, 0x7FF0000000000000
+lor.lhs.false:                                    ; preds = %entry
+  %1 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %1, label %if.end41, label %if.then
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  %2 = tail call double @llvm.fabs.f64(double %z.coerce0) #12
+  %isinf = fcmp oeq double %2, 0x7FF0000000000000
   br i1 %isinf, label %land.lhs.true, label %if.else23
 
 land.lhs.true:                                    ; preds = %if.then
-  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 408)
+  %3 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  %cmp = fcmp une double %z.coerce1, 0.000000e+00
+  %or.cond = select i1 %3, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then5, label %if.else23
 
 if.then5:                                         ; preds = %land.lhs.true
@@ -2833,7 +2860,7 @@ if.then5:                                         ; preds = %land.lhs.true
   br label %if.end30
 
 if.else23:                                        ; preds = %land.lhs.true, %if.then
-  br i1 %1, label %if.end.i, label %if.then.i
+  br i1 %0, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else23
   %cmp.i = fcmp une double %z.coerce0, 0.000000e+00
@@ -2861,67 +2888,70 @@ if.end9.i:                                        ; preds = %if.end.i
 
 special_type.exit:                                ; preds = %if.then1.i, %if.else4.i, %if.end.i, %if.end9.i
   %retval.0.i = phi i64 [ %..i, %if.then1.i ], [ %.6.i, %if.else4.i ], [ 6, %if.end.i ], [ %.7.i, %if.end9.i ]
-  br i1 %3, label %if.end.i39, label %if.then.i31
+  %8 = tail call i1 @llvm.is.fpclass.f64(double %z.coerce1, i32 504)
+  br i1 %8, label %if.then.i33, label %if.end.i28
 
-if.then.i31:                                      ; preds = %special_type.exit
-  %cmp.i32 = fcmp une double %z.coerce1, 0.000000e+00
-  %8 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp2.i33 = fcmp oeq double %8, 1.000000e+00
-  br i1 %cmp.i32, label %if.then1.i37, label %if.else4.i34
+if.then.i33:                                      ; preds = %special_type.exit
+  %cmp.i34 = fcmp une double %z.coerce1, 0.000000e+00
+  %9 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp2.i35 = fcmp oeq double %9, 1.000000e+00
+  br i1 %cmp.i34, label %if.then1.i38, label %if.else4.i36
 
-if.then1.i37:                                     ; preds = %if.then.i31
-  %..i38 = select i1 %cmp2.i33, i64 4, i64 1
-  br label %special_type.exit43
+if.then1.i38:                                     ; preds = %if.then.i33
+  %..i39 = select i1 %cmp2.i35, i64 4, i64 1
+  br label %special_type.exit40
 
-if.else4.i34:                                     ; preds = %if.then.i31
-  %.6.i35 = select i1 %cmp2.i33, i64 3, i64 2
-  br label %special_type.exit43
+if.else4.i36:                                     ; preds = %if.then.i33
+  %.6.i37 = select i1 %cmp2.i35, i64 3, i64 2
+  br label %special_type.exit40
 
-if.end.i39:                                       ; preds = %special_type.exit
-  %9 = fcmp uno double %z.coerce1, 0.000000e+00
-  br i1 %9, label %special_type.exit43, label %if.end9.i40
+if.end.i28:                                       ; preds = %special_type.exit
+  %10 = fcmp uno double %z.coerce1, 0.000000e+00
+  br i1 %10, label %special_type.exit40, label %if.end9.i29
 
-if.end9.i40:                                      ; preds = %if.end.i39
-  %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
-  %cmp10.i41 = fcmp oeq double %10, 1.000000e+00
-  %.7.i42 = select i1 %cmp10.i41, i64 5, i64 0
-  br label %special_type.exit43
+if.end9.i29:                                      ; preds = %if.end.i28
+  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce1)
+  %cmp10.i30 = fcmp oeq double %11, 1.000000e+00
+  %.7.i31 = select i1 %cmp10.i30, i64 5, i64 0
+  br label %special_type.exit40
 
-special_type.exit43:                              ; preds = %if.then1.i37, %if.else4.i34, %if.end.i39, %if.end9.i40
-  %retval.0.i36 = phi i64 [ %..i38, %if.then1.i37 ], [ %.6.i35, %if.else4.i34 ], [ 6, %if.end.i39 ], [ %.7.i42, %if.end9.i40 ]
-  %arrayidx29 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @tanh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i36
+special_type.exit40:                              ; preds = %if.then1.i38, %if.else4.i36, %if.end.i28, %if.end9.i29
+  %retval.0.i32 = phi i64 [ %..i39, %if.then1.i38 ], [ %.6.i37, %if.else4.i36 ], [ 6, %if.end.i28 ], [ %.7.i31, %if.end9.i29 ]
+  %arrayidx29 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @tanh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i32
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx29, align 16
   %retval.sroa.6.0.arrayidx29.sroa_idx = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   %retval.sroa.6.0.copyload = load double, ptr %retval.sroa.6.0.arrayidx29.sroa_idx, align 8
   br label %if.end30
 
-if.end30:                                         ; preds = %if.then5, %special_type.exit43
-  %retval.sroa.0.0 = phi double [ %retval.sroa.0.0.copyload, %special_type.exit43 ], [ %., %if.then5 ]
-  %retval.sroa.6.0 = phi double [ %retval.sroa.6.0.copyload, %special_type.exit43 ], [ %4, %if.then5 ]
-  %isinf32 = fcmp une double %2, 0x7FF0000000000000
-  %brmerge = or i1 %1, %isinf32
-  %call39 = tail call ptr @__errno_location() #11
-  br i1 %brmerge, label %if.else38, label %if.then36
+if.end30:                                         ; preds = %if.then5, %special_type.exit40
+  %retval.sroa.0.0 = phi double [ %retval.sroa.0.0.copyload, %special_type.exit40 ], [ %., %if.then5 ]
+  %retval.sroa.6.0 = phi double [ %retval.sroa.6.0.copyload, %special_type.exit40 ], [ %4, %if.then5 ]
+  %12 = tail call double @llvm.fabs.f64(double %z.coerce1) #12
+  %isinf32 = fcmp oeq double %12, 0x7FF0000000000000
+  %brmerge.not = and i1 %0, %isinf32
+  %call37 = tail call ptr @__errno_location() #11
+  br i1 %brmerge.not, label %if.then36, label %if.else38
 
 if.then36:                                        ; preds = %if.end30
-  store i32 33, ptr %call39, align 4
+  store i32 33, ptr %call37, align 4
   br label %return
 
 if.else38:                                        ; preds = %if.end30
-  store i32 0, ptr %call39, align 4
+  store i32 0, ptr %call37, align 4
   br label %return
 
-if.end41:                                         ; preds = %entry
-  %cmp44 = fcmp ogt double %0, 0x4086232BDD7ABCD2
+if.end41:                                         ; preds = %lor.lhs.false
+  %13 = tail call double @llvm.fabs.f64(double %z.coerce0)
+  %cmp44 = fcmp ogt double %13, 0x4086232BDD7ABCD2
   br i1 %cmp44, label %if.then45, label %if.else59
 
 if.then45:                                        ; preds = %if.end41
-  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
+  %14 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %z.coerce0)
   %call49 = tail call double @sin(double noundef %z.coerce1) #10
   %mul50 = fmul double %call49, 4.000000e+00
   %call52 = tail call double @cos(double noundef %z.coerce1) #10
   %mul53 = fmul double %mul50, %call52
-  %mul55 = fmul double %0, -2.000000e+00
+  %mul55 = fmul double %13, -2.000000e+00
   %call56 = tail call double @exp(double noundef %mul55) #10
   %mul57 = fmul double %mul53, %call56
   br label %if.end76
@@ -2931,22 +2961,22 @@ if.else59:                                        ; preds = %if.end41
   %call63 = tail call double @tan(double noundef %z.coerce1) #10
   %call65 = tail call double @cosh(double noundef %z.coerce0) #10
   %mul66 = fmul double %call61, %call63
-  %12 = tail call double @llvm.fmuladd.f64(double %mul66, double %mul66, double 1.000000e+00)
-  %13 = tail call double @llvm.fmuladd.f64(double %call63, double %call63, double 1.000000e+00)
-  %mul69 = fmul double %call61, %13
-  %div70 = fdiv double %mul69, %12
-  %14 = insertelement <2 x double> <double 1.000000e+00, double poison>, double %call63, i64 1
-  %15 = insertelement <2 x double> poison, double %call65, i64 0
-  %16 = insertelement <2 x double> %15, double %12, i64 1
-  %17 = fdiv <2 x double> %14, %16
-  %shift = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %18 = fmul <2 x double> %17, %shift
-  %19 = fmul <2 x double> %17, %18
-  %mul74 = extractelement <2 x double> %19, i64 0
+  %15 = tail call double @llvm.fmuladd.f64(double %mul66, double %mul66, double 1.000000e+00)
+  %16 = tail call double @llvm.fmuladd.f64(double %call63, double %call63, double 1.000000e+00)
+  %mul69 = fmul double %call61, %16
+  %div70 = fdiv double %mul69, %15
+  %17 = insertelement <2 x double> <double 1.000000e+00, double poison>, double %call63, i64 1
+  %18 = insertelement <2 x double> poison, double %call65, i64 0
+  %19 = insertelement <2 x double> %18, double %15, i64 1
+  %20 = fdiv <2 x double> %17, %19
+  %shift = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %21 = fmul <2 x double> %20, %shift
+  %22 = fmul <2 x double> %20, %21
+  %mul74 = extractelement <2 x double> %22, i64 0
   br label %if.end76
 
 if.end76:                                         ; preds = %if.else59, %if.then45
-  %retval.sroa.0.1 = phi double [ %11, %if.then45 ], [ %div70, %if.else59 ]
+  %retval.sroa.0.1 = phi double [ %14, %if.then45 ], [ %div70, %if.else59 ]
   %retval.sroa.6.1 = phi double [ %mul57, %if.then45 ], [ %mul74, %if.else59 ]
   %call77 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call77, align 4

@@ -595,21 +595,22 @@ entry:
   %lo_int.i = alloca double, align 8
   %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
-  %cmp.i = icmp ne i32 %agg.tmp.sroa.2.0.copyload, -1
-  %0 = tail call double @llvm.fabs.f64(double %r)
-  %spec.select.i = fcmp one double %0, 0x7FF0000000000000
-  %or.cond = and i1 %spec.select.i, %cmp.i
-  br i1 %or.cond, label %if.end, label %if.then
+  %cmp.i = icmp eq i32 %agg.tmp.sroa.2.0.copyload, -1
+  br i1 %cmp.i, label %if.then, label %lor.lhs.false
 
-if.then:                                          ; preds = %entry
-  %1 = bitcast double %r to i64
-  %2 = load i64, ptr %this, align 4
-  %3 = xor i64 %2, %1
-  %cmp6.not4 = icmp sgt i64 %3, -1
+lor.lhs.false:                                    ; preds = %entry
+  %spec.select.i = tail call noundef i1 @llvm.is.fpclass.f64(double %r, i32 504)
+  br i1 %spec.select.i, label %if.end, label %if.then
+
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  %0 = bitcast double %r to i64
+  %1 = load i64, ptr %this, align 4
+  %2 = xor i64 %1, %0
+  %cmp6.not4 = icmp sgt i64 %2, -1
   %spec.select = select i1 %cmp6.not4, { i64, i32 } { i64 9223372036854775807, i32 -1 }, { i64, i32 } { i64 -9223372036854775808, i32 -1 }
   br label %return
 
-if.end:                                           ; preds = %entry
+if.end:                                           ; preds = %lor.lhs.false
   %agg.tmp14.sroa.0.0.copyload = load i64, ptr %this, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi_int.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lo_int.i)
@@ -624,11 +625,11 @@ if.end:                                           ; preds = %entry
   store double 0.000000e+00, ptr %lo_int.i, align 8
   %call8.i = call double @modf(double noundef %add.i, ptr noundef nonnull %lo_int.i) #18
   %mul.i = fmul double %call8.i, 4.000000e+09
-  %4 = tail call double @llvm.round.f64(double %mul.i)
-  %conv9.i = fptosi double %4 to i64
-  %5 = load double, ptr %hi_int.i, align 8
-  %6 = load double, ptr %lo_int.i, align 8
-  %add.i.i = fadd double %5, %6
+  %3 = tail call double @llvm.round.f64(double %mul.i)
+  %conv9.i = fptosi double %3 to i64
+  %4 = load double, ptr %hi_int.i, align 8
+  %5 = load double, ptr %lo_int.i, align 8
+  %add.i.i = fadd double %4, %5
   %cmp.i.i = fcmp ult double %add.i.i, 0x43E0000000000000
   br i1 %cmp.i.i, label %if.end.i.i, label %if.then.i
 
@@ -2923,6 +2924,9 @@ entry:
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #5
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
 declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #13
 
@@ -2942,17 +2946,14 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #16
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2970,8 +2971,8 @@ attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-lega
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }
 attributes #19 = { nounwind willreturn memory(argmem: readwrite) }
 

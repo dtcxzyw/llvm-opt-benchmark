@@ -13,12 +13,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i64 @_Py_HashDouble(ptr noundef %inst, double noundef %v) local_unnamed_addr #0 {
 entry:
   %e = alloca i32, align 4
-  %0 = tail call double @llvm.fabs.f64(double %v)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.then, label %if.end
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %v, i32 504)
+  br i1 %0, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %isinf = fcmp oeq double %0, 0x7FF0000000000000
+  %1 = tail call double @llvm.fabs.f64(double %v) #8
+  %isinf = fcmp oeq double %1, 0x7FF0000000000000
   br i1 %isinf, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
@@ -33,7 +33,7 @@ if.else:                                          ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call double @frexp(double noundef %v, ptr noundef nonnull %e) #8
+  %call2 = call double @frexp(double noundef %v, ptr noundef nonnull %e) #9
   %cmp3 = fcmp olt double %call2, 0.000000e+00
   %fneg = fneg double %call2
   %m.0 = select i1 %cmp3, double %fneg, double %call2
@@ -97,6 +97,9 @@ return:                                           ; preds = %cond.end, %if.else,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
@@ -119,7 +122,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @PyHash_Func, align 8
-  %call = tail call i64 %0(ptr noundef %src, i64 noundef %len) #8
+  %call = tail call i64 %0(ptr noundef %src, i64 noundef %len) #9
   %.call = tail call i64 @llvm.umin.i64(i64 %call, i64 -2)
   br label %return
 
@@ -365,7 +368,8 @@ attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #8 = { memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

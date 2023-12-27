@@ -3748,13 +3748,12 @@ if.then7:                                         ; preds = %if.end
   br label %if.end27
 
 if.else:                                          ; preds = %if.end
-  %8 = tail call double @llvm.fabs.f64(double %n.addr.0)
-  %9 = fcmp ueq double %8, 0x7FF0000000000000
-  br i1 %9, label %if.then16, label %if.else22
+  %8 = tail call noundef i1 @llvm.is.fpclass.f64(double %n.addr.0, i32 504)
+  br i1 %8, label %if.else22, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %10 = or disjoint i8 %5, 2
-  store i8 %10, ptr %flags, align 4
+  %9 = or disjoint i8 %5, 2
+  store i8 %9, ptr %flags, align 4
   br label %if.end27
 
 if.else22:                                        ; preds = %if.else
@@ -7918,6 +7917,9 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #24
 
 declare noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64), i16 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #5
 

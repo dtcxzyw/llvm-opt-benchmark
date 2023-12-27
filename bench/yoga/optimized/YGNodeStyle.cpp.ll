@@ -687,11 +687,14 @@ declare noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetFlexBasis(ptr noundef %node, float noundef %flexBasis) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %flexBasis)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %flexBasis, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %flexBasis, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %flexBasis, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -711,8 +714,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %flexBasis_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 5
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %flexBasis_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -730,11 +733,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnD
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetFlexBasisPercent(ptr noundef %node, float noundef %flexBasisPercent) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %flexBasisPercent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %flexBasisPercent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %flexBasisPercent, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %flexBasisPercent, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -755,8 +761,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %flexBasis_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 5
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %flexBasis_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -841,11 +847,14 @@ if.end:                                           ; preds = %entry, %sw.bb3.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetPosition(ptr noundef %node, i32 noundef %edge, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %points, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -865,8 +874,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %position_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 7
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
@@ -887,11 +896,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8positionENS2_4Ed
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetPositionPercent(ptr noundef %node, i32 noundef %edge, float noundef %percent) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %percent, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -912,8 +924,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %position_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 7
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
@@ -984,11 +996,14 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMargin(ptr noundef %node, i32 noundef %edge, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %points, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -1008,8 +1023,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %margin_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 6
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
@@ -1030,11 +1045,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6marginENS2_4Edge
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMarginPercent(ptr noundef %node, i32 noundef %edge, float noundef %percent) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %percent, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -1055,8 +1073,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %margin_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 6
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
@@ -1147,11 +1165,14 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetPadding(ptr noundef %node, i32 noundef %edge, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %points, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -1171,8 +1192,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %padding_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 8
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
@@ -1193,11 +1214,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style7paddingENS2_4Edg
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetPaddingPercent(ptr noundef %node, i32 noundef %edge, float noundef %percent) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %percent, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -1218,8 +1242,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %padding_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 8
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
@@ -1290,11 +1314,14 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetBorder(ptr noundef %node, i32 noundef %edge, float noundef %border) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %border)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %border, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %border, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %border, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -1314,8 +1341,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %border_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 9
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
@@ -1373,11 +1400,14 @@ return:                                           ; preds = %if.end, %if.end.i, 
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetGap(ptr noundef %node, i32 noundef %gutter, float noundef %gapLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %gapLength)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %gapLength, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %gapLength, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %gapLength, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -1397,8 +1427,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %gap_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 10
   %3 = and i32 %gutter, 255
   %conv.i.i = zext nneg i32 %3 to i64
@@ -1489,11 +1519,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetWidth(ptr noundef %node, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %points, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -1513,8 +1546,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %dimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %dimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1532,11 +1565,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetWidthPercent(ptr noundef %node, float noundef %percent) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %percent, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -1557,8 +1593,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %dimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %dimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1640,11 +1676,14 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetHeight(ptr noundef %node, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %points, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -1664,8 +1703,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1683,11 +1722,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetHeightPercent(ptr noundef %node, float noundef %percent) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %percent, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -1708,8 +1750,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1791,11 +1833,14 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMinWidth(ptr noundef %node, float noundef %minWidth) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %minWidth)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %minWidth, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %minWidth, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %minWidth, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -1815,8 +1860,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %minDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %minDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1834,11 +1879,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMinWidthPercent(ptr noundef %node, float noundef %minWidth) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %minWidth)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %minWidth, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %minWidth, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %minWidth, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -1859,8 +1907,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %minDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %minDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1925,11 +1973,14 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMinHeight(ptr noundef %node, float noundef %minHeight) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %minHeight)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %minHeight, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %minHeight, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %minHeight, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -1949,8 +2000,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1968,11 +2019,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMinHeightPercent(ptr noundef %node, float noundef %minHeight) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %minHeight)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %minHeight, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %minHeight, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %minHeight, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -1993,8 +2047,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -2059,11 +2113,14 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMaxWidth(ptr noundef %node, float noundef %maxWidth) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %maxWidth)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %maxWidth, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %maxWidth, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %maxWidth, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -2083,8 +2140,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %maxDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %maxDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -2102,11 +2159,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMaxWidthPercent(ptr noundef %node, float noundef %maxWidth) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %maxWidth)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %maxWidth, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %maxWidth, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %maxWidth, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -2127,8 +2187,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %maxDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %maxDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -2193,11 +2253,14 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMaxHeight(ptr noundef %node, float noundef %maxHeight) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %maxHeight)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %maxHeight, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %maxHeight, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %maxHeight, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
 
@@ -2217,8 +2280,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %sub.i.i = add i32 %2, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -2236,11 +2299,14 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMaxHeightPercent(ptr noundef %node, float noundef %maxHeight) local_unnamed_addr #0 {
 entry:
-  %0 = tail call float @llvm.fabs.f32(float %maxHeight)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %cmp.i.i.i = fcmp uno float %maxHeight, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
 
-if.end.i.i:                                       ; preds = %entry
+lor.lhs.false.i.i:                                ; preds = %entry
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %maxHeight, i32 516)
+  br i1 %0, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %maxHeight, 0.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
 
@@ -2261,8 +2327,8 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -2744,6 +2810,9 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.copysign.f32(float, float) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

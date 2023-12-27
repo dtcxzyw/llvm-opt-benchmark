@@ -2791,9 +2791,8 @@ entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp.i = alloca %"struct.std::__detail::_Quoted_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = tail call float @llvm.fabs.f32(float %val)
-  %or.cond = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond, label %if.then, label %if.else
+  %0 = tail call noundef i1 @llvm.is.fpclass.f32(float %val, i32 519)
+  br i1 %0, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   call void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valuesr3std17is_floating_pointIT0_EE5valueES8_E4typeES9_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, float noundef %val)
@@ -2851,9 +2850,8 @@ entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp.i = alloca %"struct.std::__detail::_Quoted_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = tail call double @llvm.fabs.f64(double %val)
-  %or.cond = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %or.cond, label %if.then, label %if.else
+  %0 = tail call noundef i1 @llvm.is.fpclass.f64(double %val, i32 519)
+  br i1 %0, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   call void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valuesr3std17is_floating_pointIT0_EE5valueES8_E4typeES9_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, double noundef %val)
@@ -8311,9 +8309,8 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i: ; preds = %
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i
-  %8 = tail call float @llvm.fabs.f32(float %3)
-  %9 = fcmp oeq float %8, 0x7FF0000000000000
-  br i1 %9, label %if.then5.i, label %if.end6.i
+  %8 = tail call noundef i1 @llvm.is.fpclass.f32(float %3, i32 516)
+  br i1 %8, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %cmp.i9 = fcmp oeq float %3, %5
@@ -8321,18 +8318,19 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %sub.i = fsub float %3, %5
-  %10 = tail call float @llvm.fabs.f32(float %sub.i)
-  %11 = fpext float %10 to double
-  %cmp7.i = fcmp olt double %11, 1.000000e-05
+  %9 = tail call float @llvm.fabs.f32(float %sub.i)
+  %10 = fpext float %9 to double
+  %cmp7.i = fcmp olt double %10, 1.000000e-05
   br i1 %cmp7.i, label %return, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end6.i
+  %11 = tail call noundef float @llvm.fabs.f32(float %3)
   %12 = tail call noundef float @llvm.fabs.f32(float %5)
-  %cmp.i.i = fcmp olt float %8, %12
-  %.sroa.speculated.i = select i1 %cmp.i.i, float %12, float %8
+  %cmp.i.i = fcmp olt float %11, %12
+  %.sroa.speculated.i = select i1 %cmp.i.i, float %12, float %11
   %mul.i = fmul float %.sroa.speculated.i, 2.000000e+00
   %mul16.i = fmul float %mul.i, 0x3E80000000000000
-  %cmp18.i = fcmp ole float %10, %mul16.i
+  %cmp18.i = fcmp ole float %9, %mul16.i
   br label %return
 
 if.then7:                                         ; preds = %if.end
@@ -8357,9 +8355,8 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i: ; preds = %
   br i1 %or.cond.i20, label %return, label %if.end.i21
 
 if.end.i21:                                       ; preds = %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i
-  %18 = tail call double @llvm.fabs.f64(double %13)
-  %19 = fcmp oeq double %18, 0x7FF0000000000000
-  br i1 %19, label %if.then5.i30, label %if.end6.i22
+  %18 = tail call noundef i1 @llvm.is.fpclass.f64(double %13, i32 516)
+  br i1 %18, label %if.then5.i30, label %if.end6.i22
 
 if.then5.i30:                                     ; preds = %if.end.i21
   %cmp.i31 = fcmp oeq double %13, %15
@@ -8367,17 +8364,18 @@ if.then5.i30:                                     ; preds = %if.end.i21
 
 if.end6.i22:                                      ; preds = %if.end.i21
   %sub.i23 = fsub double %13, %15
-  %20 = tail call double @llvm.fabs.f64(double %sub.i23)
-  %cmp7.i24 = fcmp olt double %20, 1.000000e-05
+  %19 = tail call double @llvm.fabs.f64(double %sub.i23)
+  %cmp7.i24 = fcmp olt double %19, 1.000000e-05
   br i1 %cmp7.i24, label %return, label %if.end9.i25
 
 if.end9.i25:                                      ; preds = %if.end6.i22
+  %20 = tail call noundef double @llvm.fabs.f64(double %13)
   %21 = tail call noundef double @llvm.fabs.f64(double %15)
-  %cmp.i.i26 = fcmp olt double %18, %21
-  %.sroa.speculated.i27 = select i1 %cmp.i.i26, double %21, double %18
+  %cmp.i.i26 = fcmp olt double %20, %21
+  %.sroa.speculated.i27 = select i1 %cmp.i.i26, double %21, double %20
   %mul.i28 = fmul double %.sroa.speculated.i27, 2.000000e+00
   %mul15.i = fmul double %mul.i28, 0x3E80000000000000
-  %cmp16.i = fcmp ole double %20, %mul15.i
+  %cmp16.i = fcmp ole double %19, %mul15.i
   br label %return
 
 return:                                           ; preds = %if.end9.i25, %if.end6.i22, %if.then5.i30, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit16.i, %if.end9.i, %if.end6.i, %if.then5.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit16.i, %entry, %lor.lhs.false
@@ -13222,7 +13220,13 @@ declare void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef, i64 no
 declare double @llvm.fabs.f64(double) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox7variant8lessThanILNS0_8TypeKindE35EEEbRKS1_S5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #0 comdat align 2 {
@@ -16540,9 +16544,10 @@ entry:
   %ref.tmp.i25 = alloca %"class.fmt::v8::format_arg_store", align 16
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %0 = load float, ptr %val, align 4
-  %1 = tail call float @llvm.fabs.f32(float %0)
-  %or.cond28 = fcmp ueq float %1, 0x7FF0000000000000
-  %2 = bitcast float %0 to i32
+  %1 = tail call noundef i1 @llvm.is.fpclass.f32(float %0, i32 516)
+  %2 = fcmp uno float %0, 0.000000e+00
+  %or.cond28 = select i1 %1, i1 true, i1 %2
+  %3 = bitcast float %0 to i32
   br i1 %or.cond28, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -16565,12 +16570,12 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %or.cond18, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %lor.lhs.false, %if.end
-  %retval.i.sroa.0.0.insert.ext.i = zext i32 %2 to i64
+  %retval.i.sroa.0.0.insert.ext.i = zext i32 %3 to i64
   store i64 %retval.i.sroa.0.0.insert.ext.i, ptr %ref.tmp.i25, align 16, !noalias !208
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.53, i64 2, i64 9, ptr nonnull %ref.tmp.i25)
-  %3 = load i8, ptr @_ZN3fLB37FLAGS_experimental_enable_legacy_castE, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
+  %4 = load i8, ptr @_ZN3fLB37FLAGS_experimental_enable_legacy_castE, align 1
+  %5 = and i8 %4, 1
+  %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then10
@@ -16585,8 +16590,8 @@ land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
           to label %call3.i.noexc unwind label %lpad
 
 call3.i.noexc:                                    ; preds = %land.lhs.true1.i
-  %5 = load i8, ptr %call3.i22, align 1
-  %conv.i = sext i8 %5 to i32
+  %6 = load i8, ptr %call3.i22, align 1
+  %conv.i = sext i8 %6 to i32
   %isdigittmp.i = add nsw i32 %conv.i, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
   br i1 %isdigit.i, label %if.then.i, label %return
@@ -16596,19 +16601,19 @@ if.then.i:                                        ; preds = %call3.i.noexc
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %if.then.i, %land.lhs.true1.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %retval.i.sroa.0.0.insert.ext.i25 = zext i32 %2 to i64
+  %retval.i.sroa.0.0.insert.ext.i25 = zext i32 %3 to i64
   store i64 %retval.i.sroa.0.0.insert.ext.i25, ptr %ref.tmp.i, align 16, !noalias !211
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.54, i64 6, i64 9, ptr nonnull %ref.tmp.i)
   invoke void @_ZN8facebook5velox4util9ConverterILNS0_8TypeKindE7EvLb0ELb0EE27normalizeScientificNotationERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %return unwind label %lpad14
 
 lpad14:                                           ; preds = %if.end11
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -16616,7 +16621,7 @@ return:                                           ; preds = %call3.i.noexc, %lan
   ret void
 
 eh.resume:                                        ; preds = %lpad14, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %7, %lpad14 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %8, %lpad14 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #28
   resume { ptr, i32 } %.pn
 }
@@ -16827,8 +16832,9 @@ entry:
   %ref.tmp.i23 = alloca %"class.fmt::v8::format_arg_store.121", align 16
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.121", align 16
   %0 = load double, ptr %val, align 8
-  %1 = tail call double @llvm.fabs.f64(double %0)
-  %or.cond27 = fcmp ueq double %1, 0x7FF0000000000000
+  %1 = tail call noundef i1 @llvm.is.fpclass.f64(double %0, i32 516)
+  %2 = fcmp uno double %0, 0.000000e+00
+  %or.cond27 = select i1 %1, i1 true, i1 %2
   br i1 %or.cond27, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -16852,9 +16858,9 @@ lor.lhs.false:                                    ; preds = %if.end
 if.then8:                                         ; preds = %lor.lhs.false, %if.end
   store double %0, ptr %ref.tmp.i23, align 16, !noalias !216
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.53, i64 2, i64 10, ptr nonnull %ref.tmp.i23)
-  %2 = load i8, ptr @_ZN3fLB37FLAGS_experimental_enable_legacy_castE, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
+  %3 = load i8, ptr @_ZN3fLB37FLAGS_experimental_enable_legacy_castE, align 1
+  %4 = and i8 %3, 1
+  %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then8
@@ -16869,8 +16875,8 @@ land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
           to label %call3.i.noexc unwind label %lpad
 
 call3.i.noexc:                                    ; preds = %land.lhs.true1.i
-  %4 = load i8, ptr %call3.i22, align 1
-  %conv.i = sext i8 %4 to i32
+  %5 = load i8, ptr %call3.i22, align 1
+  %conv.i = sext i8 %5 to i32
   %isdigittmp.i = add nsw i32 %conv.i, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
   br i1 %isdigit.i, label %if.then.i, label %return
@@ -16880,7 +16886,7 @@ if.then.i:                                        ; preds = %call3.i.noexc
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %if.then.i, %land.lhs.true1.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -16891,7 +16897,7 @@ if.end9:                                          ; preds = %lor.lhs.false
           to label %return unwind label %lpad12
 
 lpad12:                                           ; preds = %if.end9
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -16899,7 +16905,7 @@ return:                                           ; preds = %call3.i.noexc, %lan
   ret void
 
 eh.resume:                                        ; preds = %lpad12, %lpad
-  %.pn = phi { ptr, i32 } [ %5, %lpad ], [ %6, %lpad12 ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %7, %lpad12 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #28
   resume { ptr, i32 } %.pn
 }

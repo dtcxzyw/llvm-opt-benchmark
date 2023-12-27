@@ -2423,8 +2423,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   %6 = load x86_fp80, ptr %value, align 16
   %add = fadd x86_fp80 %5, %6
   store x86_fp80 %add, ptr %value, align 16
-  %7 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %add)
-  %or.cond = fcmp ueq x86_fp80 %7, 0xK7FFF8000000000000000
+  %or.cond = call i1 @llvm.is.fpclass.f80(x86_fp80 %add, i32 519)
   br i1 %or.cond, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end8
@@ -2434,42 +2433,42 @@ if.then11:                                        ; preds = %if.end8
 if.end12:                                         ; preds = %if.end8
   %call13 = call ptr @createStringObjectFromLongDouble(x86_fp80 noundef %add, i32 noundef 1) #10
   %tobool14.not = icmp eq ptr %call, null
-  %8 = load ptr, ptr %db, align 8
-  %9 = load ptr, ptr %argv, align 8
-  %arrayidx21 = getelementptr inbounds ptr, ptr %9, i64 1
-  %10 = load ptr, ptr %arrayidx21, align 8
+  %7 = load ptr, ptr %db, align 8
+  %8 = load ptr, ptr %argv, align 8
+  %arrayidx21 = getelementptr inbounds ptr, ptr %8, i64 1
+  %9 = load ptr, ptr %arrayidx21, align 8
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  call void @dbReplaceValue(ptr noundef %8, ptr noundef %10, ptr noundef %call13) #10
+  call void @dbReplaceValue(ptr noundef %7, ptr noundef %9, ptr noundef %call13) #10
   br label %if.end22
 
 if.else:                                          ; preds = %if.end12
-  call void @dbAdd(ptr noundef %8, ptr noundef %10, ptr noundef %call13) #10
+  call void @dbAdd(ptr noundef %7, ptr noundef %9, ptr noundef %call13) #10
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then15
-  %11 = load ptr, ptr %db, align 8
-  %12 = load ptr, ptr %argv, align 8
-  %arrayidx25 = getelementptr inbounds ptr, ptr %12, i64 1
-  %13 = load ptr, ptr %arrayidx25, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %11, ptr noundef %13) #10
-  %14 = load ptr, ptr %argv, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %14, i64 1
-  %15 = load ptr, ptr %arrayidx27, align 8
-  %16 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %16, i64 0, i32 6
-  %17 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.14, ptr noundef %15, i32 noundef %17) #10
-  %18 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %inc = add nsw i64 %18, 1
+  %10 = load ptr, ptr %db, align 8
+  %11 = load ptr, ptr %argv, align 8
+  %arrayidx25 = getelementptr inbounds ptr, ptr %11, i64 1
+  %12 = load ptr, ptr %arrayidx25, align 8
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %10, ptr noundef %12) #10
+  %13 = load ptr, ptr %argv, align 8
+  %arrayidx27 = getelementptr inbounds ptr, ptr %13, i64 1
+  %14 = load ptr, ptr %arrayidx27, align 8
+  %15 = load ptr, ptr %db, align 8
+  %id = getelementptr inbounds %struct.redisDb, ptr %15, i64 0, i32 6
+  %16 = load i32, ptr %id, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.14, ptr noundef %14, i32 noundef %16) #10
+  %17 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %inc = add nsw i64 %17, 1
   store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
   call void @addReplyBulk(ptr noundef nonnull %c, ptr noundef %call13) #10
-  %19 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 61), align 8
-  call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 0, ptr noundef %19) #10
+  %18 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 61), align 8
+  call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 0, ptr noundef %18) #10
   call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 2, ptr noundef %call13) #10
-  %20 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 74), align 8
-  call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %20) #10
+  %19 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 74), align 8
+  call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %19) #10
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %if.end22, %if.then11
@@ -2479,7 +2478,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare i32 @getLongDoubleFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.fabs.f80(x86_fp80) #7
+declare i1 @llvm.is.fpclass.f80(x86_fp80, i32 immarg) #7
 
 declare ptr @createStringObjectFromLongDouble(x86_fp80 noundef, i32 noundef) local_unnamed_addr #1
 

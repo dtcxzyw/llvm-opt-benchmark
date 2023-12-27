@@ -2455,8 +2455,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load x86_fp80, ptr %incr, align 16
-  %3 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %2)
-  %or.cond = fcmp ueq x86_fp80 %3, 0xK7FFF8000000000000000
+  %or.cond = call i1 @llvm.is.fpclass.f80(x86_fp80 %2, i32 519)
   br i1 %or.cond, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
@@ -2464,12 +2463,12 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %4 = load ptr, ptr %argv, align 8
-  %arrayidx4 = getelementptr inbounds ptr, ptr %4, i64 1
-  %5 = load ptr, ptr %arrayidx4, align 8
+  %3 = load ptr, ptr %argv, align 8
+  %arrayidx4 = getelementptr inbounds ptr, ptr %3, i64 1
+  %4 = load ptr, ptr %arrayidx4, align 8
   %db.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
-  %6 = load ptr, ptr %db.i, align 8
-  %call.i = call ptr @lookupKeyWrite(ptr noundef %6, ptr noundef %5) #10
+  %5 = load ptr, ptr %db.i, align 8
+  %call.i = call ptr @lookupKeyWrite(ptr noundef %5, ptr noundef %4) #10
   %call1.i = call i32 @checkType(ptr noundef nonnull %c, ptr noundef %call.i, i32 noundef 4) #10
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %return
@@ -2480,31 +2479,31 @@ if.end.i:                                         ; preds = %if.end2
 
 hashTypeLookupWriteOrCreate.exit:                 ; preds = %if.end.i
   %call3.i = call ptr @createHashObject() #10
-  %7 = load ptr, ptr %db.i, align 8
-  call void @dbAdd(ptr noundef %7, ptr noundef %5, ptr noundef %call3.i) #10
+  %6 = load ptr, ptr %db.i, align 8
+  call void @dbAdd(ptr noundef %6, ptr noundef %4, ptr noundef %call3.i) #10
   %cmp6 = icmp eq ptr %call3.i, null
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end.i, %hashTypeLookupWriteOrCreate.exit
   %retval.0.i27 = phi ptr [ %call3.i, %hashTypeLookupWriteOrCreate.exit ], [ %call.i, %if.end.i ]
-  %8 = load ptr, ptr %argv, align 8
-  %arrayidx10 = getelementptr inbounds ptr, ptr %8, i64 2
-  %9 = load ptr, ptr %arrayidx10, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %9, i64 0, i32 2
-  %10 = load ptr, ptr %ptr, align 8
-  %call11 = call i32 @hashTypeGetValue(ptr noundef nonnull %retval.0.i27, ptr noundef %10, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %ll), !range !7
+  %7 = load ptr, ptr %argv, align 8
+  %arrayidx10 = getelementptr inbounds ptr, ptr %7, i64 2
+  %8 = load ptr, ptr %arrayidx10, align 8
+  %ptr = getelementptr inbounds %struct.redisObject, ptr %8, i64 0, i32 2
+  %9 = load ptr, ptr %ptr, align 8
+  %call11 = call i32 @hashTypeGetValue(ptr noundef nonnull %retval.0.i27, ptr noundef %9, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen, ptr noundef nonnull %ll), !range !7
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %if.then13, label %if.end24
 
 if.then13:                                        ; preds = %if.end8
-  %11 = load ptr, ptr %vstr, align 8
-  %tobool14.not = icmp eq ptr %11, null
+  %10 = load ptr, ptr %vstr, align 8
+  %tobool14.not = icmp eq ptr %10, null
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.then13
-  %12 = load i32, ptr %vlen, align 4
-  %conv = zext i32 %12 to i64
-  %call16 = call i32 @string2ld(ptr noundef nonnull %11, i64 noundef %conv, ptr noundef nonnull %value) #10
+  %11 = load i32, ptr %vlen, align 4
+  %conv = zext i32 %11 to i64
+  %call16 = call i32 @string2ld(ptr noundef nonnull %10, i64 noundef %conv, ptr noundef nonnull %value) #10
   %cmp17 = icmp eq i32 %call16, 0
   br i1 %cmp17, label %if.then19, label %if.then15.if.end24_crit_edge
 
@@ -2517,17 +2516,16 @@ if.then19:                                        ; preds = %if.then15
   br label %return
 
 if.else:                                          ; preds = %if.then13
-  %13 = load i64, ptr %ll, align 8
-  %conv21 = sitofp i64 %13 to x86_fp80
+  %12 = load i64, ptr %ll, align 8
+  %conv21 = sitofp i64 %12 to x86_fp80
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end8, %if.then15.if.end24_crit_edge, %if.else
-  %14 = phi x86_fp80 [ %.pre, %if.then15.if.end24_crit_edge ], [ %conv21, %if.else ], [ 0xK00000000000000000000, %if.end8 ]
-  %15 = load x86_fp80, ptr %incr, align 16
-  %add = fadd x86_fp80 %15, %14
+  %13 = phi x86_fp80 [ %.pre, %if.then15.if.end24_crit_edge ], [ %conv21, %if.else ], [ 0xK00000000000000000000, %if.end8 ]
+  %14 = load x86_fp80, ptr %incr, align 16
+  %add = fadd x86_fp80 %14, %13
   store x86_fp80 %add, ptr %value, align 16
-  %16 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %add)
-  %or.cond21 = fcmp ueq x86_fp80 %16, 0xK7FFF8000000000000000
+  %or.cond21 = call i1 @llvm.is.fpclass.f80(x86_fp80 %add, i32 519)
   br i1 %or.cond21, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end24
@@ -2538,31 +2536,31 @@ if.end29:                                         ; preds = %if.end24
   %call30 = call i32 @ld2string(ptr noundef nonnull %buf, i64 noundef 5120, x86_fp80 noundef %add, i32 noundef 1) #10
   %conv32 = sext i32 %call30 to i64
   %call33 = call ptr @sdsnewlen(ptr noundef nonnull %buf, i64 noundef %conv32) #10
-  %17 = load ptr, ptr %argv, align 8
-  %arrayidx35 = getelementptr inbounds ptr, ptr %17, i64 2
-  %18 = load ptr, ptr %arrayidx35, align 8
-  %ptr36 = getelementptr inbounds %struct.redisObject, ptr %18, i64 0, i32 2
-  %19 = load ptr, ptr %ptr36, align 8
-  %call37 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i27, ptr noundef %19, ptr noundef %call33, i32 noundef 2), !range !10
+  %15 = load ptr, ptr %argv, align 8
+  %arrayidx35 = getelementptr inbounds ptr, ptr %15, i64 2
+  %16 = load ptr, ptr %arrayidx35, align 8
+  %ptr36 = getelementptr inbounds %struct.redisObject, ptr %16, i64 0, i32 2
+  %17 = load ptr, ptr %ptr36, align 8
+  %call37 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i27, ptr noundef %17, ptr noundef %call33, i32 noundef 2), !range !10
   call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %buf, i64 noundef %conv32) #10
-  %20 = load ptr, ptr %db.i, align 8
+  %18 = load ptr, ptr %db.i, align 8
+  %19 = load ptr, ptr %argv, align 8
+  %arrayidx41 = getelementptr inbounds ptr, ptr %19, i64 1
+  %20 = load ptr, ptr %arrayidx41, align 8
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %18, ptr noundef %20) #10
   %21 = load ptr, ptr %argv, align 8
-  %arrayidx41 = getelementptr inbounds ptr, ptr %21, i64 1
-  %22 = load ptr, ptr %arrayidx41, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %20, ptr noundef %22) #10
-  %23 = load ptr, ptr %argv, align 8
-  %arrayidx43 = getelementptr inbounds ptr, ptr %23, i64 1
-  %24 = load ptr, ptr %arrayidx43, align 8
-  %25 = load ptr, ptr %db.i, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %25, i64 0, i32 6
-  %26 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 64, ptr noundef nonnull @.str.19, ptr noundef %24, i32 noundef %26) #10
-  %27 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %inc = add nsw i64 %27, 1
+  %arrayidx43 = getelementptr inbounds ptr, ptr %21, i64 1
+  %22 = load ptr, ptr %arrayidx43, align 8
+  %23 = load ptr, ptr %db.i, align 8
+  %id = getelementptr inbounds %struct.redisDb, ptr %23, i64 0, i32 6
+  %24 = load i32, ptr %id, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 64, ptr noundef nonnull @.str.19, ptr noundef %22, i32 noundef %24) #10
+  %25 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %inc = add nsw i64 %25, 1
   store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
   %call47 = call ptr @createRawStringObject(ptr noundef nonnull %buf, i64 noundef %conv32) #10
-  %28 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 53), align 8
-  call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 0, ptr noundef %28) #10
+  %26 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 53), align 8
+  call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 0, ptr noundef %26) #10
   call void @rewriteClientCommandArgument(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %call47) #10
   call void @decrRefCount(ptr noundef %call47) #10
   br label %return
@@ -2574,7 +2572,7 @@ return:                                           ; preds = %if.end2, %hashTypeL
 declare i32 @getLongDoubleFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.fabs.f80(x86_fp80) #5
+declare i1 @llvm.is.fpclass.f80(x86_fp80, i32 immarg) #5
 
 declare i32 @string2ld(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 

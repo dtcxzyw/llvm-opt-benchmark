@@ -1172,32 +1172,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -1205,13 +1206,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -1251,32 +1252,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -1284,13 +1286,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -1330,32 +1332,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -1363,13 +1366,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -1409,32 +1412,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -1442,13 +1446,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -1488,32 +1492,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -1521,13 +1526,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -1574,32 +1579,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -1607,13 +1613,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -1653,18 +1659,19 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end21.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end21.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end21.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
-if.end21.i:                                       ; preds = %if.end6.i
+if.end21.i:                                       ; preds = %if.end6.i, %land.lhs.true8.i
   %call22.i = tail call ptr @PyFloat_FromDouble(double noundef %call3.i) #15
   br label %math_1.exit
 
@@ -1806,32 +1813,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.58) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -1839,13 +1847,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -2325,32 +2333,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.58) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -2358,13 +2367,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -2411,32 +2420,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.58) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -2444,13 +2454,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -2854,26 +2864,27 @@ land.lhs.true26:                                  ; preds = %if.else22
 if.end31:                                         ; preds = %if.else22, %land.lhs.true26, %if.then19
   %y.0 = phi double [ %.val12, %if.then19 ], [ -1.000000e+00, %land.lhs.true26 ], [ %call24, %if.else22 ]
   %6 = tail call double @llvm.fabs.f64(double %y.0) #17
-  %isinf.i = fcmp une double %6, 0x7FF0000000000000
-  %7 = tail call double @llvm.fabs.f64(double %x.0)
-  %8 = fcmp ueq double %7, 0x7FF0000000000000
-  %or.cond.i = or i1 %8, %isinf.i
-  br i1 %or.cond.i, label %if.end.i, label %if.then.i
+  %isinf.i = fcmp oeq double %6, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true.i, label %if.end.i
 
-if.then.i:                                        ; preds = %if.end31
+land.lhs.true.i:                                  ; preds = %if.end31
+  %7 = tail call i1 @llvm.is.fpclass.f64(double %x.0, i32 504)
+  br i1 %7, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %land.lhs.true.i
   %call.i = tail call ptr @PyFloat_FromDouble(double noundef %x.0) #15
   br label %exit
 
-if.end.i:                                         ; preds = %if.end31
+if.end.i:                                         ; preds = %land.lhs.true.i, %if.end31
   %call1.i = tail call ptr @__errno_location() #16
   store i32 0, ptr %call1.i, align 4
   %call2.i = tail call double @fmod(double noundef %x.0, double noundef %y.0) #15
-  %9 = fcmp uno double %call2.i, 0.000000e+00
-  br i1 %9, label %if.then3.i, label %if.end9.i
+  %8 = fcmp uno double %call2.i, 0.000000e+00
+  br i1 %8, label %if.then3.i, label %if.end9.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %or.cond9.i = fcmp uno double %x.0, %y.0
-  br i1 %or.cond9.i, label %if.end9.thread.i, label %land.lhs.true12.thread.i
+  %or.cond.i = fcmp uno double %x.0, %y.0
+  br i1 %or.cond.i, label %if.end9.thread.i, label %land.lhs.true12.thread.i
 
 land.lhs.true12.thread.i:                         ; preds = %if.then3.i
   store i32 33, ptr %call1.i, align 4
@@ -2892,23 +2903,23 @@ if.end9.i:                                        ; preds = %if.end.i
   ]
 
 if.then.i.i:                                      ; preds = %if.end9.i, %land.lhs.true12.thread.i
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.57) #15
+  %9 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
   br label %exit
 
 if.then3.i.i:                                     ; preds = %if.end9.i
-  %11 = tail call double @llvm.fabs.f64(double %call2.i)
-  %cmp4.i.i = fcmp olt double %11, 1.500000e+00
+  %10 = tail call double @llvm.fabs.f64(double %call2.i)
+  %cmp4.i.i = fcmp olt double %10, 1.500000e+00
   br i1 %cmp4.i.i, label %if.else16.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %12 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.58) #15
+  %11 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.58) #15
   br label %exit
 
 if.else7.i.i:                                     ; preds = %if.end9.i
-  %13 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %13) #15
+  %12 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %12) #15
   br label %exit
 
 if.else16.i:                                      ; preds = %if.then3.i.i, %if.end9.i, %if.end9.thread.i
@@ -3098,22 +3109,21 @@ for.end:                                          ; preds = %if.end40, %Py_DECRE
   br i1 %cmp42, label %if.then43, label %if.end64
 
 if.then43:                                        ; preds = %for.end
-  %8 = call double @llvm.fabs.f64(double %x.1.lcssa)
-  %9 = fcmp ueq double %8, 0x7FF0000000000000
-  br i1 %9, label %if.then44, label %if.else52
+  %8 = call i1 @llvm.is.fpclass.f64(double %x.1.lcssa, i32 504)
+  br i1 %8, label %if.else52, label %if.then44
 
 if.then44:                                        ; preds = %if.then43
-  %10 = call double @llvm.fabs.f64(double %x.0)
-  %11 = fcmp ueq double %10, 0x7FF0000000000000
-  br i1 %11, label %if.end46, label %if.then45
+  %9 = call i1 @llvm.is.fpclass.f64(double %x.0, i32 504)
+  br i1 %9, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %if.then44
-  %12 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.63) #15
+  %10 = load ptr, ptr @PyExc_OverflowError, align 8
+  call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.63) #15
   br label %_fsum_error
 
 if.end46:                                         ; preds = %if.then44
-  %isinf = fcmp oeq double %10, 0x7FF0000000000000
+  %11 = call double @llvm.fabs.f64(double %x.0) #17
+  %isinf = fcmp oeq double %11, 0x7FF0000000000000
   %add49 = select i1 %isinf, double %x.0, double -0.000000e+00
   %inf_sum.1 = fadd double %inf_sum.0119, %add49
   %add51 = fadd double %special_sum.0118, %x.0
@@ -3151,9 +3161,9 @@ if.end10.i:                                       ; preds = %if.then.i
   br i1 %cmp11.i, label %_fsum_realloc.exit, label %if.else59
 
 _fsum_realloc.exit:                               ; preds = %land.lhs.true54, %if.then3.i, %if.end10.i
-  %p.0116.lcssa125 = phi ptr [ %p.0116, %land.lhs.true54 ], [ %ps, %if.then3.i ], [ %p.0116, %if.end10.i ]
-  %13 = load ptr, ptr @PyExc_MemoryError, align 8
-  call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.65) #15
+  %p.0116.lcssa126 = phi ptr [ %p.0116, %land.lhs.true54 ], [ %ps, %if.then3.i ], [ %p.0116, %if.end10.i ]
+  %12 = load ptr, ptr @PyExc_MemoryError, align 8
+  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.65) #15
   br label %_fsum_error
 
 if.else59:                                        ; preds = %if.end10.thread17.i, %if.end10.i, %if.else52
@@ -3165,11 +3175,11 @@ if.else59:                                        ; preds = %if.end10.thread17.i
   br label %if.end64
 
 if.end64:                                         ; preds = %if.end46, %if.else59, %for.end
-  %m.3 = phi i64 [ %m.0115, %if.end46 ], [ %m.2, %if.else59 ], [ %m.0115, %for.end ]
-  %p.3 = phi ptr [ %p.0116, %if.end46 ], [ %p.2, %if.else59 ], [ %p.0116, %for.end ]
-  %n.1 = phi i64 [ 0, %if.end46 ], [ %inc60, %if.else59 ], [ %i.0.lcssa, %for.end ]
-  %special_sum.1 = phi double [ %add51, %if.end46 ], [ %special_sum.0118, %if.else59 ], [ %special_sum.0118, %for.end ]
-  %inf_sum.2 = phi double [ %inf_sum.1, %if.end46 ], [ %inf_sum.0119, %if.else59 ], [ %inf_sum.0119, %for.end ]
+  %m.3 = phi i64 [ %m.2, %if.else59 ], [ %m.0115, %if.end46 ], [ %m.0115, %for.end ]
+  %p.3 = phi ptr [ %p.2, %if.else59 ], [ %p.0116, %if.end46 ], [ %p.0116, %for.end ]
+  %n.1 = phi i64 [ %inc60, %if.else59 ], [ 0, %if.end46 ], [ %i.0.lcssa, %for.end ]
+  %special_sum.1 = phi double [ %special_sum.0118, %if.else59 ], [ %add51, %if.end46 ], [ %special_sum.0118, %for.end ]
+  %inf_sum.2 = phi double [ %inf_sum.0119, %if.else59 ], [ %inf_sum.1, %if.end46 ], [ %inf_sum.0119, %for.end ]
   %call1 = call ptr @PyIter_Next(ptr noundef nonnull %call) #15
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end7
@@ -3182,8 +3192,8 @@ if.then67:                                        ; preds = %for.end65
   br i1 %0, label %if.then68, label %if.else69
 
 if.then68:                                        ; preds = %if.then67
-  %14 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.64) #15
+  %13 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.64) #15
   br label %_fsum_error
 
 if.else69:                                        ; preds = %if.then67
@@ -3197,19 +3207,19 @@ if.end72:                                         ; preds = %for.end65
 if.then74:                                        ; preds = %if.end72
   %dec = add nsw i64 %n.1, -1
   %arrayidx75 = getelementptr double, ptr %p.3, i64 %dec
-  %15 = load double, ptr %arrayidx75, align 8
+  %14 = load double, ptr %arrayidx75, align 8
   %cmp76.old.not = icmp eq i64 %n.1, 1
   br i1 %cmp76.old.not, label %if.end104, label %while.body
 
 while.body:                                       ; preds = %if.then74, %while.body
   %n.2 = phi i64 [ %dec77, %while.body ], [ %dec, %if.then74 ]
-  %hi.0 = phi double [ %add79, %while.body ], [ %15, %if.then74 ]
+  %hi.0 = phi double [ %add79, %while.body ], [ %14, %if.then74 ]
   %dec77 = add nsw i64 %n.2, -1
   %arrayidx78 = getelementptr double, ptr %p.3, i64 %dec77
-  %16 = load double, ptr %arrayidx78, align 8
-  %add79 = fadd double %hi.0, %16
+  %15 = load double, ptr %arrayidx78, align 8
+  %add79 = fadd double %hi.0, %15
   %sub80 = fsub double %add79, %hi.0
-  %sub81 = fsub double %16, %sub80
+  %sub81 = fsub double %15, %sub80
   %cmp82 = fcmp oeq double %sub81, 0.000000e+00
   %cmp76 = icmp ne i64 %dec77, 0
   %or.cond = and i1 %cmp76, %cmp82
@@ -3226,8 +3236,8 @@ land.lhs.true86:                                  ; preds = %while.end
 
 land.lhs.true88:                                  ; preds = %land.lhs.true86
   %arrayidx90 = getelementptr double, ptr %arrayidx78.le, i64 -1
-  %17 = load double, ptr %arrayidx90, align 8
-  %cmp91 = fcmp olt double %17, 0.000000e+00
+  %16 = load double, ptr %arrayidx90, align 8
+  %cmp91 = fcmp olt double %16, 0.000000e+00
   br i1 %cmp91, label %if.then97, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true88, %land.lhs.true86
@@ -3236,8 +3246,8 @@ lor.lhs.false:                                    ; preds = %land.lhs.true88, %l
 
 land.lhs.true93:                                  ; preds = %lor.lhs.false
   %arrayidx95 = getelementptr double, ptr %arrayidx78.le, i64 -1
-  %18 = load double, ptr %arrayidx95, align 8
-  %cmp96 = fcmp ogt double %18, 0.000000e+00
+  %17 = load double, ptr %arrayidx95, align 8
+  %cmp96 = fcmp ogt double %17, 0.000000e+00
   br i1 %cmp96, label %if.then97, label %if.end104
 
 if.then97:                                        ; preds = %land.lhs.true93, %land.lhs.true88
@@ -3252,20 +3262,20 @@ if.then101:                                       ; preds = %if.then97
 
 if.end104:                                        ; preds = %if.then3.thread, %if.then74, %while.end, %lor.lhs.false, %land.lhs.true93, %if.then101, %if.then97, %if.end72
   %p.0.lcssa137147151 = phi ptr [ %p.3, %if.then101 ], [ %p.3, %if.then97 ], [ %p.3, %land.lhs.true93 ], [ %p.3, %lor.lhs.false ], [ %p.3, %while.end ], [ %p.3, %if.end72 ], [ %p.3, %if.then74 ], [ %ps, %if.then3.thread ]
-  %hi.2 = phi double [ %add98, %if.then101 ], [ %add79, %if.then97 ], [ %add79, %land.lhs.true93 ], [ %add79, %lor.lhs.false ], [ %add79, %while.end ], [ 0.000000e+00, %if.end72 ], [ %15, %if.then74 ], [ 0.000000e+00, %if.then3.thread ]
+  %hi.2 = phi double [ %add98, %if.then101 ], [ %add79, %if.then97 ], [ %add79, %land.lhs.true93 ], [ %add79, %lor.lhs.false ], [ %add79, %while.end ], [ 0.000000e+00, %if.end72 ], [ %14, %if.then74 ], [ 0.000000e+00, %if.then3.thread ]
   %call105 = call ptr @PyFloat_FromDouble(double noundef %hi.2) #15
   br label %_fsum_error
 
 _fsum_error:                                      ; preds = %if.then3.thread, %_fsum_realloc.exit, %if.end.i, %if.then1.i, %error_with_item, %if.then68, %if.else69, %if.then3, %if.end104, %if.then45
-  %p.0107 = phi ptr [ %p.3, %if.then3 ], [ %p.3, %if.then68 ], [ %p.3, %if.else69 ], [ %p.0.lcssa137147151, %if.end104 ], [ %p.0116.lcssa125, %_fsum_realloc.exit ], [ %p.0116, %if.then45 ], [ %p.0116, %error_with_item ], [ %p.0116, %if.then1.i ], [ %p.0116, %if.end.i ], [ %ps, %if.then3.thread ]
+  %p.0107 = phi ptr [ %p.3, %if.then3 ], [ %p.3, %if.then68 ], [ %p.3, %if.else69 ], [ %p.0.lcssa137147151, %if.end104 ], [ %p.0116.lcssa126, %_fsum_realloc.exit ], [ %p.0116, %if.then45 ], [ %p.0116, %error_with_item ], [ %p.0116, %if.then1.i ], [ %p.0116, %if.end.i ], [ %ps, %if.then3.thread ]
   %sum.0 = phi ptr [ null, %if.then3 ], [ null, %if.then68 ], [ %call70, %if.else69 ], [ %call105, %if.end104 ], [ null, %_fsum_realloc.exit ], [ null, %if.then45 ], [ null, %error_with_item ], [ null, %if.then1.i ], [ null, %if.end.i ], [ null, %if.then3.thread ]
-  %19 = load i64, ptr %call, align 8
-  %20 = and i64 %19, 2147483648
-  %cmp.i132.not = icmp eq i64 %20, 0
+  %18 = load i64, ptr %call, align 8
+  %19 = and i64 %18, 2147483648
+  %cmp.i132.not = icmp eq i64 %19, 0
   br i1 %cmp.i132.not, label %if.end.i113, label %Py_DECREF.exit118
 
 if.end.i113:                                      ; preds = %_fsum_error
-  %dec.i114 = add i64 %19, -1
+  %dec.i114 = add i64 %18, -1
   store i64 %dec.i114, ptr %call, align 8
   %cmp.i115 = icmp eq i64 %dec.i114, 0
   br i1 %cmp.i115, label %if.then1.i116, label %Py_DECREF.exit118
@@ -3283,13 +3293,13 @@ if.then108:                                       ; preds = %Py_DECREF.exit118
   br label %return
 
 error_with_item:                                  ; preds = %land.lhs.true24, %land.lhs.true
-  %21 = load i64, ptr %call1120, align 8
-  %22 = and i64 %21, 2147483648
-  %cmp.i136.not = icmp eq i64 %22, 0
+  %20 = load i64, ptr %call1120, align 8
+  %21 = and i64 %20, 2147483648
+  %cmp.i136.not = icmp eq i64 %21, 0
   br i1 %cmp.i136.not, label %if.end.i, label %_fsum_error
 
 if.end.i:                                         ; preds = %error_with_item
-  %dec.i = add i64 %21, -1
+  %dec.i = add i64 %20, -1
   store i64 %dec.i, ptr %call1120, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %_fsum_error
@@ -3769,9 +3779,8 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.end6:                                          ; preds = %if.else, %land.lhs.true, %if.then
   %x.0 = phi double [ %arg.val4, %if.then ], [ -1.000000e+00, %land.lhs.true ], [ %call2, %if.else ]
-  %2 = tail call double @llvm.fabs.f64(double %x.0)
-  %3 = fcmp one double %2, 0x7FF0000000000000
-  %conv.i5 = zext i1 %3 to i64
+  %2 = tail call i1 @llvm.is.fpclass.f64(double %x.0, i32 504)
+  %conv.i5 = zext i1 %2 to i64
   %call.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i5) #15
   br label %exit
 
@@ -4543,20 +4552,24 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
   %cmp8.i = icmp slt i32 %7, 0
   %cond.i = select i1 %cmp8.i, i64 -9223372036854775808, i64 9223372036854775807
   %exp.0.i = select i1 %tobool6.not.i, i64 %call2.i, i64 %cond.i
-  %or.cond.i = call i1 @llvm.is.fpclass.f64(double %x.0, i32 615)
-  br i1 %or.cond.i, label %if.end38.sink.split.i, label %if.else14.i
+  %cmp11.i = fcmp oeq double %x.0, 0.000000e+00
+  br i1 %cmp11.i, label %if.end38.sink.split.i, label %lor.lhs.false.i
 
 if.else.i:                                        ; preds = %if.end15
   %8 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.72) #15
   br label %math_ldexp_impl.exit
 
-if.else14.i:                                      ; preds = %if.end.i
+lor.lhs.false.i:                                  ; preds = %if.end.i
+  %9 = call i1 @llvm.is.fpclass.f64(double %x.0, i32 504)
+  br i1 %9, label %if.else14.i, label %if.end38.sink.split.i
+
+if.else14.i:                                      ; preds = %lor.lhs.false.i
   %cmp15.i = icmp sgt i64 %exp.0.i, 2147483647
   br i1 %cmp15.i, label %if.then16.i, label %if.else18.i
 
 if.then16.i:                                      ; preds = %if.else14.i
-  %9 = call double @llvm.copysign.f64(double 0x7FF0000000000000, double %x.0)
+  %10 = call double @llvm.copysign.f64(double 0x7FF0000000000000, double %x.0)
   %call17.i = tail call ptr @__errno_location() #16
   br label %if.then3.i.sink.split.i
 
@@ -4565,7 +4578,7 @@ if.else18.i:                                      ; preds = %if.else14.i
   br i1 %cmp19.i, label %if.then20.i, label %if.else22.i
 
 if.then20.i:                                      ; preds = %if.else18.i
-  %10 = call double @llvm.copysign.f64(double 0.000000e+00, double %x.0)
+  %11 = call double @llvm.copysign.f64(double 0.000000e+00, double %x.0)
   br label %if.end38.sink.split.i
 
 if.else22.i:                                      ; preds = %if.else18.i
@@ -4573,8 +4586,8 @@ if.else22.i:                                      ; preds = %if.else18.i
   store i32 0, ptr %call23.i, align 4
   %conv.i9 = trunc i64 %exp.0.i to i32
   %call24.i = call double @ldexp(double noundef %x.0, i32 noundef %conv.i9) #15
-  %11 = call double @llvm.fabs.f64(double %call24.i) #17
-  %isinf.i = fcmp oeq double %11, 0x7FF0000000000000
+  %12 = call double @llvm.fabs.f64(double %call24.i) #17
+  %isinf.i = fcmp oeq double %12, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then3.i.sink.split.i, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.else22.i
@@ -4586,35 +4599,35 @@ if.end31.i:                                       ; preds = %if.else22.i
   ]
 
 if.then.i.i:                                      ; preds = %if.end31.i
-  %12 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.57) #15
+  %13 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.57) #15
   br label %math_ldexp_impl.exit
 
 if.then3.i.sink.split.i:                          ; preds = %if.else22.i, %if.then16.i
-  %.pre.pre-phi = phi double [ %11, %if.else22.i ], [ 0x7FF0000000000000, %if.then16.i ]
+  %.pre.pre-phi = phi double [ %12, %if.else22.i ], [ 0x7FF0000000000000, %if.then16.i ]
   %call23.sink.i = phi ptr [ %call23.i, %if.else22.i ], [ %call17.i, %if.then16.i ]
-  %r.011.ph.i = phi double [ %call24.i, %if.else22.i ], [ %9, %if.then16.i ]
+  %r.011.ph.i = phi double [ %call24.i, %if.else22.i ], [ %10, %if.then16.i ]
   store i32 34, ptr %call23.sink.i, align 4
   br label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then3.i.sink.split.i, %if.end31.i
-  %.pre-phi = phi double [ %.pre.pre-phi, %if.then3.i.sink.split.i ], [ %11, %if.end31.i ]
+  %.pre-phi = phi double [ %.pre.pre-phi, %if.then3.i.sink.split.i ], [ %12, %if.end31.i ]
   %r.011.i = phi double [ %r.011.ph.i, %if.then3.i.sink.split.i ], [ %call24.i, %if.end31.i ]
   %cmp4.i.i = fcmp olt double %.pre-phi, 1.500000e+00
   br i1 %cmp4.i.i, label %if.end38.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %13 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.58) #15
+  %14 = load ptr, ptr @PyExc_OverflowError, align 8
+  call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.58) #15
   br label %math_ldexp_impl.exit
 
 if.else7.i.i:                                     ; preds = %if.end31.i
-  %14 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %14) #15
+  %15 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %15) #15
   br label %math_ldexp_impl.exit
 
-if.end38.sink.split.i:                            ; preds = %if.then20.i, %if.end.i
-  %r.05.ph.i = phi double [ %10, %if.then20.i ], [ %x.0, %if.end.i ]
+if.end38.sink.split.i:                            ; preds = %if.then20.i, %lor.lhs.false.i, %if.end.i
+  %r.05.ph.i = phi double [ %11, %if.then20.i ], [ %x.0, %lor.lhs.false.i ], [ %x.0, %if.end.i ]
   %call13.i = tail call ptr @__errno_location() #16
   store i32 0, ptr %call13.i, align 4
   br label %if.end38.i
@@ -4867,18 +4880,18 @@ land.lhs.true26:                                  ; preds = %if.else22
 
 if.end31:                                         ; preds = %if.else22, %land.lhs.true26, %if.then19
   %y.0 = phi double [ %.val12, %if.then19 ], [ -1.000000e+00, %land.lhs.true26 ], [ %call24, %if.else22 ]
-  %6 = tail call double @llvm.fabs.f64(double %x.0)
-  %7 = fcmp ueq double %6, 0x7FF0000000000000
-  %8 = tail call double @llvm.fabs.f64(double %y.0)
-  %9 = fcmp ueq double %8, 0x7FF0000000000000
-  %or.cond.i = or i1 %7, %9
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %x.0, i32 504)
+  br i1 %6, label %lor.lhs.false.i, label %if.then.i
+
+lor.lhs.false.i:                                  ; preds = %if.end31
+  %7 = tail call i1 @llvm.is.fpclass.f64(double %y.0, i32 504)
+  br i1 %7, label %if.else48.i, label %if.then.i
+
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end31
   %call.i = tail call ptr @__errno_location() #16
   store i32 0, ptr %call.i, align 4
-  br i1 %or.cond.i, label %if.then.i, label %if.else48.i
-
-if.then.i:                                        ; preds = %if.end31
-  %10 = fcmp uno double %x.0, 0.000000e+00
-  br i1 %10, label %if.end67.thread5.i, label %if.else.i
+  %8 = fcmp uno double %x.0, 0.000000e+00
+  br i1 %8, label %if.end67.thread5.i, label %if.else.i
 
 if.end67.thread5.i:                               ; preds = %if.then.i
   %cmp.i15 = fcmp oeq double %y.0, 0.000000e+00
@@ -4886,8 +4899,8 @@ if.end67.thread5.i:                               ; preds = %if.then.i
   br label %if.else74.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %11 = fcmp uno double %y.0, 0.000000e+00
-  br i1 %11, label %if.then2.i, label %if.else8.i
+  %9 = fcmp uno double %y.0, 0.000000e+00
+  br i1 %9, label %if.then2.i, label %if.else8.i
 
 if.then2.i:                                       ; preds = %if.else.i
   %cmp3.i = fcmp oeq double %x.0, 1.000000e+00
@@ -4895,24 +4908,27 @@ if.then2.i:                                       ; preds = %if.else.i
   br label %if.end67.i
 
 if.else8.i:                                       ; preds = %if.else.i
-  %isinf.i = fcmp oeq double %6, 0x7FF0000000000000
+  %10 = tail call double @llvm.fabs.f64(double %x.0) #17
+  %isinf.i = fcmp oeq double %10, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then9.i, label %if.else29.i
 
 if.then9.i:                                       ; preds = %if.else8.i
-  br i1 %9, label %land.end.i, label %land.rhs.i
+  %11 = tail call i1 @llvm.is.fpclass.f64(double %y.0, i32 504)
+  br i1 %11, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %if.then9.i
-  %call10.i = tail call double @fmod(double noundef %8, double noundef 2.000000e+00) #15
+  %12 = tail call double @llvm.fabs.f64(double %y.0)
+  %call10.i = tail call double @fmod(double noundef %12, double noundef 2.000000e+00) #15
   %cmp11.i = fcmp oeq double %call10.i, 1.000000e+00
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %if.then9.i
-  %12 = phi i1 [ false, %if.then9.i ], [ %cmp11.i, %land.rhs.i ]
+  %13 = phi i1 [ false, %if.then9.i ], [ %cmp11.i, %land.rhs.i ]
   %cmp12.i = fcmp ogt double %y.0, 0.000000e+00
   br i1 %cmp12.i, label %if.then13.i, label %if.else19.i
 
 if.then13.i:                                      ; preds = %land.end.i
-  %cond18.i = select i1 %12, double %x.0, double 0x7FF0000000000000
+  %cond18.i = select i1 %13, double %x.0, double 0x7FF0000000000000
   br label %if.end67.i
 
 if.else19.i:                                      ; preds = %land.end.i
@@ -4920,42 +4936,44 @@ if.else19.i:                                      ; preds = %land.end.i
   br i1 %cmp20.i, label %if.end67.i, label %if.else22.i
 
 if.else22.i:                                      ; preds = %if.else19.i
-  %13 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %x.0)
-  %cond27.i = select i1 %12, double %13, double 0.000000e+00
+  %14 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %x.0)
+  %cond27.i = select i1 %13, double %14, double 0.000000e+00
   br label %if.end67.i
 
 if.else29.i:                                      ; preds = %if.else8.i
-  %cmp30.i = fcmp oeq double %6, 1.000000e+00
+  %cmp30.i = fcmp oeq double %10, 1.000000e+00
   br i1 %cmp30.i, label %if.end67.i, label %if.else32.i
 
 if.else32.i:                                      ; preds = %if.else29.i
   %cmp33.i = fcmp ogt double %y.0, 0.000000e+00
-  %cmp34.i = fcmp ogt double %6, 1.000000e+00
-  %or.cond31.i = and i1 %cmp34.i, %cmp33.i
-  br i1 %or.cond31.i, label %if.end67.i, label %if.else36.i
+  %cmp34.i = fcmp ogt double %10, 1.000000e+00
+  %or.cond.i = and i1 %cmp34.i, %cmp33.i
+  br i1 %or.cond.i, label %if.end67.i, label %if.else36.i
 
 if.else36.i:                                      ; preds = %if.else32.i
   %cmp37.i = fcmp olt double %y.0, 0.000000e+00
-  %cmp39.i = fcmp olt double %6, 1.000000e+00
-  %or.cond32.i = and i1 %cmp39.i, %cmp37.i
-  br i1 %or.cond32.i, label %if.then40.i, label %if.end67.i
+  %cmp39.i = fcmp olt double %10, 1.000000e+00
+  %or.cond30.i = and i1 %cmp39.i, %cmp37.i
+  br i1 %or.cond30.i, label %if.then40.i, label %if.end67.i
 
 if.then40.i:                                      ; preds = %if.else36.i
   %fneg.i = fneg double %y.0
   br label %if.end67.i
 
-if.else48.i:                                      ; preds = %if.end31
+if.else48.i:                                      ; preds = %lor.lhs.false.i
+  %call49.i = tail call ptr @__errno_location() #16
+  store i32 0, ptr %call49.i, align 4
   %call50.i = tail call double @pow(double noundef %x.0, double noundef %y.0) #15
-  %14 = tail call double @llvm.fabs.f64(double %call50.i)
-  %15 = fcmp ueq double %14, 0x7FF0000000000000
-  br i1 %15, label %if.then51.i, label %if.end67.i
+  %15 = tail call i1 @llvm.is.fpclass.f64(double %call50.i, i32 504)
+  br i1 %15, label %if.end67.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %if.else48.i
   %16 = fcmp uno double %call50.i, 0.000000e+00
   br i1 %16, label %if.then.i.sink.split.i, label %if.else54.i
 
 if.else54.i:                                      ; preds = %if.then51.i
-  %isinf55.i = fcmp oeq double %14, 0x7FF0000000000000
+  %17 = tail call double @llvm.fabs.f64(double %call50.i) #17
+  %isinf55.i = fcmp oeq double %17, 0x7FF0000000000000
   br i1 %isinf55.i, label %if.then57.i, label %if.end67.i
 
 if.then57.i:                                      ; preds = %if.else54.i
@@ -4963,12 +4981,13 @@ if.then57.i:                                      ; preds = %if.else54.i
   br i1 %cmp58.i, label %if.then.i.sink.split.i, label %if.then3.i.i.thread
 
 if.then3.i.i.thread:                              ; preds = %if.then57.i
-  store i32 34, ptr %call.i, align 4
+  store i32 34, ptr %call49.i, align 4
   br label %if.else6.i.i
 
 if.end67.i:                                       ; preds = %if.else54.i, %if.else48.i, %if.then40.i, %if.else36.i, %if.else32.i, %if.else29.i, %if.else22.i, %if.else19.i, %if.then13.i, %if.then2.i
+  %call68.pre-phi.ph.i = phi ptr [ %call.i, %if.then2.i ], [ %call.i, %if.then40.i ], [ %call.i, %if.then13.i ], [ %call.i, %if.else22.i ], [ %call49.i, %if.else54.i ], [ %call49.i, %if.else48.i ], [ %call.i, %if.else19.i ], [ %call.i, %if.else29.i ], [ %call.i, %if.else32.i ], [ %call.i, %if.else36.i ]
   %r.0.ph.i = phi double [ %cond7.i, %if.then2.i ], [ %fneg.i, %if.then40.i ], [ %cond18.i, %if.then13.i ], [ %cond27.i, %if.else22.i ], [ %call50.i, %if.else54.i ], [ %call50.i, %if.else48.i ], [ 1.000000e+00, %if.else19.i ], [ 1.000000e+00, %if.else29.i ], [ %y.0, %if.else32.i ], [ 0.000000e+00, %if.else36.i ]
-  %.pr.i = load i32, ptr %call.i, align 4
+  %.pr.i = load i32, ptr %call68.pre-phi.ph.i, align 4
   switch i32 %.pr.i, label %if.else7.i.i [
     i32 0, label %if.else74.i
     i32 33, label %if.then.i.i
@@ -4976,27 +4995,27 @@ if.end67.i:                                       ; preds = %if.else54.i, %if.el
   ]
 
 if.then.i.sink.split.i:                           ; preds = %if.then57.i, %if.then51.i
-  store i32 33, ptr %call.i, align 4
+  store i32 33, ptr %call49.i, align 4
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i.sink.split.i, %if.end67.i
-  %17 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.57) #15
+  %18 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.57) #15
   br label %exit
 
 if.then3.i.i:                                     ; preds = %if.end67.i
   %.pre = tail call double @llvm.fabs.f64(double %r.0.ph.i)
-  %18 = fcmp olt double %.pre, 1.500000e+00
-  br i1 %18, label %if.else74.i, label %if.else6.i.i
+  %19 = fcmp olt double %.pre, 1.500000e+00
+  br i1 %19, label %if.else74.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i.thread, %if.then3.i.i
-  %19 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.58) #15
+  %20 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %20, ptr noundef nonnull @.str.58) #15
   br label %exit
 
 if.else7.i.i:                                     ; preds = %if.end67.i
-  %20 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %20) #15
+  %21 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %21) #15
   br label %exit
 
 if.else74.i:                                      ; preds = %if.then3.i.i, %if.end67.i, %if.end67.thread5.i
@@ -5085,32 +5104,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.58) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -5118,13 +5138,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -5171,32 +5191,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -5204,13 +5225,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -5250,32 +5271,33 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
+  %isinf.i = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf.i, label %land.lhs.true8.i, label %if.end13.i
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
+land.lhs.true8.i:                                 ; preds = %if.end6.i
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call.i, i32 504)
+  br i1 %4, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %land.lhs.true8.i
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
+if.end13.i:                                       ; preds = %land.lhs.true8.i, %if.end6.i
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %call3.i, i32 504)
+  br i1 %6, label %land.lhs.true14.i, label %if.end21.i
 
 land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
+  %7 = load i32, ptr %call2.i, align 4
+  switch i32 %7, label %if.else7.i.i [
     i32 0, label %if.end21.i
     i32 33, label %if.then.i.i
     i32 34, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
   br label %math_1.exit
 
 if.then3.i.i:                                     ; preds = %land.lhs.true14.i
@@ -5283,13 +5305,13 @@ if.then3.i.i:                                     ; preds = %land.lhs.true14.i
   br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
+  %9 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
   br label %math_1.exit
 
 if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
   br label %math_1.exit
 
 if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
@@ -5772,18 +5794,17 @@ if.end165.i:                                      ; preds = %land.lhs.true157.i,
   %add4.i16.i.i = fadd double %sub3.i15.i.i, %sub2.i14.i.i
   %add.i.i = fadd double %flt_total.sroa.7.0.ph.i, %add4.i8.i.i
   %add15.i.i = fadd double %add.i.i, %add4.i16.i.i
-  %43 = call double @llvm.fabs.f64(double %add.i.i.i)
-  %44 = fcmp ueq double %43, 0x7FF0000000000000
-  br i1 %44, label %finalize_flt_path.i, label %if.then172.i
+  %43 = call i1 @llvm.is.fpclass.f64(double %add.i.i.i, i32 504)
+  br i1 %43, label %if.then172.i, label %finalize_flt_path.i
 
 if.then172.i:                                     ; preds = %if.end165.i
-  %45 = load i64, ptr %call1230.i, align 8
-  %46 = and i64 %45, 2147483648
-  %cmp.i452.not.i = icmp eq i64 %46, 0
+  %44 = load i64, ptr %call1230.i, align 8
+  %45 = and i64 %44, 2147483648
+  %cmp.i452.not.i = icmp eq i64 %45, 0
   br i1 %cmp.i452.not.i, label %if.end.i355.i, label %if.then180.i
 
 if.end.i355.i:                                    ; preds = %if.then172.i
-  %dec.i356.i = add i64 %45, -1
+  %dec.i356.i = add i64 %44, -1
   store i64 %dec.i356.i, ptr %call1230.i, align 8
   %cmp.i357.i = icmp eq i64 %dec.i356.i, 0
   br i1 %cmp.i357.i, label %if.then1.i358.i, label %if.then180.i
@@ -5793,13 +5814,13 @@ if.then1.i358.i:                                  ; preds = %if.end.i355.i
   br label %if.then180.i
 
 if.then180.i:                                     ; preds = %if.then1.i358.i, %if.end.i355.i, %if.then172.i
-  %47 = load i64, ptr %call2354.i, align 8
-  %48 = and i64 %47, 2147483648
-  %cmp.i456.not.i = icmp eq i64 %48, 0
+  %46 = load i64, ptr %call2354.i, align 8
+  %47 = and i64 %46, 2147483648
+  %cmp.i456.not.i = icmp eq i64 %47, 0
   br i1 %cmp.i456.not.i, label %if.end.i346.i, label %while.body.outer.i.backedge
 
 if.end.i346.i:                                    ; preds = %if.then180.i
-  %dec.i347.i = add i64 %47, -1
+  %dec.i347.i = add i64 %46, -1
   store i64 %dec.i347.i, ptr %call2354.i, align 8
   %cmp.i348.i = icmp eq i64 %dec.i347.i, 0
   br i1 %cmp.i348.i, label %if.then1.i349.i, label %while.body.outer.i.backedge
@@ -5816,8 +5837,8 @@ finalize_flt_path.sink.split.i:                   ; preds = %land.lhs.true157.i,
   br label %finalize_flt_path.i
 
 finalize_flt_path.i:                              ; preds = %if.end165.i, %land.lhs.true146.i, %if.else143.i, %if.then109.i, %finalize_flt_path.sink.split.i
-  %49 = and i8 %flt_total_in_use.0.ph.i, 1
-  %tobool185.not.i = icmp eq i8 %49, 0
+  %48 = and i8 %flt_total_in_use.0.ph.i, 1
+  %tobool185.not.i = icmp eq i8 %48, 0
   br i1 %tobool185.not.i, label %if.end211.i, label %if.then186.i
 
 if.then186.i:                                     ; preds = %finalize_flt_path.i
@@ -5839,13 +5860,13 @@ if.end192.i:                                      ; preds = %if.then186.i
   br i1 %cmp194.i, label %err_exit.i, label %do.body198.i
 
 do.body198.i:                                     ; preds = %if.end192.i
-  %50 = load i64, ptr %total.1.i, align 8
-  %51 = and i64 %50, 2147483648
-  %cmp.i460.not.i = icmp eq i64 %51, 0
+  %49 = load i64, ptr %total.1.i, align 8
+  %50 = and i64 %49, 2147483648
+  %cmp.i460.not.i = icmp eq i64 %50, 0
   br i1 %cmp.i460.not.i, label %if.end.i337.i, label %if.then207.i
 
 if.end.i337.i:                                    ; preds = %do.body198.i
-  %dec.i338.i = add i64 %50, -1
+  %dec.i338.i = add i64 %49, -1
   store i64 %dec.i338.i, ptr %total.1.i, align 8
   %cmp.i339.i = icmp eq i64 %dec.i338.i, 0
   br i1 %cmp.i339.i, label %if.then1.i340.i, label %if.then207.i
@@ -5855,13 +5876,13 @@ if.then1.i340.i:                                  ; preds = %if.end.i337.i
   br label %if.then207.i
 
 if.then207.i:                                     ; preds = %if.then1.i340.i, %if.end.i337.i, %do.body198.i
-  %52 = load i64, ptr %call188.i, align 8
-  %53 = and i64 %52, 2147483648
-  %cmp.i464.not.i = icmp eq i64 %53, 0
+  %51 = load i64, ptr %call188.i, align 8
+  %52 = and i64 %51, 2147483648
+  %cmp.i464.not.i = icmp eq i64 %52, 0
   br i1 %cmp.i464.not.i, label %if.end.i328.i, label %if.end211.i
 
 if.end.i328.i:                                    ; preds = %if.then207.i
-  %dec.i329.i = add i64 %52, -1
+  %dec.i329.i = add i64 %51, -1
   store i64 %dec.i329.i, ptr %call188.i, align 8
   %cmp.i330.i = icmp eq i64 %dec.i329.i, 0
   br i1 %cmp.i330.i, label %if.then1.i331.i, label %if.end211.i
@@ -5896,13 +5917,13 @@ if.end219.i:                                      ; preds = %if.end214.i
   br i1 %cmp221.i, label %err_exit.i, label %do.body225.i
 
 do.body225.i:                                     ; preds = %if.end219.i
-  %54 = load i64, ptr %total.2270.i, align 8
-  %55 = and i64 %54, 2147483648
-  %cmp.i468.not.i = icmp eq i64 %55, 0
+  %53 = load i64, ptr %total.2270.i, align 8
+  %54 = and i64 %53, 2147483648
+  %cmp.i468.not.i = icmp eq i64 %54, 0
   br i1 %cmp.i468.not.i, label %if.end.i319.i, label %do.end228.i
 
 if.end.i319.i:                                    ; preds = %do.body225.i
-  %dec.i320.i = add i64 %54, -1
+  %dec.i320.i = add i64 %53, -1
   store i64 %dec.i320.i, ptr %total.2270.i, align 8
   %cmp.i321.i = icmp eq i64 %dec.i320.i, 0
   br i1 %cmp.i321.i, label %if.then1.i322.i, label %do.end228.i
@@ -5915,13 +5936,13 @@ do.end228.i:                                      ; preds = %if.then1.i322.i, %i
   br i1 %cmp1317.i, label %do.body237.i, label %if.then234.i
 
 if.then234.i:                                     ; preds = %do.end228.i
-  %56 = load i64, ptr %call1230.i, align 8
-  %57 = and i64 %56, 2147483648
-  %cmp.i472.not.i = icmp eq i64 %57, 0
+  %55 = load i64, ptr %call1230.i, align 8
+  %56 = and i64 %55, 2147483648
+  %cmp.i472.not.i = icmp eq i64 %56, 0
   br i1 %cmp.i472.not.i, label %if.end.i310.i, label %do.body237.i
 
 if.end.i310.i:                                    ; preds = %if.then234.i
-  %dec.i311.i = add i64 %56, -1
+  %dec.i311.i = add i64 %55, -1
   store i64 %dec.i311.i, ptr %call1230.i, align 8
   %cmp.i312.i = icmp eq i64 %dec.i311.i, 0
   br i1 %cmp.i312.i, label %if.then1.i313.i, label %do.body237.i
@@ -5934,13 +5955,13 @@ do.body237.i:                                     ; preds = %if.then1.i313.i, %i
   br i1 %cmp2445.i, label %if.then250.i, label %if.then242.i
 
 if.then242.i:                                     ; preds = %do.body237.i
-  %58 = load i64, ptr %call2354.i, align 8
-  %59 = and i64 %58, 2147483648
-  %cmp.i476.not.i = icmp eq i64 %59, 0
+  %57 = load i64, ptr %call2354.i, align 8
+  %58 = and i64 %57, 2147483648
+  %cmp.i476.not.i = icmp eq i64 %58, 0
   br i1 %cmp.i476.not.i, label %if.end.i301.i, label %if.then250.i
 
 if.end.i301.i:                                    ; preds = %if.then242.i
-  %dec.i302.i = add i64 %58, -1
+  %dec.i302.i = add i64 %57, -1
   store i64 %dec.i302.i, ptr %call2354.i, align 8
   %cmp.i303.i = icmp eq i64 %dec.i302.i, 0
   br i1 %cmp.i303.i, label %if.then1.i304.i, label %if.then250.i
@@ -5950,13 +5971,13 @@ if.then1.i304.i:                                  ; preds = %if.end.i301.i
   br label %if.then250.i
 
 if.then250.i:                                     ; preds = %if.then1.i304.i, %if.end.i301.i, %if.then242.i, %do.body237.i
-  %60 = load i64, ptr %call215.i, align 8
-  %61 = and i64 %60, 2147483648
-  %cmp.i480.not.i = icmp eq i64 %61, 0
+  %59 = load i64, ptr %call215.i, align 8
+  %60 = and i64 %59, 2147483648
+  %cmp.i480.not.i = icmp eq i64 %60, 0
   br i1 %cmp.i480.not.i, label %if.end.i292.i, label %while.body.outer.outer.i.backedge
 
 if.end.i292.i:                                    ; preds = %if.then250.i
-  %dec.i293.i = add i64 %60, -1
+  %dec.i293.i = add i64 %59, -1
   store i64 %dec.i293.i, ptr %call215.i, align 8
   %cmp.i294.i = icmp eq i64 %dec.i293.i, 0
   br i1 %cmp.i294.i, label %if.then1.i295.i, label %while.body.outer.outer.i.backedge
@@ -5970,13 +5991,13 @@ while.body.outer.outer.i.backedge:                ; preds = %if.then1.i295.i, %i
 
 normal_exit.i:                                    ; preds = %if.end211.i, %if.then1.i331.i
   %total.2271.i = phi ptr [ %call193.i, %if.then1.i331.i ], [ %total.2.i, %if.end211.i ]
-  %62 = load i64, ptr %call.i, align 8
-  %63 = and i64 %62, 2147483648
-  %cmp.i484.not.i = icmp eq i64 %63, 0
+  %61 = load i64, ptr %call.i, align 8
+  %62 = and i64 %61, 2147483648
+  %cmp.i484.not.i = icmp eq i64 %62, 0
   br i1 %cmp.i484.not.i, label %if.end.i283.i, label %Py_DECREF.exit288.i
 
 if.end.i283.i:                                    ; preds = %normal_exit.i
-  %dec.i284.i = add i64 %62, -1
+  %dec.i284.i = add i64 %61, -1
   store i64 %dec.i284.i, ptr %call.i, align 8
   %cmp.i285.i = icmp eq i64 %dec.i284.i, 0
   br i1 %cmp.i285.i, label %if.then1.i286.i, label %Py_DECREF.exit288.i
@@ -5986,13 +6007,13 @@ if.then1.i286.i:                                  ; preds = %if.end.i283.i
   br label %Py_DECREF.exit288.i
 
 Py_DECREF.exit288.i:                              ; preds = %if.then1.i286.i, %if.end.i283.i, %normal_exit.i
-  %64 = load i64, ptr %call1.i, align 8
-  %65 = and i64 %64, 2147483648
-  %cmp.i488.not.i = icmp eq i64 %65, 0
+  %63 = load i64, ptr %call1.i, align 8
+  %64 = and i64 %63, 2147483648
+  %cmp.i488.not.i = icmp eq i64 %64, 0
   br i1 %cmp.i488.not.i, label %if.end.i274.i, label %math_sumprod_impl.exit
 
 if.end.i274.i:                                    ; preds = %Py_DECREF.exit288.i
-  %dec.i275.i = add i64 %64, -1
+  %dec.i275.i = add i64 %63, -1
   store i64 %dec.i275.i, ptr %call1.i, align 8
   %cmp.i276.i = icmp eq i64 %dec.i275.i, 0
   br i1 %cmp.i276.i, label %if.then1.i277.i, label %math_sumprod_impl.exit
@@ -6007,13 +6028,13 @@ err_exit.i:                                       ; preds = %if.end219.i, %if.en
   %term_i.4.i = phi ptr [ null, %if.then40.i ], [ null, %if.then16.i ], [ null, %if.then28.i ], [ %call86.i, %if.end90.i ], [ null, %if.then85.i ], [ null, %if.then16.us.i ], [ null, %if.then28.us.i ], [ %call215.i, %if.end219.i ], [ null, %if.end214.i ], [ %call188.i, %if.end192.i ], [ null, %if.then186.i ]
   %q_i.4.i = phi ptr [ %.us-phi141.i, %if.then40.i ], [ null, %if.then16.i ], [ null, %if.then28.i ], [ %call23.i, %if.end90.i ], [ %call23.i, %if.then85.i ], [ null, %if.then16.us.i ], [ null, %if.then28.us.i ], [ %call2354.i, %if.then186.i ], [ %call2354.i, %if.end192.i ], [ %call2354.i, %if.end214.i ], [ %call2354.i, %if.end219.i ]
   %total.3.i = phi ptr [ %total.0.ph.i, %if.then40.i ], [ %total.0.ph.i, %if.then16.i ], [ %total.0.ph.i, %if.then28.i ], [ %total.0.ph.i, %if.then16.us.i ], [ %total.0.ph.i, %if.then28.us.i ], [ %total.0.ph.i, %if.then85.i ], [ %total.0.ph.i, %if.end90.i ], [ %total.2270.i, %if.end219.i ], [ %total.2270.i, %if.end214.i ], [ %total.1.i, %if.end192.i ], [ %total.1.i, %if.then186.i ]
-  %66 = load i64, ptr %call.i, align 8
-  %67 = and i64 %66, 2147483648
-  %cmp.i492.not.i = icmp eq i64 %67, 0
+  %65 = load i64, ptr %call.i, align 8
+  %66 = and i64 %65, 2147483648
+  %cmp.i492.not.i = icmp eq i64 %66, 0
   br i1 %cmp.i492.not.i, label %if.end.i265.i, label %Py_DECREF.exit270.i
 
 if.end.i265.i:                                    ; preds = %err_exit.i
-  %dec.i266.i = add i64 %66, -1
+  %dec.i266.i = add i64 %65, -1
   store i64 %dec.i266.i, ptr %call.i, align 8
   %cmp.i267.i = icmp eq i64 %dec.i266.i, 0
   br i1 %cmp.i267.i, label %if.then1.i268.i, label %Py_DECREF.exit270.i
@@ -6023,13 +6044,13 @@ if.then1.i268.i:                                  ; preds = %if.end.i265.i
   br label %Py_DECREF.exit270.i
 
 Py_DECREF.exit270.i:                              ; preds = %if.then1.i268.i, %if.end.i265.i, %err_exit.i
-  %68 = load i64, ptr %call1.i, align 8
-  %69 = and i64 %68, 2147483648
-  %cmp.i496.not.i = icmp eq i64 %69, 0
+  %67 = load i64, ptr %call1.i, align 8
+  %68 = and i64 %67, 2147483648
+  %cmp.i496.not.i = icmp eq i64 %68, 0
   br i1 %cmp.i496.not.i, label %if.end.i256.i, label %Py_DECREF.exit261.i
 
 if.end.i256.i:                                    ; preds = %Py_DECREF.exit270.i
-  %dec.i257.i = add i64 %68, -1
+  %dec.i257.i = add i64 %67, -1
   store i64 %dec.i257.i, ptr %call1.i, align 8
   %cmp.i258.i = icmp eq i64 %dec.i257.i, 0
   br i1 %cmp.i258.i, label %if.then1.i259.i, label %Py_DECREF.exit261.i
@@ -6039,13 +6060,13 @@ if.then1.i259.i:                                  ; preds = %if.end.i256.i
   br label %Py_DECREF.exit261.i
 
 Py_DECREF.exit261.i:                              ; preds = %if.then1.i259.i, %if.end.i256.i, %Py_DECREF.exit270.i
-  %70 = load i64, ptr %total.3.i, align 8
-  %71 = and i64 %70, 2147483648
-  %cmp.i500.not.i = icmp eq i64 %71, 0
+  %69 = load i64, ptr %total.3.i, align 8
+  %70 = and i64 %69, 2147483648
+  %cmp.i500.not.i = icmp eq i64 %70, 0
   br i1 %cmp.i500.not.i, label %if.end.i.i, label %Py_DECREF.exit.i
 
 if.end.i.i:                                       ; preds = %Py_DECREF.exit261.i
-  %dec.i.i = add i64 %70, -1
+  %dec.i.i = add i64 %69, -1
   store i64 %dec.i.i, ptr %total.3.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %Py_DECREF.exit.i
@@ -6058,13 +6079,13 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   br i1 %cmp1314.i, label %Py_XDECREF.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %Py_DECREF.exit.i
-  %72 = load i64, ptr %call1227.i, align 8
-  %73 = and i64 %72, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %73, 0
+  %71 = load i64, ptr %call1227.i, align 8
+  %72 = and i64 %71, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %72, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %Py_XDECREF.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %dec.i.i.i = add i64 %72, -1
+  %dec.i.i.i = add i64 %71, -1
   store i64 %dec.i.i.i, ptr %call1227.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %Py_XDECREF.exit.i
@@ -6078,13 +6099,13 @@ Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if
   br i1 %cmp.not.i176.i, label %Py_XDECREF.exit184.i, label %if.then.i177.i
 
 if.then.i177.i:                                   ; preds = %Py_XDECREF.exit.i
-  %74 = load i64, ptr %q_i.4.i, align 8
-  %75 = and i64 %74, 2147483648
-  %cmp.i2.not.i178.i = icmp eq i64 %75, 0
+  %73 = load i64, ptr %q_i.4.i, align 8
+  %74 = and i64 %73, 2147483648
+  %cmp.i2.not.i178.i = icmp eq i64 %74, 0
   br i1 %cmp.i2.not.i178.i, label %if.end.i.i180.i, label %Py_XDECREF.exit184.i
 
 if.end.i.i180.i:                                  ; preds = %if.then.i177.i
-  %dec.i.i181.i = add i64 %74, -1
+  %dec.i.i181.i = add i64 %73, -1
   store i64 %dec.i.i181.i, ptr %q_i.4.i, align 8
   %cmp.i.i182.i = icmp eq i64 %dec.i.i181.i, 0
   br i1 %cmp.i.i182.i, label %if.then1.i.i183.i, label %Py_XDECREF.exit184.i
@@ -6098,13 +6119,13 @@ Py_XDECREF.exit184.i:                             ; preds = %if.then1.i.i183.i, 
   br i1 %cmp.not.i185.i, label %math_sumprod_impl.exit, label %if.then.i186.i
 
 if.then.i186.i:                                   ; preds = %Py_XDECREF.exit184.i
-  %76 = load i64, ptr %term_i.4.i, align 8
-  %77 = and i64 %76, 2147483648
-  %cmp.i2.not.i187.i = icmp eq i64 %77, 0
+  %75 = load i64, ptr %term_i.4.i, align 8
+  %76 = and i64 %75, 2147483648
+  %cmp.i2.not.i187.i = icmp eq i64 %76, 0
   br i1 %cmp.i2.not.i187.i, label %if.end.i.i189.i, label %math_sumprod_impl.exit
 
 if.end.i.i189.i:                                  ; preds = %if.then.i186.i
-  %dec.i.i190.i = add i64 %76, -1
+  %dec.i.i190.i = add i64 %75, -1
   store i64 %dec.i.i190.i, ptr %term_i.4.i, align 8
   %cmp.i.i191.i = icmp eq i64 %dec.i.i190.i, 0
   br i1 %cmp.i.i191.i, label %if.then1.i.i192.i, label %math_sumprod_impl.exit
@@ -7624,41 +7645,42 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %3 = tail call double @llvm.fabs.f64(double %call3) #17
-  %isinf = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9 = or i1 %5, %isinf
-  br i1 %or.cond9, label %if.end13, label %if.then9
+  %isinf = fcmp oeq double %3, 0x7FF0000000000000
+  br i1 %isinf, label %land.lhs.true8, label %if.end13
 
-if.then9:                                         ; preds = %if.end6
+land.lhs.true8:                                   ; preds = %if.end6
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call, i32 504)
+  br i1 %4, label %if.then9, label %if.end13
+
+if.then9:                                         ; preds = %land.lhs.true8
   %tobool10.not = icmp eq i32 %can_overflow, 0
   br i1 %tobool10.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
-  %6 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.58) #15
+  %5 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.58) #15
   br label %return
 
 if.else:                                          ; preds = %if.then9
-  %7 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.57) #15
+  %6 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
   br label %return
 
-if.end13:                                         ; preds = %if.end6
-  %8 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %8, label %if.end21, label %land.lhs.true14
+if.end13:                                         ; preds = %land.lhs.true8, %if.end6
+  %7 = tail call i1 @llvm.is.fpclass.f64(double %call3, i32 504)
+  br i1 %7, label %land.lhs.true14, label %if.end21
 
 land.lhs.true14:                                  ; preds = %if.end13
-  %9 = load i32, ptr %call2, align 4
-  switch i32 %9, label %if.else7.i [
+  %8 = load i32, ptr %call2, align 4
+  switch i32 %8, label %if.else7.i [
     i32 0, label %if.end21
     i32 33, label %if.then.i
     i32 34, label %if.then3.i
   ]
 
 if.then.i:                                        ; preds = %land.lhs.true14
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.57) #15
+  %9 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
   br label %return
 
 if.then3.i:                                       ; preds = %land.lhs.true14
@@ -7666,13 +7688,13 @@ if.then3.i:                                       ; preds = %land.lhs.true14
   br i1 %cmp4.i, label %if.end21, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.then3.i
-  %11 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.58) #15
+  %10 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
   br label %return
 
 if.else7.i:                                       ; preds = %land.lhs.true14
-  %12 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %12) #15
+  %11 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
   br label %return
 
 if.end21:                                         ; preds = %land.lhs.true14, %if.then3.i, %if.end13
@@ -7773,14 +7795,14 @@ if.else25:                                        ; preds = %if.end16
   br i1 %isinf, label %if.then27, label %if.end35
 
 if.then27:                                        ; preds = %if.else25
-  %4 = tail call double @llvm.fabs.f64(double %call2)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %6 = tail call double @llvm.fabs.f64(double %call10)
-  %7 = fcmp ueq double %6, 0x7FF0000000000000
-  %or.cond15 = or i1 %5, %7
-  br i1 %or.cond15, label %if.else42.sink.split, label %land.lhs.true38.thread22
+  %4 = tail call i1 @llvm.is.fpclass.f64(double %call2, i32 504)
+  br i1 %4, label %land.lhs.true28, label %if.else42.sink.split
 
-land.lhs.true38.thread22:                         ; preds = %if.then27
+land.lhs.true28:                                  ; preds = %if.then27
+  %5 = tail call i1 @llvm.is.fpclass.f64(double %call10, i32 504)
+  br i1 %5, label %land.lhs.true38.thread20, label %if.else42.sink.split
+
+land.lhs.true38.thread20:                         ; preds = %land.lhs.true28
   store i32 34, ptr %call17, align 4
   br label %if.then3.i
 
@@ -7793,25 +7815,25 @@ if.end35:                                         ; preds = %if.else25
   ]
 
 if.then.i:                                        ; preds = %if.end35, %land.lhs.true38.thread
-  %8 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.57) #15
+  %6 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
   br label %return
 
-if.then3.i:                                       ; preds = %if.end35, %land.lhs.true38.thread22
+if.then3.i:                                       ; preds = %if.end35, %land.lhs.true38.thread20
   %cmp4.i = fcmp olt double %3, 1.500000e+00
   br i1 %cmp4.i, label %if.else42, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.then3.i
-  %9 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.58) #15
+  %7 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.58) #15
   br label %return
 
 if.else7.i:                                       ; preds = %if.end35
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %10) #15
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %8) #15
   br label %return
 
-if.else42.sink.split:                             ; preds = %if.then27, %if.then19
+if.else42.sink.split:                             ; preds = %if.then27, %land.lhs.true28, %if.then19
   store i32 0, ptr %call17, align 4
   br label %if.else42
 
@@ -8235,9 +8257,8 @@ declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind memory(write) uwtable
 define internal double @m_tgamma(double noundef %x) #11 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %x)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.then, label %if.end
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 504)
+  br i1 %0, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %or.cond = fcmp ugt double %x, 0.000000e+00
@@ -8255,12 +8276,12 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %call4 = tail call ptr @__errno_location() #16
   store i32 33, ptr %call4, align 4
-  %2 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %x)
+  %1 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %x)
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %3 = tail call double @llvm.floor.f64(double %x)
-  %cmp6 = fcmp oeq double %3, %x
+  %2 = tail call double @llvm.floor.f64(double %x)
+  %cmp6 = fcmp oeq double %2, %x
   br i1 %cmp6, label %if.then7, label %if.end15
 
 if.then7:                                         ; preds = %if.end5
@@ -8281,11 +8302,12 @@ if.then13:                                        ; preds = %if.end11
   %sub = add i32 %conv, -1
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr [23 x double], ptr @gamma_integral, i64 0, i64 %idxprom
-  %4 = load double, ptr %arrayidx, align 8
+  %3 = load double, ptr %arrayidx, align 8
   br label %return
 
 if.end15:                                         ; preds = %if.end11, %if.end5
-  %cmp16 = fcmp olt double %0, 0x3BC79CA10C924223
+  %4 = tail call double @llvm.fabs.f64(double %x)
+  %cmp16 = fcmp olt double %4, 0x3BC79CA10C924223
   br i1 %cmp16, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end15
@@ -8300,7 +8322,7 @@ if.then19:                                        ; preds = %if.then18
   br label %return
 
 if.end22:                                         ; preds = %if.end15
-  %cmp23 = fcmp ogt double %0, 2.000000e+02
+  %cmp23 = fcmp ogt double %4, 2.000000e+02
   br i1 %cmp23, label %if.then25, label %if.end33
 
 if.then25:                                        ; preds = %if.end22
@@ -8318,12 +8340,12 @@ if.else31:                                        ; preds = %if.then25
   br label %return
 
 if.end33:                                         ; preds = %if.end22
-  %add = fadd double %0, 0x40161945B9800000
-  %cmp34 = fcmp ogt double %0, 0x40161945B9800000
-  %sub37 = fsub double %add, %0
+  %add = fadd double %4, 0x40161945B9800000
+  %cmp34 = fcmp ogt double %4, 0x40161945B9800000
+  %sub37 = fsub double %add, %4
   %sub38 = fadd double %sub37, 0xC0161945B9800000
   %sub41 = fadd double %add, 0xC0161945B9800000
-  %sub42 = fsub double %sub41, %0
+  %sub42 = fsub double %sub41, %4
   %z.0 = select i1 %cmp34, double %sub38, double %sub42
   %mul = fmul double %z.0, 0x40181945B9800000
   %div44 = fdiv double %mul, %add
@@ -8331,26 +8353,26 @@ if.end33:                                         ; preds = %if.end22
   br i1 %cmp45, label %if.then47, label %if.else69
 
 if.then47:                                        ; preds = %if.end33
-  %call48 = tail call fastcc double @m_sinpi(double noundef %0)
+  %call48 = tail call fastcc double @m_sinpi(double noundef %4)
   %div49 = fdiv double 0xC00921FB54442D18, %call48
-  %div50 = fdiv double %div49, %0
+  %div50 = fdiv double %div49, %4
   %call51 = tail call double @exp(double noundef %add) #15
   %mul52 = fmul double %call51, %div50
-  %call53 = tail call fastcc double @lanczos_sum(double noundef %0)
+  %call53 = tail call fastcc double @lanczos_sum(double noundef %4)
   %div54 = fdiv double %mul52, %call53
   %neg = fneg double %div44
   %6 = tail call double @llvm.fmuladd.f64(double %neg, double %div54, double %div54)
-  %cmp56 = fcmp olt double %0, 1.400000e+02
+  %cmp56 = fcmp olt double %4, 1.400000e+02
   br i1 %cmp56, label %if.then58, label %if.else62
 
 if.then58:                                        ; preds = %if.then47
-  %sub59 = fadd double %0, -5.000000e-01
+  %sub59 = fadd double %4, -5.000000e-01
   %call60 = tail call double @pow(double noundef %add, double noundef %sub59) #15
   %div61 = fdiv double %6, %call60
   br label %if.end87
 
 if.else62:                                        ; preds = %if.then47
-  %div63 = fmul double %0, 5.000000e-01
+  %div63 = fmul double %4, 5.000000e-01
   %sub64 = fadd double %div63, -2.500000e-01
   %call65 = tail call double @pow(double noundef %add, double noundef %sub64) #15
   %div66 = fdiv double %6, %call65
@@ -8358,21 +8380,21 @@ if.else62:                                        ; preds = %if.then47
   br label %if.end87
 
 if.else69:                                        ; preds = %if.end33
-  %call70 = tail call fastcc double @lanczos_sum(double noundef %0)
+  %call70 = tail call fastcc double @lanczos_sum(double noundef %4)
   %call71 = tail call double @exp(double noundef %add) #15
   %div72 = fdiv double %call70, %call71
   %7 = tail call double @llvm.fmuladd.f64(double %div44, double %div72, double %div72)
-  %cmp74 = fcmp olt double %0, 1.400000e+02
+  %cmp74 = fcmp olt double %4, 1.400000e+02
   br i1 %cmp74, label %if.then76, label %if.else80
 
 if.then76:                                        ; preds = %if.else69
-  %sub77 = fadd double %0, -5.000000e-01
+  %sub77 = fadd double %4, -5.000000e-01
   %call78 = tail call double @pow(double noundef %add, double noundef %sub77) #15
   %mul79 = fmul double %7, %call78
   br label %if.end87
 
 if.else80:                                        ; preds = %if.else69
-  %div81 = fmul double %0, 5.000000e-01
+  %div81 = fmul double %4, 5.000000e-01
   %sub82 = fadd double %div81, -2.500000e-01
   %call83 = tail call double @pow(double noundef %add, double noundef %sub82) #15
   %mul84 = fmul double %7, %call83
@@ -8391,7 +8413,7 @@ if.then90:                                        ; preds = %if.end87
   br label %return
 
 return:                                           ; preds = %if.end87, %if.then90, %if.then18, %if.then19, %if.then, %if.else31, %if.then28, %if.then13, %if.then9, %if.then3, %if.else
-  %retval.0 = phi double [ %2, %if.then3 ], [ 0x7FF8000000000000, %if.then9 ], [ %4, %if.then13 ], [ %div30, %if.then28 ], [ 0x7FF0000000000000, %if.else31 ], [ 0x7FF8000000000000, %if.else ], [ %x, %if.then ], [ %div, %if.then19 ], [ %div, %if.then18 ], [ %r.0, %if.then90 ], [ %r.0, %if.end87 ]
+  %retval.0 = phi double [ %1, %if.then3 ], [ 0x7FF8000000000000, %if.then9 ], [ %3, %if.then13 ], [ %div30, %if.then28 ], [ 0x7FF0000000000000, %if.else31 ], [ 0x7FF8000000000000, %if.else ], [ %x, %if.then ], [ %div, %if.then19 ], [ %div, %if.then18 ], [ %r.0, %if.then90 ], [ %r.0, %if.end87 ]
   ret double %retval.0
 }
 
@@ -8545,18 +8567,17 @@ declare ptr @PyNumber_Subtract(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind memory(write) uwtable
 define internal double @m_lgamma(double noundef %x) #11 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %x)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.then, label %if.end
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 504)
+  br i1 %0, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = fcmp uno double %x, 0.000000e+00
-  %x. = select i1 %2, double %x, double 0x7FF0000000000000
+  %1 = fcmp uno double %x, 0.000000e+00
+  %x. = select i1 %1, double %x, double 0x7FF0000000000000
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = tail call double @llvm.floor.f64(double %x)
-  %cmp = fcmp oeq double %3, %x
+  %2 = tail call double @llvm.floor.f64(double %x)
+  %cmp = fcmp oeq double %2, %x
   %cmp2 = fcmp ole double %x, 2.000000e+00
   %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %if.then3, label %if.end7
@@ -8571,25 +8592,26 @@ if.then5:                                         ; preds = %if.then3
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %cmp8 = fcmp olt double %0, 0x3BC79CA10C924223
+  %3 = tail call double @llvm.fabs.f64(double %x)
+  %cmp8 = fcmp olt double %3, 0x3BC79CA10C924223
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end7
-  %call10 = tail call double @log(double noundef %0) #15
+  %call10 = tail call double @log(double noundef %3) #15
   %fneg = fneg double %call10
   br label %return
 
 if.end11:                                         ; preds = %if.end7
-  %cmp.i = fcmp olt double %0, 5.000000e+00
+  %cmp.i = fcmp olt double %3, 5.000000e+00
   br i1 %cmp.i, label %for.body.i.preheader, label %for.body6.i.preheader
 
 for.body6.i.preheader:                            ; preds = %if.end11
-  %4 = insertelement <2 x double> poison, double %0, i64 0
+  %4 = insertelement <2 x double> poison, double %3, i64 0
   %5 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> zeroinitializer
   br label %for.body6.i
 
 for.body.i.preheader:                             ; preds = %if.end11
-  %6 = insertelement <2 x double> poison, double %0, i64 0
+  %6 = insertelement <2 x double> poison, double %3, i64 0
   %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
   br label %for.body.i
 
@@ -8629,8 +8651,8 @@ lanczos_sum.exit:                                 ; preds = %for.body6.i, %for.b
   %div14.i = fdiv double %22, %23
   %call13 = tail call double @log(double noundef %div14.i) #15
   %sub = fadd double %call13, 0xC0181945B9800000
-  %sub14 = fadd double %0, -5.000000e-01
-  %add = fadd double %0, 0x40181945B9800000
+  %sub14 = fadd double %3, -5.000000e-01
+  %add = fadd double %3, 0x40181945B9800000
   %sub15 = fadd double %add, -5.000000e-01
   %call16 = tail call double @log(double noundef %sub15) #15
   %sub17 = fadd double %call16, -1.000000e+00
@@ -8639,7 +8661,7 @@ lanczos_sum.exit:                                 ; preds = %for.body6.i, %for.b
   br i1 %cmp18, label %if.then19, label %if.end26
 
 if.then19:                                        ; preds = %lanczos_sum.exit
-  %call.i = tail call double @fmod(double noundef %0, double noundef 2.000000e+00) #15
+  %call.i = tail call double @fmod(double noundef %3, double noundef 2.000000e+00) #15
   %mul.i = fmul double %call.i, 2.000000e+00
   %25 = tail call double @llvm.round.f64(double %mul.i)
   %conv.i = fptosi double %25 to i32
@@ -8689,7 +8711,7 @@ m_sinpi.exit:                                     ; preds = %sw.bb.i, %sw.bb3.i,
   %26 = tail call double @llvm.fabs.f64(double %r.0.i)
   %call21 = tail call double @log(double noundef %26) #15
   %sub22 = fsub double 0x3FF250D048E7A1BD, %call21
-  %call23 = tail call double @log(double noundef %0) #15
+  %call23 = tail call double @log(double noundef %3) #15
   %sub24 = fsub double %sub22, %call23
   %sub25 = fsub double %sub24, %24
   br label %if.end26
@@ -8793,9 +8815,8 @@ return:                                           ; preds = %land.lhs.true14, %i
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define internal double @m_log(double noundef %x) #5 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %x)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.else5, label %if.then
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 504)
+  br i1 %0, label %if.then, label %if.else5
 
 if.then:                                          ; preds = %entry
   %cmp = fcmp ogt double %x, 0.000000e+00
@@ -8855,9 +8876,8 @@ declare double @log1p(double noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define internal double @m_log10(double noundef %x) #5 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %x)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.else5, label %if.then
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 504)
+  br i1 %0, label %if.then, label %if.else5
 
 if.then:                                          ; preds = %entry
   %cmp = fcmp ogt double %x, 0.000000e+00
@@ -8894,9 +8914,8 @@ declare double @log10(double noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define internal double @m_log2(double noundef %x) #5 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %x)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.then, label %if.end
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 504)
+  br i1 %0, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %or.cond = fcmp ugt double %x, 0.000000e+00
@@ -8936,20 +8955,22 @@ declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define internal double @m_remainder(double noundef %x, double noundef %y) #5 {
 entry:
-  %0 = tail call double @llvm.fabs.f64(double %x)
-  %1 = fcmp ueq double %0, 0x7FF0000000000000
-  %2 = tail call double @llvm.fabs.f64(double %y)
-  %3 = fcmp ueq double %2, 0x7FF0000000000000
-  %or.cond = or i1 %1, %3
-  br i1 %or.cond, label %if.end13, label %if.then
+  %0 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 504)
+  br i1 %0, label %land.lhs.true, label %if.end13
 
-if.then:                                          ; preds = %entry
+land.lhs.true:                                    ; preds = %entry
+  %1 = tail call i1 @llvm.is.fpclass.f64(double %y, i32 504)
+  br i1 %1, label %if.then, label %if.end13
+
+if.then:                                          ; preds = %land.lhs.true
   %cmp = fcmp oeq double %y, 0.000000e+00
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call = tail call double @fmod(double noundef %0, double noundef %2) #15
-  %sub = fsub double %2, %call
+  %2 = tail call double @llvm.fabs.f64(double %x)
+  %3 = tail call double @llvm.fabs.f64(double %y)
+  %call = tail call double @fmod(double noundef %2, double noundef %3) #15
+  %sub = fsub double %3, %call
   %cmp2 = fcmp olt double %call, %sub
   br i1 %cmp2, label %if.end11, label %if.else
 
@@ -8962,9 +8983,9 @@ if.then5:                                         ; preds = %if.else
   br label %if.end11
 
 if.else6:                                         ; preds = %if.else
-  %sub7 = fsub double %0, %call
+  %sub7 = fsub double %2, %call
   %mul = fmul double %sub7, 5.000000e-01
-  %call8 = tail call double @fmod(double noundef %mul, double noundef %2) #15
+  %call8 = tail call double @fmod(double noundef %mul, double noundef %3) #15
   %4 = tail call double @llvm.fmuladd.f64(double %call8, double -2.000000e+00, double %call)
   br label %if.end11
 
@@ -8974,7 +8995,7 @@ if.end11:                                         ; preds = %if.end, %if.then5, 
   %mul12 = fmul double %5, %r.0
   br label %return
 
-if.end13:                                         ; preds = %entry
+if.end13:                                         ; preds = %land.lhs.true, %entry
   %6 = fcmp uno double %x, 0.000000e+00
   br i1 %6, label %return, label %if.end15
 
@@ -8983,7 +9004,8 @@ if.end15:                                         ; preds = %if.end13
   br i1 %7, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end15
-  %isinf = fcmp oeq double %0, 0x7FF0000000000000
+  %8 = tail call double @llvm.fabs.f64(double %x) #17
+  %isinf = fcmp oeq double %8, 0x7FF0000000000000
   %.x = select i1 %isinf, double 0x7FF8000000000000, double %x
   br label %return
 
