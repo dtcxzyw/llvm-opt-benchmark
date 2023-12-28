@@ -251,7 +251,7 @@ entry:
   ret i32 2016
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly %mem, ptr nocapture noundef readonly %table, ptr noundef %convert, ptr noundef %userData) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(464) %mem, ptr noundef nonnull align 8 dereferenceable(464) @latin1_encoding, i64 464, i1 false)
@@ -534,7 +534,7 @@ entry:
   %0 = load ptr, ptr %convert, align 8
   %userData = getelementptr inbounds %struct.unknown_encoding, ptr %enc, i64 0, i32 2
   %1 = load ptr, ptr %userData, align 8
-  %call = tail call i32 %0(ptr noundef %1, ptr noundef %p) #15
+  %call = tail call i32 %0(ptr noundef %1, ptr noundef %p) #14
   %tobool.not = icmp ult i32 %call, 65536
   br i1 %tobool.not, label %if.end, label %return
 
@@ -568,7 +568,7 @@ entry:
   %0 = load ptr, ptr %convert, align 8
   %userData = getelementptr inbounds %struct.unknown_encoding, ptr %enc, i64 0, i32 2
   %1 = load ptr, ptr %userData, align 8
-  %call = tail call i32 %0(ptr noundef %1, ptr noundef %p) #15
+  %call = tail call i32 %0(ptr noundef %1, ptr noundef %p) #14
   %tobool.not = icmp ult i32 %call, 65536
   br i1 %tobool.not, label %if.end, label %return
 
@@ -602,7 +602,7 @@ entry:
   %0 = load ptr, ptr %convert, align 8
   %userData = getelementptr inbounds %struct.unknown_encoding, ptr %enc, i64 0, i32 2
   %1 = load ptr, ptr %userData, align 8
-  %call = tail call i32 %0(ptr noundef %1, ptr noundef %p) #15
+  %call = tail call i32 %0(ptr noundef %1, ptr noundef %p) #14
   %tobool.not = icmp ult i32 %call, 65536
   br i1 %tobool.not, label %lor.rhs, label %lor.end
 
@@ -673,7 +673,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
 if.then4:                                         ; preds = %if.end
   %4 = load ptr, ptr %convert, align 8
   %5 = load ptr, ptr %userData, align 8
-  %call = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %1) #15
+  %call = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %1) #14
   %cmp.i = icmp slt i32 %call, 0
   br i1 %cmp.i, label %PyExpat_XmlUtf8Encode.exit, label %if.end.i
 
@@ -827,7 +827,7 @@ while.body:                                       ; preds = %land.rhs
 if.then:                                          ; preds = %while.body
   %5 = load ptr, ptr %convert, align 8
   %6 = load ptr, ptr %userData, align 8
-  %call = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %1) #15
+  %call = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %1) #14
   %conv4 = trunc i32 %call to i16
   %7 = load ptr, ptr %fromP, align 8
   %8 = load i8, ptr %7, align 1
@@ -1104,7 +1104,7 @@ if.end:                                           ; preds = %entry
   %nameMatchesAscii = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 2
   %3 = load ptr, ptr %nameMatchesAscii, align 8
   %4 = load ptr, ptr %nameEnd, align 8
-  %call6 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull @KW_version) #15
+  %call6 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull @KW_version) #14
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then8, label %if.else
 
@@ -1160,7 +1160,7 @@ if.end28:                                         ; preds = %if.end21.if.end28_c
   %9 = phi ptr [ %.pre67, %if.end21.if.end28_crit_edge ], [ %4, %if.then8 ]
   %10 = phi ptr [ %7, %if.end21.if.end28_crit_edge ], [ %1, %if.then8 ]
   %11 = load ptr, ptr %nameMatchesAscii, align 8
-  %call30 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %10, ptr noundef %9, ptr noundef nonnull @KW_encoding) #15
+  %call30 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %10, ptr noundef %9, ptr noundef nonnull @KW_encoding) #14
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end59, label %if.then32
 
@@ -1174,7 +1174,7 @@ if.then32:                                        ; preds = %if.end28
   %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
   %13 = load ptr, ptr %utf8Convert.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 1
-  %call.i = call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %add.ptr4, ptr noundef nonnull %p.i, ptr noundef nonnull %add.ptr.i) #15
+  %call.i = call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %add.ptr4, ptr noundef nonnull %p.i, ptr noundef nonnull %add.ptr.i) #14
   %14 = load ptr, ptr %p.i, align 8
   %cmp.i = icmp ne ptr %14, %buf.i
   %15 = load i8, ptr %buf.i, align 1
@@ -1206,7 +1206,7 @@ if.then45:                                        ; preds = %if.end43
   %idx.ext47 = sext i32 %19 to i64
   %idx.neg48 = sub nsw i64 0, %idx.ext47
   %add.ptr49 = getelementptr i8, ptr %.pre68, i64 %idx.neg48
-  %call50 = call ptr %encodingFinder(ptr noundef nonnull %enc, ptr noundef %12, ptr noundef %add.ptr49) #15, !callees !12
+  %call50 = call ptr %encodingFinder(ptr noundef nonnull %enc, ptr noundef %12, ptr noundef %add.ptr49) #14, !callees !12
   store ptr %call50, ptr %encoding, align 8
   br label %if.end51
 
@@ -1232,7 +1232,7 @@ if.end59:                                         ; preds = %if.end55.if.end59_c
   %22 = phi ptr [ %.pre69, %if.end55.if.end59_crit_edge ], [ %9, %if.end28 ]
   %23 = phi ptr [ %21, %if.end55.if.end59_crit_edge ], [ %10, %if.end28 ]
   %24 = load ptr, ptr %nameMatchesAscii, align 8
-  %call61 = call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %23, ptr noundef %22, ptr noundef nonnull @KW_standalone) #15
+  %call61 = call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %23, ptr noundef %22, ptr noundef nonnull @KW_standalone) #14
   %tobool62 = icmp eq i32 %call61, 0
   %tobool64 = icmp ne i32 %isGeneralTextEntity, 0
   %or.cond3 = or i1 %tobool64, %tobool62
@@ -1246,7 +1246,7 @@ if.end66:                                         ; preds = %if.end59
   %idx.ext69 = sext i32 %28 to i64
   %idx.neg70 = sub nsw i64 0, %idx.ext69
   %add.ptr71 = getelementptr i8, ptr %27, i64 %idx.neg70
-  %call72 = call i32 %25(ptr noundef nonnull %enc, ptr noundef %26, ptr noundef %add.ptr71, ptr noundef nonnull @KW_yes) #15
+  %call72 = call i32 %25(ptr noundef nonnull %enc, ptr noundef %26, ptr noundef %add.ptr71, ptr noundef nonnull @KW_yes) #14
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %if.else78, label %if.then74
 
@@ -1260,7 +1260,7 @@ if.else78:                                        ; preds = %if.end66
   %idx.ext81 = sext i32 %30 to i64
   %idx.neg82 = sub nsw i64 0, %idx.ext81
   %add.ptr83 = getelementptr i8, ptr %27, i64 %idx.neg82
-  %call84 = call i32 %29(ptr noundef nonnull %enc, ptr noundef %26, ptr noundef %add.ptr83, ptr noundef nonnull @KW_no) #15
+  %call84 = call i32 %29(ptr noundef nonnull %enc, ptr noundef %26, ptr noundef %add.ptr83, ptr noundef nonnull @KW_no) #14
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %return.sink.split, label %if.then86
 
@@ -1286,7 +1286,7 @@ while.cond:                                       ; preds = %while.body, %if.end
   store ptr %add.ptr9866, ptr %ptr.addr.i53, align 8
   store ptr %buf.i54, ptr %p.i55, align 8
   %31 = load ptr, ptr %utf8Convert.i56, align 8
-  %call.i58 = call i32 %31(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i53, ptr noundef %add.ptr4, ptr noundef nonnull %p.i55, ptr noundef nonnull %add.ptr.i57) #15
+  %call.i58 = call i32 %31(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i53, ptr noundef %add.ptr4, ptr noundef nonnull %p.i55, ptr noundef nonnull %add.ptr.i57) #14
   %32 = load ptr, ptr %p.i55, align 8
   %cmp.i59 = icmp eq ptr %32, %buf.i54
   %33 = load i8, ptr %buf.i54, align 1
@@ -1334,7 +1334,7 @@ entry:
   %utf8Convert = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
   %0 = load ptr, ptr %utf8Convert, align 8
   %add.ptr1 = getelementptr inbounds i8, ptr %buf, i64 127
-  %call = call i32 %0(ptr noundef %enc, ptr noundef nonnull %ptr.addr, ptr noundef %end, ptr noundef nonnull %p, ptr noundef nonnull %add.ptr1) #15
+  %call = call i32 %0(ptr noundef %enc, ptr noundef nonnull %ptr.addr, ptr noundef %end, ptr noundef nonnull %p, ptr noundef nonnull %add.ptr1) #14
   %1 = load ptr, ptr %ptr.addr, align 8
   %cmp.not = icmp eq ptr %1, %end
   br i1 %cmp.not, label %if.end, label %return
@@ -1534,7 +1534,7 @@ entry:
   %utf8Convert = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
   %0 = load ptr, ptr %utf8Convert, align 8
   %add.ptr1 = getelementptr inbounds i8, ptr %buf, i64 127
-  %call = call i32 %0(ptr noundef %enc, ptr noundef nonnull %ptr.addr, ptr noundef %end, ptr noundef nonnull %p, ptr noundef nonnull %add.ptr1) #15
+  %call = call i32 %0(ptr noundef %enc, ptr noundef nonnull %ptr.addr, ptr noundef %end, ptr noundef nonnull %p, ptr noundef nonnull %add.ptr1) #14
   %1 = load ptr, ptr %ptr.addr, align 8
   %cmp.not = icmp eq ptr %1, %end
   br i1 %cmp.not, label %if.end, label %return
@@ -1625,7 +1625,7 @@ return:                                           ; preds = %for.inc.i, %getEnco
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden ptr @PyExpat_XmlInitUnknownEncodingNS(ptr noundef %mem, ptr nocapture noundef readonly %table, ptr noundef %convert, ptr noundef %userData) local_unnamed_addr #6 {
 entry:
   %call = tail call ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef %mem, ptr noundef %table, ptr noundef %convert, ptr noundef %userData)
@@ -1913,7 +1913,7 @@ sw.bb114:                                         ; preds = %if.end
 if.end121:                                        ; preds = %sw.bb114
   %isInvalid2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 8
   %11 = load ptr, ptr %isInvalid2, align 8
-  %call122 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call122 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool.not = icmp eq i32 %call122, 0
   br i1 %tobool.not, label %if.end124, label %if.then123
 
@@ -1924,14 +1924,14 @@ if.then123:                                       ; preds = %if.end121
 if.end124:                                        ; preds = %if.end121
   %isNmstrt2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 5
   %12 = load ptr, ptr %isNmstrt2, align 8
-  %call125 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call125 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %if.end129, label %sw.epilog185
 
 if.end129:                                        ; preds = %if.end124
   %isName2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 2
   %13 = load ptr, ptr %isName2, align 8
-  %call130 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call130 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %if.end134, label %sw.epilog185
 
@@ -1948,7 +1948,7 @@ sw.bb135:                                         ; preds = %if.end
 if.end142:                                        ; preds = %sw.bb135
   %isInvalid3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 9
   %14 = load ptr, ptr %isInvalid3, align 8
-  %call143 = tail call i32 %14(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call143 = tail call i32 %14(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %if.end146, label %if.then145
 
@@ -1959,14 +1959,14 @@ if.then145:                                       ; preds = %if.end142
 if.end146:                                        ; preds = %if.end142
   %isNmstrt3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 6
   %15 = load ptr, ptr %isNmstrt3, align 8
-  %call147 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call147 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool148.not = icmp eq i32 %call147, 0
   br i1 %tobool148.not, label %if.end151, label %sw.epilog185
 
 if.end151:                                        ; preds = %if.end146
   %isName3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 3
   %16 = load ptr, ptr %isName3, align 8
-  %call152 = tail call i32 %16(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call152 = tail call i32 %16(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool153.not = icmp eq i32 %call152, 0
   br i1 %tobool153.not, label %if.end156, label %sw.epilog185
 
@@ -1983,7 +1983,7 @@ sw.bb157:                                         ; preds = %if.end
 if.end164:                                        ; preds = %sw.bb157
   %isInvalid4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 10
   %17 = load ptr, ptr %isInvalid4, align 8
-  %call165 = tail call i32 %17(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call165 = tail call i32 %17(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool166.not = icmp eq i32 %call165, 0
   br i1 %tobool166.not, label %if.end168, label %if.then167
 
@@ -1994,14 +1994,14 @@ if.then167:                                       ; preds = %if.end164
 if.end168:                                        ; preds = %if.end164
   %isNmstrt4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 7
   %18 = load ptr, ptr %isNmstrt4, align 8
-  %call169 = tail call i32 %18(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call169 = tail call i32 %18(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool170.not = icmp eq i32 %call169, 0
   br i1 %tobool170.not, label %if.end173, label %sw.epilog185
 
 if.end173:                                        ; preds = %if.end168
   %isName4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 4
   %19 = load ptr, ptr %isName4, align 8
-  %call174 = tail call i32 %19(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call174 = tail call i32 %19(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool175.not = icmp eq i32 %call174, 0
   br i1 %tobool175.not, label %if.end178, label %sw.epilog185
 
@@ -2082,13 +2082,13 @@ sw.bb198:                                         ; preds = %while.body
 
 if.end205:                                        ; preds = %sw.bb198
   %22 = load ptr, ptr %isInvalid2277, align 8
-  %call207 = tail call i32 %22(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #15
+  %call207 = tail call i32 %22(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #14
   %tobool208.not = icmp eq i32 %call207, 0
   br i1 %tobool208.not, label %lor.lhs.false, label %if.then212
 
 lor.lhs.false:                                    ; preds = %if.end205
   %23 = load ptr, ptr %isName2281, align 8
-  %call210 = tail call i32 %23(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #15
+  %call210 = tail call i32 %23(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #14
   %tobool211.not = icmp eq i32 %call210, 0
   br i1 %tobool211.not, label %if.then212, label %if.end213
 
@@ -2106,13 +2106,13 @@ sw.bb215:                                         ; preds = %while.body
 
 if.end222:                                        ; preds = %sw.bb215
   %24 = load ptr, ptr %isInvalid3295, align 8
-  %call224 = tail call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #15
+  %call224 = tail call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #14
   %tobool225.not = icmp eq i32 %call224, 0
   br i1 %tobool225.not, label %lor.lhs.false226, label %if.then230
 
 lor.lhs.false226:                                 ; preds = %if.end222
   %25 = load ptr, ptr %isName3299, align 8
-  %call228 = tail call i32 %25(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #15
+  %call228 = tail call i32 %25(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #14
   %tobool229.not = icmp eq i32 %call228, 0
   br i1 %tobool229.not, label %if.then230, label %if.end231
 
@@ -2130,13 +2130,13 @@ sw.bb233:                                         ; preds = %while.body
 
 if.end240:                                        ; preds = %sw.bb233
   %26 = load ptr, ptr %isInvalid4313, align 8
-  %call242 = tail call i32 %26(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #15
+  %call242 = tail call i32 %26(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #14
   %tobool243.not = icmp eq i32 %call242, 0
   br i1 %tobool243.not, label %lor.lhs.false244, label %if.then248
 
 lor.lhs.false244:                                 ; preds = %if.end240
   %27 = load ptr, ptr %isName4317, align 8
-  %call246 = tail call i32 %27(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #15
+  %call246 = tail call i32 %27(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2277) #14
   %tobool247.not = icmp eq i32 %call246, 0
   br i1 %tobool247.not, label %if.then248, label %if.end249
 
@@ -2196,13 +2196,13 @@ sw.bb269:                                         ; preds = %if.end261
 
 if.end276:                                        ; preds = %sw.bb269
   %30 = load ptr, ptr %isInvalid2277, align 8
-  %call278 = tail call i32 %30(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #15
+  %call278 = tail call i32 %30(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #14
   %tobool279.not = icmp eq i32 %call278, 0
   br i1 %tobool279.not, label %lor.lhs.false280, label %if.then284
 
 lor.lhs.false280:                                 ; preds = %if.end276
   %31 = load ptr, ptr %isName2281, align 8
-  %call282 = tail call i32 %31(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #15
+  %call282 = tail call i32 %31(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #14
   %tobool283.not = icmp eq i32 %call282, 0
   br i1 %tobool283.not, label %if.then284, label %if.end285
 
@@ -2220,13 +2220,13 @@ sw.bb287:                                         ; preds = %if.end261
 
 if.end294:                                        ; preds = %sw.bb287
   %32 = load ptr, ptr %isInvalid3295, align 8
-  %call296 = tail call i32 %32(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #15
+  %call296 = tail call i32 %32(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #14
   %tobool297.not = icmp eq i32 %call296, 0
   br i1 %tobool297.not, label %lor.lhs.false298, label %if.then302
 
 lor.lhs.false298:                                 ; preds = %if.end294
   %33 = load ptr, ptr %isName3299, align 8
-  %call300 = tail call i32 %33(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #15
+  %call300 = tail call i32 %33(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #14
   %tobool301.not = icmp eq i32 %call300, 0
   br i1 %tobool301.not, label %if.then302, label %if.end303
 
@@ -2244,13 +2244,13 @@ sw.bb305:                                         ; preds = %if.end261
 
 if.end312:                                        ; preds = %sw.bb305
   %34 = load ptr, ptr %isInvalid4313, align 8
-  %call314 = tail call i32 %34(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #15
+  %call314 = tail call i32 %34(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #14
   %tobool315.not = icmp eq i32 %call314, 0
   br i1 %tobool315.not, label %lor.lhs.false316, label %if.then320
 
 lor.lhs.false316:                                 ; preds = %if.end312
   %35 = load ptr, ptr %isName4317, align 8
-  %call318 = tail call i32 %35(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #15
+  %call318 = tail call i32 %35(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr253) #14
   %tobool319.not = icmp eq i32 %call318, 0
   br i1 %tobool319.not, label %if.then320, label %if.end321
 
@@ -2387,14 +2387,14 @@ sw.bb2.i:                                         ; preds = %if.end.i
 if.end9.i:                                        ; preds = %sw.bb2.i
   %isInvalid2.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 8
   %4 = load ptr, ptr %isInvalid2.i, align 8
-  %call.i = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #15
+  %call.i = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then12.i
 
 lor.lhs.false.i:                                  ; preds = %if.end9.i
   %isNmstrt2.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 5
   %5 = load ptr, ptr %isNmstrt2.i, align 8
-  %call10.i = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #15
+  %call10.i = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #14
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %if.then12.i, label %sw.epilog72.i
 
@@ -2409,14 +2409,14 @@ sw.bb15.i:                                        ; preds = %if.end.i
 if.end22.i:                                       ; preds = %sw.bb15.i
   %isInvalid3.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 9
   %6 = load ptr, ptr %isInvalid3.i, align 8
-  %call23.i = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #15
+  %call23.i = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #14
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %lor.lhs.false25.i, label %if.then28.i
 
 lor.lhs.false25.i:                                ; preds = %if.end22.i
   %isNmstrt3.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 6
   %7 = load ptr, ptr %isNmstrt3.i, align 8
-  %call26.i = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #15
+  %call26.i = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #14
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %if.then28.i, label %sw.epilog72.i
 
@@ -2431,14 +2431,14 @@ sw.bb31.i:                                        ; preds = %if.end.i
 if.end38.i:                                       ; preds = %sw.bb31.i
   %isInvalid4.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 10
   %8 = load ptr, ptr %isInvalid4.i, align 8
-  %call39.i = tail call i32 %8(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #15
+  %call39.i = tail call i32 %8(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #14
   %tobool40.not.i = icmp eq i32 %call39.i, 0
   br i1 %tobool40.not.i, label %lor.lhs.false41.i, label %if.then44.i
 
 lor.lhs.false41.i:                                ; preds = %if.end38.i
   %isNmstrt4.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 7
   %9 = load ptr, ptr %isNmstrt4.i, align 8
-  %call42.i = tail call i32 %9(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #15
+  %call42.i = tail call i32 %9(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr) #14
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %if.then44.i, label %sw.epilog72.i
 
@@ -2536,14 +2536,14 @@ sw.bb2.i.i:                                       ; preds = %if.end.i.i
 if.end9.i.i:                                      ; preds = %sw.bb2.i.i
   %isInvalid2.i.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 8
   %16 = load ptr, ptr %isInvalid2.i.i, align 8
-  %call.i.i = tail call i32 %16(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #15
+  %call.i.i = tail call i32 %16(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %lor.lhs.false.i.i, label %return.sink.split.i213.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end9.i.i
   %isNmstrt2.i.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 5
   %17 = load ptr, ptr %isNmstrt2.i.i, align 8
-  %call10.i.i = tail call i32 %17(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #15
+  %call10.i.i = tail call i32 %17(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #14
   %tobool11.not.i.i = icmp eq i32 %call10.i.i, 0
   br i1 %tobool11.not.i.i, label %return.sink.split.i213.i, label %sw.epilog.i.i
 
@@ -2554,14 +2554,14 @@ sw.bb15.i.i:                                      ; preds = %if.end.i.i
 if.end22.i.i:                                     ; preds = %sw.bb15.i.i
   %isInvalid3.i.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 9
   %18 = load ptr, ptr %isInvalid3.i.i, align 8
-  %call23.i.i = tail call i32 %18(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #15
+  %call23.i.i = tail call i32 %18(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #14
   %tobool24.not.i.i = icmp eq i32 %call23.i.i, 0
   br i1 %tobool24.not.i.i, label %lor.lhs.false25.i.i, label %return.sink.split.i213.i
 
 lor.lhs.false25.i.i:                              ; preds = %if.end22.i.i
   %isNmstrt3.i.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 6
   %19 = load ptr, ptr %isNmstrt3.i.i, align 8
-  %call26.i.i = tail call i32 %19(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #15
+  %call26.i.i = tail call i32 %19(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #14
   %tobool27.not.i.i = icmp eq i32 %call26.i.i, 0
   br i1 %tobool27.not.i.i, label %return.sink.split.i213.i, label %sw.epilog.i.i
 
@@ -2572,14 +2572,14 @@ sw.bb31.i.i:                                      ; preds = %if.end.i.i
 if.end38.i.i:                                     ; preds = %sw.bb31.i.i
   %isInvalid4.i.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 10
   %20 = load ptr, ptr %isInvalid4.i.i, align 8
-  %call39.i.i = tail call i32 %20(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #15
+  %call39.i.i = tail call i32 %20(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #14
   %tobool40.not.i.i = icmp eq i32 %call39.i.i, 0
   br i1 %tobool40.not.i.i, label %lor.lhs.false41.i.i, label %return.sink.split.i213.i
 
 lor.lhs.false41.i.i:                              ; preds = %if.end38.i.i
   %isNmstrt4.i.i = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 7
   %21 = load ptr, ptr %isNmstrt4.i.i, align 8
-  %call42.i.i = tail call i32 %21(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #15
+  %call42.i.i = tail call i32 %21(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr70.i) #14
   %tobool43.not.i.i = icmp eq i32 %call42.i.i, 0
   br i1 %tobool43.not.i.i, label %return.sink.split.i213.i, label %sw.epilog.i.i
 
@@ -2629,13 +2629,13 @@ sw.bb59.i.i:                                      ; preds = %while.body.i.i
 
 if.end66.i.i:                                     ; preds = %sw.bb59.i.i
   %24 = load ptr, ptr %isInvalid267.i.i, align 8
-  %call68.i.i = tail call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #15
+  %call68.i.i = tail call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #14
   %tobool69.not.i.i = icmp eq i32 %call68.i.i, 0
   br i1 %tobool69.not.i.i, label %lor.lhs.false70.i.i, label %return.sink.split.i213.i
 
 lor.lhs.false70.i.i:                              ; preds = %if.end66.i.i
   %25 = load ptr, ptr %isName2.i.i, align 8
-  %call71.i.i = tail call i32 %25(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #15
+  %call71.i.i = tail call i32 %25(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #14
   %tobool72.not.i.i = icmp eq i32 %call71.i.i, 0
   br i1 %tobool72.not.i.i, label %return.sink.split.i213.i, label %sw.epilog132.i.i
 
@@ -2645,13 +2645,13 @@ sw.bb76.i.i:                                      ; preds = %while.body.i.i
 
 if.end83.i.i:                                     ; preds = %sw.bb76.i.i
   %26 = load ptr, ptr %isInvalid384.i.i, align 8
-  %call85.i.i = tail call i32 %26(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #15
+  %call85.i.i = tail call i32 %26(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #14
   %tobool86.not.i.i = icmp eq i32 %call85.i.i, 0
   br i1 %tobool86.not.i.i, label %lor.lhs.false87.i.i, label %return.sink.split.i213.i
 
 lor.lhs.false87.i.i:                              ; preds = %if.end83.i.i
   %27 = load ptr, ptr %isName3.i.i, align 8
-  %call88.i.i = tail call i32 %27(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #15
+  %call88.i.i = tail call i32 %27(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #14
   %tobool89.not.i.i = icmp eq i32 %call88.i.i, 0
   br i1 %tobool89.not.i.i, label %return.sink.split.i213.i, label %sw.epilog132.i.i
 
@@ -2661,13 +2661,13 @@ sw.bb93.i.i:                                      ; preds = %while.body.i.i
 
 if.end100.i.i:                                    ; preds = %sw.bb93.i.i
   %28 = load ptr, ptr %isInvalid4101.i.i, align 8
-  %call102.i.i = tail call i32 %28(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #15
+  %call102.i.i = tail call i32 %28(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #14
   %tobool103.not.i.i = icmp eq i32 %call102.i.i, 0
   br i1 %tobool103.not.i.i, label %lor.lhs.false104.i.i, label %return.sink.split.i213.i
 
 lor.lhs.false104.i.i:                             ; preds = %if.end100.i.i
   %29 = load ptr, ptr %isName4.i.i, align 8
-  %call105.i.i = tail call i32 %29(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #15
+  %call105.i.i = tail call i32 %29(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1109.i.i) #14
   %tobool106.not.i.i = icmp eq i32 %call105.i.i, 0
   br i1 %tobool106.not.i.i, label %return.sink.split.i213.i, label %sw.epilog132.i.i
 
@@ -2781,13 +2781,13 @@ sw.bb85.i:                                        ; preds = %while.body.i
 
 if.end92.i:                                       ; preds = %sw.bb85.i
   %34 = load ptr, ptr %isInvalid2163.i, align 8
-  %call94.i = tail call i32 %34(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #15
+  %call94.i = tail call i32 %34(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #14
   %tobool95.not.i = icmp eq i32 %call94.i, 0
   br i1 %tobool95.not.i, label %lor.lhs.false96.i, label %if.then99.i
 
 lor.lhs.false96.i:                                ; preds = %if.end92.i
   %35 = load ptr, ptr %isName2.i, align 8
-  %call97.i = tail call i32 %35(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #15
+  %call97.i = tail call i32 %35(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #14
   %tobool98.not.i = icmp eq i32 %call97.i, 0
   br i1 %tobool98.not.i, label %if.then99.i, label %sw.epilog306.i
 
@@ -2801,13 +2801,13 @@ sw.bb102.i:                                       ; preds = %while.body.i
 
 if.end109.i:                                      ; preds = %sw.bb102.i
   %36 = load ptr, ptr %isInvalid3181.i, align 8
-  %call111.i = tail call i32 %36(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #15
+  %call111.i = tail call i32 %36(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #14
   %tobool112.not.i = icmp eq i32 %call111.i, 0
   br i1 %tobool112.not.i, label %lor.lhs.false113.i, label %if.then116.i
 
 lor.lhs.false113.i:                               ; preds = %if.end109.i
   %37 = load ptr, ptr %isName3.i, align 8
-  %call114.i = tail call i32 %37(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #15
+  %call114.i = tail call i32 %37(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #14
   %tobool115.not.i = icmp eq i32 %call114.i, 0
   br i1 %tobool115.not.i, label %if.then116.i, label %sw.epilog306.i
 
@@ -2821,13 +2821,13 @@ sw.bb119.i:                                       ; preds = %while.body.i
 
 if.end126.i:                                      ; preds = %sw.bb119.i
   %38 = load ptr, ptr %isInvalid4199.i, align 8
-  %call128.i = tail call i32 %38(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #15
+  %call128.i = tail call i32 %38(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #14
   %tobool129.not.i = icmp eq i32 %call128.i, 0
   br i1 %tobool129.not.i, label %lor.lhs.false130.i, label %if.then133.i
 
 lor.lhs.false130.i:                               ; preds = %if.end126.i
   %39 = load ptr, ptr %isName4.i, align 8
-  %call131.i = tail call i32 %39(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #15
+  %call131.i = tail call i32 %39(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1276.i) #14
   %tobool132.not.i = icmp eq i32 %call131.i, 0
   br i1 %tobool132.not.i, label %if.then133.i, label %sw.epilog306.i
 
@@ -2874,13 +2874,13 @@ sw.bb155.i:                                       ; preds = %if.end147.i
 
 if.end162.i:                                      ; preds = %sw.bb155.i
   %42 = load ptr, ptr %isInvalid2163.i, align 8
-  %call164.i = tail call i32 %42(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #15
+  %call164.i = tail call i32 %42(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #14
   %tobool165.not.i = icmp eq i32 %call164.i, 0
   br i1 %tobool165.not.i, label %lor.lhs.false166.i, label %if.then170.i
 
 lor.lhs.false166.i:                               ; preds = %if.end162.i
   %43 = load ptr, ptr %isNmstrt2167.i, align 8
-  %call168.i = tail call i32 %43(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #15
+  %call168.i = tail call i32 %43(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #14
   %tobool169.not.i = icmp eq i32 %call168.i, 0
   br i1 %tobool169.not.i, label %if.then170.i, label %sw.epilog306.i
 
@@ -2894,13 +2894,13 @@ sw.bb173.i:                                       ; preds = %if.end147.i
 
 if.end180.i:                                      ; preds = %sw.bb173.i
   %44 = load ptr, ptr %isInvalid3181.i, align 8
-  %call182.i = tail call i32 %44(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #15
+  %call182.i = tail call i32 %44(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #14
   %tobool183.not.i = icmp eq i32 %call182.i, 0
   br i1 %tobool183.not.i, label %lor.lhs.false184.i, label %if.then188.i
 
 lor.lhs.false184.i:                               ; preds = %if.end180.i
   %45 = load ptr, ptr %isNmstrt3185.i, align 8
-  %call186.i = tail call i32 %45(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #15
+  %call186.i = tail call i32 %45(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #14
   %tobool187.not.i = icmp eq i32 %call186.i, 0
   br i1 %tobool187.not.i, label %if.then188.i, label %sw.epilog306.i
 
@@ -2914,13 +2914,13 @@ sw.bb191.i:                                       ; preds = %if.end147.i
 
 if.end198.i:                                      ; preds = %sw.bb191.i
   %46 = load ptr, ptr %isInvalid4199.i, align 8
-  %call200.i = tail call i32 %46(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #15
+  %call200.i = tail call i32 %46(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #14
   %tobool201.not.i = icmp eq i32 %call200.i, 0
   br i1 %tobool201.not.i, label %lor.lhs.false202.i, label %if.then206.i
 
 lor.lhs.false202.i:                               ; preds = %if.end198.i
   %47 = load ptr, ptr %isNmstrt4203.i, align 8
-  %call204.i = tail call i32 %47(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #15
+  %call204.i = tail call i32 %47(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr140.i) #14
   %tobool205.not.i = icmp eq i32 %call204.i, 0
   br i1 %tobool205.not.i, label %if.then206.i, label %sw.epilog306.i
 
@@ -2971,13 +2971,13 @@ sw.bb227.i:                                       ; preds = %while.body219.i
 
 if.end234.i:                                      ; preds = %sw.bb227.i
   %50 = load ptr, ptr %isInvalid2163.i, align 8
-  %call236.i = tail call i32 %50(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #15
+  %call236.i = tail call i32 %50(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #14
   %tobool237.not.i = icmp eq i32 %call236.i, 0
   br i1 %tobool237.not.i, label %lor.lhs.false238.i, label %if.then242.i
 
 lor.lhs.false238.i:                               ; preds = %if.end234.i
   %51 = load ptr, ptr %isNmstrt2167.i, align 8
-  %call240.i = tail call i32 %51(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #15
+  %call240.i = tail call i32 %51(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #14
   %tobool241.not.i = icmp eq i32 %call240.i, 0
   br i1 %tobool241.not.i, label %if.then242.i, label %sw.epilog286.i
 
@@ -2991,13 +2991,13 @@ sw.bb245.i:                                       ; preds = %while.body219.i
 
 if.end252.i:                                      ; preds = %sw.bb245.i
   %52 = load ptr, ptr %isInvalid3181.i, align 8
-  %call254.i = tail call i32 %52(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #15
+  %call254.i = tail call i32 %52(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #14
   %tobool255.not.i = icmp eq i32 %call254.i, 0
   br i1 %tobool255.not.i, label %lor.lhs.false256.i, label %if.then260.i
 
 lor.lhs.false256.i:                               ; preds = %if.end252.i
   %53 = load ptr, ptr %isNmstrt3185.i, align 8
-  %call258.i = tail call i32 %53(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #15
+  %call258.i = tail call i32 %53(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #14
   %tobool259.not.i = icmp eq i32 %call258.i, 0
   br i1 %tobool259.not.i, label %if.then260.i, label %sw.epilog286.i
 
@@ -3011,13 +3011,13 @@ sw.bb263.i:                                       ; preds = %while.body219.i
 
 if.end270.i:                                      ; preds = %sw.bb263.i
   %54 = load ptr, ptr %isInvalid4199.i, align 8
-  %call272.i = tail call i32 %54(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #15
+  %call272.i = tail call i32 %54(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #14
   %tobool273.not.i = icmp eq i32 %call272.i, 0
   br i1 %tobool273.not.i, label %lor.lhs.false274.i, label %if.then278.i
 
 lor.lhs.false274.i:                               ; preds = %if.end270.i
   %55 = load ptr, ptr %isNmstrt4203.i, align 8
-  %call276.i = tail call i32 %55(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #15
+  %call276.i = tail call i32 %55(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2291.i) #14
   %tobool277.not.i = icmp eq i32 %call276.i, 0
   br i1 %tobool277.not.i, label %if.then278.i, label %sw.epilog286.i
 
@@ -3151,7 +3151,7 @@ sw.bb49:                                          ; preds = %if.end
 if.end56:                                         ; preds = %sw.bb49
   %isInvalid2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 8
   %61 = load ptr, ptr %isInvalid2, align 8
-  %call57 = tail call i32 %61(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call57 = tail call i32 %61(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool.not = icmp eq i32 %call57, 0
   br i1 %tobool.not, label %if.end59, label %if.then58
 
@@ -3173,7 +3173,7 @@ sw.bb61:                                          ; preds = %if.end
 if.end68:                                         ; preds = %sw.bb61
   %isInvalid3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 9
   %62 = load ptr, ptr %isInvalid3, align 8
-  %call69 = tail call i32 %62(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call69 = tail call i32 %62(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %if.end72, label %if.then71
 
@@ -3195,7 +3195,7 @@ sw.bb74:                                          ; preds = %if.end
 if.end81:                                         ; preds = %sw.bb74
   %isInvalid4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 10
   %63 = load ptr, ptr %isInvalid4, align 8
-  %call82 = tail call i32 %63(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call82 = tail call i32 %63(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %if.end85, label %if.then84
 
@@ -3257,7 +3257,7 @@ sw.bb98:                                          ; preds = %while.body
 
 lor.lhs.false:                                    ; preds = %sw.bb98
   %66 = load ptr, ptr %isInvalid2104, align 8
-  %call105 = tail call i32 %66(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2165) #15
+  %call105 = tail call i32 %66(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2165) #14
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %if.end108, label %if.then107
 
@@ -3275,7 +3275,7 @@ sw.bb110:                                         ; preds = %while.body
 
 lor.lhs.false116:                                 ; preds = %sw.bb110
   %67 = load ptr, ptr %isInvalid3117, align 8
-  %call118 = tail call i32 %67(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2165) #15
+  %call118 = tail call i32 %67(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2165) #14
   %tobool119.not = icmp eq i32 %call118, 0
   br i1 %tobool119.not, label %if.end121, label %if.then120
 
@@ -3293,7 +3293,7 @@ sw.bb123:                                         ; preds = %while.body
 
 lor.lhs.false129:                                 ; preds = %sw.bb123
   %68 = load ptr, ptr %isInvalid4130, align 8
-  %call131 = tail call i32 %68(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2165) #15
+  %call131 = tail call i32 %68(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2165) #14
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %if.end134, label %if.then133
 
@@ -3439,7 +3439,7 @@ sw.bb45:                                          ; preds = %if.end
 if.end52:                                         ; preds = %sw.bb45
   %isInvalid2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 8
   %6 = load ptr, ptr %isInvalid2, align 8
-  %call = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end54, label %return.sink.split
 
@@ -3457,7 +3457,7 @@ sw.bb56:                                          ; preds = %if.end
 if.end63:                                         ; preds = %sw.bb56
   %isInvalid3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 9
   %7 = load ptr, ptr %isInvalid3, align 8
-  %call64 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call64 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.end67, label %return.sink.split
 
@@ -3475,7 +3475,7 @@ sw.bb69:                                          ; preds = %if.end
 if.end76:                                         ; preds = %sw.bb69
   %isInvalid4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 10
   %8 = load ptr, ptr %isInvalid4, align 8
-  %call77 = tail call i32 %8(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call77 = tail call i32 %8(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %if.end80, label %return.sink.split
 
@@ -3527,7 +3527,7 @@ sw.bb93:                                          ; preds = %while.body
 
 lor.lhs.false:                                    ; preds = %sw.bb93
   %11 = load ptr, ptr %isInvalid299, align 8
-  %call100 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.289) #15
+  %call100 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.289) #14
   %tobool101.not = icmp eq i32 %call100, 0
   br i1 %tobool101.not, label %sw.epilog134, label %return.sink.split
 
@@ -3537,7 +3537,7 @@ sw.bb105:                                         ; preds = %while.body
 
 lor.lhs.false111:                                 ; preds = %sw.bb105
   %12 = load ptr, ptr %isInvalid3112, align 8
-  %call113 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.289) #15
+  %call113 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.289) #14
   %tobool114.not = icmp eq i32 %call113, 0
   br i1 %tobool114.not, label %sw.epilog134, label %return.sink.split
 
@@ -3547,7 +3547,7 @@ sw.bb118:                                         ; preds = %while.body
 
 lor.lhs.false124:                                 ; preds = %sw.bb118
   %13 = load ptr, ptr %isInvalid4125, align 8
-  %call126 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.289) #15
+  %call126 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.289) #14
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %sw.epilog134, label %return.sink.split
 
@@ -3610,7 +3610,7 @@ sw.bb:                                            ; preds = %while.body
 
 if.end:                                           ; preds = %sw.bb
   %2 = load ptr, ptr %isInvalid2, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.059) #15
+  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.059) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end7, label %return.sink.split
 
@@ -3624,7 +3624,7 @@ sw.bb8:                                           ; preds = %while.body
 
 if.end15:                                         ; preds = %sw.bb8
   %3 = load ptr, ptr %isInvalid3, align 8
-  %call16 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.059) #15
+  %call16 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.059) #14
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.end19, label %return.sink.split
 
@@ -3638,7 +3638,7 @@ sw.bb21:                                          ; preds = %while.body
 
 if.end28:                                         ; preds = %sw.bb21
   %4 = load ptr, ptr %isInvalid4, align 8
-  %call29 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.059) #15
+  %call29 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.059) #14
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.end32, label %return.sink.split
 
@@ -4760,7 +4760,7 @@ if.end.lr.ph:                                     ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end20
-  %1 = phi ptr [ %0, %if.end.lr.ph ], [ %10, %if.end20 ]
+  %1 = phi ptr [ %0, %if.end.lr.ph ], [ %9, %if.end20 ]
   %2 = load i8, ptr %1, align 1
   %tobool.not = icmp sgt i8 %2, -1
   %3 = load ptr, ptr %toP, align 8
@@ -4778,14 +4778,13 @@ if.end5:                                          ; preds = %if.then1
   %incdec.ptr = getelementptr i8, ptr %3, i64 1
   store ptr %incdec.ptr, ptr %toP, align 8
   store i8 %or, ptr %3, align 1
-  %4 = and i8 %2, 63
-  %5 = or disjoint i8 %4, -128
-  %6 = load ptr, ptr %toP, align 8
-  %incdec.ptr12 = getelementptr i8, ptr %6, i64 1
+  %4 = and i8 %2, -65
+  %5 = load ptr, ptr %toP, align 8
+  %incdec.ptr12 = getelementptr i8, ptr %5, i64 1
   store ptr %incdec.ptr12, ptr %toP, align 8
-  store i8 %5, ptr %6, align 1
-  %7 = load ptr, ptr %fromP, align 8
-  %incdec.ptr13 = getelementptr i8, ptr %7, i64 1
+  store i8 %4, ptr %5, align 1
+  %6 = load ptr, ptr %fromP, align 8
+  %incdec.ptr13 = getelementptr i8, ptr %6, i64 1
   store ptr %incdec.ptr13, ptr %fromP, align 8
   br label %if.end20
 
@@ -4796,17 +4795,17 @@ if.else:                                          ; preds = %if.end
 if.end17:                                         ; preds = %if.else
   %incdec.ptr18 = getelementptr i8, ptr %1, i64 1
   store ptr %incdec.ptr18, ptr %fromP, align 8
-  %8 = load i8, ptr %1, align 1
-  %9 = load ptr, ptr %toP, align 8
-  %incdec.ptr19 = getelementptr i8, ptr %9, i64 1
+  %7 = load i8, ptr %1, align 1
+  %8 = load ptr, ptr %toP, align 8
+  %incdec.ptr19 = getelementptr i8, ptr %8, i64 1
   store ptr %incdec.ptr19, ptr %toP, align 8
-  store i8 %8, ptr %9, align 1
+  store i8 %7, ptr %8, align 1
   %.pre = load ptr, ptr %fromP, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end17, %if.end5
-  %10 = phi ptr [ %.pre, %if.end17 ], [ %incdec.ptr13, %if.end5 ]
-  %cmp = icmp eq ptr %10, %fromLim
+  %9 = phi ptr [ %.pre, %if.end17 ], [ %incdec.ptr13, %if.end5 ]
+  %cmp = icmp eq ptr %9, %fromLim
   br i1 %cmp, label %return, label %if.end
 
 return:                                           ; preds = %if.end20, %if.then1, %if.else, %entry
@@ -4891,7 +4890,7 @@ sw.bb:                                            ; preds = %while.body
 
 if.end:                                           ; preds = %sw.bb
   %2 = load ptr, ptr %isInvalid2, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.049) #15
+  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.049) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end7, label %if.then6
 
@@ -4909,7 +4908,7 @@ sw.bb8:                                           ; preds = %while.body
 
 if.end15:                                         ; preds = %sw.bb8
   %3 = load ptr, ptr %isInvalid3, align 8
-  %call16 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.049) #15
+  %call16 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.049) #14
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.end19, label %if.then18
 
@@ -4927,7 +4926,7 @@ sw.bb21:                                          ; preds = %while.body
 
 if.end28:                                         ; preds = %sw.bb21
   %4 = load ptr, ptr %isInvalid4, align 8
-  %call29 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.049) #15
+  %call29 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.049) #14
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.end32, label %if.then31
 
@@ -5124,14 +5123,14 @@ sw.bb2:                                           ; preds = %if.end
 if.end9:                                          ; preds = %sw.bb2
   %isInvalid2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 8
   %2 = load ptr, ptr %isInvalid2, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then12
 
 lor.lhs.false:                                    ; preds = %if.end9
   %isNmstrt2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 5
   %3 = load ptr, ptr %isNmstrt2, align 8
-  %call10 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call10 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then12, label %sw.epilog
 
@@ -5146,14 +5145,14 @@ sw.bb15:                                          ; preds = %if.end
 if.end22:                                         ; preds = %sw.bb15
   %isInvalid3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 9
   %4 = load ptr, ptr %isInvalid3, align 8
-  %call23 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call23 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %lor.lhs.false25, label %if.then28
 
 lor.lhs.false25:                                  ; preds = %if.end22
   %isNmstrt3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 6
   %5 = load ptr, ptr %isNmstrt3, align 8
-  %call26 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call26 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.then28, label %sw.epilog
 
@@ -5168,14 +5167,14 @@ sw.bb31:                                          ; preds = %if.end
 if.end38:                                         ; preds = %sw.bb31
   %isInvalid4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 10
   %6 = load ptr, ptr %isInvalid4, align 8
-  %call39 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call39 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %lor.lhs.false41, label %if.then44
 
 lor.lhs.false41:                                  ; preds = %if.end38
   %isNmstrt4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 7
   %7 = load ptr, ptr %isNmstrt4, align 8
-  %call42 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call42 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %sw.epilog
 
@@ -5238,13 +5237,13 @@ sw.bb59:                                          ; preds = %while.body
 
 if.end66:                                         ; preds = %sw.bb59
   %10 = load ptr, ptr %isInvalid267, align 8
-  %call68 = tail call i32 %10(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #15
+  %call68 = tail call i32 %10(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #14
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %lor.lhs.false70, label %if.then73
 
 lor.lhs.false70:                                  ; preds = %if.end66
   %11 = load ptr, ptr %isName2, align 8
-  %call71 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #15
+  %call71 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #14
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %if.then73, label %sw.epilog208
 
@@ -5258,13 +5257,13 @@ sw.bb76:                                          ; preds = %while.body
 
 if.end83:                                         ; preds = %sw.bb76
   %12 = load ptr, ptr %isInvalid384, align 8
-  %call85 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #15
+  %call85 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #14
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %lor.lhs.false87, label %if.then90
 
 lor.lhs.false87:                                  ; preds = %if.end83
   %13 = load ptr, ptr %isName3, align 8
-  %call88 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #15
+  %call88 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #14
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %if.then90, label %sw.epilog208
 
@@ -5278,13 +5277,13 @@ sw.bb93:                                          ; preds = %while.body
 
 if.end100:                                        ; preds = %sw.bb93
   %14 = load ptr, ptr %isInvalid4101, align 8
-  %call102 = tail call i32 %14(ptr noundef %enc, ptr noundef nonnull %ptr.addr.1161) #15
+  %call102 = tail call i32 %14(ptr noundef %enc, ptr noundef nonnull %ptr.addr.1161) #14
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %lor.lhs.false104, label %if.then107
 
 lor.lhs.false104:                                 ; preds = %if.end100
   %15 = load ptr, ptr %isName4, align 8
-  %call105 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #15
+  %call105 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1161) #14
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %if.then107, label %sw.epilog208
 
@@ -5375,7 +5374,7 @@ sw.bb127:                                         ; preds = %while.body122
 
 if.end134:                                        ; preds = %sw.bb127
   %22 = load ptr, ptr %isInvalid267, align 8
-  %call136 = tail call i32 %22(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2170) #15
+  %call136 = tail call i32 %22(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2170) #14
   %tobool137.not = icmp eq i32 %call136, 0
   br i1 %tobool137.not, label %if.end139, label %if.then138
 
@@ -5393,7 +5392,7 @@ sw.bb141:                                         ; preds = %while.body122
 
 if.end148:                                        ; preds = %sw.bb141
   %23 = load ptr, ptr %isInvalid384, align 8
-  %call150 = tail call i32 %23(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2170) #15
+  %call150 = tail call i32 %23(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2170) #14
   %tobool151.not = icmp eq i32 %call150, 0
   br i1 %tobool151.not, label %if.end153, label %if.then152
 
@@ -5411,7 +5410,7 @@ sw.bb155:                                         ; preds = %while.body122
 
 if.end162:                                        ; preds = %sw.bb155
   %24 = load ptr, ptr %isInvalid4101, align 8
-  %call164 = tail call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2170) #15
+  %call164 = tail call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.2170) #14
   %tobool165.not = icmp eq i32 %call164, 0
   br i1 %tobool165.not, label %if.end167, label %if.then166
 
@@ -5533,14 +5532,14 @@ sw.bb2:                                           ; preds = %if.end
 if.end9:                                          ; preds = %sw.bb2
   %isInvalid2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 8
   %2 = load ptr, ptr %isInvalid2, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return.sink.split
 
 lor.lhs.false:                                    ; preds = %if.end9
   %isNmstrt2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 5
   %3 = load ptr, ptr %isNmstrt2, align 8
-  %call10 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call10 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return.sink.split, label %sw.epilog
 
@@ -5551,14 +5550,14 @@ sw.bb15:                                          ; preds = %if.end
 if.end22:                                         ; preds = %sw.bb15
   %isInvalid3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 9
   %4 = load ptr, ptr %isInvalid3, align 8
-  %call23 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call23 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %lor.lhs.false25, label %return.sink.split
 
 lor.lhs.false25:                                  ; preds = %if.end22
   %isNmstrt3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 6
   %5 = load ptr, ptr %isNmstrt3, align 8
-  %call26 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call26 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return.sink.split, label %sw.epilog
 
@@ -5569,14 +5568,14 @@ sw.bb31:                                          ; preds = %if.end
 if.end38:                                         ; preds = %sw.bb31
   %isInvalid4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 10
   %6 = load ptr, ptr %isInvalid4, align 8
-  %call39 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call39 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %lor.lhs.false41, label %return.sink.split
 
 lor.lhs.false41:                                  ; preds = %if.end38
   %isNmstrt4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 7
   %7 = load ptr, ptr %isNmstrt4, align 8
-  %call42 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call42 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %return.sink.split, label %sw.epilog
 
@@ -5625,13 +5624,13 @@ sw.bb60:                                          ; preds = %while.body
 
 if.end67:                                         ; preds = %sw.bb60
   %10 = load ptr, ptr %isInvalid268, align 8
-  %call69 = tail call i32 %10(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #15
+  %call69 = tail call i32 %10(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #14
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %lor.lhs.false71, label %return.sink.split
 
 lor.lhs.false71:                                  ; preds = %if.end67
   %11 = load ptr, ptr %isName2, align 8
-  %call72 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #15
+  %call72 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #14
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %return.sink.split, label %sw.epilog114
 
@@ -5641,13 +5640,13 @@ sw.bb77:                                          ; preds = %while.body
 
 if.end84:                                         ; preds = %sw.bb77
   %12 = load ptr, ptr %isInvalid385, align 8
-  %call86 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #15
+  %call86 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #14
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %lor.lhs.false88, label %return.sink.split
 
 lor.lhs.false88:                                  ; preds = %if.end84
   %13 = load ptr, ptr %isName3, align 8
-  %call89 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #15
+  %call89 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #14
   %tobool90.not = icmp eq i32 %call89, 0
   br i1 %tobool90.not, label %return.sink.split, label %sw.epilog114
 
@@ -5657,13 +5656,13 @@ sw.bb94:                                          ; preds = %while.body
 
 if.end101:                                        ; preds = %sw.bb94
   %14 = load ptr, ptr %isInvalid4102, align 8
-  %call103 = tail call i32 %14(ptr noundef %enc, ptr noundef nonnull %ptr.addr.194) #15
+  %call103 = tail call i32 %14(ptr noundef %enc, ptr noundef nonnull %ptr.addr.194) #14
   %tobool104.not = icmp eq i32 %call103, 0
   br i1 %tobool104.not, label %lor.lhs.false105, label %return.sink.split
 
 lor.lhs.false105:                                 ; preds = %if.end101
   %15 = load ptr, ptr %isName4, align 8
-  %call106 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #15
+  %call106 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.194) #14
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %return.sink.split, label %sw.epilog114
 
@@ -5719,14 +5718,14 @@ sw.bb2:                                           ; preds = %if.end
 if.end9:                                          ; preds = %sw.bb2
   %isInvalid2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 8
   %2 = load ptr, ptr %isInvalid2, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return.sink.split
 
 lor.lhs.false:                                    ; preds = %if.end9
   %isNmstrt2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 5
   %3 = load ptr, ptr %isNmstrt2, align 8
-  %call10 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call10 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return.sink.split, label %sw.epilog
 
@@ -5737,14 +5736,14 @@ sw.bb15:                                          ; preds = %if.end
 if.end22:                                         ; preds = %sw.bb15
   %isInvalid3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 9
   %4 = load ptr, ptr %isInvalid3, align 8
-  %call23 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call23 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %lor.lhs.false25, label %return.sink.split
 
 lor.lhs.false25:                                  ; preds = %if.end22
   %isNmstrt3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 6
   %5 = load ptr, ptr %isNmstrt3, align 8
-  %call26 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call26 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return.sink.split, label %sw.epilog
 
@@ -5755,14 +5754,14 @@ sw.bb31:                                          ; preds = %if.end
 if.end38:                                         ; preds = %sw.bb31
   %isInvalid4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 10
   %6 = load ptr, ptr %isInvalid4, align 8
-  %call39 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call39 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %lor.lhs.false41, label %return.sink.split
 
 lor.lhs.false41:                                  ; preds = %if.end38
   %isNmstrt4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 7
   %7 = load ptr, ptr %isNmstrt4, align 8
-  %call42 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call42 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %return.sink.split, label %sw.epilog
 
@@ -5814,13 +5813,13 @@ sw.bb59:                                          ; preds = %while.body
 
 if.end66:                                         ; preds = %sw.bb59
   %10 = load ptr, ptr %isInvalid267, align 8
-  %call68 = tail call i32 %10(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #15
+  %call68 = tail call i32 %10(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #14
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %lor.lhs.false70, label %return.sink.split
 
 lor.lhs.false70:                                  ; preds = %if.end66
   %11 = load ptr, ptr %isName2, align 8
-  %call71 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #15
+  %call71 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #14
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %return.sink.split, label %sw.epilog112
 
@@ -5830,13 +5829,13 @@ sw.bb76:                                          ; preds = %while.body
 
 if.end83:                                         ; preds = %sw.bb76
   %12 = load ptr, ptr %isInvalid384, align 8
-  %call85 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #15
+  %call85 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #14
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %lor.lhs.false87, label %return.sink.split
 
 lor.lhs.false87:                                  ; preds = %if.end83
   %13 = load ptr, ptr %isName3, align 8
-  %call88 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #15
+  %call88 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #14
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %return.sink.split, label %sw.epilog112
 
@@ -5846,13 +5845,13 @@ sw.bb93:                                          ; preds = %while.body
 
 if.end100:                                        ; preds = %sw.bb93
   %14 = load ptr, ptr %isInvalid4101, align 8
-  %call102 = tail call i32 %14(ptr noundef %enc, ptr noundef nonnull %ptr.addr.192) #15
+  %call102 = tail call i32 %14(ptr noundef %enc, ptr noundef nonnull %ptr.addr.192) #14
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %lor.lhs.false104, label %return.sink.split
 
 lor.lhs.false104:                                 ; preds = %if.end100
   %15 = load ptr, ptr %isName4, align 8
-  %call105 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #15
+  %call105 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.192) #14
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %return.sink.split, label %sw.epilog112
 
@@ -5928,7 +5927,7 @@ sw.bb:                                            ; preds = %while.body
 
 if.end16:                                         ; preds = %sw.bb
   %3 = load ptr, ptr %isInvalid2, align 8
-  %call = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.054) #15
+  %call = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.054) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end18, label %return.sink.split
 
@@ -5942,7 +5941,7 @@ sw.bb20:                                          ; preds = %while.body
 
 if.end27:                                         ; preds = %sw.bb20
   %4 = load ptr, ptr %isInvalid3, align 8
-  %call28 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.054) #15
+  %call28 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.054) #14
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %if.end31, label %return.sink.split
 
@@ -5956,7 +5955,7 @@ sw.bb33:                                          ; preds = %while.body
 
 if.end40:                                         ; preds = %sw.bb33
   %5 = load ptr, ptr %isInvalid4, align 8
-  %call41 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.054) #15
+  %call41 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.054) #14
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.end44, label %return.sink.split
 
@@ -6103,14 +6102,14 @@ sw.bb2:                                           ; preds = %if.end
 if.end9:                                          ; preds = %sw.bb2
   %isInvalid2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 8
   %2 = load ptr, ptr %isInvalid2, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return.sink.split
 
 lor.lhs.false:                                    ; preds = %if.end9
   %isNmstrt2 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 5
   %3 = load ptr, ptr %isNmstrt2, align 8
-  %call10 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call10 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return.sink.split, label %sw.epilog
 
@@ -6121,14 +6120,14 @@ sw.bb15:                                          ; preds = %if.end
 if.end22:                                         ; preds = %sw.bb15
   %isInvalid3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 9
   %4 = load ptr, ptr %isInvalid3, align 8
-  %call23 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call23 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %lor.lhs.false25, label %return.sink.split
 
 lor.lhs.false25:                                  ; preds = %if.end22
   %isNmstrt3 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 6
   %5 = load ptr, ptr %isNmstrt3, align 8
-  %call26 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call26 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return.sink.split, label %sw.epilog
 
@@ -6139,14 +6138,14 @@ sw.bb31:                                          ; preds = %if.end
 if.end38:                                         ; preds = %sw.bb31
   %isInvalid4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 10
   %6 = load ptr, ptr %isInvalid4, align 8
-  %call39 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call39 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %lor.lhs.false41, label %return.sink.split
 
 lor.lhs.false41:                                  ; preds = %if.end38
   %isNmstrt4 = getelementptr inbounds %struct.normal_encoding, ptr %enc, i64 0, i32 7
   %7 = load ptr, ptr %isNmstrt4, align 8
-  %call42 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #15
+  %call42 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr) #14
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %return.sink.split, label %sw.epilog
 
@@ -6280,13 +6279,13 @@ sw.bb62:                                          ; preds = %while.body
 
 if.end69:                                         ; preds = %sw.bb62
   %19 = load ptr, ptr %isInvalid270, align 8
-  %call71 = tail call i32 %19(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #15
+  %call71 = tail call i32 %19(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #14
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %lor.lhs.false73, label %return.sink.split
 
 lor.lhs.false73:                                  ; preds = %if.end69
   %20 = load ptr, ptr %isName2, align 8
-  %call74 = tail call i32 %20(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #15
+  %call74 = tail call i32 %20(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #14
   %tobool75.not = icmp eq i32 %call74, 0
   br i1 %tobool75.not, label %return.sink.split, label %sw.epilog116
 
@@ -6296,13 +6295,13 @@ sw.bb79:                                          ; preds = %while.body
 
 if.end86:                                         ; preds = %sw.bb79
   %21 = load ptr, ptr %isInvalid387, align 8
-  %call88 = tail call i32 %21(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #15
+  %call88 = tail call i32 %21(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #14
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %lor.lhs.false90, label %return.sink.split
 
 lor.lhs.false90:                                  ; preds = %if.end86
   %22 = load ptr, ptr %isName3, align 8
-  %call91 = tail call i32 %22(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #15
+  %call91 = tail call i32 %22(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #14
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %return.sink.split, label %sw.epilog116
 
@@ -6312,13 +6311,13 @@ sw.bb96:                                          ; preds = %while.body
 
 if.end103:                                        ; preds = %sw.bb96
   %23 = load ptr, ptr %isInvalid4104, align 8
-  %call105 = tail call i32 %23(ptr noundef %enc, ptr noundef nonnull %ptr.addr.1107) #15
+  %call105 = tail call i32 %23(ptr noundef %enc, ptr noundef nonnull %ptr.addr.1107) #14
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %lor.lhs.false107, label %return.sink.split
 
 lor.lhs.false107:                                 ; preds = %if.end103
   %24 = load ptr, ptr %isName4, align 8
-  %call108 = tail call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #15
+  %call108 = tail call i32 %24(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.1107) #14
   %tobool109.not = icmp eq i32 %call108, 0
   br i1 %tobool109.not, label %return.sink.split, label %sw.epilog116
 
@@ -6403,13 +6402,13 @@ sw.bb2:                                           ; preds = %while.body
 
 if.end:                                           ; preds = %sw.bb2
   %2 = load ptr, ptr %isInvalid2186, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #15
+  %call = tail call i32 %2(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return.sink.split
 
 lor.lhs.false:                                    ; preds = %if.end
   %3 = load ptr, ptr %isName2, align 8
-  %call8 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #15
+  %call8 = tail call i32 %3(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #14
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return.sink.split, label %if.end11
 
@@ -6424,13 +6423,13 @@ sw.bb13:                                          ; preds = %while.body
 
 if.end20:                                         ; preds = %sw.bb13
   %4 = load ptr, ptr %isInvalid3200, align 8
-  %call21 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #15
+  %call21 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #14
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %lor.lhs.false23, label %return.sink.split
 
 lor.lhs.false23:                                  ; preds = %if.end20
   %5 = load ptr, ptr %isName3, align 8
-  %call24 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #15
+  %call24 = tail call i32 %5(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #14
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return.sink.split, label %if.end27
 
@@ -6445,13 +6444,13 @@ sw.bb29:                                          ; preds = %while.body
 
 if.end36:                                         ; preds = %sw.bb29
   %6 = load ptr, ptr %isInvalid4214, align 8
-  %call37 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #15
+  %call37 = tail call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #14
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %lor.lhs.false39, label %return.sink.split
 
 lor.lhs.false39:                                  ; preds = %if.end36
   %7 = load ptr, ptr %isName4, align 8
-  %call40 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #15
+  %call40 = tail call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.promoted) #14
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %return.sink.split, label %if.end43
 
@@ -6496,13 +6495,13 @@ sw.bb64:                                          ; preds = %if.end56
 
 if.end71:                                         ; preds = %sw.bb64
   %10 = load ptr, ptr %isInvalid2186, align 8
-  %call73 = tail call i32 %10(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #15
+  %call73 = tail call i32 %10(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #14
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %lor.lhs.false75, label %return.sink.split
 
 lor.lhs.false75:                                  ; preds = %if.end71
   %11 = load ptr, ptr %isNmstrt2282, align 8
-  %call76 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #15
+  %call76 = tail call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #14
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %return.sink.split, label %if.end79
 
@@ -6517,13 +6516,13 @@ sw.bb81:                                          ; preds = %if.end56
 
 if.end88:                                         ; preds = %sw.bb81
   %12 = load ptr, ptr %isInvalid3200, align 8
-  %call90 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #15
+  %call90 = tail call i32 %12(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #14
   %tobool91.not = icmp eq i32 %call90, 0
   br i1 %tobool91.not, label %lor.lhs.false92, label %return.sink.split
 
 lor.lhs.false92:                                  ; preds = %if.end88
   %13 = load ptr, ptr %isNmstrt3300, align 8
-  %call93 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #15
+  %call93 = tail call i32 %13(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #14
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %return.sink.split, label %if.end96
 
@@ -6538,13 +6537,13 @@ sw.bb98:                                          ; preds = %if.end56
 
 if.end105:                                        ; preds = %sw.bb98
   %14 = load ptr, ptr %isInvalid4214, align 8
-  %call107 = tail call i32 %14(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #15
+  %call107 = tail call i32 %14(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #14
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %lor.lhs.false109, label %return.sink.split
 
 lor.lhs.false109:                                 ; preds = %if.end105
   %15 = load ptr, ptr %isNmstrt4318, align 8
-  %call110 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #15
+  %call110 = tail call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr49) #14
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %return.sink.split, label %if.end113
 
@@ -6664,7 +6663,7 @@ sw.bb178:                                         ; preds = %if.end177
 
 if.end185:                                        ; preds = %sw.bb178
   %28 = load ptr, ptr %isInvalid2186, align 8
-  %call187 = tail call i32 %28(ptr noundef nonnull %enc, ptr noundef nonnull %25) #15
+  %call187 = tail call i32 %28(ptr noundef nonnull %enc, ptr noundef nonnull %25) #14
   %tobool188.not = icmp eq i32 %call187, 0
   br i1 %tobool188.not, label %if.end190, label %return.sink.split
 
@@ -6679,7 +6678,7 @@ sw.bb192:                                         ; preds = %if.end177
 
 if.end199:                                        ; preds = %sw.bb192
   %29 = load ptr, ptr %isInvalid3200, align 8
-  %call201 = tail call i32 %29(ptr noundef nonnull %enc, ptr noundef nonnull %25) #15
+  %call201 = tail call i32 %29(ptr noundef nonnull %enc, ptr noundef nonnull %25) #14
   %tobool202.not = icmp eq i32 %call201, 0
   br i1 %tobool202.not, label %if.end204, label %return.sink.split
 
@@ -6694,7 +6693,7 @@ sw.bb206:                                         ; preds = %if.end177
 
 if.end213:                                        ; preds = %sw.bb206
   %30 = load ptr, ptr %isInvalid4214, align 8
-  %call215 = tail call i32 %30(ptr noundef nonnull %enc, ptr noundef nonnull %25) #15
+  %call215 = tail call i32 %30(ptr noundef nonnull %enc, ptr noundef nonnull %25) #14
   %tobool216.not = icmp eq i32 %call215, 0
   br i1 %tobool216.not, label %if.end218, label %return.sink.split
 
@@ -6793,13 +6792,13 @@ sw.bb270:                                         ; preds = %if.end262
 
 if.end277:                                        ; preds = %sw.bb270
   %37 = load ptr, ptr %isInvalid2186, align 8
-  %call279 = tail call i32 %37(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #15
+  %call279 = tail call i32 %37(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #14
   %tobool280.not = icmp eq i32 %call279, 0
   br i1 %tobool280.not, label %lor.lhs.false281, label %return.sink.split
 
 lor.lhs.false281:                                 ; preds = %if.end277
   %38 = load ptr, ptr %isNmstrt2282, align 8
-  %call283 = tail call i32 %38(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #15
+  %call283 = tail call i32 %38(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #14
   %tobool284.not = icmp eq i32 %call283, 0
   br i1 %tobool284.not, label %return.sink.split, label %if.end286
 
@@ -6814,13 +6813,13 @@ sw.bb288:                                         ; preds = %if.end262
 
 if.end295:                                        ; preds = %sw.bb288
   %39 = load ptr, ptr %isInvalid3200, align 8
-  %call297 = tail call i32 %39(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #15
+  %call297 = tail call i32 %39(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #14
   %tobool298.not = icmp eq i32 %call297, 0
   br i1 %tobool298.not, label %lor.lhs.false299, label %return.sink.split
 
 lor.lhs.false299:                                 ; preds = %if.end295
   %40 = load ptr, ptr %isNmstrt3300, align 8
-  %call301 = tail call i32 %40(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #15
+  %call301 = tail call i32 %40(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #14
   %tobool302.not = icmp eq i32 %call301, 0
   br i1 %tobool302.not, label %return.sink.split, label %if.end304
 
@@ -6835,13 +6834,13 @@ sw.bb306:                                         ; preds = %if.end262
 
 if.end313:                                        ; preds = %sw.bb306
   %41 = load ptr, ptr %isInvalid4214, align 8
-  %call315 = tail call i32 %41(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #15
+  %call315 = tail call i32 %41(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #14
   %tobool316.not = icmp eq i32 %call315, 0
   br i1 %tobool316.not, label %lor.lhs.false317, label %return.sink.split
 
 lor.lhs.false317:                                 ; preds = %if.end313
   %42 = load ptr, ptr %isNmstrt4318, align 8
-  %call319 = tail call i32 %42(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #15
+  %call319 = tail call i32 %42(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr255276) #14
   %tobool320.not = icmp eq i32 %call319, 0
   br i1 %tobool320.not, label %return.sink.split, label %if.end322
 
@@ -6898,8 +6897,8 @@ return:                                           ; preds = %sw.bb2, %sw.bb13, %
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @utf8_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal i32 @utf8_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %fromLim to i64
@@ -10861,8 +10860,8 @@ return:                                           ; preds = %for.inc, %return.si
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @little2_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal i32 @little2_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %fromLim to i64
@@ -13249,7 +13248,7 @@ if.end48:                                         ; preds = %land.lhs.true44, %l
   %idxprom = zext nneg i32 %state to i64
   %arrayidx50 = getelementptr [4 x ptr], ptr %8, i64 0, i64 %idxprom
   %9 = load ptr, ptr %arrayidx50, align 8
-  %call = tail call i32 %9(ptr noundef %8, ptr noundef nonnull %ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr) #15
+  %call = tail call i32 %9(ptr noundef %8, ptr noundef nonnull %ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr) #14
   br label %return
 
 sw.bb51:                                          ; preds = %if.else
@@ -13321,7 +13320,7 @@ if.end112:                                        ; preds = %land.lhs.true105, %
   %idxprom115 = zext nneg i32 %state to i64
   %arrayidx116 = getelementptr [4 x ptr], ptr %16, i64 0, i64 %idxprom115
   %17 = load ptr, ptr %arrayidx116, align 8
-  %call117 = tail call i32 %17(ptr noundef %16, ptr noundef nonnull %ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr) #15
+  %call117 = tail call i32 %17(ptr noundef %16, ptr noundef nonnull %ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr) #14
   br label %return
 
 if.else118:                                       ; preds = %sw.default
@@ -13335,7 +13334,7 @@ if.end127:                                        ; preds = %if.else118
   %18 = load ptr, ptr %arrayidx128, align 8
   store ptr %18, ptr %0, align 8
   %19 = load ptr, ptr %18, align 8
-  %call132 = tail call i32 %19(ptr noundef nonnull %18, ptr noundef nonnull %ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr) #15
+  %call132 = tail call i32 %19(ptr noundef nonnull %18, ptr noundef nonnull %ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr) #14
   br label %return
 
 if.end136:                                        ; preds = %if.then67, %if.then67, %if.then67, %if.then67, %sw.bb20, %lor.lhs.false, %land.lhs.true44, %sw.bb51, %if.end89, %land.lhs.true105, %if.else118, %sw.epilog, %sw.bb5
@@ -13348,7 +13347,7 @@ if.end136:                                        ; preds = %if.then67, %if.then
   %idxprom143 = zext nneg i32 %state to i64
   %arrayidx144 = getelementptr [4 x ptr], ptr %21, i64 0, i64 %idxprom143
   %22 = load ptr, ptr %arrayidx144, align 8
-  %call145 = tail call i32 %22(ptr noundef %21, ptr noundef nonnull %ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr) #15
+  %call145 = tail call i32 %22(ptr noundef %21, ptr noundef nonnull %ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr) #14
   br label %return
 
 return:                                           ; preds = %if.end84, %sw.epilog, %sw.epilog, %sw.bb5, %if.then3, %entry, %if.end136, %if.end127, %if.end112, %if.then94, %if.end61, %if.end48, %if.end30
@@ -16866,8 +16865,8 @@ return:                                           ; preds = %for.inc, %return.si
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @big2_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal i32 @big2_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %fromLim to i64
@@ -19233,7 +19232,7 @@ if.end:                                           ; preds = %entry
   %utf8Convert.i = getelementptr inbounds %struct.encoding, ptr %enc, i64 0, i32 10
   %0 = load ptr, ptr %utf8Convert.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 1
-  %call.i = call i32 %0(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %end, ptr noundef nonnull %p.i, ptr noundef nonnull %add.ptr.i) #15
+  %call.i = call i32 %0(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %end, ptr noundef nonnull %p.i, ptr noundef nonnull %add.ptr.i) #14
   %1 = load ptr, ptr %p.i, align 8
   %cmp.i = icmp eq ptr %1, %buf.i
   %2 = load i8, ptr %buf.i, align 1
@@ -19269,7 +19268,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   store ptr %add.ptr, ptr %ptr.addr.i84, align 8
   store ptr %buf.i85, ptr %p.i86, align 8
   %4 = load ptr, ptr %utf8Convert.i, align 8
-  %call.i89 = call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i84, ptr noundef %end, ptr noundef nonnull %p.i86, ptr noundef nonnull %add.ptr.i88) #15
+  %call.i89 = call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i84, ptr noundef %end, ptr noundef nonnull %p.i86, ptr noundef nonnull %add.ptr.i88) #14
   %5 = load ptr, ptr %p.i86, align 8
   %cmp.i90 = icmp eq ptr %5, %buf.i85
   %6 = load i8, ptr %buf.i85, align 1
@@ -19309,7 +19308,7 @@ for.cond:                                         ; preds = %if.end32, %if.end9
   store ptr %ptr.addr.1, ptr %ptr.addr.i96, align 8
   store ptr %buf.i97, ptr %p.i98, align 8
   %7 = load ptr, ptr %utf8Convert.i, align 8
-  %call.i101 = call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i96, ptr noundef %end, ptr noundef nonnull %p.i98, ptr noundef nonnull %add.ptr.i100) #15
+  %call.i101 = call i32 %7(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i96, ptr noundef %end, ptr noundef nonnull %p.i98, ptr noundef nonnull %add.ptr.i100) #14
   %8 = load ptr, ptr %p.i98, align 8
   %cmp.i102 = icmp eq ptr %8, %buf.i97
   %9 = load i8, ptr %buf.i97, align 1
@@ -19351,7 +19350,7 @@ do.body20:                                        ; preds = %do.body20.backedge,
   store ptr %add.ptr23, ptr %ptr.addr.i108, align 8
   store ptr %buf.i109, ptr %p.i110, align 8
   %11 = load ptr, ptr %utf8Convert.i, align 8
-  %call.i113 = call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i108, ptr noundef %end, ptr noundef nonnull %p.i110, ptr noundef nonnull %add.ptr.i112) #15
+  %call.i113 = call i32 %11(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i108, ptr noundef %end, ptr noundef nonnull %p.i110, ptr noundef nonnull %add.ptr.i112) #14
   %12 = load ptr, ptr %p.i110, align 8
   %cmp.i114 = icmp eq ptr %12, %buf.i109
   %13 = load i8, ptr %buf.i109, align 1
@@ -19402,7 +19401,7 @@ if.end38:                                         ; preds = %for.end
   store ptr %buf.i121, ptr %p.i122, align 8
   %17 = load ptr, ptr %utf8Convert.i, align 8
   %add.ptr.i124 = getelementptr inbounds i8, ptr %buf.i121, i64 1
-  %call.i125 = call i32 %17(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i120, ptr noundef %end, ptr noundef nonnull %p.i122, ptr noundef nonnull %add.ptr.i124) #15
+  %call.i125 = call i32 %17(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i120, ptr noundef %end, ptr noundef nonnull %p.i122, ptr noundef nonnull %add.ptr.i124) #14
   %18 = load ptr, ptr %p.i122, align 8
   %cmp.i126 = icmp eq ptr %18, %buf.i121
   %19 = load i8, ptr %buf.i121, align 1
@@ -19436,7 +19435,7 @@ while.body:                                       ; preds = %while.cond, %while.
   store ptr %add.ptr47, ptr %ptr.addr.i132, align 8
   store ptr %buf.i133, ptr %p.i134, align 8
   %21 = load ptr, ptr %utf8Convert.i, align 8
-  %call.i137 = call i32 %21(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i132, ptr noundef %end, ptr noundef nonnull %p.i134, ptr noundef nonnull %add.ptr.i136) #15
+  %call.i137 = call i32 %21(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i132, ptr noundef %end, ptr noundef nonnull %p.i134, ptr noundef nonnull %add.ptr.i136) #14
   %22 = load ptr, ptr %p.i134, align 8
   %cmp.i138 = icmp eq ptr %22, %buf.i133
   %23 = load i8, ptr %buf.i133, align 1
@@ -19463,7 +19462,7 @@ if.end52:                                         ; preds = %while.cond, %while.
   store ptr %add.ptr55, ptr %ptr.addr.i141, align 8
   store ptr %buf.i142, ptr %p.i143, align 8
   %25 = load ptr, ptr %utf8Convert.i, align 8
-  %call.i146169 = call i32 %25(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i141, ptr noundef %end, ptr noundef nonnull %p.i143, ptr noundef nonnull %add.ptr.i145) #15
+  %call.i146169 = call i32 %25(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i141, ptr noundef %end, ptr noundef nonnull %p.i143, ptr noundef nonnull %add.ptr.i145) #14
   %26 = load ptr, ptr %p.i143, align 8
   %cmp.i147170 = icmp eq ptr %26, %buf.i142
   %27 = load i8, ptr %buf.i142, align 1
@@ -19508,7 +19507,7 @@ for.inc:                                          ; preds = %switch.early.test, 
   store ptr %add.ptr93, ptr %ptr.addr.i141, align 8
   store ptr %buf.i142, ptr %p.i143, align 8
   %32 = load ptr, ptr %utf8Convert.i, align 8
-  %call.i146 = call i32 %32(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i141, ptr noundef %end, ptr noundef nonnull %p.i143, ptr noundef nonnull %add.ptr.i145) #15
+  %call.i146 = call i32 %32(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i141, ptr noundef %end, ptr noundef nonnull %p.i143, ptr noundef nonnull %add.ptr.i145) #14
   %33 = load ptr, ptr %p.i143, align 8
   %cmp.i147 = icmp eq ptr %33, %buf.i142
   %34 = load i8, ptr %buf.i142, align 1
@@ -19535,33 +19534,32 @@ return:                                           ; preds = %for.end94, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #13
+declare i8 @llvm.fshl.i8(i8, i8, i8) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -2475,8 +2475,7 @@ __redisRunConnectCallback.exit:                   ; preds = %land.lhs.true.i, %i
   br i1 %tobool.not, label %if.else15, label %if.then14
 
 if.then14:                                        ; preds = %__redisRunConnectCallback.exit
-  %or.i16 = and i32 %7, -517
-  %and.i17 = or disjoint i32 %or.i16, 4
+  %and.i17 = and i32 %7, -513
   store i32 %and.i17, ptr %flags, align 8
   %and4.i = and i32 %7, 16
   %tobool.not.i18 = icmp eq i32 %and4.i, 0

@@ -27399,9 +27399,8 @@ getjumpcontrol.exit.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i, 
 if.end.i.i.i.i:                                   ; preds = %getjumpcontrol.exit.i.i.i.i
   %35 = lshr i32 %34, 17
   %shl10.i.i.i.i = and i32 %35, 32704
-  %and14.i.i.i.i = and i32 %34, 8372224
-  %or11.i.i.i.i = or i32 %and14.i.i.i.i, %shl10.i.i.i.i
-  %or16.i.i.i.i = or disjoint i32 %or11.i.i.i.i, 26
+  %or11.i.i.i.i = and i32 %34, 8372250
+  %or16.i.i.i.i = or i32 %shl10.i.i.i.i, %or11.i.i.i.i
   store i32 %or16.i.i.i.i, ptr %retval.0.i.i.i.i.i, align 4
   %fs.val.pre.i.i.i = load ptr, ptr %5, align 8
   %.phi.trans.insert12.i.i.i = getelementptr i8, ptr %fs.val.pre.i.i.i, i64 24
@@ -27442,25 +27441,25 @@ for.body.i36.i.i:                                 ; preds = %patchtestreg.exit.i
   %idxprom.i.i.i39.i.i = sext i32 %list.addr.07.i38.i.i to i64
   %arrayidx.i.i.i40.i.i = getelementptr inbounds i32, ptr %fs.val.val13.i37.i.i, i64 %idxprom.i.i.i39.i.i
   %cmp.i.i.i41.i.i = icmp sgt i32 %list.addr.07.i38.i.i, 0
-  br i1 %cmp.i.i.i41.i.i, label %land.lhs.true.i.i.i66.i.i, label %if.else.i.i.i42.i.i
+  br i1 %cmp.i.i.i41.i.i, label %land.lhs.true.i.i.i65.i.i, label %if.else.i.i.i42.i.i
 
-land.lhs.true.i.i.i66.i.i:                        ; preds = %for.body.i36.i.i
-  %add.ptr.i.i.i67.i.i = getelementptr inbounds i32, ptr %arrayidx.i.i.i40.i.i, i64 -1
-  %38 = load i32, ptr %add.ptr.i.i.i67.i.i, align 4
-  %and.i.i.i68.i.i = and i32 %38, 63
-  %idxprom1.i.i.i69.i.i = zext nneg i32 %and.i.i.i68.i.i to i64
-  %39 = lshr i64 266027925503, %idxprom1.i.i.i69.i.i
+land.lhs.true.i.i.i65.i.i:                        ; preds = %for.body.i36.i.i
+  %add.ptr.i.i.i66.i.i = getelementptr inbounds i32, ptr %arrayidx.i.i.i40.i.i, i64 -1
+  %38 = load i32, ptr %add.ptr.i.i.i66.i.i, align 4
+  %and.i.i.i67.i.i = and i32 %38, 63
+  %idxprom1.i.i.i68.i.i = zext nneg i32 %and.i.i.i67.i.i to i64
+  %39 = lshr i64 266027925503, %idxprom1.i.i.i68.i.i
   %40 = and i64 %39, 1
-  %tobool.not.not.i.i.i70.i.i = icmp eq i64 %40, 0
-  br i1 %tobool.not.not.i.i.i70.i.i, label %getjumpcontrol.exit.i.i44.i.i, label %if.else.i.i.i42.i.i
+  %tobool.not.not.i.i.i69.i.i = icmp eq i64 %40, 0
+  br i1 %tobool.not.not.i.i.i69.i.i, label %getjumpcontrol.exit.i.i44.i.i, label %if.else.i.i.i42.i.i
 
-if.else.i.i.i42.i.i:                              ; preds = %land.lhs.true.i.i.i66.i.i, %for.body.i36.i.i
+if.else.i.i.i42.i.i:                              ; preds = %land.lhs.true.i.i.i65.i.i, %for.body.i36.i.i
   %.pre.i.i43.i.i = load i32, ptr %arrayidx.i.i.i40.i.i, align 4
   br label %getjumpcontrol.exit.i.i44.i.i
 
-getjumpcontrol.exit.i.i44.i.i:                    ; preds = %if.else.i.i.i42.i.i, %land.lhs.true.i.i.i66.i.i
-  %41 = phi i32 [ %.pre.i.i43.i.i, %if.else.i.i.i42.i.i ], [ %38, %land.lhs.true.i.i.i66.i.i ]
-  %retval.0.i.i.i45.i.i = phi ptr [ %arrayidx.i.i.i40.i.i, %if.else.i.i.i42.i.i ], [ %add.ptr.i.i.i67.i.i, %land.lhs.true.i.i.i66.i.i ]
+getjumpcontrol.exit.i.i44.i.i:                    ; preds = %if.else.i.i.i42.i.i, %land.lhs.true.i.i.i65.i.i
+  %41 = phi i32 [ %.pre.i.i43.i.i, %if.else.i.i.i42.i.i ], [ %38, %land.lhs.true.i.i.i65.i.i ]
+  %retval.0.i.i.i45.i.i = phi ptr [ %arrayidx.i.i.i40.i.i, %if.else.i.i.i42.i.i ], [ %add.ptr.i.i.i66.i.i, %land.lhs.true.i.i.i65.i.i ]
   %and.i.i46.i.i = and i32 %41, 63
   %cmp.not.i.i47.i.i = icmp eq i32 %and.i.i46.i.i, 27
   br i1 %cmp.not.i.i47.i.i, label %if.end.i.i58.i.i, label %patchtestreg.exit.i48.i.i
@@ -27468,17 +27467,16 @@ getjumpcontrol.exit.i.i44.i.i:                    ; preds = %if.else.i.i.i42.i.i
 if.end.i.i58.i.i:                                 ; preds = %getjumpcontrol.exit.i.i44.i.i
   %42 = lshr i32 %41, 17
   %shl10.i.i59.i.i = and i32 %42, 32704
-  %and14.i.i60.i.i = and i32 %41, 8372224
-  %or11.i.i61.i.i = or i32 %and14.i.i60.i.i, %shl10.i.i59.i.i
-  %or16.i.i62.i.i = or disjoint i32 %or11.i.i61.i.i, 26
-  store i32 %or16.i.i62.i.i, ptr %retval.0.i.i.i45.i.i, align 4
-  %fs.val.pre.i63.i.i = load ptr, ptr %5, align 8
-  %.phi.trans.insert12.i64.i.i = getelementptr i8, ptr %fs.val.pre.i63.i.i, i64 24
-  %fs.val.val.pre.i65.i.i = load ptr, ptr %.phi.trans.insert12.i64.i.i, align 8
+  %or11.i.i60.i.i = and i32 %41, 8372250
+  %or16.i.i61.i.i = or i32 %shl10.i.i59.i.i, %or11.i.i60.i.i
+  store i32 %or16.i.i61.i.i, ptr %retval.0.i.i.i45.i.i, align 4
+  %fs.val.pre.i62.i.i = load ptr, ptr %5, align 8
+  %.phi.trans.insert12.i63.i.i = getelementptr i8, ptr %fs.val.pre.i62.i.i, i64 24
+  %fs.val.val.pre.i64.i.i = load ptr, ptr %.phi.trans.insert12.i63.i.i, align 8
   br label %patchtestreg.exit.i48.i.i
 
 patchtestreg.exit.i48.i.i:                        ; preds = %if.end.i.i58.i.i, %getjumpcontrol.exit.i.i44.i.i
-  %fs.val.val.i49.i.i = phi ptr [ %fs.val.val13.i37.i.i, %getjumpcontrol.exit.i.i44.i.i ], [ %fs.val.val.pre.i65.i.i, %if.end.i.i58.i.i ]
+  %fs.val.val.i49.i.i = phi ptr [ %fs.val.val13.i37.i.i, %getjumpcontrol.exit.i.i44.i.i ], [ %fs.val.val.pre.i64.i.i, %if.end.i.i58.i.i ]
   %arrayidx.i.i50.i.i = getelementptr inbounds i32, ptr %fs.val.val.i49.i.i, i64 %idxprom.i.i.i39.i.i
   %43 = load i32, ptr %arrayidx.i.i50.i.i, align 4
   %shr.i.i51.i.i = lshr i32 %43, 14
@@ -29728,63 +29726,53 @@ if.end.i:                                         ; preds = %getjumpcontrol.exit
   %shr2.i = lshr i32 %5, 23
   %cmp4.not.i = icmp eq i32 %shr2.i, %reg
   %or.cond.i = or i1 %cmp1.not.i, %cmp4.not.i
-  br i1 %or.cond.i, label %if.else.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.end.i
-  %and6.i = and i32 %5, -16357
-  %or.i = or disjoint i32 %and6.i, %and7.i
-  br label %if.then
-
-if.else.i:                                        ; preds = %if.end.i
   %6 = lshr i32 %5, 17
   %shl10.i = and i32 %6, 32704
-  %and14.i = and i32 %5, 8372224
-  %or11.i = or i32 %and14.i, %shl10.i
-  %or16.i = or disjoint i32 %or11.i, 26
-  br label %if.then
-
-if.then:                                          ; preds = %if.else.i, %if.then5.i
-  %storemerge.i = phi i32 [ %or16.i, %if.else.i ], [ %or.i, %if.then5.i ]
-  store i32 %storemerge.i, ptr %retval.0.i.i, align 4
+  %or11.i = and i32 %5, 8372250
+  %and6.i = and i32 %5, -16357
+  %7 = or i32 %shl10.i, %or11.i
+  %8 = or disjoint i32 %and6.i, %and7.i
+  %or16.i = select i1 %or.cond.i, i32 %7, i32 %8
+  store i32 %or16.i, ptr %retval.0.i.i, align 4
   %add.neg.i = xor i32 %list.addr.037, -1
   %sub.i10 = add i32 %add.neg.i, %vtarget
-  %7 = tail call i32 @llvm.abs.i32(i32 %sub.i10, i1 true)
-  %cmp.i11 = icmp ugt i32 %7, 131071
+  %9 = tail call i32 @llvm.abs.i32(i32 %sub.i10, i1 true)
+  %cmp.i11 = icmp ugt i32 %9, 131071
   br i1 %cmp.i11, label %if.then.i, label %fixjump.exit
 
-if.then.i:                                        ; preds = %if.then
+if.then.i:                                        ; preds = %if.end.i
   %ls.i = getelementptr inbounds %struct.FuncState, ptr %fs, i64 0, i32 3
-  %8 = load ptr, ptr %ls.i, align 8
-  %t.i.i = getelementptr inbounds %struct.LexState, ptr %8, i64 0, i32 3
-  %9 = load i32, ptr %t.i.i, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef %8, ptr noundef nonnull @.str.148, i32 noundef %9)
+  %10 = load ptr, ptr %ls.i, align 8
+  %t.i.i = getelementptr inbounds %struct.LexState, ptr %10, i64 0, i32 3
+  %11 = load i32, ptr %t.i.i, align 8
+  tail call fastcc void @luaX_lexerror(ptr noundef %10, ptr noundef nonnull @.str.148, i32 noundef %11)
   unreachable
 
-fixjump.exit:                                     ; preds = %if.then
-  %10 = load ptr, ptr %fs, align 8
-  %code.i = getelementptr inbounds %struct.Proto, ptr %10, i64 0, i32 4
-  %11 = load ptr, ptr %code.i, align 8
-  %arrayidx.i14 = getelementptr inbounds i32, ptr %11, i64 %idxprom.i
-  %12 = load i32, ptr %arrayidx.i14, align 4
+fixjump.exit:                                     ; preds = %if.end.i
+  %12 = load ptr, ptr %fs, align 8
+  %code.i = getelementptr inbounds %struct.Proto, ptr %12, i64 0, i32 4
+  %13 = load ptr, ptr %code.i, align 8
+  %arrayidx.i14 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i
+  %14 = load i32, ptr %arrayidx.i14, align 4
   br label %if.end
 
 if.else:                                          ; preds = %getjumpcontrol.exit.i
   %add.neg.i19 = xor i32 %list.addr.037, -1
   %sub.i20 = add i32 %add.neg.i19, %dtarget
-  %13 = tail call i32 @llvm.abs.i32(i32 %sub.i20, i1 true)
-  %cmp.i21 = icmp ugt i32 %13, 131071
+  %15 = tail call i32 @llvm.abs.i32(i32 %sub.i20, i1 true)
+  %cmp.i21 = icmp ugt i32 %15, 131071
   br i1 %cmp.i21, label %if.then.i30, label %if.end
 
 if.then.i30:                                      ; preds = %if.else
   %ls.i31 = getelementptr inbounds %struct.FuncState, ptr %fs, i64 0, i32 3
-  %14 = load ptr, ptr %ls.i31, align 8
-  %t.i.i32 = getelementptr inbounds %struct.LexState, ptr %14, i64 0, i32 3
-  %15 = load i32, ptr %t.i.i32, align 8
-  tail call fastcc void @luaX_lexerror(ptr noundef %14, ptr noundef nonnull @.str.148, i32 noundef %15)
+  %16 = load ptr, ptr %ls.i31, align 8
+  %t.i.i32 = getelementptr inbounds %struct.LexState, ptr %16, i64 0, i32 3
+  %17 = load i32, ptr %t.i.i32, align 8
+  tail call fastcc void @luaX_lexerror(ptr noundef %16, ptr noundef nonnull @.str.148, i32 noundef %17)
   unreachable
 
 if.end:                                           ; preds = %if.else, %fixjump.exit
-  %.sink = phi i32 [ %12, %fixjump.exit ], [ %1, %if.else ]
+  %.sink = phi i32 [ %14, %fixjump.exit ], [ %1, %if.else ]
   %sub.i20.sink = phi i32 [ %sub.i10, %fixjump.exit ], [ %sub.i20, %if.else ]
   %arrayidx.i.sink = phi ptr [ %arrayidx.i14, %fixjump.exit ], [ %arrayidx.i, %if.else ]
   %and.i26 = and i32 %.sink, 16383

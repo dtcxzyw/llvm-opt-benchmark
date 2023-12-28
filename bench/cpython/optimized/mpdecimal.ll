@@ -343,8 +343,8 @@ entry:
   ret i64 %cond
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @mpd_exp_digits(i64 noundef %exp) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden i32 @mpd_exp_digits(i64 noundef %exp) local_unnamed_addr #0 {
 entry:
   %cond = tail call i64 @llvm.abs.i64(i64 %exp, i1 false)
   %0 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
@@ -585,7 +585,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mpd_isnormal(ptr nocapture noundef readonly %dec, ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i32 @mpd_isnormal(ptr nocapture noundef readonly %dec, ptr nocapture noundef readonly %ctx) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %dec, align 8
   %1 = and i8 %0, 14
@@ -622,7 +622,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mpd_issubnormal(ptr nocapture noundef readonly %dec, ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i32 @mpd_issubnormal(ptr nocapture noundef readonly %dec, ptr nocapture noundef readonly %ctx) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %dec, align 8
   %1 = and i8 %0, 14
@@ -757,8 +757,8 @@ entry:
   ret i32 %and
 }
 
-; Function Attrs: alwaysinline mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mpd_uint_zero(ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #6 {
+; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define hidden void @mpd_uint_zero(ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp3.not = icmp eq i64 %len, 0
   br i1 %cmp3.not, label %for.end, label %for.body.preheader
@@ -773,7 +773,7 @@ for.end:                                          ; preds = %for.body.preheader,
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define hidden void @mpd_del(ptr noundef %dec) local_unnamed_addr #7 {
+define hidden void @mpd_del(ptr noundef %dec) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %dec, align 8
   %tobool.i8.not = icmp ult i8 %0, 32
@@ -783,7 +783,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @mpd_free, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
   %2 = load ptr, ptr %data, align 8
-  tail call void %1(ptr noundef %2) #28
+  tail call void %1(ptr noundef %2) #27
   %.pre = load i8, ptr %dec, align 8
   br label %if.end
 
@@ -795,7 +795,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then3:                                         ; preds = %if.end
   %5 = load ptr, ptr @mpd_free, align 8
-  tail call void %5(ptr noundef nonnull %dec) #28
+  tail call void %5(ptr noundef nonnull %dec) #27
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
@@ -803,7 +803,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define hidden i32 @mpd_qresize(ptr noundef %result, i64 noundef %nwords, ptr noundef %status) local_unnamed_addr #7 {
+define hidden i32 @mpd_qresize(ptr noundef %result, i64 noundef %nwords, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i64, ptr @MPD_MINALLOC, align 8
   %cond = tail call i64 @llvm.smax.i64(i64 %0, i64 %nwords)
@@ -823,11 +823,11 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then2
-  %call6 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond, ptr noundef %status) #28
+  %call6 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond, ptr noundef %status) #27
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %call9 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond, ptr noundef %status) #28
+  %call9 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond, ptr noundef %status) #27
   br label %return
 
 return:                                           ; preds = %if.then2, %entry, %if.end8, %if.then5
@@ -835,12 +835,12 @@ return:                                           ; preds = %if.then2, %entry, %
   ret i32 %retval.0
 }
 
-declare hidden i32 @mpd_switch_to_dyn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
+declare hidden i32 @mpd_switch_to_dyn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
-declare hidden i32 @mpd_realloc_dyn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
+declare hidden i32 @mpd_realloc_dyn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define hidden i32 @mpd_qresize_zero(ptr noundef %result, i64 noundef %nwords, ptr noundef %status) local_unnamed_addr #7 {
+define hidden i32 @mpd_qresize_zero(ptr noundef %result, i64 noundef %nwords, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i64, ptr @MPD_MINALLOC, align 8
   %cond = tail call i64 @llvm.smax.i64(i64 %0, i64 %nwords)
@@ -860,11 +860,11 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end12
 
 if.then5:                                         ; preds = %if.then2
-  %call6 = tail call i32 @mpd_switch_to_dyn_zero(ptr noundef nonnull %result, i64 noundef %cond, ptr noundef %status) #28
+  %call6 = tail call i32 @mpd_switch_to_dyn_zero(ptr noundef nonnull %result, i64 noundef %cond, ptr noundef %status) #27
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %call7 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond, ptr noundef %status) #28
+  %call7 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond, ptr noundef %status) #27
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %if.end12
 
@@ -884,10 +884,10 @@ return:                                           ; preds = %for.body.i.preheade
   ret i32 %retval.0
 }
 
-declare hidden i32 @mpd_switch_to_dyn_zero(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
+declare hidden i32 @mpd_switch_to_dyn_zero(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define hidden void @mpd_minalloc(ptr nocapture noundef %result) local_unnamed_addr #7 {
+define hidden void @mpd_minalloc(ptr nocapture noundef %result) local_unnamed_addr #6 {
 entry:
   %err = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -906,7 +906,7 @@ if.then:                                          ; preds = %land.lhs.true
   store i8 0, ptr %err, align 1
   %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data, align 8
-  %call1 = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err) #28
+  %call1 = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err) #27
   store ptr %call1, ptr %data, align 8
   %5 = load i8, ptr %err, align 1
   %tobool3.not = icmp eq i8 %5, 0
@@ -921,10 +921,10 @@ if.end6:                                          ; preds = %if.then, %if.then4,
   ret void
 }
 
-declare hidden ptr @mpd_realloc(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
+declare hidden ptr @mpd_realloc(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_resize(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #9 {
+define hidden i32 @mpd_resize(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -946,11 +946,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %return
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #28
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #28
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then5.i
@@ -960,7 +960,7 @@ mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then
 
 if.then:                                          ; preds = %mpd_qresize.exit
   %4 = load i32, ptr %status, align 4
-  call void @mpd_addstatus_raise(ptr noundef %ctx, i32 noundef %4) #28
+  call void @mpd_addstatus_raise(ptr noundef %ctx, i32 noundef %4) #27
   br label %return
 
 return:                                           ; preds = %if.then2.i, %entry, %mpd_qresize.exit, %if.then
@@ -968,10 +968,10 @@ return:                                           ; preds = %if.then2.i, %entry,
   ret i32 %retval.0
 }
 
-declare hidden void @mpd_addstatus_raise(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare hidden void @mpd_addstatus_raise(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_resize_zero(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #9 {
+define hidden i32 @mpd_resize_zero(ptr noundef %result, i64 noundef %nwords, ptr noundef %ctx) local_unnamed_addr #8 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -993,12 +993,12 @@ if.then2.i:                                       ; preds = %if.then.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end12.i
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn_zero(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #28
+  %call6.i = call i32 @mpd_switch_to_dyn_zero(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #27
   %4 = icmp eq i32 %call6.i, 0
   br i1 %4, label %if.then, label %return
 
 if.else.i:                                        ; preds = %if.then.i
-  %call7.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #28
+  %call7.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #27
   %tobool8.i.not = icmp eq i32 %call7.i, 0
   br i1 %tobool8.i.not, label %if.then, label %if.end12.i
 
@@ -1015,7 +1015,7 @@ for.body.i.i.preheader:                           ; preds = %if.end12.i
 
 if.then:                                          ; preds = %if.else.i, %if.then5.i
   %7 = load i32, ptr %status, align 4
-  call void @mpd_addstatus_raise(ptr noundef %ctx, i32 noundef %7) #28
+  call void @mpd_addstatus_raise(ptr noundef %ctx, i32 noundef %7) #27
   br label %return
 
 return:                                           ; preds = %for.body.i.i.preheader, %if.end12.i, %if.then5.i, %if.then
@@ -1024,7 +1024,7 @@ return:                                           ; preds = %for.body.i.i.prehea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mpd_setdigits(ptr nocapture noundef %result) local_unnamed_addr #10 {
+define hidden void @mpd_setdigits(ptr nocapture noundef %result) local_unnamed_addr #9 {
 entry:
   %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %0 = load ptr, ptr %data.i, align 8
@@ -1147,7 +1147,7 @@ mpd_word_digits.exit:                             ; preds = %if.end26.i, %if.end
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_sign(ptr nocapture noundef %result, i8 noundef zeroext %sign) local_unnamed_addr #11 {
+define hidden void @mpd_set_sign(ptr nocapture noundef %result, i8 noundef zeroext %sign) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -2
@@ -1157,7 +1157,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_signcpy(ptr nocapture noundef %result, ptr nocapture noundef readonly %a) local_unnamed_addr #11 {
+define hidden void @mpd_signcpy(ptr nocapture noundef %result, ptr nocapture noundef readonly %a) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 1
@@ -1169,7 +1169,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_infinity(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_infinity(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -15
@@ -1179,7 +1179,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_qnan(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_qnan(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -15
@@ -1189,7 +1189,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_snan(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_snan(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -15
@@ -1199,7 +1199,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_negative(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_negative(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = or i8 %0, 1
@@ -1208,7 +1208,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_positive(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_positive(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -2
@@ -1217,7 +1217,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_dynamic(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_dynamic(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -17
@@ -1226,7 +1226,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_static(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_static(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = or i8 %0, 16
@@ -1235,7 +1235,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_dynamic_data(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_dynamic_data(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, 31
@@ -1244,7 +1244,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_static_data(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_static_data(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, 31
@@ -1254,7 +1254,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_shared_data(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_shared_data(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, 31
@@ -1264,7 +1264,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_const_data(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_set_const_data(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, 31
@@ -1274,7 +1274,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_clear_flags(ptr nocapture noundef %result) local_unnamed_addr #11 {
+define hidden void @mpd_clear_flags(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
@@ -1283,7 +1283,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_set_flags(ptr nocapture noundef %result, i8 noundef zeroext %flags) local_unnamed_addr #11 {
+define hidden void @mpd_set_flags(ptr nocapture noundef %result, i8 noundef zeroext %flags) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
@@ -1293,7 +1293,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mpd_copy_flags(ptr nocapture noundef %result, ptr nocapture noundef readonly %a) local_unnamed_addr #11 {
+define hidden void @mpd_copy_flags(ptr nocapture noundef %result, ptr nocapture noundef readonly %a) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = load i8, ptr %result, align 8
@@ -1305,7 +1305,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_zerocoeff(ptr nocapture noundef %result) local_unnamed_addr #9 {
+define hidden void @mpd_zerocoeff(ptr nocapture noundef %result) local_unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -1324,7 +1324,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
   %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i, align 8
-  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
+  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #27
   store ptr %call1.i, ptr %data.i, align 8
   %5 = load i8, ptr %err.i, align 1
   %tobool3.i.not = icmp eq i8 %5, 0
@@ -1347,7 +1347,7 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmaxcoeff(ptr noundef %result, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmaxcoeff(ptr noundef %result, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i64, ptr %ctx, align 8
   %div.i = sdiv i64 %0, 19
@@ -1374,11 +1374,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then5.i
@@ -1430,7 +1430,7 @@ for.end:                                          ; preds = %for.body, %if.end7,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @mpd_trail_zeros(ptr nocapture noundef readonly %dec) local_unnamed_addr #12 {
+define hidden i64 @mpd_trail_zeros(ptr nocapture noundef readonly %dec) local_unnamed_addr #11 {
 entry:
   %len = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
   %0 = load i64, ptr %len, align 8
@@ -1475,7 +1475,7 @@ for.end:                                          ; preds = %for.inc, %while.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mpd_isinteger(ptr nocapture noundef readonly %dec) local_unnamed_addr #12 {
+define hidden i32 @mpd_isinteger(ptr nocapture noundef readonly %dec) local_unnamed_addr #11 {
 entry:
   %0 = load i8, ptr %dec, align 8
   %1 = and i8 %0, 14
@@ -1539,7 +1539,7 @@ return:                                           ; preds = %mpd_trail_zeros.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mpd_isodd(ptr nocapture noundef readonly %dec) local_unnamed_addr #5 {
+define hidden i32 @mpd_isodd(ptr nocapture noundef readonly %dec) local_unnamed_addr #4 {
 entry:
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
   %0 = load ptr, ptr %data.i.i, align 8
@@ -1587,7 +1587,7 @@ return:                                           ; preds = %if.end5, %land.rhs,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mpd_iseven(ptr nocapture noundef readonly %dec) local_unnamed_addr #5 {
+define hidden i32 @mpd_iseven(ptr nocapture noundef readonly %dec) local_unnamed_addr #4 {
 entry:
   %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
   %0 = load ptr, ptr %data.i.i.i, align 8
@@ -1636,7 +1636,7 @@ mpd_isodd.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_setspecial(ptr nocapture noundef %result, i8 noundef zeroext %sign, i8 noundef zeroext %type) local_unnamed_addr #9 {
+define hidden void @mpd_setspecial(ptr nocapture noundef %result, i8 noundef zeroext %sign, i8 noundef zeroext %type) local_unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -1655,7 +1655,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
   %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i, align 8
-  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
+  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #27
   store ptr %call1.i, ptr %data.i, align 8
   %5 = load i8, ptr %err.i, align 1
   %tobool3.i.not = icmp eq i8 %5, 0
@@ -1678,7 +1678,7 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_seterror(ptr nocapture noundef %result, i32 noundef %flags, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_seterror(ptr nocapture noundef %result, i32 noundef %flags, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -1697,7 +1697,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
   %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i, align 8
-  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
+  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #27
   store ptr %call1.i, ptr %data.i, align 8
   %5 = load i8, ptr %err.i, align 1
   %tobool3.i.not = icmp eq i8 %5, 0
@@ -1722,7 +1722,7 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_ssize(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsset_ssize(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp = icmp slt i64 %a, 0
   br i1 %cmp, label %if.then, label %if.else3.split
@@ -1770,7 +1770,7 @@ if.end4:                                          ; preds = %if.else3.split, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qfinalize(ptr noundef %result, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qfinalize(ptr noundef %result, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %result, align 8
   %conv.i6 = zext i8 %0 to i32
@@ -1901,7 +1901,7 @@ if.then.i.i:                                      ; preds = %_mpd_rnd_incr.exit.
   %23 = load ptr, ptr %data.i.i, align 8
   %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
   %24 = load i64, ptr %len.i.i, align 8
-  %call1.i.i = tail call i64 @_mpd_baseincr(ptr noundef %23, i64 noundef %24) #28
+  %call1.i.i = tail call i64 @_mpd_baseincr(ptr noundef %23, i64 noundef %24) #27
   %tobool2.not.i.i = icmp eq i64 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %if.end.i.i, label %if.then3.i.i
 
@@ -1963,7 +1963,7 @@ return:                                           ; preds = %if.end9.sink.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_uint(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsset_uint(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
@@ -1992,7 +1992,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_i32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsset_i32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = sext i32 %a to i64
   %cmp.i = icmp slt i32 %a, 0
@@ -2041,7 +2041,7 @@ mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_u32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsset_u32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = zext i32 %a to i64
   %0 = load i8, ptr %result, align 8
@@ -2067,7 +2067,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_i64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsset_i64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp slt i64 %a, 0
   br i1 %cmp.i, label %if.then.i, label %if.else3.split.i
@@ -2115,7 +2115,7 @@ mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_u64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsset_u64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
@@ -2144,7 +2144,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_ssize(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qset_ssize(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -2163,7 +2163,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
   %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i, align 8
-  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
+  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #27
   store ptr %call1.i, ptr %data.i, align 8
   %5 = load i8, ptr %err.i, align 1
   %tobool3.i.not = icmp eq i8 %5, 0
@@ -2221,7 +2221,7 @@ mpd_qsset_ssize.exit:                             ; preds = %if.then.i7, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_uint(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qset_uint(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i)
@@ -2241,7 +2241,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %5 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %5, 0
@@ -2281,7 +2281,7 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_settriple(ptr nocapture noundef %result, i8 noundef zeroext %sign, i64 noundef %a, i64 noundef %exp) unnamed_addr #9 {
+define internal fastcc void @_settriple(ptr nocapture noundef %result, i8 noundef zeroext %sign, i64 noundef %a, i64 noundef %exp) unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -2300,7 +2300,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
   %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i, align 8
-  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
+  %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #27
   store ptr %call1.i, ptr %data.i, align 8
   %5 = load i8, ptr %err.i, align 1
   %tobool3.i.not = icmp eq i8 %5, 0
@@ -2339,7 +2339,7 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_i32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qset_i32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = sext i32 %a to i64
   tail call void @mpd_qset_ssize(ptr noundef %result, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -2347,7 +2347,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_u32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qset_u32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i.i)
@@ -2367,7 +2367,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i.i.i, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
   %5 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %5, 0
@@ -2404,18 +2404,18 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_i64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qset_i64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qset_ssize(ptr noundef %result, i64 noundef %a, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_i64_exact(ptr noundef %result, i64 noundef %a, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qset_i64_exact(ptr noundef %result, i64 noundef %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %maxcontext = alloca %struct.mpd_context_t, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   call void @mpd_qset_ssize(ptr noundef %result, i64 noundef %a, ptr noundef nonnull %maxcontext, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %and = and i32 %0, 4161
@@ -2440,7 +2440,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %5 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %5, i64 noundef %4, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %5, i64 noundef %4, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %6 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %6, 0
@@ -2470,10 +2470,10 @@ if.end:                                           ; preds = %mpd_seterror.exit, 
   ret void
 }
 
-declare hidden void @mpd_maxcontext(ptr noundef) local_unnamed_addr #8
+declare hidden void @mpd_maxcontext(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_u64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qset_u64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i.i)
@@ -2493,7 +2493,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i.i.i, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
   %5 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %5, 0
@@ -2533,12 +2533,12 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_u64_exact(ptr noundef %result, i64 noundef %a, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qset_u64_exact(ptr noundef %result, i64 noundef %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %err.i.i.i = alloca i8, align 1
   %maxcontext = alloca %struct.mpd_context_t, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i.i)
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, 32
@@ -2556,7 +2556,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i.i.i, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
   %5 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %5, 0
@@ -2614,7 +2614,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %17 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %17, i64 noundef %16, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %17, i64 noundef %16, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %18 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %18, 0
@@ -2644,14 +2644,14 @@ if.end:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qget_uint(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden i64 @mpd_qget_uint(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %call = tail call fastcc i64 @_mpd_qget_uint(i32 noundef 1, ptr noundef %a, ptr noundef %status)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_mpd_qget_uint(i32 noundef %use_sign, ptr noundef %a, ptr nocapture noundef %status) unnamed_addr #9 {
+define internal fastcc i64 @_mpd_qget_uint(i32 noundef %use_sign, ptr noundef %a, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %tmp = alloca %struct.mpd_t, align 8
   %tmp_data = alloca [2 x i64], align 16
@@ -2805,14 +2805,14 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qabs_uint(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden i64 @mpd_qabs_uint(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %call = tail call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef %a, ptr noundef %status)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qget_ssize(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden i64 @mpd_qget_ssize(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %workstatus = alloca i32, align 4
   store i32 0, ptr %workstatus, align 4
@@ -2858,14 +2858,14 @@ return:                                           ; preds = %if.else, %if.end8, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qget_u64(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden i64 @mpd_qget_u64(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %call.i = tail call fastcc i64 @_mpd_qget_uint(i32 noundef 1, ptr noundef %a, ptr noundef %status)
   ret i64 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qget_i64(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden i64 @mpd_qget_i64(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %workstatus.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %workstatus.i)
@@ -2913,7 +2913,7 @@ mpd_qget_ssize.exit:                              ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qget_u32(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qget_u32(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %workstatus = alloca i32, align 4
   store i32 0, ptr %workstatus, align 4
@@ -2949,7 +2949,7 @@ return:                                           ; preds = %if.end3, %if.then1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qget_i32(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qget_i32(ptr noundef %a, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %workstatus.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %workstatus.i)
@@ -3008,7 +3008,7 @@ return:                                           ; preds = %if.end4, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcheck_nan(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qcheck_nan(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv.i = zext i8 %0 to i32
@@ -3046,11 +3046,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef nonnull %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef nonnull %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef nonnull %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef nonnull %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -3105,7 +3105,7 @@ return:                                           ; preds = %entry, %mpd_qcopy.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qcopy(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %result, %a
   br i1 %cmp, label %return, label %if.end
@@ -3131,11 +3131,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end2
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then5.i
@@ -3179,7 +3179,7 @@ return:                                           ; preds = %mpd_qresize.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_fix_nan(ptr noundef %result, i64 %ctx.0.val, i32 %ctx.40.val) unnamed_addr #9 {
+define internal fastcc void @_mpd_fix_nan(ptr noundef %result, i64 %ctx.0.val, i32 %ctx.40.val) unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %dummy = alloca i32, align 4
@@ -3217,7 +3217,7 @@ if.then.i37:                                      ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
   %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %6 = load ptr, ptr %data.i, align 8
-  %call1.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i) #28
+  %call1.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i) #27
   store ptr %call1.i, ptr %data.i, align 8
   %7 = load i8, ptr %err.i, align 1
   %tobool3.i.not = icmp eq i8 %7, 0
@@ -3289,11 +3289,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #28
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #28
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_real_size.exit, %if.end8.i, %if.then5.i
@@ -3316,7 +3316,7 @@ if.end27:                                         ; preds = %if.end27.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext i8 %0 to i32
@@ -3381,11 +3381,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -3440,7 +3440,7 @@ return:                                           ; preds = %entry, %mpd_qcopy.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_check_exp(ptr noundef %dec, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_check_exp(ptr noundef %dec, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i106 = alloca i8, align 1
   %err.i.i88 = alloca i8, align 1
@@ -3497,7 +3497,7 @@ land.lhs.true.i.i:                                ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef nonnull %3, i64 noundef %12, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef nonnull %3, i64 noundef %12, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i131, align 8
   %13 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %13, 0
@@ -3550,7 +3550,7 @@ land.lhs.true.i.i91:                              ; preds = %sw.bb
 
 if.then.i.i94:                                    ; preds = %land.lhs.true.i.i91
   store i8 0, ptr %err.i.i88, align 1
-  %call1.i.i96 = call ptr @mpd_realloc(ptr noundef nonnull %3, i64 noundef %22, i64 noundef 8, ptr noundef nonnull %err.i.i88) #28
+  %call1.i.i96 = call ptr @mpd_realloc(ptr noundef nonnull %3, i64 noundef %22, i64 noundef 8, ptr noundef nonnull %err.i.i88) #27
   store ptr %call1.i.i96, ptr %data.i.i131, align 8
   %23 = load i8, ptr %err.i.i88, align 1
   %tobool3.i.not.i97 = icmp eq i8 %23, 0
@@ -3597,11 +3597,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -3688,7 +3688,7 @@ if.else34:                                        ; preds = %sw.bb25
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end8
-  tail call void @abort() #29
+  tail call void @abort() #28
   unreachable
 
 sw.epilog:                                        ; preds = %if.then28, %if.else34, %if.then18, %if.else, %mpd_qmaxcoeff.exit, %mpd_setspecial.exit
@@ -3783,7 +3783,7 @@ land.lhs.true.i.i111:                             ; preds = %if.then71
 
 if.then.i.i114:                                   ; preds = %land.lhs.true.i.i111
   store i8 0, ptr %err.i.i106, align 1
-  %call1.i.i117 = call ptr @mpd_realloc(ptr noundef nonnull %58, i64 noundef %65, i64 noundef 8, ptr noundef nonnull %err.i.i106) #28
+  %call1.i.i117 = call ptr @mpd_realloc(ptr noundef nonnull %58, i64 noundef %65, i64 noundef 8, ptr noundef nonnull %err.i.i106) #27
   store ptr %call1.i.i117, ptr %data.i.i115, align 8
   %66 = load i8, ptr %err.i.i106, align 1
   %tobool3.i.not.i118 = icmp eq i8 %66, 0
@@ -3855,10 +3855,10 @@ if.end98:                                         ; preds = %if.end98.sink.split
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_cxx(ptr noundef %result, ptr noundef readonly %a) local_unnamed_addr #9 {
+define hidden i32 @mpd_qcopy_cxx(ptr noundef %result, ptr noundef readonly %a) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %result, %a
   br i1 %cmp, label %return, label %if.end
@@ -3884,11 +3884,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end2
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn_cxx(ptr noundef nonnull %result, i64 noundef %cond.i) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn_cxx(ptr noundef nonnull %result, i64 noundef %cond.i) #27
   br label %mpd_qresize_cxx.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn_cxx(ptr noundef nonnull %result, i64 noundef %cond.i) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn_cxx(ptr noundef nonnull %result, i64 noundef %cond.i) #27
   br label %mpd_qresize_cxx.exit
 
 mpd_qresize_cxx.exit:                             ; preds = %if.end8.i, %if.then5.i
@@ -3932,11 +3932,11 @@ return:                                           ; preds = %mpd_qresize_cxx.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mpd_qncopy(ptr nocapture noundef readonly %a) local_unnamed_addr #9 {
+define hidden ptr @mpd_qncopy(ptr nocapture noundef readonly %a) local_unnamed_addr #8 {
 entry:
   %len = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
   %0 = load i64, ptr %len, align 8
-  %call = tail call ptr @mpd_qnew_size(i64 noundef %0) #28
+  %call = tail call ptr @mpd_qnew_size(i64 noundef %0) #27
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -3971,10 +3971,10 @@ return:                                           ; preds = %entry, %if.end
   ret ptr %call
 }
 
-declare hidden ptr @mpd_qnew_size(i64 noundef) local_unnamed_addr #8
+declare hidden ptr @mpd_qnew_size(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_abs(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qcopy_abs(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp eq ptr %result, %a
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -4000,11 +4000,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -4054,7 +4054,7 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_negate(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qcopy_negate(ptr noundef %result, ptr noundef readonly %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp eq ptr %result, %a
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -4080,11 +4080,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -4134,7 +4134,7 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcopy_sign(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qcopy_sign(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %b, align 8
   %cmp.i = icmp eq ptr %result, %a
@@ -4161,11 +4161,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -4217,7 +4217,7 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mpd_qcmp(ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef %status) local_unnamed_addr #14 {
+define hidden i32 @mpd_qcmp(ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef %status) local_unnamed_addr #13 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -4257,7 +4257,7 @@ return:                                           ; preds = %if.end9, %if.then8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_mpd_cmp(ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #12 {
+define internal fastcc i32 @_mpd_cmp(ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %a, %b
   br i1 %cmp, label %return, label %if.end
@@ -4389,7 +4389,7 @@ return:                                           ; preds = %if.then18, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcompare(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qcompare(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -4431,7 +4431,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %8 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %9 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %9, 0
@@ -4471,7 +4471,7 @@ return:                                           ; preds = %if.then, %_settripl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qcompare_signal(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qcompare_signal(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -4519,7 +4519,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %9 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %9, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %9, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %10 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %10, 0
@@ -4559,7 +4559,7 @@ return:                                           ; preds = %_settriple.exit, %i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mpd_cmp_total(ptr noundef %a, ptr noundef %b) local_unnamed_addr #12 {
+define hidden i32 @mpd_cmp_total(ptr noundef %a, ptr noundef %b) local_unnamed_addr #11 {
 entry:
   %aa = alloca %struct.mpd_t, align 8
   %bb = alloca %struct.mpd_t, align 8
@@ -4700,7 +4700,7 @@ return:                                           ; preds = %if.end62, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_mpd_cmp_abs(ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #12 {
+define internal fastcc i32 @_mpd_cmp_abs(ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %a, %b
   br i1 %cmp, label %return, label %if.end
@@ -4813,7 +4813,7 @@ return:                                           ; preds = %for.cond.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_compare_total(ptr nocapture noundef %result, ptr noundef %a, ptr noundef %b) local_unnamed_addr #9 {
+define hidden i32 @mpd_compare_total(ptr nocapture noundef %result, ptr noundef %a, ptr noundef %b) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %call = tail call i32 @mpd_cmp_total(ptr noundef %a, ptr noundef %b)
@@ -4834,7 +4834,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %5 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %5, 0
@@ -4874,7 +4874,7 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mpd_cmp_total_mag(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #12 {
+define hidden i32 @mpd_cmp_total_mag(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #11 {
 entry:
   %aa = alloca %struct.mpd_t, align 8
   %bb = alloca %struct.mpd_t, align 8
@@ -4915,7 +4915,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_compare_total_mag(ptr nocapture noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #9 {
+define hidden i32 @mpd_compare_total_mag(ptr nocapture noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %aa.i = alloca %struct.mpd_t, align 8
@@ -4974,7 +4974,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i4 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %16 = load ptr, ptr %data.i.i4, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %16, i64 noundef %15, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %16, i64 noundef %15, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i4, align 8
   %17 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %17, 0
@@ -5014,7 +5014,7 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_qshiftl(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_qshiftl(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
   %0 = load ptr, ptr %data.i.i, align 8
@@ -5051,11 +5051,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -5120,11 +5120,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end6
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then5.i
@@ -5142,7 +5142,7 @@ if.end6:                                          ; preds = %mpd_qresize.exit.if
   %22 = phi ptr [ %.pre, %mpd_qresize.exit.if.end6_crit_edge ], [ %0, %if.then2.i ], [ %0, %if.end ]
   %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %23 = load ptr, ptr %data, align 8
-  tail call void @_mpd_baseshiftl(ptr noundef %23, ptr noundef %22, i64 noundef %cond.i36, i64 noundef %21, i64 noundef %n) #28
+  tail call void @_mpd_baseshiftl(ptr noundef %23, ptr noundef %22, i64 noundef %cond.i36, i64 noundef %21, i64 noundef %n) #27
   %24 = load i8, ptr %a, align 8
   %25 = load i8, ptr %result, align 8
   %26 = and i8 %25, -16
@@ -5166,10 +5166,10 @@ return:                                           ; preds = %if.end2.i, %mpd_qre
   ret i32 %retval.0
 }
 
-declare hidden void @_mpd_baseshiftl(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden void @_mpd_baseshiftl(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qshiftr_inplace(ptr noundef %result, i64 noundef %n) local_unnamed_addr #9 {
+define hidden i64 @mpd_qshiftr_inplace(ptr noundef %result, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %dummy = alloca i32, align 4
@@ -5210,7 +5210,7 @@ land.lhs.true.i.i:                                ; preds = %if.then2
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef nonnull %0, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef nonnull %0, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %9 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %9, 0
@@ -5230,7 +5230,7 @@ mpd_zerocoeff.exit:                               ; preds = %if.then2, %land.lhs
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %call9 = tail call i64 @_mpd_baseshiftr(ptr noundef nonnull %0, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %n) #28
+  %call9 = tail call i64 @_mpd_baseshiftr(ptr noundef nonnull %0, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %n) #27
   %12 = load i64, ptr %digits, align 8
   %sub = sub i64 %12, %n
   store i64 %sub, ptr %digits, align 8
@@ -5258,11 +5258,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #28
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #28
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %if.else, %if.end8.i, %if.then5.i
@@ -5275,7 +5275,7 @@ return:                                           ; preds = %mpd_zerocoeff.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @_mpd_get_rnd(ptr nocapture noundef readonly %data, i64 noundef %len, i32 noundef %use_msd) unnamed_addr #15 {
+define internal fastcc i64 @_mpd_get_rnd(ptr nocapture noundef readonly %data, i64 noundef %len, i32 noundef %use_msd) unnamed_addr #14 {
 entry:
   %rnd = alloca i64, align 8
   %rest = alloca i64, align 8
@@ -5445,10 +5445,10 @@ cond.end:                                         ; preds = %if.end15, %cond.tru
   ret i64 %cond
 }
 
-declare hidden i64 @_mpd_baseshiftr(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i64 @_mpd_baseshiftr(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qshiftr(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i64 @mpd_qshiftr(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
@@ -5486,11 +5486,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -5554,7 +5554,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i66 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %21 = load ptr, ptr %data.i.i66, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %21, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %21, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i66, align 8
   %22 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %22, 0
@@ -5592,7 +5592,7 @@ if.else:                                          ; preds = %if.end4
 if.then16:                                        ; preds = %if.else
   %25 = load ptr, ptr %data.i.i, align 8
   %26 = load i64, ptr %len.i.i, align 8
-  %call20 = tail call i64 @_mpd_baseshiftr(ptr noundef %25, ptr noundef %25, i64 noundef %26, i64 noundef %n) #28
+  %call20 = tail call i64 @_mpd_baseshiftr(ptr noundef %25, ptr noundef %25, i64 noundef %26, i64 noundef %n) #27
   %27 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i45 = tail call i64 @llvm.smax.i64(i64 %cond.i68, i64 %27)
   %alloc.i46 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 4
@@ -5611,11 +5611,11 @@ if.then2.i54:                                     ; preds = %if.end.i48
   br i1 %cmp4.i56, label %if.then5.i58, label %if.end31
 
 if.then5.i58:                                     ; preds = %if.then2.i54
-  %call6.i59 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %a, i64 noundef %cond.i45, ptr noundef %status) #28
+  %call6.i59 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %a, i64 noundef %cond.i45, ptr noundef %status) #27
   br label %if.end31
 
 if.end8.i52:                                      ; preds = %if.end.i48
-  %call9.i53 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %a, i64 noundef %cond.i45, ptr noundef %status) #28
+  %call9.i53 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %a, i64 noundef %cond.i45, ptr noundef %status) #27
   br label %if.end31
 
 if.else22:                                        ; preds = %if.else
@@ -5637,11 +5637,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end26
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then5.i
@@ -5654,7 +5654,7 @@ if.end26:                                         ; preds = %if.then2.i, %if.els
   %35 = load ptr, ptr %data27, align 8
   %36 = load ptr, ptr %data.i.i, align 8
   %37 = load i64, ptr %len.i.i, align 8
-  %call30 = tail call i64 @_mpd_baseshiftr(ptr noundef %35, ptr noundef %36, i64 noundef %37, i64 noundef %n) #28
+  %call30 = tail call i64 @_mpd_baseshiftr(ptr noundef %35, ptr noundef %36, i64 noundef %37, i64 noundef %n) #27
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then2.i54, %if.then16, %if.then5.i58, %if.end8.i52, %if.end26
@@ -5683,7 +5683,7 @@ return:                                           ; preds = %if.then, %if.end2.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qand(ptr noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qand(ptr noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -5732,7 +5732,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %10 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %11 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %11, 0
@@ -5784,11 +5784,11 @@ if.then2.i146:                                    ; preds = %if.end.i140
   br i1 %cmp4.i148, label %if.then5.i150, label %for.cond.preheader
 
 if.then5.i150:                                    ; preds = %if.then2.i146
-  %call6.i151 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i137, ptr noundef %status) #28
+  %call6.i151 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i137, ptr noundef %status) #27
   br label %mpd_qresize.exit154
 
 if.end8.i144:                                     ; preds = %if.end.i140
-  %call9.i145 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i137, ptr noundef %status) #28
+  %call9.i145 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i137, ptr noundef %status) #27
   br label %mpd_qresize.exit154
 
 mpd_qresize.exit154:                              ; preds = %if.end8.i144, %if.then5.i150
@@ -6108,11 +6108,11 @@ if.then2.i127:                                    ; preds = %if.end.i125
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i127
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i123, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i123, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i126:                                     ; preds = %if.end.i125
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i123, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i123, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i127, %_mpd_real_size.exit, %if.end8.i126, %if.then5.i
@@ -6129,7 +6129,7 @@ return:                                           ; preds = %mpd_qresize.exit154
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_cap(ptr noundef %result, ptr nocapture noundef readonly %ctx) unnamed_addr #9 {
+define internal fastcc void @_mpd_cap(ptr noundef %result, ptr nocapture noundef readonly %ctx) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %dummy = alloca i32, align 4
@@ -6206,11 +6206,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #28
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #28
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %dummy) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_real_size.exit, %if.end8.i, %if.then5.i
@@ -6252,7 +6252,7 @@ land.lhs.true.i.i:                                ; preds = %if.then13
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef nonnull %15, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef nonnull %15, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %24 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %24, 0
@@ -6286,7 +6286,7 @@ if.end15:                                         ; preds = %if.end11, %_settrip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden nonnull ptr @mpd_class(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden nonnull ptr @mpd_class(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %ctx) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv.i37 = zext i8 %0 to i32
@@ -6383,7 +6383,7 @@ return:                                           ; preds = %mpd_isnormal.exit30
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qinvert(ptr noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qinvert(ptr noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i59 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -6416,7 +6416,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %7 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %8 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %8, 0
@@ -6469,11 +6469,11 @@ if.then2.i68:                                     ; preds = %if.end.i62
   br i1 %cmp4.i70, label %if.then5.i72, label %for.cond.preheader
 
 if.then5.i72:                                     ; preds = %if.then2.i68
-  %call6.i73 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i59, ptr noundef %status) #28
+  %call6.i73 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i59, ptr noundef %status) #27
   br label %mpd_qresize.exit76
 
 if.end8.i66:                                      ; preds = %if.end.i62
-  %call9.i67 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i59, ptr noundef %status) #28
+  %call9.i67 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i59, ptr noundef %status) #27
   br label %mpd_qresize.exit76
 
 mpd_qresize.exit76:                               ; preds = %if.end8.i66, %if.then5.i72
@@ -6593,11 +6593,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_real_size.exit, %if.end8.i, %if.then5.i
@@ -6621,7 +6621,7 @@ land.lhs.true.i.i63:                              ; preds = %invalid_operation
 if.then.i.i66:                                    ; preds = %land.lhs.true.i.i63
   store i8 0, ptr %err.i.i59, align 1
   %39 = load ptr, ptr %data37, align 8
-  %call1.i.i68 = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %err.i.i59) #28
+  %call1.i.i68 = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %err.i.i59) #27
   store ptr %call1.i.i68, ptr %data37, align 8
   %40 = load i8, ptr %err.i.i59, align 1
   %tobool3.i.not.i69 = icmp eq i8 %40, 0
@@ -6650,7 +6650,7 @@ return:                                           ; preds = %mpd_qresize.exit76,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qlogb(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qlogb(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i14 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -6682,7 +6682,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i13 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %6 = load ptr, ptr %data.i.i13, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i13, align 8
   %7 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %7, 0
@@ -6732,7 +6732,7 @@ if.then.i.i21:                                    ; preds = %land.lhs.true.i.i18
   store i8 0, ptr %err.i.i14, align 1
   %data.i.i22 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %19 = load ptr, ptr %data.i.i22, align 8
-  %call1.i.i23 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %err.i.i14) #28
+  %call1.i.i23 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %err.i.i14) #27
   store ptr %call1.i.i23, ptr %data.i.i22, align 8
   %20 = load i8, ptr %err.i.i14, align 1
   %tobool3.i.not.i24 = icmp eq i8 %20, 0
@@ -6771,7 +6771,7 @@ if.end10:                                         ; preds = %mpd_setspecial.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qor(ptr noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qor(ptr noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -6820,7 +6820,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %10 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %11 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %11, 0
@@ -6872,11 +6872,11 @@ if.then2.i153:                                    ; preds = %if.end.i147
   br i1 %cmp4.i155, label %if.then5.i157, label %for.cond.preheader
 
 if.then5.i157:                                    ; preds = %if.then2.i153
-  %call6.i158 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i144, ptr noundef %status) #28
+  %call6.i158 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i144, ptr noundef %status) #27
   br label %mpd_qresize.exit161
 
 if.end8.i151:                                     ; preds = %if.end.i147
-  %call9.i152 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i144, ptr noundef %status) #28
+  %call9.i152 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i144, ptr noundef %status) #27
   br label %mpd_qresize.exit161
 
 mpd_qresize.exit161:                              ; preds = %if.end8.i151, %if.then5.i157
@@ -7203,11 +7203,11 @@ if.then2.i134:                                    ; preds = %if.end.i132
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i134
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i130, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i130, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i133:                                     ; preds = %if.end.i132
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i130, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i130, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i134, %_mpd_real_size.exit, %if.end8.i133, %if.then5.i
@@ -7224,7 +7224,7 @@ return:                                           ; preds = %mpd_qresize.exit161
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrotate(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qrotate(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i70 = alloca i8, align 1
   %err.i.i57 = alloca i8, align 1
@@ -7303,7 +7303,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %11 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %12 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %12, 0
@@ -7390,7 +7390,7 @@ if.then.i.i64:                                    ; preds = %land.lhs.true.i.i61
   store i8 0, ptr %err.i.i57, align 1
   %data.i.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %26 = load ptr, ptr %data.i.i65, align 8
-  %call1.i.i66 = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i57) #28
+  %call1.i.i66 = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i57) #27
   store ptr %call1.i.i66, ptr %data.i.i65, align 8
   %27 = load i8, ptr %err.i.i57, align 1
   %tobool3.i.not.i67 = icmp eq i8 %27, 0
@@ -7432,7 +7432,7 @@ if.then.i.i77:                                    ; preds = %land.lhs.true.i.i74
   store i8 0, ptr %err.i.i70, align 1
   %data.i.i78 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %37 = load ptr, ptr %data.i.i78, align 8
-  %call1.i.i79 = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i70) #28
+  %call1.i.i79 = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i70) #27
   store ptr %call1.i.i79, ptr %data.i.i78, align 8
   %38 = load i8, ptr %err.i.i70, align 1
   %tobool3.i.not.i80 = icmp eq i8 %38, 0
@@ -7524,7 +7524,7 @@ finish:                                           ; preds = %if.end65, %if.then6
 if.then.i109:                                     ; preds = %finish
   %50 = load ptr, ptr @mpd_free, align 8
   %51 = load ptr, ptr %data, align 8
-  call void %50(ptr noundef %51) #28
+  call void %50(ptr noundef %51) #27
   %.pre = load i8, ptr %tmp, align 8
   br label %if.end.i102
 
@@ -7536,7 +7536,7 @@ if.end.i102:                                      ; preds = %if.then.i109, %fini
 
 if.then3.i108:                                    ; preds = %if.end.i102
   %54 = load ptr, ptr @mpd_free, align 8
-  call void %54(ptr noundef nonnull %tmp) #28
+  call void %54(ptr noundef nonnull %tmp) #27
   br label %mpd_del.exit111
 
 mpd_del.exit111:                                  ; preds = %if.then3.i108, %if.end.i102
@@ -7547,7 +7547,7 @@ mpd_del.exit111:                                  ; preds = %if.then3.i108, %if.
 if.then.i91:                                      ; preds = %mpd_del.exit111
   %56 = load ptr, ptr @mpd_free, align 8
   %57 = load ptr, ptr %data6, align 8
-  call void %56(ptr noundef %57) #28
+  call void %56(ptr noundef %57) #27
   %.pre95 = load i8, ptr %big, align 8
   br label %if.end.i84
 
@@ -7559,7 +7559,7 @@ if.end.i84:                                       ; preds = %if.then.i91, %mpd_d
 
 if.then3.i90:                                     ; preds = %if.end.i84
   %60 = load ptr, ptr @mpd_free, align 8
-  call void %60(ptr noundef nonnull %big) #28
+  call void %60(ptr noundef nonnull %big) #27
   br label %mpd_del.exit93
 
 mpd_del.exit93:                                   ; preds = %if.then3.i90, %if.end.i84
@@ -7570,7 +7570,7 @@ mpd_del.exit93:                                   ; preds = %if.then3.i90, %if.e
 if.then.i:                                        ; preds = %mpd_del.exit93
   %62 = load ptr, ptr @mpd_free, align 8
   %63 = load ptr, ptr %data13, align 8
-  call void %62(ptr noundef %63) #28
+  call void %62(ptr noundef %63) #27
   %.pre96 = load i8, ptr %small, align 8
   br label %if.end.i
 
@@ -7582,7 +7582,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %66 = load ptr, ptr @mpd_free, align 8
-  call void %66(ptr noundef nonnull %small) #28
+  call void %66(ptr noundef nonnull %small) #27
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then3.i, %if.then, %if.then39, %mpd_seterror.exit82, %mpd_seterror.exit69, %mpd_seterror.exit
@@ -7590,7 +7590,7 @@ return:                                           ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qscaleb(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qscaleb(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i30 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -7642,7 +7642,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %11 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %12 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %12, 0
@@ -7700,7 +7700,7 @@ if.then.i.i37:                                    ; preds = %land.lhs.true.i.i34
   store i8 0, ptr %err.i.i30, align 1
   %data.i.i38 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %25 = load ptr, ptr %data.i.i38, align 8
-  %call1.i.i39 = call ptr @mpd_realloc(ptr noundef %25, i64 noundef %24, i64 noundef 8, ptr noundef nonnull %err.i.i30) #28
+  %call1.i.i39 = call ptr @mpd_realloc(ptr noundef %25, i64 noundef %24, i64 noundef 8, ptr noundef nonnull %err.i.i30) #27
   store ptr %call1.i.i39, ptr %data.i.i38, align 8
   %26 = load i8, ptr %err.i.i30, align 1
   %tobool3.i.not.i40 = icmp eq i8 %26, 0
@@ -7757,7 +7757,7 @@ return:                                           ; preds = %if.then, %if.end23,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qshiftn(ptr noundef %result, ptr noundef %a, i64 noundef %n, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qshiftn(ptr noundef %result, ptr noundef %a, i64 noundef %n, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -7793,11 +7793,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -7879,11 +7879,11 @@ if.then2.i.i34:                                   ; preds = %if.end.i.i32
   br i1 %cmp4.i.i35, label %if.then5.i.i47, label %if.end2.i36
 
 if.then5.i.i47:                                   ; preds = %if.then2.i.i34
-  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 if.end8.i.i54:                                    ; preds = %if.end.i.i32
-  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 mpd_qresize.exit.i49:                             ; preds = %if.end8.i.i54, %if.then5.i.i47
@@ -7946,7 +7946,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %33 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %34 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %34, 0
@@ -7975,7 +7975,7 @@ if.end22:                                         ; preds = %mpd_qresize.exit.i4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qshift(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qshift(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i47 = alloca i8, align 1
   %err.i.i34 = alloca i8, align 1
@@ -8027,7 +8027,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %11 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %12 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %12, 0
@@ -8114,7 +8114,7 @@ if.then.i.i41:                                    ; preds = %land.lhs.true.i.i38
   store i8 0, ptr %err.i.i34, align 1
   %data.i.i42 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %26 = load ptr, ptr %data.i.i42, align 8
-  %call1.i.i43 = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i34) #28
+  %call1.i.i43 = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i34) #27
   store ptr %call1.i.i43, ptr %data.i.i42, align 8
   %27 = load i8, ptr %err.i.i34, align 1
   %tobool3.i.not.i44 = icmp eq i8 %27, 0
@@ -8156,7 +8156,7 @@ if.then.i.i54:                                    ; preds = %land.lhs.true.i.i51
   store i8 0, ptr %err.i.i47, align 1
   %data.i.i55 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %37 = load ptr, ptr %data.i.i55, align 8
-  %call1.i.i56 = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i47) #28
+  %call1.i.i56 = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i47) #27
   store ptr %call1.i.i56, ptr %data.i.i55, align 8
   %38 = load i8, ptr %err.i.i47, align 1
   %tobool3.i.not.i57 = icmp eq i8 %38, 0
@@ -8215,7 +8215,7 @@ if.end36:                                         ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qxor(ptr noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qxor(ptr noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -8264,7 +8264,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %10 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %11 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %11, 0
@@ -8316,11 +8316,11 @@ if.then2.i153:                                    ; preds = %if.end.i147
   br i1 %cmp4.i155, label %if.then5.i157, label %for.cond.preheader
 
 if.then5.i157:                                    ; preds = %if.then2.i153
-  %call6.i158 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i144, ptr noundef %status) #28
+  %call6.i158 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i144, ptr noundef %status) #27
   br label %mpd_qresize.exit161
 
 if.end8.i151:                                     ; preds = %if.end.i147
-  %call9.i152 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i144, ptr noundef %status) #28
+  %call9.i152 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i144, ptr noundef %status) #27
   br label %mpd_qresize.exit161
 
 mpd_qresize.exit161:                              ; preds = %if.end8.i151, %if.then5.i157
@@ -8645,11 +8645,11 @@ if.then2.i134:                                    ; preds = %if.end.i132
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i134
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i130, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i130, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i133:                                     ; preds = %if.end.i132
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i130, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i130, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i134, %_mpd_real_size.exit, %if.end8.i133, %if.then5.i
@@ -8666,7 +8666,7 @@ return:                                           ; preds = %mpd_qresize.exit161
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qabs(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qabs(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -8701,7 +8701,7 @@ if.end8:                                          ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qminus(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qminus(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -8763,11 +8763,11 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end2.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then2.i.i.i
-  %call6.i.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call6.i.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call9.i.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call9.i.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %if.end8.i.i.i, %if.then5.i.i.i
@@ -8835,11 +8835,11 @@ if.then2.i.i.i26:                                 ; preds = %if.end.i.i.i24
   br i1 %cmp4.i.i.i27, label %if.then5.i.i.i40, label %if.end2.i.i28
 
 if.then5.i.i.i40:                                 ; preds = %if.then2.i.i.i26
-  %call6.i.i.i41 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i20, ptr noundef %status) #28
+  %call6.i.i.i41 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i20, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i42
 
 if.end8.i.i.i47:                                  ; preds = %if.end.i.i.i24
-  %call9.i.i.i48 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i20, ptr noundef %status) #28
+  %call9.i.i.i48 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i20, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i42
 
 mpd_qresize.exit.i.i42:                           ; preds = %if.end8.i.i.i47, %if.then5.i.i.i40
@@ -8897,7 +8897,7 @@ return:                                           ; preds = %if.then, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qplus(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qplus(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -8959,11 +8959,11 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end2.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then2.i.i.i
-  %call6.i.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call6.i.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call9.i.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call9.i.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %if.end8.i.i.i, %if.then5.i.i.i
@@ -9032,11 +9032,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i19
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i19
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -9084,7 +9084,7 @@ return:                                           ; preds = %if.then, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qadd(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -9120,7 +9120,7 @@ return:                                           ; preds = %if.then, %if.end7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qaddsub_inf(ptr nocapture noundef %result, i8 %a.0.val, ptr nocapture noundef readonly %b, i8 noundef zeroext %sign_b, ptr nocapture noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qaddsub_inf(ptr nocapture noundef %result, i8 %a.0.val, ptr nocapture noundef readonly %b, i8 noundef zeroext %sign_b, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i17 = alloca i8, align 1
   %err.i.i6 = alloca i8, align 1
@@ -9158,7 +9158,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %7 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %8 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %8, 0
@@ -9200,7 +9200,7 @@ if.then.i.i12:                                    ; preds = %land.lhs.true.i.i9
   store i8 0, ptr %err.i.i6, align 1
   %data.i.i13 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %18 = load ptr, ptr %data.i.i13, align 8
-  %call1.i.i14 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %17, i64 noundef 8, ptr noundef nonnull %err.i.i6) #28
+  %call1.i.i14 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %17, i64 noundef 8, ptr noundef nonnull %err.i.i6) #27
   store ptr %call1.i.i14, ptr %data.i.i13, align 8
   %19 = load i8, ptr %err.i.i6, align 1
   %tobool3.i.not.i15 = icmp eq i8 %19, 0
@@ -9240,7 +9240,7 @@ if.then.i.i25:                                    ; preds = %land.lhs.true.i.i22
   store i8 0, ptr %err.i.i17, align 1
   %data.i.i26 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %27 = load ptr, ptr %data.i.i26, align 8
-  %call1.i.i27 = call ptr @mpd_realloc(ptr noundef %27, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %err.i.i17) #28
+  %call1.i.i27 = call ptr @mpd_realloc(ptr noundef %27, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %err.i.i17) #27
   store ptr %call1.i.i27, ptr %data.i.i26, align 8
   %28 = load i8, ptr %err.i.i17, align 1
   %tobool3.i.not.i28 = icmp eq i8 %28, 0
@@ -9267,7 +9267,7 @@ return:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef %a, ptr noundef %b, i8 noundef zeroext %sign_b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef %a, ptr noundef %b, i8 noundef zeroext %sign_b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %big_aligned_data = alloca [64 x i64], align 16
@@ -9390,7 +9390,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %24 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %25 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %25, 0
@@ -9466,11 +9466,11 @@ if.then2.i211:                                    ; preds = %if.end.i205
   br i1 %cmp4.i213, label %if.then5.i215, label %if.end56
 
 if.then5.i215:                                    ; preds = %if.then2.i211
-  %call6.i216 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i202, ptr noundef %status) #28
+  %call6.i216 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i202, ptr noundef %status) #27
   br label %mpd_qresize.exit219
 
 if.end8.i209:                                     ; preds = %if.end.i205
-  %call9.i210 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i202, ptr noundef %status) #28
+  %call9.i210 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i202, ptr noundef %status) #27
   br label %mpd_qresize.exit219
 
 mpd_qresize.exit219:                              ; preds = %if.end8.i209, %if.then5.i215
@@ -9491,7 +9491,7 @@ if.then62:                                        ; preds = %if.end56
   %47 = load ptr, ptr %small.3.sroa.sel182, align 8
   %48 = load i64, ptr %big.2.sroa.sel209, align 8
   %49 = load i64, ptr %small.3.sroa.sel185, align 8
-  %call68 = call i64 @_mpd_baseadd(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i64 noundef %49) #28
+  %call68 = call i64 @_mpd_baseadd(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i64 noundef %49) #27
   %tobool69.not = icmp eq i64 %call68, 0
   br i1 %tobool69.not, label %if.end80, label %if.then70
 
@@ -9515,11 +9515,11 @@ if.then2.i185:                                    ; preds = %if.end.i179
   br i1 %cmp4.i187, label %if.then5.i189, label %if.end76
 
 if.then5.i189:                                    ; preds = %if.then2.i185
-  %call6.i190 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i176, ptr noundef %status) #28
+  %call6.i190 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i176, ptr noundef %status) #27
   br label %mpd_qresize.exit193
 
 if.end8.i183:                                     ; preds = %if.end.i179
-  %call9.i184 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i176, ptr noundef %status) #28
+  %call9.i184 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i176, ptr noundef %status) #27
   br label %mpd_qresize.exit193
 
 mpd_qresize.exit193:                              ; preds = %if.end8.i183, %if.then5.i189
@@ -9582,7 +9582,7 @@ if.end108:                                        ; preds = %for.cond, %if.then1
   %65 = load ptr, ptr %data109, align 8
   %66 = load ptr, ptr %big.3.sroa.phi, align 8
   %67 = load ptr, ptr %small.4.sroa.phi, align 8
-  call void @_mpd_basesub(ptr noundef %65, ptr noundef %66, ptr noundef %67, i64 noundef %58, i64 noundef %64) #28
+  call void @_mpd_basesub(ptr noundef %65, ptr noundef %66, ptr noundef %67, i64 noundef %58, i64 noundef %64) #27
   %68 = load ptr, ptr %data109, align 8
   %69 = load i64, ptr %big.3.sroa.phi146, align 8
   %invariant.gep.i = getelementptr i64, ptr %68, i64 -1
@@ -9620,11 +9620,11 @@ if.then2.i:                                       ; preds = %if.end.i164
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i164
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_real_size.exit, %if.end8.i, %if.then5.i
@@ -9681,7 +9681,7 @@ finish:                                           ; preds = %mpd_qresize.exit193
 if.then.i:                                        ; preds = %finish
   %86 = load ptr, ptr @mpd_free, align 8
   %87 = load ptr, ptr %data, align 8
-  call void %86(ptr noundef %87) #28
+  call void %86(ptr noundef %87) #27
   %.pre211 = load i8, ptr %big_aligned, align 8
   br label %if.end.i
 
@@ -9693,7 +9693,7 @@ if.end.i:                                         ; preds = %if.then.i, %finish
 
 if.then3.i:                                       ; preds = %if.end.i
   %90 = load ptr, ptr @mpd_free, align 8
-  call void %90(ptr noundef nonnull %big_aligned) #28
+  call void %90(ptr noundef nonnull %big_aligned) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -9701,7 +9701,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsub(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -9739,7 +9739,7 @@ return:                                           ; preds = %if.then, %if.end8, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qadd_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
@@ -9751,7 +9751,7 @@ entry:
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
   store ptr %bb_data, ptr %data, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp.i = icmp slt i64 %b, 0
   %storemerge8 = select i1 %cmp.i, i8 49, i8 48
   %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
@@ -9800,7 +9800,7 @@ mpd_qadd.exit:                                    ; preds = %if.then.i6, %if.end
 if.then.i:                                        ; preds = %mpd_qadd.exit
   %7 = load ptr, ptr @mpd_free, align 8
   %8 = load ptr, ptr %data, align 8
-  call void %7(ptr noundef %8) #28
+  call void %7(ptr noundef %8) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
@@ -9812,7 +9812,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_qad
 
 if.then3.i:                                       ; preds = %if.end.i
   %11 = load ptr, ptr @mpd_free, align 8
-  call void %11(ptr noundef nonnull %bb) #28
+  call void %11(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -9820,7 +9820,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qadd_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
@@ -9833,7 +9833,7 @@ entry:
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
   store ptr %bb_data, ptr %data, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   store i8 48, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
   %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
@@ -9884,7 +9884,7 @@ mpd_qadd.exit:                                    ; preds = %if.then.i5, %if.end
 if.then.i:                                        ; preds = %mpd_qadd.exit
   %8 = load ptr, ptr @mpd_free, align 8
   %9 = load ptr, ptr %data, align 8
-  call void %8(ptr noundef %9) #28
+  call void %8(ptr noundef %9) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
@@ -9896,7 +9896,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_qad
 
 if.then3.i:                                       ; preds = %if.end.i
   %12 = load ptr, ptr @mpd_free, align 8
-  call void %12(ptr noundef nonnull %bb) #28
+  call void %12(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -9904,7 +9904,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsub_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
@@ -9916,7 +9916,7 @@ entry:
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
   store ptr %bb_data, ptr %data, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp.i = icmp slt i64 %b, 0
   %storemerge8 = select i1 %cmp.i, i8 49, i8 48
   %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
@@ -9967,7 +9967,7 @@ mpd_qsub.exit:                                    ; preds = %if.then.i6, %if.end
 if.then.i:                                        ; preds = %mpd_qsub.exit
   %7 = load ptr, ptr @mpd_free, align 8
   %8 = load ptr, ptr %data, align 8
-  call void %7(ptr noundef %8) #28
+  call void %7(ptr noundef %8) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
@@ -9979,7 +9979,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_qsu
 
 if.then3.i:                                       ; preds = %if.end.i
   %11 = load ptr, ptr @mpd_free, align 8
-  call void %11(ptr noundef nonnull %bb) #28
+  call void %11(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -9987,7 +9987,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsub_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
@@ -10000,7 +10000,7 @@ entry:
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
   store ptr %bb_data, ptr %data, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   store i8 48, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
   %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
@@ -10053,7 +10053,7 @@ mpd_qsub.exit:                                    ; preds = %if.then.i5, %if.end
 if.then.i:                                        ; preds = %mpd_qsub.exit
   %8 = load ptr, ptr @mpd_free, align 8
   %9 = load ptr, ptr %data, align 8
-  call void %8(ptr noundef %9) #28
+  call void %8(ptr noundef %9) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
@@ -10065,7 +10065,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_qsu
 
 if.then3.i:                                       ; preds = %if.end.i
   %12 = load ptr, ptr @mpd_free, align 8
-  call void %12(ptr noundef nonnull %bb) #28
+  call void %12(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -10073,7 +10073,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_i32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qadd_i32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = sext i32 %b to i64
   tail call void @mpd_qadd_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -10081,7 +10081,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_u32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qadd_u32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = zext i32 %b to i64
   tail call void @mpd_qadd_uint(ptr noundef %result, ptr noundef %a, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -10089,21 +10089,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_i64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qadd_i64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qadd_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qadd_u64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qadd_u64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qadd_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_i32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsub_i32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = sext i32 %b to i64
   tail call void @mpd_qsub_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -10111,7 +10111,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_u32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsub_u32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = zext i32 %b to i64
   tail call void @mpd_qsub_uint(ptr noundef %result, ptr noundef %a, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -10119,21 +10119,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_i64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsub_i64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qsub_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsub_u64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsub_u64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qsub_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv(ptr noundef %q, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qdiv(ptr noundef %q, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i79 = alloca i8, align 1
   %err.i.i66 = alloca i8, align 1
@@ -10178,7 +10178,7 @@ if.end.i30:                                       ; preds = %if.then
   br i1 %cmp4.i.i, label %mpd_qresize.exit.i, label %if.end2.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end.i30
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %aa, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %aa, i64 noundef %cond.i.i, ptr noundef %status) #27
   %tobool.not.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i, label %if.then8, label %mpd_qresize.exit.if.end2_crit_edge.i
 
@@ -10225,7 +10225,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %14 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %13, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %13, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %15 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %15, 0
@@ -10278,11 +10278,11 @@ if.then2.i.i43:                                   ; preds = %if.end.i.i41
   br i1 %cmp4.i.i44, label %if.then5.i.i56, label %if.end2.i45
 
 if.then5.i.i56:                                   ; preds = %if.then2.i.i43
-  %call6.i.i57 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %bb, i64 noundef %cond.i.i37, ptr noundef %status) #28
+  %call6.i.i57 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %bb, i64 noundef %cond.i.i37, ptr noundef %status) #27
   br label %mpd_qresize.exit.i58
 
 if.end8.i.i63:                                    ; preds = %if.end.i.i41
-  %call9.i.i64 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %bb, i64 noundef %cond.i.i37, ptr noundef %status) #28
+  %call9.i.i64 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %bb, i64 noundef %cond.i.i37, ptr noundef %status) #27
   br label %mpd_qresize.exit.i58
 
 mpd_qresize.exit.i58:                             ; preds = %if.end8.i.i63, %if.then5.i.i56
@@ -10332,7 +10332,7 @@ if.then.i.i73:                                    ; preds = %land.lhs.true.i.i70
   store i8 0, ptr %err.i.i66, align 1
   %data.i.i74 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %37 = load ptr, ptr %data.i.i74, align 8
-  %call1.i.i75 = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i66) #28
+  %call1.i.i75 = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i66) #27
   store ptr %call1.i.i75, ptr %data.i.i74, align 8
   %38 = load i8, ptr %err.i.i66, align 1
   %tobool3.i.not.i76 = icmp eq i8 %38, 0
@@ -10415,7 +10415,7 @@ if.then.i.i86:                                    ; preds = %land.lhs.true.i.i83
   store i8 0, ptr %err.i.i79, align 1
   %data.i.i87 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %56 = load ptr, ptr %data.i.i87, align 8
-  %call1.i.i88 = call ptr @mpd_realloc(ptr noundef %56, i64 noundef %55, i64 noundef 8, ptr noundef nonnull %err.i.i79) #28
+  %call1.i.i88 = call ptr @mpd_realloc(ptr noundef %56, i64 noundef %55, i64 noundef 8, ptr noundef nonnull %err.i.i79) #27
   store ptr %call1.i.i88, ptr %data.i.i87, align 8
   %57 = load i8, ptr %err.i.i79, align 1
   %tobool3.i.not.i89 = icmp eq i8 %57, 0
@@ -10453,7 +10453,7 @@ out:                                              ; preds = %if.else, %mpd_seter
 if.then.i50:                                      ; preds = %out
   %65 = load ptr, ptr @mpd_free, align 8
   %66 = load ptr, ptr %data, align 8
-  call void %65(ptr noundef %66) #28
+  call void %65(ptr noundef %66) #27
   %.pre98 = load i8, ptr %aa, align 8
   br label %if.end.i43
 
@@ -10465,7 +10465,7 @@ if.end.i43:                                       ; preds = %if.then.i50, %out
 
 if.then3.i49:                                     ; preds = %if.end.i43
   %69 = load ptr, ptr @mpd_free, align 8
-  call void %69(ptr noundef nonnull %aa) #28
+  call void %69(ptr noundef nonnull %aa) #27
   br label %mpd_del.exit52
 
 mpd_del.exit52:                                   ; preds = %if.then3.i49, %if.end.i43
@@ -10476,7 +10476,7 @@ mpd_del.exit52:                                   ; preds = %if.then3.i49, %if.e
 if.then.i:                                        ; preds = %mpd_del.exit52
   %71 = load ptr, ptr @mpd_free, align 8
   %72 = load ptr, ptr %data6, align 8
-  call void %71(ptr noundef %72) #28
+  call void %71(ptr noundef %72) #27
   %.pre99 = load i8, ptr %bb, align 8
   br label %if.end.i
 
@@ -10488,7 +10488,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %75 = load ptr, ptr @mpd_free, align 8
-  call void %75(ptr noundef nonnull %bb) #28
+  call void %75(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -10496,7 +10496,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qdiv(i32 noundef %action, ptr noundef %q, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qdiv(i32 noundef %action, ptr noundef %q, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i206 = alloca i8, align 1
   %err.i.i193 = alloca i8, align 1
@@ -10564,7 +10564,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %11 = load ptr, ptr %data.i.i.i, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
   %12 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %12, 0
@@ -10590,7 +10590,6 @@ mpd_seterror.exit.i:                              ; preds = %if.then4.i.i.i, %if
 
 if.end.i153:                                      ; preds = %if.then.i151
   %and.i3212.i = xor i8 %5, %a.val
-  %xor11.i = and i8 %and.i3212.i, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i13.i)
   %18 = load i8, ptr %q, align 8
   %19 = and i8 %18, 32
@@ -10608,7 +10607,7 @@ if.then.i.i19.i:                                  ; preds = %land.lhs.true.i.i16
   store i8 0, ptr %err.i.i13.i, align 1
   %data.i.i20.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %22 = load ptr, ptr %data.i.i20.i, align 8
-  %call1.i.i21.i = call ptr @mpd_realloc(ptr noundef %22, i64 noundef %21, i64 noundef 8, ptr noundef nonnull %err.i.i13.i) #28
+  %call1.i.i21.i = call ptr @mpd_realloc(ptr noundef %22, i64 noundef %21, i64 noundef 8, ptr noundef nonnull %err.i.i13.i) #27
   store ptr %call1.i.i21.i, ptr %data.i.i20.i, align 8
   %23 = load i8, ptr %err.i.i13.i, align 1
   %tobool3.i.not.i22.i = icmp eq i8 %23, 0
@@ -10622,8 +10621,8 @@ if.then4.i.i23.i:                                 ; preds = %if.then.i.i19.i
 mpd_setspecial.exit.i:                            ; preds = %if.then4.i.i23.i, %if.then.i.i19.i, %land.lhs.true.i.i16.i, %if.end.i153
   %25 = load i8, ptr %q, align 8
   %26 = and i8 %25, -16
-  %or10.i.i = or disjoint i8 %xor11.i, %26
-  %or611.i.i = or disjoint i8 %or10.i.i, 2
+  %or10.i.i = and i8 %and.i3212.i, 3
+  %or611.i.i = or disjoint i8 %26, %or10.i.i
   store i8 %or611.i.i, ptr %q, align 8
   %exp.i15.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i15.i, i8 0, i64 24, i1 false)
@@ -10655,7 +10654,7 @@ if.then.i.i29.i:                                  ; preds = %land.lhs.true.i.i26
   store i8 0, ptr %err.i.i24.i, align 1
   %data.i.i30.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %33 = load ptr, ptr %data.i.i30.i, align 8
-  %call1.i.i31.i = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %err.i.i24.i) #28
+  %call1.i.i31.i = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %err.i.i24.i) #27
   store ptr %call1.i.i31.i, ptr %data.i.i30.i, align 8
   %34 = load i8, ptr %err.i.i24.i, align 1
   %tobool3.i.not.i32.i = icmp eq i8 %34, 0
@@ -10730,7 +10729,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i157 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %54 = load ptr, ptr %data.i.i157, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %54, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %54, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i157, align 8
   %55 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %55, 0
@@ -10773,7 +10772,7 @@ if.then.i.i164:                                   ; preds = %land.lhs.true.i.i16
   store i8 0, ptr %err.i.i158, align 1
   %data.i.i165 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %65 = load ptr, ptr %data.i.i165, align 8
-  %call1.i.i166 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %64, i64 noundef 8, ptr noundef nonnull %err.i.i158) #28
+  %call1.i.i166 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %64, i64 noundef 8, ptr noundef nonnull %err.i.i158) #27
   store ptr %call1.i.i166, ptr %data.i.i165, align 8
   %66 = load i8, ptr %err.i.i158, align 1
   %tobool3.i.not.i167 = icmp eq i8 %66, 0
@@ -10825,7 +10824,7 @@ if.then.i.i175:                                   ; preds = %land.lhs.true.i.i17
   store i8 0, ptr %err.i.i169, align 1
   %data.i.i176 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %77 = load ptr, ptr %data.i.i176, align 8
-  %call1.i.i177 = call ptr @mpd_realloc(ptr noundef %77, i64 noundef %76, i64 noundef 8, ptr noundef nonnull %err.i.i169) #28
+  %call1.i.i177 = call ptr @mpd_realloc(ptr noundef %77, i64 noundef %76, i64 noundef 8, ptr noundef nonnull %err.i.i169) #27
   store ptr %call1.i.i177, ptr %data.i.i176, align 8
   %78 = load i8, ptr %err.i.i169, align 1
   %tobool3.i.not.i178 = icmp eq i8 %78, 0
@@ -10900,7 +10899,7 @@ if.then.i.i187:                                   ; preds = %land.lhs.true.i.i18
   store i8 0, ptr %err.i.i180, align 1
   %data.i.i188 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %94 = load ptr, ptr %data.i.i188, align 8
-  %call1.i.i189 = call ptr @mpd_realloc(ptr noundef %94, i64 noundef %93, i64 noundef 8, ptr noundef nonnull %err.i.i180) #28
+  %call1.i.i189 = call ptr @mpd_realloc(ptr noundef %94, i64 noundef %93, i64 noundef 8, ptr noundef nonnull %err.i.i180) #27
   store ptr %call1.i.i189, ptr %data.i.i188, align 8
   %95 = load i8, ptr %err.i.i180, align 1
   %tobool3.i.not.i190 = icmp eq i8 %95, 0
@@ -10971,11 +10970,11 @@ if.then2.i264:                                    ; preds = %if.end.i258
   br i1 %cmp4.i266, label %if.then5.i268, label %if.end75
 
 if.then5.i268:                                    ; preds = %if.then2.i264
-  %call6.i269 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i255, ptr noundef %status) #28
+  %call6.i269 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i255, ptr noundef %status) #27
   br label %mpd_qresize.exit272
 
 if.end8.i262:                                     ; preds = %if.end.i258
-  %call9.i263 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i255, ptr noundef %status) #28
+  %call9.i263 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i255, ptr noundef %status) #27
   br label %mpd_qresize.exit272
 
 mpd_qresize.exit272:                              ; preds = %if.end8.i262, %if.then5.i268
@@ -11004,7 +11003,7 @@ if.then.i.i200:                                   ; preds = %land.lhs.true.i.i19
   store i8 0, ptr %err.i.i193, align 1
   %data.i.i201 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %111 = load ptr, ptr %data.i.i201, align 8
-  %call1.i.i202 = call ptr @mpd_realloc(ptr noundef %111, i64 noundef %110, i64 noundef 8, ptr noundef nonnull %err.i.i193) #28
+  %call1.i.i202 = call ptr @mpd_realloc(ptr noundef %111, i64 noundef %110, i64 noundef 8, ptr noundef nonnull %err.i.i193) #27
   store ptr %call1.i.i202, ptr %data.i.i201, align 8
   %112 = load i8, ptr %err.i.i193, align 1
   %tobool3.i.not.i203 = icmp eq i8 %112, 0
@@ -11042,7 +11041,7 @@ if.then79:                                        ; preds = %if.end75
   %data83 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 5
   %122 = load ptr, ptr %data83, align 8
   %123 = load i64, ptr %122, align 8
-  %call84 = call i64 @_mpd_shortdiv(ptr noundef %119, ptr noundef %120, i64 noundef %121, i64 noundef %123) #28
+  %call84 = call i64 @_mpd_shortdiv(ptr noundef %119, ptr noundef %120, i64 noundef %121, i64 noundef %123) #27
   br label %if.end121
 
 if.else85:                                        ; preds = %if.end75
@@ -11057,7 +11056,7 @@ if.then89:                                        ; preds = %if.else85
   %data92 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 5
   %126 = load ptr, ptr %data92, align 8
   %127 = load i64, ptr %len55, align 8
-  %call95 = call i32 @_mpd_basedivmod(ptr noundef %124, ptr noundef null, ptr noundef %125, ptr noundef %126, i64 noundef %127, i64 noundef %118) #28
+  %call95 = call i32 @_mpd_basedivmod(ptr noundef %124, ptr noundef null, ptr noundef %125, ptr noundef %126, i64 noundef %127, i64 noundef %118) #27
   %cmp96 = icmp slt i32 %call95, 0
   br i1 %cmp96, label %if.then98, label %if.end99
 
@@ -11107,7 +11106,7 @@ if.then.i.i213:                                   ; preds = %land.lhs.true.i.i21
   store i8 0, ptr %err.i.i206, align 1
   %data.i.i214 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %135 = load ptr, ptr %data.i.i214, align 8
-  %call1.i.i215 = call ptr @mpd_realloc(ptr noundef %135, i64 noundef %134, i64 noundef 8, ptr noundef nonnull %err.i.i206) #28
+  %call1.i.i215 = call ptr @mpd_realloc(ptr noundef %135, i64 noundef %134, i64 noundef 8, ptr noundef nonnull %err.i.i206) #27
   store ptr %call1.i.i215, ptr %data.i.i214, align 8
   %136 = load i8, ptr %err.i.i206, align 1
   %tobool3.i.not.i216 = icmp eq i8 %136, 0
@@ -11133,7 +11132,7 @@ mpd_setspecial.exit218:                           ; preds = %if.then114, %land.l
 if.then.i238:                                     ; preds = %mpd_setspecial.exit218
   %141 = load ptr, ptr @mpd_free, align 8
   %142 = load ptr, ptr %data107, align 8
-  call void %141(ptr noundef %142) #28
+  call void %141(ptr noundef %142) #27
   %.pre227 = load i8, ptr %r, align 8
   br label %if.end.i231
 
@@ -11145,7 +11144,7 @@ if.end.i231:                                      ; preds = %if.then.i238, %mpd_
 
 if.then3.i237:                                    ; preds = %if.end.i231
   %145 = load ptr, ptr @mpd_free, align 8
-  call void %145(ptr noundef nonnull %r) #28
+  call void %145(ptr noundef nonnull %r) #27
   br label %finish
 
 if.end115:                                        ; preds = %lor.lhs.false111
@@ -11161,7 +11160,7 @@ if.end115:                                        ; preds = %lor.lhs.false111
 
 if.then.i220:                                     ; preds = %if.end115
   %150 = load ptr, ptr @mpd_free, align 8
-  call void %150(ptr noundef nonnull %146) #28
+  call void %150(ptr noundef nonnull %146) #27
   %.pre228 = load i8, ptr %r, align 8
   br label %if.end.i213
 
@@ -11173,7 +11172,7 @@ if.end.i213:                                      ; preds = %if.then.i220, %if.e
 
 if.then3.i219:                                    ; preds = %if.end.i213
   %153 = load ptr, ptr @mpd_free, align 8
-  call void %153(ptr noundef nonnull %r) #28
+  call void %153(ptr noundef nonnull %r) #27
   br label %mpd_del.exit222
 
 mpd_del.exit222:                                  ; preds = %if.then3.i219, %if.end.i213
@@ -11222,11 +11221,11 @@ if.then2.i:                                       ; preds = %if.end.i243
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i243
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_real_size.exit, %if.end8.i, %if.then5.i
@@ -11281,7 +11280,7 @@ finish:                                           ; preds = %if.end.i231, %if.th
 if.then.i:                                        ; preds = %finish
   %166 = load ptr, ptr @mpd_free, align 8
   %167 = load ptr, ptr %data, align 8
-  call void %166(ptr noundef %167) #28
+  call void %166(ptr noundef %167) #27
   %.pre229 = load i8, ptr %aligned, align 8
   br label %if.end.i
 
@@ -11293,7 +11292,7 @@ if.end.i:                                         ; preds = %if.then.i, %finish
 
 if.then3.i:                                       ; preds = %if.end.i
   %170 = load ptr, ptr @mpd_free, align 8
-  call void %170(ptr noundef nonnull %aligned) #28
+  call void %170(ptr noundef nonnull %aligned) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -11305,7 +11304,7 @@ return:                                           ; preds = %_settriple.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdivmod(ptr noundef %q, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qdivmod(ptr noundef %q, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i176 = alloca i8, align 1
   %err.i.i162 = alloca i8, align 1
@@ -11357,11 +11356,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -11429,7 +11428,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i53 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %25 = load ptr, ptr %data.i.i53, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %25, i64 noundef %24, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %25, i64 noundef %24, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i53, align 8
   %26 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %26, 0
@@ -11468,7 +11467,7 @@ if.then.i.i61:                                    ; preds = %land.lhs.true.i.i58
   store i8 0, ptr %err.i.i54, align 1
   %data.i.i62 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %34 = load ptr, ptr %data.i.i62, align 8
-  %call1.i.i63 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %33, i64 noundef 8, ptr noundef nonnull %err.i.i54) #28
+  %call1.i.i63 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %33, i64 noundef 8, ptr noundef nonnull %err.i.i54) #27
   store ptr %call1.i.i63, ptr %data.i.i62, align 8
   %35 = load i8, ptr %err.i.i54, align 1
   %tobool3.i.not.i64 = icmp eq i8 %35, 0
@@ -11508,7 +11507,7 @@ if.then.i.i74:                                    ; preds = %land.lhs.true.i.i71
   store i8 0, ptr %err.i.i67, align 1
   %data.i.i75 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %43 = load ptr, ptr %data.i.i75, align 8
-  %call1.i.i76 = call ptr @mpd_realloc(ptr noundef %43, i64 noundef %42, i64 noundef 8, ptr noundef nonnull %err.i.i67) #28
+  %call1.i.i76 = call ptr @mpd_realloc(ptr noundef %43, i64 noundef %42, i64 noundef 8, ptr noundef nonnull %err.i.i67) #27
   store ptr %call1.i.i76, ptr %data.i.i75, align 8
   %44 = load i8, ptr %err.i.i67, align 1
   %tobool3.i.not.i77 = icmp eq i8 %44, 0
@@ -11560,11 +11559,11 @@ if.then2.i.i89:                                   ; preds = %if.end.i.i87
   br i1 %cmp4.i.i90, label %if.then5.i.i102, label %if.end2.i91
 
 if.then5.i.i102:                                  ; preds = %if.then2.i.i89
-  %call6.i.i103 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i83, ptr noundef %status) #28
+  %call6.i.i103 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i83, ptr noundef %status) #27
   br label %mpd_qresize.exit.i104
 
 if.end8.i.i109:                                   ; preds = %if.end.i.i87
-  %call9.i.i110 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i83, ptr noundef %status) #28
+  %call9.i.i110 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i83, ptr noundef %status) #27
   br label %mpd_qresize.exit.i104
 
 mpd_qresize.exit.i104:                            ; preds = %if.end8.i.i109, %if.then5.i.i102
@@ -11621,7 +11620,7 @@ if.then.i.i118:                                   ; preds = %land.lhs.true.i.i11
   store i8 0, ptr %err.i.i112, align 1
   %data.i.i119 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %66 = load ptr, ptr %data.i.i119, align 8
-  %call1.i.i120 = call ptr @mpd_realloc(ptr noundef %66, i64 noundef %65, i64 noundef 8, ptr noundef nonnull %err.i.i112) #28
+  %call1.i.i120 = call ptr @mpd_realloc(ptr noundef %66, i64 noundef %65, i64 noundef 8, ptr noundef nonnull %err.i.i112) #27
   store ptr %call1.i.i120, ptr %data.i.i119, align 8
   %67 = load i8, ptr %err.i.i112, align 1
   %tobool3.i.not.i121 = icmp eq i8 %67, 0
@@ -11664,7 +11663,7 @@ if.then.i.i131:                                   ; preds = %land.lhs.true.i.i12
   store i8 0, ptr %err.i.i123, align 1
   %data.i.i132 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %77 = load ptr, ptr %data.i.i132, align 8
-  %call1.i.i133 = call ptr @mpd_realloc(ptr noundef %77, i64 noundef %76, i64 noundef 8, ptr noundef nonnull %err.i.i123) #28
+  %call1.i.i133 = call ptr @mpd_realloc(ptr noundef %77, i64 noundef %76, i64 noundef 8, ptr noundef nonnull %err.i.i123) #27
   store ptr %call1.i.i133, ptr %data.i.i132, align 8
   %78 = load i8, ptr %err.i.i123, align 1
   %tobool3.i.not.i134 = icmp eq i8 %78, 0
@@ -11697,7 +11696,7 @@ _settriple.exit:                                  ; preds = %if.end25, %land.lhs
   br label %return
 
 if.end26:                                         ; preds = %if.end18
-  tail call void @abort() #29
+  tail call void @abort() #28
   unreachable
 
 if.end27:                                         ; preds = %entry
@@ -11740,7 +11739,7 @@ if.then.i.i143:                                   ; preds = %land.lhs.true.i.i14
   store i8 0, ptr %err.i.i136, align 1
   %data.i.i144 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %97 = load ptr, ptr %data.i.i144, align 8
-  %call1.i.i145 = call ptr @mpd_realloc(ptr noundef %97, i64 noundef %96, i64 noundef 8, ptr noundef nonnull %err.i.i136) #28
+  %call1.i.i145 = call ptr @mpd_realloc(ptr noundef %97, i64 noundef %96, i64 noundef 8, ptr noundef nonnull %err.i.i136) #27
   store ptr %call1.i.i145, ptr %data.i.i144, align 8
   %98 = load i8, ptr %err.i.i136, align 1
   %tobool3.i.not.i146 = icmp eq i8 %98, 0
@@ -11776,7 +11775,7 @@ if.then.i.i156:                                   ; preds = %land.lhs.true.i.i15
   store i8 0, ptr %err.i.i149, align 1
   %data.i.i157 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %106 = load ptr, ptr %data.i.i157, align 8
-  %call1.i.i158 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i149) #28
+  %call1.i.i158 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i149) #27
   store ptr %call1.i.i158, ptr %data.i.i157, align 8
   %107 = load i8, ptr %err.i.i149, align 1
   %tobool3.i.not.i159 = icmp eq i8 %107, 0
@@ -11818,7 +11817,7 @@ if.then.i.i170:                                   ; preds = %land.lhs.true.i.i16
   store i8 0, ptr %err.i.i162, align 1
   %data.i.i171 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %116 = load ptr, ptr %data.i.i171, align 8
-  %call1.i.i172 = call ptr @mpd_realloc(ptr noundef %116, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %err.i.i162) #28
+  %call1.i.i172 = call ptr @mpd_realloc(ptr noundef %116, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %err.i.i162) #27
   store ptr %call1.i.i172, ptr %data.i.i171, align 8
   %117 = load i8, ptr %err.i.i162, align 1
   %tobool3.i.not.i173 = icmp eq i8 %117, 0
@@ -11855,7 +11854,7 @@ if.then.i.i183:                                   ; preds = %land.lhs.true.i.i18
   store i8 0, ptr %err.i.i176, align 1
   %data.i.i184 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %125 = load ptr, ptr %data.i.i184, align 8
-  %call1.i.i185 = call ptr @mpd_realloc(ptr noundef %125, i64 noundef %124, i64 noundef 8, ptr noundef nonnull %err.i.i176) #28
+  %call1.i.i185 = call ptr @mpd_realloc(ptr noundef %125, i64 noundef %124, i64 noundef 8, ptr noundef nonnull %err.i.i176) #27
   store ptr %call1.i.i185, ptr %data.i.i184, align 8
   %126 = load i8, ptr %err.i.i176, align 1
   %tobool3.i.not.i186 = icmp eq i8 %126, 0
@@ -11890,10 +11889,10 @@ return:                                           ; preds = %if.end2.i, %mpd_qre
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #16
+declare void @abort() local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qdivmod(ptr noundef %q, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qdivmod(ptr noundef %q, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i260 = alloca i8, align 1
   %err.i.i249 = alloca i8, align 1
@@ -11952,11 +11951,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -12013,7 +12012,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i182 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %26 = load ptr, ptr %data.i.i182, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i182, align 8
   %27 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %27, 0
@@ -12093,11 +12092,11 @@ if.then2.i.i192:                                  ; preds = %if.end.i.i190
   br i1 %cmp4.i.i193, label %if.then5.i.i205, label %if.end2.i194
 
 if.then5.i.i205:                                  ; preds = %if.then2.i.i192
-  %call6.i.i206 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i186, ptr noundef %status) #28
+  %call6.i.i206 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i186, ptr noundef %status) #27
   br label %mpd_qresize.exit.i207
 
 if.end8.i.i212:                                   ; preds = %if.end.i.i190
-  %call9.i.i213 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i186, ptr noundef %status) #28
+  %call9.i.i213 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i186, ptr noundef %status) #27
   br label %mpd_qresize.exit.i207
 
 mpd_qresize.exit.i207:                            ; preds = %if.end8.i.i212, %if.then5.i.i205
@@ -12151,7 +12150,7 @@ if.then.i.i228:                                   ; preds = %land.lhs.true.i.i22
   store i8 0, ptr %err.i.i215, align 1
   %data.i.i229 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %54 = load ptr, ptr %data.i.i229, align 8
-  %call1.i.i230 = call ptr @mpd_realloc(ptr noundef %54, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %err.i.i215) #28
+  %call1.i.i230 = call ptr @mpd_realloc(ptr noundef %54, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %err.i.i215) #27
   store ptr %call1.i.i230, ptr %data.i.i229, align 8
   %55 = load i8, ptr %err.i.i215, align 1
   %tobool3.i.not.i231 = icmp eq i8 %55, 0
@@ -12247,11 +12246,11 @@ if.then2.i270:                                    ; preds = %if.end.i264
   br i1 %cmp4.i272, label %if.then5.i274, label %if.end87
 
 if.then5.i274:                                    ; preds = %if.then2.i270
-  %call6.i275 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i261, ptr noundef %status) #28
+  %call6.i275 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i261, ptr noundef %status) #27
   br label %mpd_qresize.exit278
 
 if.end8.i268:                                     ; preds = %if.end.i264
-  %call9.i269 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i261, ptr noundef %status) #28
+  %call9.i269 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i261, ptr noundef %status) #27
   br label %mpd_qresize.exit278
 
 mpd_qresize.exit278:                              ; preds = %if.end8.i268, %if.then5.i274
@@ -12292,11 +12291,11 @@ if.then2.i244:                                    ; preds = %if.end.i238
   br i1 %cmp4.i246, label %if.then5.i248, label %if.end100
 
 if.then5.i248:                                    ; preds = %if.then2.i244
-  %call6.i249 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i235, ptr noundef %status) #28
+  %call6.i249 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i235, ptr noundef %status) #27
   br label %mpd_qresize.exit252
 
 if.end8.i242:                                     ; preds = %if.end.i238
-  %call9.i243 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i235, ptr noundef %status) #28
+  %call9.i243 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i235, ptr noundef %status) #27
   br label %mpd_qresize.exit252
 
 mpd_qresize.exit252:                              ; preds = %if.end8.i242, %if.then5.i248
@@ -12342,7 +12341,7 @@ if.else116:                                       ; preds = %if.then104
   %data120 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 5
   %84 = load ptr, ptr %data120, align 8
   %85 = load i64, ptr %84, align 8
-  %call122 = call i64 @_mpd_shortdiv(ptr noundef %77, ptr noundef %83, i64 noundef %76, i64 noundef %85) #28
+  %call122 = call i64 @_mpd_shortdiv(ptr noundef %77, ptr noundef %83, i64 noundef %76, i64 noundef %85) #27
   %data123 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %86 = load ptr, ptr %data123, align 8
   store i64 %call122, ptr %86, align 8
@@ -12362,7 +12361,7 @@ if.then130:                                       ; preds = %if.else126
   %data134 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 5
   %90 = load ptr, ptr %data134, align 8
   %91 = load i64, ptr %len67, align 8
-  %call137 = call i32 @_mpd_basedivmod(ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90, i64 noundef %91, i64 noundef %75) #28
+  %call137 = call i32 @_mpd_basedivmod(ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90, i64 noundef %91, i64 noundef %75) #27
   %cmp138 = icmp eq i32 %call137, -1
   br i1 %cmp138, label %nanresult.sink.split, label %if.end153
 
@@ -12427,11 +12426,11 @@ if.then2.i218:                                    ; preds = %if.end.i212
   br i1 %cmp4.i220, label %if.then5.i222, label %mpd_qresize.exit226
 
 if.then5.i222:                                    ; preds = %if.then2.i218
-  %call6.i223 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i209, ptr noundef %status) #28
+  %call6.i223 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i209, ptr noundef %status) #27
   br label %mpd_qresize.exit226
 
 if.end8.i216:                                     ; preds = %if.end.i212
-  %call9.i217 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i209, ptr noundef %status) #28
+  %call9.i217 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i209, ptr noundef %status) #27
   br label %mpd_qresize.exit226
 
 mpd_qresize.exit226:                              ; preds = %if.then2.i218, %_mpd_real_size.exit, %if.end8.i216, %if.then5.i222
@@ -12489,11 +12488,11 @@ if.then2.i:                                       ; preds = %if.end.i197
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i197
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_real_size.exit248, %if.end8.i, %if.then5.i
@@ -12516,7 +12515,7 @@ out:                                              ; preds = %mpd_setspecial.exit
 if.then.i:                                        ; preds = %out
   %117 = load ptr, ptr @mpd_free, align 8
   %118 = load ptr, ptr %data, align 8
-  call void %117(ptr noundef %118) #28
+  call void %117(ptr noundef %118) #27
   %.pre285 = load i8, ptr %aligned, align 8
   br label %if.end.i
 
@@ -12528,7 +12527,7 @@ if.end.i:                                         ; preds = %if.then.i, %out
 
 if.then3.i:                                       ; preds = %if.end.i
   %121 = load ptr, ptr @mpd_free, align 8
-  call void %121(ptr noundef nonnull %aligned) #28
+  call void %121(ptr noundef nonnull %aligned) #27
   br label %return
 
 nanresult.sink.split:                             ; preds = %mpd_qresize.exit226, %if.then130, %if.end39
@@ -12556,7 +12555,7 @@ if.then.i.i255:                                   ; preds = %land.lhs.true.i.i25
   store i8 0, ptr %err.i.i249, align 1
   %data.i.i256 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %127 = load ptr, ptr %data.i.i256, align 8
-  %call1.i.i257 = call ptr @mpd_realloc(ptr noundef %127, i64 noundef %126, i64 noundef 8, ptr noundef nonnull %err.i.i249) #28
+  %call1.i.i257 = call ptr @mpd_realloc(ptr noundef %127, i64 noundef %126, i64 noundef 8, ptr noundef nonnull %err.i.i249) #27
   store ptr %call1.i.i257, ptr %data.i.i256, align 8
   %128 = load i8, ptr %err.i.i249, align 1
   %tobool3.i.not.i258 = icmp eq i8 %128, 0
@@ -12592,7 +12591,7 @@ if.then.i.i267:                                   ; preds = %land.lhs.true.i.i26
   store i8 0, ptr %err.i.i260, align 1
   %data.i.i268 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %136 = load ptr, ptr %data.i.i268, align 8
-  %call1.i.i269 = call ptr @mpd_realloc(ptr noundef %136, i64 noundef %135, i64 noundef 8, ptr noundef nonnull %err.i.i260) #28
+  %call1.i.i269 = call ptr @mpd_realloc(ptr noundef %136, i64 noundef %135, i64 noundef 8, ptr noundef nonnull %err.i.i260) #27
   store ptr %call1.i.i269, ptr %data.i.i268, align 8
   %137 = load i8, ptr %err.i.i260, align 1
   %tobool3.i.not.i270 = icmp eq i8 %137, 0
@@ -12618,7 +12617,7 @@ return:                                           ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdivint(ptr noundef %q, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qdivint(ptr noundef %q, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i72 = alloca i8, align 1
   %err.i.i59 = alloca i8, align 1
@@ -12680,7 +12679,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i36 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %12 = load ptr, ptr %data.i.i36, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i36, align 8
   %13 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %13, 0
@@ -12722,7 +12721,7 @@ if.then.i.i43:                                    ; preds = %land.lhs.true.i.i40
   store i8 0, ptr %err.i.i37, align 1
   %data.i.i44 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %23 = load ptr, ptr %data.i.i44, align 8
-  %call1.i.i45 = call ptr @mpd_realloc(ptr noundef %23, i64 noundef %22, i64 noundef 8, ptr noundef nonnull %err.i.i37) #28
+  %call1.i.i45 = call ptr @mpd_realloc(ptr noundef %23, i64 noundef %22, i64 noundef 8, ptr noundef nonnull %err.i.i37) #27
   store ptr %call1.i.i45, ptr %data.i.i44, align 8
   %24 = load i8, ptr %err.i.i37, align 1
   %tobool3.i.not.i46 = icmp eq i8 %24, 0
@@ -12765,7 +12764,7 @@ if.then.i.i54:                                    ; preds = %land.lhs.true.i.i51
   store i8 0, ptr %err.i.i48, align 1
   %data.i.i55 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %32 = load ptr, ptr %data.i.i55, align 8
-  %call1.i.i56 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i48) #28
+  %call1.i.i56 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i48) #27
   store ptr %call1.i.i56, ptr %data.i.i55, align 8
   %33 = load i8, ptr %err.i.i48, align 1
   %tobool3.i.not.i57 = icmp eq i8 %33, 0
@@ -12798,7 +12797,7 @@ _settriple.exit:                                  ; preds = %if.then22, %land.lh
   br label %return
 
 if.end23:                                         ; preds = %if.end19
-  call void @abort() #29
+  call void @abort() #28
   unreachable
 
 if.end24:                                         ; preds = %entry
@@ -12841,7 +12840,7 @@ if.then.i.i66:                                    ; preds = %land.lhs.true.i.i63
   store i8 0, ptr %err.i.i59, align 1
   %data.i.i67 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %52 = load ptr, ptr %data.i.i67, align 8
-  %call1.i.i68 = call ptr @mpd_realloc(ptr noundef %52, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %err.i.i59) #28
+  %call1.i.i68 = call ptr @mpd_realloc(ptr noundef %52, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %err.i.i59) #27
   store ptr %call1.i.i68, ptr %data.i.i67, align 8
   %53 = load i8, ptr %err.i.i59, align 1
   %tobool3.i.not.i69 = icmp eq i8 %53, 0
@@ -12883,7 +12882,7 @@ if.then.i.i80:                                    ; preds = %land.lhs.true.i.i77
   store i8 0, ptr %err.i.i72, align 1
   %data.i.i81 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %63 = load ptr, ptr %data.i.i81, align 8
-  %call1.i.i82 = call ptr @mpd_realloc(ptr noundef %63, i64 noundef %62, i64 noundef 8, ptr noundef nonnull %err.i.i72) #28
+  %call1.i.i82 = call ptr @mpd_realloc(ptr noundef %63, i64 noundef %62, i64 noundef 8, ptr noundef nonnull %err.i.i72) #27
   store ptr %call1.i.i82, ptr %data.i.i81, align 8
   %64 = load i8, ptr %err.i.i72, align 1
   %tobool3.i.not.i83 = icmp eq i8 %64, 0
@@ -12917,7 +12916,7 @@ if.end32:                                         ; preds = %if.end24
 if.then.i:                                        ; preds = %if.end32
   %70 = load ptr, ptr @mpd_free, align 8
   %71 = load ptr, ptr %data, align 8
-  call void %70(ptr noundef %71) #28
+  call void %70(ptr noundef %71) #27
   %.pre = load i8, ptr %r, align 8
   br label %if.end.i
 
@@ -12929,7 +12928,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end3
 
 if.then3.i:                                       ; preds = %if.end.i
   %74 = load ptr, ptr @mpd_free, align 8
-  call void %74(ptr noundef nonnull %r) #28
+  call void %74(ptr noundef nonnull %r) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -12941,7 +12940,7 @@ return:                                           ; preds = %mpd_seterror.exit71
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qdiv_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
@@ -12953,7 +12952,7 @@ entry:
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
   store ptr %bb_data, ptr %data, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp.i = icmp slt i64 %b, 0
   %storemerge6 = select i1 %cmp.i, i8 49, i8 48
   %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
@@ -12973,7 +12972,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @mpd_free, align 8
   %2 = load ptr, ptr %data, align 8
-  call void %1(ptr noundef %2) #28
+  call void %1(ptr noundef %2) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
@@ -12985,7 +12984,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr @mpd_free, align 8
-  call void %5(ptr noundef nonnull %bb) #28
+  call void %5(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -12993,7 +12992,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qdiv_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
@@ -13006,7 +13005,7 @@ entry:
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
   store ptr %bb_data, ptr %data, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   store i8 48, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
   %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
@@ -13028,7 +13027,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr @mpd_free, align 8
   %3 = load ptr, ptr %data, align 8
-  call void %2(ptr noundef %3) #28
+  call void %2(ptr noundef %3) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
@@ -13040,7 +13039,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr @mpd_free, align 8
-  call void %6(ptr noundef nonnull %bb) #28
+  call void %6(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -13048,7 +13047,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_i32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qdiv_i32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = sext i32 %b to i64
   tail call void @mpd_qdiv_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -13056,7 +13055,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_u32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qdiv_u32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = zext i32 %b to i64
   tail call void @mpd_qdiv_uint(ptr noundef %result, ptr noundef %a, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -13064,21 +13063,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_i64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qdiv_i64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qdiv_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qdiv_u64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qdiv_u64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qdiv_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qexp(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qexp(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i101 = alloca i8, align 1
   %err.i.i76 = alloca i8, align 1
@@ -13128,7 +13127,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %8 = load ptr, ptr %data.i.i65, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i65, align 8
   %9 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %9, 0
@@ -13177,7 +13176,7 @@ if.then.i.i71:                                    ; preds = %land.lhs.true.i.i68
   store i8 0, ptr %err.i.i66, align 1
   %data.i.i72 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %20 = load ptr, ptr %data.i.i72, align 8
-  %call1.i.i73 = call ptr @mpd_realloc(ptr noundef %20, i64 noundef %19, i64 noundef 8, ptr noundef nonnull %err.i.i66) #28
+  %call1.i.i73 = call ptr @mpd_realloc(ptr noundef %20, i64 noundef %19, i64 noundef 8, ptr noundef nonnull %err.i.i66) #27
   store ptr %call1.i.i73, ptr %data.i.i72, align 8
   %21 = load i8, ptr %err.i.i66, align 1
   %tobool3.i.not.i74 = icmp eq i8 %21, 0
@@ -13227,7 +13226,7 @@ if.then.i.i88:                                    ; preds = %land.lhs.true.i.i85
   store i8 0, ptr %err.i.i76, align 1
   %data.i.i89 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %33 = load ptr, ptr %data.i.i89, align 8
-  %call1.i.i90 = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %err.i.i76) #28
+  %call1.i.i90 = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %err.i.i76) #27
   store ptr %call1.i.i90, ptr %data.i.i89, align 8
   %34 = load i8, ptr %err.i.i76, align 1
   %tobool3.i.not.i91 = icmp eq i8 %34, 0
@@ -13314,7 +13313,7 @@ if.end.i95:                                       ; preds = %if.then36
   br i1 %cmp4.i.i, label %mpd_qresize.exit.i, label %if.end2.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end.i95
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %aa, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %aa, i64 noundef %cond.i.i, ptr noundef %status) #27
   %tobool.not.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i, label %if.then39, label %mpd_qresize.exit.if.end2_crit_edge.i
 
@@ -13361,7 +13360,7 @@ if.then.i.i107:                                   ; preds = %land.lhs.true.i.i10
   store i8 0, ptr %err.i.i101, align 1
   %data.i.i108 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %55 = load ptr, ptr %data.i.i108, align 8
-  %call1.i.i109 = call ptr @mpd_realloc(ptr noundef %55, i64 noundef %54, i64 noundef 8, ptr noundef nonnull %err.i.i101) #28
+  %call1.i.i109 = call ptr @mpd_realloc(ptr noundef %55, i64 noundef %54, i64 noundef 8, ptr noundef nonnull %err.i.i101) #27
   store ptr %call1.i.i109, ptr %data.i.i108, align 8
   %56 = load i8, ptr %err.i.i101, align 1
   %tobool3.i.not.i110 = icmp eq i8 %56, 0
@@ -13627,7 +13626,7 @@ if.end66:                                         ; preds = %mpd_qcmp.exit.threa
 if.then.i139:                                     ; preds = %mpd_check_underflow.exit
   %119 = load ptr, ptr @mpd_free, align 8
   %120 = load ptr, ptr %data, align 8
-  call void %119(ptr noundef %120) #28
+  call void %119(ptr noundef %120) #27
   %.pre198 = load i8, ptr %t1, align 8
   br label %if.end.i132
 
@@ -13639,7 +13638,7 @@ if.end.i132:                                      ; preds = %if.then.i139, %mpd_
 
 if.then3.i138:                                    ; preds = %if.end.i132
   %123 = load ptr, ptr @mpd_free, align 8
-  call void %123(ptr noundef nonnull %t1) #28
+  call void %123(ptr noundef nonnull %t1) #27
   br label %mpd_del.exit141
 
 mpd_del.exit141:                                  ; preds = %if.then3.i138, %if.end.i132
@@ -13650,7 +13649,7 @@ mpd_del.exit141:                                  ; preds = %if.then3.i138, %if.
 if.then.i121:                                     ; preds = %mpd_del.exit141
   %125 = load ptr, ptr @mpd_free, align 8
   %126 = load ptr, ptr %data20, align 8
-  call void %125(ptr noundef %126) #28
+  call void %125(ptr noundef %126) #27
   %.pre199 = load i8, ptr %t2, align 8
   br label %if.end.i114
 
@@ -13662,7 +13661,7 @@ if.end.i114:                                      ; preds = %if.then.i121, %mpd_
 
 if.then3.i120:                                    ; preds = %if.end.i114
   %129 = load ptr, ptr @mpd_free, align 8
-  call void %129(ptr noundef nonnull %t2) #28
+  call void %129(ptr noundef nonnull %t2) #27
   br label %mpd_del.exit123
 
 mpd_del.exit123:                                  ; preds = %if.then3.i120, %if.end.i114
@@ -13673,7 +13672,7 @@ mpd_del.exit123:                                  ; preds = %if.then3.i120, %if.
 if.then.i103:                                     ; preds = %mpd_del.exit123
   %131 = load ptr, ptr @mpd_free, align 8
   %132 = load ptr, ptr %data27, align 8
-  call void %131(ptr noundef %132) #28
+  call void %131(ptr noundef %132) #27
   %.pre200 = load i8, ptr %ulp, align 8
   br label %if.end.i96
 
@@ -13685,7 +13684,7 @@ if.end.i96:                                       ; preds = %if.then.i103, %mpd_
 
 if.then3.i102:                                    ; preds = %if.end.i96
   %135 = load ptr, ptr @mpd_free, align 8
-  call void %135(ptr noundef nonnull %ulp) #28
+  call void %135(ptr noundef nonnull %ulp) #27
   br label %mpd_del.exit105
 
 mpd_del.exit105:                                  ; preds = %if.then3.i102, %if.end.i96
@@ -13696,7 +13695,7 @@ mpd_del.exit105:                                  ; preds = %if.then3.i102, %if.
 if.then.i:                                        ; preds = %mpd_del.exit105
   %137 = load ptr, ptr @mpd_free, align 8
   %138 = load ptr, ptr %data34, align 8
-  call void %137(ptr noundef %138) #28
+  call void %137(ptr noundef %138) #27
   %.pre201 = load i8, ptr %aa, align 8
   br label %if.end.i
 
@@ -13708,7 +13707,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %141 = load ptr, ptr @mpd_free, align 8
-  call void %141(ptr noundef nonnull %aa) #28
+  call void %141(ptr noundef nonnull %aa) #27
   br label %if.end69
 
 if.else68:                                        ; preds = %if.end12
@@ -13795,7 +13794,7 @@ if.end69:                                         ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qexp(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qexp(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i103 = alloca i8, align 1
   %err.i.i.i = alloca i8, align 1
@@ -13867,7 +13866,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i41 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %8 = load ptr, ptr %data.i.i41, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i41, align 8
   %9 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %9, 0
@@ -13934,7 +13933,7 @@ if.then.i.i47:                                    ; preds = %land.lhs.true.i.i44
   store i8 0, ptr %err.i.i42, align 1
   %data.i.i48 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %24 = load ptr, ptr %data.i.i48, align 8
-  %call1.i.i49 = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i42) #28
+  %call1.i.i49 = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i42) #27
   store ptr %call1.i.i49, ptr %data.i.i48, align 8
   %25 = load i8, ptr %err.i.i42, align 1
   %tobool3.i.not.i50 = icmp eq i8 %25, 0
@@ -13981,7 +13980,7 @@ if.then.i.i64:                                    ; preds = %land.lhs.true.i.i61
   store i8 0, ptr %err.i.i52, align 1
   %data.i.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %36 = load ptr, ptr %data.i.i65, align 8
-  %call1.i.i66 = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %35, i64 noundef 8, ptr noundef nonnull %err.i.i52) #28
+  %call1.i.i66 = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %35, i64 noundef 8, ptr noundef nonnull %err.i.i52) #27
   store ptr %call1.i.i66, ptr %data.i.i65, align 8
   %37 = load i8, ptr %err.i.i52, align 1
   %tobool3.i.not.i67 = icmp eq i8 %37, 0
@@ -14071,7 +14070,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %53 = load ptr, ptr %data.i.i.i, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %53, i64 noundef %52, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %53, i64 noundef %52, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
   %54 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %54, 0
@@ -14114,7 +14113,7 @@ if.end29:                                         ; preds = %if.end25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lim_data.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %lim.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %aa.i)
-  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #27
   %62 = load i64, ptr %ctx, align 8
   %add30 = add nuw nsw i64 %cond, 2
   %add31 = add i64 %add30, %62
@@ -14145,11 +14144,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -14333,7 +14332,7 @@ if.then.i.i109:                                   ; preds = %land.lhs.true.i.i10
   store i8 0, ptr %err.i.i103, align 1
   %data.i.i110 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %105 = load ptr, ptr %data.i.i110, align 8
-  %call1.i.i111 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %104, i64 noundef 8, ptr noundef nonnull %err.i.i103) #28
+  %call1.i.i111 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %104, i64 noundef 8, ptr noundef nonnull %err.i.i103) #27
   store ptr %call1.i.i111, ptr %data.i.i110, align 8
   %106 = load i8, ptr %err.i.i103, align 1
   %tobool3.i.not.i112 = icmp eq i8 %106, 0
@@ -14390,7 +14389,7 @@ for.end:                                          ; preds = %for.body
 if.then.i79:                                      ; preds = %for.end
   %115 = load ptr, ptr @mpd_free, align 8
   %116 = load ptr, ptr %data, align 8
-  call void %115(ptr noundef %116) #28
+  call void %115(ptr noundef %116) #27
   %.pre = load i8, ptr %tmp, align 8
   br label %if.end.i72
 
@@ -14402,7 +14401,7 @@ if.end.i72:                                       ; preds = %if.then.i79, %for.e
 
 if.then3.i78:                                     ; preds = %if.end.i72
   %119 = load ptr, ptr @mpd_free, align 8
-  call void %119(ptr noundef nonnull %tmp) #28
+  call void %119(ptr noundef nonnull %tmp) #27
   br label %mpd_del.exit81
 
 mpd_del.exit81:                                   ; preds = %if.then3.i78, %if.end.i72
@@ -14413,7 +14412,7 @@ mpd_del.exit81:                                   ; preds = %if.then3.i78, %if.e
 if.then.i:                                        ; preds = %mpd_del.exit81
   %121 = load ptr, ptr @mpd_free, align 8
   %122 = load ptr, ptr %data6, align 8
-  call void %121(ptr noundef %122) #28
+  call void %121(ptr noundef %122) #27
   %.pre143 = load i8, ptr %sum, align 8
   br label %if.end.i
 
@@ -14425,7 +14424,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %125 = load ptr, ptr @mpd_free, align 8
-  call void %125(ptr noundef nonnull %sum) #28
+  call void %125(ptr noundef nonnull %sum) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -14443,7 +14442,7 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mpd_check_underflow(ptr nocapture noundef readonly %dec, i64 %ctx.0.val, i64 %ctx.16.val, ptr nocapture noundef %status) unnamed_addr #10 {
+define internal fastcc void @mpd_check_underflow(ptr nocapture noundef readonly %dec, i64 %ctx.0.val, i64 %ctx.16.val, ptr nocapture noundef %status) unnamed_addr #9 {
 entry:
   %exp.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
   %0 = load i64, ptr %exp.i, align 8
@@ -14488,7 +14487,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qfma(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qfma(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
@@ -14499,7 +14498,7 @@ entry:
 if.then:                                          ; preds = %entry
   %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
   %0 = load i64, ptr %len.i, align 8
-  %call.i = tail call ptr @mpd_qnew_size(i64 noundef %0) #28
+  %call.i = tail call ptr @mpd_qnew_size(i64 noundef %0) #27
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then2, label %mpd_qncopy.exit
 
@@ -14548,7 +14547,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %15 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %16 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %16, 0
@@ -14624,7 +14623,7 @@ if.then.i:                                        ; preds = %if.then7
   %30 = load ptr, ptr @mpd_free, align 8
   %data.i = getelementptr inbounds %struct.mpd_t, ptr %cc.0, i64 0, i32 5
   %31 = load ptr, ptr %data.i, align 8
-  call void %30(ptr noundef %31) #28
+  call void %30(ptr noundef %31) #27
   %.pre = load i8, ptr %cc.0, align 8
   br label %if.end.i
 
@@ -14636,7 +14635,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then3.i:                                       ; preds = %if.end.i
   %34 = load ptr, ptr @mpd_free, align 8
-  call void %34(ptr noundef nonnull %cc.0) #28
+  call void %34(ptr noundef nonnull %cc.0) #27
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end.i, %if.then3.i, %if.end5
@@ -14651,7 +14650,7 @@ return:                                           ; preds = %if.end8, %mpd_seter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i41.i = alloca i8, align 1
   %err.i.i28.i = alloca i8, align 1
@@ -14717,7 +14716,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %data.i.i16.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %15 = load ptr, ptr %data.i.i16.i, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i16.i, align 8
   %16 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %16, 0
@@ -14761,7 +14760,7 @@ if.then.i.i23.i:                                  ; preds = %land.lhs.true.i.i20
   store i8 0, ptr %err.i.i17.i, align 1
   %data.i.i24.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %27 = load ptr, ptr %data.i.i24.i, align 8
-  %call1.i.i25.i = call ptr @mpd_realloc(ptr noundef %27, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %err.i.i17.i) #28
+  %call1.i.i25.i = call ptr @mpd_realloc(ptr noundef %27, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %err.i.i17.i) #27
   store ptr %call1.i.i25.i, ptr %data.i.i24.i, align 8
   %28 = load i8, ptr %err.i.i17.i, align 1
   %tobool3.i.not.i26.i = icmp eq i8 %28, 0
@@ -14817,7 +14816,7 @@ if.then.i.i35.i:                                  ; preds = %land.lhs.true.i.i32
   store i8 0, ptr %err.i.i28.i, align 1
   %data.i.i36.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %40 = load ptr, ptr %data.i.i36.i, align 8
-  %call1.i.i37.i = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i28.i) #28
+  %call1.i.i37.i = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i28.i) #27
   store ptr %call1.i.i37.i, ptr %data.i.i36.i, align 8
   %41 = load i8, ptr %err.i.i28.i, align 1
   %tobool3.i.not.i38.i = icmp eq i8 %41, 0
@@ -14862,7 +14861,7 @@ if.then.i.i49.i:                                  ; preds = %land.lhs.true.i.i46
   store i8 0, ptr %err.i.i41.i, align 1
   %data.i.i50.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %53 = load ptr, ptr %data.i.i50.i, align 8
-  %call1.i.i51.i = call ptr @mpd_realloc(ptr noundef %53, i64 noundef %52, i64 noundef 8, ptr noundef nonnull %err.i.i41.i) #28
+  %call1.i.i51.i = call ptr @mpd_realloc(ptr noundef %53, i64 noundef %52, i64 noundef 8, ptr noundef nonnull %err.i.i41.i) #27
   store ptr %call1.i.i51.i, ptr %data.i.i50.i, align 8
   %54 = load i8, ptr %err.i.i41.i, align 1
   %tobool3.i.not.i52.i = icmp eq i8 %54, 0
@@ -14987,7 +14986,7 @@ if.then30:                                        ; preds = %mpd_uint_zero.exit
   %data34 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
   %73 = load ptr, ptr %data34, align 8
   %74 = load i64, ptr %73, align 8
-  call void @_mpd_shortmul(ptr noundef nonnull %rbuf, ptr noundef %72, i64 noundef %60, i64 noundef %74) #28
+  call void @_mpd_shortmul(ptr noundef nonnull %rbuf, ptr noundef %72, i64 noundef %60, i64 noundef %74) #27
   br label %if.end43
 
 if.else36:                                        ; preds = %mpd_uint_zero.exit
@@ -14995,7 +14994,7 @@ if.else36:                                        ; preds = %mpd_uint_zero.exit
   %75 = load ptr, ptr %data38, align 8
   %data39 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
   %76 = load ptr, ptr %data39, align 8
-  call void @_mpd_basemul(ptr noundef nonnull %rbuf, ptr noundef %75, ptr noundef %76, i64 noundef %61, i64 noundef %60) #28
+  call void @_mpd_basemul(ptr noundef nonnull %rbuf, ptr noundef %75, ptr noundef %76, i64 noundef %61, i64 noundef %60) #27
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then30, %if.else36, %if.then23
@@ -15017,11 +15016,11 @@ if.then2.i151:                                    ; preds = %if.end.i145
   br i1 %cmp4.i153, label %if.then5.i155, label %for.cond.preheader
 
 if.then5.i155:                                    ; preds = %if.then2.i151
-  %call6.i156 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i142, ptr noundef %status) #28
+  %call6.i156 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i142, ptr noundef %status) #27
   br label %mpd_qresize.exit159
 
 if.end8.i149:                                     ; preds = %if.end.i145
-  %call9.i150 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i142, ptr noundef %status) #28
+  %call9.i150 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i142, ptr noundef %status) #27
   br label %mpd_qresize.exit159
 
 mpd_qresize.exit159:                              ; preds = %if.end8.i149, %if.then5.i155
@@ -15053,7 +15052,7 @@ if.end52:                                         ; preds = %if.end18
   br i1 %cmp54, label %if.then55, label %if.else73
 
 if.then55:                                        ; preds = %if.end52
-  %call56 = tail call ptr @mpd_calloc(i64 noundef %add, i64 noundef 8) #28
+  %call56 = tail call ptr @mpd_calloc(i64 noundef %add, i64 noundef 8) #27
   %cmp57.not = icmp eq ptr %call56, null
   br i1 %cmp57.not, label %if.then99, label %if.then58
 
@@ -15069,7 +15068,7 @@ if.then61:                                        ; preds = %if.then58
   %data64 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
   %86 = load ptr, ptr %data64, align 8
   %87 = load i64, ptr %86, align 8
-  tail call void @_mpd_shortmul(ptr noundef nonnull %call56, ptr noundef %84, i64 noundef %85, i64 noundef %87) #28
+  tail call void @_mpd_shortmul(ptr noundef nonnull %call56, ptr noundef %84, i64 noundef %85, i64 noundef %87) #27
   br label %if.end100
 
 if.else66:                                        ; preds = %if.then58
@@ -15078,7 +15077,7 @@ if.else66:                                        ; preds = %if.then58
   %data68 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
   %89 = load ptr, ptr %data68, align 8
   %90 = load i64, ptr %len10, align 8
-  tail call void @_mpd_basemul(ptr noundef nonnull %call56, ptr noundef %88, ptr noundef %89, i64 noundef %83, i64 noundef %90) #28
+  tail call void @_mpd_basemul(ptr noundef nonnull %call56, ptr noundef %88, ptr noundef %89, i64 noundef %83, i64 noundef %90) #27
   br label %if.end100
 
 if.else73:                                        ; preds = %if.end52
@@ -15128,7 +15127,7 @@ if.then103:                                       ; preds = %if.end100
   %96 = load ptr, ptr @mpd_free, align 8
   %data104 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %97 = load ptr, ptr %data104, align 8
-  tail call void %96(ptr noundef %97) #28
+  tail call void %96(ptr noundef %97) #27
   %.pre = load i8, ptr %result, align 8
   br label %if.end105
 
@@ -15199,11 +15198,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_real_size.exit, %if.end8.i, %if.then5.i
@@ -15215,7 +15214,7 @@ return:                                           ; preds = %mpd_setspecial.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qln10(ptr noundef %result, i64 noundef %prec, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qln10(ptr noundef %result, i64 noundef %prec, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %varcontext = alloca %struct.mpd_context_t, align 8
@@ -15268,7 +15267,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %5 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %5, 0
@@ -15298,7 +15297,7 @@ if.end:                                           ; preds = %entry
   %sub11 = sub i64 1, %11
   %exp12 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
   store i64 %sub11, ptr %exp12, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp13 = icmp slt i64 %prec, 1216
   br i1 %cmp13, label %if.then14, label %if.end16
 
@@ -15313,7 +15312,7 @@ if.then14:                                        ; preds = %if.end
   br label %return
 
 if.end16:                                         ; preds = %if.end
-  call void @mpd_maxcontext(ptr noundef nonnull %varcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %varcontext) #27
   %round = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext, i64 0, i32 6
   store i32 8, ptr %round, align 4
   %add = add nuw i64 %prec, 2
@@ -15426,7 +15425,7 @@ for.end:                                          ; preds = %mpd_qadd.exit
 if.then.i:                                        ; preds = %for.end
   %31 = load ptr, ptr @mpd_free, align 8
   %32 = load ptr, ptr %data, align 8
-  call void %31(ptr noundef %32) #28
+  call void %31(ptr noundef %32) #27
   %.pre46 = load i8, ptr %tmp, align 8
   br label %if.end.i
 
@@ -15438,7 +15437,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.end
 
 if.then3.i:                                       ; preds = %if.end.i
   %35 = load ptr, ptr @mpd_free, align 8
-  call void %35(ptr noundef nonnull %tmp) #28
+  call void %35(ptr noundef nonnull %tmp) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %ln_schedule_prec.exit, %if.end16, %if.then3.i, %if.end.i
@@ -15451,7 +15450,7 @@ return:                                           ; preds = %mpd_del.exit, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_apply_round_excess(ptr noundef %dec, i64 noundef %rnd, i32 %ctx.36.val, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_apply_round_excess(ptr noundef %dec, i64 noundef %rnd, i32 %ctx.36.val, ptr noundef %status) unnamed_addr #8 {
 entry:
   switch i32 %ctx.36.val, label %if.end13 [
     i32 7, label %sw.bb33.i
@@ -15541,7 +15540,7 @@ if.then:                                          ; preds = %sw.bb2.i, %_mpd_rnd
   %15 = load ptr, ptr %data, align 8
   %len = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
   %16 = load i64, ptr %len, align 8
-  %call1 = tail call i64 @_mpd_baseincr(ptr noundef %15, i64 noundef %16) #28
+  %call1 = tail call i64 @_mpd_baseincr(ptr noundef %15, i64 noundef %16) #27
   %tobool2.not = icmp eq i64 %call1, 0
   br i1 %tobool2.not, label %if.end12, label %if.then3
 
@@ -15566,11 +15565,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then5.i
@@ -15601,7 +15600,7 @@ if.end13:                                         ; preds = %entry, %sw.bb33.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr noundef %ctx, ptr noundef %status)
   tail call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
@@ -15609,7 +15608,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qln(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qln(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i122 = alloca i8, align 1
   %err.i.i111 = alloca i8, align 1
@@ -15661,7 +15660,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i73 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %7 = load ptr, ptr %data.i.i73, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i73, align 8
   %8 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %8, 0
@@ -15703,7 +15702,7 @@ if.then.i.i80:                                    ; preds = %land.lhs.true.i.i77
   store i8 0, ptr %err.i.i74, align 1
   %data.i.i81 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %18 = load ptr, ptr %data.i.i81, align 8
-  %call1.i.i82 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %17, i64 noundef 8, ptr noundef nonnull %err.i.i74) #28
+  %call1.i.i82 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %17, i64 noundef 8, ptr noundef nonnull %err.i.i74) #27
   store ptr %call1.i.i82, ptr %data.i.i81, align 8
   %19 = load i8, ptr %err.i.i74, align 1
   %tobool3.i.not.i83 = icmp eq i8 %19, 0
@@ -15753,7 +15752,7 @@ if.then.i.i92:                                    ; preds = %land.lhs.true.i.i89
   store i8 0, ptr %err.i.i85, align 1
   %data.i.i93 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %31 = load ptr, ptr %data.i.i93, align 8
-  %call1.i.i94 = call ptr @mpd_realloc(ptr noundef %31, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %err.i.i85) #28
+  %call1.i.i94 = call ptr @mpd_realloc(ptr noundef %31, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %err.i.i85) #27
   store ptr %call1.i.i94, ptr %data.i.i93, align 8
   %32 = load i8, ptr %err.i.i85, align 1
   %tobool3.i.not.i95 = icmp eq i8 %32, 0
@@ -15797,7 +15796,7 @@ if.then.i.i105:                                   ; preds = %land.lhs.true.i.i10
   store i8 0, ptr %err.i.i98, align 1
   %data.i.i106 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %40 = load ptr, ptr %data.i.i106, align 8
-  %call1.i.i107 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i98) #28
+  %call1.i.i107 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i98) #27
   store ptr %call1.i.i107, ptr %data.i.i106, align 8
   %41 = load i8, ptr %err.i.i98, align 1
   %tobool3.i.not.i108 = icmp eq i8 %41, 0
@@ -15844,7 +15843,7 @@ if.then.i.i117:                                   ; preds = %land.lhs.true.i.i11
   store i8 0, ptr %err.i.i111, align 1
   %data.i.i118 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %51 = load ptr, ptr %data.i.i118, align 8
-  %call1.i.i119 = call ptr @mpd_realloc(ptr noundef %51, i64 noundef %50, i64 noundef 8, ptr noundef nonnull %err.i.i111) #28
+  %call1.i.i119 = call ptr @mpd_realloc(ptr noundef %51, i64 noundef %50, i64 noundef 8, ptr noundef nonnull %err.i.i111) #27
   store ptr %call1.i.i119, ptr %data.i.i118, align 8
   %52 = load i8, ptr %err.i.i111, align 1
   %tobool3.i.not.i120 = icmp eq i8 %52, 0
@@ -15917,7 +15916,7 @@ if.then.i.i129:                                   ; preds = %land.lhs.true.i.i12
   store i8 0, ptr %err.i.i122, align 1
   %data.i.i130 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %67 = load ptr, ptr %data.i.i130, align 8
-  %call1.i.i131 = call ptr @mpd_realloc(ptr noundef %67, i64 noundef %66, i64 noundef 8, ptr noundef nonnull %err.i.i122) #28
+  %call1.i.i131 = call ptr @mpd_realloc(ptr noundef %67, i64 noundef %66, i64 noundef 8, ptr noundef nonnull %err.i.i122) #27
   store ptr %call1.i.i131, ptr %data.i.i130, align 8
   %68 = load i8, ptr %err.i.i122, align 1
   %tobool3.i.not.i132 = icmp eq i8 %68, 0
@@ -16159,7 +16158,7 @@ if.end85:                                         ; preds = %mpd_qcmp.exit.threa
 if.then.i161:                                     ; preds = %if.then82
   %112 = load ptr, ptr @mpd_free, align 8
   %113 = load ptr, ptr %data, align 8
-  call void %112(ptr noundef %113) #28
+  call void %112(ptr noundef %113) #27
   %.pre = load i8, ptr %t1, align 8
   br label %if.end.i154
 
@@ -16171,7 +16170,7 @@ if.end.i154:                                      ; preds = %if.then.i161, %if.t
 
 if.then3.i160:                                    ; preds = %if.end.i154
   %116 = load ptr, ptr @mpd_free, align 8
-  call void %116(ptr noundef nonnull %t1) #28
+  call void %116(ptr noundef nonnull %t1) #27
   br label %mpd_del.exit163
 
 mpd_del.exit163:                                  ; preds = %if.then3.i160, %if.end.i154
@@ -16182,7 +16181,7 @@ mpd_del.exit163:                                  ; preds = %if.then3.i160, %if.
 if.then.i143:                                     ; preds = %mpd_del.exit163
   %118 = load ptr, ptr @mpd_free, align 8
   %119 = load ptr, ptr %data39, align 8
-  call void %118(ptr noundef %119) #28
+  call void %118(ptr noundef %119) #27
   %.pre161 = load i8, ptr %t2, align 8
   br label %if.end.i136
 
@@ -16194,7 +16193,7 @@ if.end.i136:                                      ; preds = %if.then.i143, %mpd_
 
 if.then3.i142:                                    ; preds = %if.end.i136
   %122 = load ptr, ptr @mpd_free, align 8
-  call void %122(ptr noundef nonnull %t2) #28
+  call void %122(ptr noundef nonnull %t2) #27
   br label %mpd_del.exit145
 
 mpd_del.exit145:                                  ; preds = %if.then3.i142, %if.end.i136
@@ -16205,7 +16204,7 @@ mpd_del.exit145:                                  ; preds = %if.then3.i142, %if.
 if.then.i125:                                     ; preds = %mpd_del.exit145
   %124 = load ptr, ptr @mpd_free, align 8
   %125 = load ptr, ptr %data46, align 8
-  call void %124(ptr noundef %125) #28
+  call void %124(ptr noundef %125) #27
   %.pre162 = load i8, ptr %ulp, align 8
   br label %if.end.i118
 
@@ -16217,7 +16216,7 @@ if.end.i118:                                      ; preds = %if.then.i125, %mpd_
 
 if.then3.i124:                                    ; preds = %if.end.i118
   %128 = load ptr, ptr @mpd_free, align 8
-  call void %128(ptr noundef nonnull %ulp) #28
+  call void %128(ptr noundef nonnull %ulp) #27
   br label %mpd_del.exit127
 
 mpd_del.exit127:                                  ; preds = %if.then3.i124, %if.end.i118
@@ -16228,7 +16227,7 @@ mpd_del.exit127:                                  ; preds = %if.then3.i124, %if.
 if.then.i:                                        ; preds = %mpd_del.exit127
   %130 = load ptr, ptr @mpd_free, align 8
   %131 = load ptr, ptr %data53, align 8
-  call void %130(ptr noundef %131) #28
+  call void %130(ptr noundef %131) #27
   %.pre163 = load i8, ptr %aa, align 8
   br label %if.end.i
 
@@ -16240,7 +16239,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %134 = load ptr, ptr @mpd_free, align 8
-  call void %134(ptr noundef nonnull %aa) #28
+  call void %134(ptr noundef nonnull %aa) #27
   br label %if.end87
 
 if.else:                                          ; preds = %if.end31
@@ -16257,7 +16256,7 @@ if.end87:                                         ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qln(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qln(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i89 = alloca i8, align 1
   %err.i.i76 = alloca i8, align 1
@@ -16313,7 +16312,7 @@ if.end.i67:                                       ; preds = %entry
   br i1 %cmp4.i.i, label %mpd_qresize.exit.i, label %if.end
 
 mpd_qresize.exit.i:                               ; preds = %if.end.i67
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %v, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %v, i64 noundef %cond.i.i, ptr noundef %status) #27
   %tobool.not.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i, label %if.then, label %mpd_qresize.exit.if.end2_crit_edge.i
 
@@ -16341,7 +16340,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %7 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %8 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %8, 0
@@ -16463,7 +16462,7 @@ if.then.i169:                                     ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
   %data.i170 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %36 = load ptr, ptr %data.i170, align 8
-  %call1.i = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %35, i64 noundef 8, ptr noundef nonnull %err.i) #28
+  %call1.i = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %35, i64 noundef 8, ptr noundef nonnull %err.i) #27
   store ptr %call1.i, ptr %data.i170, align 8
   %37 = load i8, ptr %err.i, align 1
   %tobool3.i.not = icmp eq i8 %37, 0
@@ -16508,8 +16507,8 @@ if.end37:                                         ; preds = %if.else, %if.then29
   %t.0 = phi i64 [ %sub33, %if.then29 ], [ %add, %if.else ]
   %sub34.sink = sub i64 %.pn, %30
   store i64 %sub34.sink, ptr %exp, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
-  call void @mpd_maxcontext(ptr noundef nonnull %varcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
+  call void @mpd_maxcontext(ptr noundef nonnull %varcontext) #27
   %round = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext, i64 0, i32 6
   store i32 8, ptr %round, align 4
   %45 = load i64, ptr %ctx, align 8
@@ -16546,7 +16545,7 @@ land.lhs.true.i.i80:                              ; preds = %if.then51
 if.then.i.i83:                                    ; preds = %land.lhs.true.i.i80
   store i8 0, ptr %err.i.i76, align 1
   %52 = load ptr, ptr %data23, align 8
-  %call1.i.i85 = call ptr @mpd_realloc(ptr noundef %52, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %err.i.i76) #28
+  %call1.i.i85 = call ptr @mpd_realloc(ptr noundef %52, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %err.i.i76) #27
   store ptr %call1.i.i85, ptr %data23, align 8
   %53 = load i8, ptr %err.i.i76, align 1
   %tobool3.i.not.i86 = icmp eq i8 %53, 0
@@ -16616,7 +16615,7 @@ land.lhs.true.i.i96:                              ; preds = %if.then63
 
 if.then.i.i99:                                    ; preds = %land.lhs.true.i.i96
   store i8 0, ptr %err.i.i89, align 1
-  %call1.i.i101 = call ptr @mpd_realloc(ptr noundef %.pre152, i64 noundef %66, i64 noundef 8, ptr noundef nonnull %err.i.i89) #28
+  %call1.i.i101 = call ptr @mpd_realloc(ptr noundef %.pre152, i64 noundef %66, i64 noundef 8, ptr noundef nonnull %err.i.i89) #27
   store ptr %call1.i.i101, ptr %data23, align 8
   %67 = load i8, ptr %err.i.i89, align 1
   %tobool3.i.not.i102 = icmp eq i8 %67, 0
@@ -16815,7 +16814,7 @@ finish:                                           ; preds = %if.end7.i127, %if.e
 if.then.i163:                                     ; preds = %finish
   %101 = load ptr, ptr @mpd_free, align 8
   %102 = load ptr, ptr %data, align 8
-  call void %101(ptr noundef %102) #28
+  call void %101(ptr noundef %102) #27
   %.pre153 = load i8, ptr %v, align 8
   br label %if.end.i156
 
@@ -16827,7 +16826,7 @@ if.end.i156:                                      ; preds = %if.then.i163, %fini
 
 if.then3.i162:                                    ; preds = %if.end.i156
   %105 = load ptr, ptr @mpd_free, align 8
-  call void %105(ptr noundef nonnull %v) #28
+  call void %105(ptr noundef nonnull %v) #27
   br label %mpd_del.exit165
 
 mpd_del.exit165:                                  ; preds = %if.then3.i162, %if.end.i156
@@ -16838,7 +16837,7 @@ mpd_del.exit165:                                  ; preds = %if.then3.i162, %if.
 if.then.i145:                                     ; preds = %mpd_del.exit165
   %107 = load ptr, ptr @mpd_free, align 8
   %108 = load ptr, ptr %data6, align 8
-  call void %107(ptr noundef %108) #28
+  call void %107(ptr noundef %108) #27
   %.pre154 = load i8, ptr %vtmp, align 8
   br label %if.end.i138
 
@@ -16850,7 +16849,7 @@ if.end.i138:                                      ; preds = %if.then.i145, %mpd_
 
 if.then3.i144:                                    ; preds = %if.end.i138
   %111 = load ptr, ptr @mpd_free, align 8
-  call void %111(ptr noundef nonnull %vtmp) #28
+  call void %111(ptr noundef nonnull %vtmp) #27
   br label %mpd_del.exit147
 
 mpd_del.exit147:                                  ; preds = %if.then3.i144, %if.end.i138
@@ -16861,7 +16860,7 @@ mpd_del.exit147:                                  ; preds = %if.then3.i144, %if.
 if.then.i:                                        ; preds = %mpd_del.exit147
   %113 = load ptr, ptr @mpd_free, align 8
   %114 = load ptr, ptr %data13, align 8
-  call void %113(ptr noundef %114) #28
+  call void %113(ptr noundef %114) #27
   %.pre155 = load i8, ptr %tmp, align 8
   br label %if.end.i
 
@@ -16873,7 +16872,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %117 = load ptr, ptr @mpd_free, align 8
-  call void %117(ptr noundef nonnull %tmp) #28
+  call void %117(ptr noundef nonnull %tmp) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -16881,7 +16880,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qlog10(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qlog10(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i153 = alloca i8, align 1
   %err.i.i131 = alloca i8, align 1
@@ -16937,7 +16936,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i78 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %7 = load ptr, ptr %data.i.i78, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i78, align 8
   %8 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %8, 0
@@ -16979,7 +16978,7 @@ if.then.i.i85:                                    ; preds = %land.lhs.true.i.i82
   store i8 0, ptr %err.i.i79, align 1
   %data.i.i86 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %18 = load ptr, ptr %data.i.i86, align 8
-  %call1.i.i87 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %17, i64 noundef 8, ptr noundef nonnull %err.i.i79) #28
+  %call1.i.i87 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %17, i64 noundef 8, ptr noundef nonnull %err.i.i79) #27
   store ptr %call1.i.i87, ptr %data.i.i86, align 8
   %19 = load i8, ptr %err.i.i79, align 1
   %tobool3.i.not.i88 = icmp eq i8 %19, 0
@@ -17029,7 +17028,7 @@ if.then.i.i97:                                    ; preds = %land.lhs.true.i.i94
   store i8 0, ptr %err.i.i90, align 1
   %data.i.i98 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %31 = load ptr, ptr %data.i.i98, align 8
-  %call1.i.i99 = call ptr @mpd_realloc(ptr noundef %31, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %err.i.i90) #28
+  %call1.i.i99 = call ptr @mpd_realloc(ptr noundef %31, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %err.i.i90) #27
   store ptr %call1.i.i99, ptr %data.i.i98, align 8
   %32 = load i8, ptr %err.i.i90, align 1
   %tobool3.i.not.i100 = icmp eq i8 %32, 0
@@ -17073,7 +17072,7 @@ if.then.i.i110:                                   ; preds = %land.lhs.true.i.i10
   store i8 0, ptr %err.i.i103, align 1
   %data.i.i111 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %40 = load ptr, ptr %data.i.i111, align 8
-  %call1.i.i112 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i103) #28
+  %call1.i.i112 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i103) #27
   store ptr %call1.i.i112, ptr %data.i.i111, align 8
   %41 = load i8, ptr %err.i.i103, align 1
   %tobool3.i.not.i113 = icmp eq i8 %41, 0
@@ -17254,7 +17253,7 @@ if.then.i.i126:                                   ; preds = %land.lhs.true.i.i12
   store i8 0, ptr %err.i.i119, align 1
   %data.i.i127 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %74 = load ptr, ptr %data.i.i127, align 8
-  %call1.i.i128 = call ptr @mpd_realloc(ptr noundef %74, i64 noundef %73, i64 noundef 8, ptr noundef nonnull %err.i.i119) #28
+  %call1.i.i128 = call ptr @mpd_realloc(ptr noundef %74, i64 noundef %73, i64 noundef 8, ptr noundef nonnull %err.i.i119) #27
   store ptr %call1.i.i128, ptr %data.i.i127, align 8
   %75 = load i8, ptr %err.i.i119, align 1
   %tobool3.i.not.i129 = icmp eq i8 %75, 0
@@ -17306,7 +17305,7 @@ if.then.i.i147:                                   ; preds = %land.lhs.true.i.i14
   store i8 0, ptr %err.i.i131, align 1
   %data.i.i148 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %86 = load ptr, ptr %data.i.i148, align 8
-  %call1.i.i149 = call ptr @mpd_realloc(ptr noundef %86, i64 noundef %85, i64 noundef 8, ptr noundef nonnull %err.i.i131) #28
+  %call1.i.i149 = call ptr @mpd_realloc(ptr noundef %86, i64 noundef %85, i64 noundef 8, ptr noundef nonnull %err.i.i131) #27
   store ptr %call1.i.i149, ptr %data.i.i148, align 8
   %87 = load i8, ptr %err.i.i131, align 1
   %tobool3.i.not.i150 = icmp eq i8 %87, 0
@@ -17385,7 +17384,7 @@ if.then.i.i160:                                   ; preds = %land.lhs.true.i.i15
   store i8 0, ptr %err.i.i153, align 1
   %data.i.i161 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %102 = load ptr, ptr %data.i.i161, align 8
-  %call1.i.i162 = call ptr @mpd_realloc(ptr noundef %102, i64 noundef %101, i64 noundef 8, ptr noundef nonnull %err.i.i153) #28
+  %call1.i.i162 = call ptr @mpd_realloc(ptr noundef %102, i64 noundef %101, i64 noundef 8, ptr noundef nonnull %err.i.i153) #27
   store ptr %call1.i.i162, ptr %data.i.i161, align 8
   %103 = load i8, ptr %err.i.i153, align 1
   %tobool3.i.not.i163 = icmp eq i8 %103, 0
@@ -17624,7 +17623,7 @@ if.end90:                                         ; preds = %mpd_qcmp.exit.threa
 if.then.i171:                                     ; preds = %if.then87
   %147 = load ptr, ptr @mpd_free, align 8
   %148 = load ptr, ptr %data, align 8
-  call void %147(ptr noundef %148) #28
+  call void %147(ptr noundef %148) #27
   %.pre = load i8, ptr %t1, align 8
   br label %if.end.i164
 
@@ -17636,7 +17635,7 @@ if.end.i164:                                      ; preds = %if.then.i171, %if.t
 
 if.then3.i170:                                    ; preds = %if.end.i164
   %151 = load ptr, ptr @mpd_free, align 8
-  call void %151(ptr noundef nonnull %t1) #28
+  call void %151(ptr noundef nonnull %t1) #27
   br label %mpd_del.exit173
 
 mpd_del.exit173:                                  ; preds = %if.then3.i170, %if.end.i164
@@ -17647,7 +17646,7 @@ mpd_del.exit173:                                  ; preds = %if.then3.i170, %if.
 if.then.i153:                                     ; preds = %mpd_del.exit173
   %153 = load ptr, ptr @mpd_free, align 8
   %154 = load ptr, ptr %data44, align 8
-  call void %153(ptr noundef %154) #28
+  call void %153(ptr noundef %154) #27
   %.pre195 = load i8, ptr %t2, align 8
   br label %if.end.i146
 
@@ -17659,7 +17658,7 @@ if.end.i146:                                      ; preds = %if.then.i153, %mpd_
 
 if.then3.i152:                                    ; preds = %if.end.i146
   %157 = load ptr, ptr @mpd_free, align 8
-  call void %157(ptr noundef nonnull %t2) #28
+  call void %157(ptr noundef nonnull %t2) #27
   br label %mpd_del.exit155
 
 mpd_del.exit155:                                  ; preds = %if.then3.i152, %if.end.i146
@@ -17670,7 +17669,7 @@ mpd_del.exit155:                                  ; preds = %if.then3.i152, %if.
 if.then.i135:                                     ; preds = %mpd_del.exit155
   %159 = load ptr, ptr @mpd_free, align 8
   %160 = load ptr, ptr %data51, align 8
-  call void %159(ptr noundef %160) #28
+  call void %159(ptr noundef %160) #27
   %.pre196 = load i8, ptr %ulp, align 8
   br label %if.end.i128
 
@@ -17682,7 +17681,7 @@ if.end.i128:                                      ; preds = %if.then.i135, %mpd_
 
 if.then3.i134:                                    ; preds = %if.end.i128
   %163 = load ptr, ptr @mpd_free, align 8
-  call void %163(ptr noundef nonnull %ulp) #28
+  call void %163(ptr noundef nonnull %ulp) #27
   br label %mpd_del.exit137
 
 mpd_del.exit137:                                  ; preds = %if.then3.i134, %if.end.i128
@@ -17693,7 +17692,7 @@ mpd_del.exit137:                                  ; preds = %if.then3.i134, %if.
 if.then.i:                                        ; preds = %mpd_del.exit137
   %165 = load ptr, ptr @mpd_free, align 8
   %166 = load ptr, ptr %data58, align 8
-  call void %165(ptr noundef %166) #28
+  call void %165(ptr noundef %166) #27
   %.pre197 = load i8, ptr %aa, align 8
   br label %if.end.i
 
@@ -17705,7 +17704,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %169 = load ptr, ptr @mpd_free, align 8
-  call void %169(ptr noundef nonnull %aa) #28
+  call void %169(ptr noundef nonnull %aa) #27
   br label %if.end92
 
 if.else:                                          ; preds = %if.end36
@@ -17721,7 +17720,7 @@ if.end92:                                         ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qlog10(i32 noundef %action, ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qlog10(i32 noundef %action, ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %workctx = alloca %struct.mpd_context_t, align 8
   %ln10_data = alloca [64 x i64], align 16
@@ -17733,7 +17732,7 @@ entry:
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %ln10, i64 0, i32 5
   store ptr %ln10_data, ptr %data, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #27
   %0 = load i64, ptr %ctx, align 8
   %add = add i64 %0, 3
   store i64 %add, ptr %workctx, align 8
@@ -17758,7 +17757,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then.i:                                        ; preds = %if.end
   %3 = load ptr, ptr @mpd_free, align 8
   %4 = load ptr, ptr %data, align 8
-  call void %3(ptr noundef %4) #28
+  call void %3(ptr noundef %4) #27
   %.pre = load i8, ptr %ln10, align 8
   br label %if.end.i
 
@@ -17770,7 +17769,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end
 
 if.then3.i:                                       ; preds = %if.end.i
   %7 = load ptr, ptr @mpd_free, align 8
-  call void %7(ptr noundef nonnull %ln10) #28
+  call void %7(ptr noundef nonnull %ln10) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -17778,7 +17777,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmax(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmax(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 4
@@ -17814,11 +17813,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end27.sink.split
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -17859,11 +17858,11 @@ if.then2.i.i34:                                   ; preds = %if.end.i.i32
   br i1 %cmp4.i.i35, label %if.then5.i.i47, label %if.end27.sink.split
 
 if.then5.i.i47:                                   ; preds = %if.then2.i.i34
-  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 if.end8.i.i54:                                    ; preds = %if.end.i.i32
-  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 mpd_qresize.exit.i49:                             ; preds = %if.end8.i.i54, %if.then5.i.i47
@@ -17938,11 +17937,11 @@ if.then2.i.i69:                                   ; preds = %if.end.i.i67
   br i1 %cmp4.i.i70, label %if.then5.i.i82, label %if.end27.sink.split.sink.split
 
 if.then5.i.i82:                                   ; preds = %if.then2.i.i69
-  %call6.i.i83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #28
+  %call6.i.i83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #27
   br label %mpd_qresize.exit.i84
 
 if.end8.i.i89:                                    ; preds = %if.end.i.i67
-  %call9.i.i90 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #28
+  %call9.i.i90 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #27
   br label %mpd_qresize.exit.i84
 
 mpd_qresize.exit.i84:                             ; preds = %if.end8.i.i89, %if.then5.i.i82
@@ -17975,11 +17974,11 @@ if.then2.i.i101:                                  ; preds = %if.end.i.i99
   br i1 %cmp4.i.i102, label %if.then5.i.i114, label %if.end27.sink.split.sink.split
 
 if.then5.i.i114:                                  ; preds = %if.then2.i.i101
-  %call6.i.i115 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #28
+  %call6.i.i115 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #27
   br label %mpd_qresize.exit.i116
 
 if.end8.i.i121:                                   ; preds = %if.end.i.i99
-  %call9.i.i122 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #28
+  %call9.i.i122 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #27
   br label %mpd_qresize.exit.i116
 
 mpd_qresize.exit.i116:                            ; preds = %if.end8.i.i121, %if.then5.i.i114
@@ -18037,7 +18036,7 @@ return:                                           ; preds = %if.else11, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmax_mag(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmax_mag(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 4
@@ -18073,11 +18072,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end27.sink.split
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -18118,11 +18117,11 @@ if.then2.i.i34:                                   ; preds = %if.end.i.i32
   br i1 %cmp4.i.i35, label %if.then5.i.i47, label %if.end27.sink.split
 
 if.then5.i.i47:                                   ; preds = %if.then2.i.i34
-  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 if.end8.i.i54:                                    ; preds = %if.end.i.i32
-  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 mpd_qresize.exit.i49:                             ; preds = %if.end8.i.i54, %if.then5.i.i47
@@ -18197,11 +18196,11 @@ if.then2.i.i69:                                   ; preds = %if.end.i.i67
   br i1 %cmp4.i.i70, label %if.then5.i.i82, label %if.end27.sink.split.sink.split
 
 if.then5.i.i82:                                   ; preds = %if.then2.i.i69
-  %call6.i.i83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #28
+  %call6.i.i83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #27
   br label %mpd_qresize.exit.i84
 
 if.end8.i.i89:                                    ; preds = %if.end.i.i67
-  %call9.i.i90 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #28
+  %call9.i.i90 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #27
   br label %mpd_qresize.exit.i84
 
 mpd_qresize.exit.i84:                             ; preds = %if.end8.i.i89, %if.then5.i.i82
@@ -18234,11 +18233,11 @@ if.then2.i.i101:                                  ; preds = %if.end.i.i99
   br i1 %cmp4.i.i102, label %if.then5.i.i114, label %if.end27.sink.split.sink.split
 
 if.then5.i.i114:                                  ; preds = %if.then2.i.i101
-  %call6.i.i115 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #28
+  %call6.i.i115 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #27
   br label %mpd_qresize.exit.i116
 
 if.end8.i.i121:                                   ; preds = %if.end.i.i99
-  %call9.i.i122 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #28
+  %call9.i.i122 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #27
   br label %mpd_qresize.exit.i116
 
 mpd_qresize.exit.i116:                            ; preds = %if.end8.i.i121, %if.then5.i.i114
@@ -18296,7 +18295,7 @@ return:                                           ; preds = %if.else11, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmin(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmin(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 4
@@ -18332,11 +18331,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end27.sink.split
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -18377,11 +18376,11 @@ if.then2.i.i34:                                   ; preds = %if.end.i.i32
   br i1 %cmp4.i.i35, label %if.then5.i.i47, label %if.end27.sink.split
 
 if.then5.i.i47:                                   ; preds = %if.then2.i.i34
-  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 if.end8.i.i54:                                    ; preds = %if.end.i.i32
-  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 mpd_qresize.exit.i49:                             ; preds = %if.end8.i.i54, %if.then5.i.i47
@@ -18456,11 +18455,11 @@ if.then2.i.i69:                                   ; preds = %if.end.i.i67
   br i1 %cmp4.i.i70, label %if.then5.i.i82, label %if.end27.sink.split.sink.split
 
 if.then5.i.i82:                                   ; preds = %if.then2.i.i69
-  %call6.i.i83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #28
+  %call6.i.i83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #27
   br label %mpd_qresize.exit.i84
 
 if.end8.i.i89:                                    ; preds = %if.end.i.i67
-  %call9.i.i90 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #28
+  %call9.i.i90 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #27
   br label %mpd_qresize.exit.i84
 
 mpd_qresize.exit.i84:                             ; preds = %if.end8.i.i89, %if.then5.i.i82
@@ -18493,11 +18492,11 @@ if.then2.i.i101:                                  ; preds = %if.end.i.i99
   br i1 %cmp4.i.i102, label %if.then5.i.i114, label %if.end27.sink.split.sink.split
 
 if.then5.i.i114:                                  ; preds = %if.then2.i.i101
-  %call6.i.i115 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #28
+  %call6.i.i115 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #27
   br label %mpd_qresize.exit.i116
 
 if.end8.i.i121:                                   ; preds = %if.end.i.i99
-  %call9.i.i122 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #28
+  %call9.i.i122 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #27
   br label %mpd_qresize.exit.i116
 
 mpd_qresize.exit.i116:                            ; preds = %if.end8.i.i121, %if.then5.i.i114
@@ -18555,7 +18554,7 @@ return:                                           ; preds = %if.else11, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmin_mag(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmin_mag(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 4
@@ -18591,11 +18590,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end27.sink.split
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -18636,11 +18635,11 @@ if.then2.i.i34:                                   ; preds = %if.end.i.i32
   br i1 %cmp4.i.i35, label %if.then5.i.i47, label %if.end27.sink.split
 
 if.then5.i.i47:                                   ; preds = %if.then2.i.i34
-  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call6.i.i48 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 if.end8.i.i54:                                    ; preds = %if.end.i.i32
-  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call9.i.i55 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i49
 
 mpd_qresize.exit.i49:                             ; preds = %if.end8.i.i54, %if.then5.i.i47
@@ -18715,11 +18714,11 @@ if.then2.i.i69:                                   ; preds = %if.end.i.i67
   br i1 %cmp4.i.i70, label %if.then5.i.i82, label %if.end27.sink.split.sink.split
 
 if.then5.i.i82:                                   ; preds = %if.then2.i.i69
-  %call6.i.i83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #28
+  %call6.i.i83 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #27
   br label %mpd_qresize.exit.i84
 
 if.end8.i.i89:                                    ; preds = %if.end.i.i67
-  %call9.i.i90 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #28
+  %call9.i.i90 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i63, ptr noundef %status) #27
   br label %mpd_qresize.exit.i84
 
 mpd_qresize.exit.i84:                             ; preds = %if.end8.i.i89, %if.then5.i.i82
@@ -18752,11 +18751,11 @@ if.then2.i.i101:                                  ; preds = %if.end.i.i99
   br i1 %cmp4.i.i102, label %if.then5.i.i114, label %if.end27.sink.split.sink.split
 
 if.then5.i.i114:                                  ; preds = %if.then2.i.i101
-  %call6.i.i115 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #28
+  %call6.i.i115 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #27
   br label %mpd_qresize.exit.i116
 
 if.end8.i.i121:                                   ; preds = %if.end.i.i99
-  %call9.i.i122 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #28
+  %call9.i.i122 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i95, ptr noundef %status) #27
   br label %mpd_qresize.exit.i116
 
 mpd_qresize.exit.i116:                            ; preds = %if.end8.i.i121, %if.then5.i.i114
@@ -18814,7 +18813,7 @@ return:                                           ; preds = %if.else11, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmul_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
@@ -18826,7 +18825,7 @@ entry:
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
   store ptr %bb_data, ptr %data, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp.i = icmp slt i64 %b, 0
   %storemerge6 = select i1 %cmp.i, i8 49, i8 48
   %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
@@ -18847,7 +18846,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @mpd_free, align 8
   %2 = load ptr, ptr %data, align 8
-  call void %1(ptr noundef %2) #28
+  call void %1(ptr noundef %2) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
@@ -18859,7 +18858,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr @mpd_free, align 8
-  call void %5(ptr noundef nonnull %bb) #28
+  call void %5(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -18867,7 +18866,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmul_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
@@ -18880,7 +18879,7 @@ entry:
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
   store ptr %bb_data, ptr %data, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   store i8 48, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
   %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
@@ -18903,7 +18902,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr @mpd_free, align 8
   %3 = load ptr, ptr %data, align 8
-  call void %2(ptr noundef %3) #28
+  call void %2(ptr noundef %3) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
@@ -18915,7 +18914,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr @mpd_free, align 8
-  call void %6(ptr noundef nonnull %bb) #28
+  call void %6(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -18923,7 +18922,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_i32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmul_i32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = sext i32 %b to i64
   tail call void @mpd_qmul_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -18931,7 +18930,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_u32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmul_u32(ptr noundef %result, ptr noundef %a, i32 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = zext i32 %b to i64
   tail call void @mpd_qmul_uint(ptr noundef %result, ptr noundef %a, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -18939,21 +18938,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_i64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmul_i64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qmul_ssize(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qmul_u64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qmul_u64(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qmul_uint(ptr noundef %result, ptr noundef %a, i64 noundef %b, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qnext_minus(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qnext_minus(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %workctx = alloca %struct.mpd_context_t, align 8
   %tiny_data = alloca [1 x i64], align 8
@@ -19015,11 +19014,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -19086,11 +19085,11 @@ if.then2.i.i31:                                   ; preds = %if.end.i.i29
   br i1 %cmp4.i.i32, label %if.then5.i.i36, label %if.end.i33
 
 if.then5.i.i36:                                   ; preds = %if.then2.i.i31
-  %call6.i.i37 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i26, ptr noundef %status) #28
+  %call6.i.i37 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i26, ptr noundef %status) #27
   br label %mpd_qresize.exit.i38
 
 if.end8.i.i41:                                    ; preds = %if.end.i.i29
-  %call9.i.i42 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i26, ptr noundef %status) #28
+  %call9.i.i42 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i26, ptr noundef %status) #27
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %if.end8.i.i41, %if.then5.i.i36
@@ -19192,11 +19191,11 @@ if.then2.i.i54:                                   ; preds = %if.end.i.i52
   br i1 %cmp4.i.i55, label %if.then5.i.i67, label %if.end2.i56
 
 if.then5.i.i67:                                   ; preds = %if.then2.i.i54
-  %call6.i.i68 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i48, ptr noundef %status) #28
+  %call6.i.i68 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i48, ptr noundef %status) #27
   br label %mpd_qresize.exit.i69
 
 if.end8.i.i74:                                    ; preds = %if.end.i.i52
-  %call9.i.i75 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i48, ptr noundef %status) #28
+  %call9.i.i75 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i48, ptr noundef %status) #27
   br label %mpd_qresize.exit.i69
 
 mpd_qresize.exit.i69:                             ; preds = %if.end8.i.i74, %if.then5.i.i67
@@ -19287,7 +19286,7 @@ return:                                           ; preds = %mpd_qresize.exit.i6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qnext_plus(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qnext_plus(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %workctx = alloca %struct.mpd_context_t, align 8
   %tiny_data = alloca [1 x i64], align 8
@@ -19349,11 +19348,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -19420,11 +19419,11 @@ if.then2.i.i33:                                   ; preds = %if.end.i.i31
   br i1 %cmp4.i.i34, label %if.then5.i.i38, label %if.end.i35
 
 if.then5.i.i38:                                   ; preds = %if.then2.i.i33
-  %call6.i.i39 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call6.i.i39 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i40
 
 if.end8.i.i43:                                    ; preds = %if.end.i.i31
-  %call9.i.i44 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #28
+  %call9.i.i44 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i28, ptr noundef %status) #27
   br label %mpd_qresize.exit.i40
 
 mpd_qresize.exit.i40:                             ; preds = %if.end8.i.i43, %if.then5.i.i38
@@ -19529,11 +19528,11 @@ if.then2.i.i56:                                   ; preds = %if.end.i.i54
   br i1 %cmp4.i.i57, label %if.then5.i.i69, label %if.end2.i58
 
 if.then5.i.i69:                                   ; preds = %if.then2.i.i56
-  %call6.i.i70 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i50, ptr noundef %status) #28
+  %call6.i.i70 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i50, ptr noundef %status) #27
   br label %mpd_qresize.exit.i71
 
 if.end8.i.i76:                                    ; preds = %if.end.i.i54
-  %call9.i.i77 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i50, ptr noundef %status) #28
+  %call9.i.i77 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i50, ptr noundef %status) #27
   br label %mpd_qresize.exit.i71
 
 mpd_qresize.exit.i71:                             ; preds = %if.end8.i.i76, %if.then5.i.i69
@@ -19623,7 +19622,7 @@ return:                                           ; preds = %mpd_qresize.exit.i7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qnext_toward(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qnext_toward(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %call = tail call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr noundef %ctx, ptr noundef %status), !range !9
   %tobool.not = icmp eq i32 %call, 0
@@ -19660,11 +19659,11 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end2.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then2.i.i.i
-  %call6.i.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call6.i.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call9.i.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call9.i.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %if.end8.i.i.i, %if.then5.i.i.i
@@ -19776,7 +19775,7 @@ if.end22:                                         ; preds = %if.end.i, %mpd_qres
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qpow(ptr noundef %result, ptr noundef %base, ptr noundef %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qpow(ptr noundef %result, ptr noundef %base, ptr noundef %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i43.i = alloca i8, align 1
   %err.i.i30.i = alloca i8, align 1
@@ -19986,7 +19985,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i96 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %39 = load ptr, ptr %data.i.i96, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i96, align 8
   %40 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %40, 0
@@ -20026,7 +20025,7 @@ if.then.i.i104:                                   ; preds = %land.lhs.true.i.i10
   store i8 0, ptr %err.i.i97, align 1
   %data.i.i105 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %48 = load ptr, ptr %data.i.i105, align 8
-  %call1.i.i106 = call ptr @mpd_realloc(ptr noundef %48, i64 noundef %47, i64 noundef 8, ptr noundef nonnull %err.i.i97) #28
+  %call1.i.i106 = call ptr @mpd_realloc(ptr noundef %48, i64 noundef %47, i64 noundef 8, ptr noundef nonnull %err.i.i97) #27
   store ptr %call1.i.i106, ptr %data.i.i105, align 8
   %49 = load i8, ptr %err.i.i97, align 1
   %tobool3.i.not.i107 = icmp eq i8 %49, 0
@@ -20087,7 +20086,7 @@ if.then.i.i115:                                   ; preds = %land.lhs.true.i.i11
   store i8 0, ptr %err.i.i109, align 1
   %data.i.i116 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %62 = load ptr, ptr %data.i.i116, align 8
-  %call1.i.i117 = call ptr @mpd_realloc(ptr noundef %62, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %err.i.i109) #28
+  %call1.i.i117 = call ptr @mpd_realloc(ptr noundef %62, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %err.i.i109) #27
   store ptr %call1.i.i117, ptr %data.i.i116, align 8
   %63 = load i8, ptr %err.i.i109, align 1
   %tobool3.i.not.i118 = icmp eq i8 %63, 0
@@ -20165,7 +20164,7 @@ if.then.i.i137:                                   ; preds = %land.lhs.true.i.i13
   store i8 0, ptr %err.i.i124, align 1
   %data.i.i138 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %79 = load ptr, ptr %data.i.i138, align 8
-  %call1.i.i139 = call ptr @mpd_realloc(ptr noundef %79, i64 noundef %78, i64 noundef 8, ptr noundef nonnull %err.i.i124) #28
+  %call1.i.i139 = call ptr @mpd_realloc(ptr noundef %79, i64 noundef %78, i64 noundef 8, ptr noundef nonnull %err.i.i124) #27
   store ptr %call1.i.i139, ptr %data.i.i138, align 8
   %80 = load i8, ptr %err.i.i124, align 1
   %tobool3.i.not.i140 = icmp eq i8 %80, 0
@@ -20215,7 +20214,7 @@ if.then.i.i151:                                   ; preds = %land.lhs.true.i.i14
   store i8 0, ptr %err.i.i143, align 1
   %data.i.i152 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %91 = load ptr, ptr %data.i.i152, align 8
-  %call1.i.i153 = call ptr @mpd_realloc(ptr noundef %91, i64 noundef %90, i64 noundef 8, ptr noundef nonnull %err.i.i143) #28
+  %call1.i.i153 = call ptr @mpd_realloc(ptr noundef %91, i64 noundef %90, i64 noundef 8, ptr noundef nonnull %err.i.i143) #27
   store ptr %call1.i.i153, ptr %data.i.i152, align 8
   %92 = load i8, ptr %err.i.i143, align 1
   %tobool3.i.not.i154 = icmp eq i8 %92, 0
@@ -20285,7 +20284,7 @@ if.then.i.i170:                                   ; preds = %land.lhs.true.i.i16
   store i8 0, ptr %err.i.i157, align 1
   %data.i.i171 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %106 = load ptr, ptr %data.i.i171, align 8
-  %call1.i.i172 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i157) #28
+  %call1.i.i172 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i157) #27
   store ptr %call1.i.i172, ptr %data.i.i171, align 8
   %107 = load i8, ptr %err.i.i157, align 1
   %tobool3.i.not.i173 = icmp eq i8 %107, 0
@@ -20335,7 +20334,7 @@ if.then.i.i184:                                   ; preds = %land.lhs.true.i.i18
   store i8 0, ptr %err.i.i176, align 1
   %data.i.i185 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %118 = load ptr, ptr %data.i.i185, align 8
-  %call1.i.i186 = call ptr @mpd_realloc(ptr noundef %118, i64 noundef %117, i64 noundef 8, ptr noundef nonnull %err.i.i176) #28
+  %call1.i.i186 = call ptr @mpd_realloc(ptr noundef %118, i64 noundef %117, i64 noundef 8, ptr noundef nonnull %err.i.i176) #27
   store ptr %call1.i.i186, ptr %data.i.i185, align 8
   %119 = load i8, ptr %err.i.i176, align 1
   %tobool3.i.not.i187 = icmp eq i8 %119, 0
@@ -20455,7 +20454,7 @@ if.then.i.i24.i:                                  ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %data.i.i.i207 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %138 = load ptr, ptr %data.i.i.i207, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %138, i64 noundef %137, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %138, i64 noundef %137, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i.i207, align 8
   %139 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %139, 0
@@ -20650,7 +20649,7 @@ if.else.i.i241:                                   ; preds = %if.end76
   br i1 %cmp2.i.i, label %_lower_bound_zeta.exit.thread65.i, label %if.else8.i.i
 
 if.else8.i.i:                                     ; preds = %if.else.i.i241
-  call void @mpd_maxcontext(ptr noundef nonnull %maxctx.i.i) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxctx.i.i) #27
   %168 = load i8, ptr %abs_x.i, align 8
   %169 = and i8 %168, 14
   %tobool.not.i.i.i = icmp eq i8 %169, 0
@@ -20684,7 +20683,7 @@ if.then10.i.i:                                    ; preds = %mpd_qsub.exit.i.i
 if.then.i38.i.i:                                  ; preds = %if.then10.i.i
   %172 = load ptr, ptr @mpd_free, align 8
   %173 = load ptr, ptr %data.i.i239, align 8
-  call void %172(ptr noundef %173) #28
+  call void %172(ptr noundef %173) #27
   %.pre.i.i = load i8, ptr %scratch.i.i, align 8
   br label %if.end.i31.i.i
 
@@ -20696,7 +20695,7 @@ if.end.i31.i.i:                                   ; preds = %if.then.i38.i.i, %i
 
 if.then3.i37.i.i:                                 ; preds = %if.end.i31.i.i
   %176 = load ptr, ptr @mpd_free, align 8
-  call void %176(ptr noundef nonnull %scratch.i.i) #28
+  call void %176(ptr noundef nonnull %scratch.i.i) #27
   br label %_lower_bound_zeta.exit.thread.i
 
 if.end.i.i254:                                    ; preds = %mpd_qsub.exit.i.i
@@ -20708,7 +20707,7 @@ if.end.i.i254:                                    ; preds = %mpd_qsub.exit.i.i
 if.then.i.i.i268:                                 ; preds = %if.end.i.i254
   %179 = load ptr, ptr @mpd_free, align 8
   %180 = load ptr, ptr %data.i.i239, align 8
-  call void %179(ptr noundef %180) #28
+  call void %179(ptr noundef %180) #27
   %.pre17.i.i = load i8, ptr %scratch.i.i, align 8
   br label %if.end.i.i.i
 
@@ -20720,7 +20719,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i268, %
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   %183 = load ptr, ptr @mpd_free, align 8
-  call void %183(ptr noundef nonnull %scratch.i.i) #28
+  call void %183(ptr noundef nonnull %scratch.i.i) #27
   br label %_lower_bound_zeta.exit.i
 
 _lower_bound_zeta.exit.thread.i:                  ; preds = %if.then3.i37.i.i, %if.end.i31.i.i
@@ -20774,7 +20773,7 @@ if.then.i.i29.i:                                  ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i233, align 1
   %data.i.i.i250 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %188 = load ptr, ptr %data.i.i.i250, align 8
-  %call1.i.i.i251 = call ptr @mpd_realloc(ptr noundef %188, i64 noundef %187, i64 noundef 8, ptr noundef nonnull %err.i.i.i233) #28
+  %call1.i.i.i251 = call ptr @mpd_realloc(ptr noundef %188, i64 noundef %187, i64 noundef 8, ptr noundef nonnull %err.i.i.i233) #27
   store ptr %call1.i.i.i251, ptr %data.i.i.i250, align 8
   %189 = load i8, ptr %err.i.i.i233, align 1
   %tobool3.i.not.i.i252 = icmp eq i8 %189, 0
@@ -20838,7 +20837,7 @@ if.then.i.i38.i:                                  ; preds = %land.lhs.true.i.i35
   store i8 0, ptr %err.i.i30.i, align 1
   %data.i.i39.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %204 = load ptr, ptr %data.i.i39.i, align 8
-  %call1.i.i40.i = call ptr @mpd_realloc(ptr noundef %204, i64 noundef %203, i64 noundef 8, ptr noundef nonnull %err.i.i30.i) #28
+  %call1.i.i40.i = call ptr @mpd_realloc(ptr noundef %204, i64 noundef %203, i64 noundef 8, ptr noundef nonnull %err.i.i30.i) #27
   store ptr %call1.i.i40.i, ptr %data.i.i39.i, align 8
   %205 = load i8, ptr %err.i.i30.i, align 1
   %tobool3.i.not.i41.i = icmp eq i8 %205, 0
@@ -20904,7 +20903,7 @@ if.then.i.i56.i:                                  ; preds = %land.lhs.true.i.i53
   store i8 0, ptr %err.i.i43.i, align 1
   %data.i.i57.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %218 = load ptr, ptr %data.i.i57.i, align 8
-  %call1.i.i58.i = call ptr @mpd_realloc(ptr noundef %218, i64 noundef %217, i64 noundef 8, ptr noundef nonnull %err.i.i43.i) #28
+  %call1.i.i58.i = call ptr @mpd_realloc(ptr noundef %218, i64 noundef %217, i64 noundef 8, ptr noundef nonnull %err.i.i43.i) #27
   store ptr %call1.i.i58.i, ptr %data.i.i57.i, align 8
   %219 = load i8, ptr %err.i.i43.i, align 1
   %tobool3.i.not.i59.i = icmp eq i8 %219, 0
@@ -20992,7 +20991,7 @@ if.end98:                                         ; preds = %_qcheck_pow_bounds.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpow_int(ptr noundef %result, ptr noundef %base, ptr noundef %exp, i8 noundef zeroext %resultsign, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qpow_int(ptr noundef %result, ptr noundef %base, ptr noundef %exp, i8 noundef zeroext %resultsign, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i99 = alloca i8, align 1
   %err.i.i.i = alloca i8, align 1
@@ -21083,7 +21082,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %13 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %13, i64 noundef %12, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %13, i64 noundef %12, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %14 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %14, 0
@@ -21117,7 +21116,7 @@ if.end.i27:                                       ; preds = %if.else
   br i1 %cmp4.i.i, label %mpd_qresize.exit.i, label %if.end2.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end.i27
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %tbase, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %tbase, i64 noundef %cond.i.i, ptr noundef %status) #27
   %tobool.not.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i, label %if.then19, label %mpd_qresize.exit.if.end2_crit_edge.i
 
@@ -21164,7 +21163,7 @@ if.then.i.i38:                                    ; preds = %land.lhs.true.i.i35
   store i8 0, ptr %err.i.i31, align 1
   %data.i.i39 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %32 = load ptr, ptr %data.i.i39, align 8
-  %call1.i.i40 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i31) #28
+  %call1.i.i40 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i31) #27
   store ptr %call1.i.i40, ptr %data.i.i39, align 8
   %33 = load i8, ptr %err.i.i31, align 1
   %tobool3.i.not.i41 = icmp eq i8 %33, 0
@@ -21216,11 +21215,11 @@ if.then2.i.i53:                                   ; preds = %if.end.i.i51
   br i1 %cmp4.i.i54, label %if.then5.i.i66, label %if.end2.i55
 
 if.then5.i.i66:                                   ; preds = %if.then2.i.i53
-  %call6.i.i67 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %texp, i64 noundef %cond.i.i47, ptr noundef %status) #28
+  %call6.i.i67 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %texp, i64 noundef %cond.i.i47, ptr noundef %status) #27
   br label %mpd_qresize.exit.i68
 
 if.end8.i.i73:                                    ; preds = %if.end.i.i51
-  %call9.i.i74 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %texp, i64 noundef %cond.i.i47, ptr noundef %status) #28
+  %call9.i.i74 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %texp, i64 noundef %cond.i.i47, ptr noundef %status) #27
   br label %mpd_qresize.exit.i68
 
 mpd_qresize.exit.i68:                             ; preds = %if.end8.i.i73, %if.then5.i.i66
@@ -21269,7 +21268,7 @@ if.then.i.i83:                                    ; preds = %land.lhs.true.i.i80
   store i8 0, ptr %err.i.i76, align 1
   %data.i.i84 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %54 = load ptr, ptr %data.i.i84, align 8
-  %call1.i.i85 = call ptr @mpd_realloc(ptr noundef %54, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %err.i.i76) #28
+  %call1.i.i85 = call ptr @mpd_realloc(ptr noundef %54, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %err.i.i76) #27
   store ptr %call1.i.i85, ptr %data.i.i84, align 8
   %55 = load i8, ptr %err.i.i76, align 1
   %tobool3.i.not.i86 = icmp eq i8 %55, 0
@@ -21308,7 +21307,7 @@ if.end31:                                         ; preds = %if.end2.i55, %if.th
   store i64 1, ptr %alloc.i, align 8
   %data.i92 = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 5
   store ptr %two_data.i, ptr %data.i92, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxctx.i) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxctx.i) #27
   %cmp.i23.i = icmp eq ptr %result, @one
   br i1 %cmp.i23.i, label %mpd_qcopy.exit.i, label %if.end.i.i93
 
@@ -21331,11 +21330,11 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end2.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then2.i.i.i
-  %call6.i.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call6.i.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call9.i.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call9.i.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %if.end8.i.i.i, %if.then5.i.i.i
@@ -21480,7 +21479,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then16.i
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %91 = load ptr, ptr %data.i.i28.i, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %91, i64 noundef %90, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %91, i64 noundef %90, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i28.i, align 8
   %92 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %92, 0
@@ -21545,7 +21544,7 @@ if.then.i.i107:                                   ; preds = %land.lhs.true.i.i10
   store i8 0, ptr %err.i.i99, align 1
   %data.i.i108 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %105 = load ptr, ptr %data.i.i108, align 8
-  %call1.i.i109 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %104, i64 noundef 8, ptr noundef nonnull %err.i.i99) #28
+  %call1.i.i109 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %104, i64 noundef 8, ptr noundef nonnull %err.i.i99) #27
   store ptr %call1.i.i109, ptr %data.i.i108, align 8
   %106 = load i8, ptr %err.i.i99, align 1
   %tobool3.i.not.i110 = icmp eq i8 %106, 0
@@ -21587,7 +21586,7 @@ finish:                                           ; preds = %if.end33, %_settrip
 if.then.i57:                                      ; preds = %finish
   %114 = load ptr, ptr @mpd_free, align 8
   %115 = load ptr, ptr %data, align 8
-  call void %114(ptr noundef %115) #28
+  call void %114(ptr noundef %115) #27
   %.pre118 = load i8, ptr %tbase, align 8
   br label %if.end.i50
 
@@ -21599,7 +21598,7 @@ if.end.i50:                                       ; preds = %if.then.i57, %finis
 
 if.then3.i56:                                     ; preds = %if.end.i50
   %118 = load ptr, ptr @mpd_free, align 8
-  call void %118(ptr noundef nonnull %tbase) #28
+  call void %118(ptr noundef nonnull %tbase) #27
   br label %mpd_del.exit59
 
 mpd_del.exit59:                                   ; preds = %if.then3.i56, %if.end.i50
@@ -21610,7 +21609,7 @@ mpd_del.exit59:                                   ; preds = %if.then3.i56, %if.e
 if.then.i:                                        ; preds = %mpd_del.exit59
   %120 = load ptr, ptr @mpd_free, align 8
   %121 = load ptr, ptr %data7, align 8
-  call void %120(ptr noundef %121) #28
+  call void %120(ptr noundef %121) #27
   %.pre119 = load i8, ptr %texp, align 8
   br label %if.end.i
 
@@ -21622,7 +21621,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %124 = load ptr, ptr @mpd_free, align 8
-  call void %124(ptr noundef nonnull %texp) #28
+  call void %124(ptr noundef nonnull %texp) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -21631,7 +21630,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpow_real(ptr noundef %result, ptr noundef %base, ptr noundef readonly %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qpow_real(ptr noundef %result, ptr noundef %base, ptr noundef readonly %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workctx = alloca %struct.mpd_context_t, align 8
@@ -21657,7 +21656,7 @@ if.end.i18:                                       ; preds = %entry
   br i1 %cmp4.i.i, label %mpd_qresize.exit.i, label %if.end2.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end.i18
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %texp, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %texp, i64 noundef %cond.i.i, ptr noundef %status) #27
   %tobool.not.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i, label %if.then, label %mpd_qresize.exit.if.end2_crit_edge.i
 
@@ -21704,7 +21703,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %14 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %13, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %13, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %15 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %15, 0
@@ -21729,7 +21728,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %if.end2.i, %entry
-  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #27
   %digits2 = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 2
   %21 = load i64, ptr %digits2, align 8
   %22 = load i64, ptr %ctx, align 8
@@ -21754,7 +21753,7 @@ if.end:                                           ; preds = %if.end2.i, %entry
 if.then.i:                                        ; preds = %if.end
   %25 = load ptr, ptr @mpd_free, align 8
   %26 = load ptr, ptr %data, align 8
-  call void %25(ptr noundef %26) #28
+  call void %25(ptr noundef %26) #27
   %.pre25 = load i8, ptr %texp, align 8
   br label %if.end.i
 
@@ -21766,7 +21765,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end
 
 if.then3.i:                                       ; preds = %if.end.i
   %29 = load ptr, ptr @mpd_free, align 8
-  call void %29(ptr noundef nonnull %texp) #28
+  call void %29(ptr noundef nonnull %texp) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -21783,7 +21782,7 @@ return:                                           ; preds = %mpd_del.exit, %mpd_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qpowmod(ptr noundef %result, ptr noundef %base, ptr noundef %exp, ptr noundef %mod, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qpowmod(ptr noundef %result, ptr noundef %base, ptr noundef %exp, ptr noundef %mod, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i162 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -21940,11 +21939,11 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end2.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then2.i.i.i
-  %call6.i.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call6.i.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call9.i.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #28
+  %call9.i.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %if.end8.i.i.i, %if.then5.i.i.i
@@ -22011,7 +22010,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i88 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %29 = load ptr, ptr %data.i.i88, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %29, i64 noundef %28, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %29, i64 noundef %28, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i88, align 8
   %30 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %30, 0
@@ -22209,7 +22208,7 @@ if.then.i.i169:                                   ; preds = %land.lhs.true.i.i16
   store i8 0, ptr %err.i.i162, align 1
   %data.i.i170 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %59 = load ptr, ptr %data.i.i170, align 8
-  %call1.i.i171 = call ptr @mpd_realloc(ptr noundef %59, i64 noundef %58, i64 noundef 8, ptr noundef nonnull %err.i.i162) #28
+  %call1.i.i171 = call ptr @mpd_realloc(ptr noundef %59, i64 noundef %58, i64 noundef 8, ptr noundef nonnull %err.i.i162) #27
   store ptr %call1.i.i171, ptr %data.i.i170, align 8
   %60 = load i8, ptr %err.i.i162, align 1
   %tobool3.i.not.i172 = icmp eq i8 %60, 0
@@ -22296,7 +22295,7 @@ if.then79:                                        ; preds = %if.end76
   br label %return
 
 if.end80:                                         ; preds = %if.end76
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %status81 = getelementptr inbounds %struct.mpd_context_t, ptr %maxcontext, i64 0, i32 4
   call fastcc void @_mpd_qrescale(ptr noundef nonnull %tmod, ptr noundef nonnull %mod, i64 noundef 0, ptr noundef nonnull %maxcontext, ptr noundef nonnull %status81)
   %72 = load i32, ptr %status81, align 4
@@ -22435,7 +22434,7 @@ out:                                              ; preds = %mpd_errors, %if.els
 if.then.i263:                                     ; preds = %out
   %103 = load ptr, ptr @mpd_free, align 8
   %104 = load ptr, ptr %data, align 8
-  call void %103(ptr noundef %104) #28
+  call void %103(ptr noundef %104) #27
   %.pre220 = load i8, ptr %tbase, align 8
   br label %if.end.i256
 
@@ -22447,7 +22446,7 @@ if.end.i256:                                      ; preds = %if.then.i263, %out
 
 if.then3.i262:                                    ; preds = %if.end.i256
   %107 = load ptr, ptr @mpd_free, align 8
-  call void %107(ptr noundef nonnull %tbase) #28
+  call void %107(ptr noundef nonnull %tbase) #27
   br label %mpd_del.exit265
 
 mpd_del.exit265:                                  ; preds = %if.then3.i262, %if.end.i256
@@ -22458,7 +22457,7 @@ mpd_del.exit265:                                  ; preds = %if.then3.i262, %if.
 if.then.i245:                                     ; preds = %mpd_del.exit265
   %109 = load ptr, ptr @mpd_free, align 8
   %110 = load ptr, ptr %data7, align 8
-  call void %109(ptr noundef %110) #28
+  call void %109(ptr noundef %110) #27
   %.pre221 = load i8, ptr %texp, align 8
   br label %if.end.i238
 
@@ -22470,7 +22469,7 @@ if.end.i238:                                      ; preds = %if.then.i245, %mpd_
 
 if.then3.i244:                                    ; preds = %if.end.i238
   %113 = load ptr, ptr @mpd_free, align 8
-  call void %113(ptr noundef nonnull %texp) #28
+  call void %113(ptr noundef nonnull %texp) #27
   br label %mpd_del.exit247
 
 mpd_del.exit247:                                  ; preds = %if.then3.i244, %if.end.i238
@@ -22481,7 +22480,7 @@ mpd_del.exit247:                                  ; preds = %if.then3.i244, %if.
 if.then.i227:                                     ; preds = %mpd_del.exit247
   %115 = load ptr, ptr @mpd_free, align 8
   %116 = load ptr, ptr %data14, align 8
-  call void %115(ptr noundef %116) #28
+  call void %115(ptr noundef %116) #27
   %.pre222 = load i8, ptr %tmod, align 8
   br label %if.end.i220
 
@@ -22493,7 +22492,7 @@ if.end.i220:                                      ; preds = %if.then.i227, %mpd_
 
 if.then3.i226:                                    ; preds = %if.end.i220
   %119 = load ptr, ptr @mpd_free, align 8
-  call void %119(ptr noundef nonnull %tmod) #28
+  call void %119(ptr noundef nonnull %tmod) #27
   br label %mpd_del.exit229
 
 mpd_del.exit229:                                  ; preds = %if.then3.i226, %if.end.i220
@@ -22504,7 +22503,7 @@ mpd_del.exit229:                                  ; preds = %if.then3.i226, %if.
 if.then.i:                                        ; preds = %mpd_del.exit229
   %121 = load ptr, ptr @mpd_free, align 8
   %122 = load ptr, ptr %data21, align 8
-  call void %121(ptr noundef %122) #28
+  call void %121(ptr noundef %122) #27
   %.pre223 = load i8, ptr %tmp, align 8
   br label %if.end.i
 
@@ -22516,7 +22515,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %125 = load ptr, ptr @mpd_free, align 8
-  call void %125(ptr noundef nonnull %tmp) #28
+  call void %125(ptr noundef nonnull %tmp) #27
   br label %return
 
 mpd_errors:                                       ; preds = %if.end121, %if.end109, %lor.lhs.false124, %lor.lhs.false127, %lor.lhs.false130, %for.end, %if.end87, %lor.lhs.false96, %lor.lhs.false99
@@ -22528,7 +22527,7 @@ return:                                           ; preds = %mpd_qcheck_3nans.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrescale(ptr noundef %result, ptr noundef %a, i64 noundef %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qrescale(ptr noundef %result, ptr noundef %a, i64 noundef %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = add i64 %exp, -1000000000000000001
@@ -22553,7 +22552,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %5 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %5, i64 noundef %4, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %5, i64 noundef %4, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %6 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %6, 0
@@ -22586,14 +22585,14 @@ return:                                           ; preds = %if.end, %mpd_seterr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qround_to_int(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qround_to_int(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef %result, ptr noundef %a, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrem(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qrem(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i38 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -22646,7 +22645,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i32 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %10 = load ptr, ptr %data.i.i32, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i32, align 8
   %11 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %11, 0
@@ -22701,11 +22700,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -22749,7 +22748,7 @@ mpd_qcopy.exit:                                   ; preds = %if.then12, %mpd_qre
   br label %return
 
 if.end14:                                         ; preds = %if.end9
-  call void @abort() #29
+  call void @abort() #28
   unreachable
 
 if.end15:                                         ; preds = %lor.lhs.false
@@ -22796,7 +22795,7 @@ if.then.i.i45:                                    ; preds = %land.lhs.true.i.i42
   store i8 0, ptr %err.i.i38, align 1
   %data.i.i46 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %44 = load ptr, ptr %data.i.i46, align 8
-  %call1.i.i47 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %err.i.i38) #28
+  %call1.i.i47 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %err.i.i38) #27
   store ptr %call1.i.i47, ptr %data.i.i46, align 8
   %45 = load i8, ptr %err.i.i38, align 1
   %tobool3.i.not.i48 = icmp eq i8 %45, 0
@@ -22829,7 +22828,7 @@ if.end23:                                         ; preds = %if.end15
 if.then.i:                                        ; preds = %if.end23
   %52 = load ptr, ptr @mpd_free, align 8
   %53 = load ptr, ptr %data, align 8
-  call void %52(ptr noundef %53) #28
+  call void %52(ptr noundef %53) #27
   %.pre51 = load i8, ptr %q, align 8
   br label %if.end.i
 
@@ -22841,7 +22840,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end2
 
 if.then3.i:                                       ; preds = %if.end.i
   %56 = load ptr, ptr @mpd_free, align 8
-  call void %56(ptr noundef nonnull %q) #28
+  call void %56(ptr noundef nonnull %q) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -22853,7 +22852,7 @@ return:                                           ; preds = %if.then21, %mpd_set
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qmul_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qmul_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
@@ -22886,7 +22885,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %6 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %7 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %7, 0
@@ -22915,10 +22914,10 @@ if.end:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpowmod_uint(ptr noundef %result, ptr noundef %base, ptr noundef %mod, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qpowmod_uint(ptr noundef %result, ptr noundef %base, ptr noundef %mod, ptr noundef %status) unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp.i = icmp eq ptr %result, @one
   br i1 %cmp.i, label %while.body.preheader, label %if.end.i
 
@@ -22941,11 +22940,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -22999,7 +22998,7 @@ while.end:                                        ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qquantize(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qquantize(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i71 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -23058,11 +23057,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -23119,7 +23118,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i70 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %26 = load ptr, ptr %data.i.i70, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i70, align 8
   %27 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %27, 0
@@ -23176,7 +23175,7 @@ if.then.i.i78:                                    ; preds = %land.lhs.true.i.i75
   store i8 0, ptr %err.i.i71, align 1
   %data.i.i79 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %40 = load ptr, ptr %data.i.i79, align 8
-  %call1.i.i80 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i71) #28
+  %call1.i.i80 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i71) #27
   store ptr %call1.i.i80, ptr %data.i.i79, align 8
   %41 = load i8, ptr %err.i.i71, align 1
   %tobool3.i.not.i81 = icmp eq i8 %41, 0
@@ -23299,7 +23298,7 @@ return:                                           ; preds = %if.end2.i, %mpd_qre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_mpd_apply_round_fit(ptr noundef %dec, i64 noundef %rnd, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc i32 @_mpd_apply_round_fit(ptr noundef %dec, i64 noundef %rnd, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = getelementptr i8, ptr %ctx, i64 36
@@ -23392,7 +23391,7 @@ if.then:                                          ; preds = %sw.bb2.i, %_mpd_rnd
   %16 = load ptr, ptr %data, align 8
   %len = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
   %17 = load i64, ptr %len, align 8
-  %call1 = tail call i64 @_mpd_baseincr(ptr noundef %16, i64 noundef %17) #28
+  %call1 = tail call i64 @_mpd_baseincr(ptr noundef %16, i64 noundef %17) #27
   %tobool2.not = icmp eq i64 %call1, 0
   br i1 %tobool2.not, label %if.end12, label %if.then3
 
@@ -23417,11 +23416,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %dec, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then5.i
@@ -23468,7 +23467,7 @@ land.lhs.true.i.i:                                ; preds = %if.then13
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %32 = load ptr, ptr %data, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data, align 8
   %33 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %33, 0
@@ -23498,7 +23497,7 @@ return:                                           ; preds = %entry, %sw.bb33.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qreduce(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qreduce(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -23535,11 +23534,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -23602,11 +23601,11 @@ if.then2.i.i39:                                   ; preds = %if.end.i.i37
   br i1 %cmp4.i.i40, label %if.then5.i.i52, label %if.end2.i41
 
 if.then5.i.i52:                                   ; preds = %if.then2.i.i39
-  %call6.i.i53 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i33, ptr noundef %status) #28
+  %call6.i.i53 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i33, ptr noundef %status) #27
   br label %mpd_qresize.exit.i54
 
 if.end8.i.i59:                                    ; preds = %if.end.i.i37
-  %call9.i.i60 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i33, ptr noundef %status) #28
+  %call9.i.i60 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i33, ptr noundef %status) #27
   br label %mpd_qresize.exit.i54
 
 mpd_qresize.exit.i54:                             ; preds = %if.end8.i.i59, %if.then5.i.i52
@@ -23678,7 +23677,7 @@ land.lhs.true.i.i:                                ; preds = %if.then17
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef nonnull %30, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef nonnull %30, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %37 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %37, 0
@@ -23771,7 +23770,7 @@ return:                                           ; preds = %mpd_qresize.exit.i5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrem_near(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qrem_near(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i74 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -23837,7 +23836,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i67 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %10 = load ptr, ptr %data.i.i67, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i67, align 8
   %11 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %11, 0
@@ -23892,11 +23891,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -23940,7 +23939,7 @@ mpd_qcopy.exit:                                   ; preds = %if.then19, %mpd_qre
   br label %return
 
 if.end21:                                         ; preds = %if.end16
-  call void @abort() #29
+  call void @abort() #28
   unreachable
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -23987,7 +23986,7 @@ if.then.i.i81:                                    ; preds = %land.lhs.true.i.i78
   store i8 0, ptr %err.i.i74, align 1
   %data.i.i82 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %44 = load ptr, ptr %data.i.i82, align 8
-  %call1.i.i83 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %err.i.i74) #28
+  %call1.i.i83 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %err.i.i74) #27
   store ptr %call1.i.i83, ptr %data.i.i82, align 8
   %45 = load i8, ptr %err.i.i74, align 1
   %tobool3.i.not.i84 = icmp eq i8 %45, 0
@@ -24026,7 +24025,7 @@ if.end.i88:                                       ; preds = %if.then32
   br i1 %cmp4.i.i97, label %mpd_qresize.exit.i111, label %if.end2.i98
 
 mpd_qresize.exit.i111:                            ; preds = %if.end.i88
-  %call6.i.i110 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %btmp, i64 noundef %cond.i.i90, ptr noundef %status) #28
+  %call6.i.i110 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %btmp, i64 noundef %cond.i.i90, ptr noundef %status) #27
   %tobool.not.i113 = icmp eq i32 %call6.i.i110, 0
   br i1 %tobool.not.i113, label %if.then35, label %mpd_qresize.exit.if.end2_crit_edge.i114
 
@@ -24106,7 +24105,7 @@ if.then53:                                        ; preds = %if.end48
   %call54 = call fastcc i32 @mpd_coeff_isallnine(i64 %q.val, ptr %q.val65)
   %74 = load i64, ptr %digits3, align 8
   %call56 = call i32 @mpd_isodd(ptr noundef nonnull %q), !range !9
-  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #27
   %75 = load i8, ptr %a, align 8
   %status63 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
   %76 = and i8 %75, 1
@@ -24158,7 +24157,7 @@ finish:                                           ; preds = %if.end48, %if.end87
 if.then.i154:                                     ; preds = %finish
   %80 = load ptr, ptr @mpd_free, align 8
   %81 = load ptr, ptr %data, align 8
-  call void %80(ptr noundef %81) #28
+  call void %80(ptr noundef %81) #27
   %.pre126 = load i8, ptr %btmp, align 8
   br label %if.end.i147
 
@@ -24170,7 +24169,7 @@ if.end.i147:                                      ; preds = %if.then.i154, %fini
 
 if.then3.i153:                                    ; preds = %if.end.i147
   %84 = load ptr, ptr @mpd_free, align 8
-  call void %84(ptr noundef nonnull %btmp) #28
+  call void %84(ptr noundef nonnull %btmp) #27
   br label %mpd_del.exit156
 
 mpd_del.exit156:                                  ; preds = %if.then3.i153, %if.end.i147
@@ -24181,7 +24180,7 @@ mpd_del.exit156:                                  ; preds = %if.then3.i153, %if.
 if.then.i:                                        ; preds = %mpd_del.exit156
   %86 = load ptr, ptr @mpd_free, align 8
   %87 = load ptr, ptr %data6, align 8
-  call void %86(ptr noundef %87) #28
+  call void %86(ptr noundef %87) #27
   %.pre127 = load i8, ptr %q, align 8
   br label %if.end.i
 
@@ -24193,7 +24192,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %90 = load ptr, ptr @mpd_free, align 8
-  call void %90(ptr noundef nonnull %q) #28
+  call void %90(ptr noundef nonnull %q) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -24205,7 +24204,7 @@ return:                                           ; preds = %if.then28, %mpd_set
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @mpd_coeff_isallnine(i64 %dec.24.val, ptr nocapture readonly %dec.40.val) unnamed_addr #15 {
+define internal fastcc i32 @mpd_coeff_isallnine(i64 %dec.24.val, ptr nocapture readonly %dec.40.val) unnamed_addr #14 {
 entry:
   %0 = getelementptr i64, ptr %dec.40.val, i64 %dec.24.val
   %arrayidx.i = getelementptr i64, ptr %0, i64 -1
@@ -24343,7 +24342,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qrescale(ptr noundef %result, ptr noundef %a, i64 noundef %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qrescale(ptr noundef %result, ptr noundef %a, i64 noundef %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i42 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -24377,11 +24376,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -24450,7 +24449,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i41 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %24 = load ptr, ptr %data.i.i41, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i41, align 8
   %25 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %25, 0
@@ -24514,7 +24513,7 @@ if.then.i.i48:                                    ; preds = %land.lhs.true.i.i45
   store i8 0, ptr %err.i.i42, align 1
   %data.i.i49 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %38 = load ptr, ptr %data.i.i49, align 8
-  %call1.i.i50 = call ptr @mpd_realloc(ptr noundef %38, i64 noundef %37, i64 noundef 8, ptr noundef nonnull %err.i.i42) #28
+  %call1.i.i50 = call ptr @mpd_realloc(ptr noundef %38, i64 noundef %37, i64 noundef 8, ptr noundef nonnull %err.i.i42) #27
   store ptr %call1.i.i50, ptr %data.i.i49, align 8
   %39 = load i8, ptr %err.i.i42, align 1
   %tobool3.i.not.i51 = icmp eq i8 %39, 0
@@ -24611,7 +24610,7 @@ if.end32:                                         ; preds = %if.end.i55, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qrescale_fmt(ptr noundef %result, ptr noundef %a, i64 noundef %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qrescale_fmt(ptr noundef %result, ptr noundef %a, i64 noundef %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = add i64 %exp, -1000000000000000001
@@ -24636,7 +24635,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %5 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %5, i64 noundef %4, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %5, i64 noundef %4, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %6 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %6, 0
@@ -24669,14 +24668,14 @@ return:                                           ; preds = %if.end, %mpd_seterr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qround_to_intx(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qround_to_intx(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call fastcc void @_mpd_qround_to_integral(i32 noundef 0, ptr noundef %result, ptr noundef %a, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qround_to_integral(i32 noundef %action, ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qround_to_integral(i32 noundef %action, ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -24712,11 +24711,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -24785,11 +24784,11 @@ if.then2.i.i37:                                   ; preds = %if.end.i.i35
   br i1 %cmp4.i.i38, label %if.then5.i.i50, label %if.end2.i39
 
 if.then5.i.i50:                                   ; preds = %if.then2.i.i37
-  %call6.i.i51 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i31, ptr noundef %status) #28
+  %call6.i.i51 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i31, ptr noundef %status) #27
   br label %mpd_qresize.exit.i52
 
 if.end8.i.i57:                                    ; preds = %if.end.i.i35
-  %call9.i.i58 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i31, ptr noundef %status) #28
+  %call9.i.i58 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i31, ptr noundef %status) #27
   br label %mpd_qresize.exit.i52
 
 mpd_qresize.exit.i52:                             ; preds = %if.end8.i.i57, %if.then5.i.i50
@@ -24857,7 +24856,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %37 = load ptr, ptr %data.i.i65, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i65, align 8
   %38 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %38, 0
@@ -24925,7 +24924,7 @@ if.end30:                                         ; preds = %if.end2.i39, %mpd_q
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qtrunc(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qtrunc(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -24951,7 +24950,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %6 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %7 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %7, 0
@@ -24984,7 +24983,7 @@ return:                                           ; preds = %if.end, %mpd_seterr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qfloor(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qfloor(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workctx = alloca %struct.mpd_context_t, align 8
@@ -25012,7 +25011,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %6 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %7 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %7, 0
@@ -25047,7 +25046,7 @@ return:                                           ; preds = %if.end, %mpd_seterr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qceil(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qceil(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workctx = alloca %struct.mpd_context_t, align 8
@@ -25075,7 +25074,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %6 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %7 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %7, 0
@@ -25110,7 +25109,7 @@ return:                                           ; preds = %if.end, %mpd_seterr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mpd_same_quantum(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #17 {
+define hidden i32 @mpd_same_quantum(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #16 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -25161,7 +25160,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qinvroot(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qinvroot(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i117.i = alloca i8, align 1
   %err.i.i.i = alloca i8, align 1
@@ -25218,7 +25217,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i25 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %8 = load ptr, ptr %data.i.i25, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i25, align 8
   %9 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %9, 0
@@ -25265,7 +25264,7 @@ if.then.i.i32:                                    ; preds = %land.lhs.true.i.i29
   store i8 0, ptr %err.i.i26, align 1
   %data.i.i33 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %21 = load ptr, ptr %data.i.i33, align 8
-  %call1.i.i34 = call ptr @mpd_realloc(ptr noundef %21, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %err.i.i26) #28
+  %call1.i.i34 = call ptr @mpd_realloc(ptr noundef %21, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %err.i.i26) #27
   store ptr %call1.i.i34, ptr %data.i.i33, align 8
   %22 = load i8, ptr %err.i.i26, align 1
   %tobool3.i.not.i35 = icmp eq i8 %22, 0
@@ -25329,7 +25328,7 @@ if.then.i.i43:                                    ; preds = %land.lhs.true.i.i40
   store i8 0, ptr %err.i.i37, align 1
   %data.i.i44 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %39 = load ptr, ptr %data.i.i44, align 8
-  %call1.i.i45 = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %err.i.i37) #28
+  %call1.i.i45 = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %err.i.i37) #27
   store ptr %call1.i.i45, ptr %data.i.i44, align 8
   %40 = load i8, ptr %err.i.i37, align 1
   %tobool3.i.not.i46 = icmp eq i8 %40, 0
@@ -25376,7 +25375,7 @@ if.then.i.i55:                                    ; preds = %land.lhs.true.i.i52
   store i8 0, ptr %err.i.i48, align 1
   %data.i.i56 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %49 = load ptr, ptr %data.i.i56, align 8
-  %call1.i.i57 = call ptr @mpd_realloc(ptr noundef %49, i64 noundef %48, i64 noundef 8, ptr noundef nonnull %err.i.i48) #28
+  %call1.i.i57 = call ptr @mpd_realloc(ptr noundef %49, i64 noundef %48, i64 noundef 8, ptr noundef nonnull %err.i.i48) #27
   store ptr %call1.i.i57, ptr %data.i.i56, align 8
   %50 = load i8, ptr %err.i.i48, align 1
   %tobool3.i.not.i58 = icmp eq i8 %50, 0
@@ -25476,7 +25475,7 @@ if.end19:                                         ; preds = %if.end15
   br i1 %cmp.i64, label %if.then.i, label %if.end44.i
 
 if.then.i:                                        ; preds = %if.end19
-  %call.i.i = call ptr @mpd_qnew_size(i64 noundef %31) #28
+  %call.i.i = call ptr @mpd_qnew_size(i64 noundef %31) #27
   %cmp.i.i68 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i68, label %if.then43.i, label %mpd_qncopy.exit.i
 
@@ -25520,7 +25519,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then43.i
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %73 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %73, i64 noundef %72, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %73, i64 noundef %72, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i, align 8
   %74 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %74, 0
@@ -25713,7 +25712,7 @@ if.then.i.i129.i:                                 ; preds = %land.lhs.true.i.i12
   store i8 0, ptr %err.i.i117.i, align 1
   %data.i.i130.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %106 = load ptr, ptr %data.i.i130.i, align 8
-  %call1.i.i131.i = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i117.i) #28
+  %call1.i.i131.i = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i117.i) #27
   store ptr %call1.i.i131.i, ptr %data.i.i130.i, align 8
   %107 = load i8, ptr %err.i.i117.i, align 1
   %tobool3.i.not.i132.i = icmp eq i8 %107, 0
@@ -25738,8 +25737,8 @@ _invroot_init_approx.exit.i:                      ; preds = %if.then4.i.i133.i, 
   store i64 -6, ptr %exp.i125.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i117.i)
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext.i) #28
-  call void @mpd_maxcontext(ptr noundef nonnull %varcontext.i) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext.i) #27
+  call void @mpd_maxcontext(ptr noundef nonnull %varcontext.i) #27
   %round.i = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext.i, i64 0, i32 6
   store i32 8, ptr %round.i, align 4
   %add89.i = add i64 %workctx.sroa.0.0.copyload, 3
@@ -25894,7 +25893,7 @@ if.end129.i:                                      ; preds = %if.then125.i, %mpd_
 if.then.i170.i:                                   ; preds = %if.end129.i
   %129 = load ptr, ptr @mpd_free, align 8
   %130 = load ptr, ptr %data14.i, align 8
-  call void %129(ptr noundef %130) #28
+  call void %129(ptr noundef %130) #27
   %.pre.i = load i8, ptr %s.i, align 8
   br label %if.end.i163.i
 
@@ -25906,7 +25905,7 @@ if.end.i163.i:                                    ; preds = %if.then.i170.i, %if
 
 if.then3.i169.i:                                  ; preds = %if.end.i163.i
   %133 = load ptr, ptr @mpd_free, align 8
-  call void %133(ptr noundef nonnull %s.i) #28
+  call void %133(ptr noundef nonnull %s.i) #27
   br label %mpd_del.exit172.i
 
 mpd_del.exit172.i:                                ; preds = %if.then3.i169.i, %if.end.i163.i
@@ -25917,7 +25916,7 @@ mpd_del.exit172.i:                                ; preds = %if.then3.i169.i, %i
 if.then.i152.i:                                   ; preds = %mpd_del.exit172.i
   %135 = load ptr, ptr @mpd_free, align 8
   %136 = load ptr, ptr %data20.i, align 8
-  call void %135(ptr noundef %136) #28
+  call void %135(ptr noundef %136) #27
   %.pre171.i = load i8, ptr %t.i, align 8
   br label %if.end.i145.i
 
@@ -25929,7 +25928,7 @@ if.end.i145.i:                                    ; preds = %if.then.i152.i, %mp
 
 if.then3.i151.i:                                  ; preds = %if.end.i145.i
   %139 = load ptr, ptr @mpd_free, align 8
-  call void %139(ptr noundef nonnull %t.i) #28
+  call void %139(ptr noundef nonnull %t.i) #27
   br label %mpd_del.exit154.i
 
 mpd_del.exit154.i:                                ; preds = %if.then3.i151.i, %if.end.i145.i
@@ -25945,7 +25944,7 @@ if.then.i.i66:                                    ; preds = %if.then132.i
   %141 = load ptr, ptr @mpd_free, align 8
   %data.i.i67 = getelementptr inbounds %struct.mpd_t, ptr %v.0.i, i64 0, i32 5
   %142 = load ptr, ptr %data.i.i67, align 8
-  call void %141(ptr noundef %142) #28
+  call void %141(ptr noundef %142) #27
   %.pre172.i = load i8, ptr %v.0.i, align 8
   br label %if.end.i.i
 
@@ -25957,7 +25956,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i66, %if.
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %145 = load ptr, ptr @mpd_free, align 8
-  call void %145(ptr noundef nonnull %v.0.i) #28
+  call void %145(ptr noundef nonnull %v.0.i) #27
   br label %if.end133.i
 
 if.end133.i:                                      ; preds = %if.then3.i.i, %if.end.i.i, %mpd_del.exit154.i
@@ -25991,7 +25990,7 @@ return:                                           ; preds = %if.then, %_mpd_qinv
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsqrt(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qsqrt(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i23 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -26025,7 +26024,7 @@ if.end.i19:                                       ; preds = %if.then
   br i1 %cmp4.i.i, label %mpd_qresize.exit.i, label %if.end2.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end.i19
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %aa, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %aa, i64 noundef %cond.i.i, ptr noundef %status) #27
   %tobool.not.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i, label %if.then1, label %mpd_qresize.exit.if.end2_crit_edge.i
 
@@ -26072,7 +26071,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %14 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %13, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %13, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %15 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %15, 0
@@ -26151,7 +26150,7 @@ if.then.i.i30:                                    ; preds = %land.lhs.true.i.i27
   store i8 0, ptr %err.i.i23, align 1
   %data.i.i31 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %32 = load ptr, ptr %data.i.i31, align 8
-  %call1.i.i32 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i23) #28
+  %call1.i.i32 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i23) #27
   store ptr %call1.i.i32, ptr %data.i.i31, align 8
   %33 = load i8, ptr %err.i.i23, align 1
   %tobool3.i.not.i33 = icmp eq i8 %33, 0
@@ -26189,7 +26188,7 @@ out:                                              ; preds = %if.else, %mpd_seter
 if.then.i:                                        ; preds = %out
   %41 = load ptr, ptr @mpd_free, align 8
   %42 = load ptr, ptr %data, align 8
-  call void %41(ptr noundef %42) #28
+  call void %41(ptr noundef %42) #27
   %.pre39 = load i8, ptr %aa, align 8
   br label %if.end.i
 
@@ -26201,7 +26200,7 @@ if.end.i:                                         ; preds = %if.then.i, %out
 
 if.then3.i:                                       ; preds = %if.end.i
   %45 = load ptr, ptr @mpd_free, align 8
-  call void %45(ptr noundef nonnull %aa) #28
+  call void %45(ptr noundef nonnull %aa) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -26209,7 +26208,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qsqrt(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qsqrt(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i122 = alloca i8, align 1
   %err.i.i102 = alloca i8, align 1
@@ -26296,7 +26295,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i79 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %9 = load ptr, ptr %data.i.i79, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %9, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %9, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i79, align 8
   %10 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %10, 0
@@ -26338,7 +26337,7 @@ if.then.i.i86:                                    ; preds = %land.lhs.true.i.i83
   store i8 0, ptr %err.i.i80, align 1
   %data.i.i87 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %20 = load ptr, ptr %data.i.i87, align 8
-  %call1.i.i88 = call ptr @mpd_realloc(ptr noundef %20, i64 noundef %19, i64 noundef 8, ptr noundef nonnull %err.i.i80) #28
+  %call1.i.i88 = call ptr @mpd_realloc(ptr noundef %20, i64 noundef %19, i64 noundef 8, ptr noundef nonnull %err.i.i80) #27
   store ptr %call1.i.i88, ptr %data.i.i87, align 8
   %21 = load i8, ptr %err.i.i80, align 1
   %tobool3.i.not.i89 = icmp eq i8 %21, 0
@@ -26389,7 +26388,7 @@ if.then.i.i97:                                    ; preds = %land.lhs.true.i.i94
   store i8 0, ptr %err.i.i91, align 1
   %data.i.i98 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %34 = load ptr, ptr %data.i.i98, align 8
-  %call1.i.i99 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %33, i64 noundef 8, ptr noundef nonnull %err.i.i91) #28
+  %call1.i.i99 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %33, i64 noundef 8, ptr noundef nonnull %err.i.i91) #27
   store ptr %call1.i.i99, ptr %data.i.i98, align 8
   %35 = load i8, ptr %err.i.i91, align 1
   %tobool3.i.not.i100 = icmp eq i8 %35, 0
@@ -26444,7 +26443,7 @@ if.then.i.i109:                                   ; preds = %land.lhs.true.i.i10
   store i8 0, ptr %err.i.i102, align 1
   %data.i.i110 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %46 = load ptr, ptr %data.i.i110, align 8
-  %call1.i.i111 = call ptr @mpd_realloc(ptr noundef %46, i64 noundef %45, i64 noundef 8, ptr noundef nonnull %err.i.i102) #28
+  %call1.i.i111 = call ptr @mpd_realloc(ptr noundef %46, i64 noundef %45, i64 noundef 8, ptr noundef nonnull %err.i.i102) #27
   store ptr %call1.i.i111, ptr %data.i.i110, align 8
   %47 = load i8, ptr %err.i.i102, align 1
   %tobool3.i.not.i112 = icmp eq i8 %47, 0
@@ -26469,7 +26468,7 @@ mpd_seterror.exit114:                             ; preds = %if.then39, %land.lh
   br label %return
 
 if.end40:                                         ; preds = %if.end36
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %53 = load i64, ptr %ctx, align 8
   %add = add i64 %53, 1
   %cmp.i115 = icmp eq ptr %c, %a
@@ -26494,11 +26493,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %c, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %c, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %c, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %c, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -26691,7 +26690,7 @@ out:                                              ; preds = %mpd_seterror.exit13
 if.then.i199:                                     ; preds = %out
   %85 = load ptr, ptr @mpd_free, align 8
   %86 = load ptr, ptr %data, align 8
-  call void %85(ptr noundef %86) #28
+  call void %85(ptr noundef %86) #27
   %.pre141 = load i8, ptr %c, align 8
   br label %if.end.i192
 
@@ -26703,7 +26702,7 @@ if.end.i192:                                      ; preds = %if.then.i199, %out
 
 if.then3.i198:                                    ; preds = %if.end.i192
   %89 = load ptr, ptr @mpd_free, align 8
-  call void %89(ptr noundef nonnull %c) #28
+  call void %89(ptr noundef nonnull %c) #27
   br label %mpd_del.exit201
 
 mpd_del.exit201:                                  ; preds = %if.then3.i198, %if.end.i192
@@ -26714,7 +26713,7 @@ mpd_del.exit201:                                  ; preds = %if.then3.i198, %if.
 if.then.i181:                                     ; preds = %mpd_del.exit201
   %91 = load ptr, ptr @mpd_free, align 8
   %92 = load ptr, ptr %data6, align 8
-  call void %91(ptr noundef %92) #28
+  call void %91(ptr noundef %92) #27
   %.pre142 = load i8, ptr %q, align 8
   br label %if.end.i174
 
@@ -26726,7 +26725,7 @@ if.end.i174:                                      ; preds = %if.then.i181, %mpd_
 
 if.then3.i180:                                    ; preds = %if.end.i174
   %95 = load ptr, ptr @mpd_free, align 8
-  call void %95(ptr noundef nonnull %q) #28
+  call void %95(ptr noundef nonnull %q) #27
   br label %mpd_del.exit183
 
 mpd_del.exit183:                                  ; preds = %if.then3.i180, %if.end.i174
@@ -26737,7 +26736,7 @@ mpd_del.exit183:                                  ; preds = %if.then3.i180, %if.
 if.then.i:                                        ; preds = %mpd_del.exit183
   %97 = load ptr, ptr @mpd_free, align 8
   %98 = load ptr, ptr %data13, align 8
-  call void %97(ptr noundef %98) #28
+  call void %97(ptr noundef %98) #27
   %.pre143 = load i8, ptr %r, align 8
   br label %if.end.i
 
@@ -26749,7 +26748,7 @@ if.end.i:                                         ; preds = %if.then.i, %mpd_del
 
 if.then3.i:                                       ; preds = %if.end.i
   %101 = load ptr, ptr @mpd_free, align 8
-  call void %101(ptr noundef nonnull %r) #28
+  call void %101(ptr noundef nonnull %r) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -26777,7 +26776,7 @@ if.then.i.i129:                                   ; preds = %land.lhs.true.i.i12
   store i8 0, ptr %err.i.i122, align 1
   %data.i.i130 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %106 = load ptr, ptr %data.i.i130, align 8
-  %call1.i.i131 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i122) #28
+  %call1.i.i131 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i122) #27
   store ptr %call1.i.i131, ptr %data.i.i130, align 8
   %107 = load i8, ptr %err.i.i122, align 1
   %tobool3.i.not.i132 = icmp eq i8 %107, 0
@@ -26806,7 +26805,7 @@ return:                                           ; preds = %if.then, %mpd_del.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden i64 @mpd_sizeinbase(ptr nocapture noundef readonly %a, i32 noundef %base) local_unnamed_addr #18 {
+define hidden i64 @mpd_sizeinbase(ptr nocapture noundef readonly %a, i32 noundef %base) local_unnamed_addr #17 {
 entry:
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -26836,7 +26835,7 @@ if.end:                                           ; preds = %entry, %land.rhs.i
 if.end3:                                          ; preds = %if.end
   %conv = uitofp i64 %add to double
   %conv4 = uitofp i32 %base to double
-  %call5 = tail call double @log10(double noundef %conv4) #28
+  %call5 = tail call double @log10(double noundef %conv4) #27
   %div = fdiv double %conv, %call5
   %cmp6 = fcmp ogt double %div, 0x433FFFFFFFFFFFFF
   %conv8 = fptoui double %div to i64
@@ -26850,10 +26849,10 @@ return:                                           ; preds = %if.end, %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log10(double noundef) local_unnamed_addr #19
+declare double @log10(double noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qexport_u16(ptr nocapture noundef %rdata, i64 noundef %rlen, i32 noundef %rbase, ptr noundef %src, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i64 @mpd_qexport_u16(ptr nocapture noundef %rdata, i64 noundef %rlen, i32 noundef %rbase, ptr noundef %src, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %tsrc_data = alloca [64 x i64], align 16
@@ -26947,7 +26946,7 @@ if.end.i31:                                       ; preds = %if.end
 if.end3.i:                                        ; preds = %if.end.i31
   %conv.i35 = uitofp i64 %add.i33 to double
   %conv4.i = uitofp i32 %rbase to double
-  %call5.i = call double @log10(double noundef %conv4.i) #28
+  %call5.i = call double @log10(double noundef %conv4.i) #27
   %div.i = fdiv double %conv.i35, %call5.i
   %cmp6.i = fcmp ogt double %div.i, 0x433FFFFFFFFFFFFF
   %conv8.i = fptoui double %div.i to i64
@@ -26964,7 +26963,7 @@ if.then7:                                         ; preds = %if.end3.i, %if.end.
 
 if.end9:                                          ; preds = %if.end3.i, %if.end.thread
   %retval.0.i3658 = phi i64 [ 1, %if.end.thread ], [ %add9.i, %if.end3.i ]
-  %call10 = call ptr @mpd_alloc(i64 noundef %retval.0.i3658, i64 noundef 2) #28
+  %call10 = call ptr @mpd_alloc(i64 noundef %retval.0.i3658, i64 noundef 2) #27
   store ptr %call10, ptr %rdata, align 8
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %if.end42, label %if.end9.if.end14_crit_edge
@@ -27031,7 +27030,7 @@ if.then.i41:                                      ; preds = %do.body.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i)
   store i8 0, ptr %err.i.i, align 1
   %23 = load ptr, ptr %rdata, align 8
-  %call.i.i = call ptr @mpd_realloc(ptr noundef %23, i64 noundef %.pre.i, i64 noundef 2, ptr noundef nonnull %err.i.i) #28
+  %call.i.i = call ptr @mpd_realloc(ptr noundef %23, i64 noundef %.pre.i, i64 noundef 2, ptr noundef nonnull %err.i.i) #27
   store ptr %call.i.i, ptr %rdata, align 8
   %24 = load i8, ptr %err.i.i, align 1
   %tobool.not.i.not.i = icmp eq i8 %24, 0
@@ -27040,7 +27039,7 @@ if.then.i41:                                      ; preds = %do.body.i
 
 if.end3.i43:                                      ; preds = %if.then.i41, %do.body.i
   %wlen.addr.1.i = phi i64 [ %.pre.i, %if.then.i41 ], [ %wlen.addr.0.i, %do.body.i ]
-  %call4.i = call i64 @_mpd_shortdiv(ptr noundef %21, ptr noundef %21, i64 noundef %ulen.addr.0.i, i64 noundef %conv) #28
+  %call4.i = call i64 @_mpd_shortdiv(ptr noundef %21, ptr noundef %21, i64 noundef %ulen.addr.0.i, i64 noundef %conv) #27
   %conv.i44 = trunc i64 %call4.i to i16
   %25 = load ptr, ptr %rdata, align 8
   %arrayidx.i = getelementptr i16, ptr %25, i64 %n.0.i
@@ -27080,7 +27079,7 @@ out:                                              ; preds = %_baseconv_to_u16.ex
 if.then.i:                                        ; preds = %out
   %29 = load ptr, ptr @mpd_free, align 8
   %30 = load ptr, ptr %data, align 8
-  call void %29(ptr noundef %30) #28
+  call void %29(ptr noundef %30) #27
   %.pre71 = load i8, ptr %tsrc, align 8
   br label %if.end.i
 
@@ -27092,7 +27091,7 @@ if.end.i:                                         ; preds = %if.then.i, %out
 
 if.then3.i:                                       ; preds = %if.end.i
   %33 = load ptr, ptr @mpd_free, align 8
-  call void %33(ptr noundef nonnull %tsrc) #28
+  call void %33(ptr noundef nonnull %tsrc) #27
   br label %return
 
 malloc_error:                                     ; preds = %if.then.i41, %_baseconv_to_u16.exit, %if.else, %if.then21
@@ -27101,7 +27100,7 @@ malloc_error:                                     ; preds = %if.then.i41, %_base
 if.then41:                                        ; preds = %malloc_error
   %34 = load ptr, ptr @mpd_free, align 8
   %35 = load ptr, ptr %rdata, align 8
-  call void %34(ptr noundef %35) #28
+  call void %34(ptr noundef %35) #27
   store ptr null, ptr %rdata, align 8
   br label %if.end42
 
@@ -27116,10 +27115,10 @@ return:                                           ; preds = %if.end.i, %if.then3
   ret i64 %retval.0
 }
 
-declare hidden ptr @mpd_alloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden ptr @mpd_alloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @mpd_qexport_u32(ptr nocapture noundef %rdata, i64 noundef %rlen, i32 noundef %rbase, ptr noundef %src, ptr noundef %status) local_unnamed_addr #9 {
+define hidden i64 @mpd_qexport_u32(ptr nocapture noundef %rdata, i64 noundef %rlen, i32 noundef %rbase, ptr noundef %src, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %tsrc_data = alloca [64 x i64], align 16
@@ -27213,7 +27212,7 @@ if.end.i31:                                       ; preds = %if.end
 if.end3.i:                                        ; preds = %if.end.i31
   %conv.i35 = uitofp i64 %add.i33 to double
   %conv4.i = uitofp i32 %rbase to double
-  %call5.i = call double @log10(double noundef %conv4.i) #28
+  %call5.i = call double @log10(double noundef %conv4.i) #27
   %div.i = fdiv double %conv.i35, %call5.i
   %cmp6.i = fcmp ogt double %div.i, 0x433FFFFFFFFFFFFF
   %conv8.i = fptoui double %div.i to i64
@@ -27230,7 +27229,7 @@ if.then7:                                         ; preds = %if.end3.i, %if.end.
 
 if.end9:                                          ; preds = %if.end3.i, %if.end.thread
   %retval.0.i3658 = phi i64 [ 1, %if.end.thread ], [ %add9.i, %if.end3.i ]
-  %call10 = call ptr @mpd_alloc(i64 noundef %retval.0.i3658, i64 noundef 4) #28
+  %call10 = call ptr @mpd_alloc(i64 noundef %retval.0.i3658, i64 noundef 4) #27
   store ptr %call10, ptr %rdata, align 8
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %if.end41, label %if.end9.if.end14_crit_edge
@@ -27297,7 +27296,7 @@ if.then.i42:                                      ; preds = %do.body.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i)
   store i8 0, ptr %err.i.i, align 1
   %23 = load ptr, ptr %rdata, align 8
-  %call.i.i = call ptr @mpd_realloc(ptr noundef %23, i64 noundef %.pre.i, i64 noundef 4, ptr noundef nonnull %err.i.i) #28
+  %call.i.i = call ptr @mpd_realloc(ptr noundef %23, i64 noundef %.pre.i, i64 noundef 4, ptr noundef nonnull %err.i.i) #27
   store ptr %call.i.i, ptr %rdata, align 8
   %24 = load i8, ptr %err.i.i, align 1
   %tobool.not.i.not.i = icmp eq i8 %24, 0
@@ -27306,7 +27305,7 @@ if.then.i42:                                      ; preds = %do.body.i
 
 if.end3.i44:                                      ; preds = %if.then.i42, %do.body.i
   %wlen.addr.1.i = phi i64 [ %.pre.i, %if.then.i42 ], [ %wlen.addr.0.i, %do.body.i ]
-  %call4.i = call i64 @_mpd_shortdiv_b(ptr noundef %21, ptr noundef %21, i64 noundef %ulen.addr.0.i, i64 noundef %conv.i41, i64 noundef -8446744073709551616) #28
+  %call4.i = call i64 @_mpd_shortdiv_b(ptr noundef %21, ptr noundef %21, i64 noundef %ulen.addr.0.i, i64 noundef %conv.i41, i64 noundef -8446744073709551616) #27
   %conv5.i = trunc i64 %call4.i to i32
   %25 = load ptr, ptr %rdata, align 8
   %arrayidx.i = getelementptr i32, ptr %25, i64 %n.0.i
@@ -27346,7 +27345,7 @@ out:                                              ; preds = %_baseconv_to_smalle
 if.then.i:                                        ; preds = %out
   %29 = load ptr, ptr @mpd_free, align 8
   %30 = load ptr, ptr %data, align 8
-  call void %29(ptr noundef %30) #28
+  call void %29(ptr noundef %30) #27
   %.pre71 = load i8, ptr %tsrc, align 8
   br label %if.end.i
 
@@ -27358,7 +27357,7 @@ if.end.i:                                         ; preds = %if.then.i, %out
 
 if.then3.i:                                       ; preds = %if.end.i
   %33 = load ptr, ptr @mpd_free, align 8
-  call void %33(ptr noundef nonnull %tsrc) #28
+  call void %33(ptr noundef nonnull %tsrc) #27
   br label %return
 
 malloc_error:                                     ; preds = %if.then.i42, %_baseconv_to_smaller.exit, %if.else, %if.then21
@@ -27367,7 +27366,7 @@ malloc_error:                                     ; preds = %if.then.i42, %_base
 if.then40:                                        ; preds = %malloc_error
   %34 = load ptr, ptr @mpd_free, align 8
   %35 = load ptr, ptr %rdata, align 8
-  call void %34(ptr noundef %35) #28
+  call void %34(ptr noundef %35) #27
   store ptr null, ptr %rdata, align 8
   br label %if.end41
 
@@ -27383,7 +27382,7 @@ return:                                           ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qimport_u16(ptr noundef %result, ptr nocapture noundef readonly %srcdata, i64 noundef %srclen, i8 noundef zeroext %srcsign, i32 noundef %srcbase, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qimport_u16(ptr noundef %result, ptr nocapture noundef readonly %srcdata, i64 noundef %srclen, i8 noundef zeroext %srcsign, i32 noundef %srcbase, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i55 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -27393,7 +27392,7 @@ entry:
 if.end.i53:                                       ; preds = %entry
   %conv.i = uitofp i64 %srclen to double
   %conv1.i = uitofp i32 %srcbase to double
-  %call.i = tail call double @log10(double noundef %conv1.i) #28
+  %call.i = tail call double @log10(double noundef %conv1.i) #27
   %div.i = fdiv double %call.i, 1.900000e+01
   %mul.i = fmul double %div.i, %conv.i
   %cmp2.i = fcmp ogt double %mul.i, 0x433FFFFFFFFFFFFF
@@ -27421,7 +27420,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %5 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %5, 0
@@ -27446,7 +27445,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %if.end.i53
-  %call1 = tail call ptr @mpd_alloc(i64 noundef %srclen, i64 noundef 8) #28
+  %call1 = tail call ptr @mpd_alloc(i64 noundef %srclen, i64 noundef 8) #27
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %for.cond.preheader
 
@@ -27472,7 +27471,7 @@ if.then.i.i62:                                    ; preds = %land.lhs.true.i.i59
   store i8 0, ptr %err.i.i55, align 1
   %data.i.i63 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %15 = load ptr, ptr %data.i.i63, align 8
-  %call1.i.i64 = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %err.i.i55) #28
+  %call1.i.i64 = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %err.i.i55) #27
   store ptr %call1.i.i64, ptr %data.i.i63, align 8
   %16 = load i8, ptr %err.i.i55, align 1
   %tobool3.i.not.i65 = icmp eq i8 %16, 0
@@ -27526,11 +27525,11 @@ if.then2.i34:                                     ; preds = %if.end.i28
   br i1 %cmp4.i36, label %if.then5.i38, label %if.end9
 
 if.then5.i38:                                     ; preds = %if.then2.i34
-  %call6.i39 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i25, ptr noundef %status) #28
+  %call6.i39 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i25, ptr noundef %status) #27
   br label %mpd_qresize.exit42
 
 if.end8.i32:                                      ; preds = %if.end.i28
-  %call9.i33 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i25, ptr noundef %status) #28
+  %call9.i33 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i25, ptr noundef %status) #27
   br label %mpd_qresize.exit42
 
 mpd_qresize.exit42:                               ; preds = %if.end8.i32, %if.then5.i38
@@ -27558,7 +27557,7 @@ while.body.i:                                     ; preds = %if.end35.i, %while.
   %n.055.i = phi i64 [ 1, %while.body.lr.ph.i ], [ %n.2.i, %if.end35.i ]
   %wlen.addr.054.i = phi i64 [ %add.i, %while.body.lr.ph.i ], [ %wlen.addr.4.i, %if.end35.i ]
   %29 = load ptr, ptr %data.i, align 8
-  %call.i69 = tail call i64 @_mpd_shortmul_c(ptr noundef %29, ptr noundef %29, i64 noundef %n.055.i, i64 noundef %conv.i68) #28
+  %call.i69 = tail call i64 @_mpd_shortmul_c(ptr noundef %29, ptr noundef %29, i64 noundef %n.055.i, i64 noundef %conv.i68) #27
   %tobool.not.i = icmp eq i64 %call.i69, 0
   br i1 %tobool.not.i, label %if.end16.i, label %if.then.i
 
@@ -27585,11 +27584,11 @@ if.then2.i53.i:                                   ; preds = %if.end.i47.i
   br i1 %cmp4.i55.i, label %if.then5.i57.i, label %if.end12.i
 
 if.then5.i57.i:                                   ; preds = %if.then2.i53.i
-  %call6.i58.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i44.i, ptr noundef %status) #28
+  %call6.i58.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i44.i, ptr noundef %status) #27
   br label %mpd_qresize.exit61.i
 
 if.end8.i51.i:                                    ; preds = %if.end.i47.i
-  %call9.i52.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i44.i, ptr noundef %status) #28
+  %call9.i52.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i44.i, ptr noundef %status) #27
   br label %mpd_qresize.exit61.i
 
 mpd_qresize.exit61.i:                             ; preds = %if.end8.i51.i, %if.then5.i57.i
@@ -27610,7 +27609,7 @@ if.end16.i:                                       ; preds = %if.end12.i, %while.
   %35 = load ptr, ptr %data.i, align 8
   %arrayidx18.i = getelementptr i64, ptr %call1, i64 %dec256.i
   %36 = load i64, ptr %arrayidx18.i, align 8
-  %call19.i = tail call i64 @_mpd_shortadd(ptr noundef %35, i64 noundef %n.1.i, i64 noundef %36) #28
+  %call19.i = tail call i64 @_mpd_shortadd(ptr noundef %35, i64 noundef %n.1.i, i64 noundef %36) #27
   %tobool20.not.i = icmp eq i64 %call19.i, 0
   br i1 %tobool20.not.i, label %if.end35.i, label %if.then21.i
 
@@ -27637,11 +27636,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end31.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -27696,11 +27695,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %if.end14, %if.end8.i, %if.then5.i
@@ -27709,7 +27708,7 @@ mpd_qresize.exit:                                 ; preds = %if.then2.i, %if.end
 
 finish:                                           ; preds = %mpd_qresize.exit61.i, %mpd_qresize.exit.i, %_coeff_from_u16.exit, %mpd_qresize.exit42, %mpd_qresize.exit
   %49 = load ptr, ptr @mpd_free, align 8
-  tail call void %49(ptr noundef nonnull %call1) #28
+  tail call void %49(ptr noundef nonnull %call1) #27
   br label %return
 
 return:                                           ; preds = %finish, %mpd_seterror.exit67, %mpd_seterror.exit
@@ -27717,7 +27716,7 @@ return:                                           ; preds = %finish, %mpd_seterr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qimport_u32(ptr noundef %result, ptr nocapture noundef readonly %srcdata, i64 noundef %srclen, i8 noundef zeroext %srcsign, i32 noundef %srcbase, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #9 {
+define hidden void @mpd_qimport_u32(ptr noundef %result, ptr nocapture noundef readonly %srcdata, i64 noundef %srclen, i8 noundef zeroext %srcsign, i32 noundef %srcbase, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %cmp.i = icmp ugt i64 %srclen, 9007199254740992
@@ -27726,7 +27725,7 @@ entry:
 if.end.i42:                                       ; preds = %entry
   %conv.i = uitofp i64 %srclen to double
   %conv1.i = uitofp i32 %srcbase to double
-  %call.i = tail call double @log10(double noundef %conv1.i) #28
+  %call.i = tail call double @log10(double noundef %conv1.i) #27
   %div.i = fdiv double %call.i, 1.900000e+01
   %mul.i = fmul double %div.i, %conv.i
   %cmp2.i = fcmp ogt double %mul.i, 0x433FFFFFFFFFFFFF
@@ -27754,7 +27753,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %5 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %5, 0
@@ -27797,11 +27796,11 @@ if.then2.i28:                                     ; preds = %if.end.i22
   br i1 %cmp4.i30, label %if.then5.i32, label %if.end3
 
 if.then5.i32:                                     ; preds = %if.then2.i28
-  %call6.i33 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i19, ptr noundef %status) #28
+  %call6.i33 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i19, ptr noundef %status) #27
   br label %mpd_qresize.exit36
 
 if.end8.i26:                                      ; preds = %if.end.i22
-  %call9.i27 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i19, ptr noundef %status) #28
+  %call9.i27 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i19, ptr noundef %status) #27
   br label %mpd_qresize.exit36
 
 mpd_qresize.exit36:                               ; preds = %if.end8.i26, %if.then5.i32
@@ -27830,7 +27829,7 @@ while.body.i:                                     ; preds = %if.end37.i, %while.
   %n.056.i = phi i64 [ 1, %while.body.lr.ph.i ], [ %n.2.i, %if.end37.i ]
   %wlen.addr.055.i = phi i64 [ %add.i, %while.body.lr.ph.i ], [ %wlen.addr.4.i, %if.end37.i ]
   %17 = load ptr, ptr %data.i, align 8
-  %call.i45 = tail call i64 @_mpd_shortmul_b(ptr noundef %17, ptr noundef %17, i64 noundef %n.056.i, i64 noundef %conv, i64 noundef -8446744073709551616) #28
+  %call.i45 = tail call i64 @_mpd_shortmul_b(ptr noundef %17, ptr noundef %17, i64 noundef %n.056.i, i64 noundef %conv, i64 noundef -8446744073709551616) #27
   %tobool.not.i = icmp eq i64 %call.i45, 0
   br i1 %tobool.not.i, label %if.end17.i, label %if.then.i
 
@@ -27857,11 +27856,11 @@ if.then2.i55.i:                                   ; preds = %if.end.i49.i
   br i1 %cmp4.i57.i, label %if.then5.i59.i, label %if.end13.i
 
 if.then5.i59.i:                                   ; preds = %if.then2.i55.i
-  %call6.i60.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i46.i, ptr noundef %status) #28
+  %call6.i60.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i46.i, ptr noundef %status) #27
   br label %mpd_qresize.exit63.i
 
 if.end8.i53.i:                                    ; preds = %if.end.i49.i
-  %call9.i54.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i46.i, ptr noundef %status) #28
+  %call9.i54.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i46.i, ptr noundef %status) #27
   br label %mpd_qresize.exit63.i
 
 mpd_qresize.exit63.i:                             ; preds = %if.end8.i53.i, %if.then5.i59.i
@@ -27883,7 +27882,7 @@ if.end17.i:                                       ; preds = %if.end13.i, %while.
   %arrayidx19.i = getelementptr i32, ptr %srcdata, i64 %dec257.i
   %24 = load i32, ptr %arrayidx19.i, align 4
   %conv20.i = zext i32 %24 to i64
-  %call21.i = tail call i64 @_mpd_shortadd_b(ptr noundef %23, i64 noundef %n.1.i, i64 noundef %conv20.i, i64 noundef -8446744073709551616) #28
+  %call21.i = tail call i64 @_mpd_shortadd_b(ptr noundef %23, i64 noundef %n.1.i, i64 noundef %conv20.i, i64 noundef -8446744073709551616) #27
   %tobool22.not.i = icmp eq i64 %call21.i, 0
   br i1 %tobool22.not.i, label %if.end37.i, label %if.then23.i
 
@@ -27910,11 +27909,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end33.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -27969,11 +27968,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %mpd_qresize.exit
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call6.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #28
+  %call9.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %if.end8, %if.end8.i, %if.then5.i
@@ -27985,7 +27984,7 @@ return:                                           ; preds = %mpd_qresize.exit63.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mpd_from_uint128_triple(ptr noundef %result, ptr nocapture noundef readonly %triple, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define hidden i32 @mpd_from_uint128_triple(ptr noundef %result, ptr nocapture noundef readonly %triple, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i62 = alloca i8, align 1
   %err.i.i51 = alloca i8, align 1
@@ -28034,7 +28033,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %9 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %9, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %9, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %10 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %10, 0
@@ -28092,7 +28091,7 @@ if.then.i.i45:                                    ; preds = %land.lhs.true.i.i42
   store i8 0, ptr %err.i.i37, align 1
   %data.i.i46 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %19 = load ptr, ptr %data.i.i46, align 8
-  %call1.i.i47 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %err.i.i37) #28
+  %call1.i.i47 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %err.i.i37) #27
   store ptr %call1.i.i47, ptr %data.i.i46, align 8
   %20 = load i8, ptr %err.i.i37, align 1
   %tobool3.i.not.i48 = icmp eq i8 %20, 0
@@ -28156,7 +28155,7 @@ if.then.i.i57:                                    ; preds = %land.lhs.true.i.i54
   store i8 0, ptr %err.i.i51, align 1
   %data.i.i58 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %31 = load ptr, ptr %data.i.i58, align 8
-  %call1.i.i59 = call ptr @mpd_realloc(ptr noundef %31, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %err.i.i51) #28
+  %call1.i.i59 = call ptr @mpd_realloc(ptr noundef %31, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %err.i.i51) #27
   store ptr %call1.i.i59, ptr %data.i.i58, align 8
   %32 = load i8, ptr %err.i.i51, align 1
   %tobool3.i.not.i60 = icmp eq i8 %32, 0
@@ -28198,7 +28197,7 @@ if.then.i.i69:                                    ; preds = %land.lhs.true.i.i66
   store i8 0, ptr %err.i.i62, align 1
   %data.i.i70 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %42 = load ptr, ptr %data.i.i70, align 8
-  %call1.i.i71 = call ptr @mpd_realloc(ptr noundef %42, i64 noundef %41, i64 noundef 8, ptr noundef nonnull %err.i.i62) #28
+  %call1.i.i71 = call ptr @mpd_realloc(ptr noundef %42, i64 noundef %41, i64 noundef 8, ptr noundef nonnull %err.i.i62) #27
   store ptr %call1.i.i71, ptr %data.i.i70, align 8
   %43 = load i8, ptr %err.i.i62, align 1
   %tobool3.i.not.i72 = icmp eq i8 %43, 0
@@ -28228,7 +28227,7 @@ return:                                           ; preds = %if.end59, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_set_uint128_coeff_exp(ptr noundef %result, i64 noundef %hi, i64 noundef %lo, i64 noundef %exp) unnamed_addr #9 {
+define internal fastcc i32 @_set_uint128_coeff_exp(ptr noundef %result, i64 noundef %hi, i64 noundef %lo, i64 noundef %exp) unnamed_addr #8 {
 entry:
   %data = alloca [5 x i64], align 16
   %status = alloca i32, align 4
@@ -28275,11 +28274,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %for.cond.preheader
 
 if.then5.i:                                       ; preds = %if.then2.i
-  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #28
+  %call6.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #27
   br label %mpd_qresize.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #28
+  %call9.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i, ptr noundef nonnull %status) #27
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then5.i
@@ -28316,7 +28315,7 @@ return:                                           ; preds = %mpd_qresize.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_as_uint128_triple(ptr noalias nocapture writeonly sret(%struct.mpd_uint128_triple_t) align 8 %agg.result, ptr nocapture noundef readonly %a) local_unnamed_addr #9 {
+define hidden void @mpd_as_uint128_triple(ptr noalias nocapture writeonly sret(%struct.mpd_uint128_triple_t) align 8 %agg.result, ptr nocapture noundef readonly %a) local_unnamed_addr #8 {
 entry:
   %coeff.i = alloca %struct.mpd_t, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) @__const.mpd_as_uint128_triple.triple, i64 32, i1 false)
@@ -28417,7 +28416,7 @@ sw.bb1.i.i:                                       ; preds = %sw.bb.i.i, %if.end1
   br label %if.end
 
 sw.default.i.i:                                   ; preds = %if.end16.i
-  call void @abort() #29
+  call void @abort() #28
   unreachable
 
 _coeff_as_uint128.exit:                           ; preds = %mpd_qcmp.exit.i
@@ -28464,7 +28463,7 @@ return:                                           ; preds = %if.end.thread, %_co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mpd_qsshiftr(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n) unnamed_addr #9 {
+define internal fastcc void @mpd_qsshiftr(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
@@ -28534,7 +28533,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i29 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %17 = load ptr, ptr %data.i.i29, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %17, i64 noundef %16, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %17, i64 noundef %16, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i29, align 8
   %18 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %18, 0
@@ -28570,7 +28569,7 @@ if.else:                                          ; preds = %if.end
   %21 = load ptr, ptr %data10, align 8
   %22 = load ptr, ptr %data.i.i, align 8
   %23 = load i64, ptr %len.i.i, align 8
-  %call13 = tail call i64 @_mpd_baseshiftr(ptr noundef %21, ptr noundef %22, i64 noundef %23, i64 noundef %n) #28
+  %call13 = tail call i64 @_mpd_baseshiftr(ptr noundef %21, ptr noundef %22, i64 noundef %23, i64 noundef %n) #27
   %len14 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
   store i64 %cond.i, ptr %len14, align 8
   br label %if.end15
@@ -28592,14 +28591,14 @@ return:                                           ; preds = %if.end.i, %if.then,
   ret void
 }
 
-declare hidden i64 @_mpd_baseincr(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i64 @_mpd_baseincr(ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden i32 @mpd_switch_to_dyn_cxx(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i32 @mpd_switch_to_dyn_cxx(ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden i32 @mpd_realloc_dyn_cxx(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i32 @mpd_realloc_dyn_cxx(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_mpd_cmp_same_adjexp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #12 {
+define internal fastcc i32 @_mpd_cmp_same_adjexp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
   %0 = load i64, ptr %exp, align 8
@@ -28673,7 +28672,7 @@ return:                                           ; preds = %for.cond, %if.then2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @_mpd_basecmp(ptr nocapture noundef readonly %big, ptr nocapture noundef readonly %small, i64 noundef %n, i64 noundef %m, i64 noundef %shift) unnamed_addr #15 {
+define internal fastcc i32 @_mpd_basecmp(ptr nocapture noundef readonly %big, ptr nocapture noundef readonly %small, i64 noundef %n, i64 noundef %m, i64 noundef %shift) unnamed_addr #14 {
 entry:
   %l = alloca i64, align 8
   %lprev = alloca i64, align 8
@@ -28803,7 +28802,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_mpd_divmod_pow10(ptr nocapture noundef writeonly %q, ptr nocapture noundef writeonly %r, i64 noundef %v, i64 noundef %exp) unnamed_addr #20 {
+define internal fastcc void @_mpd_divmod_pow10(ptr nocapture noundef writeonly %q, ptr nocapture noundef writeonly %r, i64 noundef %v, i64 noundef %exp) unnamed_addr #19 {
 entry:
   %cmp = icmp ult i64 %exp, 10
   br i1 %cmp, label %if.then, label %if.else37
@@ -28999,16 +28998,16 @@ if.end84:                                         ; preds = %if.end84.sink.split
   ret void
 }
 
-declare hidden i64 @_mpd_baseadd(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i64 @_mpd_baseadd(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden void @_mpd_basesub(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden void @_mpd_basesub(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden i64 @_mpd_shortdiv(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i64 @_mpd_shortdiv(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden i32 @_mpd_basedivmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i32 @_mpd_basedivmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_base_ndivmod(ptr noundef %q, ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_base_ndivmod(ptr noundef %q, ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i.i182 = alloca i8, align 1
   %workstatus.i183 = alloca i32, align 4
@@ -29074,7 +29073,7 @@ entry:
   br i1 %or.cond71, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @mpd_qnew() #28
+  %call = tail call ptr @mpd_qnew() #27
   %cmp3 = icmp eq ptr %call, null
   br i1 %cmp3, label %if.end83.thread, label %if.end5
 
@@ -29092,13 +29091,13 @@ if.end5:                                          ; preds = %entry, %if.then
   br i1 %or.cond72, label %if.then9, label %if.end15
 
 if.then9:                                         ; preds = %if.end5
-  %call10 = tail call ptr @mpd_qnew() #28
+  %call10 = tail call ptr @mpd_qnew() #27
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %nanresult.sink.split, label %if.end15
 
 if.end15:                                         ; preds = %if.end5, %if.then9
   %rr.0 = phi ptr [ %call10, %if.then9 ], [ %r, %if.end5 ]
-  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %workctx) #27
   %13 = load i64, ptr %digits.i, align 8
   %14 = load i64, ptr %digits.i78, align 8
   %sub = sub i64 %13, %14
@@ -29326,18 +29325,18 @@ if.then2.i11.i.i:                                 ; preds = %if.end.i9.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_mpd_qreciprocal_approx.exit.i
 
 if.then5.i.i.i:                                   ; preds = %if.then2.i11.i.i
-  %call6.i.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %rr.0, i64 noundef %cond.i7.i.i, ptr noundef nonnull %status26) #28
+  %call6.i.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %rr.0, i64 noundef %cond.i7.i.i, ptr noundef nonnull %status26) #27
   br label %_mpd_qreciprocal_approx.exit.i
 
 if.end8.i10.i.i:                                  ; preds = %if.end.i9.i.i
-  %call9.i.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %rr.0, i64 noundef %cond.i7.i.i, ptr noundef nonnull %status26) #28
+  %call9.i.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %rr.0, i64 noundef %cond.i7.i.i, ptr noundef nonnull %status26) #27
   br label %_mpd_qreciprocal_approx.exit.i
 
 _mpd_qreciprocal_approx.exit.i:                   ; preds = %if.end8.i10.i.i, %if.then5.i.i.i, %if.then2.i11.i.i, %mpd_word_digits.exit.i.i
   %mul.i.i = mul i64 %48, %word.0.i.i
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %rr.0, i64 0, i32 5
   %53 = load ptr, ptr %data.i.i, align 8
-  %call2.i.i = call i64 @_mpd_shortdiv(ptr noundef %53, ptr noundef nonnull %p10data.i.i, i64 noundef 2, i64 noundef %mul.i.i) #28
+  %call2.i.i = call i64 @_mpd_shortdiv(ptr noundef %53, ptr noundef nonnull %p10data.i.i, i64 noundef 2, i64 noundef %mul.i.i) #27
   %54 = load i8, ptr %rr.0, align 8
   %55 = and i8 %54, -16
   store i8 %55, ptr %rr.0, align 8
@@ -29352,8 +29351,8 @@ _mpd_qreciprocal_approx.exit.i:                   ; preds = %if.end8.i10.i.i, %i
   store i64 %conv.i.i, ptr %len.i.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %rr.0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %p10data.i.i)
-  call void @mpd_maxcontext(ptr noundef nonnull %varcontext.i) #28
-  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext.i) #28
+  call void @mpd_maxcontext(ptr noundef nonnull %varcontext.i) #27
+  call void @mpd_maxcontext(ptr noundef nonnull %maxcontext.i) #27
   %round.i = getelementptr inbounds %struct.mpd_context_t, ptr %maxcontext.i, i64 0, i32 6
   store i32 8, ptr %round.i, align 4
   %round33.i = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext.i, i64 0, i32 6
@@ -29422,7 +29421,7 @@ land.lhs.true.i.i.i193:                           ; preds = %if.then.i187
 if.then.i.i.i196:                                 ; preds = %land.lhs.true.i.i.i193
   store i8 0, ptr %err.i.i.i182, align 1
   %66 = load ptr, ptr %data14.i, align 8
-  %call1.i.i.i198 = call ptr @mpd_realloc(ptr noundef %66, i64 noundef %65, i64 noundef 8, ptr noundef nonnull %err.i.i.i182) #28
+  %call1.i.i.i198 = call ptr @mpd_realloc(ptr noundef %66, i64 noundef %65, i64 noundef 8, ptr noundef nonnull %err.i.i.i182) #27
   store ptr %call1.i.i.i198, ptr %data14.i, align 8
   %67 = load i8, ptr %err.i.i.i182, align 1
   %tobool3.i.not.i.i199 = icmp eq i8 %67, 0
@@ -29496,7 +29495,7 @@ land.lhs.true.i.i.i174:                           ; preds = %if.then.i168
 if.then.i.i.i177:                                 ; preds = %land.lhs.true.i.i.i174
   store i8 0, ptr %err.i.i.i166, align 1
   %82 = load ptr, ptr %data14.i, align 8
-  %call1.i.i.i179 = call ptr @mpd_realloc(ptr noundef %82, i64 noundef %81, i64 noundef 8, ptr noundef nonnull %err.i.i.i166) #28
+  %call1.i.i.i179 = call ptr @mpd_realloc(ptr noundef %82, i64 noundef %81, i64 noundef 8, ptr noundef nonnull %err.i.i.i166) #27
   store ptr %call1.i.i.i179, ptr %data14.i, align 8
   %83 = load i8, ptr %err.i.i.i166, align 1
   %tobool3.i.not.i.i180 = icmp eq i8 %83, 0
@@ -29550,7 +29549,7 @@ if.end58.i:                                       ; preds = %if.then55.i, %for.e
 if.then.i78.i:                                    ; preds = %if.end58.i
   %95 = load ptr, ptr @mpd_free, align 8
   %96 = load ptr, ptr %data14.i, align 8
-  call void %95(ptr noundef %96) #28
+  call void %95(ptr noundef %96) #27
   %.pre.i = load i8, ptr %s.i, align 8
   br label %if.end.i71.i
 
@@ -29562,7 +29561,7 @@ if.end.i71.i:                                     ; preds = %if.then.i78.i, %if.
 
 if.then3.i77.i:                                   ; preds = %if.end.i71.i
   %99 = load ptr, ptr @mpd_free, align 8
-  call void %99(ptr noundef nonnull %s.i) #28
+  call void %99(ptr noundef nonnull %s.i) #27
   br label %mpd_del.exit80.i
 
 mpd_del.exit80.i:                                 ; preds = %if.then3.i77.i, %if.end.i71.i
@@ -29573,7 +29572,7 @@ mpd_del.exit80.i:                                 ; preds = %if.then3.i77.i, %if
 if.then.i.i:                                      ; preds = %mpd_del.exit80.i
   %101 = load ptr, ptr @mpd_free, align 8
   %102 = load ptr, ptr %data20.i, align 8
-  call void %101(ptr noundef %102) #28
+  call void %101(ptr noundef %102) #27
   %.pre49.i = load i8, ptr %t.i, align 8
   br label %if.end.i.i
 
@@ -29585,7 +29584,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %mpd_d
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %105 = load ptr, ptr @mpd_free, align 8
-  call void %105(ptr noundef nonnull %t.i) #28
+  call void %105(ptr noundef nonnull %t.i) #27
   br label %_mpd_qreciprocal.exit
 
 _mpd_qreciprocal.exit:                            ; preds = %if.end.i.i, %if.then3.i.i
@@ -29623,7 +29622,7 @@ if.then.i.i.i99:                                  ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
   %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 5
   %111 = load ptr, ptr %data.i.i.i, align 8
-  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %111, i64 noundef %110, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
+  %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %111, i64 noundef %110, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #27
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
   %112 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %112, 0
@@ -29685,9 +29684,9 @@ if.end41:                                         ; preds = %lor.lhs.false35
 
 do.body:                                          ; preds = %if.end41
   %125 = load ptr, ptr @stderr, align 8
-  %call44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7625) #30
+  %call44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 7625) #29
   %126 = load ptr, ptr @stderr, align 8
-  %127 = call i64 @fwrite(ptr nonnull @.str.13, i64 60, i64 1, ptr %126) #30
+  %127 = call i64 @fwrite(ptr nonnull @.str.13, i64 60, i64 1, ptr %126) #29
   %128 = load ptr, ptr @stderr, align 8
   %call46 = call i32 @fputc(i32 noundef 10, ptr noundef %128)
   br label %nanresult.sink.split
@@ -29744,11 +29743,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i107
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end68
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %q, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i107
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %q, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -29792,7 +29791,7 @@ if.end68:                                         ; preds = %mpd_qresize.exit.if
 if.then.i144:                                     ; preds = %if.end68
   %145 = load ptr, ptr @mpd_free, align 8
   %146 = load ptr, ptr %data7.i, align 8
-  call void %145(ptr noundef %146) #28
+  call void %145(ptr noundef %146) #27
   %.pre219 = load i8, ptr %qq.0, align 8
   br label %if.end.i137
 
@@ -29804,7 +29803,7 @@ if.end.i137:                                      ; preds = %if.then.i144, %if.e
 
 if.then3.i143:                                    ; preds = %if.end.i137
   %149 = load ptr, ptr @mpd_free, align 8
-  call void %149(ptr noundef nonnull %qq.0) #28
+  call void %149(ptr noundef nonnull %qq.0) #27
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end.i137, %if.then3.i143, %for.end
@@ -29831,11 +29830,11 @@ if.then2.i.i124:                                  ; preds = %if.end.i.i122
   br i1 %cmp4.i.i125, label %if.then5.i.i137, label %if.end75
 
 if.then5.i.i137:                                  ; preds = %if.then2.i.i124
-  %call6.i.i138 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i118, ptr noundef %status) #28
+  %call6.i.i138 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i118, ptr noundef %status) #27
   br label %mpd_qresize.exit.i139
 
 if.end8.i.i144:                                   ; preds = %if.end.i.i122
-  %call9.i.i145 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i118, ptr noundef %status) #28
+  %call9.i.i145 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %r, i64 noundef %cond.i.i118, ptr noundef %status) #27
   br label %mpd_qresize.exit.i139
 
 mpd_qresize.exit.i139:                            ; preds = %if.end8.i.i144, %if.then5.i.i137
@@ -29876,7 +29875,7 @@ if.end75:                                         ; preds = %mpd_qresize.exit.if
 if.then.i126:                                     ; preds = %if.end75
   %164 = load ptr, ptr @mpd_free, align 8
   %165 = load ptr, ptr %data.i.i, align 8
-  call void %164(ptr noundef %165) #28
+  call void %164(ptr noundef %165) #27
   %.pre220 = load i8, ptr %rr.0, align 8
   br label %if.end.i119
 
@@ -29888,7 +29887,7 @@ if.end.i119:                                      ; preds = %if.then.i126, %if.e
 
 if.then3.i125:                                    ; preds = %if.end.i119
   %168 = load ptr, ptr @mpd_free, align 8
-  call void %168(ptr noundef nonnull %rr.0) #28
+  call void %168(ptr noundef nonnull %rr.0) #27
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end.i119, %if.then3.i125, %if.end69
@@ -29923,7 +29922,7 @@ if.then.i108:                                     ; preds = %if.then82
   %173 = load ptr, ptr @mpd_free, align 8
   %data.i109 = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 5
   %174 = load ptr, ptr %data.i109, align 8
-  call void %173(ptr noundef %174) #28
+  call void %173(ptr noundef %174) #27
   %.pre221 = load i8, ptr %qq.0, align 8
   br label %if.end.i101
 
@@ -29935,7 +29934,7 @@ if.end.i101:                                      ; preds = %if.then.i108, %if.t
 
 if.then3.i107:                                    ; preds = %if.end.i101
   %177 = load ptr, ptr @mpd_free, align 8
-  call void %177(ptr noundef nonnull %qq.0) #28
+  call void %177(ptr noundef nonnull %qq.0) #27
   br label %if.end83
 
 if.end83:                                         ; preds = %if.end.i101, %if.then3.i107, %nanresult
@@ -29953,7 +29952,7 @@ if.then.i:                                        ; preds = %if.then87
   %179 = load ptr, ptr @mpd_free, align 8
   %data.i = getelementptr inbounds %struct.mpd_t, ptr %rr.1, i64 0, i32 5
   %180 = load ptr, ptr %data.i, align 8
-  call void %179(ptr noundef %180) #28
+  call void %179(ptr noundef %180) #27
   %.pre222 = load i8, ptr %rr.1, align 8
   br label %if.end.i
 
@@ -29965,7 +29964,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then3.i:                                       ; preds = %if.end.i
   %183 = load ptr, ptr @mpd_free, align 8
-  call void %183(ptr noundef nonnull %rr.1) #28
+  call void %183(ptr noundef nonnull %rr.1) #27
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end83.thread, %if.end.i, %if.then3.i, %if.end83
@@ -29986,7 +29985,7 @@ if.then.i.i151:                                   ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i152 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
   %188 = load ptr, ptr %data.i.i152, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %188, i64 noundef %187, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %188, i64 noundef %187, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i152, align 8
   %189 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %189, 0
@@ -30022,7 +30021,7 @@ if.then.i.i160:                                   ; preds = %land.lhs.true.i.i15
   store i8 0, ptr %err.i.i153, align 1
   %data.i.i161 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
   %197 = load ptr, ptr %data.i.i161, align 8
-  %call1.i.i162 = call ptr @mpd_realloc(ptr noundef %197, i64 noundef %196, i64 noundef 8, ptr noundef nonnull %err.i.i153) #28
+  %call1.i.i162 = call ptr @mpd_realloc(ptr noundef %197, i64 noundef %196, i64 noundef 8, ptr noundef nonnull %err.i.i153) #27
   store ptr %call1.i.i162, ptr %data.i.i161, align 8
   %198 = load i8, ptr %err.i.i153, align 1
   %tobool3.i.not.i163 = icmp eq i8 %198, 0
@@ -30047,10 +30046,10 @@ return:                                           ; preds = %mpd_setspecial.exit
   ret void
 }
 
-declare hidden ptr @mpd_qnew() local_unnamed_addr #8
+declare hidden ptr @mpd_qnew() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qsub_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qsub_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
@@ -30113,7 +30112,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %12 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %13 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %13, 0
@@ -30142,13 +30141,13 @@ if.end:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #21
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qadd_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qadd_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
@@ -30209,7 +30208,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %12 = load ptr, ptr %data.i.i, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i, align 8
   %13 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %13, 0
@@ -30238,7 +30237,7 @@ if.end:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpow_uint(ptr noundef %result, ptr noundef %base, i64 noundef %exp, i8 noundef zeroext %resultsign, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #9 {
+define internal fastcc void @_mpd_qpow_uint(ptr noundef %result, ptr noundef %base, i64 noundef %exp, i8 noundef zeroext %resultsign, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
@@ -30264,7 +30263,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
   %data.i.i21 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
   %4 = load ptr, ptr %data.i.i21, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #27
   store ptr %call1.i.i, ptr %data.i.i21, align 8
   %5 = load i8, ptr %err.i.i, align 1
   %tobool3.i.not.i = icmp eq i8 %5, 0
@@ -30323,11 +30322,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %result, i64 noundef %cond.i.i, ptr noundef %status) #27
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -30473,13 +30472,13 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #22
+declare double @llvm.fmuladd.f64(double, double, double) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #22
+declare double @llvm.ceil.f64(double) #21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_mpd_mul_2_le2(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m) unnamed_addr #23 {
+define internal fastcc void @_mpd_mul_2_le2(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m) unnamed_addr #22 {
 entry:
   %0 = load i64, ptr %u, align 8
   %1 = load i64, ptr %v, align 8
@@ -30670,18 +30669,18 @@ return:                                           ; preds = %entry, %if.end12
   ret void
 }
 
-declare hidden void @_mpd_shortmul(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden void @_mpd_shortmul(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden void @_mpd_basemul(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden void @_mpd_basemul(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden ptr @mpd_calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden ptr @mpd_calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mpd_kmul(ptr noundef %u, ptr noundef %v, i64 noundef %ulen, i64 noundef %vlen, ptr nocapture noundef writeonly %rsize) unnamed_addr #9 {
+define internal fastcc ptr @_mpd_kmul(ptr noundef %u, ptr noundef %v, i64 noundef %ulen, i64 noundef %vlen, ptr nocapture noundef writeonly %rsize) unnamed_addr #8 {
 entry:
   %call = tail call fastcc i64 @_kmul_resultsize(i64 noundef %ulen, i64 noundef %vlen)
   store i64 %call, ptr %rsize, align 8
-  %call1 = tail call ptr @mpd_calloc(i64 noundef %call, i64 noundef 8) #28
+  %call1 = tail call ptr @mpd_calloc(i64 noundef %call, i64 noundef 8) #27
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
@@ -30695,19 +30694,19 @@ if.end6.thread:                                   ; preds = %if.end
   br label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call ptr @mpd_calloc(i64 noundef %call2, i64 noundef 8) #28
+  %call3 = tail call ptr @mpd_calloc(i64 noundef %call2, i64 noundef 8) #27
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %if.then5, label %if.then8
 
 if.then5:                                         ; preds = %land.lhs.true
   %0 = load ptr, ptr @mpd_free, align 8
-  tail call void %0(ptr noundef nonnull %call1) #28
+  tail call void %0(ptr noundef nonnull %call1) #27
   br label %return
 
 if.then8:                                         ; preds = %land.lhs.true
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %call1, ptr noundef %u, ptr noundef %v, ptr noundef nonnull %call3, i64 noundef %ulen, i64 noundef %vlen)
   %1 = load ptr, ptr @mpd_free, align 8
-  tail call void %1(ptr noundef nonnull %call3) #28
+  tail call void %1(ptr noundef nonnull %call3) #27
   br label %return
 
 return:                                           ; preds = %if.end6.thread, %if.then8, %entry, %if.then5
@@ -30716,7 +30715,7 @@ return:                                           ; preds = %if.end6.thread, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mpd_fntmul(ptr noundef readonly %u, ptr noundef readonly %v, i64 noundef %ulen, i64 noundef %vlen, ptr nocapture noundef %rsize) unnamed_addr #9 {
+define internal fastcc ptr @_mpd_fntmul(ptr noundef readonly %u, ptr noundef readonly %v, i64 noundef %ulen, i64 noundef %vlen, ptr nocapture noundef %rsize) unnamed_addr #8 {
 entry:
   %sub.i = xor i64 %vlen, -1
   %cmp.i62 = icmp ult i64 %sub.i, %ulen
@@ -30724,12 +30723,12 @@ entry:
 
 do.body.i:                                        ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 597) #30
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 597) #29
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %1) #30
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %1) #29
   %3 = load ptr, ptr @stderr, align 8
   %call2.i = tail call i32 @fputc(i32 noundef 10, ptr noundef %3)
-  tail call void @abort() #29
+  tail call void @abort() #28
   unreachable
 
 add_size_t.exit:                                  ; preds = %entry
@@ -30806,17 +30805,17 @@ _mpd_get_transform_len.exit:                      ; preds = %if.then7.i
 
 if.end:                                           ; preds = %if.else23.i, %if.else19.i, %if.then7.i, %if.then.i, %_mpd_get_transform_len.exit
   %retval.0.i67 = phi i64 [ %cond18.i, %_mpd_get_transform_len.exit ], [ 12884901888, %if.else23.i ], [ 6442450944, %if.else19.i ], [ %add.i, %if.then7.i ], [ %cond.i, %if.then.i ]
-  %call2 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #28
+  %call2 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #27
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.end53, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #28
+  %call6 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #27
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %if.end53.sink.split, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %call10 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #28
+  %call10 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #27
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %if.end50, label %if.end13
 
@@ -30829,29 +30828,29 @@ if.end13:                                         ; preds = %if.end9
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.end13
-  %call18 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call2, i64 noundef %retval.0.i67, i32 noundef 0) #28
+  %call18 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call2, i64 noundef %retval.0.i67, i32 noundef 0) #27
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %if.end50, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then17
-  %call19 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call6, i64 noundef %retval.0.i67, i32 noundef 1) #28
+  %call19 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call6, i64 noundef %retval.0.i67, i32 noundef 1) #27
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.end50, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false
-  %call22 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call10, i64 noundef %retval.0.i67, i32 noundef 2) #28
+  %call22 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call10, i64 noundef %retval.0.i67, i32 noundef 2) #27
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.end50, label %if.end50.thread114
 
 if.else:                                          ; preds = %if.end13
-  %call26 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #28
+  %call26 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i67, i64 noundef 8) #27
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %if.end50, label %if.end29
 
 if.end29:                                         ; preds = %if.else
   %mul30 = shl i64 %vlen, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call26, ptr align 8 %v, i64 %mul30, i1 false)
-  %call31 = tail call i32 @fnt_convolute(ptr noundef nonnull %call2, ptr noundef nonnull %call26, i64 noundef %retval.0.i67, i32 noundef 0) #28
+  %call31 = tail call i32 @fnt_convolute(ptr noundef nonnull %call2, ptr noundef nonnull %call26, i64 noundef %retval.0.i67, i32 noundef 0) #27
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.end50.sink.split, label %if.end34
 
@@ -30868,7 +30867,7 @@ for.body.i62.preheader:                           ; preds = %if.end34
   br label %mpd_uint_zero.exit65
 
 mpd_uint_zero.exit65:                             ; preds = %for.body.i62.preheader, %if.end34
-  %call36 = tail call i32 @fnt_convolute(ptr noundef nonnull %call6, ptr noundef nonnull %call26, i64 noundef %retval.0.i67, i32 noundef 1) #28
+  %call36 = tail call i32 @fnt_convolute(ptr noundef nonnull %call6, ptr noundef nonnull %call26, i64 noundef %retval.0.i67, i32 noundef 1) #27
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.end50.sink.split, label %if.end39
 
@@ -30883,29 +30882,29 @@ for.body.i.preheader:                             ; preds = %if.end39
   br label %mpd_uint_zero.exit
 
 mpd_uint_zero.exit:                               ; preds = %for.body.i.preheader, %if.end39
-  %call43 = tail call i32 @fnt_convolute(ptr noundef nonnull %call10, ptr noundef nonnull %call26, i64 noundef %retval.0.i67, i32 noundef 2) #28
+  %call43 = tail call i32 @fnt_convolute(ptr noundef nonnull %call10, ptr noundef nonnull %call26, i64 noundef %retval.0.i67, i32 noundef 2) #27
   %tobool44.not = icmp eq i32 %call43, 0
   %8 = load ptr, ptr @mpd_free, align 8
-  tail call void %8(ptr noundef nonnull %call26) #28
+  tail call void %8(ptr noundef nonnull %call26) #27
   br i1 %tobool44.not, label %if.end50, label %if.end50.thread114
 
 if.end50.thread114:                               ; preds = %mpd_uint_zero.exit, %lor.lhs.false21
   %9 = load i64, ptr %rsize, align 8
-  tail call void @crt3(ptr noundef nonnull %call2, ptr noundef nonnull %call6, ptr noundef nonnull %call10, i64 noundef %9) #28
+  tail call void @crt3(ptr noundef nonnull %call2, ptr noundef nonnull %call6, ptr noundef nonnull %call10, i64 noundef %9) #27
   %10 = load ptr, ptr @mpd_free, align 8
-  tail call void %10(ptr noundef nonnull %call6) #28
+  tail call void %10(ptr noundef nonnull %call6) #27
   br label %if.end53.sink.split
 
 if.end50.sink.split:                              ; preds = %mpd_uint_zero.exit65, %if.end29
   %11 = load ptr, ptr @mpd_free, align 8
-  tail call void %11(ptr noundef nonnull %call26) #28
+  tail call void %11(ptr noundef nonnull %call26) #27
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.sink.split, %mpd_uint_zero.exit, %if.else, %if.then17, %lor.lhs.false, %lor.lhs.false21, %if.end9
   %12 = load ptr, ptr @mpd_free, align 8
-  tail call void %12(ptr noundef nonnull %call2) #28
+  tail call void %12(ptr noundef nonnull %call2) #27
   %13 = load ptr, ptr @mpd_free, align 8
-  tail call void %13(ptr noundef nonnull %call6) #28
+  tail call void %13(ptr noundef nonnull %call6) #27
   %tobool51.not = icmp eq ptr %call10, null
   br i1 %tobool51.not, label %if.end53, label %if.end53.sink.split
 
@@ -30913,7 +30912,7 @@ if.end53.sink.split:                              ; preds = %if.end50, %if.end50
   %call2.sink = phi ptr [ %call2, %if.end5 ], [ %call10, %if.end50.thread114 ], [ %call10, %if.end50 ]
   %c1.08893.ph = phi ptr [ null, %if.end5 ], [ %call2, %if.end50.thread114 ], [ null, %if.end50 ]
   %14 = load ptr, ptr @mpd_free, align 8
-  tail call void %14(ptr noundef nonnull %call2.sink) #28
+  tail call void %14(ptr noundef nonnull %call2.sink) #27
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end53.sink.split, %if.else23.i, %if.end, %_mpd_get_transform_len.exit, %if.end50
@@ -30922,11 +30921,11 @@ if.end53:                                         ; preds = %if.end53.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %u, ptr noundef %v, i64 noundef %ulen, i64 noundef %vlen, ptr nocapture noundef writeonly %rsize) unnamed_addr #9 {
+define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %u, ptr noundef %v, i64 noundef %ulen, i64 noundef %vlen, ptr nocapture noundef writeonly %rsize) unnamed_addr #8 {
 entry:
   %call = tail call fastcc i64 @_kmul_resultsize(i64 noundef %ulen, i64 noundef %vlen)
   store i64 %call, ptr %rsize, align 8
-  %call1 = tail call ptr @mpd_calloc(i64 noundef %call, i64 noundef 8) #28
+  %call1 = tail call ptr @mpd_calloc(i64 noundef %call, i64 noundef 8) #27
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
@@ -30936,7 +30935,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call ptr @mpd_calloc(i64 noundef %call2, i64 noundef 8) #28
+  %call3 = tail call ptr @mpd_calloc(i64 noundef %call2, i64 noundef 8) #27
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %return.sink.split, label %if.end6
 
@@ -30948,7 +30947,7 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
 
 if.then9:                                         ; preds = %if.end6
   %0 = load ptr, ptr @mpd_free, align 8
-  tail call void %0(ptr noundef nonnull %call1) #28
+  tail call void %0(ptr noundef nonnull %call1) #27
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %if.end6
@@ -30960,7 +30959,7 @@ return.sink.split:                                ; preds = %if.end10, %land.lhs
   %w.0.sink = phi ptr [ %call1, %land.lhs.true ], [ %w.0, %if.end10 ]
   %retval.0.ph = phi ptr [ null, %land.lhs.true ], [ %result.0, %if.end10 ]
   %1 = load ptr, ptr @mpd_free, align 8
-  tail call void %1(ptr noundef nonnull %w.0.sink) #28
+  tail call void %1(ptr noundef nonnull %w.0.sink) #27
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end10, %entry
@@ -30969,7 +30968,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_kmul_resultsize(i64 noundef %la, i64 noundef %lb) unnamed_addr #9 {
+define internal fastcc i64 @_kmul_resultsize(i64 noundef %la, i64 noundef %lb) unnamed_addr #8 {
 entry:
   %sub.i = xor i64 %lb, -1
   %cmp.i = icmp ult i64 %sub.i, %la
@@ -30977,12 +30976,12 @@ entry:
 
 do.body.i:                                        ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 597) #30
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 597) #29
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %1) #30
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %1) #29
   %3 = load ptr, ptr @stderr, align 8
   %call2.i = tail call i32 @fputc(i32 noundef 10, ptr noundef %3)
-  tail call void @abort() #29
+  tail call void @abort() #28
   unreachable
 
 add_size_t.exit:                                  ; preds = %entry
@@ -30992,12 +30991,12 @@ add_size_t.exit:                                  ; preds = %entry
 
 do.body.i9:                                       ; preds = %add_size_t.exit
   %4 = load ptr, ptr @stderr, align 8
-  %call.i10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 597) #30
+  %call.i10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 597) #29
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %5) #30
+  %6 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %5) #29
   %7 = load ptr, ptr @stderr, align 8
   %call2.i11 = tail call i32 @fputc(i32 noundef 10, ptr noundef %7)
-  tail call void @abort() #29
+  tail call void @abort() #28
   unreachable
 
 add_size_t.exit12:                                ; preds = %add_size_t.exit
@@ -31010,12 +31009,12 @@ add_size_t.exit12:                                ; preds = %add_size_t.exit
 
 do.body.i13:                                      ; preds = %add_size_t.exit12
   %9 = load ptr, ptr @stderr, align 8
-  %call.i14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 622) #30
+  %call.i14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 622) #29
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 41, i64 1, ptr %10) #30
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 41, i64 1, ptr %10) #29
   %12 = load ptr, ptr @stderr, align 8
   %call2.i15 = tail call i32 @fputc(i32 noundef 10, ptr noundef %12)
-  tail call void @abort() #29
+  tail call void @abort() #28
   unreachable
 
 mul_size_t.exit:                                  ; preds = %add_size_t.exit12
@@ -31026,7 +31025,7 @@ mul_size_t.exit:                                  ; preds = %add_size_t.exit12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_kmul_worksize(i64 noundef %n, i64 noundef %lim) unnamed_addr #9 {
+define internal fastcc i64 @_kmul_worksize(i64 noundef %n, i64 noundef %lim) unnamed_addr #8 {
 entry:
   %cmp.not = icmp ugt i64 %n, %lim
   br i1 %cmp.not, label %if.end, label %return
@@ -31040,12 +31039,12 @@ if.end:                                           ; preds = %entry
 
 do.body.i:                                        ; preds = %if.end
   %1 = load ptr, ptr @stderr, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 622) #30
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 622) #29
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 41, i64 1, ptr %2) #30
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 41, i64 1, ptr %2) #29
   %4 = load ptr, ptr @stderr, align 8
   %call2.i = tail call i32 @fputc(i32 noundef 10, ptr noundef %4)
-  tail call void @abort() #29
+  tail call void @abort() #28
   unreachable
 
 mul_size_t.exit:                                  ; preds = %if.end
@@ -31057,12 +31056,12 @@ mul_size_t.exit:                                  ; preds = %if.end
 
 do.body.i5:                                       ; preds = %mul_size_t.exit
   %5 = load ptr, ptr @stderr, align 8
-  %call.i6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 597) #30
+  %call.i6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 597) #29
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %6) #30
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %6) #29
   %8 = load ptr, ptr @stderr, align 8
   %call2.i7 = tail call i32 @fputc(i32 noundef 10, ptr noundef %8)
-  tail call void @abort() #29
+  tail call void @abort() #28
   unreachable
 
 add_size_t.exit:                                  ; preds = %mul_size_t.exit
@@ -31075,13 +31074,13 @@ return:                                           ; preds = %entry, %add_size_t.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_karatsuba_rec(ptr noundef %c, ptr noundef %a, ptr noundef %b, ptr noundef %w, i64 noundef %la, i64 noundef %lb) unnamed_addr #9 {
+define internal fastcc void @_karatsuba_rec(ptr noundef %c, ptr noundef %a, ptr noundef %b, ptr noundef %w, i64 noundef %la, i64 noundef %lb) unnamed_addr #8 {
 entry:
   %cmp = icmp ult i64 %la, 17
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_mpd_basemul(ptr noundef %c, ptr noundef %a, ptr noundef %b, i64 noundef %la, i64 noundef %lb) #28
+  tail call void @_mpd_basemul(ptr noundef %c, ptr noundef %a, ptr noundef %b, i64 noundef %la, i64 noundef %lb) #27
   br label %common.ret154
 
 if.end:                                           ; preds = %entry
@@ -31122,14 +31121,14 @@ common.ret154:                                    ; preds = %if.end24, %if.then,
 if.end16:                                         ; preds = %if.else, %if.then4
   %add.ptr17 = getelementptr i64, ptr %c, i64 %div147
   %add19 = add i64 %sub, %lb
-  tail call void @_mpd_baseaddto(ptr noundef %add.ptr17, ptr noundef %w, i64 noundef %add19) #28
+  tail call void @_mpd_baseaddto(ptr noundef %add.ptr17, ptr noundef %w, i64 noundef %add19) #27
   %add21 = or i64 %add, 1
   %3 = shl nuw i64 %add21, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %3, i1 false)
   %add.ptr22 = getelementptr i64, ptr %w, i64 %add21
   tail call fastcc void @_karatsuba_rec(ptr noundef %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr22, i64 noundef %div147, i64 noundef %lb)
   %add23 = add nuw i64 %div147, %lb
-  tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef %w, i64 noundef %add23) #28
+  tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef %w, i64 noundef %add23) #27
   br label %common.ret154
 
 if.end24:                                         ; preds = %if.end
@@ -31139,7 +31138,7 @@ if.end24:                                         ; preds = %if.end
   store i64 0, ptr %arrayidx, align 8
   %add.ptr25 = getelementptr i64, ptr %a, i64 %div147
   %sub26 = sub i64 %la, %div147
-  tail call void @_mpd_baseaddto(ptr noundef %w, ptr noundef %add.ptr25, i64 noundef %sub26) #28
+  tail call void @_mpd_baseaddto(ptr noundef %w, ptr noundef %add.ptr25, i64 noundef %sub26) #27
   %add27 = add nuw i64 %div147, 1
   %add.ptr28 = getelementptr i64, ptr %w, i64 %add27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr28, ptr align 8 %b, i64 %mul, i1 false)
@@ -31147,7 +31146,7 @@ if.end24:                                         ; preds = %if.end
   store i64 0, ptr %arrayidx32, align 8
   %add.ptr35 = getelementptr i64, ptr %b, i64 %div147
   %sub36 = sub i64 %lb, %div147
-  tail call void @_mpd_baseaddto(ptr noundef %add.ptr28, ptr noundef %add.ptr35, i64 noundef %sub36) #28
+  tail call void @_mpd_baseaddto(ptr noundef %add.ptr28, ptr noundef %add.ptr35, i64 noundef %sub36) #27
   %add.ptr37 = getelementptr i64, ptr %c, i64 %div147
   %mul41 = shl i64 %add27, 1
   %add.ptr42 = getelementptr i64, ptr %w, i64 %mul41
@@ -31161,30 +31160,30 @@ if.end24:                                         ; preds = %if.end
   %mul54 = and i64 %add, -2
   %add.ptr55 = getelementptr i64, ptr %c, i64 %mul54
   %add58 = add i64 %sub26, %sub36
-  tail call void @_mpd_baseaddto(ptr noundef %add.ptr55, ptr noundef nonnull %w, i64 noundef %add58) #28
-  tail call void @_mpd_basesubfrom(ptr noundef %add.ptr37, ptr noundef nonnull %w, i64 noundef %add58) #28
+  tail call void @_mpd_baseaddto(ptr noundef %add.ptr55, ptr noundef nonnull %w, i64 noundef %add58) #27
+  tail call void @_mpd_basesubfrom(ptr noundef %add.ptr37, ptr noundef nonnull %w, i64 noundef %add58) #27
   %add64 = or i64 %add, 1
   %5 = shl nuw i64 %add64, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %5, i1 false)
   %add.ptr65 = getelementptr i64, ptr %w, i64 %add64
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %w, ptr noundef %a, ptr noundef %b, ptr noundef %add.ptr65, i64 noundef %div147, i64 noundef %div147)
-  tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef nonnull %w, i64 noundef %mul54) #28
-  tail call void @_mpd_basesubfrom(ptr noundef %add.ptr37, ptr noundef nonnull %w, i64 noundef %mul54) #28
+  tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef nonnull %w, i64 noundef %mul54) #27
+  tail call void @_mpd_basesubfrom(ptr noundef %add.ptr37, ptr noundef nonnull %w, i64 noundef %mul54) #27
   br label %common.ret154
 }
 
-declare hidden void @_mpd_baseaddto(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
+declare hidden void @_mpd_baseaddto(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden void @_mpd_basesubfrom(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
+declare hidden void @_mpd_basesubfrom(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden i32 @fnt_autoconvolute(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
+declare hidden i32 @fnt_autoconvolute(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
-declare hidden i32 @fnt_convolute(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
+declare hidden i32 @fnt_convolute(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
-declare hidden void @crt3(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
+declare hidden void @crt3(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_karatsuba_rec_fnt(ptr noundef %c, ptr noundef %a, ptr noundef %b, ptr noundef %w, i64 noundef %la, i64 noundef %lb) unnamed_addr #9 {
+define internal fastcc i32 @_karatsuba_rec_fnt(ptr noundef %c, ptr noundef %a, ptr noundef %b, ptr noundef %w, i64 noundef %la, i64 noundef %lb) unnamed_addr #8 {
 entry:
   %dummy = alloca i64, align 8
   %cmp = icmp ult i64 %la, 6442450945
@@ -31195,7 +31194,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  tail call void @_mpd_basemul(ptr noundef %c, ptr noundef %b, ptr noundef %a, i64 noundef %lb, i64 noundef %la) #28
+  tail call void @_mpd_basemul(ptr noundef %c, ptr noundef %b, ptr noundef %a, i64 noundef %lb, i64 noundef %la) #27
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -31208,7 +31207,7 @@ if.end:                                           ; preds = %if.else
   %mul = shl i64 %add, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %c, ptr nonnull align 8 %call, i64 %mul, i1 false)
   %0 = load ptr, ptr @mpd_free, align 8
-  tail call void %0(ptr noundef nonnull %call) #28
+  tail call void %0(ptr noundef nonnull %call) #27
   br label %return
 
 if.end6:                                          ; preds = %entry
@@ -31248,7 +31247,7 @@ if.else19:                                        ; preds = %if.then9
 if.end31:                                         ; preds = %if.else19, %if.then11
   %add.ptr32 = getelementptr i64, ptr %c, i64 %div156
   %add34 = add i64 %sub, %lb
-  tail call void @_mpd_baseaddto(ptr noundef %add.ptr32, ptr noundef %w, i64 noundef %add34) #28
+  tail call void @_mpd_baseaddto(ptr noundef %add.ptr32, ptr noundef %w, i64 noundef %add34) #27
   %add36 = or i64 %add7, 1
   %4 = shl nuw i64 %add36, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %4, i1 false)
@@ -31259,7 +31258,7 @@ if.end31:                                         ; preds = %if.else19, %if.then
 
 if.end41:                                         ; preds = %if.end31
   %add42 = add nuw i64 %div156, %lb
-  tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef %w, i64 noundef %add42) #28
+  tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef %w, i64 noundef %add42) #27
   br label %return
 
 if.end43:                                         ; preds = %if.end6
@@ -31269,7 +31268,7 @@ if.end43:                                         ; preds = %if.end6
   store i64 0, ptr %arrayidx, align 8
   %add.ptr45 = getelementptr i64, ptr %a, i64 %div156
   %sub46 = sub i64 %la, %div156
-  tail call void @_mpd_baseaddto(ptr noundef %w, ptr noundef %add.ptr45, i64 noundef %sub46) #28
+  tail call void @_mpd_baseaddto(ptr noundef %w, ptr noundef %add.ptr45, i64 noundef %sub46) #27
   %add47 = add nuw i64 %div156, 1
   %add.ptr48 = getelementptr i64, ptr %w, i64 %add47
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr48, ptr align 8 %b, i64 %mul44, i1 false)
@@ -31277,7 +31276,7 @@ if.end43:                                         ; preds = %if.end6
   store i64 0, ptr %arrayidx52, align 8
   %add.ptr55 = getelementptr i64, ptr %b, i64 %div156
   %sub56 = sub i64 %lb, %div156
-  tail call void @_mpd_baseaddto(ptr noundef %add.ptr48, ptr noundef %add.ptr55, i64 noundef %sub56) #28
+  tail call void @_mpd_baseaddto(ptr noundef %add.ptr48, ptr noundef %add.ptr55, i64 noundef %sub56) #27
   %add.ptr57 = getelementptr i64, ptr %c, i64 %div156
   %mul61 = shl i64 %add47, 1
   %add.ptr62 = getelementptr i64, ptr %w, i64 %mul61
@@ -31299,8 +31298,8 @@ if.end81:                                         ; preds = %if.end68
   %mul82 = and i64 %add7, -2
   %add.ptr83 = getelementptr i64, ptr %c, i64 %mul82
   %add86 = add i64 %sub46, %sub56
-  tail call void @_mpd_baseaddto(ptr noundef %add.ptr83, ptr noundef nonnull %w, i64 noundef %add86) #28
-  tail call void @_mpd_basesubfrom(ptr noundef %add.ptr57, ptr noundef nonnull %w, i64 noundef %add86) #28
+  tail call void @_mpd_baseaddto(ptr noundef %add.ptr83, ptr noundef nonnull %w, i64 noundef %add86) #27
+  tail call void @_mpd_basesubfrom(ptr noundef %add.ptr57, ptr noundef nonnull %w, i64 noundef %add86) #27
   %add92 = or i64 %add7, 1
   %6 = shl nuw i64 %add92, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %6, i1 false)
@@ -31310,8 +31309,8 @@ if.end81:                                         ; preds = %if.end68
   br i1 %tobool95.not, label %return, label %if.end97
 
 if.end97:                                         ; preds = %if.end81
-  tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef nonnull %w, i64 noundef %mul82) #28
-  tail call void @_mpd_basesubfrom(ptr noundef %add.ptr57, ptr noundef nonnull %w, i64 noundef %mul82) #28
+  tail call void @_mpd_baseaddto(ptr noundef %c, ptr noundef nonnull %w, i64 noundef %mul82) #27
+  tail call void @_mpd_basesubfrom(ptr noundef %add.ptr57, ptr noundef nonnull %w, i64 noundef %mul82) #27
   br label %return
 
 return:                                           ; preds = %if.end81, %if.end68, %if.end43, %if.end31, %if.else19, %if.then11, %if.then2, %if.end, %if.else, %if.end97, %if.end41
@@ -31319,74 +31318,73 @@ return:                                           ; preds = %if.end81, %if.end68
   ret i32 %retval.0
 }
 
-declare hidden i64 @_mpd_shortdiv_b(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i64 @_mpd_shortdiv_b(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden i64 @_mpd_shortmul_c(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i64 @_mpd_shortmul_c(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden i64 @_mpd_shortadd(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i64 @_mpd_shortadd(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden i64 @_mpd_shortmul_b(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i64 @_mpd_shortmul_b(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare hidden i64 @_mpd_shortadd_b(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare hidden i64 @_mpd_shortadd_b(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #25
+declare i64 @llvm.abs.i64(i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #25
+declare i64 @llvm.smax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #25
+declare i64 @llvm.smin.i64(i64, i64) #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #26
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #25
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #24
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { alwaysinline mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { alwaysinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nofree nounwind }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #28 = { nounwind }
-attributes #29 = { noreturn nounwind }
-attributes #30 = { cold }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { alwaysinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nofree nounwind }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nounwind }
+attributes #28 = { noreturn nounwind }
+attributes #29 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

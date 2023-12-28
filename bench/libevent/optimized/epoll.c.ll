@@ -234,8 +234,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then9:                                         ; preds = %if.end
   %2 = trunc i16 %events to i8
-  %3 = and i8 %2, 32
-  %conv13 = or disjoint i8 %3, 2
+  %conv13 = and i8 %2, 34
   store i8 %conv13, ptr %read_change, align 2
   br label %if.end15
 
@@ -245,16 +244,16 @@ if.end15:                                         ; preds = %if.then9, %if.end
   br i1 %tobool18.not, label %if.end25, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %4 = trunc i16 %events to i8
-  %5 = and i8 %4, 32
-  %conv23 = or disjoint i8 %5, 2
+  %3 = trunc i16 %events to i8
+  %4 = and i8 %3, 32
+  %conv23 = or disjoint i8 %4, 2
   store i8 %conv23, ptr %close_change, align 4
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then19, %if.end15
   %evbase = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 1
-  %6 = load ptr, ptr %evbase, align 8
-  %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %6, ptr noundef nonnull %ch)
+  %5 = load ptr, ptr %evbase, align 8
+  %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %5, ptr noundef nonnull %ch)
   ret i32 %call
 }
 
