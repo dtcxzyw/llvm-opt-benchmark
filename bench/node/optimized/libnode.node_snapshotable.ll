@@ -7450,12 +7450,11 @@ if.end37:                                         ; preds = %_ZNRSt8optionalISt1
   %ref.tmp38.sroa.29.0.extract.trunc = trunc i64 %ref.tmp38.sroa.29.0.extract.shift to i32
   %cond.i = select i1 %tobool.i.not, i32 1, i32 %ref.tmp38.sroa.29.0.extract.trunc
   %cmp42.not = icmp eq i32 %cond.i, 0
-  %spec.select12 = select i1 %cmp42.not, i32 undef, i32 %cond.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end37, %_ZNRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit
   %cond2 = phi i1 [ false, %_ZNRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit ], [ %cmp42.not, %if.end37 ]
-  %retval.0 = phi i32 [ 1, %_ZNRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit ], [ %spec.select12, %if.end37 ]
+  %retval.0 = phi i32 [ 1, %_ZNRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit ], [ %cond.i, %if.end37 ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call17) #23
   br label %if.then.i
 
