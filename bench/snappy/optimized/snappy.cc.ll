@@ -192,19 +192,19 @@ _ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit: ; preds = %entry, %if.end.i
   %add5 = add nuw nsw i64 %add1.i, %retval.0.i
   %size_ = getelementptr inbounds %"class.snappy::internal::WorkingMemory", ptr %this, i64 0, i32 1
   store i64 %add5, ptr %size_, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %3 = load i64, ptr %size_, align 8
   %cmp.i6 = icmp slt i64 %3, 0
   br i1 %cmp.i6, label %if.end.i8, label %_ZNSt15__new_allocatorIcE8allocateEmPKv.exit
 
 if.end.i8:                                        ; preds = %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit
-  call void @_ZSt17__throw_bad_allocv() #21
+  call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
 _ZNSt15__new_allocatorIcE8allocateEmPKv.exit:     ; preds = %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit
-  %call5.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #22
+  %call5.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #21
   store ptr %call5.i, ptr %this, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %4 = load ptr, ptr %this, align 8
   %table_ = getelementptr inbounds %"class.snappy::internal::WorkingMemory", ptr %this, i64 0, i32 2
   store ptr %4, ptr %table_, align 8
@@ -227,14 +227,14 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define dso_local void @_ZN6snappy8internal13WorkingMemoryD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %0 = load ptr, ptr %this, align 8
-  call void @_ZdlPv(ptr noundef %0) #23
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZdlPv(ptr noundef %0) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %fragment_size, ptr nocapture noundef writeonly %table_size) local_unnamed_addr #4 align 2 {
 entry:
   %conv = trunc i64 %fragment_size to i32
@@ -491,7 +491,7 @@ _ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread: ; preds = %if.the
   %shr.i91 = lshr i64 %11, 3
   %add.ptr8.i = getelementptr inbounds i8, ptr %ip.4, i64 8
   %v.0.copyload.i35.i = load i64, ptr %add.ptr8.i, align 1
-  %12 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %v.0.copyload.i35.i, i64 %xor.i, i64 %v.0.copyload.i34.i) #24, !srcloc !12
+  %12 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %v.0.copyload.i35.i, i64 %xor.i, i64 %v.0.copyload.i34.i) #23, !srcloc !12
   %and.i92 = and i64 %11, 24
   %shr10.i = lshr i64 %12, %and.i92
   %add80206 = add nuw nsw i64 %shr.i91, 4
@@ -550,7 +550,7 @@ _ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread217: ; preds = %whi
   %shr34.i = lshr i64 %16, 3
   %add.ptr37.i = getelementptr inbounds i8, ptr %s2.addr.158.i, i64 4
   %v.0.copyload.i39.i = load i64, ptr %add.ptr37.i, align 1
-  %17 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %v.0.copyload.i39.i, i64 %xor30.i, i64 %v.0.copyload.i37.i) #24, !srcloc !14
+  %17 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %v.0.copyload.i39.i, i64 %xor30.i, i64 %v.0.copyload.i37.i) #23, !srcloc !14
   %and39.i = and i64 %16, 24
   %shr41.i = lshr i64 %17, %and39.i
   %add42.i = or disjoint i64 %shr34.i, %matched.157.i
@@ -790,8 +790,8 @@ if.end124:                                        ; preds = %_ZN6snappyL11EmitLi
   ret ptr %op.addr.5
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6snappy9MemCopy64EPcPKvm(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %size) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN6snappy9MemCopy64EPcPKvm(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %dst, ptr noundef nonnull align 1 dereferenceable(32) %src, i64 32, i1 false)
   %cmp = icmp ugt i64 %size, 32
@@ -808,7 +808,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN6snappy9MemCopy64ElPKvm(i64 noundef %dst, ptr nocapture noundef readnone %src, i64 noundef %size) local_unnamed_addr #0 {
@@ -817,7 +817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6snappy13ClearDeferredEPPKvPmPh(ptr nocapture noundef writeonly %deferred_src, ptr nocapture noundef writeonly %deferred_length, ptr noundef %safe_source) local_unnamed_addr #8 {
+define dso_local void @_ZN6snappy13ClearDeferredEPPKvPmPh(ptr nocapture noundef writeonly %deferred_src, ptr nocapture noundef writeonly %deferred_length, ptr noundef %safe_source) local_unnamed_addr #7 {
 entry:
   store ptr %safe_source, ptr %deferred_src, align 8
   store i64 0, ptr %deferred_length, align 8
@@ -825,7 +825,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr nocapture noundef writeonly %deferred_src, ptr nocapture noundef writeonly %deferred_length, ptr noundef %src, i64 noundef %length) local_unnamed_addr #8 {
+define dso_local void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr nocapture noundef writeonly %deferred_src, ptr nocapture noundef writeonly %deferred_length, ptr noundef %src, i64 noundef %length) local_unnamed_addr #7 {
 entry:
   store ptr %src, ptr %deferred_src, align 8
   store i64 %length, ptr %deferred_length, align 8
@@ -852,12 +852,12 @@ if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
   %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %conv) #20
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %conv) #19
   %5 = load ptr, ptr %this, align 8
   %vtable3 = load ptr, ptr %5, align 8
   %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
   %6 = load ptr, ptr %vfn4, align 8
-  %call = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %n) #20
+  %call = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %n) #19
   %7 = load i64, ptr %n, align 8
   %conv5 = trunc i64 %7 to i32
   store i32 %conv5, ptr %peeked_, align 8
@@ -915,7 +915,7 @@ if.then16:                                        ; preds = %_ZN6snappy15Calcula
   %vtable21 = load ptr, ptr %10, align 8
   %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 4
   %12 = load ptr, ptr %vfn22, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %conv20) #20
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %conv20) #19
   store i32 0, ptr %peeked_19, align 8
   br label %while.body
 
@@ -925,7 +925,7 @@ while.body:                                       ; preds = %if.then16, %if.end3
   %vtable26 = load ptr, ptr %13, align 8
   %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 3
   %14 = load ptr, ptr %vfn27, align 8
-  %call28 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %length) #20
+  %call28 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %length) #19
   %15 = load i64, ptr %length, align 8
   %cmp29 = icmp eq i64 %15, 0
   br i1 %cmp29, label %return, label %if.end31
@@ -943,7 +943,7 @@ if.end31:                                         ; preds = %while.body
   %vtable41 = load ptr, ptr %16, align 8
   %vfn42 = getelementptr inbounds ptr, ptr %vtable41, i64 4
   %17 = load ptr, ptr %vfn42, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %conv38) #20
+  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %conv38) #19
   %cmp24 = icmp ult i32 %add, %cond.i
   br i1 %cmp24, label %while.body, label %while.end, !llvm.loop !19
 
@@ -969,7 +969,7 @@ if.then52:                                        ; preds = %if.else
   %vtable59 = load ptr, ptr %18, align 8
   %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 4
   %20 = load ptr, ptr %vfn60, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %conv58) #20
+  call void %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %conv58) #19
   store i32 0, ptr %peeked_57, align 8
   store ptr %scratch_53, ptr %ip_, align 8
   %add.ptr68 = getelementptr inbounds i8, ptr %scratch_53, i64 %conv55
@@ -986,7 +986,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6SourceEPj(ptr noundef %source, ptr nocapture noundef %result) local_unnamed_addr #2 {
@@ -1006,7 +1006,7 @@ if.end.i:                                         ; preds = %while.body.i, %entr
   %vtable.i = load ptr, ptr %source, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
   %0 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %source, ptr noundef nonnull %n.i) #20
+  %call.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %source, ptr noundef nonnull %n.i) #19
   %1 = load i64, ptr %n.i, align 8
   %cmp2.i = icmp eq i64 %1, 0
   br i1 %cmp2.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit, label %if.end4.i
@@ -1016,7 +1016,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %vtable6.i = load ptr, ptr %source, align 8
   %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 4
   %3 = load ptr, ptr %vfn7.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %source, i64 noundef 1) #20
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %source, i64 noundef 1) #19
   %4 = and i8 %2, 127
   %arrayidx.i.i = getelementptr inbounds [32 x i8], ptr @_ZZN6snappyL18LeftShiftOverflowsEhjE5masks, i64 0, i64 %indvars.iv.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
@@ -1040,7 +1040,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit: ; preds = %while
   %vtable.i2 = load ptr, ptr %source, align 8
   %vfn.i3 = getelementptr inbounds ptr, ptr %vtable.i2, i64 4
   %8 = load ptr, ptr %vfn.i3, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %source, i64 noundef 0) #20
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %source, i64 noundef 0) #19
   ret i1 %retval.0.i
 }
 
@@ -1054,7 +1054,7 @@ entry:
   %vtable = load ptr, ptr %reader, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
   %0 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %reader) #20
+  %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %reader) #19
   %conv = trunc i64 %call to i32
   %cmp.i = icmp ult i32 %conv, 128
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1143,7 +1143,7 @@ _ZN6snappy6Varint8Encode32EPcj.exit:              ; preds = %if.then.i, %if.then
   %vtable4 = load ptr, ptr %writer, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
   %7 = load ptr, ptr %vfn5, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef nonnull %ulength, i64 noundef %sub.ptr.sub) #20
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef nonnull %ulength, i64 noundef %sub.ptr.sub) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %call, i64 65536)
   %conv.i37 = trunc i64 %.sroa.speculated.i to i32
@@ -1170,9 +1170,9 @@ _ZN6snappy8internal13WorkingMemoryC2Em.exit:      ; preds = %_ZN6snappy6Varint8E
   %add.i.i = add nuw nsw i64 %factor.i, 32
   %add1.i.i = add nuw nsw i64 %add.i.i, %div.i.zext.i
   %add5.i = add nuw nsw i64 %add1.i.i, %retval.0.i.i
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #20
-  %call5.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %add5.i) #22
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #20
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19
+  %call5.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %add5.i) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i, i64 %retval.0.i.i
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %.sroa.speculated.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -1185,7 +1185,7 @@ while.body:                                       ; preds = %_ZN6snappy8internal
   %vtable10 = load ptr, ptr %reader, align 8
   %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 3
   %11 = load ptr, ptr %vfn11, align 8
-  %call12 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %reader, ptr noundef nonnull %fragment_size) #20
+  %call12 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %reader, ptr noundef nonnull %fragment_size) #19
   %.sroa.speculated60 = call i64 @llvm.umin.i64(i64 %N.073, i64 65536)
   %12 = load i64, ptr %fragment_size, align 8
   %cmp14.not = icmp ult i64 %12, %.sroa.speculated60
@@ -1196,7 +1196,7 @@ if.else:                                          ; preds = %while.body
   %vtable16 = load ptr, ptr %reader, align 8
   %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 4
   %13 = load ptr, ptr %vfn17, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %12) #20
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %12) #19
   br label %while.body20
 
 while.body20:                                     ; preds = %if.else, %while.body20
@@ -1204,7 +1204,7 @@ while.body20:                                     ; preds = %if.else, %while.bod
   %vtable21 = load ptr, ptr %reader, align 8
   %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 3
   %14 = load ptr, ptr %vfn22, align 8
-  %call23 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %reader, ptr noundef nonnull %fragment_size) #20
+  %call23 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %reader, ptr noundef nonnull %fragment_size) #19
   %sub = sub i64 %.sroa.speculated60, %bytes_read.071
   %15 = load i64, ptr %fragment_size, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %15)
@@ -1214,7 +1214,7 @@ while.body20:                                     ; preds = %if.else, %while.bod
   %vtable26 = load ptr, ptr %reader, align 8
   %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 4
   %16 = load ptr, ptr %vfn27, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %.sroa.speculated) #20
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %.sroa.speculated) #19
   %cmp19 = icmp ult i64 %add25, %.sroa.speculated60
   br i1 %cmp19, label %while.body20, label %if.end, !llvm.loop !21
 
@@ -1248,7 +1248,7 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %if.end, %
   %vtable33 = load ptr, ptr %writer, align 8
   %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 3
   %19 = load ptr, ptr %vfn34, align 8
-  %call35 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %writer, i64 noundef %add1.i, ptr noundef nonnull %add.ptr12.i) #20
+  %call35 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %writer, i64 noundef %add1.i, ptr noundef nonnull %add.ptr12.i) #19
   %20 = load i64, ptr %fragment_size, align 8
   %call36 = call noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(ptr noundef %fragment.0, i64 noundef %20, ptr noundef %call35, ptr noundef nonnull %call5.i.i, i32 noundef %retval.0.i.i49)
   %sub.ptr.lhs.cast37 = ptrtoint ptr %call36 to i64
@@ -1257,22 +1257,22 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %if.end, %
   %vtable40 = load ptr, ptr %writer, align 8
   %vfn41 = getelementptr inbounds ptr, ptr %vtable40, i64 2
   %21 = load ptr, ptr %vfn41, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef %call35, i64 noundef %sub.ptr.sub39) #20
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef %call35, i64 noundef %sub.ptr.sub39) #19
   %add45 = add i64 %sub.ptr.sub39, %written.074
   %sub46 = sub i64 %N.073, %.sroa.speculated60
   %vtable47 = load ptr, ptr %reader, align 8
   %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 4
   %22 = load ptr, ptr %vfn48, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %pending_advance.0) #20
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %pending_advance.0) #19
   %cmp.not = icmp eq i64 %sub46, 0
   br i1 %cmp.not, label %while.end49, label %while.body, !llvm.loop !22
 
 while.end49:                                      ; preds = %_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit, %_ZN6snappy8internal13WorkingMemoryC2Em.exit
   %written.0.lcssa = phi i64 [ %sub.ptr.sub, %_ZN6snappy8internal13WorkingMemoryC2Em.exit ], [ %add45, %_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i52)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #20
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i) #23
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #20
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #19
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i52)
   ret i64 %written.0.lcssa
 }
@@ -1287,7 +1287,7 @@ entry:
   %left_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 2
   store i64 %compressed_length, ptr %left_.i, align 8
   %call = call noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPNS_6SourceEPK5iovecm(ptr noundef nonnull %reader, ptr noundef %iov, i64 noundef %iov_cnt)
-  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #20
+  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #19
   ret i1 %call
 }
 
@@ -1343,7 +1343,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i, %_Z
   %vtable.i.i = load ptr, ptr %compressed, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
   %2 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i.i) #20
+  %call.i.i = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i.i) #19
   %3 = load i64, ptr %n.i.i, align 8
   %cmp2.i.i = icmp eq i64 %3, 0
   br i1 %cmp2.i.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread.i, label %if.end4.i.i
@@ -1353,7 +1353,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   %vtable6.i.i = load ptr, ptr %compressed, align 8
   %vfn7.i.i = getelementptr inbounds ptr, ptr %vtable6.i.i, i64 4
   %5 = load ptr, ptr %vfn7.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #20
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #19
   %6 = and i8 %4, 127
   %arrayidx.i.i.i = getelementptr inbounds [32 x i8], ptr @_ZZN6snappyL18LeftShiftOverflowsEhjE5masks, i64 0, i64 %indvars.iv.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -1378,7 +1378,7 @@ if.end.i:                                         ; preds = %if.end11.i.i
   %vtable.i = load ptr, ptr %compressed, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
   %9 = load ptr, ptr %vfn.i, align 8
-  %call1.i = call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #20
+  %call1.i = call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #19
   %conv1.i.i = zext i32 %or.i.i to i64
   store i64 %conv1.i.i, ptr %output_limit_.i, align 8
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyIOVecWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %decompressor.i, ptr noundef nonnull %output)
@@ -1401,7 +1401,7 @@ _ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit: 
   %vtable.i3.i = load ptr, ptr %14, align 8
   %vfn.i4.i = getelementptr inbounds ptr, ptr %vtable.i3.i, i64 4
   %16 = load ptr, ptr %vfn.i4.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %conv.i.i) #20
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %conv.i.i) #19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %decompressor.i)
   ret i1 %retval.0.i
 }
@@ -1419,7 +1419,7 @@ entry:
   %left_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 2
   store i64 %compressed_length, ptr %left_.i, align 8
   %call = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %reader, ptr noundef %uncompressed)
-  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #20
+  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #19
   ret i1 %call
 }
 
@@ -1458,7 +1458,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i, %en
   %vtable.i.i = load ptr, ptr %compressed, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
   %0 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i.i) #20
+  %call.i.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i.i) #19
   %1 = load i64, ptr %n.i.i, align 8
   %cmp2.i.i = icmp eq i64 %1, 0
   br i1 %cmp2.i.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread.i, label %if.end4.i.i
@@ -1468,7 +1468,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   %vtable6.i.i = load ptr, ptr %compressed, align 8
   %vfn7.i.i = getelementptr inbounds ptr, ptr %vtable6.i.i, i64 4
   %3 = load ptr, ptr %vfn7.i.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #20
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #19
   %4 = and i8 %2, 127
   %arrayidx.i.i.i = getelementptr inbounds [32 x i8], ptr @_ZZN6snappyL18LeftShiftOverflowsEhjE5masks, i64 0, i64 %indvars.iv.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -1493,7 +1493,7 @@ if.end.i:                                         ; preds = %if.end11.i.i
   %vtable.i = load ptr, ptr %compressed, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
   %7 = load ptr, ptr %vfn.i, align 8
-  %call1.i = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #20
+  %call1.i = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #19
   %conv1.i.i = zext i32 %or.i.i to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %uncompressed, i64 %conv1.i.i
   store ptr %add.ptr.i.i.i, ptr %op_limit_.i, align 8
@@ -1521,7 +1521,7 @@ _ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit: 
   %vtable.i3.i = load ptr, ptr %12, align 8
   %vfn.i4.i = getelementptr inbounds ptr, ptr %vtable.i3.i, i64 4
   %14 = load ptr, ptr %vfn.i4.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %conv.i.i) #20
+  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %conv.i.i) #19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %decompressor.i)
   ret i1 %retval.0.i
 }
@@ -1598,17 +1598,17 @@ if.end37.i.i:                                     ; preds = %if.end34.i.i
 if.end:                                           ; preds = %if.end37.i.i, %if.end26.i.i, %if.end15.i.i, %if.end6.i.i, %if.end.i.i
   %v.0.i = phi i32 [ %and.i.i, %if.end.i.i ], [ %or.i.i, %if.end6.i.i ], [ %or20.i.i, %if.end15.i.i ], [ %or31.i.i, %if.end26.i.i ], [ %or42.i.i, %if.end37.i.i ]
   %conv.i = zext i32 %v.0.i to i64
-  %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed) #20
+  %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed) #19
   %cmp = icmp ult i64 %call1, %conv.i
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed, i64 noundef %conv.i) #20
-  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed, i64 noundef %conv.i) #19
+  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed) #19
   br i1 %call.i, label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end3
-  %call1.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed) #20
+  %call1.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed) #19
   br label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end3, %cond.false.i
@@ -1620,7 +1620,7 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %left_.i.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader.i, i64 0, i32 2
   store i64 %compressed_length, ptr %left_.i.i, align 8
   %call.i5 = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %reader.i, ptr noundef %cond.i)
-  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader.i) #20
+  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reader.i)
   br label %return
 
@@ -1644,7 +1644,7 @@ entry:
   store i64 %compressed_length, ptr %left_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %writer, i8 0, i64 16, i1 false)
   %call = call fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef nonnull %reader, ptr noundef nonnull %writer)
-  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #20
+  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #19
   ret i1 %call
 }
 
@@ -1674,7 +1674,7 @@ if.end.i:                                         ; preds = %while.body.i, %entr
   %vtable.i = load ptr, ptr %r, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
   %0 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull %n.i) #20
+  %call.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull %n.i) #19
   %1 = load i64, ptr %n.i, align 8
   %cmp2.i = icmp eq i64 %1, 0
   br i1 %cmp2.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread, label %if.end4.i
@@ -1684,7 +1684,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %vtable6.i = load ptr, ptr %r, align 8
   %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 4
   %3 = load ptr, ptr %vfn7.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %r, i64 noundef 1) #20
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %r, i64 noundef 1) #19
   %4 = and i8 %2, 127
   %arrayidx.i.i = getelementptr inbounds [32 x i8], ptr @_ZZN6snappyL18LeftShiftOverflowsEhjE5masks, i64 0, i64 %indvars.iv.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
@@ -1709,7 +1709,7 @@ if.end:                                           ; preds = %if.end11.i
   %vtable = load ptr, ptr %r, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
   %7 = load ptr, ptr %vfn, align 8
-  %call1 = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %r) #20
+  %call1 = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %r) #19
   %conv1.i = zext i32 %or.i to i64
   store i64 %conv1.i, ptr %writer, align 8
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_28SnappyDecompressionValidatorEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %decompressor, ptr noundef nonnull %writer)
@@ -1733,7 +1733,7 @@ cleanup:                                          ; preds = %land.rhs.i, %if.end
   %vtable.i3 = load ptr, ptr %12, align 8
   %vfn.i4 = getelementptr inbounds ptr, ptr %vtable.i3, i64 4
   %14 = load ptr, ptr %vfn.i4, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %conv.i) #20
+  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %conv.i) #19
   ret i1 %retval.0
 }
 
@@ -1765,8 +1765,8 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %compressed to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %compressed_length, align 8
-  call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer) #20
-  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #20
+  call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer) #19
+  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #19
   ret void
 }
 
@@ -1826,15 +1826,15 @@ _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit:   ; preds = %_ZN6snappy17SnappyI
   %sub.ptr.rhs.cast = ptrtoint ptr %compressed to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %compressed_length, align 8
-  call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer) #20
-  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reader) #20
+  call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer) #19
+  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reader) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   ret void
 }
 
@@ -1846,12 +1846,12 @@ entry:
   %add.i = add i64 %input_length, 32
   %div.i = udiv i64 %input_length, 6
   %add1.i = add i64 %add.i, %div.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %compressed, i64 noundef %add1.i) #20
-  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %compressed) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %compressed, i64 noundef %add1.i) #19
+  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %compressed) #19
   br i1 %call.i, label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
-  %call1.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %compressed) #20
+  %call1.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %compressed) #19
   br label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %entry, %cond.false.i
@@ -1871,15 +1871,15 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer.i) #20
-  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader.i) #20
+  call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer.i) #19
+  call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reader.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %writer.i)
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %compressed, i64 noundef %sub.ptr.sub.i, i64 noundef -1) #20
+  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %compressed, i64 noundef %sub.ptr.sub.i, i64 noundef -1) #19
   ret i64 %sub.ptr.sub.i
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZN6snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %iov, i64 noundef %iov_cnt, ptr noundef %compressed) local_unnamed_addr #2 {
@@ -1904,12 +1904,12 @@ for.end:                                          ; preds = %for.body, %entry
   %add.i = add i64 %uncompressed_length.0.lcssa, 32
   %div.i = udiv i64 %uncompressed_length.0.lcssa, 6
   %add1.i = add i64 %add.i, %div.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %compressed, i64 noundef %add1.i) #20
-  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %compressed) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %compressed, i64 noundef %add1.i) #19
+  %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %compressed) #19
   br i1 %call.i, label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.end
-  %call1.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %compressed) #20
+  %call1.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %compressed) #19
   br label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %for.end, %cond.false.i
@@ -1963,11 +1963,11 @@ _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm.exit: ; preds = %cond.true3.i.i, 
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer.i) #20
-  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reader.i) #20
+  call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer.i) #19
+  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reader.i) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %writer.i)
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %compressed, i64 noundef %sub.ptr.sub.i, i64 noundef -1) #20
+  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %compressed, i64 noundef %sub.ptr.sub.i, i64 noundef -1) #19
   ret i64 %sub.ptr.sub.i
 }
 
@@ -2006,7 +2006,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i, %_Z
   %vtable.i.i = load ptr, ptr %compressed, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
   %0 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i.i) #20
+  %call.i.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i.i) #19
   %1 = load i64, ptr %n.i.i, align 8
   %cmp2.i.i = icmp eq i64 %1, 0
   br i1 %cmp2.i.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread.i, label %if.end4.i.i
@@ -2016,7 +2016,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   %vtable6.i.i = load ptr, ptr %compressed, align 8
   %vfn7.i.i = getelementptr inbounds ptr, ptr %vtable6.i.i, i64 4
   %3 = load ptr, ptr %vfn7.i.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #20
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #19
   %4 = and i8 %2, 127
   %arrayidx.i.i.i = getelementptr inbounds [32 x i8], ptr @_ZZN6snappyL18LeftShiftOverflowsEhjE5masks, i64 0, i64 %indvars.iv.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -2041,7 +2041,7 @@ if.end.i:                                         ; preds = %if.end11.i.i
   %vtable.i = load ptr, ptr %compressed, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
   %7 = load ptr, ptr %vfn.i, align 8
-  %call1.i = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #20
+  %call1.i = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #19
   %conv1.i.i = zext i32 %or.i.i to i64
   %expected_.i.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 2
   store i64 %conv1.i.i, ptr %expected_.i.i.i, align 8
@@ -2075,7 +2075,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %vtable.i.i.i.i = load ptr, ptr %16, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
   %18 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %17, i64 noundef %.sroa.speculated.i.i.i.i, ptr noundef nonnull @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm, ptr noundef null) #20
+  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %17, i64 noundef %.sroa.speculated.i.i.i.i, ptr noundef nonnull @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm, ptr noundef null) #19
   %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %size_written.011.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.snappy::SnappySinkAllocator::Datablock", ptr %__begin2.sroa.0.010.i.i.i.i, i64 1
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %9
@@ -2098,7 +2098,7 @@ _ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAlloca
   %vtable.i3.i = load ptr, ptr %19, align 8
   %vfn.i4.i = getelementptr inbounds ptr, ptr %vtable.i3.i, i64 4
   %21 = load ptr, ptr %vfn.i4.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %conv.i.i) #20
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %conv.i.i) #19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %decompressor.i)
   %22 = load i64, ptr %full_size_.i, align 8
   %op_ptr_.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 5
@@ -2110,7 +2110,7 @@ _ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAlloca
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit
-  call void @_ZdlPv(ptr noundef nonnull %25) #23
+  call void @_ZdlPv(ptr noundef nonnull %25) #22
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit.i:               ; preds = %if.then.i.i.i.i, %_ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit
@@ -2119,7 +2119,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit.i:               ; preds = %if.then.i.i.i.i, %_
   br i1 %tobool.not.i.i.i.i.i, label %_ZN6snappy19SnappySinkAllocatorD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %26) #23
+  call void @_ZdlPv(ptr noundef nonnull %26) #22
   br label %_ZN6snappy19SnappySinkAllocatorD2Ev.exit
 
 _ZN6snappy19SnappySinkAllocatorD2Ev.exit:         ; preds = %if.then.i.i.i.i.i, %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i
@@ -2160,7 +2160,7 @@ if.end.i:                                         ; preds = %while.body.i, %entr
   %vtable.i = load ptr, ptr %compressed, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
   %0 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i) #20
+  %call.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i) #19
   %1 = load i64, ptr %n.i, align 8
   %cmp2.i = icmp eq i64 %1, 0
   br i1 %cmp2.i, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread, label %if.end4.i
@@ -2170,7 +2170,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %vtable6.i = load ptr, ptr %compressed, align 8
   %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 4
   %3 = load ptr, ptr %vfn7.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #20
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #19
   %4 = and i8 %2, 127
   %arrayidx.i.i = getelementptr inbounds [32 x i8], ptr @_ZZN6snappyL18LeftShiftOverflowsEhjE5masks, i64 0, i64 %indvars.iv.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
@@ -2196,11 +2196,11 @@ if.end:                                           ; preds = %if.end11.i
   %vtable = load ptr, ptr %uncompressed, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
   %7 = load ptr, ptr %vfn, align 8
-  %call1 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %uncompressed, i64 noundef 1, i64 noundef %conv, ptr noundef nonnull %c, i64 noundef 1, ptr noundef nonnull %allocated_size) #20
+  %call1 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %uncompressed, i64 noundef 1, i64 noundef %conv, ptr noundef nonnull %c, i64 noundef 1, ptr noundef nonnull %allocated_size) #19
   %vtable2 = load ptr, ptr %compressed, align 8
   %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 2
   %8 = load ptr, ptr %vfn3, align 8
-  %call4 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #20
+  %call4 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #19
   %9 = load i64, ptr %allocated_size, align 8
   %cmp.not = icmp ult i64 %9, %conv
   br i1 %cmp.not, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit, label %if.then6
@@ -2232,7 +2232,7 @@ if.then6:                                         ; preds = %if.end
   %vtable10 = load ptr, ptr %uncompressed, align 8
   %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 2
   %16 = load ptr, ptr %vfn11, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %uncompressed, ptr noundef %call1, i64 noundef %sub.ptr.sub.i) #20
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %uncompressed, ptr noundef %call1, i64 noundef %sub.ptr.sub.i) #19
   br label %cleanup
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit: ; preds = %if.end
@@ -2275,7 +2275,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %vtable.i.i.i = load ptr, ptr %25, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 4
   %27 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26, i64 noundef %.sroa.speculated.i.i.i, ptr noundef nonnull @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm, ptr noundef null) #20
+  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26, i64 noundef %.sroa.speculated.i.i.i, ptr noundef nonnull @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm, ptr noundef null) #19
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %size_written.011.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.snappy::SnappySinkAllocator::Datablock", ptr %__begin2.sroa.0.010.i.i.i, i64 1
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %18
@@ -2319,7 +2319,7 @@ _ZN6snappyL25InternalUncompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySin
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6snappyL25InternalUncompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_18SnappyDecompressorEPT_jj.exit
-  call void @_ZdlPv(ptr noundef nonnull %36) #23
+  call void @_ZdlPv(ptr noundef nonnull %36) #22
   %.pre = load ptr, ptr %blocks_.i.i, align 8
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i
 
@@ -2329,7 +2329,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit.i:               ; preds = %if.then.i.i.i.i, %_
   br i1 %tobool.not.i.i.i.i.i18, label %cleanup, label %if.then.i.i.i.i.i19
 
 if.then.i.i.i.i.i19:                              ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %37) #23
+  call void @_ZdlPv(ptr noundef nonnull %37) #22
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i, %if.then.i.i.i.i.i19, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread, %if.then6
@@ -2340,20 +2340,20 @@ cleanup:                                          ; preds = %_ZNSt6vectorIPcSaIS
   %vtable.i24 = load ptr, ptr %38, align 8
   %vfn.i25 = getelementptr inbounds ptr, ptr %vtable.i24, i64 4
   %40 = load ptr, ptr %vfn.i25, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %conv.i) #20
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %conv.i) #19
   ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #11
+declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #9
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -2364,8 +2364,8 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -2469,16 +2469,16 @@ while.end:                                        ; preds = %_ZN6snappy17SnappyI
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #12
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyIOVecWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %writer) local_unnamed_addr #2 comdat align 32 {
@@ -2676,12 +2676,12 @@ if.end57:                                         ; preds = %if.end9.i.i, %if.en
   %vtable = load ptr, ptr %27, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
   %29 = load ptr, ptr %vfn, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef %conv59) #20
+  call void %29(ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef %conv59) #19
   %30 = load ptr, ptr %this, align 8
   %vtable61 = load ptr, ptr %30, align 8
   %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 3
   %31 = load ptr, ptr %vfn62, align 8
-  %call63 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %n) #20
+  %call63 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %n) #19
   %32 = load i64, ptr %n, align 8
   %conv64 = trunc i64 %32 to i32
   store i32 %conv64, ptr %peeked_, align 8
@@ -2900,7 +2900,7 @@ for.body:                                         ; preds = %do.body, %for.inc
   %1 = load i16, ptr %arrayidx.i.i, align 2
   %conv5 = sext i16 %1 to i64
   %shr.i = lshr i64 %tag.1149, 2
-  %2 = tail call { i64, i8 } asm "and $$3, ${0:k}\0A\09", "=r,={@ccz},0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %tag.1149) #24, !srcloc !29
+  %2 = tail call { i64, i8 } asm "and $$3, ${0:k}\0A\09", "=r,={@ccz},0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %tag.1149) #23, !srcloc !29
   %asmresult.i = extractvalue { i64, i8 } %2, 0
   %asmresult1.i = extractvalue { i64, i8 } %2, 1
   %3 = icmp ult i8 %asmresult1.i, 2
@@ -2919,7 +2919,7 @@ for.body:                                         ; preds = %do.body, %for.inc
   %add.ptr5.i = getelementptr inbounds i8, ptr %ip.addr.1145, i64 2
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 %shr.i
   %cond11.i = select i1 %tobool.i.not, ptr %add.ptr4.i, ptr %add.ptr6.i
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %conv3.i) #20, !srcloc !30
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %conv3.i) #19, !srcloc !30
   %value.0.copyload.i = load i32, ptr %ip.addr.1145, align 1
   %and = and i64 %conv5, 255
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %kExtractMasksCombined.i)
@@ -2994,7 +2994,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !32
 
 init.check.i:                                     ; preds = %for.end.i
-  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #20
+  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #19
   %tobool.i59.not = icmp eq i32 %9, 0
   br i1 %tobool.i59.not, label %init.end.i, label %init.i
 
@@ -3018,7 +3018,7 @@ _ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit:
   %10 = load <2 x i64>, ptr %retval.i, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   store <2 x i64> %10, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, align 16
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #20
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #19
   br label %init.end.i
 
 init.end.i:                                       ; preds = %_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit, %init.check.i, %for.end.i
@@ -3329,16 +3329,16 @@ return:                                           ; preds = %if.end64, %if.then3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #16
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #16
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %src, ptr noundef %op, ptr noundef returned %op_limit, ptr noundef readnone %buf_limit) unnamed_addr #17 {
+define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %src, ptr noundef %op, ptr noundef returned %op_limit, ptr noundef readnone %buf_limit) unnamed_addr #16 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %op to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %src to i64
@@ -3589,7 +3589,7 @@ for.body.i:                                       ; preds = %for.inc.i, %do.body
   %8 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv5.i = sext i16 %8 to i64
   %shr.i.i = lshr i64 %tag.199.i, 2
-  %9 = call { i64, i8 } asm "and $$3, ${0:k}\0A\09", "=r,={@ccz},0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %tag.199.i) #24, !srcloc !29
+  %9 = call { i64, i8 } asm "and $$3, ${0:k}\0A\09", "=r,={@ccz},0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %tag.199.i) #23, !srcloc !29
   %asmresult.i.i = extractvalue { i64, i8 } %9, 0
   %asmresult1.i.i = extractvalue { i64, i8 } %9, 1
   %10 = icmp ult i8 %asmresult1.i.i, 2
@@ -3608,7 +3608,7 @@ for.body.i:                                       ; preds = %for.inc.i, %do.body
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %ip.addr.196.i, i64 2
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 %shr.i.i
   %cond11.i.i = select i1 %tobool.i.not.i, ptr %add.ptr4.i.i, ptr %add.ptr6.i.i
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %conv3.i.i) #20, !srcloc !30
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %conv3.i.i) #19, !srcloc !30
   %value.0.copyload.i.i = load i32, ptr %ip.addr.196.i, align 1
   %and.i = and i64 %conv5.i, 255
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %kExtractMasksCombined.i.i)
@@ -3757,12 +3757,12 @@ if.end55:                                         ; preds = %while.body
   %vtable = load ptr, ptr %23, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
   %25 = load ptr, ptr %vfn, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %conv57) #20
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %conv57) #19
   %26 = load ptr, ptr %this, align 8
   %vtable59 = load ptr, ptr %26, align 8
   %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 3
   %27 = load ptr, ptr %vfn60, align 8
-  %call61 = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %n) #20
+  %call61 = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %n) #19
   %28 = load i64, ptr %n, align 8
   %conv62 = trunc i64 %28 to i32
   store i32 %conv62, ptr %peeked_, align 8
@@ -4080,12 +4080,12 @@ if.end57:                                         ; preds = %while.body
   %vtable = load ptr, ptr %21, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
   %23 = load ptr, ptr %vfn, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %conv59) #20
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %conv59) #19
   %24 = load ptr, ptr %this, align 8
   %vtable61 = load ptr, ptr %24, align 8
   %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 3
   %25 = load ptr, ptr %vfn62, align 8
-  %call63 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %n) #20
+  %call63 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %n) #19
   %26 = load i64, ptr %n, align 8
   %conv64 = trunc i64 %26 to i32
   store i32 %conv64, ptr %peeked_, align 8
@@ -4467,12 +4467,12 @@ if.end57:                                         ; preds = %_ZN6snappy21SnappyS
   %vtable = load ptr, ptr %25, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
   %27 = load ptr, ptr %vfn, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %conv59) #20
+  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %conv59) #19
   %28 = load ptr, ptr %this, align 8
   %vtable61 = load ptr, ptr %28, align 8
   %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 3
   %29 = load ptr, ptr %vfn62, align 8
-  %call63 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %n) #20
+  %call63 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %n) #19
   %30 = load i64, ptr %n, align 8
   %conv64 = trunc i64 %30 to i32
   store i32 %conv64, ptr %peeked_, align 8
@@ -4810,7 +4810,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #20
   unreachable
 
 _ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -4826,30 +4826,31 @@ _ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
 
 _ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %call15, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit18.i.i
+  %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %10, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit18.i.i
+  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
 
-_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit18.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
+  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
   %tobool.not.i.i.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i19.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i18.i.i
 
-if.then.i19.i.i:                                  ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit18.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #23
+if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #22
   br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
-_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i19.i.i, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit18.i.i
+_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
   store ptr %cond.i10.i.i, ptr %blocks_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
@@ -4885,7 +4886,7 @@ entry:
   %0 = sext i32 %size to i64
   %1 = icmp slt i32 %size, 0
   %2 = select i1 %1, i64 -1, i64 %0
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #22
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #21
   %blocks_ = getelementptr inbounds %"class.snappy::SnappySinkAllocator", ptr %this, i64 0, i32 1
   %_M_finish.i = getelementptr inbounds %"class.snappy::SnappySinkAllocator", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -4912,7 +4913,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #20
   unreachable
 
 _ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -4928,7 +4929,7 @@ _ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPK
 
 _ZNSt16allocator_traitsISaIN6snappy19SnappySinkAllocator9DatablockEEE8allocateERS3_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN6snappy19SnappySinkAllocator9DatablockEEE8allocateERS3_m.exit.i.i.i, %_ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -4956,7 +4957,7 @@ _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
@@ -4971,10 +4972,10 @@ _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE9push_backERKS2_.ex
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm(ptr noundef %arg, ptr noundef %bytes, i64 noundef %size) #2 comdat align 2 {
@@ -4983,7 +4984,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %bytes) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %bytes) #22
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -4991,51 +4992,50 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #18
+declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nofree nounwind }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { builtin nounwind allocsize(0) }
-attributes #23 = { builtin nounwind }
-attributes #24 = { nounwind memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nofree nounwind }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind allocsize(0) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

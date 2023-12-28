@@ -3440,7 +3440,6 @@ invoke.cont517:                                   ; preds = %if.then511
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %331 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %332 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %333 = load ptr, ptr %_M_finish.i1082, align 8
   %334 = load ptr, ptr %_M_end_of_storage.i1083, align 8
   %cmp.not.i.i1124 = icmp eq ptr %333, %334
@@ -3485,12 +3484,12 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
   br label %invoke.cont520
 
 if.else.i.i1127:                                  ; preds = %if.then.i.i1125
-  %add.ptr.i.i.i1128 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %332, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i1128 = getelementptr inbounds i8, ptr %332, i64 %sub.ptr.sub.i.i.i
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_insert_auxIS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr %add.ptr.i.i.i1128, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp516)
           to label %invoke.cont520 unwind label %lpad519
 
 if.else21.i.i:                                    ; preds = %invoke.cont517
-  %add.ptr.i5.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %332, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %332, i64 %sub.ptr.sub.i.i.i
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr %add.ptr.i5.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp516)
           to label %invoke.cont520 unwind label %lpad519
 

@@ -23396,7 +23396,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPSt10
 
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb13EventListenerEES3_EvT_S5_RSaIT0_E.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.std::shared_ptr.257", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -23413,8 +23413,7 @@ if.then27:                                        ; preds = %if.else
   %call.i.i.i.i = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKSt10shared_ptrIN7rocksdb13EventListenerEEPS6_EET0_T_SB_SA_(ptr noundef %1, ptr noundef %0, ptr noundef %3)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.257", ptr %3, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
   %24 = load ptr, ptr %_M_finish.i23, align 8
   %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %24
   br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i30
@@ -23500,7 +23499,7 @@ _ZSt8_DestroyISt10shared_ptrIN7rocksdb13EventListenerEEEvPT_.exit.i.i.i43: ; pre
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i30, !llvm.loop !211
 
 if.else49:                                        ; preds = %if.else
-  %add.ptr55 = getelementptr inbounds %"class.std::shared_ptr.257", ptr %1, i64 %sub.ptr.div.i27
+  %add.ptr55 = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i26
   %call.i.i.i.i68 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPSt10shared_ptrIN7rocksdb13EventListenerEES7_EET0_T_S9_S8_(ptr noundef %1, ptr noundef %add.ptr55, ptr noundef %3)
   %36 = load ptr, ptr %__x, align 8
   %37 = load ptr, ptr %_M_finish.i23, align 8
@@ -23508,8 +23507,7 @@ if.else49:                                        ; preds = %if.else
   %sub.ptr.lhs.cast.i70 = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i71 = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i72 = sub i64 %sub.ptr.lhs.cast.i70, %sub.ptr.rhs.cast.i71
-  %sub.ptr.div.i73 = ashr exact i64 %sub.ptr.sub.i72, 4
-  %add.ptr62 = getelementptr inbounds %"class.std::shared_ptr.257", ptr %36, i64 %sub.ptr.div.i73
+  %add.ptr62 = getelementptr inbounds i8, ptr %36, i64 %sub.ptr.sub.i72
   %39 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %add.ptr62, %39
   br i1 %cmp.not5.i.i.i.i, label %if.end69, label %for.body.i.i.i.i
@@ -23550,7 +23548,7 @@ _ZSt10_ConstructISt10shared_ptrIN7rocksdb13EventListenerEEJRS3_EEvPT_DpOT0_.exit
 
 if.end69:                                         ; preds = %_ZSt8_DestroyISt10shared_ptrIN7rocksdb13EventListenerEEEvPT_.exit.i.i.i43, %_ZSt10_ConstructISt10shared_ptrIN7rocksdb13EventListenerEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i, %if.else49, %if.then27, %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit
   %45 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds %"class.std::shared_ptr.257", ptr %45, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %45, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<rocksdb::EventListener>, std::allocator<std::shared_ptr<rocksdb::EventListener>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75

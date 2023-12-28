@@ -1593,7 +1593,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then34.i
   store i64 %conv.i.i.i, ptr %141, align 8, !alias.scope !14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i.i, ptr align 2 %139, i64 %add.ptr.i.idx.i.i.i, i1 false)
   store i64 %conv.i.i.i, ptr %_M_string_length.i.i.i.i, align 8, !alias.scope !14
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i.i.i.i.i, i64 %conv.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i.i, align 2
   %call5.i.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %138, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i8) #12
   %142 = load ptr, ptr %ref.tmp.i.i8, align 8

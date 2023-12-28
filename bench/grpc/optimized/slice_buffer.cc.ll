@@ -387,7 +387,7 @@ for.end:                                          ; preds = %_ZN9grpc_core5Slice
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK9grpc_core11SliceBuffer8RefSliceEm(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, i64 noundef %index) local_unnamed_addr #1 align 2 {
 entry:
   %slices = getelementptr inbounds %struct.grpc_slice_buffer, ptr %this, i64 0, i32 1
@@ -690,7 +690,7 @@ do.end:                                           ; preds = %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN9grpc_core11SliceBuffer7PrependENS_5SliceE(ptr nocapture noundef nonnull align 8 dereferenceable(264) %this, ptr nocapture noundef %slice) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp1.sroa.6 = alloca [16 x i8], align 8
@@ -725,7 +725,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @grpc_slice_buffer_undo_take_first(ptr nocapture noundef %sb, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %slice) local_unnamed_addr #3 {
 entry:
   %slices = getelementptr inbounds %struct.grpc_slice_buffer, ptr %sb, i64 0, i32 1
@@ -1246,7 +1246,7 @@ if.end:                                           ; preds = %cond.end, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @grpc_slice_buffer_swap(ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 {
 entry:
   %temp = alloca [7 x %struct.grpc_slice], align 16
@@ -1312,10 +1312,10 @@ if.else47:                                        ; preds = %if.else32
 
 if.end51:                                         ; preds = %if.then37, %if.else47, %if.then14, %if.else
   %7 = load ptr, ptr %a, align 8
-  %add.ptr = getelementptr inbounds %struct.grpc_slice, ptr %7, i64 %sub.ptr.div6
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub5
   store ptr %add.ptr, ptr %slices, align 8
   %8 = load ptr, ptr %b, align 8
-  %add.ptr55 = getelementptr inbounds %struct.grpc_slice, ptr %8, i64 %sub.ptr.div
+  %add.ptr55 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub
   store ptr %add.ptr55, ptr %slices1, align 8
   %9 = load i64, ptr %count, align 8
   %10 = load i64, ptr %count7, align 8
@@ -1366,7 +1366,6 @@ if.then3:                                         ; preds = %if.end
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
-  %sub.ptr.div6.i = ashr exact i64 %sub.ptr.sub5.i, 5
   %add.i = add i64 %sub.ptr.div.i, %0
   %inlined.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %src, i64 0, i32 5
   %cmp.i = icmp eq ptr %3, %inlined.i
@@ -1408,10 +1407,10 @@ if.else47.i:                                      ; preds = %if.else32.i
 
 grpc_slice_buffer_swap.exit:                      ; preds = %if.then14.i, %if.else.i, %if.then37.i, %if.else47.i
   %7 = load ptr, ptr %src, align 8
-  %add.ptr.i = getelementptr inbounds %struct.grpc_slice, ptr %7, i64 %sub.ptr.div6.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub5.i
   store ptr %add.ptr.i, ptr %slices.i, align 8
   %8 = load ptr, ptr %dst, align 8
-  %add.ptr55.i = getelementptr inbounds %struct.grpc_slice, ptr %8, i64 %sub.ptr.div.i
+  %add.ptr55.i = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
   store ptr %add.ptr55.i, ptr %slices1.i, align 8
   %9 = load i64, ptr %count, align 8
   %10 = load i64, ptr %count1, align 8
@@ -2574,9 +2573,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

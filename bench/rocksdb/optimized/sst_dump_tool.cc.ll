@@ -9014,7 +9014,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7rocksdbL13kCompressionsE, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
   store ptr %call5.i.i.i.i2.i.i, ptr @_ZN7rocksdbL13kCompressionsE, align 8
-  %add.ptr.i1.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i2.i.i, i64 8
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 128
   store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (%"class.std::vector.0", ptr @_ZN7rocksdbL13kCompressionsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   store i8 0, ptr %call5.i.i.i.i2.i.i, align 8
   %ref.tmp.sroa.28.0.call5.i.i.i.i2.i.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 8

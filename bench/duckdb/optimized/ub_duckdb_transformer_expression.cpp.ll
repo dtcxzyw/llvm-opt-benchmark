@@ -6277,7 +6277,7 @@ _ZNKSt6vectorIN6duckdb9CaseCheckESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %
           to label %call5.i.i.i.i.noexc unwind label %lpad808
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIN6duckdb9CaseCheckESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i = getelementptr inbounds %"struct.duckdb::CaseCheck", ptr %call5.i.i.i.i143, i64 %sub.ptr.div.i.i.i122
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i143, i64 %sub.ptr.sub.i.i.i120
   store <2 x i64> %check.sroa.0.8.vec.insert, ptr %add.ptr.i, align 8, !tbaa !14
   %cmp.not6.i.i.i.i.i131 = icmp eq ptr %397, %394
   br i1 %cmp.not6.i.i.i.i.i131, label %_ZNSt6vectorIN6duckdb9CaseCheckESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit42.i, label %for.body.i.i.i.i.i132
@@ -9678,7 +9678,7 @@ _ZNKSt6vectorIN6duckdb9CaseCheckESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %
           to label %call5.i.i.i.i.noexc unwind label %lpad45.loopexit
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIN6duckdb9CaseCheckESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i = getelementptr inbounds %"struct.duckdb::CaseCheck", ptr %call5.i.i.i.i26, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i26, i64 %sub.ptr.sub.i.i.i
   store <2 x i64> %case_check.sroa.0.8.vec.insert, ptr %add.ptr.i, align 8, !tbaa !14
   %cmp.not6.i.i.i.i.i = icmp eq ptr %44, %41
   br i1 %cmp.not6.i.i.i.i.i, label %_ZNSt6vectorIN6duckdb9CaseCheckESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit42.i, label %for.body.i.i.i.i.i
@@ -15126,7 +15126,6 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %2 = load ptr, ptr %_M_finish.i, align 8, !tbaa !482
   %sub.ptr.lhs.cast.i30 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i33 = sdiv exact i64 %sub.ptr.sub.i32, 96
   %mul.i.i.i = mul nuw nsw i64 %__n, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #20
   %cmp.not6.i.i.i.i = icmp eq ptr %1, %2
@@ -15208,7 +15207,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorISt4pai
 
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %if.then.i, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !483
-  %add.ptr = getelementptr inbounds %"struct.std::pair.403", ptr %call5.i.i.i, i64 %sub.ptr.div.i33
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i32
   store ptr %add.ptr, ptr %_M_finish.i, align 8, !tbaa !482
   %add.ptr21 = getelementptr inbounds %"struct.std::pair.403", ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8, !tbaa !480
@@ -17720,7 +17719,7 @@ _ZNKSt6vectorIN6duckdb9CaseCheckESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %
           to label %call5.i.i.i.i.noexc unwind label %lpad142
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIN6duckdb9CaseCheckESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i73 = getelementptr inbounds %"struct.duckdb::CaseCheck", ptr %call5.i.i.i.i87, i64 %sub.ptr.div.i.i.i64
+  %add.ptr.i73 = getelementptr inbounds i8, ptr %call5.i.i.i.i87, i64 %sub.ptr.sub.i.i.i62
   store <2 x i64> %101, ptr %add.ptr.i73, align 8, !tbaa !14
   %cmp.not6.i.i.i.i.i74 = icmp eq ptr %105, %102
   br i1 %cmp.not6.i.i.i.i.i74, label %_ZNSt6vectorIN6duckdb9CaseCheckESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit42.i, label %for.body.i.i.i.i.i75

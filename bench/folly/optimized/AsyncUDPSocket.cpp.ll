@@ -4116,7 +4116,7 @@ if.end80:                                         ; preds = %_ZNR5folly8Optional
   ret i64 %call83
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5folly14AsyncUDPSocket7fromMsgERNS0_12ReadCallback21OnDataAvailableParamsER6msghdr(ptr nocapture noundef nonnull align 8 dereferenceable(65) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %msg) local_unnamed_addr #2 align 2 {
 entry:
   %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 5
@@ -7251,7 +7251,7 @@ entry:
   br i1 %cmp317.not, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %0 = getelementptr %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %addrs.coerce0, i64 %sub.ptr.div.i
+  %0 = getelementptr i8, ptr %addrs.coerce0, i64 %sub.ptr.sub.i
   %arrayidx.i226 = getelementptr %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %0, i64 -1
   %len30 = getelementptr %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %0, i64 -1, i32 1
   %cmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 32
@@ -11596,7 +11596,7 @@ declare i64 @llvm.umax.i64(i64, i64) #21
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

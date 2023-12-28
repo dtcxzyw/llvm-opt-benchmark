@@ -2025,7 +2025,7 @@ for.end74.thread:                                 ; preds = %arrayctor.cont48
 arrayctor.cont48.thread:                          ; preds = %for.end
   %7 = add nsw i64 %4, -12
   %8 = urem i64 %7, 12
-  %9 = sub nsw i64 %7, %8
+  %9 = sub nuw nsw i64 %7, %8
   %10 = add nsw i64 %9, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call18, i8 0, i64 %10, i1 false)
   store ptr %call18, ptr %mVertices.i, align 8
@@ -2048,7 +2048,7 @@ for.body54.preheader:                             ; preds = %arrayctor.cont48.th
   %conv521084 = zext i8 %11 to i64
   %12 = add nsw i64 %4, -12
   %13 = urem i64 %12, 12
-  %14 = sub nsw i64 %12, %13
+  %14 = sub nuw nsw i64 %12, %13
   %15 = add nsw i64 %14, 12
   br label %for.body54
 
@@ -2296,7 +2296,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %i
           to label %call5.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i118, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i118, i64 %sub.ptr.sub.i.i.i.i
   %57 = trunc i64 %indvars.iv1066 to i32
   store i32 %57, ptr %add.ptr.i.i, align 4
   %mWeight.i.i.i.i.i = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i118, i64 %sub.ptr.div.i.i.i.i, i32 1
@@ -2424,7 +2424,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i159: ; preds =
           to label %call5.i.i.i.i.i.noexc186 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc186:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i159
-  %add.ptr.i.i169 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i187, i64 %sub.ptr.div.i.i.i.i160
+  %add.ptr.i.i169 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i187, i64 %sub.ptr.sub.i.i.i.i157
   %69 = load float, ptr %bone_weight, align 4
   %70 = trunc i64 %indvars.iv1066 to i32
   store i32 %70, ptr %add.ptr.i.i169, align 4
@@ -2553,7 +2553,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i228: ; preds =
           to label %call5.i.i.i.i.i.noexc256 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc256:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i228
-  %add.ptr.i.i238 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i257, i64 %sub.ptr.div.i.i.i.i229
+  %add.ptr.i.i238 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i257, i64 %sub.ptr.sub.i.i.i.i226
   %82 = trunc i64 %indvars.iv1066 to i32
   store i32 %82, ptr %add.ptr.i.i238, align 4
   %mWeight.i.i.i.i.i239 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i257, i64 %sub.ptr.div.i.i.i.i229, i32 1
@@ -2681,7 +2681,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i299: ; preds =
           to label %call5.i.i.i.i.i.noexc327 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc327:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i299
-  %add.ptr.i.i309 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i328, i64 %sub.ptr.div.i.i.i.i300
+  %add.ptr.i.i309 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i328, i64 %sub.ptr.sub.i.i.i.i297
   %94 = load float, ptr %bone_weight1, align 4
   %95 = trunc i64 %indvars.iv1066 to i32
   store i32 %95, ptr %add.ptr.i.i309, align 4
@@ -2810,7 +2810,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i370: ; preds =
           to label %call5.i.i.i.i.i.noexc398 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc398:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i370
-  %add.ptr.i.i380 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i399, i64 %sub.ptr.div.i.i.i.i371
+  %add.ptr.i.i380 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i399, i64 %sub.ptr.sub.i.i.i.i368
   %107 = load float, ptr %bone_weight2, align 4
   %108 = trunc i64 %indvars.iv1066 to i32
   store i32 %108, ptr %add.ptr.i.i380, align 4
@@ -2939,7 +2939,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i441: ; preds =
           to label %call5.i.i.i.i.i.noexc469 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc469:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i441
-  %add.ptr.i.i451 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i470, i64 %sub.ptr.div.i.i.i.i442
+  %add.ptr.i.i451 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i470, i64 %sub.ptr.sub.i.i.i.i439
   %120 = load float, ptr %bone_weight3, align 4
   %121 = trunc i64 %indvars.iv1066 to i32
   store i32 %121, ptr %add.ptr.i.i451, align 4
@@ -3068,7 +3068,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i512: ; preds =
           to label %call5.i.i.i.i.i.noexc540 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc540:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i512
-  %add.ptr.i.i522 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i541, i64 %sub.ptr.div.i.i.i.i513
+  %add.ptr.i.i522 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i541, i64 %sub.ptr.sub.i.i.i.i510
   %133 = load float, ptr %bone_weight4, align 4
   %134 = trunc i64 %indvars.iv1066 to i32
   store i32 %134, ptr %add.ptr.i.i522, align 4
@@ -3197,7 +3197,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i583: ; preds =
           to label %call5.i.i.i.i.i.noexc611 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc611:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i583
-  %add.ptr.i.i593 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i612, i64 %sub.ptr.div.i.i.i.i584
+  %add.ptr.i.i593 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i612, i64 %sub.ptr.sub.i.i.i.i581
   %146 = load float, ptr %bone_weight198, align 4
   %147 = trunc i64 %indvars.iv1066 to i32
   store i32 %147, ptr %add.ptr.i.i593, align 4
@@ -3326,7 +3326,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i654: ; preds =
           to label %call5.i.i.i.i.i.noexc682 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc682:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i654
-  %add.ptr.i.i664 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i683, i64 %sub.ptr.div.i.i.i.i655
+  %add.ptr.i.i664 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i683, i64 %sub.ptr.sub.i.i.i.i652
   %159 = trunc i64 %indvars.iv1066 to i32
   store i32 %159, ptr %add.ptr.i.i664, align 4
   %mWeight.i.i.i.i.i665 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i683, i64 %sub.ptr.div.i.i.i.i655, i32 1
@@ -3462,7 +3462,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i725: ; preds =
           to label %call5.i.i.i.i.i.noexc753 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc753:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i725
-  %add.ptr.i.i735 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i754, i64 %sub.ptr.div.i.i.i.i726
+  %add.ptr.i.i735 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i754, i64 %sub.ptr.sub.i.i.i.i723
   %173 = load float, ptr %bone_weight1218, align 4
   %174 = trunc i64 %indvars.iv1066 to i32
   store i32 %174, ptr %add.ptr.i.i735, align 4
@@ -3591,7 +3591,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i796: ; preds =
           to label %call5.i.i.i.i.i.noexc824 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc824:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i796
-  %add.ptr.i.i806 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i825, i64 %sub.ptr.div.i.i.i.i797
+  %add.ptr.i.i806 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i825, i64 %sub.ptr.sub.i.i.i.i794
   %186 = load float, ptr %bone_weight2224, align 4
   %187 = trunc i64 %indvars.iv1066 to i32
   store i32 %187, ptr %add.ptr.i.i806, align 4
@@ -3720,7 +3720,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i867: ; preds =
           to label %call5.i.i.i.i.i.noexc895 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc895:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i867
-  %add.ptr.i.i877 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i896, i64 %sub.ptr.div.i.i.i.i868
+  %add.ptr.i.i877 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i896, i64 %sub.ptr.sub.i.i.i.i865
   %199 = load float, ptr %bone_weight3230, align 4
   %200 = trunc i64 %indvars.iv1066 to i32
   store i32 %200, ptr %add.ptr.i.i877, align 4
@@ -3856,7 +3856,7 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i938: ; preds =
           to label %call5.i.i.i.i.i.noexc966 unwind label %lpad.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc966:                         ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i938
-  %add.ptr.i.i948 = getelementptr inbounds %struct.aiVertexWeight, ptr %call5.i.i.i.i.i967, i64 %sub.ptr.div.i.i.i.i939
+  %add.ptr.i.i948 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i967, i64 %sub.ptr.sub.i.i.i.i936
   %212 = load float, ptr %bone_weight4236, align 4
   %213 = trunc i64 %indvars.iv1066 to i32
   store i32 %213, ptr %add.ptr.i.i948, align 4

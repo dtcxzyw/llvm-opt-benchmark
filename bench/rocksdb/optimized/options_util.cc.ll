@@ -2670,7 +2670,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPN7ro
 
 _ZNSt12_Vector_baseIN7rocksdb6DbPathESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN7rocksdb6DbPathES1_EvT_S3_RSaIT0_E.exit, %if.then.i
   store ptr %call11, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.rocksdb::DbPath", ptr %call11, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call11, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -2708,15 +2708,14 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb6DbPathESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %for.body.i.i.i.i.i
   %.pre = load ptr, ptr %_M_finish.i19, align 8
-  %.pre70 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i to i64
+  %.pre69 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i to i64
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb6DbPathESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb6DbPathESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb6DbPathESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, %if.then27
-  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre70, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb6DbPathESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %if.then27 ]
+  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre69, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb6DbPathESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %if.then27 ]
   %9 = phi ptr [ %.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb6DbPathESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit ], [ %7, %if.then27 ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.rocksdb::DbPath", ptr %3, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
   %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %9
   br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i26
 
@@ -2758,15 +2757,14 @@ _ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %for.body.i
   %.pre66 = ptrtoint ptr %.pre63 to i64
   %.pre67 = ptrtoint ptr %.pre64 to i64
   %.pre68 = sub i64 %.pre66, %.pre67
-  %.pre69 = sdiv exact i64 %.pre68, 40
   br label %_ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit.loopexit, %if.else49
-  %sub.ptr.div.i54.pre-phi = phi i64 [ %.pre69, %_ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
+  %sub.ptr.sub.i53.pre-phi = phi i64 [ %.pre68, %_ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit.loopexit ], [ %sub.ptr.sub.i22, %if.else49 ]
   %11 = phi ptr [ %.pre65, %_ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit.loopexit ], [ %0, %if.else49 ]
   %12 = phi ptr [ %.pre63, %_ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit.loopexit ], [ %7, %if.else49 ]
   %13 = phi ptr [ %.pre62, %_ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit.loopexit ], [ %1, %if.else49 ]
-  %add.ptr62 = getelementptr inbounds %"struct.rocksdb::DbPath", ptr %13, i64 %sub.ptr.div.i54.pre-phi
+  %add.ptr62 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i53.pre-phi
   %cmp.not8.i.i.i.i = icmp eq ptr %add.ptr62, %11
   br i1 %cmp.not8.i.i.i.i, label %if.end69, label %for.body.i.i.i.i
 
@@ -2826,7 +2824,7 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont3.i.i.i.
 
 if.end69:                                         ; preds = %for.body.i.i.i26, %for.inc.i.i.i.i, %_ZSt4copyIPN7rocksdb6DbPathES2_ET0_T_S4_S3_.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb6DbPathESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, %_ZNSt12_Vector_baseIN7rocksdb6DbPathESaIS1_EE13_M_deallocateEPS1_m.exit
   %21 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds %"struct.rocksdb::DbPath", ptr %21, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::DbPath, std::allocator<rocksdb::DbPath>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
@@ -3012,7 +3010,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPSt10
 
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN7rocksdb13EventListenerEES3_EvT_S5_RSaIT0_E.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.std::shared_ptr.128", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -3029,8 +3027,7 @@ if.then27:                                        ; preds = %if.else
   %call.i.i.i.i = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKSt10shared_ptrIN7rocksdb13EventListenerEEPS6_EET0_T_SB_SA_(ptr noundef %1, ptr noundef %0, ptr noundef %3)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr.128", ptr %3, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
   %24 = load ptr, ptr %_M_finish.i23, align 8
   %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %24
   br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i30
@@ -3116,7 +3113,7 @@ _ZSt8_DestroyISt10shared_ptrIN7rocksdb13EventListenerEEEvPT_.exit.i.i.i43: ; pre
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i30, !llvm.loop !23
 
 if.else49:                                        ; preds = %if.else
-  %add.ptr55 = getelementptr inbounds %"class.std::shared_ptr.128", ptr %1, i64 %sub.ptr.div.i27
+  %add.ptr55 = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i26
   %call.i.i.i.i68 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPSt10shared_ptrIN7rocksdb13EventListenerEES7_EET0_T_S9_S8_(ptr noundef %1, ptr noundef %add.ptr55, ptr noundef %3)
   %36 = load ptr, ptr %__x, align 8
   %37 = load ptr, ptr %_M_finish.i23, align 8
@@ -3124,8 +3121,7 @@ if.else49:                                        ; preds = %if.else
   %sub.ptr.lhs.cast.i70 = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i71 = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i72 = sub i64 %sub.ptr.lhs.cast.i70, %sub.ptr.rhs.cast.i71
-  %sub.ptr.div.i73 = ashr exact i64 %sub.ptr.sub.i72, 4
-  %add.ptr62 = getelementptr inbounds %"class.std::shared_ptr.128", ptr %36, i64 %sub.ptr.div.i73
+  %add.ptr62 = getelementptr inbounds i8, ptr %36, i64 %sub.ptr.sub.i72
   %39 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %add.ptr62, %39
   br i1 %cmp.not5.i.i.i.i, label %if.end69, label %for.body.i.i.i.i
@@ -3166,7 +3162,7 @@ _ZSt10_ConstructISt10shared_ptrIN7rocksdb13EventListenerEEJRS3_EEvPT_DpOT0_.exit
 
 if.end69:                                         ; preds = %_ZSt8_DestroyISt10shared_ptrIN7rocksdb13EventListenerEEEvPT_.exit.i.i.i43, %_ZSt10_ConstructISt10shared_ptrIN7rocksdb13EventListenerEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i, %if.else49, %if.then27, %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit
   %45 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds %"class.std::shared_ptr.128", ptr %45, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %45, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<rocksdb::EventListener>, std::allocator<std::shared_ptr<rocksdb::EventListener>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
@@ -3931,8 +3927,7 @@ if.then.i.i.i.i.i.i.i.i.i34:                      ; preds = %invoke.cont.i25
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i34, %invoke.cont.i25
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i32, 2
-  %add.ptr.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds i32, ptr %cond.i.i.i.i26, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %cond.i.i.i.i26, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i32
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i35, ptr %_M_finish.i.i.i27, align 8
   %max_compaction_bytes = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %this, i64 0, i32 24
   %max_compaction_bytes10 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %0, i64 0, i32 24

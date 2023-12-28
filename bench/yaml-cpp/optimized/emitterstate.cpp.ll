@@ -1683,14 +1683,13 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ult i64 %sub.ptr.div.i, 2
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 16
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %m_curIndent = getelementptr inbounds %"class.YAML::EmitterState", ptr %this, i64 0, i32 20
   %2 = load i64, ptr %m_curIndent, align 8
-  %3 = getelementptr %"class.std::unique_ptr", ptr %1, i64 %sub.ptr.div.i
+  %3 = getelementptr i8, ptr %1, i64 %sub.ptr.sub.i
   %add.ptr.i = getelementptr %"class.std::unique_ptr", ptr %3, i64 -2
   %4 = load ptr, ptr %add.ptr.i, align 8
   %indent = getelementptr inbounds %"struct.YAML::EmitterState::Group", ptr %4, i64 0, i32 2

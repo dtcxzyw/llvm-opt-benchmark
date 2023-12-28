@@ -43261,8 +43261,7 @@ for.body.i:                                       ; preds = %if.end3, %for.body.
 
 if.end10:                                         ; preds = %if.end3
   %sub.ptr.sub13 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast4
-  %sub.ptr.div14 = ashr exact i64 %sub.ptr.sub13, 3
-  %add.ptr = getelementptr inbounds %"struct.std::pair.147", ptr %__first, i64 %sub.ptr.div14
+  %add.ptr = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub13
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end10
@@ -43365,7 +43364,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %add.ptr = getelementptr inbounds %"struct.std::pair.147", ptr %__buffer, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub
   store ptr null, ptr %agg.tmp, align 8
   %0 = load ptr, ptr %__comp, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -43507,7 +43506,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i48:                ; preds = %_ZNK6vectorIcLb0EjE
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3qel2fm2fm9x_cost_ltEEC2ERKS6_.exit49
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3qel2fm2fm9x_cost_ltEEC2ERKS6_.exit49: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3qel2fm2fm9x_cost_ltEED2Ev.exit34, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.i.i.i36, %_ZNK6vectorIcLb0EjE3endEv.exit.i.i.i.i.i45, %if.then.i.i.i.i.i.i.i.i.i.i.i.i48
-  invoke void @_ZSt17__merge_sort_loopIPSt4pairIjjES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3qel2fm2fm9x_cost_ltEEEEvT_SB_T0_T1_T2_(ptr noundef %__buffer, ptr noundef nonnull %add.ptr, ptr noundef %__first, i64 noundef %mul, ptr noundef nonnull %agg.tmp4)
+  invoke void @_ZSt17__merge_sort_loopIPSt4pairIjjES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3qel2fm2fm9x_cost_ltEEEEvT_SB_T0_T1_T2_(ptr noundef %__buffer, ptr noundef %add.ptr, ptr noundef %__first, i64 noundef %mul, ptr noundef nonnull %agg.tmp4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3qel2fm2fm9x_cost_ltEEC2ERKS6_.exit49

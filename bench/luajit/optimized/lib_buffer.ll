@@ -538,7 +538,7 @@ if.then39:                                        ; preds = %land.lhs.true35
   %27 = load i64, ptr %add.ptr48, align 8
   store i64 %27, ptr %arrayidx44, align 8
   %28 = load ptr, ptr %base.i, align 8
-  %add.ptr50 = getelementptr inbounds %union.TValue, ptr %28, i64 %sub.ptr.div
+  %add.ptr50 = getelementptr inbounds i8, ptr %28, i64 %sub.ptr.sub
   store ptr %add.ptr50, ptr %top.i, align 8
   %29 = load i64, ptr %arrayidx44, align 8
   %shr = ashr i64 %29, 47

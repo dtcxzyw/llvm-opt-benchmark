@@ -635,11 +635,11 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp46.not = icmp eq ptr %1, %2
   br i1 %cmp46.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %d_theoryEngine = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrar", ptr %this, i64 0, i32 1
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
@@ -648,7 +648,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %i.047 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
   %3 = xor i64 %i.047, -1
   %4 = load ptr, ptr %d_sat_literals, align 8
-  %5 = getelementptr %"struct.std::pair", ptr %4, i64 %sub.ptr.div.i
+  %5 = getelementptr i8, ptr %4, i64 %sub.ptr.sub.i
   %second.i.i = getelementptr %"struct.std::pair", ptr %5, i64 %3, i32 1
   %6 = load i32, ptr %second.i.i, align 4
   %cmp9.not = icmp ugt i32 %6, %call2

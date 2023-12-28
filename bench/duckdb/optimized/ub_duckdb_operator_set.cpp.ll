@@ -55,7 +55,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.100" = type { %"struct.std::_Vector_base<std::reference_wrapper<const duckdb::PhysicalOperator>, std::allocator<std::reference_wrapper<const duckdb::PhysicalOperator>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::reference_wrapper<const duckdb::PhysicalOperator>, std::allocator<std::reference_wrapper<const duckdb::PhysicalOperator>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::reference_wrapper<const duckdb::PhysicalOperator>, std::allocator<std::reference_wrapper<const duckdb::PhysicalOperator>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::reference_wrapper<const duckdb::PhysicalOperator>, std::allocator<std::reference_wrapper<const duckdb::PhysicalOperator>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::reference_wrapper.476" = type { ptr }
 %"class.duckdb::PhysicalRecursiveCTE" = type { %"class.duckdb::PhysicalOperator", %"class.std::__cxx11::basic_string", i64, i8, %"class.std::shared_ptr", %"class.std::shared_ptr.109" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -189,6 +188,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Sp_counted_ptr_inplace<duckdb::MetaPipeline, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.548" }
 %"struct.__gnu_cxx::__aligned_buffer.548" = type { %"union.std::aligned_storage<272, 8>::type" }
 %"union.std::aligned_storage<272, 8>::type" = type { [272 x i8] }
+%"class.std::reference_wrapper.476" = type { ptr }
 %"class.std::vector.495" = type { %"struct.std::_Vector_base.496" }
 %"struct.std::_Vector_base.496" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" }
 %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::ExceptionFormatValue, std::allocator<duckdb::ExceptionFormatValue>>::_Vector_impl_data" }
@@ -854,8 +854,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %add.ptr.i.i = getelementptr inbounds %"class.std::reference_wrapper.476", ptr %6, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i.i
   invoke void @_ZNSt6vectorISt17reference_wrapperIKN6duckdb16PhysicalOperatorEESaIS4_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEEEvSB_T_SC_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %add.ptr.i.i, ptr %4, ptr %5)
           to label %invoke.cont20 unwind label %lpad19
 
@@ -5713,7 +5712,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 
 _ZSt22__uninitialized_move_aIPSt17reference_wrapperIKN6duckdb16PhysicalOperatorEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %for.body.i.i.i.i.i, %middle.block231
   %.pre200 = load ptr, ptr %_M_finish, align 8, !tbaa !168
-  %add.ptr27 = getelementptr inbounds %"class.std::reference_wrapper.476", ptr %.pre200, i64 %sub.ptr.div.i.i.i
+  %add.ptr27 = getelementptr inbounds i8, ptr %.pre200, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr27, ptr %_M_finish, align 8, !tbaa !168
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i141, label %if.then.i.i.i.i.i
@@ -5732,7 +5731,7 @@ if.then.i.i.i.i.i141:                             ; preds = %if.then.i.i.i.i.i, 
   br label %if.end109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKN6duckdb16PhysicalOperatorEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::reference_wrapper.476", ptr %__first.coerce, i64 %sub.ptr.div.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
   %cmp.i.not13.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not13.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKN6duckdb16PhysicalOperatorEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i.preheader
 
@@ -5859,7 +5858,7 @@ for.body.i.i.i.i.i146:                            ; preds = %for.body.i.i.i.i.i1
 
 if.then.i.i.i.i.i158:                             ; preds = %for.body.i.i.i.i.i146, %middle.block209
   %.pre199 = load ptr, ptr %_M_finish, align 8, !tbaa !168
-  %add.ptr58 = getelementptr inbounds %"class.std::reference_wrapper.476", ptr %.pre199, i64 %sub.ptr.div.i
+  %add.ptr58 = getelementptr inbounds i8, ptr %.pre199, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8, !tbaa !168
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__position.coerce, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i, i1 false)
   br label %if.end109

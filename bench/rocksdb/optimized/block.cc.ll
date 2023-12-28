@@ -9602,7 +9602,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i36: ; pr
   store i64 %call2.i, ptr %ref.tmp2.sroa.6.0.call5.i.i.i.i.i38.sroa_idx, align 8
   %_M_finish.i34 = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data", ptr %key_parts_with_ts, i64 0, i32 1
   store ptr %call5.i.i.i.i.i38, ptr %key_parts_with_ts, align 8
-  %add.ptr.i37 = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i.i38, i64 3
+  %add.ptr.i37 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i38, i64 48
   store ptr %add.ptr.i37, ptr %_M_finish.i34, align 8
   store ptr %add.ptr.i37, ptr %_M_end_of_storage.i.i26, align 8
   br label %if.end
@@ -9893,7 +9893,7 @@ _ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %i
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #17
-  %add.ptr.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store ptr %slice_data, ptr %add.ptr.i.i, align 8
   %size_.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
   store i64 %left_sz, ptr %size_.i.i.i.i.i, align 8
@@ -9989,7 +9989,7 @@ _ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i.i23: ; preds = 
   tail call void @llvm.assume(i1 %cmp.not.i.i.i31)
   %mul.i.i.i.i.i32 = shl nuw nsw i64 %cond.i.i.i30, 4
   %call5.i.i.i.i.i33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i32) #17
-  %add.ptr.i.i34 = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i.i33, i64 %sub.ptr.div.i.i.i.i24
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i33, i64 %sub.ptr.sub.i.i.i.i21
   store ptr %add.ptr, ptr %add.ptr.i.i34, align 8
   %size_.i.i.i.i.i35 = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i.i33, i64 %sub.ptr.div.i.i.i.i24, i32 1
   store i64 %sub, ptr %size_.i.i.i.i.i35, align 8
@@ -10067,7 +10067,7 @@ _ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i.i61: ; preds = 
   tail call void @llvm.assume(i1 %cmp.not.i.i.i69)
   %mul.i.i.i.i.i70 = shl nuw nsw i64 %cond.i.i.i68, 4
   %call5.i.i.i.i.i71 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i70) #17
-  %add.ptr.i.i72 = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i.i71, i64 %sub.ptr.div.i.i.i.i62
+  %add.ptr.i.i72 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i71, i64 %sub.ptr.sub.i.i.i.i59
   store ptr %slice_data, ptr %add.ptr.i.i72, align 8
   %size_.i.i.i.i.i73 = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i.i71, i64 %sub.ptr.div.i.i.i.i62, i32 1
   store i64 %slice_sz, ptr %size_.i.i.i.i.i73, align 8

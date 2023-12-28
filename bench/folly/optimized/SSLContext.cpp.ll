@@ -7696,9 +7696,8 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i: ; preds = %if.end.i
   %14 = load ptr, ptr %_M_finish.i.i63, align 8, !tbaa !231
   %sub.ptr.lhs.cast.i30.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i32.i = sub i64 %sub.ptr.lhs.cast.i30.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i33.i = ashr exact i64 %sub.ptr.sub.i32.i, 3
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #32
-  %cmp.i.i.i34.i = icmp sgt i64 %sub.ptr.div.i33.i, 0
+  %cmp.i.i.i34.i = icmp sgt i64 %sub.ptr.sub.i32.i, 0
   br i1 %cmp.i.i.i34.i, label %if.then.i.i.i35.i, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i
 
 if.then.i.i.i35.i:                                ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i
@@ -7719,9 +7718,9 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %if.then.i.i, %
   %.pre73 = phi ptr [ %.pre73.pre, %if.then.i.i ], [ %0, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i ]
   %.pre = phi ptr [ %.pre.pre, %if.then.i.i ], [ %1, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i ]
   store ptr %call5.i.i.i.i, ptr %_M_cp, align 8, !tbaa !141
-  %add.ptr.i = getelementptr inbounds double, ptr %call5.i.i.i.i, i64 %sub.ptr.div.i33.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i32.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i63, align 8, !tbaa !231
-  %add.ptr21.i = getelementptr inbounds double, ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !224
   br label %_ZNSt6vectorIdSaIdEE7reserveEm.exit
 
@@ -7735,8 +7734,7 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %sub.ptr.lhs.cast.i67 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i68 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i69 = sub i64 %sub.ptr.lhs.cast.i67, %sub.ptr.rhs.cast.i68
-  %sub.ptr.div.i70 = ashr exact i64 %sub.ptr.sub.i69, 3
-  %19 = getelementptr double, ptr %18, i64 %sub.ptr.div.i70
+  %19 = getelementptr i8, ptr %18, i64 %sub.ptr.sub.i69
   %add.ptr.i71 = getelementptr double, ptr %19, i64 -1
   store double 1.000000e+00, ptr %add.ptr.i71, align 8, !tbaa !225
   br label %return
@@ -7961,7 +7959,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %if.then.i, %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !141
-  %add.ptr = getelementptr inbounds double, ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !224
   br label %if.end69
 
@@ -8017,7 +8015,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPdS0_ET0_
 
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit
   %8 = load ptr, ptr %this, align 8, !tbaa !141
-  %add.ptr72 = getelementptr inbounds double, ptr %8, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8, !tbaa !231
   br label %if.end75

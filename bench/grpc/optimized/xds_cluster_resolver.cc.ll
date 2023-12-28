@@ -5114,7 +5114,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i58 = alloca %class.anon.186, align 8
+  %ref.tmp.i57 = alloca %class.anon.186, align 8
   %ref.tmp.i = alloca %class.anon.186, align 8
   %cmp.not = icmp eq ptr %__x, %this
   br i1 %cmp.not, label %if.end75, label %if.then
@@ -5167,7 +5167,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPN9gr
 
 _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit, %if.then.i
   store ptr %call11, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call11, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call11, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -5181,34 +5181,33 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp26.not, label %if.else49, label %for.cond.i.i.preheader
 
 for.cond.i.i.preheader:                           ; preds = %if.else
-  %cmp.i.i61 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i61, label %for.body.i.i, label %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit
+  %cmp.i.i60 = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i60, label %for.body.i.i, label %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit
 
 for.body.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i
-  %__n.0.i.i64 = phi i64 [ %dec.i.i, %for.body.i.i ], [ %sub.ptr.div.i, %for.cond.i.i.preheader ]
-  %__result.addr.0.i.i63 = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %3, %for.cond.i.i.preheader ]
-  %__first.addr.0.i.i62 = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %for.cond.i.i.preheader ]
+  %__n.0.i.i63 = phi i64 [ %dec.i.i, %for.body.i.i ], [ %sub.ptr.div.i, %for.cond.i.i.preheader ]
+  %__result.addr.0.i.i62 = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %3, %for.cond.i.i.preheader ]
+  %__first.addr.0.i.i61 = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %for.cond.i.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store ptr %__result.addr.0.i.i63, ptr %ref.tmp.i, align 8
-  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i62)
+  store ptr %__result.addr.0.i.i62, ptr %ref.tmp.i, align 8
+  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i61)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %incdec.ptr.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first.addr.0.i.i62, i64 1
-  %incdec.ptr1.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__result.addr.0.i.i63, i64 1
-  %dec.i.i = add nsw i64 %__n.0.i.i64, -1
-  %cmp.i.i = icmp sgt i64 %__n.0.i.i64, 1
+  %incdec.ptr.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first.addr.0.i.i61, i64 1
+  %incdec.ptr1.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__result.addr.0.i.i62, i64 1
+  %dec.i.i = add nsw i64 %__n.0.i.i63, -1
+  %cmp.i.i = icmp sgt i64 %__n.0.i.i63, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit, !llvm.loop !26
 
 _ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit: ; preds = %for.body.i.i
   %.pre = load ptr, ptr %_M_finish.i19, align 8
-  %.pre79 = ptrtoint ptr %incdec.ptr1.i.i to i64
+  %.pre77 = ptrtoint ptr %incdec.ptr1.i.i to i64
   br label %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit
 
 _ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit: ; preds = %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit, %for.cond.i.i.preheader
-  %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre79, %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %for.cond.i.i.preheader ]
+  %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre77, %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %for.cond.i.i.preheader ]
   %8 = phi ptr [ %.pre, %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit ], [ %7, %for.cond.i.i.preheader ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 56
-  %add.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %3, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i
   %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i, %8
   br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i26
 
@@ -5220,40 +5219,39 @@ for.body.i.i.i26:                                 ; preds = %_ZSt14__copy_move_a
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i26, !llvm.loop !27
 
 if.else49:                                        ; preds = %if.else
-  %cmp.i.i5265 = icmp sgt i64 %sub.ptr.sub.i22, 0
-  br i1 %cmp.i.i5265, label %for.body.i.i53, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit
+  %cmp.i.i5164 = icmp sgt i64 %sub.ptr.sub.i22, 0
+  br i1 %cmp.i.i5164, label %for.body.i.i52, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit
 
-for.body.i.i53:                                   ; preds = %if.else49, %for.body.i.i53
-  %__n.0.i.i5168 = phi i64 [ %dec.i.i57, %for.body.i.i53 ], [ %sub.ptr.div.i23, %if.else49 ]
-  %__result.addr.0.i.i5067 = phi ptr [ %incdec.ptr1.i.i56, %for.body.i.i53 ], [ %3, %if.else49 ]
-  %__first.addr.0.i.i4966 = phi ptr [ %incdec.ptr.i.i55, %for.body.i.i53 ], [ %1, %if.else49 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i58)
-  store ptr %__result.addr.0.i.i5067, ptr %ref.tmp.i58, align 8
-  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i58, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i4966)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i58)
-  %incdec.ptr.i.i55 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first.addr.0.i.i4966, i64 1
-  %incdec.ptr1.i.i56 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__result.addr.0.i.i5067, i64 1
-  %dec.i.i57 = add nsw i64 %__n.0.i.i5168, -1
-  %cmp.i.i52 = icmp sgt i64 %__n.0.i.i5168, 1
-  br i1 %cmp.i.i52, label %for.body.i.i53, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, !llvm.loop !28
+for.body.i.i52:                                   ; preds = %if.else49, %for.body.i.i52
+  %__n.0.i.i5067 = phi i64 [ %dec.i.i56, %for.body.i.i52 ], [ %sub.ptr.div.i23, %if.else49 ]
+  %__result.addr.0.i.i4966 = phi ptr [ %incdec.ptr1.i.i55, %for.body.i.i52 ], [ %3, %if.else49 ]
+  %__first.addr.0.i.i4865 = phi ptr [ %incdec.ptr.i.i54, %for.body.i.i52 ], [ %1, %if.else49 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i57)
+  store ptr %__result.addr.0.i.i4966, ptr %ref.tmp.i57, align 8
+  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i57, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i4865)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i57)
+  %incdec.ptr.i.i54 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first.addr.0.i.i4865, i64 1
+  %incdec.ptr1.i.i55 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__result.addr.0.i.i4966, i64 1
+  %dec.i.i56 = add nsw i64 %__n.0.i.i5067, -1
+  %cmp.i.i51 = icmp sgt i64 %__n.0.i.i5067, 1
+  br i1 %cmp.i.i51, label %for.body.i.i52, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, !llvm.loop !28
 
-_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit: ; preds = %for.body.i.i53
-  %.pre71 = load ptr, ptr %__x, align 8
-  %.pre72 = load ptr, ptr %_M_finish.i19, align 8
-  %.pre73 = load ptr, ptr %this, align 8
-  %.pre74 = load ptr, ptr %_M_finish.i, align 8
+_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit: ; preds = %for.body.i.i52
+  %.pre70 = load ptr, ptr %__x, align 8
+  %.pre71 = load ptr, ptr %_M_finish.i19, align 8
+  %.pre72 = load ptr, ptr %this, align 8
+  %.pre73 = load ptr, ptr %_M_finish.i, align 8
+  %.pre74 = ptrtoint ptr %.pre71 to i64
   %.pre75 = ptrtoint ptr %.pre72 to i64
-  %.pre76 = ptrtoint ptr %.pre73 to i64
-  %.pre77 = sub i64 %.pre75, %.pre76
-  %.pre78 = sdiv exact i64 %.pre77, 56
+  %.pre76 = sub i64 %.pre74, %.pre75
   br label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit
 
 _ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit: ; preds = %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, %if.else49
-  %sub.ptr.div.i37.pre-phi = phi i64 [ %.pre78, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
-  %9 = phi ptr [ %.pre74, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %0, %if.else49 ]
-  %10 = phi ptr [ %.pre72, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %7, %if.else49 ]
-  %11 = phi ptr [ %.pre71, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %1, %if.else49 ]
-  %add.ptr62 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %11, i64 %sub.ptr.div.i37.pre-phi
+  %sub.ptr.sub.i36.pre-phi = phi i64 [ %.pre76, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %sub.ptr.sub.i22, %if.else49 ]
+  %9 = phi ptr [ %.pre73, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %0, %if.else49 ]
+  %10 = phi ptr [ %.pre71, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %7, %if.else49 ]
+  %11 = phi ptr [ %.pre70, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %1, %if.else49 ]
+  %add.ptr62 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i36.pre-phi
   %cmp.not8.i.i.i.i = icmp eq ptr %add.ptr62, %9
   br i1 %cmp.not8.i.i.i.i, label %if.end69, label %for.body.i.i.i.i
 
@@ -5309,7 +5307,7 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont3.i.i.i.
 
 if.end69:                                         ; preds = %for.body.i.i.i26, %for.inc.i.i.i.i, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit, %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit, %_ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit
   %18 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %18, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
@@ -10782,8 +10780,8 @@ cond.true.i.i.i.i:                                ; preds = %_ZNSt4pairIKNSt7__c
   %sub.ptr.lhs.cast.i.i1612 = ptrtoint ptr %78 to i64
   %sub.ptr.rhs.cast.i.i1613 = ptrtoint ptr %77 to i64
   %sub.ptr.sub.i.i1614 = sub i64 %sub.ptr.lhs.cast.i.i1612, %sub.ptr.rhs.cast.i.i1613
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i1614, 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i130, i8 0, i64 24, i1 false), !noalias !119
+  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i1614, 56
   %cmp.i.i.i.i.i.i1616 = icmp ugt i64 %sub.ptr.div.i.i, 164703072086692425
   br i1 %cmp.i.i.i.i.i.i1616, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE8allocateERS3_m.exit.i.i.i.i
 
@@ -10803,7 +10801,7 @@ invoke.cont.i1617:                                ; preds = %_ZNSt16allocator_tr
   %.pre7616 = load ptr, ptr %_M_finish.i.i126, align 8, !noalias !119
   store ptr %call5.i.i.i.i2.i6.i1628, ptr %ref.tmp.i.i130, align 8, !noalias !119
   store ptr %call5.i.i.i.i2.i6.i1628, ptr %_M_finish.i.i.i1618, align 8, !noalias !119
-  %add.ptr.i.i.i1619 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i2.i6.i1628, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i.i1619 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i1628, i64 %sub.ptr.sub.i.i1614
   store ptr %add.ptr.i.i.i1619, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !119
   %cmp.i.not8.i.i = icmp eq ptr %.pre, %.pre7616
   br i1 %cmp.i.not8.i.i, label %if.end.i.i.i.i.i135, label %for.body.i.i1620
@@ -11526,7 +11524,7 @@ _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cx
           to label %sw.bb5.i.i unwind label %lpad96.body.thread
 
 sw.bb5.i.i:                                       ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_.exit1776
-  %add.ptr.i1779 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i1783, i64 1
+  %add.ptr.i1779 = getelementptr inbounds i8, ptr %call5.i.i.i.i1783, i64 56
   %_M_index.i.i.i3255 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %call5.i.i.i.i1783, i64 0, i32 1
   store i8 -1, ptr %_M_index.i.i.i3255, align 8
   %154 = getelementptr inbounds i8, ptr %call5.i.i.i.i1783, i64 8
@@ -14991,7 +14989,7 @@ _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cx
 
 sw.bb5.i.i3494:                                   ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_.exit2554
   store ptr %call5.i.i.i.i2579, ptr %ref.tmp344, align 8
-  %add.ptr.i2557 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i2579, i64 1
+  %add.ptr.i2557 = getelementptr inbounds i8, ptr %call5.i.i.i.i2579, i64 56
   store ptr %add.ptr.i2557, ptr %_M_end_of_storage.i2558, align 8
   %_M_index.i.i.i3487 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %call5.i.i.i.i2579, i64 0, i32 1
   store i8 -1, ptr %_M_index.i.i.i3487, align 8
@@ -15714,7 +15712,7 @@ _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cx
           to label %sw.bb5.i.i3602 unwind label %lpad470.body.thread
 
 sw.bb5.i.i3602:                                   ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_.exit2810
-  %add.ptr.i2813 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i2835, i64 1
+  %add.ptr.i2813 = getelementptr inbounds i8, ptr %call5.i.i.i.i2835, i64 56
   %_M_index.i.i.i3595 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %call5.i.i.i.i2835, i64 0, i32 1
   store i8 -1, ptr %_M_index.i.i.i3595, align 8
   %623 = getelementptr inbounds i8, ptr %call5.i.i.i.i2835, i64 8
@@ -17266,7 +17264,7 @@ lpad4.i1417:                                      ; preds = %invoke.cont647
   br label %ehcleanup683
 
 call5.i.i.i.i.noexc3121:                          ; preds = %call3.i.noexc.i1418
-  %add.ptr.i3100 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i3122, i64 1
+  %add.ptr.i3100 = getelementptr inbounds i8, ptr %call5.i.i.i.i3122, i64 56
   invoke void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_(ptr noundef nonnull align 8 dereferenceable(49) %call5.i.i.i.i3122, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp612)
           to label %for.inc.i.i.i.i.i3116 unwind label %invoke.cont3.i.i.i.i.i3111
 
@@ -19512,7 +19510,7 @@ _ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE17_S_check_init_lenEmRKS3_.e
 
 _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE17_S_check_init_lenEmRKS3_.exit
   store ptr null, ptr %this, align 8
-  %add.ptr7 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr null, i64 %sub.ptr.div.i.i
+  %add.ptr7 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage8 = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr7, ptr %_M_end_of_storage8, align 8
   br label %_ZSt22__uninitialized_copy_aIPKN9grpc_core12experimental4JsonEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit
@@ -19520,7 +19518,7 @@ _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit.
 for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE17_S_check_init_lenEmRKS3_.exit
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #26
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i, i64 %sub.ptr.div.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr, ptr %_M_end_of_storage, align 8
   br label %for.body.i.i.i.i
@@ -20378,12 +20376,11 @@ invoke.cont.i:                                    ; preds = %_ZNSt10shared_ptrIK
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %cmp.not.i.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvPT_DpOT0_.exit, label %cond.true.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %invoke.cont.i
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, 1152921504606846975
+  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i:                           ; preds = %cond.true.i.i.i.i.i
@@ -20419,7 +20416,7 @@ ehcleanup12.i:                                    ; preds = %lpad8.i, %lpad.i
 
 _ZNSt15__new_allocatorIN9grpc_core12_GLOBAL__N_124PriorityEndpointIterator24DiscoveryMechanismResultEE9constructIS3_JRKSt10shared_ptrIKNS0_19XdsEndpointResourceEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEEEEvPT_DpOT0_.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i7.i = phi ptr [ %call5.i.i.i.i2.i6.i2.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %invoke.cont.i ]
-  %add.ptr.i.i.i8.i = getelementptr inbounds i64, ptr %cond.i.i.i.i7.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i8.i = getelementptr inbounds i8, ptr %cond.i.i.i.i7.i, i64 %sub.ptr.sub.i.i.i
   %7 = load <2 x ptr>, ptr %agg.tmp.i, align 16
   store <2 x ptr> %7, ptr %__p, align 8
   %cluster_name.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::PriorityEndpointIterator::DiscoveryMechanismResult", ptr %__p, i64 0, i32 1
@@ -20735,7 +20732,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %arraydestroy.body32.preheader, label %for.body.i.i.i.i.i.i, !llvm.loop !241
 
 arraydestroy.body32.preheader:                    ; preds = %for.inc.i.i.i.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   br label %arraydestroy.body32
 
 _ZNSt12_Vector_baseIN9grpc_core21RefCountedStringValueESaIS1_EED2Ev.exit.i: ; preds = %invoke.cont27
@@ -20853,8 +20850,7 @@ if.then.i.i.i.i.i.i.i.i.i43:                      ; preds = %invoke.cont.i41
   br label %invoke.cont78
 
 invoke.cont78:                                    ; preds = %invoke.cont.i41, %if.then.i.i.i.i.i.i.i.i.i43
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 132
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.grpc_resolved_address, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i42, align 8
   %42 = atomicrmw add ptr %refs_.i.i.i, i64 1 monotonic, align 8
   %call.i4849 = invoke { i64, ptr } @_ZN9grpc_core19HierarchicalPathArg14ChannelArgNameEv()
@@ -22399,7 +22395,7 @@ eh.resume:                                        ; preds = %if.then.i.i48, %if.
   resume { ptr, i32 } %.pn2.pn
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism21override_child_policyEv(ptr noalias nocapture writeonly sret(%"class.std::vector.122") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #19 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -25072,30 +25068,31 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator
   %add.ptr.i.i183 = getelementptr inbounds i64, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   %117 = load i64, ptr %child_number43, align 8
   store i64 %117, ptr %add.ptr.i.i183, align 8
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i
+  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit19.i.i
 
 if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %priority_child_numbers34.sroa.0.0517, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i
+  br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit19.i.i
 
-_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
+_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %tobool.not.i.i.i184 = icmp eq ptr %priority_child_numbers34.sroa.0.0517, null
-  br i1 %tobool.not.i.i.i184, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, label %if.then.i21.i.i
+  br i1 %tobool.not.i.i.i184, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i21.i.i:                                  ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit19.i.i
   call void @_ZdlPv(ptr noundef nonnull %priority_child_numbers34.sroa.0.0517) #29
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
-_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %if.then.i21.i.i, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i
+_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit19.i.i
   %add.ptr19.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i, i64 %cond.i.i.i
   br label %for.inc121
 
 for.inc121:                                       ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %if.then.i180
   %priority_child_numbers34.sroa.12.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %priority_child_numbers34.sroa.12.0515, %if.then.i180 ]
-  %add.ptr.i.i183.pn = phi ptr [ %add.ptr.i.i183, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %priority_child_numbers34.sroa.7.0516, %if.then.i180 ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %priority_child_numbers34.sroa.7.0516, %if.then.i180 ]
   %priority_child_numbers34.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %priority_child_numbers34.sroa.0.0517, %if.then.i180 ]
-  %priority_child_numbers34.sroa.7.1 = getelementptr inbounds i64, ptr %add.ptr.i.i183.pn, i64 1
+  %priority_child_numbers34.sroa.7.1 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.pn, i64 1
   %inc122 = add nuw i64 %priority35.0518, 1
   %118 = load ptr, ptr %_M_finish.i82, align 8
   %119 = load ptr, ptr %spec.select.i, align 8
@@ -30615,7 +30612,7 @@ attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

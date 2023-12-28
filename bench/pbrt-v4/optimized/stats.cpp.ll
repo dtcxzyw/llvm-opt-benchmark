@@ -1307,7 +1307,7 @@ if.else.i239:                                     ; preds = %_ZNSt6vectorIN4pbrt
   br i1 %cmp4.i240, label %if.then5.i241, label %if.end118
 
 if.then5.i241:                                    ; preds = %if.else.i239
-  %add.ptr.i242 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %83, i64 %sub.ptr.div.i232
+  %add.ptr.i242 = getelementptr inbounds i8, ptr %83, i64 %sub.ptr.sub.i231
   %tobool.not.i.i243 = icmp eq ptr %82, %add.ptr.i242
   br i1 %tobool.not.i.i243, label %if.end118, label %for.body.i.i.i.i.i244
 
@@ -1378,7 +1378,7 @@ if.else.i296:                                     ; preds = %_ZNSt6vectorIN4pbrt
   br i1 %cmp4.i297, label %if.then5.i298, label %if.end133
 
 if.then5.i298:                                    ; preds = %if.else.i296
-  %add.ptr.i299 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %95, i64 %sub.ptr.div.i289
+  %add.ptr.i299 = getelementptr inbounds i8, ptr %95, i64 %sub.ptr.sub.i288
   %tobool.not.i.i300 = icmp eq ptr %94, %add.ptr.i299
   br i1 %tobool.not.i.i300, label %if.end133, label %for.body.i.i.i.i.i301
 
@@ -3939,7 +3939,7 @@ invoke.cont:                                      ; preds = %if.then
   store ptr %call, ptr @_ZN4pbrtL9statFuncsE, align 8
   br label %if.end
 
-lpad:                                             ; preds = %if.then.i.i.i30.invoke, %_ZNSt16allocator_traitsISaIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEEEE8allocateERS7_m.exit.i.i.i, %_ZNSt16allocator_traitsISaIPFvRN4pbrt16StatsAccumulatorEEEE8allocateERS5_m.exit.i.i.i, %if.then7, %if.then
+lpad:                                             ; preds = %if.then.i.i.i31.invoke, %_ZNSt16allocator_traitsISaIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEEEE8allocateERS7_m.exit.i.i.i, %_ZNSt16allocator_traitsISaIPFvRN4pbrt16StatsAccumulatorEEEE8allocateERS5_m.exit.i.i.i, %if.then7, %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEEE5mutex) #22
@@ -3971,7 +3971,7 @@ if.else.i:                                        ; preds = %if.then3
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i, label %if.then.i.i.i30.invoke, label %_ZNKSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i31.invoke, label %_ZNKSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
@@ -3993,23 +3993,24 @@ _ZNSt12_Vector_baseIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_M_allocateEm.exit.i
   %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i2, %_ZNSt16allocator_traitsISaIPFvRN4pbrt16StatsAccumulatorEEEE8allocateERS5_m.exit.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %func, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
+  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
 
 if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
+  br label %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
 
-_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_M_allocateEm.exit.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
+  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
   %tobool.not.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i21.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i21.i.i:                                  ; preds = %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
-_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i21.i.i, %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
+_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIPFvRN4pbrt16StatsAccumulatorEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
   store ptr %cond.i10.i.i, ptr %2, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
@@ -4056,13 +4057,13 @@ if.else.i8:                                       ; preds = %if.then12
   %sub.ptr.rhs.cast.i.i.i.i10 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i11 = sub i64 %sub.ptr.lhs.cast.i.i.i.i9, %sub.ptr.rhs.cast.i.i.i.i10
   %cmp.i.i.i12 = icmp eq i64 %sub.ptr.sub.i.i.i.i11, 9223372036854775800
-  br i1 %cmp.i.i.i12, label %if.then.i.i.i30.invoke, label %_ZNKSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %cmp.i.i.i12, label %if.then.i.i.i31.invoke, label %_ZNKSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i.i30.invoke:                           ; preds = %if.else.i8, %if.else.i
+if.then.i.i.i31.invoke:                           ; preds = %if.else.i8, %if.else.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.59) #23
-          to label %if.then.i.i.i30.cont unwind label %lpad
+          to label %if.then.i.i.i31.cont unwind label %lpad
 
-if.then.i.i.i30.cont:                             ; preds = %if.then.i.i.i30.invoke
+if.then.i.i.i31.cont:                             ; preds = %if.then.i.i.i31.invoke
   unreachable
 
 _ZNKSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i8
@@ -4078,38 +4079,39 @@ _ZNKSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE12_M_ch
 
 _ZNSt16allocator_traitsISaIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEEEE8allocateERS7_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i21 = shl nuw nsw i64 %cond.i.i.i19, 3
-  %call5.i.i.i.i.i33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i21) #21
+  %call5.i.i.i.i.i34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i21) #21
           to label %_ZNSt12_Vector_baseIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_M_allocateEm.exit.i.i unwind label %lpad
 
 _ZNSt12_Vector_baseIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEEEE8allocateERS7_m.exit.i.i.i, %_ZNKSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i22 = phi ptr [ null, %_ZNKSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i33, %_ZNSt16allocator_traitsISaIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEEEE8allocateERS7_m.exit.i.i.i ]
+  %cond.i10.i.i22 = phi ptr [ null, %_ZNKSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i34, %_ZNSt16allocator_traitsISaIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEEEE8allocateERS7_m.exit.i.i.i ]
   %add.ptr.i.i23 = getelementptr inbounds ptr, ptr %cond.i10.i.i22, i64 %sub.ptr.div.i.i.i.i13
   store ptr %pfunc, ptr %add.ptr.i.i23, align 8
-  %cmp.i.i.i11.i.i24 = icmp sgt i64 %sub.ptr.div.i.i.i.i13, 0
-  br i1 %cmp.i.i.i11.i.i24, label %if.then.i.i.i12.i.i29, label %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit20.i.i
+  %cmp.i.i.i11.i.i24 = icmp sgt i64 %sub.ptr.sub.i.i.i.i11, 0
+  br i1 %cmp.i.i.i11.i.i24, label %if.then.i.i.i12.i.i30, label %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i
 
-if.then.i.i.i12.i.i29:                            ; preds = %_ZNSt12_Vector_baseIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i12.i.i30:                            ; preds = %_ZNSt12_Vector_baseIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i22, ptr align 8 %12, i64 %sub.ptr.sub.i.i.i.i11, i1 false)
-  br label %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit20.i.i
+  br label %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i
 
-_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i29, %_ZNSt12_Vector_baseIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i25 = getelementptr inbounds ptr, ptr %add.ptr.i.i23, i64 1
-  %tobool.not.i.i.i26 = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i26, label %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i21.i.i27
+_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i30, %_ZNSt12_Vector_baseIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_M_allocateEm.exit.i.i
+  %add.ptr.i.i.i.i.i25 = getelementptr inbounds i8, ptr %cond.i10.i.i22, i64 %sub.ptr.sub.i.i.i.i11
+  %incdec.ptr.i.i26 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i25, i64 1
+  %tobool.not.i.i.i27 = icmp eq ptr %12, null
+  br i1 %tobool.not.i.i.i27, label %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i20.i.i28
 
-if.then.i21.i.i27:                                ; preds = %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit20.i.i
+if.then.i20.i.i28:                                ; preds = %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %12) #24
   br label %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
 
-_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i21.i.i27, %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit20.i.i
+_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i28, %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i
   store ptr %cond.i10.i.i22, ptr %8, align 8
-  store ptr %incdec.ptr.i.i25, ptr %_M_finish.i3, align 8
-  %add.ptr19.i.i28 = getelementptr inbounds ptr, ptr %cond.i10.i.i22, i64 %cond.i.i.i19
-  store ptr %add.ptr19.i.i28, ptr %_M_end_of_storage.i4, align 8
+  store ptr %incdec.ptr.i.i26, ptr %_M_finish.i3, align 8
+  %add.ptr19.i.i29 = getelementptr inbounds ptr, ptr %cond.i10.i.i22, i64 %cond.i.i.i19
+  store ptr %add.ptr19.i.i29, ptr %_M_end_of_storage.i4, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZNSt6vectorIPFvN4pbrt6Point2IiEEiRNS0_21PixelStatsAccumulatorEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, %if.then.i6, %if.end10
-  %call1.i.i.i34 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEEE5mutex) #22
+  %call1.i.i.i35 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEEE5mutex) #22
   ret void
 }
 

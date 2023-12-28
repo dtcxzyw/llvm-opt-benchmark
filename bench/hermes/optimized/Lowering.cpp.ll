@@ -1016,8 +1016,8 @@ if.then.i.i.i19.i:                                ; preds = %if.end37.i.i.if.the
   %45 = phi ptr [ %.pre, %if.end37.i.i.if.then.i.i.i19.i_crit_edge ], [ %add.ptr.i.i.i.i.i.i1.i, %if.end24.i.i ]
   %46 = phi i32 [ %.pre.i, %if.end37.i.i.if.then.i.i.i19.i_crit_edge ], [ %43, %if.end24.i.i ]
   %.pre1.pre.pre49.i = phi ptr [ %.pre1.pre.pre4.pre.i, %if.end37.i.i.if.then.i.i.i19.i_crit_edge ], [ %add.ptr.i.i.i.i.i.i.i, %if.end24.i.i ]
-  %conv.i51.i.i = zext i32 %46 to i64
-  %add.ptr.i.i.idx.i = shl nuw nsw i64 %conv.i51.i.i, 3
+  %conv.i50.i.i = zext i32 %46 to i64
+  %add.ptr.i.i.idx.i = shl nuw nsw i64 %conv.i50.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %.pre1.pre.pre49.i, i64 %add.ptr.i.i.idx.i, i1 false)
   %.pre1.pre.pre.i = load ptr, ptr %sortedBasicBlocks_.i.i, align 8, !noalias !9
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i
@@ -5029,16 +5029,16 @@ if.then.i.i.i.i.i46:                              ; preds = %if.else
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr align 8 %0, i64 %add.ptr.idx, i1 false)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.else, %if.then.i.i.i.i.i46, %if.then27
-  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ %conv.i32, %if.then.i.i.i.i.i46 ], [ 0, %if.else ]
+if.end37:                                         ; preds = %if.then.i.i.i.i.i46, %if.else, %if.then27
+  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i46 ]
   %10 = load i32, ptr %Size.i29, align 8
-  %conv.i51 = zext i32 %10 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i51
+  %conv.i50 = zext i32 %10 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i50
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes23StoreNewOwnPropertyInstELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
   %11 = load ptr, ptr %RHS, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %11, i64 %conv.i51
+  %add.ptr.i = getelementptr inbounds ptr, ptr %11, i64 %conv.i50
   %add.ptr39 = getelementptr inbounds ptr, ptr %11, i64 %CurSize.0
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds ptr, ptr %12, i64 %CurSize.0

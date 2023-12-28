@@ -2240,7 +2240,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i: ; preds = %if.else.i.i.i.i.
 
 call5.i.i.i.i.noexc.i.i:                          ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit.i
   store ptr %call5.i.i.i.i2.i.i, ptr %ref.tmp3.i, align 8, !noalias !9
-  %add.ptr.i1.i.i = getelementptr inbounds %"class.std::shared_ptr.46", ptr %call5.i.i.i.i2.i.i, i64 1
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 16
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::DataType>, std::allocator<std::shared_ptr<arrow::DataType>>>::_Vector_impl_data", ptr %ref.tmp3.i, i64 0, i32 2
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !9
   %138 = load <2 x ptr>, ptr %ref.tmp4.i, align 16, !noalias !9
@@ -2359,7 +2359,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZSt8_DestroyISt10shared_ptrIN5arrow8DataTypeEEEvPT_.exit.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i325
   %incdec.ptr.i.i.i.i.i327 = getelementptr inbounds %"class.std::shared_ptr.46", ptr %__first.addr.04.i.i.i.i.i326, i64 1
-  %cmp.not.i.i.i.i.i328 = icmp eq ptr %__first.addr.04.i.i.i.i.i326, %call5.i.i.i.i2.i.i
+  %cmp.not.i.i.i.i.i328 = icmp eq ptr %incdec.ptr.i.i.i.i.i327, %add.ptr.i1.i.i
   br i1 %cmp.not.i.i.i.i.i328, label %invoke.cont.i.i329, label %for.body.i.i.i.i.i325, !llvm.loop !16
 
 invoke.cont.i.i329:                               ; preds = %_ZSt8_DestroyISt10shared_ptrIN5arrow8DataTypeEEEvPT_.exit.i.i.i.i.i
@@ -2492,7 +2492,7 @@ invoke.cont41.i:                                  ; preds = %for.body.i
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit.i.i: ; preds = %invoke.cont41.i
   store ptr %call5.i.i.i.i2.i28.i, ptr %agg.tmp35.i, align 8, !noalias !9
-  %add.ptr.i1.i33.i = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i28.i, i64 1
+  %add.ptr.i1.i33.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i28.i, i64 40
   store ptr %add.ptr.i1.i33.i, ptr %_M_end_of_storage.i.i34.i, align 8, !noalias !9
   %type_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i28.i, i64 0, i32 1
   %171 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i28.i, i64 0, i32 1, i32 0, i32 1
@@ -5701,7 +5701,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %for.body, %if.then
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 40
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %type_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i, i64 0, i32 1
   %8 = getelementptr inbounds %"class.arrow::compute::InputType", ptr %call5.i.i.i.i2.i, i64 0, i32 1, i32 0, i32 1
@@ -13193,7 +13193,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52: ; preds = %_ZNSt10shared_ptrI
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp31, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.134", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp31, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -17290,8 +17290,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 7
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, 72057594037927935
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775680
   br i1 %cmp.i, label %if.then.i, label %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE17_S_check_init_lenEmRKS2_.exit
 
 if.then.i:                                        ; preds = %entry
@@ -17304,7 +17303,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE17_S_check_init_lenEmRKS2_.exit: ; preds 
 
 _ZNSt12_Vector_baseIN5arrow9ArraySpanESaIS1_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   store ptr null, ptr %this, align 8
-  %add.ptr7 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr null, i64 %sub.ptr.div.i.i
+  %add.ptr7 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage8 = getelementptr inbounds %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr7, ptr %_M_end_of_storage8, align 8
   br label %_ZSt22__uninitialized_copy_aIPKN5arrow9ArraySpanEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit
@@ -17312,7 +17311,7 @@ _ZNSt12_Vector_baseIN5arrow9ArraySpanESaIS1_EE11_M_allocateEm.exit.thread: ; pre
 for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #24
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %call5.i.i.i, i64 %sub.ptr.div.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr, ptr %_M_end_of_storage, align 8
   br label %for.body.i.i.i.i
@@ -17661,7 +17660,7 @@ _ZNKSt6vectorIN5arrow9ArraySpanESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %ent
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 7
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
-  %add.ptr = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr, ptr noundef nonnull align 8 dereferenceable(104) %__args, i64 104, i1 false)
   %child_data.i.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 5
   %child_data3.i.i.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %__args, i64 0, i32 5
@@ -26253,7 +26252,7 @@ invoke.cont10.i:                                  ; preds = %invoke.cont.i192
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont10.i
   store ptr %call5.i.i.i.i37.i, ptr %agg.tmp5.i, align 8
-  %add.ptr.i35.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i37.i, i64 1
+  %add.ptr.i35.i = getelementptr inbounds i8, ptr %call5.i.i.i.i37.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %agg.tmp5.i, i64 0, i32 2
   store ptr %add.ptr.i35.i, ptr %_M_end_of_storage.i.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i)
@@ -26529,7 +26528,7 @@ invoke.cont13.i:                                  ; preds = %.noexc28.i
 
 call5.i.i.i.i.noexc.i20:                          ; preds = %invoke.cont13.i
   store ptr %call5.i.i.i.i46.i, ptr %agg.tmp5.i5, align 8
-  %add.ptr.i44.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i46.i, i64 2
+  %add.ptr.i44.i = getelementptr inbounds i8, ptr %call5.i.i.i.i46.i, i64 64
   %_M_end_of_storage.i.i21 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %agg.tmp5.i5, i64 0, i32 2
   store ptr %add.ptr.i44.i, ptr %_M_end_of_storage.i.i21, align 8
   br label %for.body.i.i.i.i.i.i
@@ -26881,7 +26880,7 @@ invoke.cont13.i76:                                ; preds = %invoke.cont.i232
 
 call5.i.i.i.i.noexc.i86:                          ; preds = %invoke.cont13.i76
   store ptr %call5.i.i.i.i46.i78, ptr %agg.tmp5.i34, align 8
-  %add.ptr.i44.i87 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i46.i78, i64 2
+  %add.ptr.i44.i87 = getelementptr inbounds i8, ptr %call5.i.i.i.i46.i78, i64 64
   %_M_end_of_storage.i.i88 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %agg.tmp5.i34, i64 0, i32 2
   store ptr %add.ptr.i44.i87, ptr %_M_end_of_storage.i.i88, align 8
   br label %for.body.i.i.i.i.i.i89
@@ -27190,7 +27189,7 @@ invoke.cont10.i157:                               ; preds = %invoke.cont.i262
 
 call5.i.i.i.i.noexc.i162:                         ; preds = %invoke.cont10.i157
   store ptr %call5.i.i.i.i37.i158, ptr %agg.tmp5.i129, align 8
-  %add.ptr.i35.i163 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i37.i158, i64 1
+  %add.ptr.i35.i163 = getelementptr inbounds i8, ptr %call5.i.i.i.i37.i158, i64 32
   %_M_end_of_storage.i.i164 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %agg.tmp5.i129, i64 0, i32 2
   store ptr %add.ptr.i35.i163, ptr %_M_end_of_storage.i.i164, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i37.i158, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i130)

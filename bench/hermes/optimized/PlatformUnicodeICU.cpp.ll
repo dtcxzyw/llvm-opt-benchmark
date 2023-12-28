@@ -496,15 +496,15 @@ if.then.i.i.i.i.i30.i:                            ; preds = %if.else19.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.then.i.i.i.i.i30.i, %if.else19.i, %if.then16.i
-  %CurSize.0.i = phi i64 [ 0, %if.then16.i ], [ %conv.i19.i, %if.then.i.i.i.i.i30.i ], [ 0, %if.else19.i ]
+  %CurSize.0.i = phi i64 [ 0, %if.then16.i ], [ 0, %if.else19.i ], [ %conv.i19.i, %if.then.i.i.i.i.i30.i ]
   %18 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %conv.i35.i = zext i32 %18 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0.i, %conv.i35.i
+  %conv.i34.i = zext i32 %18 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0.i, %conv.i34.i
   br i1 %cmp.not.i.i, label %return.sink.split.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end28.i
   %19 = load ptr, ptr %dest, align 8
-  %add.ptr.i65.i = getelementptr inbounds i16, ptr %19, i64 %conv.i35.i
+  %add.ptr.i65.i = getelementptr inbounds i16, ptr %19, i64 %conv.i34.i
   %add.ptr30.i = getelementptr inbounds i16, ptr %19, i64 %CurSize.0.i
   %20 = load ptr, ptr %buf, align 8
   %add.ptr33.i = getelementptr inbounds i16, ptr %20, i64 %CurSize.0.i
@@ -709,15 +709,15 @@ if.then.i.i.i.i.i30.i:                            ; preds = %if.else19.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.then.i.i.i.i.i30.i, %if.else19.i, %if.then16.i
-  %CurSize.0.i = phi i64 [ 0, %if.then16.i ], [ %conv.i19.i, %if.then.i.i.i.i.i30.i ], [ 0, %if.else19.i ]
+  %CurSize.0.i = phi i64 [ 0, %if.then16.i ], [ 0, %if.else19.i ], [ %conv.i19.i, %if.then.i.i.i.i.i30.i ]
   %18 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %conv.i35.i = zext i32 %18 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0.i, %conv.i35.i
+  %conv.i34.i = zext i32 %18 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0.i, %conv.i34.i
   br i1 %cmp.not.i.i, label %return.sink.split.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end28.i
   %19 = load ptr, ptr %dest, align 8
-  %add.ptr.i65.i = getelementptr inbounds i16, ptr %19, i64 %conv.i35.i
+  %add.ptr.i65.i = getelementptr inbounds i16, ptr %19, i64 %conv.i34.i
   %add.ptr30.i = getelementptr inbounds i16, ptr %19, i64 %CurSize.0.i
   %20 = load ptr, ptr %buf, align 8
   %add.ptr33.i = getelementptr inbounds i16, ptr %20, i64 %CurSize.0.i

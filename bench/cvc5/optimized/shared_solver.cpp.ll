@@ -3566,31 +3566,35 @@ _ZNKSt6vectorIN4cvc58internal11NodeVisitorINS1_18SharedTermsVisitorEE13stack_ele
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
-  %add.ptr = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %call5.i.i.i, i64 %sub.ptr.div.i
-  %2 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %2, ptr %add.ptr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
+  %2 = load ptr, ptr %__args, align 8
+  store ptr %2, ptr %add.ptr, align 8
+  %d_parent.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
+  %d_parent3.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__args, i64 0, i32 1
+  %3 = load ptr, ptr %d_parent3.i.i.i, align 8
+  store ptr %3, ptr %d_parent.i.i.i, align 8
   %d_childrenAdded.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
   %d_childrenAdded4.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__args, i64 0, i32 2
-  %3 = load i8, ptr %d_childrenAdded4.i.i.i, align 8
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %d_childrenAdded.i.i.i, align 8
+  %4 = load i8, ptr %d_childrenAdded4.i.i.i, align 8
+  %5 = and i8 %4, 1
+  store i8 %5, ptr %d_childrenAdded.i.i.i, align 8
   %cmp.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not7.i.i.i.i.i, label %invoke.cont10, label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN4cvc58internal11NodeVisitorINS1_18SharedTermsVisitorEE13stack_elementESaIS5_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i.i.i
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN4cvc58internal11NodeVisitorINS1_18SharedTermsVisitorEE13stack_elementESaIS5_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %_ZNKSt6vectorIN4cvc58internal11NodeVisitorINS1_18SharedTermsVisitorEE13stack_elementESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %5 = load ptr, ptr %__first.addr.08.i.i.i.i.i, align 8
-  store ptr %5, ptr %__cur.09.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %__first.addr.08.i.i.i.i.i, align 8
+  store ptr %6, ptr %__cur.09.i.i.i.i.i, align 8
   %d_parent.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1
   %d_parent3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i, i64 0, i32 1
-  %6 = load ptr, ptr %d_parent3.i.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %d_parent.i.i.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %d_parent3.i.i.i.i.i.i.i, align 8
+  store ptr %7, ptr %d_parent.i.i.i.i.i.i.i, align 8
   %d_childrenAdded.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i, i64 0, i32 2
   %d_childrenAdded4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i, i64 0, i32 2
-  %7 = load i8, ptr %d_childrenAdded4.i.i.i.i.i.i.i, align 8
-  %8 = and i8 %7, 1
-  store i8 %8, ptr %d_childrenAdded.i.i.i.i.i.i.i, align 8
+  %8 = load i8, ptr %d_childrenAdded4.i.i.i.i.i.i.i, align 8
+  %9 = and i8 %8, 1
+  store i8 %9, ptr %d_childrenAdded.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
@@ -3605,17 +3609,17 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.inc.i.i.i.i.i21:                              ; preds = %invoke.cont10, %for.inc.i.i.i.i.i21
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i29, %for.inc.i.i.i.i.i21 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i28, %for.inc.i.i.i.i.i21 ], [ %__position.coerce, %invoke.cont10 ]
-  %9 = load ptr, ptr %__first.addr.08.i.i.i.i.i23, align 8
-  store ptr %9, ptr %__cur.09.i.i.i.i.i22, align 8
+  %10 = load ptr, ptr %__first.addr.08.i.i.i.i.i23, align 8
+  store ptr %10, ptr %__cur.09.i.i.i.i.i22, align 8
   %d_parent.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 1
   %d_parent3.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i23, i64 0, i32 1
-  %10 = load ptr, ptr %d_parent3.i.i.i.i.i.i.i25, align 8
-  store ptr %10, ptr %d_parent.i.i.i.i.i.i.i24, align 8
+  %11 = load ptr, ptr %d_parent3.i.i.i.i.i.i.i25, align 8
+  store ptr %11, ptr %d_parent.i.i.i.i.i.i.i24, align 8
   %d_childrenAdded.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 2
   %d_childrenAdded4.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i23, i64 0, i32 2
-  %11 = load i8, ptr %d_childrenAdded4.i.i.i.i.i.i.i27, align 8
-  %12 = and i8 %11, 1
-  store i8 %12, ptr %d_childrenAdded.i.i.i.i.i.i.i26, align 8
+  %12 = load i8, ptr %d_childrenAdded4.i.i.i.i.i.i.i27, align 8
+  %13 = and i8 %12, 1
+  store i8 %13, ptr %d_childrenAdded.i.i.i.i.i.i.i26, align 8
   %incdec.ptr.i.i.i.i.i28 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i23, i64 1
   %incdec.ptr1.i.i.i.i.i29 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i22, i64 1
   %cmp.not.i.i.i.i.i30 = icmp eq ptr %incdec.ptr.i.i.i.i.i28, %0
@@ -3681,31 +3685,35 @@ _ZNKSt6vectorIN4cvc58internal11NodeVisitorINS1_18PreRegisterVisitorEE13stack_ele
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
-  %add.ptr = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %call5.i.i.i, i64 %sub.ptr.div.i
-  %2 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %2, ptr %add.ptr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
+  %2 = load ptr, ptr %__args, align 8
+  store ptr %2, ptr %add.ptr, align 8
+  %d_parent.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
+  %d_parent3.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__args, i64 0, i32 1
+  %3 = load ptr, ptr %d_parent3.i.i.i, align 8
+  store ptr %3, ptr %d_parent.i.i.i, align 8
   %d_childrenAdded.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
   %d_childrenAdded4.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__args, i64 0, i32 2
-  %3 = load i8, ptr %d_childrenAdded4.i.i.i, align 8
-  %4 = and i8 %3, 1
-  store i8 %4, ptr %d_childrenAdded.i.i.i, align 8
+  %4 = load i8, ptr %d_childrenAdded4.i.i.i, align 8
+  %5 = and i8 %4, 1
+  store i8 %5, ptr %d_childrenAdded.i.i.i, align 8
   %cmp.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not7.i.i.i.i.i, label %invoke.cont10, label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN4cvc58internal11NodeVisitorINS1_18PreRegisterVisitorEE13stack_elementESaIS5_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i.i.i
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN4cvc58internal11NodeVisitorINS1_18PreRegisterVisitorEE13stack_elementESaIS5_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %_ZNKSt6vectorIN4cvc58internal11NodeVisitorINS1_18PreRegisterVisitorEE13stack_elementESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %5 = load ptr, ptr %__first.addr.08.i.i.i.i.i, align 8
-  store ptr %5, ptr %__cur.09.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %__first.addr.08.i.i.i.i.i, align 8
+  store ptr %6, ptr %__cur.09.i.i.i.i.i, align 8
   %d_parent.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1
   %d_parent3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i, i64 0, i32 1
-  %6 = load ptr, ptr %d_parent3.i.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %d_parent.i.i.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %d_parent3.i.i.i.i.i.i.i, align 8
+  store ptr %7, ptr %d_parent.i.i.i.i.i.i.i, align 8
   %d_childrenAdded.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i, i64 0, i32 2
   %d_childrenAdded4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i, i64 0, i32 2
-  %7 = load i8, ptr %d_childrenAdded4.i.i.i.i.i.i.i, align 8
-  %8 = and i8 %7, 1
-  store i8 %8, ptr %d_childrenAdded.i.i.i.i.i.i.i, align 8
+  %8 = load i8, ptr %d_childrenAdded4.i.i.i.i.i.i.i, align 8
+  %9 = and i8 %8, 1
+  store i8 %9, ptr %d_childrenAdded.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
@@ -3720,17 +3728,17 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.inc.i.i.i.i.i21:                              ; preds = %invoke.cont10, %for.inc.i.i.i.i.i21
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i29, %for.inc.i.i.i.i.i21 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i28, %for.inc.i.i.i.i.i21 ], [ %__position.coerce, %invoke.cont10 ]
-  %9 = load ptr, ptr %__first.addr.08.i.i.i.i.i23, align 8
-  store ptr %9, ptr %__cur.09.i.i.i.i.i22, align 8
+  %10 = load ptr, ptr %__first.addr.08.i.i.i.i.i23, align 8
+  store ptr %10, ptr %__cur.09.i.i.i.i.i22, align 8
   %d_parent.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 1
   %d_parent3.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i23, i64 0, i32 1
-  %10 = load ptr, ptr %d_parent3.i.i.i.i.i.i.i25, align 8
-  store ptr %10, ptr %d_parent.i.i.i.i.i.i.i24, align 8
+  %11 = load ptr, ptr %d_parent3.i.i.i.i.i.i.i25, align 8
+  store ptr %11, ptr %d_parent.i.i.i.i.i.i.i24, align 8
   %d_childrenAdded.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 2
   %d_childrenAdded4.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i23, i64 0, i32 2
-  %11 = load i8, ptr %d_childrenAdded4.i.i.i.i.i.i.i27, align 8
-  %12 = and i8 %11, 1
-  store i8 %12, ptr %d_childrenAdded.i.i.i.i.i.i.i26, align 8
+  %12 = load i8, ptr %d_childrenAdded4.i.i.i.i.i.i.i27, align 8
+  %13 = and i8 %12, 1
+  store i8 %13, ptr %d_childrenAdded.i.i.i.i.i.i.i26, align 8
   %incdec.ptr.i.i.i.i.i28 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__first.addr.08.i.i.i.i.i23, i64 1
   %incdec.ptr1.i.i.i.i.i29 = getelementptr inbounds %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %__cur.09.i.i.i.i.i22, i64 1
   %cmp.not.i.i.i.i.i30 = icmp eq ptr %incdec.ptr.i.i.i.i.i28, %0

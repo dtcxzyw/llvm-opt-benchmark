@@ -1460,7 +1460,7 @@ invoke.cont53:                                    ; preds = %if.then45
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont53
   store ptr %call5.i.i.i.i91, ptr %agg.result, align 8
-  %add.ptr.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i91, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i91, i64 56
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_(ptr noundef nonnull align 8 dereferenceable(49) %call5.i.i.i.i91, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp47)
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
@@ -1708,7 +1708,7 @@ lpad4.i:                                          ; preds = %_ZNSt8_Rb_treeINSt7
 
 call5.i.i.i.i.noexc119:                           ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i
   store ptr %call5.i.i.i.i120, ptr %agg.result, align 8
-  %add.ptr.i103 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i120, i64 1
+  %add.ptr.i103 = getelementptr inbounds i8, ptr %call5.i.i.i.i120, i64 56
   store ptr %add.ptr.i103, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_(ptr noundef nonnull align 8 dereferenceable(49) %call5.i.i.i.i120, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp89)
           to label %for.inc.i.i.i.i.i114 unwind label %lpad.i.i.i.i.i108

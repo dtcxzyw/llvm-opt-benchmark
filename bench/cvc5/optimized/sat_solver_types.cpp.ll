@@ -20,13 +20,11 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %sub.ptr.lhs.cast1.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast2.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub3.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i.i, %sub.ptr.rhs.cast2.i.i.i.i.i.i
-  %sub.ptr.div4.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub3.i.i.i.i.i.i, 3
-  %cmp.i.i.i.i.i.i = icmp slt i64 %sub.ptr.div4.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::prop::SatLiteral", ptr %0, i64 %sub.ptr.div4.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub3.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, ptr %1
   %cmp.not29.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i, %0
   br i1 %cmp.not29.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i

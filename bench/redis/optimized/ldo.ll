@@ -185,8 +185,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   %13 = load ptr, ptr %ci.i, align 8, !tbaa !26
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %add.ptr.i.i.i = getelementptr inbounds %struct.CallInfo, ptr %call.i.i.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr.i.i.i, ptr %ci.i, align 8, !tbaa !26
   %add.ptr14.i.i.i = getelementptr inbounds %struct.CallInfo, ptr %call.i.i.i, i64 19999
   %end_ci.i.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 11
@@ -294,9 +293,8 @@ for.body.i:                                       ; preds = %cond.end, %for.body
   %3 = load ptr, ptr %v.i, align 8, !tbaa !4
   %sub.ptr.lhs.cast2.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub4.i = sub i64 %sub.ptr.lhs.cast2.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div5.i = ashr exact i64 %sub.ptr.sub4.i, 4
   %4 = load ptr, ptr %stack, align 8, !tbaa !36
-  %add.ptr7.i = getelementptr inbounds %struct.lua_TValue, ptr %4, i64 %sub.ptr.div5.i
+  %add.ptr7.i = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub4.i
   store ptr %add.ptr7.i, ptr %v.i, align 8, !tbaa !4
   %up.0.i = load ptr, ptr %up.074.i, align 8, !tbaa !4
   %cmp.not.i = icmp eq ptr %up.0.i, null
@@ -2020,8 +2018,7 @@ if.then3.i:                                       ; preds = %luaD_seterrorobj.ex
   %13 = load ptr, ptr %ci, align 8, !tbaa !26
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
-  %add.ptr.i.i = getelementptr inbounds %struct.CallInfo, ptr %call.i.i, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i.i, ptr %ci, align 8, !tbaa !26
   %add.ptr14.i.i = getelementptr inbounds %struct.CallInfo, ptr %call.i.i, i64 19999
   %end_ci.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 11

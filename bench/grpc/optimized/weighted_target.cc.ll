@@ -6381,7 +6381,7 @@ _ZNKSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16Sub
           to label %call5.i.i.i.i.noexc unwind label %lpad27.loopexit
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16SubchannelPickerEEEESaIS6_EE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.348", ptr %call5.i.i.i.i206, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i206, i64 %sub.ptr.sub.i.i.i
   store i64 %add, ptr %add.ptr.i, align 8
   %second.i.i.i.i198 = getelementptr inbounds %"struct.std::pair.348", ptr %call5.i.i.i.i206, i64 %sub.ptr.div.i.i.i, i32 1
   store ptr %13, ptr %second.i.i.i.i198, align 8
@@ -6477,7 +6477,7 @@ _ZNKSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16Sub
           to label %call5.i.i.i.i.noexc256 unwind label %lpad27.loopexit
 
 call5.i.i.i.i.noexc256:                           ; preds = %_ZNKSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16SubchannelPickerEEEESaIS6_EE12_M_check_lenEmPKc.exit.i212
-  %add.ptr.i225 = getelementptr inbounds %"struct.std::pair.348", ptr %call5.i.i.i.i257, i64 %sub.ptr.div.i.i.i213
+  %add.ptr.i225 = getelementptr inbounds i8, ptr %call5.i.i.i.i257, i64 %sub.ptr.sub.i.i.i210
   store i64 %add66, ptr %add.ptr.i225, align 8
   %second.i.i.i.i226 = getelementptr inbounds %"struct.std::pair.348", ptr %call5.i.i.i.i257, i64 %sub.ptr.div.i.i.i213, i32 1
   store ptr %13, ptr %second.i.i.i.i226, align 8

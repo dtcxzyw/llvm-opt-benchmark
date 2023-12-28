@@ -685,7 +685,7 @@ _ZNKSt6vectorISt4pairIPKcmESaIS3_EE12_M_check_lenEmS2_.exit.i.i: ; preds = %if.e
           to label %call5.i.i.i.i.i.noexc unwind label %lpad66
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorISt4pairIPKcmESaIS3_EE12_M_check_lenEmS2_.exit.i.i
-  %add.ptr.i.i129 = getelementptr inbounds %"struct.std::pair.9", ptr %call5.i.i.i.i.i134, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i129 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i134, i64 %sub.ptr.sub.i.i.i.i126
   %53 = load ptr, ptr %result, align 8
   store ptr %53, ptr %add.ptr.i.i129, align 8
   %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.9", ptr %call5.i.i.i.i.i134, i64 %sub.ptr.div.i.i.i.i, i32 1
@@ -789,7 +789,7 @@ _ZNKSt6vectorISt4pairIPKcmESaIS3_EE12_M_check_lenEmS2_.exit.i: ; preds = %if.els
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 4
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.9", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
   %6 = load ptr, ptr %__args, align 8
   store ptr %6, ptr %add.ptr.i, align 8
   %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.9", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1

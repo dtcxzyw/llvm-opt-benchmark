@@ -98,7 +98,6 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast6 = ptrtoint ptr %3 to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.lhs.cast6, %sub.ptr.rhs.cast
-  %sub.ptr.div9 = ashr exact i64 %sub.ptr.sub8, 1
   %cmp.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -128,9 +127,9 @@ _ZNSt6vectorIDsSaIDsEE6resizeEm.exit:             ; preds = %if.then.i, %if.else
   %add.ptr.i.i = getelementptr inbounds i16, ptr %5, i64 -1
   %end_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 1
   store ptr %add.ptr.i.i, ptr %end_, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %4, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %beginCapture_, align 8
-  %add.ptr20 = getelementptr inbounds i16, ptr %4, i64 %sub.ptr.div9
+  %add.ptr20 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -138,7 +137,6 @@ if.else:                                          ; preds = %entry
   %6 = load ptr, ptr %end_22, align 8
   %sub.ptr.lhs.cast24 = ptrtoint ptr %6 to i64
   %sub.ptr.sub26 = sub i64 %sub.ptr.lhs.cast24, %sub.ptr.lhs.cast
-  %sub.ptr.div27 = ashr exact i64 %sub.ptr.sub26, 1
   %tobool.not.i.i.i.i.i = icmp eq ptr %6, %0
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit, label %if.then.i.i.i.i.i
 
@@ -150,7 +148,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.else
 _ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit: ; preds = %if.else, %if.then.i.i.i.i.i
   %7 = phi ptr [ %1, %if.else ], [ %.pre, %if.then.i.i.i.i.i ]
   store ptr %7, ptr %beginCapture_, align 8
-  %add.ptr40 = getelementptr inbounds i16, ptr %7, i64 %sub.ptr.div27
+  %add.ptr40 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub26
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit, %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit
@@ -196,7 +194,6 @@ if.then.i:                                        ; preds = %if.then2
   %5 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast6.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub8.i = sub i64 %sub.ptr.lhs.cast6.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div9.i = ashr exact i64 %sub.ptr.sub8.i, 1
   %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.sub.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -223,9 +220,9 @@ if.then.i.i.i:                                    ; preds = %if.then5.i.i
 _ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i:           ; preds = %if.then.i.i.i, %if.then5.i.i, %if.else.i.i, %if.then.i.i
   %6 = phi ptr [ %.pre10.i, %if.then.i.i ], [ %3, %if.else.i.i ], [ %3, %if.then5.i.i ], [ %3, %if.then.i.i.i ]
   %7 = phi ptr [ %.pre9.i, %if.then.i.i ], [ %4, %if.else.i.i ], [ %4, %if.then5.i.i ], [ %add.ptr.i.i, %if.then.i.i.i ]
-  %add.ptr.i = getelementptr inbounds i16, ptr %6, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i, ptr %beginCapture_, align 8
-  %add.ptr20.i = getelementptr inbounds i16, ptr %6, i64 %sub.ptr.div9.i
+  %add.ptr20.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub8.i
   br label %if.end9
 
 if.else.i:                                        ; preds = %if.then2
@@ -233,7 +230,6 @@ if.else.i:                                        ; preds = %if.then2
   %8 = load ptr, ptr %end_22.i, align 8
   %sub.ptr.lhs.cast24.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub26.i = sub i64 %sub.ptr.lhs.cast24.i, %sub.ptr.lhs.cast.i
-  %sub.ptr.div27.i = ashr exact i64 %sub.ptr.sub26.i, 1
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, %2
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit.i, label %if.then.i.i.i.i.i.i
 
@@ -247,7 +243,7 @@ _ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9
   %.pre = phi ptr [ %4, %if.else.i ], [ %.pre.pre, %if.then.i.i.i.i.i.i ]
   %9 = phi ptr [ %3, %if.else.i ], [ %.pre.i, %if.then.i.i.i.i.i.i ]
   store ptr %9, ptr %beginCapture_, align 8
-  %add.ptr40.i = getelementptr inbounds i16, ptr %9, i64 %sub.ptr.div27.i
+  %add.ptr40.i = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub26.i
   br label %if.end9
 
 if.else:                                          ; preds = %if.end
@@ -443,8 +439,8 @@ if.end.i.i.i.i.i23:                               ; preds = %if.then.i.i.i20
   br label %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit26
 
 _ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit26: ; preds = %if.then.i.i.i20, %if.end.i.i.i.i.i23
-  %cmp.i.i.i27.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i27.not, label %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit, label %if.then.i.i.i28
+  %cmp.i.i.i27 = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i.i27, label %if.then.i.i.i28, label %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit
 
 if.then.i.i.i28:                                  ; preds = %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit26
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %cond.i17, ptr align 2 %1, i64 %sub.ptr.sub.i, i1 false)

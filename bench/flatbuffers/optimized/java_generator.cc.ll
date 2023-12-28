@@ -11475,8 +11475,7 @@ for.body.i.i.i:                                   ; preds = %if.end5.i.i, %for.b
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
   %sub.ptr.sub.i12.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i52, %sub.ptr.lhs.cast.i6.i.i
-  %sub.ptr.div.i13.i.i = ashr exact i64 %sub.ptr.sub.i12.i.i, 3
-  %add.ptr.i.i.i57 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first_cut.sroa.0.0, i64 %sub.ptr.div.i13.i.i
+  %add.ptr.i.i.i57 = getelementptr inbounds i8, ptr %__first_cut.sroa.0.0, i64 %sub.ptr.sub.i12.i.i
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.backedge, %if.end16.i.i
@@ -11573,7 +11572,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %add.ptr = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__buffer, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i
   %cmp.not9.i = icmp slt i64 %sub.ptr.div.i, 7
   br i1 %cmp.not9.i, label %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_.exit.thread, label %while.body.i
 
@@ -11752,28 +11751,28 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_
   br i1 %cmp.not20.i, label %_ZSt17__merge_sort_loopIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEElNS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEEvT_SL_T0_T1_T2_.exit, label %while.body.i19.preheader
 
 while.body.i19.preheader:                         ; preds = %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_.exit
-  %cmp244.i.not = icmp eq i64 %mul.i, %mul.i17
+  %cmp243.i.not = icmp eq i64 %mul.i, %mul.i17
   br label %while.body.i19
 
 while.body.i19:                                   ; preds = %while.body.i19.preheader, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit
-  %__result.sroa.0.022.i = phi ptr [ %add.ptr.i.i.i.i26.i, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ], [ %__first.coerce, %while.body.i19.preheader ]
+  %__result.sroa.0.022.i = phi ptr [ %add.ptr.i.i.i.i25.i, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ], [ %__first.coerce, %while.body.i19.preheader ]
   %__first.addr.021.i = phi ptr [ %add.ptr3.i, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ], [ %__buffer, %while.body.i19.preheader ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.021.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.021.i, i64 %mul.i17
-  br i1 %cmp244.i.not, label %while.end.i27, label %while.body.i48
+  br i1 %cmp243.i.not, label %while.end.i27, label %while.body.i48
 
 while.body.i48:                                   ; preds = %while.body.i19, %if.end.i50
-  %__first1.addr.047.i = phi ptr [ %__first1.addr.1.i, %if.end.i50 ], [ %__first.addr.021.i, %while.body.i19 ]
-  %__first2.addr.046.i = phi ptr [ %__first2.addr.1.i, %if.end.i50 ], [ %add.ptr.i, %while.body.i19 ]
-  %__result.sroa.0.045.i = phi ptr [ %incdec.ptr.i.i51, %if.end.i50 ], [ %__result.sroa.0.022.i, %while.body.i19 ]
-  %call.i.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(8) %__first2.addr.046.i, ptr noundef nonnull align 8 dereferenceable(8) %__first1.addr.047.i)
+  %__first1.addr.046.i = phi ptr [ %__first1.addr.1.i, %if.end.i50 ], [ %__first.addr.021.i, %while.body.i19 ]
+  %__first2.addr.045.i = phi ptr [ %__first2.addr.1.i, %if.end.i50 ], [ %add.ptr.i, %while.body.i19 ]
+  %__result.sroa.0.044.i = phi ptr [ %incdec.ptr.i.i51, %if.end.i50 ], [ %__result.sroa.0.022.i, %while.body.i19 ]
+  %call.i.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(8) %__first2.addr.045.i, ptr noundef nonnull align 8 dereferenceable(8) %__first1.addr.046.i)
   br i1 %call.i.i, label %if.then.i52, label %if.else.i49
 
 if.then.i52:                                      ; preds = %while.body.i48
-  %12 = load ptr, ptr %__first2.addr.046.i, align 8
-  store ptr null, ptr %__first2.addr.046.i, align 8
-  %13 = load ptr, ptr %__result.sroa.0.045.i, align 8
-  store ptr %12, ptr %__result.sroa.0.045.i, align 8
+  %12 = load ptr, ptr %__first2.addr.045.i, align 8
+  store ptr null, ptr %__first2.addr.045.i, align 8
+  %13 = load ptr, ptr %__result.sroa.0.044.i, align 8
+  store ptr %12, ptr %__result.sroa.0.044.i, align 8
   %tobool.not.i.i.i.i.i53 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i.i53, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i57, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i54
 
@@ -11785,14 +11784,14 @@ _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i54: ; pr
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i57
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i57: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i54, %if.then.i52
-  %incdec.ptr.i58 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first2.addr.046.i, i64 1
+  %incdec.ptr.i58 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first2.addr.045.i, i64 1
   br label %if.end.i50
 
 if.else.i49:                                      ; preds = %while.body.i48
-  %15 = load ptr, ptr %__first1.addr.047.i, align 8
-  store ptr null, ptr %__first1.addr.047.i, align 8
-  %16 = load ptr, ptr %__result.sroa.0.045.i, align 8
-  store ptr %15, ptr %__result.sroa.0.045.i, align 8
+  %15 = load ptr, ptr %__first1.addr.046.i, align 8
+  store ptr null, ptr %__first1.addr.046.i, align 8
+  %16 = load ptr, ptr %__result.sroa.0.044.i, align 8
+  store ptr %15, ptr %__result.sroa.0.044.i, align 8
   %tobool.not.i.i.i.i11.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i11.i, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15.i, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i12.i
 
@@ -11804,13 +11803,13 @@ _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i12.i: ; pr
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15.i
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15.i: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i12.i, %if.else.i49
-  %incdec.ptr7.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first1.addr.047.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first1.addr.046.i, i64 1
   br label %if.end.i50
 
 if.end.i50:                                       ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i57
-  %__first2.addr.1.i = phi ptr [ %incdec.ptr.i58, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i57 ], [ %__first2.addr.046.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15.i ]
-  %__first1.addr.1.i = phi ptr [ %__first1.addr.047.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i57 ], [ %incdec.ptr7.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15.i ]
-  %incdec.ptr.i.i51 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.sroa.0.045.i, i64 1
+  %__first2.addr.1.i = phi ptr [ %incdec.ptr.i58, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i57 ], [ %__first2.addr.045.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15.i ]
+  %__first1.addr.1.i = phi ptr [ %__first1.addr.046.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i57 ], [ %incdec.ptr7.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15.i ]
+  %incdec.ptr.i.i51 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.sroa.0.044.i, i64 1
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr.i
   %cmp2.i = icmp ne ptr %__first2.addr.1.i, %add.ptr3.i
   %18 = select i1 %cmp.i, i1 %cmp2.i, i1 false
@@ -11857,47 +11856,45 @@ _ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i.i34 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %__result.sroa.0.0.lcssa.i28 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.sroa.0.0.lcssa.i28, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.lcssa.i28, i64 %sub.ptr.sub.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i16.i = ptrtoint ptr %add.ptr3.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i17.i = ptrtoint ptr %__first2.addr.0.lcssa.i to i64
   %sub.ptr.sub.i.i.i.i.i18.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i16.i, %sub.ptr.rhs.cast.i.i.i.i.i17.i
   %sub.ptr.div.i.i.i.i.i19.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i18.i, 3
   %cmp6.i.i.i.i.i20.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i19.i, 0
-  br i1 %cmp6.i.i.i.i.i20.i, label %for.body.i.i.i.i.i27.i, label %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit
+  br i1 %cmp6.i.i.i.i.i20.i, label %for.body.i.i.i.i.i26.i, label %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit
 
-for.body.i.i.i.i.i27.i:                           ; preds = %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35.i
-  %__n.09.i.i.i.i.i28.i = phi i64 [ %dec.i.i.i.i.i38.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35.i ], [ %sub.ptr.div.i.i.i.i.i19.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ]
-  %__result.addr.08.i.i.i.i.i29.i = phi ptr [ %incdec.ptr1.i.i.i.i.i37.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35.i ], [ %add.ptr.i.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ]
-  %__first.addr.07.i.i.i.i.i30.i = phi ptr [ %incdec.ptr.i.i.i.i.i36.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35.i ], [ %__first2.addr.0.lcssa.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ]
-  %22 = load ptr, ptr %__first.addr.07.i.i.i.i.i30.i, align 8
-  store ptr null, ptr %__first.addr.07.i.i.i.i.i30.i, align 8
-  %23 = load ptr, ptr %__result.addr.08.i.i.i.i.i29.i, align 8
-  store ptr %22, ptr %__result.addr.08.i.i.i.i.i29.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i31.i = icmp eq ptr %23, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i31.i, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35.i, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i32.i
+for.body.i.i.i.i.i26.i:                           ; preds = %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i
+  %__n.09.i.i.i.i.i27.i = phi i64 [ %dec.i.i.i.i.i37.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i ], [ %sub.ptr.div.i.i.i.i.i19.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ]
+  %__result.addr.08.i.i.i.i.i28.i = phi ptr [ %incdec.ptr1.i.i.i.i.i36.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i ], [ %add.ptr.i.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ]
+  %__first.addr.07.i.i.i.i.i29.i = phi ptr [ %incdec.ptr.i.i.i.i.i35.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i ], [ %__first2.addr.0.lcssa.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ]
+  %22 = load ptr, ptr %__first.addr.07.i.i.i.i.i29.i, align 8
+  store ptr null, ptr %__first.addr.07.i.i.i.i.i29.i, align 8
+  %23 = load ptr, ptr %__result.addr.08.i.i.i.i.i28.i, align 8
+  store ptr %22, ptr %__result.addr.08.i.i.i.i.i28.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i30.i = icmp eq ptr %23, null
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i30.i, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i31.i
 
-_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i32.i: ; preds = %for.body.i.i.i.i.i27.i
-  %vtable.i.i.i.i.i.i.i.i.i.i33.i = load ptr, ptr %23, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i34.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i33.i, i64 1
-  %24 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i34.i, align 8
+_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i31.i: ; preds = %for.body.i.i.i.i.i26.i
+  %vtable.i.i.i.i.i.i.i.i.i.i32.i = load ptr, ptr %23, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i33.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i32.i, i64 1
+  %24 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i33.i, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
-  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35.i
+  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i
 
-_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35.i: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i32.i, %for.body.i.i.i.i.i27.i
-  %incdec.ptr.i.i.i.i.i36.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i30.i, i64 1
-  %incdec.ptr1.i.i.i.i.i37.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i29.i, i64 1
-  %dec.i.i.i.i.i38.i = add nsw i64 %__n.09.i.i.i.i.i28.i, -1
-  %cmp.i.i.i.i.i39.i = icmp sgt i64 %__n.09.i.i.i.i.i28.i, 1
-  br i1 %cmp.i.i.i.i.i39.i, label %for.body.i.i.i.i.i27.i, label %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit, !llvm.loop !83
+_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i31.i, %for.body.i.i.i.i.i26.i
+  %incdec.ptr.i.i.i.i.i35.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i29.i, i64 1
+  %incdec.ptr1.i.i.i.i.i36.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i28.i, i64 1
+  %dec.i.i.i.i.i37.i = add nsw i64 %__n.09.i.i.i.i.i27.i, -1
+  %cmp.i.i.i.i.i38.i = icmp sgt i64 %__n.09.i.i.i.i.i27.i, 1
+  br i1 %cmp.i.i.i.i.i38.i, label %for.body.i.i.i.i.i26.i, label %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit, !llvm.loop !83
 
-_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i
-  %__result.addr.0.lcssa.i.i.i.i.i21.i = phi ptr [ %add.ptr.i.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ], [ %incdec.ptr1.i.i.i.i.i37.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35.i ]
+_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i
+  %__result.addr.0.lcssa.i.i.i.i.i21.i = phi ptr [ %add.ptr.i.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ], [ %incdec.ptr1.i.i.i.i.i36.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i ]
   %sub.ptr.lhs.cast.i.i.i22.i = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i21.i to i64
   %sub.ptr.rhs.cast.i.i.i23.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i23.i
-  %sub.ptr.div.i.i.i25.i = ashr exact i64 %sub.ptr.sub.i.i.i24.i, 3
-  %add.ptr.i.i.i.i26.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %add.ptr.i.i.i.i.i, i64 %sub.ptr.div.i.i.i25.i
+  %add.ptr.i.i.i.i25.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i24.i
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.lhs.cast.i.i.i.i.i16.i
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 3
   %cmp.not.i23 = icmp slt i64 %sub.ptr.div.i22, %mul.i17
@@ -11905,11 +11902,11 @@ _ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteI
 
 _ZSt17__merge_sort_loopIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEElNS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEEvT_SL_T0_T1_T2_.exit: ; preds = %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_.exit
   %__first.addr.0.lcssa.i = phi ptr [ %__buffer, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_.exit ], [ %add.ptr3.i, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
-  %__result.sroa.0.0.lcssa.i = phi ptr [ %__first.coerce, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_.exit ], [ %add.ptr.i.i.i.i26.i, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
+  %__result.sroa.0.0.lcssa.i = phi ptr [ %__first.coerce, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_.exit ], [ %add.ptr.i.i.i.i25.i, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
   %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div.i, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_.exit ], [ %sub.ptr.div.i22, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
   %.sroa.speculated.i24 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa.i, i64 %mul.i)
   %add.ptr15.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.0.lcssa.i, i64 %.sroa.speculated.i24
-  %call21.i = tail call ptr @_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_(ptr noundef %__first.addr.0.lcssa.i, ptr noundef %add.ptr15.i, ptr noundef %add.ptr15.i, ptr noundef nonnull %add.ptr, ptr %__result.sroa.0.0.lcssa.i, ptr %__comp.coerce)
+  %call21.i = tail call ptr @_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_(ptr noundef %__first.addr.0.lcssa.i, ptr noundef %add.ptr15.i, ptr noundef %add.ptr15.i, ptr noundef %add.ptr, ptr %__result.sroa.0.0.lcssa.i, ptr %__comp.coerce)
   %cmp = icmp slt i64 %mul.i17, %sub.ptr.div.i
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !87
 
@@ -12328,23 +12325,23 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6Meth
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_(ptr noundef %__first1, ptr noundef %__last1, ptr noundef %__first2, ptr noundef %__last2, ptr %__result.coerce, ptr %__comp.coerce) local_unnamed_addr #3 comdat {
 entry:
-  %cmp43 = icmp ne ptr %__first1, %__last1
-  %cmp244 = icmp ne ptr %__first2, %__last2
-  %0 = and i1 %cmp43, %cmp244
+  %cmp42 = icmp ne ptr %__first1, %__last1
+  %cmp243 = icmp ne ptr %__first2, %__last2
+  %0 = and i1 %cmp42, %cmp243
   br i1 %0, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end
-  %__first1.addr.047 = phi ptr [ %__first1.addr.1, %if.end ], [ %__first1, %entry ]
-  %__first2.addr.046 = phi ptr [ %__first2.addr.1, %if.end ], [ %__first2, %entry ]
-  %__result.sroa.0.045 = phi ptr [ %incdec.ptr.i, %if.end ], [ %__result.coerce, %entry ]
-  %call.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(8) %__first2.addr.046, ptr noundef nonnull align 8 dereferenceable(8) %__first1.addr.047)
+  %__first1.addr.046 = phi ptr [ %__first1.addr.1, %if.end ], [ %__first1, %entry ]
+  %__first2.addr.045 = phi ptr [ %__first2.addr.1, %if.end ], [ %__first2, %entry ]
+  %__result.sroa.0.044 = phi ptr [ %incdec.ptr.i, %if.end ], [ %__result.coerce, %entry ]
+  %call.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(8) %__first2.addr.045, ptr noundef nonnull align 8 dereferenceable(8) %__first1.addr.046)
   br i1 %call.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %1 = load ptr, ptr %__first2.addr.046, align 8
-  store ptr null, ptr %__first2.addr.046, align 8
-  %2 = load ptr, ptr %__result.sroa.0.045, align 8
-  store ptr %1, ptr %__result.sroa.0.045, align 8
+  %1 = load ptr, ptr %__first2.addr.045, align 8
+  store ptr null, ptr %__first2.addr.045, align 8
+  %2 = load ptr, ptr %__result.sroa.0.044, align 8
+  store ptr %1, ptr %__result.sroa.0.044, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i
 
@@ -12356,14 +12353,14 @@ _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i: ; preds 
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %if.then, %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i
-  %incdec.ptr = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first2.addr.046, i64 1
+  %incdec.ptr = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first2.addr.045, i64 1
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  %4 = load ptr, ptr %__first1.addr.047, align 8
-  store ptr null, ptr %__first1.addr.047, align 8
-  %5 = load ptr, ptr %__result.sroa.0.045, align 8
-  store ptr %4, ptr %__result.sroa.0.045, align 8
+  %4 = load ptr, ptr %__first1.addr.046, align 8
+  store ptr null, ptr %__first1.addr.046, align 8
+  %5 = load ptr, ptr %__result.sroa.0.044, align 8
+  store ptr %4, ptr %__result.sroa.0.044, align 8
   %tobool.not.i.i.i.i11 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i11, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i12
 
@@ -12375,13 +12372,13 @@ _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i12: ; pred
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15: ; preds = %if.else, %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i12
-  %incdec.ptr7 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first1.addr.047, i64 1
+  %incdec.ptr7 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first1.addr.046, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
-  %__first2.addr.1 = phi ptr [ %incdec.ptr, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ], [ %__first2.addr.046, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15 ]
-  %__first1.addr.1 = phi ptr [ %__first1.addr.047, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ], [ %incdec.ptr7, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15 ]
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.sroa.0.045, i64 1
+  %__first2.addr.1 = phi ptr [ %incdec.ptr, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ], [ %__first2.addr.045, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15 ]
+  %__first1.addr.1 = phi ptr [ %__first1.addr.046, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ], [ %incdec.ptr7, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit15 ]
+  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.sroa.0.044, i64 1
   %cmp = icmp ne ptr %__first1.addr.1, %__last1
   %cmp2 = icmp ne ptr %__first2.addr.1, %__last2
   %7 = select i1 %cmp, i1 %cmp2, i1 false
@@ -12428,48 +12425,46 @@ _ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__result.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.sroa.0.0.lcssa, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i16 = ptrtoint ptr %__last2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i17 = ptrtoint ptr %__first2.addr.0.lcssa to i64
   %sub.ptr.sub.i.i.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i16, %sub.ptr.rhs.cast.i.i.i.i.i17
   %sub.ptr.div.i.i.i.i.i19 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i18, 3
   %cmp6.i.i.i.i.i20 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i19, 0
-  br i1 %cmp6.i.i.i.i.i20, label %for.body.i.i.i.i.i27, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit40
+  br i1 %cmp6.i.i.i.i.i20, label %for.body.i.i.i.i.i26, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39
 
-for.body.i.i.i.i.i27:                             ; preds = %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35
-  %__n.09.i.i.i.i.i28 = phi i64 [ %dec.i.i.i.i.i38, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35 ], [ %sub.ptr.div.i.i.i.i.i19, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ]
-  %__result.addr.08.i.i.i.i.i29 = phi ptr [ %incdec.ptr1.i.i.i.i.i37, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35 ], [ %add.ptr.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ]
-  %__first.addr.07.i.i.i.i.i30 = phi ptr [ %incdec.ptr.i.i.i.i.i36, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35 ], [ %__first2.addr.0.lcssa, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ]
-  %11 = load ptr, ptr %__first.addr.07.i.i.i.i.i30, align 8
-  store ptr null, ptr %__first.addr.07.i.i.i.i.i30, align 8
-  %12 = load ptr, ptr %__result.addr.08.i.i.i.i.i29, align 8
-  store ptr %11, ptr %__result.addr.08.i.i.i.i.i29, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i31, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i32
+for.body.i.i.i.i.i26:                             ; preds = %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34
+  %__n.09.i.i.i.i.i27 = phi i64 [ %dec.i.i.i.i.i37, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34 ], [ %sub.ptr.div.i.i.i.i.i19, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ]
+  %__result.addr.08.i.i.i.i.i28 = phi ptr [ %incdec.ptr1.i.i.i.i.i36, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34 ], [ %add.ptr.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ]
+  %__first.addr.07.i.i.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i.i.i35, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34 ], [ %__first2.addr.0.lcssa, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ]
+  %11 = load ptr, ptr %__first.addr.07.i.i.i.i.i29, align 8
+  store ptr null, ptr %__first.addr.07.i.i.i.i.i29, align 8
+  %12 = load ptr, ptr %__result.addr.08.i.i.i.i.i28, align 8
+  store ptr %11, ptr %__result.addr.08.i.i.i.i.i28, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %12, null
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i30, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i31
 
-_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i32: ; preds = %for.body.i.i.i.i.i27
-  %vtable.i.i.i.i.i.i.i.i.i.i33 = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i34 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i33, i64 1
-  %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i34, align 8
+_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i31: ; preds = %for.body.i.i.i.i.i26
+  %vtable.i.i.i.i.i.i.i.i.i.i32 = load ptr, ptr %12, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i32, i64 1
+  %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i33, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
-  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35
+  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34
 
-_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i32, %for.body.i.i.i.i.i27
-  %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i30, i64 1
-  %incdec.ptr1.i.i.i.i.i37 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i29, i64 1
-  %dec.i.i.i.i.i38 = add nsw i64 %__n.09.i.i.i.i.i28, -1
-  %cmp.i.i.i.i.i39 = icmp sgt i64 %__n.09.i.i.i.i.i28, 1
-  br i1 %cmp.i.i.i.i.i39, label %for.body.i.i.i.i.i27, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit40, !llvm.loop !83
+_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i31, %for.body.i.i.i.i.i26
+  %incdec.ptr.i.i.i.i.i35 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i29, i64 1
+  %incdec.ptr1.i.i.i.i.i36 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i28, i64 1
+  %dec.i.i.i.i.i37 = add nsw i64 %__n.09.i.i.i.i.i27, -1
+  %cmp.i.i.i.i.i38 = icmp sgt i64 %__n.09.i.i.i.i.i27, 1
+  br i1 %cmp.i.i.i.i.i38, label %for.body.i.i.i.i.i26, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39, !llvm.loop !83
 
-_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit40: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
-  %__result.addr.0.lcssa.i.i.i.i.i21 = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ], [ %incdec.ptr1.i.i.i.i.i37, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i35 ]
+_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
+  %__result.addr.0.lcssa.i.i.i.i.i21 = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ], [ %incdec.ptr1.i.i.i.i.i36, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34 ]
   %sub.ptr.lhs.cast.i.i.i22 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i21 to i64
   %sub.ptr.rhs.cast.i.i.i23 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %sub.ptr.sub.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i.i22, %sub.ptr.rhs.cast.i.i.i23
-  %sub.ptr.div.i.i.i25 = ashr exact i64 %sub.ptr.sub.i.i.i24, 3
-  %add.ptr.i.i.i.i26 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %add.ptr.i.i.i.i, i64 %sub.ptr.div.i.i.i25
-  ret ptr %add.ptr.i.i.i.i26
+  %add.ptr.i.i.i.i25 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.sub.i.i.i24
+  ret ptr %add.ptr.i.i.i.i25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12559,57 +12554,57 @@ if.then19:                                        ; preds = %_ZNSt10unique_ptrIK
   %sub.ptr.sub.i.i.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i13, %sub.ptr.rhs.cast.i.i.i.i.i14
   %sub.ptr.div.i.i.i.i.i16 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i15, 3
   %cmp4.i.i.i.i.i17 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i16, 0
-  br i1 %cmp4.i.i.i.i.i17, label %for.body.i.i.i.i.i24, label %return
+  br i1 %cmp4.i.i.i.i.i17, label %for.body.i.i.i.i.i23, label %return
 
-for.body.i.i.i.i.i24:                             ; preds = %if.then19, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34
-  %__n.07.i.i.i.i.i25 = phi i64 [ %dec.i.i.i.i.i35, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34 ], [ %sub.ptr.div.i.i.i.i.i16, %if.then19 ]
-  %__result.addr.06.i.i.i.i.i26 = phi ptr [ %incdec.ptr1.i.i.i.i.i29, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34 ], [ %incdec.ptr.i11, %if.then19 ]
-  %__last.addr.05.i.i.i.i.i27 = phi ptr [ %incdec.ptr.i.i.i.i.i28, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34 ], [ %incdec.ptr20, %if.then19 ]
-  %incdec.ptr.i.i.i.i.i28 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__last.addr.05.i.i.i.i.i27, i64 -1
-  %incdec.ptr1.i.i.i.i.i29 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.06.i.i.i.i.i26, i64 -1
-  %6 = load ptr, ptr %incdec.ptr.i.i.i.i.i28, align 8
-  store ptr null, ptr %incdec.ptr.i.i.i.i.i28, align 8
-  %7 = load ptr, ptr %incdec.ptr1.i.i.i.i.i29, align 8
-  store ptr %6, ptr %incdec.ptr1.i.i.i.i.i29, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i30, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i31
+for.body.i.i.i.i.i23:                             ; preds = %if.then19, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i33
+  %__n.07.i.i.i.i.i24 = phi i64 [ %dec.i.i.i.i.i34, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i33 ], [ %sub.ptr.div.i.i.i.i.i16, %if.then19 ]
+  %__result.addr.06.i.i.i.i.i25 = phi ptr [ %incdec.ptr1.i.i.i.i.i28, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i33 ], [ %incdec.ptr.i11, %if.then19 ]
+  %__last.addr.05.i.i.i.i.i26 = phi ptr [ %incdec.ptr.i.i.i.i.i27, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i33 ], [ %incdec.ptr20, %if.then19 ]
+  %incdec.ptr.i.i.i.i.i27 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__last.addr.05.i.i.i.i.i26, i64 -1
+  %incdec.ptr1.i.i.i.i.i28 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.06.i.i.i.i.i25, i64 -1
+  %6 = load ptr, ptr %incdec.ptr.i.i.i.i.i27, align 8
+  store ptr null, ptr %incdec.ptr.i.i.i.i.i27, align 8
+  %7 = load ptr, ptr %incdec.ptr1.i.i.i.i.i28, align 8
+  store ptr %6, ptr %incdec.ptr1.i.i.i.i.i28, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i29 = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i29, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i33, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i30
 
-_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i31: ; preds = %for.body.i.i.i.i.i24
-  %vtable.i.i.i.i.i.i.i.i.i.i32 = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i32, i64 1
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i33, align 8
+_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i30: ; preds = %for.body.i.i.i.i.i23
+  %vtable.i.i.i.i.i.i.i.i.i.i31 = load ptr, ptr %7, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i31, i64 1
+  %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i32, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
-  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34
+  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i33
 
-_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i31, %for.body.i.i.i.i.i24
-  %dec.i.i.i.i.i35 = add nsw i64 %__n.07.i.i.i.i.i25, -1
-  %cmp.i.i.i.i.i36 = icmp sgt i64 %__n.07.i.i.i.i.i25, 1
-  br i1 %cmp.i.i.i.i.i36, label %for.body.i.i.i.i.i24, label %return, !llvm.loop !72
+_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i33: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i30, %for.body.i.i.i.i.i23
+  %dec.i.i.i.i.i34 = add nsw i64 %__n.07.i.i.i.i.i24, -1
+  %cmp.i.i.i.i.i35 = icmp sgt i64 %__n.07.i.i.i.i.i24, 1
+  br i1 %cmp.i.i.i.i.i35, label %for.body.i.i.i.i.i23, label %return, !llvm.loop !72
 
 if.else28:                                        ; preds = %while.body
   %9 = load ptr, ptr %__last2.addr.0, align 8
   store ptr null, ptr %__last2.addr.0, align 8
   %10 = load ptr, ptr %incdec.ptr.i11, align 8
   store ptr %9, ptr %incdec.ptr.i11, align 8
-  %tobool.not.i.i.i.i40 = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i.i.i40, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit44, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i41
+  %tobool.not.i.i.i.i39 = icmp eq ptr %10, null
+  br i1 %tobool.not.i.i.i.i39, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit43, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i40
 
-_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i41: ; preds = %if.else28
-  %vtable.i.i.i.i.i42 = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i.i43 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i42, i64 1
-  %11 = load ptr, ptr %vfn.i.i.i.i.i43, align 8
+_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i40: ; preds = %if.else28
+  %vtable.i.i.i.i.i41 = load ptr, ptr %10, align 8
+  %vfn.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i41, i64 1
+  %11 = load ptr, ptr %vfn.i.i.i.i.i42, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
-  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit44
+  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit43
 
-_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit44: ; preds = %if.else28, %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i41
+_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit43: ; preds = %if.else28, %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i40
   %cmp32 = icmp eq ptr %__last2.addr.0, %__first2
   br i1 %cmp32, label %return, label %if.end34
 
-if.end34:                                         ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit44
+if.end34:                                         ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit43
   %incdec.ptr35 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__last2.addr.0, i64 -1
   br label %while.body, !llvm.loop !89
 
-return:                                           ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit44, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i, %if.then19, %if.then, %if.else
+return:                                           ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit43, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i33, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i, %if.then19, %if.then, %if.else
   ret void
 }
 
@@ -12697,42 +12692,41 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_gene
   %sub.ptr.sub.i.i.i.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i25, %sub.ptr.rhs.cast.i.i.i.i.i26
   %sub.ptr.div.i.i.i.i.i28 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i27, 3
   %cmp6.i.i.i.i.i29 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i28, 0
-  br i1 %cmp6.i.i.i.i.i29, label %for.body.i.i.i.i.i36, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
+  br i1 %cmp6.i.i.i.i.i29, label %for.body.i.i.i.i.i35, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
 
-for.body.i.i.i.i.i36:                             ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i44
-  %__n.09.i.i.i.i.i37 = phi i64 [ %dec.i.i.i.i.i47, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i44 ], [ %sub.ptr.div.i.i.i.i.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
-  %__result.addr.08.i.i.i.i.i38 = phi ptr [ %incdec.ptr1.i.i.i.i.i46, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i44 ], [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
-  %__first.addr.07.i.i.i.i.i39 = phi ptr [ %incdec.ptr.i.i.i.i.i45, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i44 ], [ %__buffer, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
-  %6 = load ptr, ptr %__first.addr.07.i.i.i.i.i39, align 8
-  store ptr null, ptr %__first.addr.07.i.i.i.i.i39, align 8
-  %7 = load ptr, ptr %__result.addr.08.i.i.i.i.i38, align 8
-  store ptr %6, ptr %__result.addr.08.i.i.i.i.i38, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i40, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i44, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i41
+for.body.i.i.i.i.i35:                             ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i43
+  %__n.09.i.i.i.i.i36 = phi i64 [ %dec.i.i.i.i.i46, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i43 ], [ %sub.ptr.div.i.i.i.i.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
+  %__result.addr.08.i.i.i.i.i37 = phi ptr [ %incdec.ptr1.i.i.i.i.i45, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i43 ], [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
+  %__first.addr.07.i.i.i.i.i38 = phi ptr [ %incdec.ptr.i.i.i.i.i44, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i43 ], [ %__buffer, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
+  %6 = load ptr, ptr %__first.addr.07.i.i.i.i.i38, align 8
+  store ptr null, ptr %__first.addr.07.i.i.i.i.i38, align 8
+  %7 = load ptr, ptr %__result.addr.08.i.i.i.i.i37, align 8
+  store ptr %6, ptr %__result.addr.08.i.i.i.i.i37, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i39 = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i39, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i43, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i40
 
-_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i41: ; preds = %for.body.i.i.i.i.i36
-  %vtable.i.i.i.i.i.i.i.i.i.i42 = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i43 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i42, i64 1
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i43, align 8
+_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i40: ; preds = %for.body.i.i.i.i.i35
+  %vtable.i.i.i.i.i.i.i.i.i.i41 = load ptr, ptr %7, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i41, i64 1
+  %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i42, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
-  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i44
+  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i43
 
-_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i44: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i41, %for.body.i.i.i.i.i36
-  %incdec.ptr.i.i.i.i.i45 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i39, i64 1
-  %incdec.ptr1.i.i.i.i.i46 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i38, i64 1
-  %dec.i.i.i.i.i47 = add nsw i64 %__n.09.i.i.i.i.i37, -1
-  %cmp.i.i.i.i.i48 = icmp sgt i64 %__n.09.i.i.i.i.i37, 1
-  br i1 %cmp.i.i.i.i.i48, label %for.body.i.i.i.i.i36, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit, !llvm.loop !83
+_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i43: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i40, %for.body.i.i.i.i.i35
+  %incdec.ptr.i.i.i.i.i44 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i38, i64 1
+  %incdec.ptr1.i.i.i.i.i45 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i37, i64 1
+  %dec.i.i.i.i.i46 = add nsw i64 %__n.09.i.i.i.i.i36, -1
+  %cmp.i.i.i.i.i47 = icmp sgt i64 %__n.09.i.i.i.i.i36, 1
+  br i1 %cmp.i.i.i.i.i47, label %for.body.i.i.i.i.i35, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit, !llvm.loop !83
 
-_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i44
-  %.pre123 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i46 to i64
+_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i43
+  %.pre119 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i45 to i64
   br label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
 
 _ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit: ; preds = %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit
-  %sub.ptr.lhs.cast.i.i.i31.pre-phi = phi i64 [ %.pre123, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i11, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
+  %sub.ptr.lhs.cast.i.i.i31.pre-phi = phi i64 [ %.pre119, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i11, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
   %sub.ptr.sub.i.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i.i31.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i11
-  %sub.ptr.div.i.i.i34 = ashr exact i64 %sub.ptr.sub.i.i.i33, 3
-  %add.ptr.i.i.i.i35 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.coerce, i64 %sub.ptr.div.i.i.i34
+  %add.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i.i.i33
   br label %return
 
 if.else20:                                        ; preds = %entry
@@ -12744,113 +12738,112 @@ if.then22:                                        ; preds = %if.else20
   br i1 %tobool23.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.then22
-  %sub.ptr.lhs.cast.i.i.i.i.i49 = ptrtoint ptr %__middle.coerce to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i50 = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.sub.i.i.i.i.i51 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i49, %sub.ptr.rhs.cast.i.i.i.i.i50
-  %sub.ptr.div.i.i.i.i.i52 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i51, 3
-  %cmp6.i.i.i.i.i53 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i52, 0
-  br i1 %cmp6.i.i.i.i.i53, label %for.body.i.i.i.i.i55, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit68
+  %sub.ptr.lhs.cast.i.i.i.i.i48 = ptrtoint ptr %__middle.coerce to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i49 = ptrtoint ptr %__first.coerce to i64
+  %sub.ptr.sub.i.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i48, %sub.ptr.rhs.cast.i.i.i.i.i49
+  %sub.ptr.div.i.i.i.i.i51 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i50, 3
+  %cmp6.i.i.i.i.i52 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i51, 0
+  br i1 %cmp6.i.i.i.i.i52, label %for.body.i.i.i.i.i54, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit67
 
-for.body.i.i.i.i.i55:                             ; preds = %if.then24, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63
-  %__n.09.i.i.i.i.i56 = phi i64 [ %dec.i.i.i.i.i66, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i52, %if.then24 ]
-  %__result.addr.08.i.i.i.i.i57 = phi ptr [ %incdec.ptr1.i.i.i.i.i65, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ], [ %__buffer, %if.then24 ]
-  %__first.addr.07.i.i.i.i.i58 = phi ptr [ %incdec.ptr.i.i.i.i.i64, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ], [ %__first.coerce, %if.then24 ]
-  %9 = load ptr, ptr %__first.addr.07.i.i.i.i.i58, align 8
-  store ptr null, ptr %__first.addr.07.i.i.i.i.i58, align 8
-  %10 = load ptr, ptr %__result.addr.08.i.i.i.i.i57, align 8
-  store ptr %9, ptr %__result.addr.08.i.i.i.i.i57, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i59, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i60
+for.body.i.i.i.i.i54:                             ; preds = %if.then24, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i62
+  %__n.09.i.i.i.i.i55 = phi i64 [ %dec.i.i.i.i.i65, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i62 ], [ %sub.ptr.div.i.i.i.i.i51, %if.then24 ]
+  %__result.addr.08.i.i.i.i.i56 = phi ptr [ %incdec.ptr1.i.i.i.i.i64, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i62 ], [ %__buffer, %if.then24 ]
+  %__first.addr.07.i.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i63, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i62 ], [ %__first.coerce, %if.then24 ]
+  %9 = load ptr, ptr %__first.addr.07.i.i.i.i.i57, align 8
+  store ptr null, ptr %__first.addr.07.i.i.i.i.i57, align 8
+  %10 = load ptr, ptr %__result.addr.08.i.i.i.i.i56, align 8
+  store ptr %9, ptr %__result.addr.08.i.i.i.i.i56, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i58 = icmp eq ptr %10, null
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i58, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i62, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i59
 
-_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i60: ; preds = %for.body.i.i.i.i.i55
-  %vtable.i.i.i.i.i.i.i.i.i.i61 = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i61, i64 1
-  %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i62, align 8
+_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i59: ; preds = %for.body.i.i.i.i.i54
+  %vtable.i.i.i.i.i.i.i.i.i.i60 = load ptr, ptr %10, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i60, i64 1
+  %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i61, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
-  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63
+  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i62
 
-_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i60, %for.body.i.i.i.i.i55
-  %incdec.ptr.i.i.i.i.i64 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i58, i64 1
-  %incdec.ptr1.i.i.i.i.i65 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i57, i64 1
-  %dec.i.i.i.i.i66 = add nsw i64 %__n.09.i.i.i.i.i56, -1
-  %cmp.i.i.i.i.i67 = icmp sgt i64 %__n.09.i.i.i.i.i56, 1
-  br i1 %cmp.i.i.i.i.i67, label %for.body.i.i.i.i.i55, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit68, !llvm.loop !83
+_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i62: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i59, %for.body.i.i.i.i.i54
+  %incdec.ptr.i.i.i.i.i63 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i57, i64 1
+  %incdec.ptr1.i.i.i.i.i64 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i56, i64 1
+  %dec.i.i.i.i.i65 = add nsw i64 %__n.09.i.i.i.i.i55, -1
+  %cmp.i.i.i.i.i66 = icmp sgt i64 %__n.09.i.i.i.i.i55, 1
+  br i1 %cmp.i.i.i.i.i66, label %for.body.i.i.i.i.i54, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit67, !llvm.loop !83
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit68: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63, %if.then24
-  %__result.addr.0.lcssa.i.i.i.i.i54 = phi ptr [ %__buffer, %if.then24 ], [ %incdec.ptr1.i.i.i.i.i65, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ]
-  %sub.ptr.lhs.cast.i.i.i.i.i69 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i.i.i.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i69, %sub.ptr.lhs.cast.i.i.i.i.i49
-  %sub.ptr.div.i.i.i.i.i72 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i71, 3
-  %cmp6.i.i.i.i.i73 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i72, 0
-  br i1 %cmp6.i.i.i.i.i73, label %for.body.i.i.i.i.i80, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit67: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i62, %if.then24
+  %__result.addr.0.lcssa.i.i.i.i.i53 = phi ptr [ %__buffer, %if.then24 ], [ %incdec.ptr1.i.i.i.i.i64, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i62 ]
+  %sub.ptr.lhs.cast.i.i.i.i.i68 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i.i.i.i.i70 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i68, %sub.ptr.lhs.cast.i.i.i.i.i48
+  %sub.ptr.div.i.i.i.i.i71 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i70, 3
+  %cmp6.i.i.i.i.i72 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i71, 0
+  br i1 %cmp6.i.i.i.i.i72, label %for.body.i.i.i.i.i78, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit
 
-for.body.i.i.i.i.i80:                             ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit68, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i88
-  %__n.09.i.i.i.i.i81 = phi i64 [ %dec.i.i.i.i.i91, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i88 ], [ %sub.ptr.div.i.i.i.i.i72, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit68 ]
-  %__result.addr.08.i.i.i.i.i82 = phi ptr [ %incdec.ptr1.i.i.i.i.i90, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i88 ], [ %__first.coerce, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit68 ]
-  %__first.addr.07.i.i.i.i.i83 = phi ptr [ %incdec.ptr.i.i.i.i.i89, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i88 ], [ %__middle.coerce, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit68 ]
-  %12 = load ptr, ptr %__first.addr.07.i.i.i.i.i83, align 8
-  store ptr null, ptr %__first.addr.07.i.i.i.i.i83, align 8
-  %13 = load ptr, ptr %__result.addr.08.i.i.i.i.i82, align 8
-  store ptr %12, ptr %__result.addr.08.i.i.i.i.i82, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i84 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i84, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i88, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i85
+for.body.i.i.i.i.i78:                             ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit67, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i86
+  %__n.09.i.i.i.i.i79 = phi i64 [ %dec.i.i.i.i.i89, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i86 ], [ %sub.ptr.div.i.i.i.i.i71, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit67 ]
+  %__result.addr.08.i.i.i.i.i80 = phi ptr [ %incdec.ptr1.i.i.i.i.i88, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i86 ], [ %__first.coerce, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit67 ]
+  %__first.addr.07.i.i.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i.i.i87, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i86 ], [ %__middle.coerce, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit67 ]
+  %12 = load ptr, ptr %__first.addr.07.i.i.i.i.i81, align 8
+  store ptr null, ptr %__first.addr.07.i.i.i.i.i81, align 8
+  %13 = load ptr, ptr %__result.addr.08.i.i.i.i.i80, align 8
+  store ptr %12, ptr %__result.addr.08.i.i.i.i.i80, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %13, null
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i82, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i86, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i83
 
-_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i85: ; preds = %for.body.i.i.i.i.i80
-  %vtable.i.i.i.i.i.i.i.i.i.i86 = load ptr, ptr %13, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i87 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i86, i64 1
-  %14 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i87, align 8
+_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i83: ; preds = %for.body.i.i.i.i.i78
+  %vtable.i.i.i.i.i.i.i.i.i.i84 = load ptr, ptr %13, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i85 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i84, i64 1
+  %14 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i85, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #17
-  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i88
+  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i86
 
-_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i88: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i85, %for.body.i.i.i.i.i80
-  %incdec.ptr.i.i.i.i.i89 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i83, i64 1
-  %incdec.ptr1.i.i.i.i.i90 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i82, i64 1
-  %dec.i.i.i.i.i91 = add nsw i64 %__n.09.i.i.i.i.i81, -1
-  %cmp.i.i.i.i.i92 = icmp sgt i64 %__n.09.i.i.i.i.i81, 1
-  br i1 %cmp.i.i.i.i.i92, label %for.body.i.i.i.i.i80, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, !llvm.loop !83
+_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i86: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i83, %for.body.i.i.i.i.i78
+  %incdec.ptr.i.i.i.i.i87 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.addr.07.i.i.i.i.i81, i64 1
+  %incdec.ptr1.i.i.i.i.i88 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.08.i.i.i.i.i80, i64 1
+  %dec.i.i.i.i.i89 = add nsw i64 %__n.09.i.i.i.i.i79, -1
+  %cmp.i.i.i.i.i90 = icmp sgt i64 %__n.09.i.i.i.i.i79, 1
+  br i1 %cmp.i.i.i.i.i90, label %for.body.i.i.i.i.i78, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, !llvm.loop !83
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i88, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit68
-  %sub.ptr.lhs.cast.i.i.i.i.i93 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i54 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i94 = ptrtoint ptr %__buffer to i64
-  %sub.ptr.sub.i.i.i.i.i95 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i93, %sub.ptr.rhs.cast.i.i.i.i.i94
-  %sub.ptr.div.i.i.i.i.i96 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i95, 3
-  %cmp4.i.i.i.i.i97 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i96, 0
-  br i1 %cmp4.i.i.i.i.i97, label %for.body.i.i.i.i.i104, label %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i86, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit67
+  %sub.ptr.lhs.cast.i.i.i.i.i91 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i53 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i92 = ptrtoint ptr %__buffer to i64
+  %sub.ptr.sub.i.i.i.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i91, %sub.ptr.rhs.cast.i.i.i.i.i92
+  %sub.ptr.div.i.i.i.i.i94 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i93, 3
+  %cmp4.i.i.i.i.i95 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i94, 0
+  br i1 %cmp4.i.i.i.i.i95, label %for.body.i.i.i.i.i101, label %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
 
-for.body.i.i.i.i.i104:                            ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i114
-  %__n.07.i.i.i.i.i105 = phi i64 [ %dec.i.i.i.i.i115, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i114 ], [ %sub.ptr.div.i.i.i.i.i96, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
-  %__result.addr.06.i.i.i.i.i106 = phi ptr [ %incdec.ptr1.i.i.i.i.i109, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i114 ], [ %__last.coerce, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
-  %__last.addr.05.i.i.i.i.i107 = phi ptr [ %incdec.ptr.i.i.i.i.i108, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i114 ], [ %__result.addr.0.lcssa.i.i.i.i.i54, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
-  %incdec.ptr.i.i.i.i.i108 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__last.addr.05.i.i.i.i.i107, i64 -1
-  %incdec.ptr1.i.i.i.i.i109 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.06.i.i.i.i.i106, i64 -1
-  %15 = load ptr, ptr %incdec.ptr.i.i.i.i.i108, align 8
-  store ptr null, ptr %incdec.ptr.i.i.i.i.i108, align 8
-  %16 = load ptr, ptr %incdec.ptr1.i.i.i.i.i109, align 8
-  store ptr %15, ptr %incdec.ptr1.i.i.i.i.i109, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i110 = icmp eq ptr %16, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i110, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i114, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i111
+for.body.i.i.i.i.i101:                            ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i111
+  %__n.07.i.i.i.i.i102 = phi i64 [ %dec.i.i.i.i.i112, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i111 ], [ %sub.ptr.div.i.i.i.i.i94, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
+  %__result.addr.06.i.i.i.i.i103 = phi ptr [ %incdec.ptr1.i.i.i.i.i106, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i111 ], [ %__last.coerce, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
+  %__last.addr.05.i.i.i.i.i104 = phi ptr [ %incdec.ptr.i.i.i.i.i105, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i111 ], [ %__result.addr.0.lcssa.i.i.i.i.i53, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
+  %incdec.ptr.i.i.i.i.i105 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__last.addr.05.i.i.i.i.i104, i64 -1
+  %incdec.ptr1.i.i.i.i.i106 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.06.i.i.i.i.i103, i64 -1
+  %15 = load ptr, ptr %incdec.ptr.i.i.i.i.i105, align 8
+  store ptr null, ptr %incdec.ptr.i.i.i.i.i105, align 8
+  %16 = load ptr, ptr %incdec.ptr1.i.i.i.i.i106, align 8
+  store ptr %15, ptr %incdec.ptr1.i.i.i.i.i106, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i107 = icmp eq ptr %16, null
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i107, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i111, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i108
 
-_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i111: ; preds = %for.body.i.i.i.i.i104
-  %vtable.i.i.i.i.i.i.i.i.i.i112 = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i113 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i112, i64 1
-  %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i113, align 8
+_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i108: ; preds = %for.body.i.i.i.i.i101
+  %vtable.i.i.i.i.i.i.i.i.i.i109 = load ptr, ptr %16, align 8
+  %vfn.i.i.i.i.i.i.i.i.i.i110 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i109, i64 1
+  %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i110, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #17
-  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i114
+  br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i111
 
-_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i114: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i111, %for.body.i.i.i.i.i104
-  %dec.i.i.i.i.i115 = add nsw i64 %__n.07.i.i.i.i.i105, -1
-  %cmp.i.i.i.i.i116 = icmp sgt i64 %__n.07.i.i.i.i.i105, 1
-  br i1 %cmp.i.i.i.i.i116, label %for.body.i.i.i.i.i104, label %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit, !llvm.loop !72
+_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i111: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i108, %for.body.i.i.i.i.i101
+  %dec.i.i.i.i.i112 = add nsw i64 %__n.07.i.i.i.i.i102, -1
+  %cmp.i.i.i.i.i113 = icmp sgt i64 %__n.07.i.i.i.i.i102, 1
+  br i1 %cmp.i.i.i.i.i113, label %for.body.i.i.i.i.i101, label %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit, !llvm.loop !72
 
-_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i114
-  %.pre = ptrtoint ptr %incdec.ptr1.i.i.i.i.i109 to i64
+_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i111
+  %.pre = ptrtoint ptr %incdec.ptr1.i.i.i.i.i106 to i64
   br label %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
 
 _ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit: ; preds = %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit
-  %sub.ptr.lhs.cast.i.i.i99.pre-phi = phi i64 [ %.pre, %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit ], [ %sub.ptr.lhs.cast.i.i.i.i.i69, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
-  %sub.ptr.sub.i.i.i101 = sub i64 %sub.ptr.lhs.cast.i.i.i99.pre-phi, %sub.ptr.lhs.cast.i.i.i.i.i69
-  %sub.ptr.div.i.i.i102 = ashr exact i64 %sub.ptr.sub.i.i.i101, 3
-  %add.ptr.i.i.i.i103 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__last.coerce, i64 %sub.ptr.div.i.i.i102
+  %sub.ptr.lhs.cast.i.i.i97.pre-phi = phi i64 [ %.pre, %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit ], [ %sub.ptr.lhs.cast.i.i.i.i.i68, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ]
+  %sub.ptr.sub.i.i.i99 = sub i64 %sub.ptr.lhs.cast.i.i.i97.pre-phi, %sub.ptr.lhs.cast.i.i.i.i.i68
+  %add.ptr.i.i.i.i100 = getelementptr inbounds i8, ptr %__last.coerce, i64 %sub.ptr.sub.i.i.i99
   br label %return
 
 if.else44:                                        ; preds = %if.else20
@@ -12862,14 +12855,14 @@ if.else.i.i:                                      ; preds = %if.else44
   br i1 %cmp.i5.i.i, label %return, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.else.i.i
-  %sub.ptr.lhs.cast.i.i.i117 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.rhs.cast.i.i.i118 = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.sub.i.i.i119 = sub i64 %sub.ptr.lhs.cast.i.i.i117, %sub.ptr.rhs.cast.i.i.i118
-  %sub.ptr.div.i.i.i120 = ashr exact i64 %sub.ptr.sub.i.i.i119, 3
+  %sub.ptr.lhs.cast.i.i.i114 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.rhs.cast.i.i.i115 = ptrtoint ptr %__first.coerce to i64
+  %sub.ptr.sub.i.i.i116 = sub i64 %sub.ptr.lhs.cast.i.i.i114, %sub.ptr.rhs.cast.i.i.i115
+  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i116, 3
   %sub.ptr.lhs.cast.i6.i.i = ptrtoint ptr %__middle.coerce to i64
-  %sub.ptr.sub.i8.i.i = sub i64 %sub.ptr.lhs.cast.i6.i.i, %sub.ptr.rhs.cast.i.i.i118
+  %sub.ptr.sub.i8.i.i = sub i64 %sub.ptr.lhs.cast.i6.i.i, %sub.ptr.rhs.cast.i.i.i115
   %sub.ptr.div.i9.i.i = ashr exact i64 %sub.ptr.sub.i8.i.i, 3
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i120, %sub.ptr.div.i9.i.i
+  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i9.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.div.i9.i.i, %sub.i.i
   br i1 %cmp.i.i, label %for.body.i.i.i, label %if.end16.i.i
 
@@ -12886,13 +12879,12 @@ for.body.i.i.i:                                   ; preds = %if.end5.i.i, %for.b
   br i1 %cmp.i.not.i.i.i, label %return, label %for.body.i.i.i, !llvm.loop !77
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
-  %sub.ptr.sub.i12.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i117, %sub.ptr.lhs.cast.i6.i.i
-  %sub.ptr.div.i13.i.i = ashr exact i64 %sub.ptr.sub.i12.i.i, 3
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__first.coerce, i64 %sub.ptr.div.i13.i.i
+  %sub.ptr.sub.i12.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i114, %sub.ptr.lhs.cast.i6.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i12.i.i
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.backedge, %if.end16.i.i
-  %__n.0.i.i = phi i64 [ %sub.ptr.div.i.i.i120, %if.end16.i.i ], [ %__n.0.i.i.be, %for.cond.i.i.backedge ]
+  %__n.0.i.i = phi i64 [ %sub.ptr.div.i.i.i, %if.end16.i.i ], [ %__n.0.i.i.be, %for.cond.i.i.backedge ]
   %__k.0.i.i = phi i64 [ %sub.ptr.div.i9.i.i, %if.end16.i.i ], [ %__k.0.i.i.be, %for.cond.i.i.backedge ]
   %__p.sroa.0.0.i.i = phi ptr [ %__first.coerce, %if.end16.i.i ], [ %__p.sroa.0.0.i.i.be, %for.cond.i.i.backedge ]
   %sub20.i.i = sub nsw i64 %__n.0.i.i, %__k.0.i.i
@@ -12965,7 +12957,7 @@ for.cond.i.i.backedge:                            ; preds = %for.end58.i.i, %if.
   br label %for.cond.i.i, !llvm.loop !80
 
 return:                                           ; preds = %for.end58.i.i, %for.end.i.i, %for.body.i.i.i, %if.else.i.i, %if.else44, %if.then22, %if.then, %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
-  %retval.sroa.0.0 = phi ptr [ %add.ptr.i.i.i.i35, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ], [ %add.ptr.i.i.i.i103, %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ], [ %__first.coerce, %if.then ], [ %__last.coerce, %if.then22 ], [ %__last.coerce, %if.else44 ], [ %__first.coerce, %if.else.i.i ], [ %__middle.coerce, %for.body.i.i.i ], [ %add.ptr.i.i.i, %for.end.i.i ], [ %add.ptr.i.i.i, %for.end58.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %add.ptr.i.i.i.i34, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ], [ %add.ptr.i.i.i.i100, %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ], [ %__first.coerce, %if.then ], [ %__last.coerce, %if.then22 ], [ %__last.coerce, %if.else44 ], [ %__first.coerce, %if.else.i.i ], [ %__middle.coerce, %for.body.i.i.i ], [ %add.ptr.i.i.i, %for.end.i.i ], [ %add.ptr.i.i.i, %for.end58.i.i ]
   ret ptr %retval.sroa.0.0
 }
 

@@ -3277,9 +3277,9 @@ _ZN3fmt2v96detail6bufferIwE11try_reserveEm.exit:  ; preds = %while.body, %if.the
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKwmPwET1_T_T0_S3_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN3fmt2v96detail6bufferIwE11try_reserveEm.exit
+  %add.ptr.idx.i.i = shl nsw i64 %spec.select, 2
   %5 = load ptr, ptr %ptr_, align 8
   %add.ptr = getelementptr inbounds i32, ptr %5, i64 %3
-  %add.ptr.idx.i.i = shl nsw i64 %spec.select, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr, ptr align 4 %begin.addr.012, i64 %add.ptr.idx.i.i, i1 false)
   %.pre15 = load i64, ptr %size_, align 8
   br label %_ZSt20uninitialized_copy_nIPKwmPwET1_T_T0_S3_.exit
@@ -19705,7 +19705,7 @@ if.end:                                           ; preds = %_ZN3fmt2v96detail6b
 invoke.cont21:                                    ; preds = %if.end
   %43 = load i64, ptr %1, align 8
   %cmp319.not.i191 = icmp eq i64 %43, 0
-  %extract.t1275 = trunc i128 %5 to i32
+  %extract.t1274 = trunc i128 %5 to i32
   br i1 %cmp319.not.i191, label %if.end62, label %for.body.lr.ph.i192
 
 for.body.lr.ph.i192:                              ; preds = %invoke.cont21
@@ -19728,7 +19728,7 @@ for.body.i195:                                    ; preds = %for.body.i195, %for
 
 for.end.i204:                                     ; preds = %for.body.i195
   %cmp11.not.i205 = icmp eq i32 %shr.i199, 0
-  %extract.t1276 = trunc i128 %5 to i32
+  %extract.t1275 = trunc i128 %5 to i32
   br i1 %cmp11.not.i205, label %if.end62, label %if.then12.i206
 
 if.then12.i206:                                   ; preds = %for.end.i204
@@ -19756,7 +19756,7 @@ _ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i210: ; preds = %.noexc218, %if.t
   store i64 %inc.pre-phi.i.i211, ptr %1, align 8
   %arrayidx.i16.i213 = getelementptr inbounds i32, ptr %50, i64 %49
   store i32 %shr.i199, ptr %arrayidx.i16.i213, align 4
-  %extract.t1277 = trunc i128 %5 to i32
+  %extract.t1276 = trunc i128 %5 to i32
   br label %if.end62
 
 if.else:                                          ; preds = %invoke.cont4
@@ -20038,7 +20038,7 @@ invoke.cont40:                                    ; preds = %.noexc334, %do.end.
   %rem.i339 = and i32 %sub42, 31
   %cmp2.i340 = icmp ne i32 %rem.i339, 0
   %or.cond1211.not = select i1 %cmp2.i340, i1 %92, i1 false
-  %extract.t1278 = trunc i128 %71 to i32
+  %extract.t1277 = trunc i128 %71 to i32
   br i1 %or.cond1211.not, label %for.body.lr.ph.i344, label %if.end62
 
 for.body.lr.ph.i344:                              ; preds = %invoke.cont40
@@ -20061,7 +20061,7 @@ for.body.i347:                                    ; preds = %for.body.i347, %for
 
 for.end.i356:                                     ; preds = %for.body.i347
   %cmp11.not.i357 = icmp eq i32 %shr.i351, 0
-  %extract.t1279 = trunc i128 %71 to i32
+  %extract.t1278 = trunc i128 %71 to i32
   br i1 %cmp11.not.i357, label %if.end62, label %if.then12.i358
 
 if.then12.i358:                                   ; preds = %for.end.i356
@@ -20089,7 +20089,7 @@ _ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i362: ; preds = %.noexc370, %if.t
   store i64 %inc.pre-phi.i.i363, ptr %1, align 8
   %arrayidx.i16.i365 = getelementptr inbounds i32, ptr %99, i64 %98
   store i32 %shr.i351, ptr %arrayidx.i16.i365, align 4
-  %extract.t1280 = trunc i128 %71 to i32
+  %extract.t1279 = trunc i128 %71 to i32
   br label %if.end62
 
 if.else45:                                        ; preds = %if.else
@@ -20114,8 +20114,8 @@ do.end.i.i385:                                    ; preds = %do.body.i.i377
   br i1 %cmp.i.i.i.not.i.i387, label %invoke.cont48.thread, label %if.then.i.i.i.i.i388
 
 invoke.cont48.thread:                             ; preds = %do.end.i.i385
-  %.count.i.i.i.i3911281 = call i64 @llvm.umin.i64(i64 %102, i64 %inc.i.i381)
-  store i64 %.count.i.i.i.i3911281, ptr %0, align 8
+  %.count.i.i.i.i3911280 = call i64 @llvm.umin.i64(i64 %102, i64 %inc.i.i381)
+  store i64 %.count.i.i.i.i3911280, ptr %0, align 8
   store i32 0, ptr %exp_.i, align 8
   br label %for.body.lr.ph.i400
 
@@ -20134,7 +20134,7 @@ invoke.cont48:                                    ; preds = %if.then.i.i.i.i.i38
   br i1 %cmp319.not.i399, label %invoke.cont49, label %for.body.lr.ph.i400
 
 for.body.lr.ph.i400:                              ; preds = %invoke.cont48.thread, %invoke.cont48
-  %.count.i.i.i.i3911283 = phi i64 [ %.count.i.i.i.i3911281, %invoke.cont48.thread ], [ %.count.i.i.i.i391, %invoke.cont48 ]
+  %.count.i.i.i.i3911282 = phi i64 [ %.count.i.i.i.i3911280, %invoke.cont48.thread ], [ %.count.i.i.i.i391, %invoke.cont48 ]
   %sub.i402 = sub nuw nsw i32 32, %cond
   br label %for.body.i403
 
@@ -20149,7 +20149,7 @@ for.body.i403:                                    ; preds = %for.body.i403, %for
   %add8.i409 = add i32 %shl.i408, %carry.020.i405
   store i32 %add8.i409, ptr %arrayidx.i.i406, align 4
   %inc.i410 = add nuw nsw i64 %i.021.i404, 1
-  %exitcond.not.i411 = icmp eq i64 %inc.i410, %.count.i.i.i.i3911283
+  %exitcond.not.i411 = icmp eq i64 %inc.i410, %.count.i.i.i.i3911282
   br i1 %exitcond.not.i411, label %for.end.i412, label %for.body.i403, !llvm.loop !92
 
 for.end.i412:                                     ; preds = %for.body.i403
@@ -20301,11 +20301,11 @@ _ZN3fmt2v96detail6bigintaSIyEEvT_.exit:           ; preds = %do.end.i.i493, %.no
   %.count.i.i.i.i499 = zext i1 %130 to i64
   store i64 %.count.i.i.i.i499, ptr %3, align 8
   store i32 0, ptr %exp_.i71, align 8
-  %extract.t1274 = trunc i128 %100 to i32
+  %extract.t1273 = trunc i128 %100 to i32
   br label %if.end62
 
 if.end62:                                         ; preds = %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i362, %for.end.i356, %invoke.cont40, %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i210, %for.end.i204, %invoke.cont21, %_ZN3fmt2v96detail6bigintaSIyEEvT_.exit, %invoke.cont56
-  %.off0 = phi i32 [ %extract.t, %invoke.cont56 ], [ %extract.t1274, %_ZN3fmt2v96detail6bigintaSIyEEvT_.exit ], [ %extract.t1275, %invoke.cont21 ], [ %extract.t1276, %for.end.i204 ], [ %extract.t1277, %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i210 ], [ %extract.t1278, %invoke.cont40 ], [ %extract.t1279, %for.end.i356 ], [ %extract.t1280, %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i362 ]
+  %.off0 = phi i32 [ %extract.t, %invoke.cont56 ], [ %extract.t1273, %_ZN3fmt2v96detail6bigintaSIyEEvT_.exit ], [ %extract.t1274, %invoke.cont21 ], [ %extract.t1275, %for.end.i204 ], [ %extract.t1276, %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i210 ], [ %extract.t1277, %invoke.cont40 ], [ %extract.t1278, %for.end.i356 ], [ %extract.t1279, %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i362 ]
   %upper.2 = phi ptr [ null, %invoke.cont56 ], [ %upper_store, %_ZN3fmt2v96detail6bigintaSIyEEvT_.exit ], [ %upper.0, %invoke.cont21 ], [ %upper.0, %for.end.i204 ], [ %upper.0, %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i210 ], [ %upper.1, %invoke.cont40 ], [ %upper.1, %for.end.i356 ], [ %upper.1, %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i362 ]
   %131 = and i32 %.off0, 1
   %conv = xor i32 %131, 1
@@ -20659,7 +20659,7 @@ if.then98:                                        ; preds = %if.end96
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then98
-  %indvars.iv1270 = phi i64 [ 0, %if.then98 ], [ %indvars.iv.next1271, %for.cond.backedge ]
+  %indvars.iv1269 = phi i64 [ 0, %if.then98 ], [ %indvars.iv.next1270, %for.cond.backedge ]
   %call101 = invoke noundef i32 @_ZN3fmt2v96detail6bigint13divmod_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(172) %numerator, ptr noundef nonnull align 8 dereferenceable(172) %denominator)
           to label %invoke.cont100 unwind label %lpad6.loopexit
 
@@ -20827,14 +20827,14 @@ invoke.cont107:                                   ; preds = %if.end21.i667, %_ZZ
   %cmp110 = icmp sgt i32 %retval.0.i637, %invariant.op
   %196 = trunc i32 %call101 to i8
   %conv113 = add i8 %196, 48
-  %indvars.iv.next1271 = add nuw i64 %indvars.iv1270, 1
-  %arrayidx = getelementptr inbounds i8, ptr %172, i64 %indvars.iv1270
+  %indvars.iv.next1270 = add nuw i64 %indvars.iv1269, 1
+  %arrayidx = getelementptr inbounds i8, ptr %172, i64 %indvars.iv1269
   store i8 %conv113, ptr %arrayidx, align 1
   %brmerge = select i1 %cmp105, i1 true, i1 %cmp110
   br i1 %brmerge, label %if.then116, label %if.end145
 
 if.then116:                                       ; preds = %invoke.cont107
-  %197 = trunc i64 %indvars.iv1270 to i32
+  %197 = trunc i64 %indvars.iv1269 to i32
   br i1 %cmp105, label %if.else123, label %if.end139.sink.split
 
 if.else123:                                       ; preds = %if.then116
@@ -20930,7 +20930,7 @@ lor.lhs.false129:                                 ; preds = %if.end6.i704, %for.
   br i1 %or.cond, label %if.end139, label %if.end139.sink.split
 
 if.end139.sink.split:                             ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i733, %lor.lhs.false129, %if.end.i702, %if.then116
-  %208 = and i64 %indvars.iv.next1271, 4294967295
+  %208 = and i64 %indvars.iv.next1270, 4294967295
   %209 = getelementptr i8, ptr %172, i64 %208
   %arrayidx121 = getelementptr i8, ptr %209, i64 -1
   %210 = load i8, ptr %arrayidx121, align 1
@@ -20939,7 +20939,7 @@ if.end139.sink.split:                             ; preds = %_ZZN3fmt2v96detail1
   br label %if.end139
 
 if.end139:                                        ; preds = %if.end21.i738, %if.end139.sink.split, %if.then125, %if.else123, %lor.lhs.false129
-  %conv141 = and i64 %indvars.iv.next1271, 4294967295
+  %conv141 = and i64 %indvars.iv.next1270, 4294967295
   %capacity_.i.i = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %buf, i64 0, i32 3
   %211 = load i64, ptr %capacity_.i.i, align 8
   %cmp.i.i = icmp ult i64 %211, %conv141
@@ -21162,11 +21162,11 @@ for.body.i.i858:                                  ; preds = %if.then159, %for.bo
 for.end.i.i869:                                   ; preds = %for.body.i.i858
   %conv9.i.i870 = trunc i64 %shr.i.i866 to i32
   %cmp10.not.i.i871 = icmp eq i32 %conv9.i.i870, 0
-  %.pre1273 = load i64, ptr %1, align 8
+  %.pre1272 = load i64, ptr %1, align 8
   br i1 %cmp10.not.i.i871, label %invoke.cont160, label %if.then.i.i872
 
 if.then.i.i872:                                   ; preds = %for.end.i.i869
-  %add.i.i.i873 = add i64 %.pre1273, 1
+  %add.i.i.i873 = add i64 %.pre1272, 1
   %243 = load i64, ptr %capacity_.i.i.i61, align 8
   %cmp.i.i.i.i875 = icmp ult i64 %243, %add.i.i.i873
   br i1 %cmp.i.i.i.i875, label %if.then.i.i.i.i879, label %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i.i876
@@ -21184,7 +21184,7 @@ if.then.i.i.i.i879:                               ; preds = %if.then.i.i872
 
 _ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i.i876: ; preds = %.noexc883, %if.then.i.i872
   %inc.pre-phi.i.i.i877 = phi i64 [ %add.i.i.i873, %if.then.i.i872 ], [ %.pre1.i.i.i882, %.noexc883 ]
-  %245 = phi i64 [ %.pre1273, %if.then.i.i872 ], [ %.pre.i.i.i881, %.noexc883 ]
+  %245 = phi i64 [ %.pre1272, %if.then.i.i872 ], [ %.pre.i.i.i881, %.noexc883 ]
   %246 = load ptr, ptr %ptr_.i.i.i60, align 8
   store i64 %inc.pre-phi.i.i.i877, ptr %1, align 8
   %arrayidx.i9.i.i878 = getelementptr inbounds i32, ptr %246, i64 %245
@@ -21193,7 +21193,7 @@ _ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i.i876: ; preds = %.noexc883, %if
   br label %invoke.cont160
 
 invoke.cont160:                                   ; preds = %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i.i876, %for.end.i.i869, %if.then159
-  %247 = phi i64 [ %.pre, %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i.i876 ], [ %.pre1273, %for.end.i.i869 ], [ 0, %if.then159 ]
+  %247 = phi i64 [ %.pre, %_ZN3fmt2v96detail6bufferIjE9push_backERKj.exit.i.i876 ], [ %.pre1272, %for.end.i.i869 ], [ 0, %if.then159 ]
   %248 = load i64, ptr %0, align 8
   %conv.i.i886 = trunc i64 %248 to i32
   %249 = load i32, ptr %exp_.i, align 8

@@ -428,7 +428,7 @@ _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit43: ; preds = %_ZNSt10
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit43
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp11, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp11, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -810,7 +810,7 @@ _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit90: ; preds = %_ZNSt10
 
 call5.i.i.i.i.noexc.i97:                          ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit90
   store ptr %call5.i.i.i.i2.i92, ptr %ref.tmp30, align 8
-  %add.ptr.i1.i98 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i92, i64 2
+  %add.ptr.i1.i98 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i92, i64 32
   %_M_end_of_storage.i.i99 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp30, i64 0, i32 2
   store ptr %add.ptr.i1.i98, ptr %_M_end_of_storage.i.i99, align 8
   br label %for.body.i.i.i.i.i.i100
@@ -1515,7 +1515,7 @@ invoke.cont7:                                     ; preds = %_ZNK4cvc58internal1
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont7
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp3, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp3, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %4 = load ptr, ptr %ref.tmp4, align 8
@@ -2199,7 +2199,7 @@ _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit: ; preds = %if.then, 
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp11, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp11, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %12 = load ptr, ptr %ref.tmp12, align 8
@@ -3280,7 +3280,7 @@ invoke.cont7:                                     ; preds = %_ZN4cvc58internal12
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont7
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp3, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp3, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %3 = load ptr, ptr %ref.tmp4, align 8
@@ -3971,7 +3971,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont7
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -4534,7 +4534,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
 
 call5.i.i.i.i.noexc.i128:                         ; preds = %invoke.cont75
   store ptr %call5.i.i.i.i2.i123, ptr %ref.tmp65, align 8
-  %add.ptr.i1.i129 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i123, i64 2
+  %add.ptr.i1.i129 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i123, i64 32
   %_M_end_of_storage.i.i130 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp65, i64 0, i32 2
   store ptr %add.ptr.i1.i129, ptr %_M_end_of_storage.i.i130, align 8
   br label %for.body.i.i.i.i.i.i131
@@ -5074,7 +5074,7 @@ invoke.cont160:                                   ; preds = %invoke.cont158
 
 call5.i.i.i.i.noexc.i331:                         ; preds = %invoke.cont160
   store ptr %call5.i.i.i.i2.i326, ptr %ref.tmp150, align 8
-  %add.ptr.i1.i332 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i326, i64 2
+  %add.ptr.i1.i332 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i326, i64 32
   %_M_end_of_storage.i.i333 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp150, i64 0, i32 2
   store ptr %add.ptr.i1.i332, ptr %_M_end_of_storage.i.i333, align 8
   br label %for.body.i.i.i.i.i.i334
@@ -5611,7 +5611,7 @@ invoke.cont6:                                     ; preds = %_ZN4cvc58internal12
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont6
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp2, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp2, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %3 = load ptr, ptr %ref.tmp3, align 8
@@ -6210,7 +6210,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont16
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp7, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp7, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %6 = load ptr, ptr %ref.tmp9, align 8
@@ -6258,7 +6258,7 @@ invoke.cont22:                                    ; preds = %_ZSt10_ConstructISt
 
 call5.i.i.i.i.noexc.i27:                          ; preds = %invoke.cont22
   store ptr %call5.i.i.i.i2.i22, ptr %ref.tmp, align 8
-  %add.ptr.i1.i28 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i22, i64 2
+  %add.ptr.i1.i28 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i22, i64 32
   %_M_end_of_storage.i.i29 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i1.i28, ptr %_M_end_of_storage.i.i29, align 8
   br label %for.body.i.i.i.i.i.i30
@@ -6929,7 +6929,7 @@ invoke.cont87:                                    ; preds = %_ZN4cvc58internal12
 
 call5.i.i.i.i.noexc.i210:                         ; preds = %invoke.cont87
   store ptr %call5.i.i.i.i2.i205, ptr %ref.tmp78, align 8
-  %add.ptr.i1.i211 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i205, i64 1
+  %add.ptr.i1.i211 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i205, i64 16
   %_M_end_of_storage.i.i212 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp78, i64 0, i32 2
   store ptr %add.ptr.i1.i211, ptr %_M_end_of_storage.i.i212, align 8
   %97 = load ptr, ptr %ref.tmp80, align 8
@@ -7619,7 +7619,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont10
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -8050,7 +8050,7 @@ invoke.cont45:                                    ; preds = %_ZN4cvc58internal12
 
 call5.i.i.i.i.noexc.i78:                          ; preds = %invoke.cont45
   store ptr %call5.i.i.i.i2.i73, ptr %ref.tmp36, align 8
-  %add.ptr.i1.i79 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i73, i64 1
+  %add.ptr.i1.i79 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i73, i64 16
   %_M_end_of_storage.i.i80 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp36, i64 0, i32 2
   store ptr %add.ptr.i1.i79, ptr %_M_end_of_storage.i.i80, align 8
   %57 = load ptr, ptr %ref.tmp38, align 8
@@ -8697,7 +8697,7 @@ invoke.cont7:                                     ; preds = %_ZNK4cvc58internal1
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont7
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp3, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp3, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %4 = load ptr, ptr %ref.tmp4, align 8
@@ -9341,7 +9341,7 @@ invoke.cont7:                                     ; preds = %_ZNK4cvc58internal1
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont7
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp3, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp3, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %4 = load ptr, ptr %ref.tmp4, align 8
@@ -10031,7 +10031,7 @@ invoke.cont14:                                    ; preds = %cond.end
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont14
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp6, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp6, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %6 = load ptr, ptr %ref.tmp7, align 8
@@ -10706,7 +10706,7 @@ invoke.cont82:                                    ; preds = %cond.end80
 
 call5.i.i.i.i.noexc.i172:                         ; preds = %invoke.cont82
   store ptr %call5.i.i.i.i2.i167, ptr %ref.tmp65, align 8
-  %add.ptr.i1.i173 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i167, i64 1
+  %add.ptr.i1.i173 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i167, i64 16
   %_M_end_of_storage.i.i174 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp65, i64 0, i32 2
   store ptr %add.ptr.i1.i173, ptr %_M_end_of_storage.i.i174, align 8
   %89 = load ptr, ptr %ref.tmp67, align 8
@@ -11421,7 +11421,7 @@ invoke.cont14:                                    ; preds = %cond.end
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont14
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp6, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp6, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %6 = load ptr, ptr %ref.tmp7, align 8
@@ -12096,7 +12096,7 @@ invoke.cont82:                                    ; preds = %cond.end80
 
 call5.i.i.i.i.noexc.i172:                         ; preds = %invoke.cont82
   store ptr %call5.i.i.i.i2.i167, ptr %ref.tmp65, align 8
-  %add.ptr.i1.i173 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i167, i64 1
+  %add.ptr.i1.i173 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i167, i64 16
   %_M_end_of_storage.i.i174 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp65, i64 0, i32 2
   store ptr %add.ptr.i1.i173, ptr %_M_end_of_storage.i.i174, align 8
   %89 = load ptr, ptr %ref.tmp67, align 8
@@ -12750,7 +12750,7 @@ _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit: ; preds = %entry, %i
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit
   store ptr %call5.i.i.i.i2.i, ptr %children, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %children, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %5 = load ptr, ptr %ref.tmp, align 8
@@ -14015,7 +14015,7 @@ invoke.cont5:                                     ; preds = %_ZN4cvc58internal12
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont5
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %3 = load ptr, ptr %ref.tmp2, align 8
@@ -14525,7 +14525,7 @@ invoke.cont6:                                     ; preds = %_ZNK4cvc58internal1
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont6
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp2, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp2, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %4 = load ptr, ptr %ref.tmp3, align 8
@@ -15129,7 +15129,7 @@ invoke.cont8:                                     ; preds = %_ZN4cvc58internal12
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont8
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp4, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp4, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %5 = load ptr, ptr %ref.tmp5, align 8
@@ -15664,7 +15664,7 @@ invoke.cont59:                                    ; preds = %_ZNK4cvc58internal1
 
 call5.i.i.i.i.noexc.i114:                         ; preds = %invoke.cont59
   store ptr %call5.i.i.i.i2.i109, ptr %ref.tmp49, align 8
-  %add.ptr.i1.i115 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i109, i64 1
+  %add.ptr.i1.i115 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i109, i64 16
   %_M_end_of_storage.i.i116 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp49, i64 0, i32 2
   store ptr %add.ptr.i1.i115, ptr %_M_end_of_storage.i.i116, align 8
   %72 = load ptr, ptr %ref.tmp51, align 8
@@ -16318,7 +16318,7 @@ invoke.cont7:                                     ; preds = %_ZN4cvc58internal12
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont7
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp3, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp3, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %5 = load ptr, ptr %ref.tmp4, align 8
@@ -16855,7 +16855,7 @@ invoke.cont56:                                    ; preds = %_ZNK4cvc58internal1
 
 call5.i.i.i.i.noexc.i113:                         ; preds = %invoke.cont56
   store ptr %call5.i.i.i.i2.i108, ptr %ref.tmp46, align 8
-  %add.ptr.i1.i114 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i108, i64 1
+  %add.ptr.i1.i114 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i108, i64 16
   %_M_end_of_storage.i.i115 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp46, i64 0, i32 2
   store ptr %add.ptr.i1.i114, ptr %_M_end_of_storage.i.i115, align 8
   %72 = load ptr, ptr %ref.tmp48, align 8
@@ -17414,7 +17414,7 @@ invoke.cont6:                                     ; preds = %_ZNK4cvc58internal1
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont6
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp2, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp2, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %4 = load ptr, ptr %ref.tmp3, align 8
@@ -17887,7 +17887,7 @@ invoke.cont6:                                     ; preds = %_ZNK4cvc58internal1
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont6
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp2, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<cvc5::internal::ProofNode>, std::allocator<std::shared_ptr<cvc5::internal::ProofNode>>>::_Vector_impl_data", ptr %ref.tmp2, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %4 = load ptr, ptr %ref.tmp3, align 8

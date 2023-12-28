@@ -788,7 +788,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   store ptr %call5.i.i.i.i2.i.i, ptr @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, align 8
-  %add.ptr.i1.i.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i, i64 4
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 32
   store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   store <2 x double> <double 0x3FD2C4B12C4B12C4, double 0x3FE56D5B56D5B56D>, ptr %call5.i.i.i.i2.i.i, align 8
   %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 16
@@ -800,7 +800,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev25RED_LOG3G10_RWG_to_LINEARL6paramsE, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   store ptr %call5.i.i.i.i2.i.i2, ptr @_ZN19OpenColorIO_v2_4dev25RED_LOG3G10_RWG_to_LINEARL6paramsE, align 8
-  %add.ptr.i1.i.i3 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i2, i64 5
+  %add.ptr.i1.i.i3 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2, i64 40
   store ptr %add.ptr.i1.i.i3, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN19OpenColorIO_v2_4dev25RED_LOG3G10_RWG_to_LINEARL6paramsE, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call5.i.i.i.i2.i.i2, ptr noundef nonnull align 8 dereferenceable(40) @constinit, i64 40, i1 false)
   store ptr %add.ptr.i1.i.i3, ptr getelementptr inbounds (%"class.std::vector", ptr @_ZN19OpenColorIO_v2_4dev25RED_LOG3G10_RWG_to_LINEARL6paramsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8

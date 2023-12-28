@@ -24329,7 +24329,6 @@ _ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6ato
   %2 = load ptr, ptr %_M_finish.i, align 8, !tbaa !755
   %sub.ptr.lhs.cast.i30 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i33 = sdiv exact i64 %sub.ptr.sub.i32, 640
   %mul.i.i.i = mul nuw nsw i64 %__n, 640
   %call5.i.i.i = tail call noalias noundef nonnull align 128 ptr @_ZnwmSt11align_val_t(i64 noundef %mul.i.i.i, i64 noundef 128) #35
   call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i, i64 128) ]
@@ -24402,7 +24401,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN5foll
 
 _ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %if.then.i, %_ZNSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !757
-  %add.ptr = getelementptr inbounds %"class.folly::MPMCQueue", ptr %call5.i.i.i, i64 %sub.ptr.div.i33
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i32
   store ptr %add.ptr, ptr %_M_finish.i, align 8, !tbaa !755
   %add.ptr21 = getelementptr inbounds %"class.folly::MPMCQueue", ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8, !tbaa !753
@@ -28224,8 +28223,7 @@ lpad46:                                           ; preds = %invoke.cont47, %con
 cleanup.done60:                                   ; preds = %cleanup.done25
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.2.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
-  %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.0", ptr %0, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   %call10.i = tail call ptr @_ZNSt6vectorISt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESaIS4_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS4_S6_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %add.ptr.i.i)
   %15 = load ptr, ptr %state, align 8, !tbaa !16
   %call72 = tail call i64 @_ZNK5folly18ThreadPoolExecutor6Thread11usedCpuTimeEv(ptr noundef nonnull align 64 dereferenceable(64) %15)

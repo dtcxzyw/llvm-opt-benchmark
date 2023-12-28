@@ -1258,16 +1258,16 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then14.i.i.i.i
   br label %_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i, label %if.then.i.i.i.i.i23.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i, label %if.then.i.i.i.i.i22.i.i.i.i
 
-if.then.i.i.i.i.i23.i.i.i.i:                      ; preds = %if.else.i.i.i.i
+if.then.i.i.i.i.i22.i.i.i.i:                      ; preds = %if.else.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i18.i.i.i.i = ptrtoint ptr %add.ptr21.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i20.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i18.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i21.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i21.i.i.i.i
+  %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i.i, 3
+  %.pre.i.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i.i
   %add.ptr29.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i, i64 %add.i.i4.i.i
-  %add.ptr.i.i.i.i.i24.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i.i.i.i, i64 %.pre.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i24.i.i.i.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i23.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i.i.i.i, i64 %.pre.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i.i.i.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i.i, i1 false)
   br label %_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 if.else31.i.i.i.i:                                ; preds = %if.then.i.i.i
@@ -1296,23 +1296,23 @@ _ZNSt11_Deque_baseIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_allocate_map
   %div4116.i.i.i.i = lshr i64 %sub40.i.i.i.i, 1
   %add.ptr42.i.i.i.i = getelementptr inbounds ptr, ptr %call5.i.i2.i.i.i.i.i, i64 %div4116.i.i.i.i
   %add.ptr55.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
-  %tobool.not.i.i.i.i.i28.i.i.i.i = icmp eq ptr %add.ptr55.i.i.i.i, %3
-  br i1 %tobool.not.i.i.i.i.i28.i.i.i.i, label %_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit32.i.i.i.i, label %if.then.i.i.i.i.i29.i.i.i.i
+  %tobool.not.i.i.i.i.i27.i.i.i.i = icmp eq ptr %add.ptr55.i.i.i.i, %3
+  br i1 %tobool.not.i.i.i.i.i27.i.i.i.i, label %_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit30.i.i.i.i, label %if.then.i.i.i.i.i28.i.i.i.i
 
-if.then.i.i.i.i.i29.i.i.i.i:                      ; preds = %_ZNSt11_Deque_baseIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_allocate_mapEm.exit.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i25.i.i.i.i = ptrtoint ptr %add.ptr55.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i27.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i25.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr42.i.i.i.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i27.i.i.i.i, i1 false)
-  br label %_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit32.i.i.i.i
+if.then.i.i.i.i.i28.i.i.i.i:                      ; preds = %_ZNSt11_Deque_baseIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_allocate_mapEm.exit.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i24.i.i.i.i = ptrtoint ptr %add.ptr55.i.i.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i26.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i24.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr42.i.i.i.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i.i.i26.i.i.i.i, i1 false)
+  br label %_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit30.i.i.i.i
 
-_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit32.i.i.i.i: ; preds = %if.then.i.i.i.i.i29.i.i.i.i, %_ZNSt11_Deque_baseIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_allocate_mapEm.exit.i.i.i.i
+_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit30.i.i.i.i: ; preds = %if.then.i.i.i.i.i28.i.i.i.i, %_ZNSt11_Deque_baseIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_allocate_mapEm.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %8) #27
   store ptr %call5.i.i2.i.i.i.i.i, ptr %this, align 8
   store i64 %add38.i.i.i.i, ptr %_M_map_size.i.i.i, align 8
   br label %_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i
 
-_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i: ; preds = %_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit32.i.i.i.i, %if.then.i.i.i.i.i23.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then14.i.i.i.i
-  %__new_nstart.0.i.i.i.i = phi ptr [ %add.ptr42.i.i.i.i, %_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit32.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.else.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i23.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then14.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i: ; preds = %_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit30.i.i.i.i, %if.then.i.i.i.i.i22.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then14.i.i.i.i
+  %__new_nstart.0.i.i.i.i = phi ptr [ %add.ptr42.i.i.i.i, %_ZSt4copyIPPN5arrow8internal12_GLOBAL__N_14TaskES5_ET0_T_S7_S6_.exit30.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then14.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.else.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i22.i.i.i.i ]
   store ptr %__new_nstart.0.i.i.i.i, ptr %_M_node1.i.i.i.i, align 8
   %9 = load ptr, ptr %__new_nstart.0.i.i.i.i, align 8
   %_M_first.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<arrow::internal::(anonymous namespace)::Task, std::allocator<arrow::internal::(anonymous namespace)::Task>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
@@ -1324,8 +1324,8 @@ _ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE17_M_reallocate_mapEmb.e
   store ptr %add.ptr71.i.i.i.i, ptr %_M_node.i.i.i.i, align 8
   %10 = load ptr, ptr %add.ptr71.i.i.i.i, align 8
   store ptr %10, ptr %_M_first.i.i.i.i, align 8
-  %add.ptr.i35.i.i.i.i = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::Task", ptr %10, i64 16
-  store ptr %add.ptr.i35.i.i.i.i, ptr %_M_last.i, align 8
+  %add.ptr.i33.i.i.i.i = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::Task", ptr %10, i64 16
+  store ptr %add.ptr.i33.i.i.i.i, ptr %_M_last.i, align 8
   br label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i, %if.end.i.i
@@ -4227,7 +4227,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.else.i.i, %if.th
 
 declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5arrow8internal10ThreadPool14OwnsThisThreadEv(ptr noundef nonnull readnone align 8 dereferenceable(33) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5arrow8internal20current_thread_pool_E)
@@ -9436,7 +9436,7 @@ attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

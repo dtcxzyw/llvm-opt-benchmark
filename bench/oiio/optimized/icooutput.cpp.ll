@@ -38528,22 +38528,23 @@ _ZNSt12_Vector_baseI15png_text_structSaIS0_EE11_M_allocateEm.exit.i: ; preds = %
   %add.ptr.i = getelementptr inbounds %struct.png_text_struct, ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(56) %__x, i64 56, i1 false)
   %cmp.i.i.i11.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 0
-  br i1 %cmp.i.i.i11.i, label %if.then.i.i.i12.i, label %_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i
+  br i1 %cmp.i.i.i11.i, label %if.then.i.i.i12.i, label %_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i
 
 if.then.i.i.i12.i:                                ; preds = %_ZNSt12_Vector_baseI15png_text_structSaIS0_EE11_M_allocateEm.exit.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i, i1 false)
-  br label %_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i
+  br label %_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i
 
-_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i: ; preds = %_ZNSt12_Vector_baseI15png_text_structSaIS0_EE11_M_allocateEm.exit.i, %if.then.i.i.i12.i
-  %incdec.ptr.i = getelementptr inbounds %struct.png_text_struct, ptr %add.ptr.i, i64 1
+_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i: ; preds = %_ZNSt12_Vector_baseI15png_text_structSaIS0_EE11_M_allocateEm.exit.i, %if.then.i.i.i12.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i, i64 %sub.ptr.sub.i.i.i
+  %incdec.ptr.i = getelementptr inbounds %struct.png_text_struct, ptr %add.ptr.i.i.i.i, i64 1
   %tobool.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorI15png_text_structSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, label %if.then.i21.i
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorI15png_text_structSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, label %if.then.i20.i
 
-if.then.i21.i:                                    ; preds = %_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i
+if.then.i20.i:                                    ; preds = %_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i
   tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   br label %_ZNSt6vectorI15png_text_structSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit
 
-_ZNSt6vectorI15png_text_structSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i, %if.then.i21.i
+_ZNSt6vectorI15png_text_structSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI15png_text_structSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i, %if.then.i20.i
   store ptr %cond.i10.i, ptr %this, align 8
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr19.i = getelementptr inbounds %struct.png_text_struct, ptr %cond.i10.i, i64 %cond.i.i

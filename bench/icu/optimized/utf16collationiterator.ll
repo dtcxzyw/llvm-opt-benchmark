@@ -529,8 +529,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
-  %add.ptr = getelementptr inbounds i16, ptr %newText, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %pos, align 8
   %limit4 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %other, i64 0, i32 3
   %2 = load ptr, ptr %limit4, align 8
@@ -539,8 +538,7 @@ entry:
   %sub.ptr.lhs.cast7 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast8 = ptrtoint ptr %3 to i64
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
-  %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
-  %add.ptr11 = getelementptr inbounds i16, ptr %newText, i64 %sub.ptr.div10
+  %add.ptr11 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub9
   %cond = select i1 %cmp, ptr null, ptr %add.ptr11
   %limit = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this, i64 0, i32 3
   store ptr %cond, ptr %limit, align 8
@@ -971,8 +969,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
-  %add.ptr = getelementptr inbounds i16, ptr %newText, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %segmentStart, align 8
   %segmentLimit = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this, i64 0, i32 3
   %segmentLimit4 = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %other, i64 0, i32 3
@@ -982,8 +979,7 @@ entry:
   %sub.ptr.lhs.cast7 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast8 = ptrtoint ptr %3 to i64
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast8
-  %sub.ptr.div10 = ashr exact i64 %sub.ptr.sub9, 1
-  %add.ptr11 = getelementptr inbounds i16, ptr %newText, i64 %sub.ptr.div10
+  %add.ptr11 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub9
   %cond = select i1 %cmp, ptr null, ptr %add.ptr11
   store ptr %cond, ptr %segmentLimit, align 8
   %rawLimit = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this, i64 0, i32 4
@@ -994,8 +990,7 @@ entry:
   %sub.ptr.lhs.cast18 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast19 = ptrtoint ptr %5 to i64
   %sub.ptr.sub20 = sub i64 %sub.ptr.lhs.cast18, %sub.ptr.rhs.cast19
-  %sub.ptr.div21 = ashr exact i64 %sub.ptr.sub20, 1
-  %add.ptr22 = getelementptr inbounds i16, ptr %newText, i64 %sub.ptr.div21
+  %add.ptr22 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub20
   %cond24 = select i1 %cmp13, ptr null, ptr %add.ptr22
   store ptr %cond24, ptr %rawLimit, align 8
   %nfcImpl = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this, i64 0, i32 5
@@ -1025,8 +1020,7 @@ if.then:                                          ; preds = %invoke.cont
   %sub.ptr.lhs.cast34 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast35 = ptrtoint ptr %10 to i64
   %sub.ptr.sub36 = sub i64 %sub.ptr.lhs.cast34, %sub.ptr.rhs.cast35
-  %sub.ptr.div37 = ashr exact i64 %sub.ptr.sub36, 1
-  %add.ptr38 = getelementptr inbounds i16, ptr %newText, i64 %sub.ptr.div37
+  %add.ptr38 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub36
   store ptr %add.ptr38, ptr %start.i, align 8
   %pos = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %other, i64 0, i32 2
   %11 = load ptr, ptr %pos, align 8
@@ -1034,8 +1028,7 @@ if.then:                                          ; preds = %invoke.cont
   %sub.ptr.lhs.cast41 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast42 = ptrtoint ptr %12 to i64
   %sub.ptr.sub43 = sub i64 %sub.ptr.lhs.cast41, %sub.ptr.rhs.cast42
-  %sub.ptr.div44 = ashr exact i64 %sub.ptr.sub43, 1
-  %add.ptr45 = getelementptr inbounds i16, ptr %newText, i64 %sub.ptr.div44
+  %add.ptr45 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub43
   %pos46 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this, i64 0, i32 2
   store ptr %add.ptr45, ptr %pos46, align 8
   %limit = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %other, i64 0, i32 3
@@ -1045,8 +1038,7 @@ if.then:                                          ; preds = %invoke.cont
   %sub.ptr.lhs.cast52 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast53 = ptrtoint ptr %14 to i64
   %sub.ptr.sub54 = sub i64 %sub.ptr.lhs.cast52, %sub.ptr.rhs.cast53
-  %sub.ptr.div55 = ashr exact i64 %sub.ptr.sub54, 1
-  %add.ptr56 = getelementptr inbounds i16, ptr %newText, i64 %sub.ptr.div55
+  %add.ptr56 = getelementptr inbounds i8, ptr %newText, i64 %sub.ptr.sub54
   %cond58 = select i1 %cmp47, ptr null, ptr %add.ptr56
   br label %if.end
 
@@ -1087,8 +1079,7 @@ invoke.cont75:                                    ; preds = %if.else9.i, %if.the
   %sub.ptr.lhs.cast67 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast68 = ptrtoint ptr %19 to i64
   %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
-  %sub.ptr.div70 = ashr exact i64 %sub.ptr.sub69, 1
-  %add.ptr71 = getelementptr inbounds i16, ptr %retval.0.i, i64 %sub.ptr.div70
+  %add.ptr71 = getelementptr inbounds i8, ptr %retval.0.i, i64 %sub.ptr.sub69
   %pos72 = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this, i64 0, i32 2
   store ptr %add.ptr71, ptr %pos72, align 8
   %cmp.i.i = icmp slt i16 %16, 0

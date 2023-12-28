@@ -4056,13 +4056,11 @@ sw.bb41:                                          ; preds = %do.body
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %sub.ptr.lhs.cast1.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast2.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub3.i = sub i64 %sub.ptr.lhs.cast1.i, %sub.ptr.rhs.cast2.i
-  %sub.ptr.div4.i = sdiv exact i64 %sub.ptr.sub3.i, 40
-  %cmp.i160 = icmp slt i64 %sub.ptr.div4.i, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds %"struct.folly::dynamic", ptr %9, i64 %sub.ptr.div4.i
+  %cmp.i160 = icmp slt i64 %sub.ptr.sub3.i, %sub.ptr.sub.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub3.i
   %cond.i = select i1 %cmp.i160, ptr %add.ptr.i, ptr %10
   %cmp.not.i.i.i158162 = icmp eq ptr %9, %cond.i
   br i1 %cmp.not.i.i.i158162, label %for.end.i.i.i, label %for.body.i.i.i
@@ -6951,7 +6949,7 @@ if.end:                                           ; preds = %for.end82
   %sub.ptr.sub97 = sub i64 %sub.ptr.lhs.cast95, %sub.ptr.rhs.cast96
   %sub.ptr.div98 = ashr exact i64 %sub.ptr.sub97, 7
   %30 = load ptr, ptr %this, align 8, !tbaa !218
-  %add.ptr102 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %30, i64 %sub.ptr.div98
+  %add.ptr102 = getelementptr inbounds i8, ptr %30, i64 %sub.ptr.sub97
   %31 = load <16 x i8>, ptr %add.ptr102, align 16, !tbaa !30
   %32 = icmp slt <16 x i8> %31, zeroinitializer
   %33 = bitcast <16 x i1> %32 to i16
@@ -8152,7 +8150,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPN5fo
 
 _ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %if.then.i, %_ZSt8_DestroyIPN5folly7dynamicES1_EvT_S3_RSaIT0_E.exit
   store ptr %call11, ptr %this, align 8, !tbaa !231
-  %add.ptr = getelementptr inbounds %"struct.folly::dynamic", ptr %call11, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call11, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !232
   br label %if.end69
 
@@ -8189,8 +8187,7 @@ _ZSt14__copy_move_a2ILb0EPKN5folly7dynamicEPS1_ET1_T0_S6_S5_.exit: ; preds = %_Z
   %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre153, %_ZSt14__copy_move_a2ILb0EPKN5folly7dynamicEPS1_ET1_T0_S6_S5_.exit.loopexit ], [ %sub.ptr.rhs.cast.i90, %for.cond.i.i.preheader ]
   %8 = phi ptr [ %.pre, %_ZSt14__copy_move_a2ILb0EPKN5folly7dynamicEPS1_ET1_T0_S6_S5_.exit.loopexit ], [ %7, %for.cond.i.i.preheader ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::dynamic", ptr %3, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i
   %cmp.i.not6.i.i.i = icmp eq ptr %add.ptr.i.i.i, %8
   br i1 %cmp.i.not6.i.i.i, label %if.end69, label %for.body.i.i.i101
 
@@ -8288,7 +8285,7 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont3.i.i.i.
 
 if.end69:                                         ; preds = %for.body.i.i.i101, %for.inc.i.i.i.i, %_ZSt14__copy_move_a2ILb0EPN5folly7dynamicES2_ET1_T0_S4_S3_.exit, %_ZSt14__copy_move_a2ILb0EPKN5folly7dynamicEPS1_ET1_T0_S6_S5_.exit, %_ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE13_M_deallocateEPS1_m.exit
   %18 = load ptr, ptr %this, align 8, !tbaa !231
-  %add.ptr72 = getelementptr inbounds %"struct.folly::dynamic", ptr %18, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<folly::dynamic, std::allocator<folly::dynamic>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8, !tbaa !204
   br label %if.end75
@@ -11524,12 +11521,10 @@ _ZN5folly7dynamic3getISt6vectorIS0_SaIS0_EEEERT_v.exit35: ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %first.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
-  %add.ptr.i = getelementptr inbounds %"struct.folly::dynamic", ptr %1, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i
   %sub.ptr.lhs.cast.i36 = ptrtoint ptr %last.coerce to i64
   %sub.ptr.sub.i38 = sub i64 %sub.ptr.lhs.cast.i36, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i39 = sdiv exact i64 %sub.ptr.sub.i38, 40
-  %add.ptr.i40 = getelementptr inbounds %"struct.folly::dynamic", ptr %1, i64 %sub.ptr.div.i39
+  %add.ptr.i40 = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i38
   %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %add.ptr.i40 to i64
   %cmp.i.not.i.i = icmp eq ptr %first.coerce, %last.coerce
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN5folly7dynamicESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit, label %if.then.i.i
@@ -11570,8 +11565,7 @@ if.end.i.i:                                       ; preds = %if.end.loopexit.i.i
   %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre31.i.i, %if.end.loopexit.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i18.i, %if.then.i.i ]
   %3 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %2, %if.then6.i.i ], [ %add.ptr.i40, %if.then.i.i ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.lhs.cast.i18.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %add.ptr.i23.i = getelementptr inbounds %"struct.folly::dynamic", ptr %add.ptr.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i23.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %3, %add.ptr.i23.i
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5folly7dynamicESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit, label %for.body.i.i.i.i.i.i
 
@@ -13071,7 +13065,6 @@ _ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE11_M_allocateEm.exit.i: ; preds = %i
   %3 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !204
   %sub.ptr.lhs.cast.i30.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i32.i = sub i64 %sub.ptr.lhs.cast.i30.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i33.i = sdiv exact i64 %sub.ptr.sub.i32.i, 40
   %mul.i.i.i.i = mul nuw nsw i64 %capacity, 40
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #33
   %cmp.not6.i.i.i.i = icmp eq ptr %2, %3
@@ -13102,7 +13095,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorIN5foll
 
 _ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorIN5folly7dynamicESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   store ptr %call5.i.i.i.i, ptr %spec.select.i, align 8, !tbaa !231
-  %add.ptr.i = getelementptr inbounds %"struct.folly::dynamic", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i33.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i32.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8, !tbaa !204
   %add.ptr21.i = getelementptr inbounds %"struct.folly::dynamic", ptr %call5.i.i.i.i, i64 %capacity
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !232

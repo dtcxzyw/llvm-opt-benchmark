@@ -165,7 +165,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6Assimp3MDC11BuildVertexERKNS0_5FrameERKNS0_10BaseVertexERKNS0_16CompressedVertexER10aiVector3tIfESC_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %frame, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %bvert, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %cvert, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %vXYZOut, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %vNorOut) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %cvert, align 1
@@ -929,7 +929,6 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %27 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i9.i = ashr exact i64 %sub.ptr.sub.i8.i, 5
   %mul.i.i.i.i = shl nuw nsw i64 %conv57, 5
   %call5.i.i.i.i161 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #22
           to label %call5.i.i.i.i.noexc unwind label %lpad49.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -963,7 +962,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorINSt7__
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i161, ptr %aszShaders, align 8
-  %add.ptr.i160 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i161, i64 %sub.ptr.div.i9.i
+  %add.ptr.i160 = getelementptr inbounds i8, ptr %call5.i.i.i.i161, i64 %sub.ptr.sub.i8.i
   store ptr %add.ptr.i160, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i161, i64 %conv57
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
@@ -1187,7 +1186,7 @@ invoke.cont130:                                   ; preds = %if.end127
 new.ctorloop:                                     ; preds = %invoke.cont130
   %57 = add nsw i64 %56, -12
   %58 = urem i64 %57, 12
-  %59 = sub nsw i64 %57, %58
+  %59 = sub nuw nsw i64 %57, %58
   %60 = add nsw i64 %59, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call131, i8 0, i64 %60, i1 false)
   br label %arrayctor.cont
@@ -1203,7 +1202,7 @@ invoke.cont134:                                   ; preds = %arrayctor.cont
 new.ctorloop137:                                  ; preds = %invoke.cont134
   %61 = add nsw i64 %56, -12
   %62 = urem i64 %61, 12
-  %63 = sub nsw i64 %61, %62
+  %63 = sub nuw nsw i64 %61, %62
   %64 = add nsw i64 %63, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call135, i8 0, i64 %64, i1 false)
   br label %arrayctor.cont143
@@ -1220,7 +1219,7 @@ invoke.cont146:                                   ; preds = %arrayctor.cont143
 new.ctorloop149:                                  ; preds = %invoke.cont146
   %65 = add nsw i64 %56, -12
   %66 = urem i64 %65, 12
-  %67 = sub nsw i64 %65, %66
+  %67 = sub nuw nsw i64 %65, %66
   %68 = add nsw i64 %67, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call147, i8 0, i64 %68, i1 false)
   br label %arrayctor.cont155
@@ -2700,7 +2699,7 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 declare i32 @llvm.umin.i32(i32, i32) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

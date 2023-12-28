@@ -2371,8 +2371,7 @@ cond.false:                                       ; preds = %_ZN5boost9container
   %sub.ptr.lhs.cast.i = ptrtoint ptr %data.sroa.0.016 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %add.ptr.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %1, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i, ptr %agg.result, align 8, !tbaa !94, !alias.scope !96
   br label %cond.end
 
@@ -2401,7 +2400,6 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %tobool.not.i = icmp eq i64 %n, 0
   br i1 %tobool.not.i, label %_ZN5boost9container6vectorINS0_3dtl4pairIiiEENS0_13new_allocatorIS4_EEvE40priv_forward_range_insert_expand_forwardINS2_17insert_move_proxyIS6_PS4_EEEEvSA_mT_.exit, label %if.end.i, !prof !23
 
@@ -2495,7 +2493,7 @@ invoke.cont28.i:                                  ; preds = %if.then.i.i81.i, %i
 
 _ZN5boost9container6vectorINS0_3dtl4pairIiiEENS0_13new_allocatorIS4_EEvE40priv_forward_range_insert_expand_forwardINS2_17insert_move_proxyIS6_PS4_EEEEvSA_mT_.exit: ; preds = %invoke.cont28.i, %_ZN5boost9container13move_backwardIPNS0_3dtl4pairIiiEES5_EENS2_37enable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i, %if.then4.i, %if.else
   %14 = load ptr, ptr %this, align 8, !tbaa !21
-  %add.ptr = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %14, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %agg.result, align 8, !tbaa !94
   br label %cleanup
 
@@ -2570,9 +2568,8 @@ if.then.i15:                                      ; preds = %_ZN5boost9container
 if.then.i.i.i:                                    ; preds = %if.then.i15
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call.i.i.i, ptr nonnull align 4 %6, i64 %sub.ptr.sub.i.i.i, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %call.i.i.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i.i.i
   br label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.then.i.i.i, %if.then.i15
@@ -2590,9 +2587,8 @@ if.then22.i:                                      ; preds = %if.then.i.i.i, %if.
 if.then.i.i68.i:                                  ; preds = %if.then22.i
   %sub.ptr.lhs.cast.i.i69.i = ptrtoint ptr %add.ptr26.i to i64
   %sub.ptr.sub.i.i71.i = sub i64 %sub.ptr.lhs.cast.i.i69.i, %sub.ptr.lhs.cast
-  %sub.ptr.div.i.i72.i = ashr exact i64 %sub.ptr.sub.i.i71.i, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr nonnull align 4 %0, i64 %sub.ptr.sub.i.i71.i, i1 false)
-  %add.ptr.i.i.i73.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %add.ptr.i, i64 %sub.ptr.div.i.i72.i
+  %add.ptr.i.i.i73.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i71.i
   br label %_ZN5boost9container24uninitialized_move_allocINS0_13new_allocatorINS0_3dtl4pairIiiEEEEPS5_S7_EENS3_40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit74.i
 
 _ZN5boost9container24uninitialized_move_allocINS0_13new_allocatorINS0_3dtl4pairIiiEEEEPS5_S7_EENS3_40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit74.i: ; preds = %if.then.i.i68.i, %if.then22.i
@@ -2604,7 +2600,6 @@ _ZN5boost9container6vectorINS0_3dtl4pairIiiEENS0_13new_allocatorIS4_EEvE40priv_f
   %new_finish.1.i = phi ptr [ %r.addr.0.i.i67.i, %_ZN5boost9container24uninitialized_move_allocINS0_13new_allocatorINS0_3dtl4pairIiiEEEEPS5_S7_EENS3_40enable_if_memtransfer_copy_constructibleIT0_T1_SA_E4typeERT_S9_S9_SA_.exit74.i ], [ %add.ptr86.i, %invoke.cont15.thread.i ]
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   store ptr %call.i.i.i, ptr %this, align 8, !tbaa !102
   %sub.ptr.lhs.cast36.i = ptrtoint ptr %new_finish.1.i to i64
   %sub.ptr.rhs.cast37.i = ptrtoint ptr %call.i.i.i to i64
@@ -2612,7 +2607,7 @@ _ZN5boost9container6vectorINS0_3dtl4pairIiiEENS0_13new_allocatorIS4_EEvE40priv_f
   %sub.ptr.div39.i = ashr exact i64 %sub.ptr.sub38.i, 3
   store i64 %sub.ptr.div39.i, ptr %m_size.i, align 8, !tbaa !54
   store i64 %5, ptr %m_capacity.i, align 8, !tbaa !99
-  %add.ptr = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %call.i.i.i, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %agg.result, align 8, !tbaa !94
   ret void
 }
@@ -2653,7 +2648,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly10SubprocessC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #17 align 2 {
 entry:
   store i32 -1, ptr %this, align 8, !tbaa !103
@@ -6383,7 +6378,7 @@ _ZNKSt6vectorIN5folly10Subprocess4PipeESaIS2_EE12_M_check_lenEmPKc.exit: ; preds
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 20
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #46
-  %add.ptr = getelementptr inbounds %"struct.folly::Subprocess::Pipe", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %2 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 16, i1 false)
   store i32 -1, ptr %add.ptr, align 4, !tbaa !163
@@ -10094,8 +10089,7 @@ invoke.cont218:                                   ; preds = %invoke.cont205
   %sub.ptr.lhs.cast.i.i436 = ptrtoint ptr %add.ptr.i435 to i64
   %sub.ptr.rhs.cast.i.i437 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i438 = sub i64 %sub.ptr.lhs.cast.i.i436, %sub.ptr.rhs.cast.i.i437
-  %sub.ptr.div.i.i439 = sdiv exact i64 %sub.ptr.sub.i.i438, 20
-  %add.ptr.i.i440 = getelementptr inbounds %"struct.folly::Subprocess::Pipe", ptr %27, i64 %sub.ptr.div.i.i439
+  %add.ptr.i.i440 = getelementptr inbounds i8, ptr %27, i64 %sub.ptr.sub.i.i438
   %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::Subprocess::Pipe", ptr %add.ptr.i.i440, i64 1
   %28 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !21
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i.i.i, %28
@@ -10850,7 +10844,7 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #14 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree nosync nounwind memory(none) }
 attributes #20 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

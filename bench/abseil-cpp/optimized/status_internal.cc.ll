@@ -1738,7 +1738,7 @@ entry:
   %sub.ptr.sub.i.i10 = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i.i9
   %sub.ptr.div.i.i11 = sdiv exact i64 %sub.ptr.sub.i.i10, 48
   %add = add nsw i64 %sub.ptr.div.i.i11, %sub.ptr.div.i.i
-  %add.ptr5 = getelementptr inbounds %"struct.absl::status_internal::Payload", ptr %.sink3.i, i64 %sub.ptr.div.i.i11
+  %add.ptr5 = getelementptr inbounds i8, ptr %.sink3.i, i64 %sub.ptr.sub.i.i10
   %sub = sub i64 %shr.i.sink.i, %add
   %cmp3.not.i = icmp eq i64 %shr.i.sink.i, %add
   br i1 %cmp3.not.i, label %_ZN4absl23inlined_vector_internal14AssignElementsISaINS_15status_internal7PayloadEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSC_9size_typeE.exit, label %for.body.i.preheader

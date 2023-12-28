@@ -1972,7 +1972,7 @@ _ZNKSt6vectorIN6duckdb13BoundCastInfoESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pred
           to label %call5.i.i.i.i.noexc unwind label %lpad9.loopexit
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIN6duckdb13BoundCastInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i = getelementptr inbounds %"struct.duckdb::BoundCastInfo", ptr %call5.i.i.i.i41, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i41, i64 %sub.ptr.sub.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %child_cast, i64 16, i1 false)
   %cast_data.i.i.i.i = getelementptr inbounds %"struct.duckdb::BoundCastInfo", ptr %call5.i.i.i.i41, i64 %sub.ptr.div.i.i.i, i32 2
   %10 = load i64, ptr %cast_data3.i.i.i.i.i, align 8, !tbaa !18
@@ -2642,7 +2642,7 @@ _ZNKSt6vectorIN6duckdb13BoundCastInfoESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pred
           to label %call5.i.i.i.i.noexc unwind label %lpad6.loopexit
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIN6duckdb13BoundCastInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i = getelementptr inbounds %"struct.duckdb::BoundCastInfo", ptr %call5.i.i.i.i36, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i36, i64 %sub.ptr.sub.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   %cast_data.i.i.i.i = getelementptr inbounds %"struct.duckdb::BoundCastInfo", ptr %call5.i.i.i.i36, i64 %sub.ptr.div.i.i.i, i32 2
   %11 = load i64, ptr %cast_data3.i.i.i.i.i, align 8, !tbaa !18

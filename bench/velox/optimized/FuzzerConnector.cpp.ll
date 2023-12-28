@@ -545,21 +545,20 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 invoke.cont.i.i.i.thread:                         ; preds = %entry
   %_M_finish.i.i.i.i.i3 = getelementptr inbounds %"struct.facebook::velox::VectorFuzzer::Options", ptr %call, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
-  %add.ptr.i.i.i.i.i4 = getelementptr inbounds i32, ptr null, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i.i.i.i4 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i5 = getelementptr inbounds %"struct.facebook::velox::VectorFuzzer::Options", ptr %call, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %charEncodings.i.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i.i4, ptr %_M_end_of_storage.i.i.i.i.i5, align 8
   br label %_ZN8facebook5velox12VectorFuzzer7OptionsC2ERKS2_.exit.i
 
 cond.true.i.i.i.i.i.i:                            ; preds = %entry
-  %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, 2305843009213693951
+  %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8facebook5velox12UTF8CharListEEE8allocateERS3_m.exit.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i.i:                         ; preds = %cond.true.i.i.i.i.i.i
@@ -577,16 +576,17 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt16allocator_tr
   store ptr %call5.i.i.i.i2.i6.i.i.i1, ptr %charEncodings.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::VectorFuzzer::Options", ptr %call, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
   store ptr %call5.i.i.i.i2.i6.i.i.i1, ptr %_M_finish.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i6.i.i.i1, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i.i.i1, i64 %sub.ptr.sub.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::VectorFuzzer::Options", ptr %call, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i.i.i1, ptr align 4 %3, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox12VectorFuzzer7OptionsC2ERKS2_.exit.i
 
 _ZN8facebook5velox12VectorFuzzer7OptionsC2ERKS2_.exit.i: ; preds = %invoke.cont.i.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i7 = phi ptr [ %add.ptr.i.i.i.i.i4, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
-  %_M_finish.i.i.i.i.i6 = phi ptr [ %_M_finish.i.i.i.i.i3, %invoke.cont.i.i.i.thread ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
-  store ptr %add.ptr.i.i.i.i.i7, ptr %_M_finish.i.i.i.i.i6, align 8
+  %_M_finish.i.i.i.i.i7 = phi ptr [ %_M_finish.i.i.i.i.i3, %invoke.cont.i.i.i.thread ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %cond.i.i.i.i.i.i6 = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %call5.i.i.i.i2.i6.i.i.i1, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i6, i64 %sub.ptr.sub.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i7, align 8
   %stringVariableLength.i.i = getelementptr inbounds %"struct.facebook::velox::VectorFuzzer::Options", ptr %call, i64 0, i32 7
   %stringVariableLength4.i.i = getelementptr inbounds %"struct.facebook::velox::VectorFuzzer::Options", ptr %__args, i64 0, i32 7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(43) %stringVariableLength.i.i, ptr noundef nonnull align 8 dereferenceable(43) %stringVariableLength4.i.i, i64 43, i1 false)

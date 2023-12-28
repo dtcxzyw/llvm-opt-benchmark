@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @fixedtables.lenfix = internal constant [512 x %struct.code] [%struct.code { i8 96, i8 7, i16 0 }, %struct.code { i8 0, i8 8, i16 80 }, %struct.code { i8 0, i8 8, i16 16 }, %struct.code { i8 20, i8 8, i16 115 }, %struct.code { i8 18, i8 7, i16 31 }, %struct.code { i8 0, i8 8, i16 112 }, %struct.code { i8 0, i8 8, i16 48 }, %struct.code { i8 0, i8 9, i16 192 }, %struct.code { i8 16, i8 7, i16 10 }, %struct.code { i8 0, i8 8, i16 96 }, %struct.code { i8 0, i8 8, i16 32 }, %struct.code { i8 0, i8 9, i16 160 }, %struct.code { i8 0, i8 8, i16 0 }, %struct.code { i8 0, i8 8, i16 128 }, %struct.code { i8 0, i8 8, i16 64 }, %struct.code { i8 0, i8 9, i16 224 }, %struct.code { i8 16, i8 7, i16 6 }, %struct.code { i8 0, i8 8, i16 88 }, %struct.code { i8 0, i8 8, i16 24 }, %struct.code { i8 0, i8 9, i16 144 }, %struct.code { i8 19, i8 7, i16 59 }, %struct.code { i8 0, i8 8, i16 120 }, %struct.code { i8 0, i8 8, i16 56 }, %struct.code { i8 0, i8 9, i16 208 }, %struct.code { i8 17, i8 7, i16 17 }, %struct.code { i8 0, i8 8, i16 104 }, %struct.code { i8 0, i8 8, i16 40 }, %struct.code { i8 0, i8 9, i16 176 }, %struct.code { i8 0, i8 8, i16 8 }, %struct.code { i8 0, i8 8, i16 136 }, %struct.code { i8 0, i8 8, i16 72 }, %struct.code { i8 0, i8 9, i16 240 }, %struct.code { i8 16, i8 7, i16 4 }, %struct.code { i8 0, i8 8, i16 84 }, %struct.code { i8 0, i8 8, i16 20 }, %struct.code { i8 21, i8 8, i16 227 }, %struct.code { i8 19, i8 7, i16 43 }, %struct.code { i8 0, i8 8, i16 116 }, %struct.code { i8 0, i8 8, i16 52 }, %struct.code { i8 0, i8 9, i16 200 }, %struct.code { i8 17, i8 7, i16 13 }, %struct.code { i8 0, i8 8, i16 100 }, %struct.code { i8 0, i8 8, i16 36 }, %struct.code { i8 0, i8 9, i16 168 }, %struct.code { i8 0, i8 8, i16 4 }, %struct.code { i8 0, i8 8, i16 132 }, %struct.code { i8 0, i8 8, i16 68 }, %struct.code { i8 0, i8 9, i16 232 }, %struct.code { i8 16, i8 7, i16 8 }, %struct.code { i8 0, i8 8, i16 92 }, %struct.code { i8 0, i8 8, i16 28 }, %struct.code { i8 0, i8 9, i16 152 }, %struct.code { i8 20, i8 7, i16 83 }, %struct.code { i8 0, i8 8, i16 124 }, %struct.code { i8 0, i8 8, i16 60 }, %struct.code { i8 0, i8 9, i16 216 }, %struct.code { i8 18, i8 7, i16 23 }, %struct.code { i8 0, i8 8, i16 108 }, %struct.code { i8 0, i8 8, i16 44 }, %struct.code { i8 0, i8 9, i16 184 }, %struct.code { i8 0, i8 8, i16 12 }, %struct.code { i8 0, i8 8, i16 140 }, %struct.code { i8 0, i8 8, i16 76 }, %struct.code { i8 0, i8 9, i16 248 }, %struct.code { i8 16, i8 7, i16 3 }, %struct.code { i8 0, i8 8, i16 82 }, %struct.code { i8 0, i8 8, i16 18 }, %struct.code { i8 21, i8 8, i16 163 }, %struct.code { i8 19, i8 7, i16 35 }, %struct.code { i8 0, i8 8, i16 114 }, %struct.code { i8 0, i8 8, i16 50 }, %struct.code { i8 0, i8 9, i16 196 }, %struct.code { i8 17, i8 7, i16 11 }, %struct.code { i8 0, i8 8, i16 98 }, %struct.code { i8 0, i8 8, i16 34 }, %struct.code { i8 0, i8 9, i16 164 }, %struct.code { i8 0, i8 8, i16 2 }, %struct.code { i8 0, i8 8, i16 130 }, %struct.code { i8 0, i8 8, i16 66 }, %struct.code { i8 0, i8 9, i16 228 }, %struct.code { i8 16, i8 7, i16 7 }, %struct.code { i8 0, i8 8, i16 90 }, %struct.code { i8 0, i8 8, i16 26 }, %struct.code { i8 0, i8 9, i16 148 }, %struct.code { i8 20, i8 7, i16 67 }, %struct.code { i8 0, i8 8, i16 122 }, %struct.code { i8 0, i8 8, i16 58 }, %struct.code { i8 0, i8 9, i16 212 }, %struct.code { i8 18, i8 7, i16 19 }, %struct.code { i8 0, i8 8, i16 106 }, %struct.code { i8 0, i8 8, i16 42 }, %struct.code { i8 0, i8 9, i16 180 }, %struct.code { i8 0, i8 8, i16 10 }, %struct.code { i8 0, i8 8, i16 138 }, %struct.code { i8 0, i8 8, i16 74 }, %struct.code { i8 0, i8 9, i16 244 }, %struct.code { i8 16, i8 7, i16 5 }, %struct.code { i8 0, i8 8, i16 86 }, %struct.code { i8 0, i8 8, i16 22 }, %struct.code { i8 64, i8 8, i16 0 }, %struct.code { i8 19, i8 7, i16 51 }, %struct.code { i8 0, i8 8, i16 118 }, %struct.code { i8 0, i8 8, i16 54 }, %struct.code { i8 0, i8 9, i16 204 }, %struct.code { i8 17, i8 7, i16 15 }, %struct.code { i8 0, i8 8, i16 102 }, %struct.code { i8 0, i8 8, i16 38 }, %struct.code { i8 0, i8 9, i16 172 }, %struct.code { i8 0, i8 8, i16 6 }, %struct.code { i8 0, i8 8, i16 134 }, %struct.code { i8 0, i8 8, i16 70 }, %struct.code { i8 0, i8 9, i16 236 }, %struct.code { i8 16, i8 7, i16 9 }, %struct.code { i8 0, i8 8, i16 94 }, %struct.code { i8 0, i8 8, i16 30 }, %struct.code { i8 0, i8 9, i16 156 }, %struct.code { i8 20, i8 7, i16 99 }, %struct.code { i8 0, i8 8, i16 126 }, %struct.code { i8 0, i8 8, i16 62 }, %struct.code { i8 0, i8 9, i16 220 }, %struct.code { i8 18, i8 7, i16 27 }, %struct.code { i8 0, i8 8, i16 110 }, %struct.code { i8 0, i8 8, i16 46 }, %struct.code { i8 0, i8 9, i16 188 }, %struct.code { i8 0, i8 8, i16 14 }, %struct.code { i8 0, i8 8, i16 142 }, %struct.code { i8 0, i8 8, i16 78 }, %struct.code { i8 0, i8 9, i16 252 }, %struct.code { i8 96, i8 7, i16 0 }, %struct.code { i8 0, i8 8, i16 81 }, %struct.code { i8 0, i8 8, i16 17 }, %struct.code { i8 21, i8 8, i16 131 }, %struct.code { i8 18, i8 7, i16 31 }, %struct.code { i8 0, i8 8, i16 113 }, %struct.code { i8 0, i8 8, i16 49 }, %struct.code { i8 0, i8 9, i16 194 }, %struct.code { i8 16, i8 7, i16 10 }, %struct.code { i8 0, i8 8, i16 97 }, %struct.code { i8 0, i8 8, i16 33 }, %struct.code { i8 0, i8 9, i16 162 }, %struct.code { i8 0, i8 8, i16 1 }, %struct.code { i8 0, i8 8, i16 129 }, %struct.code { i8 0, i8 8, i16 65 }, %struct.code { i8 0, i8 9, i16 226 }, %struct.code { i8 16, i8 7, i16 6 }, %struct.code { i8 0, i8 8, i16 89 }, %struct.code { i8 0, i8 8, i16 25 }, %struct.code { i8 0, i8 9, i16 146 }, %struct.code { i8 19, i8 7, i16 59 }, %struct.code { i8 0, i8 8, i16 121 }, %struct.code { i8 0, i8 8, i16 57 }, %struct.code { i8 0, i8 9, i16 210 }, %struct.code { i8 17, i8 7, i16 17 }, %struct.code { i8 0, i8 8, i16 105 }, %struct.code { i8 0, i8 8, i16 41 }, %struct.code { i8 0, i8 9, i16 178 }, %struct.code { i8 0, i8 8, i16 9 }, %struct.code { i8 0, i8 8, i16 137 }, %struct.code { i8 0, i8 8, i16 73 }, %struct.code { i8 0, i8 9, i16 242 }, %struct.code { i8 16, i8 7, i16 4 }, %struct.code { i8 0, i8 8, i16 85 }, %struct.code { i8 0, i8 8, i16 21 }, %struct.code { i8 16, i8 8, i16 258 }, %struct.code { i8 19, i8 7, i16 43 }, %struct.code { i8 0, i8 8, i16 117 }, %struct.code { i8 0, i8 8, i16 53 }, %struct.code { i8 0, i8 9, i16 202 }, %struct.code { i8 17, i8 7, i16 13 }, %struct.code { i8 0, i8 8, i16 101 }, %struct.code { i8 0, i8 8, i16 37 }, %struct.code { i8 0, i8 9, i16 170 }, %struct.code { i8 0, i8 8, i16 5 }, %struct.code { i8 0, i8 8, i16 133 }, %struct.code { i8 0, i8 8, i16 69 }, %struct.code { i8 0, i8 9, i16 234 }, %struct.code { i8 16, i8 7, i16 8 }, %struct.code { i8 0, i8 8, i16 93 }, %struct.code { i8 0, i8 8, i16 29 }, %struct.code { i8 0, i8 9, i16 154 }, %struct.code { i8 20, i8 7, i16 83 }, %struct.code { i8 0, i8 8, i16 125 }, %struct.code { i8 0, i8 8, i16 61 }, %struct.code { i8 0, i8 9, i16 218 }, %struct.code { i8 18, i8 7, i16 23 }, %struct.code { i8 0, i8 8, i16 109 }, %struct.code { i8 0, i8 8, i16 45 }, %struct.code { i8 0, i8 9, i16 186 }, %struct.code { i8 0, i8 8, i16 13 }, %struct.code { i8 0, i8 8, i16 141 }, %struct.code { i8 0, i8 8, i16 77 }, %struct.code { i8 0, i8 9, i16 250 }, %struct.code { i8 16, i8 7, i16 3 }, %struct.code { i8 0, i8 8, i16 83 }, %struct.code { i8 0, i8 8, i16 19 }, %struct.code { i8 21, i8 8, i16 195 }, %struct.code { i8 19, i8 7, i16 35 }, %struct.code { i8 0, i8 8, i16 115 }, %struct.code { i8 0, i8 8, i16 51 }, %struct.code { i8 0, i8 9, i16 198 }, %struct.code { i8 17, i8 7, i16 11 }, %struct.code { i8 0, i8 8, i16 99 }, %struct.code { i8 0, i8 8, i16 35 }, %struct.code { i8 0, i8 9, i16 166 }, %struct.code { i8 0, i8 8, i16 3 }, %struct.code { i8 0, i8 8, i16 131 }, %struct.code { i8 0, i8 8, i16 67 }, %struct.code { i8 0, i8 9, i16 230 }, %struct.code { i8 16, i8 7, i16 7 }, %struct.code { i8 0, i8 8, i16 91 }, %struct.code { i8 0, i8 8, i16 27 }, %struct.code { i8 0, i8 9, i16 150 }, %struct.code { i8 20, i8 7, i16 67 }, %struct.code { i8 0, i8 8, i16 123 }, %struct.code { i8 0, i8 8, i16 59 }, %struct.code { i8 0, i8 9, i16 214 }, %struct.code { i8 18, i8 7, i16 19 }, %struct.code { i8 0, i8 8, i16 107 }, %struct.code { i8 0, i8 8, i16 43 }, %struct.code { i8 0, i8 9, i16 182 }, %struct.code { i8 0, i8 8, i16 11 }, %struct.code { i8 0, i8 8, i16 139 }, %struct.code { i8 0, i8 8, i16 75 }, %struct.code { i8 0, i8 9, i16 246 }, %struct.code { i8 16, i8 7, i16 5 }, %struct.code { i8 0, i8 8, i16 87 }, %struct.code { i8 0, i8 8, i16 23 }, %struct.code { i8 64, i8 8, i16 0 }, %struct.code { i8 19, i8 7, i16 51 }, %struct.code { i8 0, i8 8, i16 119 }, %struct.code { i8 0, i8 8, i16 55 }, %struct.code { i8 0, i8 9, i16 206 }, %struct.code { i8 17, i8 7, i16 15 }, %struct.code { i8 0, i8 8, i16 103 }, %struct.code { i8 0, i8 8, i16 39 }, %struct.code { i8 0, i8 9, i16 174 }, %struct.code { i8 0, i8 8, i16 7 }, %struct.code { i8 0, i8 8, i16 135 }, %struct.code { i8 0, i8 8, i16 71 }, %struct.code { i8 0, i8 9, i16 238 }, %struct.code { i8 16, i8 7, i16 9 }, %struct.code { i8 0, i8 8, i16 95 }, %struct.code { i8 0, i8 8, i16 31 }, %struct.code { i8 0, i8 9, i16 158 }, %struct.code { i8 20, i8 7, i16 99 }, %struct.code { i8 0, i8 8, i16 127 }, %struct.code { i8 0, i8 8, i16 63 }, %struct.code { i8 0, i8 9, i16 222 }, %struct.code { i8 18, i8 7, i16 27 }, %struct.code { i8 0, i8 8, i16 111 }, %struct.code { i8 0, i8 8, i16 47 }, %struct.code { i8 0, i8 9, i16 190 }, %struct.code { i8 0, i8 8, i16 15 }, %struct.code { i8 0, i8 8, i16 143 }, %struct.code { i8 0, i8 8, i16 79 }, %struct.code { i8 0, i8 9, i16 254 }, %struct.code { i8 96, i8 7, i16 0 }, %struct.code { i8 0, i8 8, i16 80 }, %struct.code { i8 0, i8 8, i16 16 }, %struct.code { i8 20, i8 8, i16 115 }, %struct.code { i8 18, i8 7, i16 31 }, %struct.code { i8 0, i8 8, i16 112 }, %struct.code { i8 0, i8 8, i16 48 }, %struct.code { i8 0, i8 9, i16 193 }, %struct.code { i8 16, i8 7, i16 10 }, %struct.code { i8 0, i8 8, i16 96 }, %struct.code { i8 0, i8 8, i16 32 }, %struct.code { i8 0, i8 9, i16 161 }, %struct.code { i8 0, i8 8, i16 0 }, %struct.code { i8 0, i8 8, i16 128 }, %struct.code { i8 0, i8 8, i16 64 }, %struct.code { i8 0, i8 9, i16 225 }, %struct.code { i8 16, i8 7, i16 6 }, %struct.code { i8 0, i8 8, i16 88 }, %struct.code { i8 0, i8 8, i16 24 }, %struct.code { i8 0, i8 9, i16 145 }, %struct.code { i8 19, i8 7, i16 59 }, %struct.code { i8 0, i8 8, i16 120 }, %struct.code { i8 0, i8 8, i16 56 }, %struct.code { i8 0, i8 9, i16 209 }, %struct.code { i8 17, i8 7, i16 17 }, %struct.code { i8 0, i8 8, i16 104 }, %struct.code { i8 0, i8 8, i16 40 }, %struct.code { i8 0, i8 9, i16 177 }, %struct.code { i8 0, i8 8, i16 8 }, %struct.code { i8 0, i8 8, i16 136 }, %struct.code { i8 0, i8 8, i16 72 }, %struct.code { i8 0, i8 9, i16 241 }, %struct.code { i8 16, i8 7, i16 4 }, %struct.code { i8 0, i8 8, i16 84 }, %struct.code { i8 0, i8 8, i16 20 }, %struct.code { i8 21, i8 8, i16 227 }, %struct.code { i8 19, i8 7, i16 43 }, %struct.code { i8 0, i8 8, i16 116 }, %struct.code { i8 0, i8 8, i16 52 }, %struct.code { i8 0, i8 9, i16 201 }, %struct.code { i8 17, i8 7, i16 13 }, %struct.code { i8 0, i8 8, i16 100 }, %struct.code { i8 0, i8 8, i16 36 }, %struct.code { i8 0, i8 9, i16 169 }, %struct.code { i8 0, i8 8, i16 4 }, %struct.code { i8 0, i8 8, i16 132 }, %struct.code { i8 0, i8 8, i16 68 }, %struct.code { i8 0, i8 9, i16 233 }, %struct.code { i8 16, i8 7, i16 8 }, %struct.code { i8 0, i8 8, i16 92 }, %struct.code { i8 0, i8 8, i16 28 }, %struct.code { i8 0, i8 9, i16 153 }, %struct.code { i8 20, i8 7, i16 83 }, %struct.code { i8 0, i8 8, i16 124 }, %struct.code { i8 0, i8 8, i16 60 }, %struct.code { i8 0, i8 9, i16 217 }, %struct.code { i8 18, i8 7, i16 23 }, %struct.code { i8 0, i8 8, i16 108 }, %struct.code { i8 0, i8 8, i16 44 }, %struct.code { i8 0, i8 9, i16 185 }, %struct.code { i8 0, i8 8, i16 12 }, %struct.code { i8 0, i8 8, i16 140 }, %struct.code { i8 0, i8 8, i16 76 }, %struct.code { i8 0, i8 9, i16 249 }, %struct.code { i8 16, i8 7, i16 3 }, %struct.code { i8 0, i8 8, i16 82 }, %struct.code { i8 0, i8 8, i16 18 }, %struct.code { i8 21, i8 8, i16 163 }, %struct.code { i8 19, i8 7, i16 35 }, %struct.code { i8 0, i8 8, i16 114 }, %struct.code { i8 0, i8 8, i16 50 }, %struct.code { i8 0, i8 9, i16 197 }, %struct.code { i8 17, i8 7, i16 11 }, %struct.code { i8 0, i8 8, i16 98 }, %struct.code { i8 0, i8 8, i16 34 }, %struct.code { i8 0, i8 9, i16 165 }, %struct.code { i8 0, i8 8, i16 2 }, %struct.code { i8 0, i8 8, i16 130 }, %struct.code { i8 0, i8 8, i16 66 }, %struct.code { i8 0, i8 9, i16 229 }, %struct.code { i8 16, i8 7, i16 7 }, %struct.code { i8 0, i8 8, i16 90 }, %struct.code { i8 0, i8 8, i16 26 }, %struct.code { i8 0, i8 9, i16 149 }, %struct.code { i8 20, i8 7, i16 67 }, %struct.code { i8 0, i8 8, i16 122 }, %struct.code { i8 0, i8 8, i16 58 }, %struct.code { i8 0, i8 9, i16 213 }, %struct.code { i8 18, i8 7, i16 19 }, %struct.code { i8 0, i8 8, i16 106 }, %struct.code { i8 0, i8 8, i16 42 }, %struct.code { i8 0, i8 9, i16 181 }, %struct.code { i8 0, i8 8, i16 10 }, %struct.code { i8 0, i8 8, i16 138 }, %struct.code { i8 0, i8 8, i16 74 }, %struct.code { i8 0, i8 9, i16 245 }, %struct.code { i8 16, i8 7, i16 5 }, %struct.code { i8 0, i8 8, i16 86 }, %struct.code { i8 0, i8 8, i16 22 }, %struct.code { i8 64, i8 8, i16 0 }, %struct.code { i8 19, i8 7, i16 51 }, %struct.code { i8 0, i8 8, i16 118 }, %struct.code { i8 0, i8 8, i16 54 }, %struct.code { i8 0, i8 9, i16 205 }, %struct.code { i8 17, i8 7, i16 15 }, %struct.code { i8 0, i8 8, i16 102 }, %struct.code { i8 0, i8 8, i16 38 }, %struct.code { i8 0, i8 9, i16 173 }, %struct.code { i8 0, i8 8, i16 6 }, %struct.code { i8 0, i8 8, i16 134 }, %struct.code { i8 0, i8 8, i16 70 }, %struct.code { i8 0, i8 9, i16 237 }, %struct.code { i8 16, i8 7, i16 9 }, %struct.code { i8 0, i8 8, i16 94 }, %struct.code { i8 0, i8 8, i16 30 }, %struct.code { i8 0, i8 9, i16 157 }, %struct.code { i8 20, i8 7, i16 99 }, %struct.code { i8 0, i8 8, i16 126 }, %struct.code { i8 0, i8 8, i16 62 }, %struct.code { i8 0, i8 9, i16 221 }, %struct.code { i8 18, i8 7, i16 27 }, %struct.code { i8 0, i8 8, i16 110 }, %struct.code { i8 0, i8 8, i16 46 }, %struct.code { i8 0, i8 9, i16 189 }, %struct.code { i8 0, i8 8, i16 14 }, %struct.code { i8 0, i8 8, i16 142 }, %struct.code { i8 0, i8 8, i16 78 }, %struct.code { i8 0, i8 9, i16 253 }, %struct.code { i8 96, i8 7, i16 0 }, %struct.code { i8 0, i8 8, i16 81 }, %struct.code { i8 0, i8 8, i16 17 }, %struct.code { i8 21, i8 8, i16 131 }, %struct.code { i8 18, i8 7, i16 31 }, %struct.code { i8 0, i8 8, i16 113 }, %struct.code { i8 0, i8 8, i16 49 }, %struct.code { i8 0, i8 9, i16 195 }, %struct.code { i8 16, i8 7, i16 10 }, %struct.code { i8 0, i8 8, i16 97 }, %struct.code { i8 0, i8 8, i16 33 }, %struct.code { i8 0, i8 9, i16 163 }, %struct.code { i8 0, i8 8, i16 1 }, %struct.code { i8 0, i8 8, i16 129 }, %struct.code { i8 0, i8 8, i16 65 }, %struct.code { i8 0, i8 9, i16 227 }, %struct.code { i8 16, i8 7, i16 6 }, %struct.code { i8 0, i8 8, i16 89 }, %struct.code { i8 0, i8 8, i16 25 }, %struct.code { i8 0, i8 9, i16 147 }, %struct.code { i8 19, i8 7, i16 59 }, %struct.code { i8 0, i8 8, i16 121 }, %struct.code { i8 0, i8 8, i16 57 }, %struct.code { i8 0, i8 9, i16 211 }, %struct.code { i8 17, i8 7, i16 17 }, %struct.code { i8 0, i8 8, i16 105 }, %struct.code { i8 0, i8 8, i16 41 }, %struct.code { i8 0, i8 9, i16 179 }, %struct.code { i8 0, i8 8, i16 9 }, %struct.code { i8 0, i8 8, i16 137 }, %struct.code { i8 0, i8 8, i16 73 }, %struct.code { i8 0, i8 9, i16 243 }, %struct.code { i8 16, i8 7, i16 4 }, %struct.code { i8 0, i8 8, i16 85 }, %struct.code { i8 0, i8 8, i16 21 }, %struct.code { i8 16, i8 8, i16 258 }, %struct.code { i8 19, i8 7, i16 43 }, %struct.code { i8 0, i8 8, i16 117 }, %struct.code { i8 0, i8 8, i16 53 }, %struct.code { i8 0, i8 9, i16 203 }, %struct.code { i8 17, i8 7, i16 13 }, %struct.code { i8 0, i8 8, i16 101 }, %struct.code { i8 0, i8 8, i16 37 }, %struct.code { i8 0, i8 9, i16 171 }, %struct.code { i8 0, i8 8, i16 5 }, %struct.code { i8 0, i8 8, i16 133 }, %struct.code { i8 0, i8 8, i16 69 }, %struct.code { i8 0, i8 9, i16 235 }, %struct.code { i8 16, i8 7, i16 8 }, %struct.code { i8 0, i8 8, i16 93 }, %struct.code { i8 0, i8 8, i16 29 }, %struct.code { i8 0, i8 9, i16 155 }, %struct.code { i8 20, i8 7, i16 83 }, %struct.code { i8 0, i8 8, i16 125 }, %struct.code { i8 0, i8 8, i16 61 }, %struct.code { i8 0, i8 9, i16 219 }, %struct.code { i8 18, i8 7, i16 23 }, %struct.code { i8 0, i8 8, i16 109 }, %struct.code { i8 0, i8 8, i16 45 }, %struct.code { i8 0, i8 9, i16 187 }, %struct.code { i8 0, i8 8, i16 13 }, %struct.code { i8 0, i8 8, i16 141 }, %struct.code { i8 0, i8 8, i16 77 }, %struct.code { i8 0, i8 9, i16 251 }, %struct.code { i8 16, i8 7, i16 3 }, %struct.code { i8 0, i8 8, i16 83 }, %struct.code { i8 0, i8 8, i16 19 }, %struct.code { i8 21, i8 8, i16 195 }, %struct.code { i8 19, i8 7, i16 35 }, %struct.code { i8 0, i8 8, i16 115 }, %struct.code { i8 0, i8 8, i16 51 }, %struct.code { i8 0, i8 9, i16 199 }, %struct.code { i8 17, i8 7, i16 11 }, %struct.code { i8 0, i8 8, i16 99 }, %struct.code { i8 0, i8 8, i16 35 }, %struct.code { i8 0, i8 9, i16 167 }, %struct.code { i8 0, i8 8, i16 3 }, %struct.code { i8 0, i8 8, i16 131 }, %struct.code { i8 0, i8 8, i16 67 }, %struct.code { i8 0, i8 9, i16 231 }, %struct.code { i8 16, i8 7, i16 7 }, %struct.code { i8 0, i8 8, i16 91 }, %struct.code { i8 0, i8 8, i16 27 }, %struct.code { i8 0, i8 9, i16 151 }, %struct.code { i8 20, i8 7, i16 67 }, %struct.code { i8 0, i8 8, i16 123 }, %struct.code { i8 0, i8 8, i16 59 }, %struct.code { i8 0, i8 9, i16 215 }, %struct.code { i8 18, i8 7, i16 19 }, %struct.code { i8 0, i8 8, i16 107 }, %struct.code { i8 0, i8 8, i16 43 }, %struct.code { i8 0, i8 9, i16 183 }, %struct.code { i8 0, i8 8, i16 11 }, %struct.code { i8 0, i8 8, i16 139 }, %struct.code { i8 0, i8 8, i16 75 }, %struct.code { i8 0, i8 9, i16 247 }, %struct.code { i8 16, i8 7, i16 5 }, %struct.code { i8 0, i8 8, i16 87 }, %struct.code { i8 0, i8 8, i16 23 }, %struct.code { i8 64, i8 8, i16 0 }, %struct.code { i8 19, i8 7, i16 51 }, %struct.code { i8 0, i8 8, i16 119 }, %struct.code { i8 0, i8 8, i16 55 }, %struct.code { i8 0, i8 9, i16 207 }, %struct.code { i8 17, i8 7, i16 15 }, %struct.code { i8 0, i8 8, i16 103 }, %struct.code { i8 0, i8 8, i16 39 }, %struct.code { i8 0, i8 9, i16 175 }, %struct.code { i8 0, i8 8, i16 7 }, %struct.code { i8 0, i8 8, i16 135 }, %struct.code { i8 0, i8 8, i16 71 }, %struct.code { i8 0, i8 9, i16 239 }, %struct.code { i8 16, i8 7, i16 9 }, %struct.code { i8 0, i8 8, i16 95 }, %struct.code { i8 0, i8 8, i16 31 }, %struct.code { i8 0, i8 9, i16 159 }, %struct.code { i8 20, i8 7, i16 99 }, %struct.code { i8 0, i8 8, i16 127 }, %struct.code { i8 0, i8 8, i16 63 }, %struct.code { i8 0, i8 9, i16 223 }, %struct.code { i8 18, i8 7, i16 27 }, %struct.code { i8 0, i8 8, i16 111 }, %struct.code { i8 0, i8 8, i16 47 }, %struct.code { i8 0, i8 9, i16 191 }, %struct.code { i8 0, i8 8, i16 15 }, %struct.code { i8 0, i8 8, i16 143 }, %struct.code { i8 0, i8 8, i16 79 }, %struct.code { i8 0, i8 9, i16 255 }], align 16
 @fixedtables.distfix = internal constant [32 x %struct.code] [%struct.code { i8 16, i8 5, i16 1 }, %struct.code { i8 23, i8 5, i16 257 }, %struct.code { i8 19, i8 5, i16 17 }, %struct.code { i8 27, i8 5, i16 4097 }, %struct.code { i8 17, i8 5, i16 5 }, %struct.code { i8 25, i8 5, i16 1025 }, %struct.code { i8 21, i8 5, i16 65 }, %struct.code { i8 29, i8 5, i16 16385 }, %struct.code { i8 16, i8 5, i16 3 }, %struct.code { i8 24, i8 5, i16 513 }, %struct.code { i8 20, i8 5, i16 33 }, %struct.code { i8 28, i8 5, i16 8193 }, %struct.code { i8 18, i8 5, i16 9 }, %struct.code { i8 26, i8 5, i16 2049 }, %struct.code { i8 22, i8 5, i16 129 }, %struct.code { i8 64, i8 5, i16 0 }, %struct.code { i8 16, i8 5, i16 2 }, %struct.code { i8 23, i8 5, i16 385 }, %struct.code { i8 19, i8 5, i16 25 }, %struct.code { i8 27, i8 5, i16 6145 }, %struct.code { i8 17, i8 5, i16 7 }, %struct.code { i8 25, i8 5, i16 1537 }, %struct.code { i8 21, i8 5, i16 97 }, %struct.code { i8 29, i8 5, i16 24577 }, %struct.code { i8 16, i8 5, i16 4 }, %struct.code { i8 24, i8 5, i16 769 }, %struct.code { i8 20, i8 5, i16 49 }, %struct.code { i8 28, i8 5, i16 12289 }, %struct.code { i8 18, i8 5, i16 13 }, %struct.code { i8 26, i8 5, i16 3073 }, %struct.code { i8 22, i8 5, i16 193 }, %struct.code { i8 64, i8 5, i16 0 }], align 16
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @inflateResetKeep(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
@@ -119,7 +119,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @inflateReset(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
@@ -327,7 +327,7 @@ land.lhs.true16:                                  ; preds = %if.end14
 if.then18:                                        ; preds = %land.lhs.true16
   %opaque = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 10
   %8 = load ptr, ptr %opaque, align 8
-  tail call void %1(ptr noundef %8, ptr noundef nonnull %6) #10
+  tail call void %1(ptr noundef %8, ptr noundef nonnull %6) #9
   store ptr null, ptr %window, align 8
   br label %if.end21
 
@@ -389,7 +389,7 @@ if.then18:                                        ; preds = %if.end15
 if.end20:                                         ; preds = %if.then18, %if.end15
   %opaque22 = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 10
   %4 = load ptr, ptr %opaque22, align 8
-  %call = tail call ptr %2(ptr noundef %4, i32 noundef 1, i32 noundef 7160) #10
+  %call = tail call ptr %2(ptr noundef %4, i32 noundef 1, i32 noundef 7160) #9
   %cmp23 = icmp eq ptr %call, null
   br i1 %cmp23, label %return, label %lor.lhs.false.i.i
 
@@ -474,7 +474,7 @@ land.lhs.true16.i:                                ; preds = %if.end14.i
 
 if.then18.i:                                      ; preds = %land.lhs.true16.i
   %12 = load ptr, ptr %opaque22, align 8
-  tail call void %.pre25(ptr noundef %12, ptr noundef nonnull %10) #10
+  tail call void %.pre25(ptr noundef %12, ptr noundef nonnull %10) #9
   store ptr null, ptr %window.i, align 8
   br label %inflateReset2.exit
 
@@ -495,7 +495,7 @@ if.then32:                                        ; preds = %inflateReset2.exit.
   %13 = phi ptr [ %.pre, %inflateReset2.exit.if.then32_crit_edge ], [ %.pre25, %inflateStateCheck.exit.i ], [ %.pre25, %if.then2.i ], [ %.pre25, %if.end9.i ], [ %.pre25, %lor.lhs.false.i.i ], [ %.pre25, %lor.lhs.false6.i.i ], [ %.pre25, %lor.lhs.false2.i.i ]
   %retval.0.i24 = phi i32 [ %call24.i, %inflateReset2.exit.if.then32_crit_edge ], [ -2, %inflateStateCheck.exit.i ], [ -2, %if.then2.i ], [ -2, %if.end9.i ], [ -2, %lor.lhs.false.i.i ], [ -2, %lor.lhs.false6.i.i ], [ -2, %lor.lhs.false2.i.i ]
   %14 = load ptr, ptr %opaque22, align 8
-  tail call void %13(ptr noundef %14, ptr noundef nonnull %call) #10
+  tail call void %13(ptr noundef %14, ptr noundef nonnull %call) #9
   store ptr null, ptr %state27, align 8
   br label %return
 
@@ -516,7 +516,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @inflatePrime(ptr noundef readonly %strm, i32 noundef %bits, i32 noundef %value) local_unnamed_addr #3 {
+define i32 @inflatePrime(ptr noundef readonly %strm, i32 noundef %bits, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -861,11 +861,11 @@ if.then36:                                        ; preds = %if.then33
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %if.then33
-  %call39 = call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %call39 = call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #9
   store i64 %call39, ptr %check1768, align 8
   store i8 31, ptr %hbuf, align 1
   store i8 -117, ptr %arrayidx169, align 1
-  %call45 = call i64 @crc32(i64 noundef %call39, ptr noundef nonnull %hbuf, i32 noundef 2) #10
+  %call45 = call i64 @crc32(i64 noundef %call39, ptr noundef nonnull %hbuf, i32 noundef 2) #9
   store i64 %call45, ptr %check1768, align 8
   store i32 16181, ptr %mode.i, align 8
   br label %sw.epilog1867
@@ -941,7 +941,7 @@ if.end100:                                        ; preds = %if.end90
   %shl101 = shl nuw nsw i32 256, %and83
   store i32 %shl101, ptr %dmax, align 4
   store i32 0, ptr %flags1765, align 8
-  %call102 = call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %call102 = call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #9
   store i64 %call102, ptr %check1768, align 8
   store i64 %call102, ptr %adler1782, align 8
   %30 = and i64 %hold.1.lcssa, 8192
@@ -1030,7 +1030,7 @@ do.body164:                                       ; preds = %land.lhs.true159
   %conv168 = trunc i64 %shr167 to i8
   store i8 %conv168, ptr %arrayidx169, align 1
   %37 = load i64, ptr %check1768, align 8
-  %call172 = call i64 @crc32(i64 noundef %37, ptr noundef nonnull %hbuf, i32 noundef 2) #10
+  %call172 = call i64 @crc32(i64 noundef %37, ptr noundef nonnull %hbuf, i32 noundef 2) #9
   store i64 %call172, ptr %check1768, align 8
   br label %do.body180.thread
 
@@ -1107,7 +1107,7 @@ do.body214:                                       ; preds = %land.lhs.true209
   %conv224 = trunc i64 %shr223 to i8
   store i8 %conv224, ptr %arrayidx225, align 1
   %43 = load i64, ptr %check1768, align 8
-  %call228 = call i64 @crc32(i64 noundef %43, ptr noundef nonnull %hbuf, i32 noundef 4) #10
+  %call228 = call i64 @crc32(i64 noundef %43, ptr noundef nonnull %hbuf, i32 noundef 4) #9
   store i64 %call228, ptr %check1768, align 8
   br label %do.body236.thread
 
@@ -1185,7 +1185,7 @@ do.body275:                                       ; preds = %land.lhs.true270
   %conv279 = trunc i64 %shr278 to i8
   store i8 %conv279, ptr %arrayidx169, align 1
   %51 = load i64, ptr %check1768, align 8
-  %call283 = call i64 @crc32(i64 noundef %51, ptr noundef nonnull %hbuf, i32 noundef 2) #10
+  %call283 = call i64 @crc32(i64 noundef %51, ptr noundef nonnull %hbuf, i32 noundef 2) #9
   store i64 %call283, ptr %check1768, align 8
   br label %sw.bb290.thread
 
@@ -1270,7 +1270,7 @@ do.body331:                                       ; preds = %land.lhs.true326
   %conv335 = trunc i64 %shr334 to i8
   store i8 %conv335, ptr %arrayidx169, align 1
   %61 = load i64, ptr %check1768, align 8
-  %call339 = call i64 @crc32(i64 noundef %61, ptr noundef nonnull %hbuf, i32 noundef 2) #10
+  %call339 = call i64 @crc32(i64 noundef %61, ptr noundef nonnull %hbuf, i32 noundef 2) #9
   store i64 %call339, ptr %check1768, align 8
   br label %if.end351
 
@@ -1358,7 +1358,7 @@ land.lhs.true398:                                 ; preds = %if.end394
 
 if.then402:                                       ; preds = %land.lhs.true398
   %71 = load i64, ptr %check1768, align 8
-  %call404 = call i64 @crc32(i64 noundef %71, ptr noundef %next.10, i32 noundef %spec.select) #10
+  %call404 = call i64 @crc32(i64 noundef %71, ptr noundef %next.10, i32 noundef %spec.select) #9
   store i64 %call404, ptr %check1768, align 8
   br label %if.end406
 
@@ -1454,7 +1454,7 @@ land.lhs.true460:                                 ; preds = %do.end456
 
 if.then464:                                       ; preds = %land.lhs.true460
   %85 = load i64, ptr %check1768, align 8
-  %call466 = call i64 @crc32(i64 noundef %85, ptr noundef nonnull %next.13, i32 noundef %82) #10
+  %call466 = call i64 @crc32(i64 noundef %85, ptr noundef nonnull %next.13, i32 noundef %82) #9
   store i64 %call466, ptr %check1768, align 8
   br label %if.end468
 
@@ -1550,7 +1550,7 @@ land.lhs.true531:                                 ; preds = %do.end527
 
 if.then535:                                       ; preds = %land.lhs.true531
   %98 = load i64, ptr %check1768, align 8
-  %call537 = call i64 @crc32(i64 noundef %98, ptr noundef nonnull %next.15, i32 noundef %95) #10
+  %call537 = call i64 @crc32(i64 noundef %98, ptr noundef nonnull %next.15, i32 noundef %95) #9
   store i64 %call537, ptr %check1768, align 8
   br label %if.end539
 
@@ -1658,7 +1658,7 @@ if.then602:                                       ; preds = %if.end598
   br label %if.end609
 
 if.end609:                                        ; preds = %if.then602, %if.end598
-  %call610 = call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %call610 = call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #9
   store i64 %call610, ptr %check1768, align 8
   store i64 %call610, ptr %adler1782, align 8
   store i32 16191, ptr %mode.i, align 8
@@ -1714,7 +1714,7 @@ do.body658:                                       ; preds = %sw.bb654
   br label %return
 
 if.end667:                                        ; preds = %sw.bb654
-  %call668 = call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %call668 = call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #9
   store i64 %call668, ptr %check1768, align 8
   store i64 %call668, ptr %adler1782, align 8
   store i32 16191, ptr %mode.i, align 8
@@ -2058,7 +2058,7 @@ while.end944:                                     ; preds = %while.end944.loopex
   store ptr %codes, ptr %next946, align 8
   store ptr %codes, ptr %lencode, align 8
   store i32 7, ptr %lenbits, align 8
-  %call953 = call i32 @inflate_table(i32 noundef 0, ptr noundef nonnull %lens948, i32 noundef 19, ptr noundef nonnull %next946, ptr noundef nonnull %lenbits, ptr noundef nonnull %work) #10
+  %call953 = call i32 @inflate_table(i32 noundef 0, ptr noundef nonnull %lens948, i32 noundef 19, ptr noundef nonnull %next946, ptr noundef nonnull %lenbits, ptr noundef nonnull %work) #9
   %tobool954.not = icmp eq i32 %call953, 0
   br i1 %tobool954.not, label %if.end958, label %if.then955
 
@@ -2386,7 +2386,7 @@ if.end1213:                                       ; preds = %if.end1204
   store ptr %codes, ptr %next946, align 8
   store ptr %codes, ptr %lencode, align 8
   store i32 9, ptr %lenbits, align 8
-  %call1227 = call i32 @inflate_table(i32 noundef 1, ptr noundef nonnull %lens948, i32 noundef %132, ptr noundef nonnull %next946, ptr noundef nonnull %lenbits, ptr noundef nonnull %work) #10
+  %call1227 = call i32 @inflate_table(i32 noundef 1, ptr noundef nonnull %lens948, i32 noundef %132, ptr noundef nonnull %next946, ptr noundef nonnull %lenbits, ptr noundef nonnull %work) #9
   %tobool1228.not = icmp eq i32 %call1227, 0
   br i1 %tobool1228.not, label %if.end1232, label %if.then1229
 
@@ -2403,7 +2403,7 @@ if.end1232:                                       ; preds = %if.end1213
   %idx.ext1237 = zext i32 %155 to i64
   %add.ptr1238 = getelementptr inbounds i16, ptr %lens948, i64 %idx.ext1237
   %156 = load i32, ptr %ndist, align 8
-  %call1244 = call i32 @inflate_table(i32 noundef 2, ptr noundef nonnull %add.ptr1238, i32 noundef %156, ptr noundef nonnull %next946, ptr noundef nonnull %distbits, ptr noundef nonnull %work) #10
+  %call1244 = call i32 @inflate_table(i32 noundef 2, ptr noundef nonnull %add.ptr1238, i32 noundef %156, ptr noundef nonnull %next946, ptr noundef nonnull %distbits, ptr noundef nonnull %work) #9
   %tobool1245.not = icmp eq i32 %call1244, 0
   br i1 %tobool1245.not, label %if.end1249, label %if.then1246
 
@@ -2443,7 +2443,7 @@ do.body1264:                                      ; preds = %sw.bb1257
   store i32 %have.42, ptr %avail_in11, align 8
   store i64 %hold.38, ptr %hold12, align 8
   store i32 %bits.38, ptr %bits13, align 8
-  call void @inflate_fast(ptr noundef nonnull %strm, i32 noundef %out.0) #10
+  call void @inflate_fast(ptr noundef nonnull %strm, i32 noundef %out.0) #9
   %157 = load ptr, ptr %next_out, align 8
   %158 = load i32, ptr %avail_out, align 8
   %159 = load ptr, ptr %strm, align 8
@@ -3129,11 +3129,11 @@ if.then1764:                                      ; preds = %do.end1753
   br i1 %tobool1766.not, label %cond.false1773, label %cond.true1767
 
 cond.true1767:                                    ; preds = %if.then1764
-  %call1772 = call i64 @crc32(i64 noundef %216, ptr noundef %add.ptr1777, i32 noundef %sub1754) #10
+  %call1772 = call i64 @crc32(i64 noundef %216, ptr noundef %add.ptr1777, i32 noundef %sub1754) #9
   br label %cond.end1779
 
 cond.false1773:                                   ; preds = %if.then1764
-  %call1778 = call i64 @adler32(i64 noundef %216, ptr noundef %add.ptr1777, i32 noundef %sub1754) #10
+  %call1778 = call i64 @adler32(i64 noundef %216, ptr noundef %add.ptr1777, i32 noundef %sub1754) #9
   br label %cond.end1779
 
 cond.end1779:                                     ; preds = %cond.false1773, %cond.true1767
@@ -3420,7 +3420,7 @@ if.then.i:                                        ; preds = %if.then1894
   %wbits.i = getelementptr inbounds %struct.inflate_state, ptr %265, i64 0, i32 10
   %269 = load i32, ptr %wbits.i, align 8
   %shl.i = shl nuw i32 1, %269
-  %call.i = call ptr %267(ptr noundef %268, i32 noundef %shl.i, i32 noundef 1) #10
+  %call.i = call ptr %267(ptr noundef %268, i32 noundef %shl.i, i32 noundef 1) #9
   store ptr %call.i, ptr %window.i, align 8
   %cmp4.i = icmp eq ptr %call.i, null
   br i1 %cmp4.i, label %if.then1900, label %if.end6.i
@@ -3543,11 +3543,11 @@ if.then1921:                                      ; preds = %if.end1903
   br i1 %tobool1923.not, label %cond.false1931, label %cond.true1924
 
 cond.true1924:                                    ; preds = %if.then1921
-  %call1930 = call i64 @crc32(i64 noundef %288, ptr noundef %add.ptr1936, i32 noundef %sub1907) #10
+  %call1930 = call i64 @crc32(i64 noundef %288, ptr noundef %add.ptr1936, i32 noundef %sub1907) #9
   br label %cond.end1938
 
 cond.false1931:                                   ; preds = %if.then1921
-  %call1937 = call i64 @adler32(i64 noundef %288, ptr noundef %add.ptr1936, i32 noundef %sub1907) #10
+  %call1937 = call i64 @adler32(i64 noundef %288, ptr noundef %add.ptr1936, i32 noundef %sub1907) #9
   br label %cond.end1938
 
 cond.end1938:                                     ; preds = %cond.false1931, %cond.true1924
@@ -3596,7 +3596,7 @@ declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @adler32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 declare i32 @inflate_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3647,7 +3647,7 @@ if.end:                                           ; preds = %inflateStateCheck.e
 if.then2:                                         ; preds = %if.end
   %opaque = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 10
   %7 = load ptr, ptr %opaque, align 8
-  tail call void %1(ptr noundef %7, ptr noundef nonnull %6) #10
+  tail call void %1(ptr noundef %7, ptr noundef nonnull %6) #9
   %.pre = load ptr, ptr %zfree.i, align 8
   %.pre11 = load ptr, ptr %state4.i, align 8
   br label %if.end4
@@ -3657,7 +3657,7 @@ if.end4:                                          ; preds = %if.then2, %if.end
   %9 = phi ptr [ %.pre, %if.then2 ], [ %1, %if.end ]
   %opaque6 = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 10
   %10 = load ptr, ptr %opaque6, align 8
-  tail call void %9(ptr noundef %10, ptr noundef %8) #10
+  tail call void %9(ptr noundef %10, ptr noundef %8) #9
   store ptr null, ptr %state4.i, align 8
   br label %return
 
@@ -3666,7 +3666,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @inflateGetDictionary(ptr noundef readonly %strm, ptr noundef writeonly %dictionary, ptr noundef writeonly %dictLength) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
@@ -3795,8 +3795,8 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %land.lhs.true, %if.end4
-  %call8 = tail call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
-  %call9 = tail call i64 @adler32(i64 noundef %call8, ptr noundef %dictionary, i32 noundef %dictLength) #10
+  %call8 = tail call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #9
+  %call9 = tail call i64 @adler32(i64 noundef %call8, ptr noundef %dictionary, i32 noundef %dictLength) #9
   %check = getelementptr inbounds %struct.inflate_state, ptr %2, i64 0, i32 7
   %7 = load i64, ptr %check, align 8
   %cmp10.not = icmp eq i64 %call9, %7
@@ -3822,7 +3822,7 @@ if.then.i:                                        ; preds = %if.end13
   %wbits.i = getelementptr inbounds %struct.inflate_state, ptr %8, i64 0, i32 10
   %12 = load i32, ptr %wbits.i, align 8
   %shl.i = shl nuw i32 1, %12
-  %call.i = tail call ptr %10(ptr noundef %11, i32 noundef %shl.i, i32 noundef 1) #10
+  %call.i = tail call ptr %10(ptr noundef %11, i32 noundef %shl.i, i32 noundef 1) #9
   store ptr %call.i, ptr %window.i, align 8
   %cmp4.i = icmp eq ptr %call.i, null
   br i1 %cmp4.i, label %if.then16, label %if.end6.i
@@ -3919,7 +3919,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @inflateGetHeader(ptr noundef readonly %strm, ptr noundef %head) local_unnamed_addr #3 {
+define i32 @inflateGetHeader(ptr noundef readonly %strm, ptr noundef %head) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -3973,8 +3973,8 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @inflateSync(ptr noundef %strm) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define i32 @inflateSync(ptr noundef %strm) local_unnamed_addr #4 {
 entry:
   %buf = alloca [4 x i8], align 1
   %cmp.i = icmp eq ptr %strm, null
@@ -4297,7 +4297,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @inflateSyncPoint(ptr noundef readonly %strm) local_unnamed_addr #6 {
+define i32 @inflateSyncPoint(ptr noundef readonly %strm) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -4389,7 +4389,7 @@ inflateStateCheck.exit:                           ; preds = %lor.lhs.false6.i
 if.end:                                           ; preds = %inflateStateCheck.exit
   %opaque = getelementptr inbounds %struct.z_stream_s, ptr %source, i64 0, i32 10
   %6 = load ptr, ptr %opaque, align 8
-  %call2 = tail call ptr %0(ptr noundef %6, i32 noundef 1, i32 noundef 7160) #10
+  %call2 = tail call ptr %0(ptr noundef %6, i32 noundef 1, i32 noundef 7160) #9
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %return, label %if.end5
 
@@ -4405,14 +4405,14 @@ if.then8:                                         ; preds = %if.end5
   %wbits = getelementptr inbounds %struct.inflate_state, ptr %2, i64 0, i32 10
   %10 = load i32, ptr %wbits, align 8
   %shl = shl nuw i32 1, %10
-  %call11 = tail call ptr %8(ptr noundef %9, i32 noundef %shl, i32 noundef 1) #10
+  %call11 = tail call ptr %8(ptr noundef %9, i32 noundef %shl, i32 noundef 1) #9
   %cmp12 = icmp eq ptr %call11, null
   br i1 %cmp12, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %if.then8
   %11 = load ptr, ptr %zfree.i, align 8
   %12 = load ptr, ptr %opaque, align 8
-  tail call void %11(ptr noundef %12, ptr noundef nonnull %call2) #10
+  tail call void %11(ptr noundef %12, ptr noundef nonnull %call2) #9
   br label %return
 
 if.end16:                                         ; preds = %if.then8, %if.end5
@@ -4438,16 +4438,14 @@ if.then23:                                        ; preds = %if.end16
   %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %codes to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %add.ptr29 = getelementptr inbounds %struct.code, ptr %codes24, i64 %sub.ptr.div
+  %add.ptr29 = getelementptr inbounds i8, ptr %codes24, i64 %sub.ptr.sub
   %lencode30 = getelementptr inbounds %struct.inflate_state, ptr %call2, i64 0, i32 20
   store ptr %add.ptr29, ptr %lencode30, align 8
   %distcode = getelementptr inbounds %struct.inflate_state, ptr %2, i64 0, i32 21
   %14 = load ptr, ptr %distcode, align 8
   %sub.ptr.lhs.cast35 = ptrtoint ptr %14 to i64
   %sub.ptr.sub37 = sub i64 %sub.ptr.lhs.cast35, %sub.ptr.rhs.cast
-  %sub.ptr.div38 = ashr exact i64 %sub.ptr.sub37, 2
-  %add.ptr39 = getelementptr inbounds %struct.code, ptr %codes24, i64 %sub.ptr.div38
+  %add.ptr39 = getelementptr inbounds i8, ptr %codes24, i64 %sub.ptr.sub37
   %distcode40 = getelementptr inbounds %struct.inflate_state, ptr %call2, i64 0, i32 21
   store ptr %add.ptr39, ptr %distcode40, align 8
   br label %if.end41
@@ -4459,8 +4457,7 @@ if.end41:                                         ; preds = %if.end16.if.end41_c
   %15 = load ptr, ptr %next, align 8
   %sub.ptr.lhs.cast46 = ptrtoint ptr %15 to i64
   %sub.ptr.sub48 = sub i64 %sub.ptr.lhs.cast46, %sub.ptr.rhs.cast47.pre-phi
-  %sub.ptr.div49 = ashr exact i64 %sub.ptr.sub48, 2
-  %add.ptr50 = getelementptr inbounds %struct.code, ptr %codes42, i64 %sub.ptr.div49
+  %add.ptr50 = getelementptr inbounds i8, ptr %codes42, i64 %sub.ptr.sub48
   %next51 = getelementptr inbounds %struct.inflate_state, ptr %call2, i64 0, i32 28
   store ptr %add.ptr50, ptr %next51, align 8
   %cmp52.not = icmp eq ptr %window.0, null
@@ -4488,7 +4485,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @inflateUndermine(ptr noundef readonly %strm, i32 noundef %subvert) local_unnamed_addr #3 {
+define i32 @inflateUndermine(ptr noundef readonly %strm, i32 noundef %subvert) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -4534,7 +4531,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @inflateValidate(ptr noundef readonly %strm, i32 noundef %check) local_unnamed_addr #3 {
+define i32 @inflateValidate(ptr noundef readonly %strm, i32 noundef %check) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -4600,7 +4597,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @inflateMark(ptr noundef readonly %strm) local_unnamed_addr #6 {
+define i64 @inflateMark(ptr noundef readonly %strm) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -4670,7 +4667,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @inflateCodesUsed(ptr noundef readonly %strm) local_unnamed_addr #6 {
+define i64 @inflateCodesUsed(ptr noundef readonly %strm) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -4721,28 +4718,27 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
+declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #6
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

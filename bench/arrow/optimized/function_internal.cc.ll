@@ -2679,7 +2679,7 @@ invoke.cont41:                                    ; preds = %_ZNSt10shared_ptrIN
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont41
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp27, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.80", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl_data", ptr %agg.tmp27, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %14 = load <2 x ptr>, ptr %ref.tmp29, align 16
@@ -2746,7 +2746,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit:   ; preds = %invoke.cont47, %if.
 
 call5.i.i.i.i.noexc.i48:                          ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit
   store ptr %call5.i.i.i.i2.i44, ptr %agg.tmp48, align 8
-  %add.ptr.i1.i49 = getelementptr inbounds %"class.std::shared_ptr.58", ptr %call5.i.i.i.i2.i44, i64 1
+  %add.ptr.i1.i49 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i44, i64 16
   %_M_end_of_storage.i.i50 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl_data", ptr %agg.tmp48, i64 0, i32 2
   store ptr %add.ptr.i1.i49, ptr %_M_end_of_storage.i.i50, align 8
   %25 = load <2 x ptr>, ptr %ref.tmp50, align 16
@@ -8054,13 +8054,12 @@ _ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pr
 for.body.preheader:                               ; preds = %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %call5.i.i.i.i2.i.i45 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #17
   store ptr %call5.i.i.i.i2.i.i45, ptr %inputs, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %call5.i.i.i.i2.i.i45, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i45, i64 %sub.ptr.sub.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i45, i8 0, i64 %sub.ptr.sub.i, i1 false)
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i45, i64 %sub.ptr.sub.i
   %_M_finish.i.i7.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::TypeHolder, std::allocator<arrow::TypeHolder>>::_Vector_impl_data", ptr %inputs, i64 0, i32 1
   %17 = getelementptr inbounds %"struct.std::_Vector_base<arrow::TypeHolder, std::allocator<arrow::TypeHolder>>::_Vector_impl_data", ptr %inputs, i64 0, i32 2
   store ptr %add.ptr.i.i.i, ptr %17, align 16
-  store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit

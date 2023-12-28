@@ -2659,7 +2659,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont63
   store ptr %call5.i.i.i.i172, ptr %ref.tmp65, align 8
-  %add.ptr.i169 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i172, i64 1
+  %add.ptr.i169 = getelementptr inbounds i8, ptr %call5.i.i.i.i172, i64 56
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %ref.tmp65, i64 0, i32 2
   store ptr %add.ptr.i169, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_(ptr noundef nonnull align 8 dereferenceable(49) %call5.i.i.i.i172, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp67)

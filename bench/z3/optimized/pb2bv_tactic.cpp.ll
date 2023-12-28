@@ -16231,8 +16231,7 @@ for.body.i:                                       ; preds = %if.end3, %for.body.
 
 if.end10:                                         ; preds = %if.end3
   %sub.ptr.sub13 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast4
-  %sub.ptr.div14 = sdiv exact i64 %sub.ptr.sub13, 40
-  %add.ptr = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__first, i64 %sub.ptr.div14
+  %add.ptr = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub13
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end10
@@ -16314,7 +16313,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 40
-  %add.ptr = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__buffer, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub
   %cmp.not12.i = icmp slt i64 %sub.ptr.sub, 280
   br i1 %cmp.not12.i, label %_ZSt22__chunk_insertion_sortIPN12pb2bv_tactic3imp8monomialElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_11monomial_ltEEEEvT_S9_T0_T1_.exit.thread, label %while.body.i
 

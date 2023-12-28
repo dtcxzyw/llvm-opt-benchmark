@@ -1650,7 +1650,6 @@ _ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_M_alloc
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i9.i = ashr exact i64 %sub.ptr.sub.i8.i, 4
   %mul.i.i.i.i = shl nuw nsw i64 %conv, 4
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
   %cmp.not5.i.i.i.i = icmp eq ptr %1, %2
@@ -1675,7 +1674,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorIN6herm
 
 _ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i9.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i8.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %call5.i.i.i.i, i64 %conv
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
@@ -2764,7 +2763,7 @@ _ZSt24__uninitialized_fill_n_aIPN6hermes2vm12RootSymbolIDEmS2_S2_ET_S4_T0_RKT1_R
   br i1 %cmp.i.i.not5.i.i.i.i.i38, label %_ZSt22__uninitialized_move_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit46.thread, label %for.body.i.i.i.i.i39
 
 _ZSt22__uninitialized_move_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit46.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN6hermes2vm12RootSymbolIDEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit
-  %add.ptr35107 = getelementptr inbounds %"class.hermes::vm::RootSymbolID", ptr %5, i64 %sub.ptr.div.i
+  %add.ptr35107 = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i
   store ptr %add.ptr35107, ptr %_M_finish, align 8
   br label %if.end72
 
@@ -2780,7 +2779,7 @@ for.body.i.i.i.i.i39:                             ; preds = %_ZSt24__uninitializ
 
 for.body.i.i.i50.preheader:                       ; preds = %for.body.i.i.i.i.i39
   %7 = load ptr, ptr %_M_finish, align 8
-  %add.ptr35 = getelementptr inbounds %"class.hermes::vm::RootSymbolID", ptr %7, i64 %sub.ptr.div.i
+  %add.ptr35 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i
   store ptr %add.ptr35, ptr %_M_finish, align 8
   br label %for.body.i.i.i50
 
@@ -2813,7 +2812,6 @@ _ZNKSt6vectorIN6hermes2vm12RootSymbolIDESaIS2_EE12_M_check_lenEmPKc.exit: ; pred
   %cond.i = select i1 %or.cond.i, i64 2305843009213693951, i64 %add.i
   %sub.ptr.lhs.cast44 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub46 = sub i64 %sub.ptr.lhs.cast44, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div47 = ashr exact i64 %sub.ptr.sub46, 2
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %for.body.preheader.i.i.i.i57, label %_ZNSt16allocator_traitsISaIN6hermes2vm12RootSymbolIDEEE8allocateERS3_m.exit.i
 
@@ -2824,7 +2822,7 @@ _ZNSt16allocator_traitsISaIN6hermes2vm12RootSymbolIDEEE8allocateERS3_m.exit.i: ;
 
 for.body.preheader.i.i.i.i57:                     ; preds = %_ZNSt16allocator_traitsISaIN6hermes2vm12RootSymbolIDEEE8allocateERS3_m.exit.i, %_ZNKSt6vectorIN6hermes2vm12RootSymbolIDESaIS2_EE12_M_check_lenEmPKc.exit
   %cond.i55 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6hermes2vm12RootSymbolIDEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN6hermes2vm12RootSymbolIDESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr49 = getelementptr inbounds %"class.hermes::vm::RootSymbolID", ptr %cond.i55, i64 %sub.ptr.div47
+  %add.ptr49 = getelementptr inbounds i8, ptr %cond.i55, i64 %sub.ptr.sub46
   %.pre.i.i.i.i58 = load i32, ptr %__x, align 4
   br label %for.body.i.i.i.i59
 
@@ -2973,8 +2971,8 @@ if.end.i.i.i.i.i23:                               ; preds = %if.then.i.i.i20
   br label %_ZSt27__uninitialized_default_n_aIPPN6hermes2vm9CodeBlockEmS3_ET_S5_T0_RSaIT1_E.exit26
 
 _ZSt27__uninitialized_default_n_aIPPN6hermes2vm9CodeBlockEmS3_ET_S5_T0_RSaIT1_E.exit26: ; preds = %if.then.i.i.i20, %if.end.i.i.i.i.i23
-  %cmp.i.i.i27.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i27.not, label %_ZNSt6vectorIPN6hermes2vm9CodeBlockESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %if.then.i.i.i28
+  %cmp.i.i.i27 = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i.i27, label %if.then.i.i.i28, label %_ZNSt6vectorIPN6hermes2vm9CodeBlockESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
 
 if.then.i.i.i28:                                  ; preds = %_ZSt27__uninitialized_default_n_aIPPN6hermes2vm9CodeBlockEmS3_ET_S5_T0_RSaIT1_E.exit26
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i17, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)

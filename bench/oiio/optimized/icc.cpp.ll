@@ -2477,7 +2477,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
   %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string.14", ptr %this, i64 0, i32 1
   store i64 %__n, ptr %_M_string_length.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %1, i64 %__n
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   store i16 0, ptr %arrayidx.i.i, align 2
   ret void
 }

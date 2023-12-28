@@ -172,7 +172,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 %sub.ptr.div
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub
   %3 = load i32, ptr %arrayidx, align 4
   %cmp.not = icmp ult i32 %3, %newNumSamples
   br i1 %cmp.not, label %if.end, label %if.then
@@ -190,7 +190,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %_sampleListSizes = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 3
   %5 = load ptr, ptr %_sampleListSizes, align 8
-  %arrayidx10 = getelementptr inbounds i32, ptr %5, i64 %sub.ptr.div
+  %arrayidx10 = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub
   %6 = load i32, ptr %arrayidx10, align 4
   %cmp11.not = icmp ult i32 %6, %newNumSamples
   br i1 %cmp11.not, label %while.cond.i, label %if.then12
@@ -200,7 +200,7 @@ if.then12:                                        ; preds = %if.end
   %7 = load ptr, ptr %_level.i.i, align 8
   tail call void @_ZN7Imf_3_214DeepImageLevel16setSamplesToZeroEmjj(ptr noundef nonnull align 8 dereferenceable(192) %7, i64 noundef %sub.ptr.div, i32 noundef %3, i32 noundef %newNumSamples)
   %8 = load ptr, ptr %_numSamples, align 8
-  %arrayidx17 = getelementptr inbounds i32, ptr %8, i64 %sub.ptr.div
+  %arrayidx17 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub
   %9 = load i32, ptr %arrayidx17, align 4
   %sub18 = sub i32 %newNumSamples, %9
   %conv19 = zext i32 %sub18 to i64
@@ -239,7 +239,7 @@ if.then28:                                        ; preds = %_ZN7Imf_3_212_GLOBA
   %add37 = add i64 %14, %conv25
   store i64 %add37, ptr %_totalSamplesOccupied, align 8
   %16 = load ptr, ptr %_numSamples, align 8
-  %arrayidx39 = getelementptr inbounds i32, ptr %16, i64 %sub.ptr.div
+  %arrayidx39 = getelementptr inbounds i8, ptr %16, i64 %sub.ptr.sub
   %17 = load i32, ptr %arrayidx39, align 4
   %sub40 = sub i32 %newNumSamples, %17
   %conv41 = zext i32 %sub40 to i64
@@ -298,14 +298,20 @@ invoke.cont62:                                    ; preds = %invoke.cont58
 for.body:                                         ; preds = %invoke.cont62, %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit55
   %j.058 = phi i64 [ %inc, %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit55 ], [ 0, %invoke.cont62 ]
   %cmp69 = icmp eq i64 %j.058, %sub.ptr.div
-  br i1 %cmp69, label %if.end76, label %if.else
+  br i1 %cmp69, label %if.then70, label %if.else
+
+if.then70:                                        ; preds = %for.body
+  %31 = load ptr, ptr %_numSamples, align 8
+  %arrayidx72 = getelementptr inbounds i8, ptr %31, i64 %sub.ptr.sub
+  store i32 %newNumSamples, ptr %arrayidx72, align 4
+  br label %if.end76
 
 lpad:                                             ; preds = %invoke.cont95, %invoke.cont58, %if.end46
   %oldSampleListPositions.0 = phi ptr [ %27, %invoke.cont95 ], [ %27, %invoke.cont58 ], [ null, %if.end46 ]
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  %33 = tail call ptr @__cxa_begin_catch(ptr %32) #13
+  %33 = extractvalue { ptr, i32 } %32, 0
+  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #13
   %isnull103 = icmp eq ptr %2, null
   br i1 %isnull103, label %delete.end105, label %delete.notnull104
 
@@ -323,11 +329,11 @@ delete.notnull107:                                ; preds = %delete.end105
 
 delete.end108:                                    ; preds = %delete.notnull107, %delete.end105
   %_level.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
-  %34 = load ptr, ptr %_level.i, align 8
-  %_image.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %34, i64 0, i32 1
-  %35 = load ptr, ptr %_image.i, align 8
+  %35 = load ptr, ptr %_level.i, align 8
+  %_image.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %35, i64 0, i32 1
+  %36 = load ptr, ptr %_image.i, align 8
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %ref.tmp, align 16
-  invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %35, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %36, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont116 unwind label %lpad109
 
 invoke.cont116:                                   ; preds = %delete.end108
@@ -336,46 +342,44 @@ invoke.cont116:                                   ; preds = %delete.end108
 
 if.else:                                          ; preds = %for.body
   %arrayidx73 = getelementptr inbounds i32, ptr %2, i64 %j.058
-  %36 = load i32, ptr %arrayidx73, align 4
+  %37 = load i32, ptr %arrayidx73, align 4
+  %38 = load ptr, ptr %_numSamples, align 8
+  %arrayidx75 = getelementptr inbounds i32, ptr %38, i64 %j.058
+  store i32 %37, ptr %arrayidx75, align 4
   br label %if.end76
 
-if.end76:                                         ; preds = %for.body, %if.else
-  %j.058.sink = phi i64 [ %j.058, %if.else ], [ %sub.ptr.div, %for.body ]
-  %.sink = phi i32 [ %36, %if.else ], [ %newNumSamples, %for.body ]
-  %37 = load ptr, ptr %_numSamples, align 8
-  %arrayidx75 = getelementptr inbounds i32, ptr %37, i64 %j.058.sink
-  store i32 %.sink, ptr %arrayidx75, align 4
-  %38 = load i64, ptr %_totalSamplesOccupied, align 8
-  %39 = load ptr, ptr %_sampleListPositions59, align 8
-  %arrayidx79 = getelementptr inbounds i64, ptr %39, i64 %j.058
-  store i64 %38, ptr %arrayidx79, align 8
-  %40 = load ptr, ptr %_numSamples, align 8
-  %arrayidx81 = getelementptr inbounds i32, ptr %40, i64 %j.058
-  %41 = load i32, ptr %arrayidx81, align 4
-  %cmp.i49 = icmp eq i32 %41, 0
+if.end76:                                         ; preds = %if.else, %if.then70
+  %39 = load i64, ptr %_totalSamplesOccupied, align 8
+  %40 = load ptr, ptr %_sampleListPositions59, align 8
+  %arrayidx79 = getelementptr inbounds i64, ptr %40, i64 %j.058
+  store i64 %39, ptr %arrayidx79, align 8
+  %41 = load ptr, ptr %_numSamples, align 8
+  %arrayidx81 = getelementptr inbounds i32, ptr %41, i64 %j.058
+  %42 = load i32, ptr %arrayidx81, align 4
+  %cmp.i49 = icmp eq i32 %42, 0
   br i1 %cmp.i49, label %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit55, label %while.cond.i50
 
 while.cond.i50:                                   ; preds = %if.end76, %while.cond.i50
   %s.0.i51 = phi i32 [ %shl.i53, %while.cond.i50 ], [ 1, %if.end76 ]
-  %cmp1.i52 = icmp ult i32 %s.0.i51, %41
+  %cmp1.i52 = icmp ult i32 %s.0.i51, %42
   %shl.i53 = shl i32 %s.0.i51, 1
   br i1 %cmp1.i52, label %while.cond.i50, label %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit55, !llvm.loop !4
 
 _ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit55: ; preds = %while.cond.i50, %if.end76
   %retval.0.i54 = phi i32 [ 0, %if.end76 ], [ %s.0.i51, %while.cond.i50 ]
-  %42 = load ptr, ptr %_sampleListSizes, align 8
-  %arrayidx85 = getelementptr inbounds i32, ptr %42, i64 %j.058
-  store i32 %retval.0.i54, ptr %arrayidx85, align 4
   %43 = load ptr, ptr %_sampleListSizes, align 8
-  %arrayidx87 = getelementptr inbounds i32, ptr %43, i64 %j.058
-  %44 = load i32, ptr %arrayidx87, align 4
-  %conv88 = zext i32 %44 to i64
-  %45 = load i64, ptr %_totalSamplesOccupied, align 8
-  %add90 = add i64 %45, %conv88
+  %arrayidx85 = getelementptr inbounds i32, ptr %43, i64 %j.058
+  store i32 %retval.0.i54, ptr %arrayidx85, align 4
+  %44 = load ptr, ptr %_sampleListSizes, align 8
+  %arrayidx87 = getelementptr inbounds i32, ptr %44, i64 %j.058
+  %45 = load i32, ptr %arrayidx87, align 4
+  %conv88 = zext i32 %45 to i64
+  %46 = load i64, ptr %_totalSamplesOccupied, align 8
+  %add90 = add i64 %46, %conv88
   store i64 %add90, ptr %_totalSamplesOccupied, align 8
   %inc = add nuw i64 %j.058, 1
-  %46 = load i64, ptr %_numPixels.i, align 8
-  %cmp68 = icmp ult i64 %inc, %46
+  %47 = load i64, ptr %_numPixels.i, align 8
+  %cmp68 = icmp ult i64 %inc, %47
   br i1 %cmp68, label %for.body, label %invoke.cont95.loopexit, !llvm.loop !6
 
 invoke.cont95.loopexit:                           ; preds = %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit55
@@ -385,14 +389,14 @@ invoke.cont95.loopexit:                           ; preds = %_ZN7Imf_3_212_GLOBA
   br label %invoke.cont95
 
 invoke.cont95:                                    ; preds = %invoke.cont95.loopexit, %invoke.cont62
-  %47 = phi ptr [ %.pre60, %invoke.cont95.loopexit ], [ %call63, %invoke.cont62 ]
-  %48 = phi ptr [ %.pre59, %invoke.cont95.loopexit ], [ %call56, %invoke.cont62 ]
-  %49 = phi ptr [ %.pre, %invoke.cont95.loopexit ], [ %24, %invoke.cont62 ]
-  %50 = phi i64 [ %add90, %invoke.cont95.loopexit ], [ 0, %invoke.cont62 ]
-  %div2.i = lshr i64 %50, 1
-  %add.i = add i64 %div2.i, %50
+  %48 = phi ptr [ %.pre60, %invoke.cont95.loopexit ], [ %call63, %invoke.cont62 ]
+  %49 = phi ptr [ %.pre59, %invoke.cont95.loopexit ], [ %call56, %invoke.cont62 ]
+  %50 = phi ptr [ %.pre, %invoke.cont95.loopexit ], [ %24, %invoke.cont62 ]
+  %51 = phi i64 [ %add90, %invoke.cont95.loopexit ], [ 0, %invoke.cont62 ]
+  %div2.i = lshr i64 %51, 1
+  %add.i = add i64 %div2.i, %51
   store i64 %add.i, ptr %_sampleBufferSize, align 8
-  invoke void @_ZN7Imf_3_214DeepImageLevel22moveSamplesToNewBufferEPKjS2_PKm(ptr noundef nonnull align 8 dereferenceable(192) %49, ptr noundef %2, ptr noundef %48, ptr noundef %47)
+  invoke void @_ZN7Imf_3_214DeepImageLevel22moveSamplesToNewBufferEPKjS2_PKm(ptr noundef nonnull align 8 dereferenceable(192) %50, ptr noundef %2, ptr noundef %49, ptr noundef %48)
           to label %invoke.cont99 unwind label %lpad
 
 invoke.cont99:                                    ; preds = %invoke.cont95
@@ -412,7 +416,7 @@ delete.notnull101:                                ; preds = %delete.end
   br label %try.cont
 
 lpad109:                                          ; preds = %invoke.cont116, %delete.end108
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -421,13 +425,13 @@ try.cont:                                         ; preds = %delete.end, %delete
   ret void
 
 eh.resume:                                        ; preds = %lpad109
-  resume { ptr, i32 } %51
+  resume { ptr, i32 } %52
 
 terminate.lpad:                                   ; preds = %lpad109
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #17
+  %54 = extractvalue { ptr, i32 } %53, 0
+  call void @__clang_call_terminate(ptr %54) #17
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont116

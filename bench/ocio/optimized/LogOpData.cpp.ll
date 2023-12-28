@@ -522,8 +522,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %m_greenParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 2
   %_M_finish.i.i15 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %greenParams, i64 0, i32 1
@@ -539,21 +538,21 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 
 cond.true.i.i.i.i21:                              ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i22 = icmp ugt i64 %sub.ptr.div.i.i19, 1152921504606846975
-  br i1 %cmp.i.i.i.i.i.i22, label %if.then3.i.i.i.i.i.i36, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i23
+  br i1 %cmp.i.i.i.i.i.i22, label %if.then3.i.i.i.i.i.i35, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i23
 
-if.then3.i.i.i.i.i.i36:                           ; preds = %cond.true.i.i.i.i21
+if.then3.i.i.i.i.i.i35:                           ; preds = %cond.true.i.i.i.i21
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc37 unwind label %lpad2
+          to label %.noexc36 unwind label %lpad2
 
-.noexc37:                                         ; preds = %if.then3.i.i.i.i.i.i36
+.noexc36:                                         ; preds = %if.then3.i.i.i.i.i.i35
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i23: ; preds = %cond.true.i.i.i.i21
-  %call5.i.i.i.i2.i6.i39 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i18) #24
+  %call5.i.i.i.i2.i6.i38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i18) #24
           to label %invoke.cont.i24 unwind label %lpad2
 
 invoke.cont.i24:                                  ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i23, %invoke.cont
-  %cond.i.i.i.i25 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i39, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i23 ]
+  %cond.i.i.i.i25 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i38, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i23 ]
   store ptr %cond.i.i.i.i25, ptr %m_greenParams, align 8
   %_M_finish.i.i.i26 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   store ptr %cond.i.i.i.i25, ptr %_M_finish.i.i.i26, align 8
@@ -573,60 +572,58 @@ if.then.i.i.i.i.i.i.i.i.i33:                      ; preds = %invoke.cont.i24
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i33, %invoke.cont.i24
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i34 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i31, 3
-  %add.ptr.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds double, ptr %cond.i.i.i.i25, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i34
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i35, ptr %_M_finish.i.i.i26, align 8
+  %add.ptr.i.i.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %cond.i.i.i.i25, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i31
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i34, ptr %_M_finish.i.i.i26, align 8
   %m_blueParams = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 3
-  %_M_finish.i.i41 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %blueParams, i64 0, i32 1
-  %8 = load ptr, ptr %_M_finish.i.i41, align 8
+  %_M_finish.i.i40 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %blueParams, i64 0, i32 1
+  %8 = load ptr, ptr %_M_finish.i.i40, align 8
   %9 = load ptr, ptr %blueParams, align 8
-  %sub.ptr.lhs.cast.i.i42 = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i43 = ptrtoint ptr %9 to i64
-  %sub.ptr.sub.i.i44 = sub i64 %sub.ptr.lhs.cast.i.i42, %sub.ptr.rhs.cast.i.i43
-  %sub.ptr.div.i.i45 = ashr exact i64 %sub.ptr.sub.i.i44, 3
+  %sub.ptr.lhs.cast.i.i41 = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i42 = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i41, %sub.ptr.rhs.cast.i.i42
+  %sub.ptr.div.i.i44 = ashr exact i64 %sub.ptr.sub.i.i43, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i46 = icmp eq ptr %8, %9
-  br i1 %cmp.not.i.i.i.i46, label %invoke.cont.i50, label %cond.true.i.i.i.i47
+  %cmp.not.i.i.i.i45 = icmp eq ptr %8, %9
+  br i1 %cmp.not.i.i.i.i45, label %invoke.cont.i49, label %cond.true.i.i.i.i46
 
-cond.true.i.i.i.i47:                              ; preds = %invoke.cont3
-  %cmp.i.i.i.i.i.i48 = icmp ugt i64 %sub.ptr.div.i.i45, 1152921504606846975
-  br i1 %cmp.i.i.i.i.i.i48, label %if.then3.i.i.i.i.i.i62, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i49
+cond.true.i.i.i.i46:                              ; preds = %invoke.cont3
+  %cmp.i.i.i.i.i.i47 = icmp ugt i64 %sub.ptr.div.i.i44, 1152921504606846975
+  br i1 %cmp.i.i.i.i.i.i47, label %if.then3.i.i.i.i.i.i60, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i48
 
-if.then3.i.i.i.i.i.i62:                           ; preds = %cond.true.i.i.i.i47
+if.then3.i.i.i.i.i.i60:                           ; preds = %cond.true.i.i.i.i46
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc63 unwind label %lpad4
+          to label %.noexc61 unwind label %lpad4
 
-.noexc63:                                         ; preds = %if.then3.i.i.i.i.i.i62
+.noexc61:                                         ; preds = %if.then3.i.i.i.i.i.i60
   unreachable
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i49: ; preds = %cond.true.i.i.i.i47
-  %call5.i.i.i.i2.i6.i65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i44) #24
-          to label %invoke.cont.i50 unwind label %lpad4
+_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i48: ; preds = %cond.true.i.i.i.i46
+  %call5.i.i.i.i2.i6.i63 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i43) #24
+          to label %invoke.cont.i49 unwind label %lpad4
 
-invoke.cont.i50:                                  ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i49, %invoke.cont3
-  %cond.i.i.i.i51 = phi ptr [ null, %invoke.cont3 ], [ %call5.i.i.i.i2.i6.i65, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i49 ]
-  store ptr %cond.i.i.i.i51, ptr %m_blueParams, align 8
-  %_M_finish.i.i.i52 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  store ptr %cond.i.i.i.i51, ptr %_M_finish.i.i.i52, align 8
-  %add.ptr.i.i.i53 = getelementptr inbounds double, ptr %cond.i.i.i.i51, i64 %sub.ptr.div.i.i45
-  %_M_end_of_storage.i.i.i54 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  store ptr %add.ptr.i.i.i53, ptr %_M_end_of_storage.i.i.i54, align 8
+invoke.cont.i49:                                  ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i48, %invoke.cont3
+  %cond.i.i.i.i50 = phi ptr [ null, %invoke.cont3 ], [ %call5.i.i.i.i2.i6.i63, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i48 ]
+  store ptr %cond.i.i.i.i50, ptr %m_blueParams, align 8
+  %_M_finish.i.i.i51 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  store ptr %cond.i.i.i.i50, ptr %_M_finish.i.i.i51, align 8
+  %add.ptr.i.i.i52 = getelementptr inbounds double, ptr %cond.i.i.i.i50, i64 %sub.ptr.div.i.i44
+  %_M_end_of_storage.i.i.i53 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  store ptr %add.ptr.i.i.i52, ptr %_M_end_of_storage.i.i.i53, align 8
   %10 = load ptr, ptr %blueParams, align 8
-  %11 = load ptr, ptr %_M_finish.i.i41, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i55 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i56 = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i57 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i55, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i56
-  %tobool.not.i.i.i.i.i.i.i.i.i58 = icmp eq ptr %11, %10
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i58, label %invoke.cont5, label %if.then.i.i.i.i.i.i.i.i.i59
+  %11 = load ptr, ptr %_M_finish.i.i40, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i54 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i55 = ptrtoint ptr %10 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i56 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i54, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i55
+  %tobool.not.i.i.i.i.i.i.i.i.i57 = icmp eq ptr %11, %10
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i57, label %invoke.cont5, label %if.then.i.i.i.i.i.i.i.i.i58
 
-if.then.i.i.i.i.i.i.i.i.i59:                      ; preds = %invoke.cont.i50
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %cond.i.i.i.i51, ptr align 8 %10, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i57, i1 false)
+if.then.i.i.i.i.i.i.i.i.i58:                      ; preds = %invoke.cont.i49
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %cond.i.i.i.i50, ptr align 8 %10, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i56, i1 false)
   br label %invoke.cont5
 
-invoke.cont5:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i59, %invoke.cont.i50
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i60 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i57, 3
-  %add.ptr.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds double, ptr %cond.i.i.i.i51, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i60
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i61, ptr %_M_finish.i.i.i52, align 8
+invoke.cont5:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i58, %invoke.cont.i49
+  %add.ptr.i.i.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %cond.i.i.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i56
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i59, ptr %_M_finish.i.i.i51, align 8
   %m_base = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 4
   store double %base, ptr %m_base, align 8
   %m_direction = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 5
@@ -639,26 +636,26 @@ invoke.cont5:                                     ; preds = %if.then.i.i.i.i.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %14 = load ptr, ptr %_M_finish.i.i15, align 8
   %15 = load ptr, ptr %greenParams, align 8
-  %sub.ptr.lhs.cast.i68 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i69 = ptrtoint ptr %15 to i64
-  %sub.ptr.sub.i70 = sub i64 %sub.ptr.lhs.cast.i68, %sub.ptr.rhs.cast.i69
-  %sub.ptr.div.i71 = ashr exact i64 %sub.ptr.sub.i70, 3
-  %16 = load ptr, ptr %_M_finish.i.i41, align 8
+  %sub.ptr.lhs.cast.i66 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i67 = ptrtoint ptr %15 to i64
+  %sub.ptr.sub.i68 = sub i64 %sub.ptr.lhs.cast.i66, %sub.ptr.rhs.cast.i67
+  %sub.ptr.div.i69 = ashr exact i64 %sub.ptr.sub.i68, 3
+  %16 = load ptr, ptr %_M_finish.i.i40, align 8
   %17 = load ptr, ptr %blueParams, align 8
-  %sub.ptr.lhs.cast.i73 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i74 = ptrtoint ptr %17 to i64
-  %sub.ptr.sub.i75 = sub i64 %sub.ptr.lhs.cast.i73, %sub.ptr.rhs.cast.i74
-  %sub.ptr.div.i76 = ashr exact i64 %sub.ptr.sub.i75, 3
-  %18 = or i64 %sub.ptr.div.i71, %sub.ptr.div.i
-  %19 = or i64 %18, %sub.ptr.div.i76
+  %sub.ptr.lhs.cast.i71 = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i72 = ptrtoint ptr %17 to i64
+  %sub.ptr.sub.i73 = sub i64 %sub.ptr.lhs.cast.i71, %sub.ptr.rhs.cast.i72
+  %sub.ptr.div.i74 = ashr exact i64 %sub.ptr.sub.i73, 3
+  %18 = or i64 %sub.ptr.div.i69, %sub.ptr.div.i
+  %19 = or i64 %18, %sub.ptr.div.i74
   %or.cond1.not = icmp ult i64 %19, 4
   br i1 %or.cond1.not, label %if.end20, label %if.then
 
 if.then:                                          ; preds = %invoke.cont5
   %cmp11 = icmp ult i64 %sub.ptr.div.i, 4
-  %cmp13 = icmp ult i64 %sub.ptr.div.i71, 4
+  %cmp13 = icmp ult i64 %sub.ptr.div.i69, 4
   %or.cond2 = or i1 %cmp11, %cmp13
-  %cmp15 = icmp ult i64 %sub.ptr.div.i76, 4
+  %cmp15 = icmp ult i64 %sub.ptr.div.i74, 4
   %or.cond3 = or i1 %or.cond2, %cmp15
   br i1 %or.cond3, label %if.then16, label %if.end20
 
@@ -676,12 +673,12 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
           cleanup
   br label %ehcleanup23
 
-lpad2:                                            ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i23, %if.then3.i.i.i.i.i.i36
+lpad2:                                            ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i23, %if.then3.i.i.i.i.i.i35
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup22
 
-lpad4:                                            ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i49, %if.then3.i.i.i.i.i.i62
+lpad4:                                            ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i48, %if.then3.i.i.i.i.i.i60
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup21
@@ -713,25 +710,25 @@ if.then.i.i.i:                                    ; preds = %ehcleanup
 ehcleanup21:                                      ; preds = %if.then.i.i.i, %ehcleanup, %lpad4
   %.pn.pn = phi { ptr, i32 } [ %22, %lpad4 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i ]
   %26 = load ptr, ptr %m_greenParams, align 8
-  %tobool.not.i.i.i79 = icmp eq ptr %26, null
-  br i1 %tobool.not.i.i.i79, label %ehcleanup22, label %if.then.i.i.i80
+  %tobool.not.i.i.i77 = icmp eq ptr %26, null
+  br i1 %tobool.not.i.i.i77, label %ehcleanup22, label %if.then.i.i.i78
 
-if.then.i.i.i80:                                  ; preds = %ehcleanup21
+if.then.i.i.i78:                                  ; preds = %ehcleanup21
   tail call void @_ZdlPv(ptr noundef nonnull %26) #21
   br label %ehcleanup22
 
-ehcleanup22:                                      ; preds = %if.then.i.i.i80, %ehcleanup21, %lpad2
-  %.pn.pn.pn = phi { ptr, i32 } [ %21, %lpad2 ], [ %.pn.pn, %ehcleanup21 ], [ %.pn.pn, %if.then.i.i.i80 ]
+ehcleanup22:                                      ; preds = %if.then.i.i.i78, %ehcleanup21, %lpad2
+  %.pn.pn.pn = phi { ptr, i32 } [ %21, %lpad2 ], [ %.pn.pn, %ehcleanup21 ], [ %.pn.pn, %if.then.i.i.i78 ]
   %27 = load ptr, ptr %m_redParams, align 8
-  %tobool.not.i.i.i83 = icmp eq ptr %27, null
-  br i1 %tobool.not.i.i.i83, label %ehcleanup23, label %if.then.i.i.i84
+  %tobool.not.i.i.i81 = icmp eq ptr %27, null
+  br i1 %tobool.not.i.i.i81, label %ehcleanup23, label %if.then.i.i.i82
 
-if.then.i.i.i84:                                  ; preds = %ehcleanup22
+if.then.i.i.i82:                                  ; preds = %ehcleanup22
   tail call void @_ZdlPv(ptr noundef nonnull %27) #21
   br label %ehcleanup23
 
-ehcleanup23:                                      ; preds = %if.then.i.i.i84, %ehcleanup22, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %20, %lpad ], [ %.pn.pn.pn, %ehcleanup22 ], [ %.pn.pn.pn, %if.then.i.i.i84 ]
+ehcleanup23:                                      ; preds = %if.then.i.i.i82, %ehcleanup22, %lpad
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %20, %lpad ], [ %.pn.pn.pn, %ehcleanup22 ], [ %.pn.pn.pn, %if.then.i.i.i82 ]
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev6OpDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %m_metadata.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OpData", ptr %this, i64 0, i32 2
   tail call void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i) #22
@@ -4642,8 +4639,8 @@ if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i22
   br label %try.cont
 
 try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %if.then.i.i.i22
-  %cmp.i.i.i.i.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i.not, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, label %if.then.i.i.i.i
+  %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit
 
 if.then.i.i.i.i:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i19, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)

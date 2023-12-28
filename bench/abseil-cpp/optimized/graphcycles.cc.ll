@@ -2757,26 +2757,26 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i: ; preds
   %deltaf_.val28.i = load ptr, ptr %deltaf_.i, align 8
   %idx.ext.i93.i = zext i32 %deltaf_.val31.i to i64
   %add.ptr.i94.i = getelementptr inbounds i32, ptr %deltaf_.val28.i, i64 %idx.ext.i93.i
-  %cmp22.i.i.i = icmp ne i32 %deltab_.val33.i, 0
-  %cmp123.i.i.i = icmp ne i32 %deltaf_.val31.i, 0
-  %130 = and i1 %cmp123.i.i.i, %cmp22.i.i.i
+  %cmp21.i.i.i = icmp ne i32 %deltab_.val33.i, 0
+  %cmp122.i.i.i = icmp ne i32 %deltaf_.val31.i, 0
+  %130 = and i1 %cmp122.i.i.i, %cmp21.i.i.i
   br i1 %130, label %while.body.i.i96.i, label %while.end.i.i95.i
 
 while.body.i.i96.i:                               ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i, %while.body.i.i96.i
-  %__result.addr.026.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %while.body.i.i96.i ], [ %merged_.val27.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i ]
-  %__first1.addr.025.i.i.i = phi ptr [ %__first1.addr.1.i.i.i, %while.body.i.i96.i ], [ %deltab_.val29.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i ]
-  %__first2.addr.024.i.i.i = phi ptr [ %__first2.addr.1.i.i.i, %while.body.i.i96.i ], [ %deltaf_.val28.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i ]
-  %131 = load i32, ptr %__first2.addr.024.i.i.i, align 4
-  %132 = load i32, ptr %__first1.addr.025.i.i.i, align 4
+  %__result.addr.025.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %while.body.i.i96.i ], [ %merged_.val27.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i ]
+  %__first1.addr.024.i.i.i = phi ptr [ %__first1.addr.1.i.i.i, %while.body.i.i96.i ], [ %deltab_.val29.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i ]
+  %__first2.addr.023.i.i.i = phi ptr [ %__first2.addr.1.i.i.i, %while.body.i.i96.i ], [ %deltaf_.val28.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE6resizeEj.exit.i ]
+  %131 = load i32, ptr %__first2.addr.023.i.i.i, align 4
+  %132 = load i32, ptr %__first1.addr.024.i.i.i, align 4
   %cmp.i.i.i97.i = icmp slt i32 %131, %132
   %.sink.i.i.i = tail call i32 @llvm.smin.i32(i32 %131, i32 %132)
   %__first2.addr.1.idx.i.i.i = zext i1 %cmp.i.i.i97.i to i64
-  %__first2.addr.1.i.i.i = getelementptr inbounds i32, ptr %__first2.addr.024.i.i.i, i64 %__first2.addr.1.idx.i.i.i
+  %__first2.addr.1.i.i.i = getelementptr inbounds i32, ptr %__first2.addr.023.i.i.i, i64 %__first2.addr.1.idx.i.i.i
   %not.cmp.i.i.i.i = xor i1 %cmp.i.i.i97.i, true
   %__first1.addr.1.idx.i.i.i = zext i1 %not.cmp.i.i.i.i to i64
-  %__first1.addr.1.i.i.i = getelementptr inbounds i32, ptr %__first1.addr.025.i.i.i, i64 %__first1.addr.1.idx.i.i.i
-  store i32 %.sink.i.i.i, ptr %__result.addr.026.i.i.i, align 4
-  %incdec.ptr3.i.i.i = getelementptr inbounds i32, ptr %__result.addr.026.i.i.i, i64 1
+  %__first1.addr.1.i.i.i = getelementptr inbounds i32, ptr %__first1.addr.024.i.i.i, i64 %__first1.addr.1.idx.i.i.i
+  store i32 %.sink.i.i.i, ptr %__result.addr.025.i.i.i, align 4
+  %incdec.ptr3.i.i.i = getelementptr inbounds i32, ptr %__result.addr.025.i.i.i, i64 1
   %cmp.i.i98.i = icmp ne ptr %__first1.addr.1.i.i.i, %add.ptr.i.i
   %cmp1.i.i.i = icmp ne ptr %__first2.addr.1.i.i.i, %add.ptr.i94.i
   %133 = select i1 %cmp.i.i98.i, i1 %cmp1.i.i.i, i1 false
@@ -2804,8 +2804,7 @@ if.then.i.i.i.i.i18.i.i.i:                        ; preds = %_ZSt4copyIPiS0_ET0_
   %sub.ptr.lhs.cast.i.i.i.i.i14.i.i.i = ptrtoint ptr %add.ptr.i94.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i15.i.i.i = ptrtoint ptr %__first2.addr.0.lcssa.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i16.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i14.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i15.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__result.addr.0.lcssa.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.0.lcssa.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i.i.i, ptr align 4 %__first2.addr.0.lcssa.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i16.i.i.i, i1 false)
   br label %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i
 
@@ -3451,7 +3450,7 @@ if.then3.i56.i.i.i:                               ; preds = %for.body.i25.i.i.i
   %sub.ptr.div.i.i.i.i.i.i60.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i59.i.i.i, 2
   %.pre.i.i.i.i.i.i61.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i60.i.i.i
   %add.ptr.i.i.i.i.i.i62.i.i.i = getelementptr inbounds i32, ptr %add.ptr4.i57.i.i.i, i64 %.pre.i.i.i.i.i.i61.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i62.i.i.i, ptr nonnull align 4 %delta.0.val, i64 %sub.ptr.sub.i.i.i.i.i.i59.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i62.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %delta.0.val, i64 %sub.ptr.sub.i.i.i.i.i.i59.i.i.i, i1 false)
   br label %for.inc.i41.i.i.i
 
 if.else.i36.i.i.i:                                ; preds = %for.body.i25.i.i.i

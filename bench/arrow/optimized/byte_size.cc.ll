@@ -1647,7 +1647,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit326.i: ; preds = %if.else.i.i.i.i.
 
 call5.i.i.i.i.noexc.i.i:                          ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit326.i
   store ptr %call5.i.i.i.i2.i.i, ptr %ref.tmp44.i, align 8, !noalias !18
-  %add.ptr.i1.i.i = getelementptr inbounds %"class.std::shared_ptr.33", ptr %call5.i.i.i.i2.i.i, i64 3
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 48
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl_data", ptr %ref.tmp44.i, i64 0, i32 2
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !18
   br label %for.body.i.i.i.i.i.i.i
@@ -1920,7 +1920,7 @@ invoke.cont89.i:                                  ; preds = %_ZNSt10shared_ptrIN
 
 call5.i.i.i.i.noexc.i382.i:                       ; preds = %invoke.cont89.i
   store ptr %call5.i.i.i.i2.i378.i, ptr %ref.tmp50.i, align 8, !noalias !18
-  %add.ptr.i1.i383.i = getelementptr inbounds %"class.std::shared_ptr.174", ptr %call5.i.i.i.i2.i378.i, i64 3
+  %add.ptr.i1.i383.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i378.i, i64 48
   %_M_end_of_storage.i.i384.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl_data", ptr %ref.tmp50.i, i64 0, i32 2
   store ptr %add.ptr.i1.i383.i, ptr %_M_end_of_storage.i.i384.i, align 8, !noalias !18
   br label %for.body.i.i.i.i.i.i385.i
@@ -7765,7 +7765,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52: ; preds = %_ZNSt10shared_ptrI
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp31, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.46", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp31, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i

@@ -2273,13 +2273,11 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %add.ptr.i = getelementptr inbounds %"class.std::weak_ptr", ptr %0, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %sub.ptr.lhs.cast.i1 = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.sub.i3 = sub i64 %sub.ptr.lhs.cast.i1, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i4 = ashr exact i64 %sub.ptr.sub.i3, 4
-  %add.ptr.i5 = getelementptr inbounds %"class.std::weak_ptr", ptr %0, i64 %sub.ptr.div.i4
-  %cmp.i.not.i = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i4
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i3
+  %cmp.i.not.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i.not.i, label %_ZNSt6vectorISt8weak_ptrIN5arrow8internal13AtForkHandlerEESaIS4_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS4_S6_EESA_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -2357,8 +2355,7 @@ if.end.i:                                         ; preds = %if.end.loopexit.i, 
   %sub.ptr.rhs.cast.i.pre-phi.i = phi i64 [ %.pre10.i, %if.then.if.end_crit_edge.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %if.end.loopexit.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %if.then6.i ]
   %8 = phi ptr [ %add.ptr.i5, %if.then.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %1, %if.then6.i ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i, %sub.ptr.rhs.cast.i.pre-phi.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
-  %add.ptr.i6 = getelementptr inbounds %"class.std::weak_ptr", ptr %add.ptr.i, i64 %sub.ptr.div.i.i
+  %add.ptr.i6 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i
   %tobool.not.i.i = icmp eq ptr %8, %add.ptr.i6
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt8weak_ptrIN5arrow8internal13AtForkHandlerEESaIS4_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS4_S6_EESA_.exit, label %for.body.i.i.i.i.i
 

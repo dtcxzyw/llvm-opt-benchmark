@@ -4086,7 +4086,7 @@ lpad4.i157:                                       ; preds = %_ZNSt8_Rb_treeINSt7
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i504
   store ptr %call5.i.i.i.i515, ptr %ref.tmp185, align 8
-  %add.ptr.i512 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i515, i64 1
+  %add.ptr.i512 = getelementptr inbounds i8, ptr %call5.i.i.i.i515, i64 56
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %ref.tmp185, i64 0, i32 2
   store ptr %add.ptr.i512, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_(ptr noundef nonnull align 8 dereferenceable(49) %call5.i.i.i.i515, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp187)
@@ -4155,7 +4155,7 @@ invoke.cont229:                                   ; preds = %invoke.cont220
 
 call5.i.i.i.i.noexc535:                           ; preds = %invoke.cont229
   store ptr %call5.i.i.i.i536, ptr %ref.tmp223, align 8
-  %add.ptr.i519 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i536, i64 1
+  %add.ptr.i519 = getelementptr inbounds i8, ptr %call5.i.i.i.i536, i64 56
   %_M_end_of_storage.i520 = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %ref.tmp223, i64 0, i32 2
   store ptr %add.ptr.i519, ptr %_M_end_of_storage.i520, align 8
   invoke void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_(ptr noundef nonnull align 8 dereferenceable(49) %call5.i.i.i.i536, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp225)
@@ -4296,7 +4296,7 @@ invoke.cont254:                                   ; preds = %_ZNSt8_Rb_treeINSt7
 
 call5.i.i.i.i.noexc583:                           ; preds = %invoke.cont254
   store ptr %call5.i.i.i.i584, ptr %ref.tmp169, align 8
-  %add.ptr.i567 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5.i.i.i.i584, i64 1
+  %add.ptr.i567 = getelementptr inbounds i8, ptr %call5.i.i.i.i584, i64 56
   %_M_end_of_storage.i568 = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %ref.tmp169, i64 0, i32 2
   store ptr %add.ptr.i567, ptr %_M_end_of_storage.i568, align 8
   invoke void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEEC2ERKSO_(ptr noundef nonnull align 8 dereferenceable(49) %call5.i.i.i.i584, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp171)

@@ -249,7 +249,7 @@ lpad.body.i.i:                                    ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   store ptr %call5.i.i.i.i2.i.i.i, ptr %container_.i.i, align 8
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i.i, i64 3
+  %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i, i64 12
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::LinearSearchTest", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i1.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   store i32 1, ptr %call5.i.i.i.i2.i.i.i, align 4
@@ -859,7 +859,7 @@ lpad.body.i.i:                                    ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   store ptr %call5.i.i.i.i2.i.i.i, ptr %container_.i.i, align 8
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i.i, i64 3
+  %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i, i64 12
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::LinearSearchTest", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i1.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   store i32 1, ptr %call5.i.i.i.i2.i.i.i, align 4

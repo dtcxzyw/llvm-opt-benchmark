@@ -976,8 +976,7 @@ if.end67:                                         ; preds = %invoke.cont64, %inv
   %sub.ptr.lhs.cast.i190 = ptrtoint ptr %113 to i64
   %sub.ptr.rhs.cast.i191 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i192 = sub i64 %sub.ptr.lhs.cast.i190, %sub.ptr.rhs.cast.i191
-  %sub.ptr.div.i193 = sdiv exact i64 %sub.ptr.sub.i192, 24
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %34, i64 %sub.ptr.div.i193
+  %add.ptr = getelementptr inbounds i8, ptr %34, i64 %sub.ptr.sub.i192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %114 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i196 = icmp eq i32 %114, 1
@@ -1060,8 +1059,7 @@ invoke.cont71:                                    ; preds = %while.end.i
   %128 = load ptr, ptr %toVector, align 8
   %sub.ptr.rhs.cast.i218 = ptrtoint ptr %128 to i64
   %sub.ptr.sub.i219 = sub i64 %sub.ptr.lhs.cast.i190, %sub.ptr.rhs.cast.i218
-  %sub.ptr.div.i220 = sdiv exact i64 %sub.ptr.sub.i219, 24
-  %add.ptr75 = getelementptr inbounds %struct.TestObject, ptr %128, i64 %sub.ptr.div.i220
+  %add.ptr75 = getelementptr inbounds i8, ptr %128, i64 %sub.ptr.sub.i219
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %129 = load i32, ptr %mnUnits.i.i.i86, align 8
   %cmp.i.i.i223 = icmp eq i32 %129, 1

@@ -337,8 +337,7 @@ if.then16:                                        ; preds = %if.then11
   %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
-  %add.ptr = getelementptr inbounds i16, ptr %call12, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %call12, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %call5, align 8
   %data16 = getelementptr inbounds %struct.UTrie2, ptr %other, i64 0, i32 1
   %8 = load ptr, ptr %data16, align 8
@@ -348,8 +347,7 @@ if.then16:                                        ; preds = %if.then11
 if.then27:                                        ; preds = %if.then16
   %sub.ptr.lhs.cast31 = ptrtoint ptr %8 to i64
   %sub.ptr.sub33 = sub i64 %sub.ptr.lhs.cast31, %sub.ptr.rhs.cast
-  %sub.ptr.div34 = ashr exact i64 %sub.ptr.sub33, 1
-  %add.ptr35 = getelementptr inbounds i16, ptr %call12, i64 %sub.ptr.div34
+  %add.ptr35 = getelementptr inbounds i8, ptr %call12, i64 %sub.ptr.sub33
   %data1636 = getelementptr inbounds %struct.UTrie2, ptr %call5, i64 0, i32 1
   store ptr %add.ptr35, ptr %data1636, align 8
   br label %if.end37
@@ -363,8 +361,7 @@ if.end37:                                         ; preds = %if.then27, %if.then
 if.then39:                                        ; preds = %if.end37
   %sub.ptr.lhs.cast43 = ptrtoint ptr %9 to i64
   %sub.ptr.sub45 = sub i64 %sub.ptr.lhs.cast43, %sub.ptr.rhs.cast
-  %sub.ptr.div46 = ashr exact i64 %sub.ptr.sub45, 2
-  %add.ptr47 = getelementptr inbounds i32, ptr %call12, i64 %sub.ptr.div46
+  %add.ptr47 = getelementptr inbounds i8, ptr %call12, i64 %sub.ptr.sub45
   %data3248 = getelementptr inbounds %struct.UTrie2, ptr %call5, i64 0, i32 2
   store ptr %add.ptr47, ptr %data3248, align 8
   br label %return

@@ -1854,9 +1854,8 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.lhs.cast.i1.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 4
-  %add.ptr.i5.i.i.i = getelementptr inbounds %"struct.std::pair.521", ptr %16, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i.i, %15
+  %add.ptr.i5.i.i.i = getelementptr inbounds i8, ptr %16, i64 %sub.ptr.sub.i3.i.i.i
+  %cmp.i.not.i.i.i.i = icmp eq ptr %add.ptr.i2.i.i, %17
   br i1 %cmp.i.not.i.i.i.i, label %_ZN4cvc57context6CDListISt4pairINS_8internal12NodeTemplateILb0EEEiENS0_14DefaultCleanUpIS6_EESaIS6_EE12truncateListEm.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
@@ -1904,8 +1903,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.loopexit.i.i
   %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %if.end.loopexit.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %if.then6.i.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i.i, %if.then.i.i.i.i ]
   %21 = phi ptr [ %.pre.i.i.i.i, %if.end.loopexit.i.i.i.i ], [ %17, %if.then6.i.i.i.i ], [ %17, %if.then.i.i.i.i ]
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %add.ptr.i6.i.i.i = getelementptr inbounds %"struct.std::pair.521", ptr %add.ptr.i2.i.i, i64 %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i6.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %tobool.not.i.i.i.i.i = icmp eq ptr %21, %add.ptr.i6.i.i.i
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4cvc57context6CDListISt4pairINS_8internal12NodeTemplateILb0EEEiENS0_14DefaultCleanUpIS6_EESaIS6_EE12truncateListEm.exit.i, label %invoke.cont.i.i.i.i.i
 
@@ -4220,9 +4218,8 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.lhs.cast.i1.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 4
-  %add.ptr.i5.i.i = getelementptr inbounds %"struct.std::pair.521", ptr %3, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i, %0
+  %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i3.i.i
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %4
   br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListISt4pairINS_8internal12NodeTemplateILb0EEEiENS0_14DefaultCleanUpIS6_EESaIS6_EE12truncateListEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -4270,8 +4267,7 @@ if.end.i.i.i:                                     ; preds = %if.end.loopexit.i.i
   %sub.ptr.rhs.cast.i.pre-phi.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i, %if.end.loopexit.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i, %if.then.i.i.i ]
   %8 = phi ptr [ %.pre.i.i.i, %if.end.loopexit.i.i.i ], [ %4, %if.then6.i.i.i ], [ %4, %if.then.i.i.i ]
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %add.ptr.i6.i.i = getelementptr inbounds %"struct.std::pair.521", ptr %add.ptr.i2.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 %sub.ptr.sub.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq ptr %8, %add.ptr.i6.i.i
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc57context6CDListISt4pairINS_8internal12NodeTemplateILb0EEEiENS0_14DefaultCleanUpIS6_EESaIS6_EE12truncateListEm.exit, label %invoke.cont.i.i.i.i
 
@@ -4315,9 +4311,8 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.lhs.cast.i1.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 4
-  %add.ptr.i5.i.i = getelementptr inbounds %"struct.std::pair.521", ptr %2, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq ptr %3, %2
+  %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i3.i.i
+  %cmp.i.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -4365,8 +4360,7 @@ if.end.i.i.i:                                     ; preds = %if.end.loopexit.i.i
   %sub.ptr.rhs.cast.i.pre-phi.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i, %if.end.loopexit.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i, %if.then6.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i, %if.then.i.i.i ]
   %7 = phi ptr [ %.pre.i.i.i, %if.end.loopexit.i.i.i ], [ %3, %if.then6.i.i.i ], [ %3, %if.then.i.i.i ]
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %add.ptr.i6.i.i = getelementptr inbounds %"struct.std::pair.521", ptr %2, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq ptr %7, %add.ptr.i6.i.i
   br i1 %tobool.not.i.i.i.i, label %if.end, label %invoke.cont.i.i.i.i
 
@@ -4553,9 +4547,8 @@ if.end.i.i:                                       ; preds = %if.end.sink.split.i
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.lhs.cast.i1.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 4
-  %add.ptr.i5.i.i.i = getelementptr inbounds %"struct.std::pair.521", ptr %5, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i.i, %2
+  %add.ptr.i5.i.i.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i3.i.i.i
+  %cmp.i.not.i.i.i.i = icmp eq ptr %add.ptr.i2.i.i, %6
   br i1 %cmp.i.not.i.i.i.i, label %_ZN4cvc57context6CDListISt4pairINS_8internal12NodeTemplateILb0EEEiENS0_14DefaultCleanUpIS6_EESaIS6_EE7restoreEPNS0_10ContextObjE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
@@ -4603,8 +4596,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.loopexit.i.i
   %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %if.end.loopexit.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %if.then6.i.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i.i, %if.then.i.i.i.i ]
   %10 = phi ptr [ %.pre.i.i.i.i, %if.end.loopexit.i.i.i.i ], [ %6, %if.then6.i.i.i.i ], [ %6, %if.then.i.i.i.i ]
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %add.ptr.i6.i.i.i = getelementptr inbounds %"struct.std::pair.521", ptr %add.ptr.i2.i.i, i64 %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i6.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %tobool.not.i.i.i.i.i = icmp eq ptr %10, %add.ptr.i6.i.i.i
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4cvc57context6CDListISt4pairINS_8internal12NodeTemplateILb0EEEiENS0_14DefaultCleanUpIS6_EESaIS6_EE7restoreEPNS0_10ContextObjE.exit, label %invoke.cont.i.i.i.i.i
 
@@ -4708,7 +4700,7 @@ _ZNKSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb0EEEiESaIS5_EE12_M_check_l
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 4
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
-  %add.ptr = getelementptr inbounds %"struct.std::pair.521", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %2 = load ptr, ptr %__args, align 8
   store ptr %2, ptr %add.ptr, align 8
   %second.i.i.i = getelementptr inbounds %"struct.std::pair.521", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
