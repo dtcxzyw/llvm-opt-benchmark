@@ -2221,8 +2221,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mRemainingSizeField.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -3570,8 +3569,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %if.end.i
@@ -4935,8 +4933,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %if.end.i
@@ -8202,8 +8199,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %if.end.i
@@ -10134,8 +10130,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %if.end.i
@@ -12066,8 +12061,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mRemainingSizeField.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -13567,8 +13561,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %if.end.i
@@ -15091,8 +15084,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %if.end.i
@@ -18421,8 +18413,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %if.end.i
@@ -20353,8 +20344,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %if.end.i
@@ -23331,8 +23321,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mRemainingSizeField.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -28900,8 +28889,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mRemainingSizeField.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -29213,8 +29201,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mRemainingSizeField.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -36633,8 +36620,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %if.end.i

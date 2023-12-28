@@ -1419,8 +1419,6 @@ for.body23.i:                                     ; preds = %for.body23.i, %for.
 for.body36.preheader.i:                           ; preds = %for.body23.i, %if.end16.i
   store i32 %sub.i, ptr %list, align 8
   %76 = load ptr, ptr %sorted_entries, align 8
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %70, i32 1)
-  %wide.trip.count60.i = zext nneg i32 %smax.i to i64
   br label %for.body36.i
 
 for.body36.i:                                     ; preds = %for.inc47.i, %for.body36.preheader.i
@@ -1441,7 +1439,7 @@ if.end41.i:                                       ; preds = %for.body36.i
 for.inc47.i:                                      ; preds = %if.end41.i, %for.body36.i
   %attridx.2.i = phi i32 [ %attridx.145.i, %for.body36.i ], [ %inc44.i, %if.end41.i ]
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
-  %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
+  %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i
   br i1 %exitcond61.not.i, label %for.end49.i, label %for.body36.i, !llvm.loop !16
 
 for.end49.i:                                      ; preds = %for.inc47.i

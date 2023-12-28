@@ -2374,8 +2374,7 @@ invoke.cont56.lr.ph.i:                            ; preds = %for.body.i42, %for.
   %m_data.i19.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %bodies, i64 0, i32 5
   %263 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %pos0.i.i.i, i64 0, i32 1
   %264 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %pos1.i.i.i, i64 0, i32 1
-  %smax.i = call i32 @llvm.smax.i32(i32 %254, i32 1)
-  %wide.trip.count112.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count112.i = zext nneg i32 %254 to i64
   %265 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %mul.i, i64 1
   br label %invoke.cont56.i
 

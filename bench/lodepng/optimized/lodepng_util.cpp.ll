@@ -3810,7 +3810,6 @@ if.end4:                                          ; preds = %if.end9.i, %if.end6
 
 for.body.preheader.i:                             ; preds = %if.end4
   %mul1.i = shl nuw nsw i64 %conv.i, 2
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %mul1.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -3820,7 +3819,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx2.i = getelementptr inbounds float, ptr %out, i64 %i.050.i
   store float %7, ptr %arrayidx2.i, align 4
   %inc.i = add nuw nsw i64 %i.050.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %mul1.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !27
 
 for.end.i:                                        ; preds = %for.body.i

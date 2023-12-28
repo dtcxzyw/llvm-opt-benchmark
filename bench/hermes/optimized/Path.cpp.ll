@@ -2988,11 +2988,10 @@ land.lhs.true9:                                   ; preds = %if.else
   br i1 %cmp5.i65, label %return, label %if.else14
 
 if.else14:                                        ; preds = %if.else, %land.lhs.true, %land.lhs.true9
-  %.sroa.speculated31 = call i64 @llvm.umin.i64(i64 %ref.tmp.sroa.2.0.copyload.i, i64 %dec.i.i)
   br label %return
 
 return:                                           ; preds = %while.cond.i.i, %land.lhs.true, %land.lhs.true9, %if.else14
-  %retval.sroa.4.0 = phi i64 [ %.sroa.speculated31, %if.else14 ], [ 2, %land.lhs.true9 ], [ 1, %land.lhs.true ], [ %ref.tmp.sroa.2.0.copyload.i, %while.cond.i.i ]
+  %retval.sroa.4.0 = phi i64 [ %dec.i.i, %if.else14 ], [ 2, %land.lhs.true9 ], [ 1, %land.lhs.true ], [ %ref.tmp.sroa.2.0.copyload.i, %while.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %ref.tmp.sroa.1.0.copyload.i, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3032,6 +3031,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   br i1 %cmp3.i.i, label %if.else, label %while.cond.i.i, !llvm.loop !7
 
 if.else:                                          ; preds = %while.body.i.i
+  %arrayidx.i.i.le = getelementptr inbounds i8, ptr %ref.tmp.sroa.1.0.copyload.i, i64 %dec.i.i
   switch i64 %ref.tmp.sroa.2.0.copyload.i, label %if.else14 [
     i64 1, label %land.lhs.true
     i64 2, label %land.lhs.true9
@@ -3048,14 +3048,12 @@ land.lhs.true9:                                   ; preds = %if.else
   br i1 %cmp5.i65, label %return, label %if.else14
 
 if.else14:                                        ; preds = %if.else, %land.lhs.true, %land.lhs.true9
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %ref.tmp.sroa.2.0.copyload.i, i64 %dec.i.i)
-  %add.ptr.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.1.0.copyload.i, i64 %.sroa.speculated
-  %sub.i = sub i64 %ref.tmp.sroa.2.0.copyload.i, %.sroa.speculated
+  %sub.i = sub i64 %ref.tmp.sroa.2.0.copyload.i, %dec.i.i
   br label %return
 
 return:                                           ; preds = %while.cond.i.i, %land.lhs.true, %land.lhs.true9, %if.else14
   %retval.sroa.6.0 = phi i64 [ %sub.i, %if.else14 ], [ 0, %land.lhs.true9 ], [ 0, %land.lhs.true ], [ 0, %while.cond.i.i ]
-  %retval.sroa.0.0 = phi ptr [ %add.ptr.i, %if.else14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %while.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %arrayidx.i.i.le, %if.else14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %while.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3286,11 +3284,10 @@ land.lhs.true9.i:                                 ; preds = %if.else.i
   br i1 %cmp5.i65.i, label %_ZN4llvh3sys4path4stemENS_9StringRefENS1_5StyleE.exit, label %if.else14.i
 
 if.else14.i:                                      ; preds = %land.lhs.true9.i, %land.lhs.true.i, %if.else.i
-  %.sroa.speculated31.i = call i64 @llvm.umin.i64(i64 %ref.tmp.sroa.2.0.copyload.i.i, i64 %dec.i.i.i)
   br label %_ZN4llvh3sys4path4stemENS_9StringRefENS1_5StyleE.exit
 
 _ZN4llvh3sys4path4stemENS_9StringRefENS1_5StyleE.exit: ; preds = %while.cond.i.i.i, %land.lhs.true.i, %land.lhs.true9.i, %if.else14.i
-  %retval.sroa.4.0.i = phi i64 [ %.sroa.speculated31.i, %if.else14.i ], [ 2, %land.lhs.true9.i ], [ 2, %land.lhs.true.i ], [ %ref.tmp.sroa.2.0.copyload.i.i, %while.cond.i.i.i ]
+  %retval.sroa.4.0.i = phi i64 [ %dec.i.i.i, %if.else14.i ], [ 2, %land.lhs.true9.i ], [ 2, %land.lhs.true.i ], [ %ref.tmp.sroa.2.0.copyload.i.i, %while.cond.i.i.i ]
   %4 = load ptr, ptr %path_storage, align 8
   %cmp.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %if.then.i.i.i

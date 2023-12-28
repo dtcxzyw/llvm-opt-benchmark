@@ -5740,20 +5740,16 @@ _ZN8psort_nwIN3opt7sortmaxEE11use_dsmergeEjjj.exit: ; preds = %if.end.i.i, %if.t
 if.then33:                                        ; preds = %_ZN8psort_nwIN3opt7sortmaxEE11use_dsmergeEjjj.exit
   %2 = load i32, ptr %m_t.i.i, align 8
   %cmp.not.i = icmp eq i32 %2, 1
-  %.pre.i = tail call i32 @llvm.umin.i32(i32 %c, i32 %a)
-  %.pre58.i = tail call i32 @llvm.umin.i32(i32 %c, i32 %b)
-  %.pre59.i = mul nuw nsw i32 %.pre.i, %.pre58.i
-  %.pre60.i = lshr i32 %.pre59.i, 1
   br i1 %cmp.not.i, label %if.then8.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then33
-  %add4.i43 = add i32 %.pre60.i, %add
+  %add4.i43 = add i32 %.pre60.i.i, %add
   %cmp7.not.i = icmp eq i32 %2, 0
   br i1 %cmp7.not.i, label %return, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then33, %if.end.i
   %retval.sroa.6.057.i = phi i32 [ %add4.i43, %if.end.i ], [ 0, %if.then33 ]
-  %add4.i15.i = add i32 %retval.sroa.6.057.i, %.pre60.i
+  %add4.i15.i = add i32 %retval.sroa.6.057.i, %.pre60.i.i
   br label %return
 
 if.end35:                                         ; preds = %if.end31, %_ZN8psort_nwIN3opt7sortmaxEE11use_dsmergeEjjj.exit

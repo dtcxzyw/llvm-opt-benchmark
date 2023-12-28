@@ -2754,8 +2754,7 @@ land.lhs.true51.i:                                ; preds = %land.lhs.true47.i
 if.then54.i:                                      ; preds = %land.lhs.true51.i
   %add55.i = add i64 %mrs_size.2.i, %mrs_host.1.i
   %cond.i = tail call i64 @llvm.umax.i64(i64 %sub.i105.i, i64 %add55.i)
-  %cond62.i = tail call i64 @llvm.umin.i64(i64 %64, i64 %mrs_gpa.1.i)
-  store i64 %cond62.i, ptr %offset_within_address_space24.i, align 8
+  store i64 %64, ptr %offset_within_address_space24.i, align 8
   %cond69.i = tail call i64 @llvm.umin.i64(i64 %add32.i, i64 %mrs_host.1.i)
   %call71.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef %73) #18
   %77 = ptrtoint ptr %call71.i to i64

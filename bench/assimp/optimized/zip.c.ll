@@ -11291,8 +11291,7 @@ if.then146:                                       ; preds = %if.end128
   store i64 %add118, ptr %m_cur_archive_file_ofs, align 8
   %m_comp_size = getelementptr inbounds %struct.mz_zip_writer_add_state, ptr %state, i64 0, i32 2
   store i64 0, ptr %m_comp_size, align 8
-  %cond.i = call i32 @llvm.smin.i32(i32 %and, i32 10)
-  %idxprom.i = zext nneg i32 %cond.i to i64
+  %idxprom.i = zext nneg i32 %and to i64
   %arrayidx.i = getelementptr inbounds [11 x i32], ptr @tdefl_write_image_to_png_file_in_memory_ex.s_tdefl_png_num_probes, i64 0, i64 %idxprom.i
   %33 = load i32, ptr %arrayidx.i, align 4
   %cmp6.i = icmp ult i32 %and, 4

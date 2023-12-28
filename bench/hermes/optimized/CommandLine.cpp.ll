@@ -5927,17 +5927,16 @@ if.end.i354.i:                                    ; preds = %if.then207.i, %if.t
   br i1 %or.cond39.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i354.i, %while.body.i.i.i
-  %Name.sroa.3.040.i.i.i = phi i64 [ %.sroa.speculated31.i.i.i, %while.body.i.i.i ], [ %ArgName.sroa.18.3899951.i, %if.end.i354.i ]
+  %Name.sroa.3.040.i.i.i = phi i64 [ %sub.i34.i.i, %while.body.i.i.i ], [ %ArgName.sroa.18.3899951.i, %if.end.i354.i ]
   %sub.i34.i.i = add i64 %Name.sroa.3.040.i.i.i, -1
-  %.sroa.speculated31.i.i.i = call i64 @llvm.umin.i64(i64 %Name.sroa.3.040.i.i.i, i64 %sub.i34.i.i)
-  %call.i.i.i.i = call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %OptionsMap32.i, ptr nonnull %storemerge172960.i, i64 %.sroa.speculated31.i.i.i) #27
+  %call.i.i.i.i = call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %OptionsMap32.i, ptr nonnull %storemerge172960.i, i64 %sub.i34.i.i) #27
   %cmp.i11.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   %90 = load i32, ptr %NumBuckets.i.i45.i.i, align 8
   %idx.ext.i.i13.i.i.i = zext i32 %90 to i64
   %idx.ext.i14.i.i.i = sext i32 %call.i.i.i.i to i64
   %retval.sroa.0.0.v.i15.i.i.i = select i1 %cmp.i11.i.i.i, i64 %idx.ext.i.i13.i.i.i, i64 %idx.ext.i14.i.i.i
   %cmp.i7.i.i.i = icmp eq i64 %retval.sroa.0.0.v.i15.i.i.i, %idx.ext.i.i13.i.i.i
-  %cmp.i.i360.i = icmp ugt i64 %.sroa.speculated31.i.i.i, 1
+  %cmp.i.i360.i = icmp ugt i64 %sub.i34.i.i, 1
   %or.cond.i.i.i = select i1 %cmp.i7.i.i.i, i1 %cmp.i.i360.i, i1 false
   br i1 %or.cond.i.i.i, label %while.body.i.i.i, label %while.end.loopexit.i.i.i, !llvm.loop !87
 
@@ -5948,7 +5947,7 @@ while.end.loopexit.i.i.i:                         ; preds = %while.body.i.i.i
   br label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %while.end.loopexit.i.i.i, %if.end.i354.i
-  %Name.sroa.3.0.lcssa.i.i.i = phi i64 [ %ArgName.sroa.18.3899951.i, %if.end.i354.i ], [ %.sroa.speculated31.i.i.i, %while.end.loopexit.i.i.i ]
+  %Name.sroa.3.0.lcssa.i.i.i = phi i64 [ %ArgName.sroa.18.3899951.i, %if.end.i354.i ], [ %sub.i34.i.i, %while.end.loopexit.i.i.i ]
   %storemerge.lcssa.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %if.end.i354.i ], [ %retval.sroa.0.0.i16.i.i.i, %while.end.loopexit.i.i.i ]
   %add.ptr.i6.lcssa.i.i.i = phi ptr [ %add.ptr.i636.i.i.i, %if.end.i354.i ], [ %add.ptr.i6.i.i.i, %while.end.loopexit.i.i.i ]
   %cmp.i.i.not.i.i.i = icmp eq ptr %storemerge.lcssa.i.i.i, %add.ptr.i6.lcssa.i.i.i
@@ -5970,9 +5969,9 @@ if.end3.i.i:                                      ; preds = %land.rhs20.i.i.i
   br i1 %cmp5.i.i, label %if.then6.i.i, label %do.body.i.i
 
 if.then6.i.i:                                     ; preds = %if.end3.i.i
-  %.sroa.speculated118.i.i = call i64 @llvm.umin.i64(i64 %ArgName.sroa.18.3899951.i, i64 %Name.sroa.3.0.lcssa.i.i.i)
-  %add.ptr.i76.i.i = getelementptr inbounds i8, ptr %storemerge172960.i, i64 %.sroa.speculated118.i.i
-  %sub.i78.i.i = sub i64 %ArgName.sroa.18.3899951.i, %.sroa.speculated118.i.i
+  %.sroa.speculated117.i.i = call i64 @llvm.umin.i64(i64 %ArgName.sroa.18.3899951.i, i64 %Name.sroa.3.0.lcssa.i.i.i)
+  %add.ptr.i76.i.i = getelementptr inbounds i8, ptr %storemerge172960.i, i64 %.sroa.speculated117.i.i
+  %sub.i78.i.i = sub i64 %ArgName.sroa.18.3899951.i, %.sroa.speculated117.i.i
   br label %if.end209.i
 
 do.body.i.i:                                      ; preds = %if.end3.i.i, %land.rhs.i.i
@@ -5981,11 +5980,11 @@ do.body.i.i:                                      ; preds = %if.end3.i.i, %land.
   %96 = phi i64 [ %sub.i.i.i, %land.rhs.i.i ], [ %ArgName.sroa.18.3899951.i, %if.end3.i.i ]
   %Length.1.i.i = phi i64 [ %Name.sroa.3.0.lcssa.i62.i.i, %land.rhs.i.i ], [ %Name.sroa.3.0.lcssa.i.i.i, %if.end3.i.i ]
   %PGOpt.0.i.i = phi ptr [ %105, %land.rhs.i.i ], [ %93, %if.end3.i.i ]
-  %.sroa.speculated100.i.i = call i64 @llvm.umin.i64(i64 %96, i64 %Length.1.i.i)
-  %add.ptr.i.i358.i = getelementptr inbounds i8, ptr %ArgName.sroa.0.0.i, i64 %.sroa.speculated100.i.i
-  %sub.i.i.i = sub i64 %96, %.sroa.speculated100.i.i
+  %.sroa.speculated99.i.i = call i64 @llvm.umin.i64(i64 %96, i64 %Length.1.i.i)
+  %add.ptr.i.i358.i = getelementptr inbounds i8, ptr %ArgName.sroa.0.0.i, i64 %.sroa.speculated99.i.i
+  %sub.i.i.i = sub i64 %96, %.sroa.speculated99.i.i
   store i32 0, ptr %Dummy.i352.i, align 4
-  %call16.i.i = call fastcc noundef zeroext i1 @_ZL13ProvideOptionPN4llvh2cl6OptionENS_9StringRefES3_iPKPKcRi(ptr noundef nonnull %PGOpt.0.i.i, ptr %ArgName.sroa.0.0.i, i64 %.sroa.speculated100.i.i, ptr null, i64 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %Dummy.i352.i)
+  %call16.i.i = call fastcc noundef zeroext i1 @_ZL13ProvideOptionPN4llvh2cl6OptionENS_9StringRefES3_iPKPKcRi(ptr noundef nonnull %PGOpt.0.i.i, ptr %ArgName.sroa.0.0.i, i64 %.sroa.speculated99.i.i, ptr null, i64 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %Dummy.i352.i)
   %97 = and i8 %ErrorParsing.4.i, 1
   %98 = zext i1 %call16.i.i to i8
   %99 = or i8 %97, %98
@@ -6004,30 +6003,29 @@ do.body.i.i:                                      ; preds = %if.end3.i.i, %land.
   br i1 %or.cond39.i60.i.i, label %while.body.i72.i.i, label %while.end.i61.i.i
 
 while.body.i72.i.i:                               ; preds = %do.body.i.i, %while.body.i72.i.i
-  %Name.sroa.3.040.i73.i.i = phi i64 [ %.sroa.speculated31.i75.i.i, %while.body.i72.i.i ], [ %sub.i.i.i, %do.body.i.i ]
+  %Name.sroa.3.040.i73.i.i = phi i64 [ %sub.i74.i.i, %while.body.i72.i.i ], [ %sub.i.i.i, %do.body.i.i ]
   %sub.i74.i.i = add i64 %Name.sroa.3.040.i73.i.i, -1
-  %.sroa.speculated31.i75.i.i = call i64 @llvm.umin.i64(i64 %Name.sroa.3.040.i73.i.i, i64 %sub.i74.i.i)
-  %call.i.i76.i.i = call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %OptionsMap32.i, ptr %add.ptr.i.i358.i, i64 %.sroa.speculated31.i75.i.i) #27
-  %cmp.i11.i77.i.i = icmp eq i32 %call.i.i76.i.i, -1
+  %call.i.i75.i.i = call noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %OptionsMap32.i, ptr %add.ptr.i.i358.i, i64 %sub.i74.i.i) #27
+  %cmp.i11.i76.i.i = icmp eq i32 %call.i.i75.i.i, -1
   %102 = load i32, ptr %NumBuckets.i.i45.i.i, align 8
-  %idx.ext.i.i13.i78.i.i = zext i32 %102 to i64
-  %idx.ext.i14.i79.i.i = sext i32 %call.i.i76.i.i to i64
-  %retval.sroa.0.0.v.i15.i80.i.i = select i1 %cmp.i11.i77.i.i, i64 %idx.ext.i.i13.i78.i.i, i64 %idx.ext.i14.i79.i.i
-  %cmp.i7.i81.i.i = icmp eq i64 %retval.sroa.0.0.v.i15.i80.i.i, %idx.ext.i.i13.i78.i.i
-  %cmp.i82.i.i = icmp ugt i64 %.sroa.speculated31.i75.i.i, 1
-  %or.cond.i83.i.i = select i1 %cmp.i7.i81.i.i, i1 %cmp.i82.i.i, i1 false
-  br i1 %or.cond.i83.i.i, label %while.body.i72.i.i, label %while.end.loopexit.i84.i.i, !llvm.loop !87
+  %idx.ext.i.i13.i77.i.i = zext i32 %102 to i64
+  %idx.ext.i14.i78.i.i = sext i32 %call.i.i75.i.i to i64
+  %retval.sroa.0.0.v.i15.i79.i.i = select i1 %cmp.i11.i76.i.i, i64 %idx.ext.i.i13.i77.i.i, i64 %idx.ext.i14.i78.i.i
+  %cmp.i7.i80.i.i = icmp eq i64 %retval.sroa.0.0.v.i15.i79.i.i, %idx.ext.i.i13.i77.i.i
+  %cmp.i81.i.i = icmp ugt i64 %sub.i74.i.i, 1
+  %or.cond.i82.i.i = select i1 %cmp.i7.i80.i.i, i1 %cmp.i81.i.i, i1 false
+  br i1 %or.cond.i82.i.i, label %while.body.i72.i.i, label %while.end.loopexit.i83.i.i, !llvm.loop !87
 
-while.end.loopexit.i84.i.i:                       ; preds = %while.body.i72.i.i
+while.end.loopexit.i83.i.i:                       ; preds = %while.body.i72.i.i
   %103 = load ptr, ptr %OptionsMap32.i, align 8
-  %add.ptr.i6.i85.i.i = getelementptr inbounds ptr, ptr %103, i64 %idx.ext.i.i13.i78.i.i
-  %retval.sroa.0.0.i16.i86.i.i = getelementptr inbounds ptr, ptr %103, i64 %retval.sroa.0.0.v.i15.i80.i.i
+  %add.ptr.i6.i84.i.i = getelementptr inbounds ptr, ptr %103, i64 %idx.ext.i.i13.i77.i.i
+  %retval.sroa.0.0.i16.i85.i.i = getelementptr inbounds ptr, ptr %103, i64 %retval.sroa.0.0.v.i15.i79.i.i
   br label %while.end.i61.i.i
 
-while.end.i61.i.i:                                ; preds = %while.end.loopexit.i84.i.i, %do.body.i.i
-  %Name.sroa.3.0.lcssa.i62.i.i = phi i64 [ %sub.i.i.i, %do.body.i.i ], [ %.sroa.speculated31.i75.i.i, %while.end.loopexit.i84.i.i ]
-  %storemerge.lcssa.i63.i.i = phi ptr [ %retval.sroa.0.0.i.i56.i.i, %do.body.i.i ], [ %retval.sroa.0.0.i16.i86.i.i, %while.end.loopexit.i84.i.i ]
-  %add.ptr.i6.lcssa.i64.i.i = phi ptr [ %add.ptr.i636.i57.i.i, %do.body.i.i ], [ %add.ptr.i6.i85.i.i, %while.end.loopexit.i84.i.i ]
+while.end.i61.i.i:                                ; preds = %while.end.loopexit.i83.i.i, %do.body.i.i
+  %Name.sroa.3.0.lcssa.i62.i.i = phi i64 [ %sub.i.i.i, %do.body.i.i ], [ %sub.i74.i.i, %while.end.loopexit.i83.i.i ]
+  %storemerge.lcssa.i63.i.i = phi ptr [ %retval.sroa.0.0.i.i56.i.i, %do.body.i.i ], [ %retval.sroa.0.0.i16.i85.i.i, %while.end.loopexit.i83.i.i ]
+  %add.ptr.i6.lcssa.i64.i.i = phi ptr [ %add.ptr.i636.i57.i.i, %do.body.i.i ], [ %add.ptr.i6.i84.i.i, %while.end.loopexit.i83.i.i ]
   %cmp.i.i.not.i65.i.i = icmp eq ptr %storemerge.lcssa.i63.i.i, %add.ptr.i6.lcssa.i64.i.i
   br i1 %cmp.i.i.not.i65.i.i, label %land.lhs.true211.i, label %land.rhs20.i66.i.i
 
@@ -6038,8 +6036,8 @@ land.rhs20.i66.i.i:                               ; preds = %while.end.i61.i.i
   %Formatting.i.i.i.i = getelementptr inbounds %"class.llvh::cl::Option", ptr %105, i64 0, i32 2
   %bf.load.i.i.i.i = load i16, ptr %Formatting.i.i.i.i, align 4
   %106 = and i16 %bf.load.i.i.i.i, 384
-  %cmp.i88.i.i = icmp eq i16 %106, 384
-  br i1 %cmp.i88.i.i, label %land.rhs.i.i, label %land.lhs.true211.i
+  %cmp.i87.i.i = icmp eq i16 %106, 384
+  br i1 %cmp.i87.i.i, label %land.rhs.i.i, label %land.lhs.true211.i
 
 land.rhs.i.i:                                     ; preds = %land.rhs20.i66.i.i
   %cmp24.not.i.i = icmp eq i64 %Name.sroa.3.0.lcssa.i62.i.i, %sub.i.i.i
@@ -6047,7 +6045,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs20.i66.i.i
 
 if.end209.i:                                      ; preds = %land.rhs.i.i, %if.then6.i.i
   %ArgName.sroa.0.1.i = phi ptr [ %storemerge172960.i, %if.then6.i.i ], [ %add.ptr.i.i358.i, %land.rhs.i.i ]
-  %ArgName.sroa.18.4.i = phi i64 [ %.sroa.speculated118.i.i, %if.then6.i.i ], [ %sub.i.i.i, %land.rhs.i.i ]
+  %ArgName.sroa.18.4.i = phi i64 [ %.sroa.speculated117.i.i, %if.then6.i.i ], [ %sub.i.i.i, %land.rhs.i.i ]
   %Value.sroa.5.5.i = phi i64 [ %sub.i78.i.i, %if.then6.i.i ], [ %Value.sroa.5.4900950.i, %land.rhs.i.i ]
   %Value.sroa.0.5.i = phi ptr [ %add.ptr.i76.i.i, %if.then6.i.i ], [ %Value.sroa.0.4901948.i, %land.rhs.i.i ]
   %ErrorParsing.5.i = phi i8 [ %ErrorParsing.3990.i, %if.then6.i.i ], [ %99, %land.rhs.i.i ]
