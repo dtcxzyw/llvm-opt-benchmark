@@ -1132,9 +1132,9 @@ if.end.i:                                         ; preds = %entry
   %call2.i3 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %channel_args, i64 28, ptr nonnull @.str.1)
   %0 = and i64 %call2.i3, 6442450944
   %cmp.not.i = icmp eq i64 %0, 4294967296
-  %1 = and i64 %call2.i3, 4294967295
-  %2 = or disjoint i64 %1, 4294967296
-  %3 = select i1 %cmp.not.i, i64 %2, i64 0
+  %1 = select i1 %cmp.not.i, i64 4294967296, i64 0
+  %2 = and i64 %call2.i3, 4294967295
+  %3 = or disjoint i64 %1, %2
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i, %entry
@@ -1150,12 +1150,10 @@ if.end.i4:                                        ; preds = %invoke.cont
   %4 = and i64 %call2.i9, 4294967296
   %tobool.i.not.i.i = icmp eq i64 %4, 0
   %retval.0.i.i = select i1 %tobool.i.not.i.i, i32 4194304, i32 %ref.tmp.sroa.0.0.extract.trunc.i
-  %cmp.i = icmp sgt i32 %retval.0.i.i, -1
-  %spec.select.i = select i1 %cmp.i, i32 %retval.0.i.i, i32 undef
   %5 = and i32 %retval.0.i.i, -2147483648
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 1
-  %8 = zext i32 %spec.select.i to i64
+  %8 = zext i32 %retval.0.i.i to i64
   %9 = or disjoint i64 %7, %8
   %10 = xor i64 %9, 4294967296
   br label %invoke.cont3
@@ -1177,9 +1175,9 @@ if.end:                                           ; preds = %entry
   %call2 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 28, ptr nonnull @.str.1)
   %0 = and i64 %call2, 6442450944
   %cmp.not = icmp eq i64 %0, 4294967296
-  %1 = and i64 %call2, 4294967295
-  %2 = or disjoint i64 %1, 4294967296
-  %3 = select i1 %cmp.not, i64 %2, i64 0
+  %1 = select i1 %cmp.not, i64 4294967296, i64 0
+  %2 = and i64 %call2, 4294967295
+  %3 = or disjoint i64 %1, %2
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -1204,12 +1202,10 @@ if.end:                                           ; preds = %entry
   %0 = and i64 %call2, 4294967296
   %tobool.i.not.i = icmp eq i64 %0, 0
   %retval.0.i = select i1 %tobool.i.not.i, i32 4194304, i32 %ref.tmp.sroa.0.0.extract.trunc
-  %cmp = icmp sgt i32 %retval.0.i, -1
-  %spec.select = select i1 %cmp, i32 %retval.0.i, i32 undef
   %1 = and i32 %retval.0.i, -2147483648
   %2 = zext i32 %1 to i64
   %3 = shl nuw nsw i64 %2, 1
-  %4 = zext i32 %spec.select to i64
+  %4 = zext i32 %retval.0.i to i64
   %5 = or disjoint i64 %3, %4
   %6 = xor i64 %5, 4294967296
   br label %return
@@ -1570,9 +1566,9 @@ if.end.i.i3:                                      ; preds = %call.i2.i.noexc
 call2.i3.i.noexc:                                 ; preds = %if.end.i.i3
   %1 = and i64 %call2.i3.i6, 6442450944
   %cmp.not.i.i4 = icmp eq i64 %1, 4294967296
-  %2 = and i64 %call2.i3.i6, 4294967295
-  %3 = or disjoint i64 %2, 4294967296
-  %4 = select i1 %cmp.not.i.i4, i64 %3, i64 0
+  %2 = select i1 %cmp.not.i.i4, i64 4294967296, i64 0
+  %3 = and i64 %call2.i3.i6, 4294967295
+  %4 = or disjoint i64 %2, %3
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %call2.i3.i.noexc, %call.i2.i.noexc
@@ -1594,12 +1590,10 @@ call2.i9.i.noexc:                                 ; preds = %if.end.i4.i
   %5 = and i64 %call2.i9.i8, 4294967296
   %tobool.i.not.i.i.i = icmp eq i64 %5, 0
   %retval.0.i.i.i = select i1 %tobool.i.not.i.i.i, i32 4194304, i32 %ref.tmp.sroa.0.0.extract.trunc.i.i
-  %cmp.i.i = icmp sgt i32 %retval.0.i.i.i, -1
-  %spec.select.i.i = select i1 %cmp.i.i, i32 %retval.0.i.i.i, i32 undef
   %6 = and i32 %retval.0.i.i.i, -2147483648
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 1
-  %9 = zext i32 %spec.select.i.i to i64
+  %9 = zext i32 %retval.0.i.i.i to i64
   %10 = or disjoint i64 %8, %9
   %11 = xor i64 %10, 4294967296
   br label %invoke.cont2
@@ -1843,9 +1837,9 @@ if.end.i.i:                                       ; preds = %call.i2.i.noexc
 call2.i3.i.noexc:                                 ; preds = %if.end.i.i
   %0 = and i64 %call2.i3.i2, 6442450944
   %cmp.not.i.i = icmp eq i64 %0, 4294967296
-  %1 = and i64 %call2.i3.i2, 4294967295
-  %2 = or disjoint i64 %1, 4294967296
-  %3 = select i1 %cmp.not.i.i, i64 %2, i64 0
+  %1 = select i1 %cmp.not.i.i, i64 4294967296, i64 0
+  %2 = and i64 %call2.i3.i2, 4294967295
+  %3 = or disjoint i64 %1, %2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %call2.i3.i.noexc, %call.i2.i.noexc
@@ -1867,12 +1861,10 @@ call2.i9.i.noexc:                                 ; preds = %if.end.i4.i
   %4 = and i64 %call2.i9.i4, 4294967296
   %tobool.i.not.i.i.i = icmp eq i64 %4, 0
   %retval.0.i.i.i = select i1 %tobool.i.not.i.i.i, i32 4194304, i32 %ref.tmp.sroa.0.0.extract.trunc.i.i
-  %cmp.i.i = icmp sgt i32 %retval.0.i.i.i, -1
-  %spec.select.i.i = select i1 %cmp.i.i, i32 %retval.0.i.i.i, i32 undef
   %5 = and i32 %retval.0.i.i.i, -2147483648
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 1
-  %8 = zext i32 %spec.select.i.i to i64
+  %8 = zext i32 %retval.0.i.i.i to i64
   %9 = or disjoint i64 %7, %8
   %10 = xor i64 %9, 4294967296
   br label %invoke.cont
