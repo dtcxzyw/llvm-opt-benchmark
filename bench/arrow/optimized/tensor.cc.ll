@@ -1118,12 +1118,11 @@ do.body10:                                        ; preds = %do.end7
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %sub.ptr.lhs.cast.i16.i = ptrtoint ptr %shape.val15 to i64
   %sub.ptr.rhs.cast.i17.i = ptrtoint ptr %shape.val14 to i64
   %sub.ptr.sub.i18.i = sub i64 %sub.ptr.lhs.cast.i16.i, %sub.ptr.rhs.cast.i17.i
   %sub.ptr.div.i19.i = ashr exact i64 %sub.ptr.sub.i18.i, 3
-  %cmp.not.i57 = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i19.i
+  %cmp.not.i57 = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i18.i
   br i1 %cmp.not.i57, label %if.end.i59, label %if.then.i58
 
 if.then.i58:                                      ; preds = %do.body10
@@ -1138,12 +1137,12 @@ if.end.i59:                                       ; preds = %do.body10
   br i1 %cmp4.i, label %land.rhs.i, label %if.end19.i60
 
 land.rhs.i:                                       ; preds = %if.end.i59
-  %shr.i.i.i.i = ashr i64 %sub.ptr.sub.i18.i, 5
+  %shr.i.i.i.i = ashr i64 %sub.ptr.sub.i.i, 5
   %cmp56.i.i.i.i = icmp sgt i64 %shr.i.i.i.i, 0
   br i1 %cmp56.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %for.end.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %land.rhs.i
-  %16 = and i64 %sub.ptr.sub.i18.i, -32
+  %16 = and i64 %sub.ptr.sub.i.i, -32
   %scevgep.i.i.i.i = getelementptr i8, ptr %shape.val14, i64 %16
   br label %for.body.i.i.i.i
 
@@ -1184,7 +1183,7 @@ for.end.loopexit.i.i.i.i:                         ; preds = %if.end22.i.i.i.i
   br label %for.end.i.i.i.i
 
 for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %land.rhs.i
-  %sub.ptr.sub.i20.pre-phi.i.i.i.i = phi i64 [ %.pre65.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %sub.ptr.sub.i18.i, %land.rhs.i ]
+  %sub.ptr.sub.i20.pre-phi.i.i.i.i = phi i64 [ %.pre65.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %sub.ptr.sub.i.i, %land.rhs.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %shape.val14, %land.rhs.i ]
   %sub.ptr.div.i21.i.i.i.i = ashr exact i64 %sub.ptr.sub.i20.pre-phi.i.i.i.i, 3
   switch i64 %sub.ptr.div.i21.i.i.i.i, label %if.end19.i60 [
@@ -1237,11 +1236,11 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.e
   br i1 %cmp.i.not.i63, label %if.end19.i60, label %nrvo.skipdtor29.thread
 
 if.end19.i60:                                     ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i, %for.end.i.i.i.i, %if.end.i59
-  %cmp2117.not.i = icmp eq i64 %sub.ptr.sub.i18.i, 0
+  %cmp2117.not.i = icmp eq i64 %sub.ptr.sub.i.i, 0
   br i1 %cmp2117.not.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end19.i60
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
+  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i19.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i

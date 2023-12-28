@@ -4010,8 +4010,7 @@ land.lhs.true:                                    ; preds = %for.body
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i19 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i19
-  %sub.ptr.div.i21 = sdiv exact i64 %sub.ptr.sub.i20, 24
-  %cmp.not = icmp eq i64 %sub.ptr.div.i16, %sub.ptr.div.i21
+  %cmp.not = icmp eq i64 %sub.ptr.sub.i15, %sub.ptr.sub.i20
   br i1 %cmp.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true

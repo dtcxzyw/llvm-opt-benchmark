@@ -5668,6 +5668,7 @@ declare noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKSt10shared_ptrIS0_Eb(pt
 define linkonce_odr void @_ZN5arrow23QuadraticSpaceMyersDiff4DiffEv(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.118", align 8
+  %ref.tmp16.sroa.0 = alloca i64, align 8
   %ref.tmp27 = alloca [1 x i8], align 1
   %base_begin_ = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 3
   store i64 0, ptr %base_begin_, align 8
@@ -5751,11 +5752,15 @@ _ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit: ; 
 
 invoke.cont21:                                    ; preds = %_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit
   %add.i = add nsw i64 %call2.i6, %14
+  store i64 %add.i, ptr %ref.tmp16.sroa.0, align 8
   %endpoint_base_ = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 10
   %_M_end_of_storage.i.i = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 2
   %19 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %20 = load ptr, ptr %endpoint_base_, align 8
-  %cmp.i8 = icmp eq ptr %19, %20
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %cmp.i8 = icmp ult i64 %sub.ptr.sub.i.i, 8
   br i1 %cmp.i8, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont21
@@ -5765,11 +5770,11 @@ if.then.i:                                        ; preds = %invoke.cont21
 call5.i.i.i.i.i.noexc:                            ; preds = %if.then.i
   store i64 %add.i, ptr %call5.i.i.i.i.i9, align 8
   %_M_finish.i = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
-  %tobool.not.i.i = icmp eq ptr %19, null
+  %tobool.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i, label %if.then.i13.i
 
 if.then.i13.i:                                    ; preds = %call5.i.i.i.i.i.noexc
-  call void @_ZdlPv(ptr noundef nonnull %19) #20
+  call void @_ZdlPv(ptr noundef nonnull %20) #20
   br label %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %if.then.i13.i, %call5.i.i.i.i.i.noexc
@@ -5782,11 +5787,13 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %if.then.i13.i,
 if.else.i:                                        ; preds = %invoke.cont21
   %_M_finish.i.i = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
   %21 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp24.not.i = icmp eq ptr %21, %20
-  store i64 %add.i, ptr %20, align 8
-  br i1 %cmp24.not.i, label %_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i, label %if.then25.i
+  %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %21 to i64
+  %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
+  %cmp24.not.i = icmp ult i64 %sub.ptr.sub.i16.i, 8
+  br i1 %cmp24.not.i, label %_ZSt7advanceIPKlmEvRT_T0_.exit.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
+  store i64 %add.i, ptr %20, align 8
   %.pre.i = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %20, i64 1
   %tobool.not.i19.i = icmp eq ptr %.pre.i, %add.ptr.i.i.i.i.i.i
@@ -5796,12 +5803,23 @@ invoke.cont.i.i:                                  ; preds = %if.then25.i
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont24
 
-_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %if.else.i
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %20, i64 1
+_ZSt7advanceIPKlmEvRT_T0_.exit.i:                 ; preds = %if.else.i
+  %tobool.not.i.i.i.i.i28.i = icmp eq ptr %21, %20
+  br i1 %tobool.not.i.i.i.i.i28.i, label %if.then.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i29.i
+
+if.then.i.i.i.i.i29.i:                            ; preds = %_ZSt7advanceIPKlmEvRT_T0_.exit.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr nonnull align 8 %ref.tmp16.sroa.0, i64 %sub.ptr.sub.i16.i, i1 false)
+  %.pre51.i = load ptr, ptr %_M_finish.i.i, align 8
+  br label %if.then.i.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt7advanceIPKlmEvRT_T0_.exit.i, %if.then.i.i.i.i.i29.i
+  %22 = phi ptr [ %20, %_ZSt7advanceIPKlmEvRT_T0_.exit.i ], [ %.pre51.i, %if.then.i.i.i.i.i29.i ]
+  store i64 %add.i, ptr %22, align 8
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %22, i64 1
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont24
 
-invoke.cont24:                                    ; preds = %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i, %if.then25.i, %invoke.cont.i.i, %_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i
+invoke.cont24:                                    ; preds = %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i, %if.then25.i, %invoke.cont.i.i, %if.then.i.i.i.i.i.i.i.i.i
   store i8 1, ptr %ref.tmp27, align 1
   %insert_ = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 11
   %add.ptr.i.i7 = getelementptr inbounds i8, ptr %ref.tmp27, i64 1
@@ -5809,19 +5827,19 @@ invoke.cont24:                                    ; preds = %_ZNSt12_Vector_base
           to label %invoke.cont32 unwind label %lpad.loopexit.split-lp
 
 invoke.cont32:                                    ; preds = %invoke.cont24
-  %22 = load i64, ptr %base_end_, align 8
-  %23 = load i64, ptr %base_begin_, align 8
-  %sub = sub nsw i64 %22, %23
-  %24 = load i64, ptr %target_end_, align 8
-  %25 = load i64, ptr %target_begin_, align 8
-  %sub38 = sub nsw i64 %24, %25
+  %23 = load i64, ptr %base_end_, align 8
+  %24 = load i64, ptr %base_begin_, align 8
+  %sub = sub nsw i64 %23, %24
+  %25 = load i64, ptr %target_end_, align 8
+  %26 = load i64, ptr %target_begin_, align 8
+  %sub38 = sub nsw i64 %25, %26
   %cmp = icmp eq i64 %sub, %sub38
   br i1 %cmp, label %land.lhs.true, label %while.cond.preheader
 
 land.lhs.true:                                    ; preds = %invoke.cont32
-  %26 = load ptr, ptr %endpoint_base_, align 8
-  %27 = load i64, ptr %26, align 8
-  %cmp42 = icmp eq i64 %27, %22
+  %27 = load ptr, ptr %endpoint_base_, align 8
+  %28 = load i64, ptr %27, align 8
+  %cmp42 = icmp eq i64 %28, %23
   br i1 %cmp42, label %if.then43, label %while.cond.preheader
 
 if.then43:                                        ; preds = %land.lhs.true
@@ -5832,8 +5850,8 @@ while.cond.preheader:                             ; preds = %if.then43, %land.lh
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
-  %28 = load i64, ptr %finish_index_, align 8
-  %cmp.i.not = icmp eq i64 %28, -1
+  %29 = load i64, ptr %finish_index_, align 8
+  %cmp.i.not = icmp eq i64 %29, -1
   br i1 %cmp.i.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
@@ -5842,8 +5860,8 @@ while.body:                                       ; preds = %while.cond
 
 while.end:                                        ; preds = %while.cond
   %pool_ = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 2
-  %29 = load ptr, ptr %pool_, align 8
-  invoke void @_ZN5arrow23QuadraticSpaceMyersDiff8GetEditsEPNS_10MemoryPoolE(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %29)
+  %30 = load ptr, ptr %pool_, align 8
+  invoke void @_ZN5arrow23QuadraticSpaceMyersDiff8GetEditsEPNS_10MemoryPoolE(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %30)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %while.end, %if.then

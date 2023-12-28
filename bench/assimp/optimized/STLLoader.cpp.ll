@@ -828,7 +828,7 @@ for.body.lr.ph:                                   ; preds = %if.end61
   %call72 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #19
   %25 = add nsw i64 %24, -12
   %26 = urem i64 %25, 12
-  %27 = sub nsw i64 %25, %26
+  %27 = sub nuw nsw i64 %25, %26
   %28 = add nsw i64 %27, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call72, i8 0, i64 %28, i1 false)
   store ptr %call72, ptr %mVertices.i, align 8
@@ -2137,6 +2137,7 @@ if.end180:                                        ; preds = %invoke.cont177, %fo
   %sub.ptr.sub.i344 = sub i64 %sub.ptr.lhs.cast.i342, %sub.ptr.rhs.cast.i343
   %sub.ptr.div.i345 = sdiv exact i64 %sub.ptr.sub.i344, 12
   %rem = urem i64 %sub.ptr.div.i345, 3
+  %div201 = udiv i64 %sub.ptr.div.i345, 3
   %cmp182.not = icmp eq i64 %rem, 0
   br i1 %cmp182.not, label %if.end188, label %if.then183
 
@@ -2156,8 +2157,7 @@ if.end188:                                        ; preds = %if.end180
   %sub.ptr.lhs.cast.i347 = ptrtoint ptr %normalBuffer.sroa.17.2 to i64
   %sub.ptr.rhs.cast.i348 = ptrtoint ptr %normalBuffer.sroa.0.4 to i64
   %sub.ptr.sub.i349 = sub i64 %sub.ptr.lhs.cast.i347, %sub.ptr.rhs.cast.i348
-  %sub.ptr.div.i350 = sdiv exact i64 %sub.ptr.sub.i349, 12
-  %cmp191.not = icmp eq i64 %sub.ptr.div.i350, %sub.ptr.div.i345
+  %cmp191.not = icmp eq i64 %sub.ptr.sub.i349, %sub.ptr.sub.i344
   br i1 %cmp191.not, label %if.end197, label %if.then192
 
 if.then192:                                       ; preds = %if.end188
@@ -2176,12 +2176,11 @@ if.end197:                                        ; preds = %if.end188
   br i1 %cmp.i.i340, label %if.end231, label %if.then199
 
 if.then199:                                       ; preds = %if.end197
-  %div201 = udiv i64 %sub.ptr.div.i350, 3
   %conv202 = trunc i64 %div201 to i32
   store i32 %conv202, ptr %mNumFaces.i, align 8
-  %conv205 = trunc i64 %sub.ptr.div.i350 to i32
+  %conv205 = trunc i64 %sub.ptr.div.i345 to i32
   store i32 %conv205, ptr %mNumVertices.i, align 4
-  %conv207 = and i64 %sub.ptr.div.i350, 4294967295
+  %conv207 = and i64 %sub.ptr.div.i345, 4294967295
   %32 = mul nuw nsw i64 %conv207, 12
   %call209 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #19
           to label %invoke.cont208 unwind label %ehcleanup.thread638.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2197,7 +2196,7 @@ arrayctor.cont.thread:                            ; preds = %invoke.cont208
 for.body.preheader:                               ; preds = %invoke.cont208
   %33 = add nsw i64 %32, -12
   %34 = urem i64 %33, 12
-  %35 = sub nsw i64 %33, %34
+  %35 = sub nuw nsw i64 %33, %34
   %36 = add nsw i64 %35, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call209, i8 0, i64 %36, i1 false)
   store ptr %call209, ptr %mVertices.i, align 8
@@ -2249,7 +2248,7 @@ arrayctor.cont245.thread:                         ; preds = %invoke.cont236
 for.body251.preheader:                            ; preds = %invoke.cont236
   %46 = add nsw i64 %45, -12
   %47 = urem i64 %46, 12
-  %48 = sub nsw i64 %46, %47
+  %48 = sub nuw nsw i64 %46, %47
   %49 = add nsw i64 %48, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call237, i8 0, i64 %49, i1 false)
   %mNormals = getelementptr inbounds %struct.aiMesh, ptr %call12, i64 0, i32 4

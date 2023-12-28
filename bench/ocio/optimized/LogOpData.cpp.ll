@@ -1294,15 +1294,13 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_finish.i8 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %2 = load ptr, ptr %_M_finish.i8, align 8
   %3 = load ptr, ptr %m_greenParams, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i10 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i11 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.rhs.cast.i10
-  %sub.ptr.div.i12 = ashr exact i64 %sub.ptr.sub.i11, 3
-  %cmp.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i12
+  %cmp.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i11
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
@@ -1312,8 +1310,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.lhs.cast.i19 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i20 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
-  %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 3
-  %cmp11.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i22
+  %cmp11.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i21
   br i1 %cmp11.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry

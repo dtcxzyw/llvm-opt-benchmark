@@ -3400,8 +3400,7 @@ _ZN7testing15AssertionResultD2Ev.exit346:         ; preds = %if.end179, %_ZNKSt1
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %61 to i64
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %62 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
-  %sub.ptr.div.i17.i = ashr exact i64 %sub.ptr.sub.i16.i, 2
-  %cmp3.i = icmp ugt i64 %sub.ptr.div.i.i771, %sub.ptr.div.i17.i
+  %cmp3.i = icmp ugt i64 %sub.ptr.sub.i.i770, %sub.ptr.sub.i16.i
   br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i
 
 cond.true.i.i.i:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit346
@@ -3445,8 +3444,7 @@ if.else.i:                                        ; preds = %_ZN7testing15Assert
   %63 = load ptr, ptr %_M_finish.i.i.i220, align 8
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %63 to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i15.i
-  %sub.ptr.div.i23.i = ashr exact i64 %sub.ptr.sub.i22.i, 2
-  %cmp26.not.i = icmp ult i64 %sub.ptr.div.i23.i, %sub.ptr.div.i.i771
+  %cmp26.not.i = icmp ult i64 %sub.ptr.sub.i22.i, %sub.ptr.sub.i.i770
   br i1 %cmp26.not.i, label %if.else49.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else.i
@@ -8622,8 +8620,7 @@ entry:
   %sub.ptr.lhs.cast.i11 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i12 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12
-  %sub.ptr.div.i14 = ashr exact i64 %sub.ptr.sub.i13, 2
-  %cmp.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i14
+  %cmp.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i13
   br i1 %cmp.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry

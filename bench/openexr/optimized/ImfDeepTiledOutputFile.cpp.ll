@@ -2692,10 +2692,7 @@ _ZN7Imf_3_215DeepFrameBufferaSERKS0_.exit:        ; preds = %for.end173
   %slices181.val130 = load ptr, ptr %slices181129, align 8
   %38 = getelementptr %"struct.Imf_3_2::DeepTiledOutputFile::Data", ptr %37, i64 0, i32 20, i32 0, i32 0, i32 0, i32 1
   %slices181.val24131 = load ptr, ptr %38, align 8
-  %sub.ptr.lhs.cast.i132 = ptrtoint ptr %slices181.val24131 to i64
   %sub.ptr.rhs.cast.i133 = ptrtoint ptr %slices181.val130 to i64
-  %sub.ptr.sub.i134 = sub i64 %sub.ptr.lhs.cast.i132, %sub.ptr.rhs.cast.i133
-  %sub.ptr.div.i135 = ashr exact i64 %sub.ptr.sub.i134, 3
   %cmp183136.not = icmp eq ptr %slices181.val24131, %slices181.val130
   br i1 %cmp183136.not, label %if.then.i, label %for.body184
 
@@ -2733,7 +2730,6 @@ if.then.i:                                        ; preds = %for.inc188, %_ZN7Im
   %slices181.val24.lcssa = phi ptr [ %slices181.val24131, %_ZN7Imf_3_215DeepFrameBufferaSERKS0_.exit ], [ %slices181.val24, %for.inc188 ]
   %sub.ptr.rhs.cast.i.lcssa = phi i64 [ %sub.ptr.rhs.cast.i133, %_ZN7Imf_3_215DeepFrameBufferaSERKS0_.exit ], [ %sub.ptr.rhs.cast.i, %for.inc188 ]
   %sub.ptr.sub.i.lcssa = phi i64 [ 0, %_ZN7Imf_3_215DeepFrameBufferaSERKS0_.exit ], [ %sub.ptr.sub.i, %for.inc188 ]
-  %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i135, %_ZN7Imf_3_215DeepFrameBufferaSERKS0_.exit ], [ %sub.ptr.div.i, %for.inc188 ]
   %slices181.le = getelementptr inbounds %"struct.Imf_3_2::DeepTiledOutputFile::Data", ptr %.lcssa, i64 0, i32 20
   %43 = getelementptr %"struct.Imf_3_2::DeepTiledOutputFile::Data", ptr %.lcssa, i64 0, i32 20, i32 0, i32 0, i32 0, i32 1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %slices.sroa.9.0 to i64
@@ -2744,8 +2740,7 @@ if.then.i:                                        ; preds = %for.inc188, %_ZN7Im
   %this.val23.i = load ptr, ptr %44, align 8
   %sub.ptr.lhs.cast.i28.i = ptrtoint ptr %this.val23.i to i64
   %sub.ptr.sub.i30.i = sub i64 %sub.ptr.lhs.cast.i28.i, %sub.ptr.rhs.cast.i.lcssa
-  %sub.ptr.div.i31.i = ashr exact i64 %sub.ptr.sub.i30.i, 3
-  %cmp3.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i31.i
+  %cmp3.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i30.i
   br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i
 
 cond.true.i.i.i:                                  ; preds = %if.then.i
@@ -2786,7 +2781,7 @@ _ZNSt12_Vector_baseIPN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS3_EE13_M_dealloc
   br label %if.end69.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp26.not.i = icmp ult i64 %sub.ptr.div.i.lcssa, %sub.ptr.div.i.i
+  %cmp26.not.i = icmp ult i64 %sub.ptr.sub.i.lcssa, %sub.ptr.sub.i.i
   br i1 %cmp26.not.i, label %if.else49.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else.i

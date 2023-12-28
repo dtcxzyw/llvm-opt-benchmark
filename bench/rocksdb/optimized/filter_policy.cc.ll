@@ -11151,17 +11151,17 @@ entry:
   br i1 %cmp.i18.i.i, label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %conv.i.i.i = zext i32 %sub.i.i to i64
-  %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 4
   %add9.i.i = add i32 %sub.i.i, -1
   %sub.i.i.i = add i32 %add9.i.i, %add.i.i
   %conv3.i.i.i = zext i32 %sub.i.i.i to i64
   %mul4.i.i.i = shl nuw nsw i64 %conv3.i.i.i, 4
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %iss.val17.i.i, i64 %mul4.i.i.i
-  %cmp61.i.i.i = icmp ult i64 %mul.i.i.i, %mul4.i.i.i
+  %cmp61.i.i.i = icmp ugt i32 %sub.i.i.i, %sub.i.i
   br i1 %cmp61.i.i.i, label %while.body.preheader.i.i.i, label %while.end.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %if.end.i.i.i
+  %conv.i.i.i = zext i32 %sub.i.i to i64
+  %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %iss.val17.i.i, i64 %mul.i.i.i
   br label %while.body.i.i.i
 
@@ -11249,17 +11249,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i18.i, label %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body
-  %conv.i.i = zext i32 %sub.i to i64
-  %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
   %add9.i = add i32 %sub.i, -1
   %sub.i.i = add i32 %add9.i, %add.i
   %conv3.i.i = zext i32 %sub.i.i to i64
   %mul4.i.i = shl nuw nsw i64 %conv3.i.i, 4
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %iss.val17.i, i64 %mul4.i.i
-  %cmp61.i.i = icmp ult i64 %mul.i.i, %mul4.i.i
+  %cmp61.i.i = icmp ugt i32 %sub.i.i, %sub.i
   br i1 %cmp61.i.i, label %while.body.preheader.i.i, label %while.end.i.i
 
 while.body.preheader.i.i:                         ; preds = %if.end.i.i
+  %conv.i.i = zext i32 %sub.i to i64
+  %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %iss.val17.i, i64 %mul.i.i
   br label %while.body.i.i
 
@@ -11346,17 +11346,17 @@ entry:
   br i1 %cmp.i18.i.i, label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %conv.i.i.i = zext i32 %sub.i.i to i64
-  %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 4
   %add9.i.i = add i32 %sub.i.i, -1
   %sub.i.i.i = add i32 %add9.i.i, %add.i.i
   %conv3.i.i.i = zext i32 %sub.i.i.i to i64
   %mul4.i.i.i = shl nuw nsw i64 %conv3.i.i.i, 4
   %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %iss.val17.i.i, i64 %mul4.i.i.i
-  %cmp61.i.i.i = icmp ult i64 %mul.i.i.i, %mul4.i.i.i
+  %cmp61.i.i.i = icmp ugt i32 %sub.i.i.i, %sub.i.i
   br i1 %cmp61.i.i.i, label %while.body.preheader.i.i.i, label %while.end.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %if.end.i.i.i
+  %conv.i.i.i = zext i32 %sub.i.i to i64
+  %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %iss.val17.i.i, i64 %mul.i.i.i
   br label %while.body.i.i.i
 

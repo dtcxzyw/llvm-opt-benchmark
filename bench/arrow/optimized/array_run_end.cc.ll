@@ -8211,8 +8211,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -8375,8 +8374,7 @@ if.else:                                          ; preds = %entry
   %21 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 4
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i21, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i20, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %_ZSt7advanceIPKSt10shared_ptrIN5arrow6BufferEEmEvRT_T0_.exit, label %if.then25
 
 if.then25:                                        ; preds = %if.else
@@ -8470,6 +8468,7 @@ invoke.cont.i:                                    ; preds = %_ZSt8_DestroyISt10s
   br label %if.end41
 
 _ZSt7advanceIPKSt10shared_ptrIN5arrow6BufferEEmEvRT_T0_.exit: ; preds = %if.else
+  %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 4
   %incdec.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.11", ptr %__first, i64 %sub.ptr.div.i21
   %call.i.i.i.i31 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKSt10shared_ptrIN5arrow6BufferEEPS6_EET0_T_SB_SA_(ptr noundef %__first, ptr noundef %incdec.ptr.i.i, ptr noundef %1)
   %34 = load ptr, ptr %_M_finish.i, align 8

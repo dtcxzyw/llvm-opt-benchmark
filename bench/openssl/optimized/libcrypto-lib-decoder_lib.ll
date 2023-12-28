@@ -490,8 +490,7 @@ if.end183:                                        ; preds = %if.then169, %land.l
   %call184 = call i64 @BIO_ctrl(ptr noundef %bio.0, i32 noundef 128, i64 noundef %conv88, ptr noundef null) #7
   %call186 = call i64 @BIO_ctrl(ptr noundef %bio.0, i32 noundef 133, i64 noundef 0, ptr noundef null) #7
   %sext63 = shl i64 %call186, 32
-  %conv188 = ashr exact i64 %sext63, 32
-  %cmp189.not = icmp eq i64 %conv188, %conv88
+  %cmp189.not = icmp eq i64 %sext63, %sext
   br i1 %cmp189.not, label %do.body193, label %end
 
 do.body193:                                       ; preds = %if.end183

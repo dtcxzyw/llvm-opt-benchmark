@@ -1656,7 +1656,7 @@ _ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i: ; preds = %if.el
   store i32 %retval.0.i.i.i, ptr %highValue.i102.i, align 4
   %shr.i.i.i = ashr i32 %26, 4
   %cmp12.i.i.i = icmp sgt i32 %shr.i.i.i, 0
-  br i1 %cmp12.i.i.i, label %while.body.lr.ph.i.i.i, label %if.then5.i.i
+  br i1 %cmp12.i.i.i, label %while.body.lr.ph.i.i.i, label %for.body.preheader.i107.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i
   %data.i33.i.i = getelementptr inbounds %"class.icu_75::(anonymous namespace)::MutableCodePointTrie", ptr %trie, i64 0, i32 3
@@ -1681,7 +1681,7 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i
 
 while.cond.backedge.i.i.i:                        ; preds = %for.cond.i.i.i, %if.then.i.i.i
   %cmp.i.i.i = icmp sgt i64 %indvars.iv19.i.i.i, 1
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %if.then5.i.i, !llvm.loop !14
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %for.body.preheader.i107.i, !llvm.loop !14
 
 if.else.i35.i.i:                                  ; preds = %while.body.i.i.i
   %idx.ext.i.i.i = zext i32 %36 to i64
@@ -1716,15 +1716,11 @@ if.end.i.thread144.i:                             ; preds = %_ZNK6icu_7512_GLOBA
 
 if.end.i.i:                                       ; preds = %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i
   %cmp4.i103.i = icmp ult i32 %and.i114.i, %cond.i
-  br i1 %cmp4.i103.i, label %if.then5.i.i, label %if.end11.i.i
+  br i1 %cmp4.i103.i, label %for.body.preheader.i107.i, label %if.end11.i.i
 
-if.then5.i.i:                                     ; preds = %while.cond.backedge.i.i.i, %if.end.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i
-  %and203.i143.i = phi i32 [ %and.i114.i, %if.end.i.i ], [ 0, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i ], [ 0, %while.cond.backedge.i.i.i ]
-  %shr.i106.i = lshr exact i32 %and203.i143.i, 4
-  %cmp6248.i.i = icmp ult i32 %shr.i106.i, %shr.i
-  br i1 %cmp6248.i.i, label %for.body.preheader.i107.i, label %if.end11.i.i
-
-for.body.preheader.i107.i:                        ; preds = %if.then5.i.i
+for.body.preheader.i107.i:                        ; preds = %while.cond.backedge.i.i.i, %if.end.i.i, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i
+  %and203.i143251.i = phi i32 [ 0, %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i ], [ %and.i114.i, %if.end.i.i ], [ 0, %while.cond.backedge.i.i.i ]
+  %shr.i106.i = lshr exact i32 %and203.i143251.i, 4
   %39 = zext nneg i32 %shr.i106.i to i64
   %wide.trip.count.i108.i = zext nneg i32 %shr.i to i64
   br label %for.body.i109.i
@@ -1738,16 +1734,22 @@ for.body.i109.i:                                  ; preds = %for.body.i109.i, %f
   store i32 %retval.0.i.i.i, ptr %arrayidx9.i.i, align 4
   %indvars.iv.next.i112.i = add nuw nsw i64 %indvars.iv.i110.i, 1
   %exitcond.not.i113.i = icmp eq i64 %indvars.iv.next.i112.i, %wide.trip.count.i108.i
-  br i1 %exitcond.not.i113.i, label %if.end11.i.i, label %for.body.i109.i, !llvm.loop !16
+  br i1 %exitcond.not.i113.i, label %if.end11.i.i.loopexit, label %for.body.i109.i, !llvm.loop !16
 
-if.end11.i.i:                                     ; preds = %for.body.i109.i, %if.then5.i.i, %if.end.i.i, %if.end.i.thread144.i
-  %and203.i142.i = phi i32 [ %and.i114.i, %if.end.i.i ], [ %and203.i143.i, %if.then5.i.i ], [ 1114112, %if.end.i.thread144.i ], [ %and203.i143.i, %for.body.i109.i ]
-  %41 = phi i32 [ %and.i114.i, %if.end.i.i ], [ %cond.i, %if.then5.i.i ], [ 1114112, %if.end.i.thread144.i ], [ %cond.i, %for.body.i109.i ]
-  store i32 %41, ptr %highStart.i.i.i, align 8
+if.end11.i.i.loopexit:                            ; preds = %for.body.i109.i
+  %data.i50.i.i.phi.trans.insert = getelementptr inbounds %"class.icu_75::(anonymous namespace)::MutableCodePointTrie", ptr %trie, i64 0, i32 3
+  %.pre = load ptr, ptr %data.i50.i.i.phi.trans.insert, align 8
+  %.pre63 = load ptr, ptr %trie, align 8
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.end11.i.i.loopexit, %if.end.i.i, %if.end.i.thread144.i
+  %41 = phi ptr [ %33, %if.end.i.i ], [ %33, %if.end.i.thread144.i ], [ %.pre63, %if.end11.i.i.loopexit ]
+  %42 = phi ptr [ %32, %if.end.i.i ], [ %32, %if.end.i.thread144.i ], [ %.pre, %if.end11.i.i.loopexit ]
+  %and203.i142.i = phi i32 [ %and.i114.i, %if.end.i.i ], [ 1114112, %if.end.i.thread144.i ], [ %and203.i143251.i, %if.end11.i.i.loopexit ]
+  %43 = phi i32 [ %and.i114.i, %if.end.i.i ], [ 1114112, %if.end.i.thread144.i ], [ %cond.i, %if.end11.i.i.loopexit ]
+  store i32 %43, ptr %highStart.i.i.i, align 8
   %data.i50.i.i = getelementptr inbounds %"class.icu_75::(anonymous namespace)::MutableCodePointTrie", ptr %trie, i64 0, i32 3
-  %42 = load ptr, ptr %data.i50.i.i, align 8
-  %43 = load ptr, ptr %trie, align 8
-  %44 = zext nneg i32 %41 to i64
+  %44 = zext nneg i32 %43 to i64
   br label %if.end.i38.i.i
 
 if.end.i38.i.i:                                   ; preds = %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit58.i.i, %if.end11.i.i
@@ -1764,12 +1766,12 @@ if.end4.i45.i.i:                                  ; preds = %if.end.i38.i.i
   br i1 %cmp5.i48.i.i, label %if.then6.i55.i.i, label %if.else.i49.i.i
 
 if.then6.i55.i.i:                                 ; preds = %if.end4.i45.i.i
-  %arrayidx8.i56.i.i = getelementptr inbounds i32, ptr %43, i64 %idxprom.i.i.i
+  %arrayidx8.i56.i.i = getelementptr inbounds i32, ptr %41, i64 %idxprom.i.i.i
   br label %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie3getEi.exit58.i.i
 
 if.else.i49.i.i:                                  ; preds = %if.end4.i45.i.i
   %46 = trunc i64 %indvars.iv299.i.i to i32
-  %arrayidx11.i51.i.i = getelementptr inbounds i32, ptr %43, i64 %idxprom.i.i.i
+  %arrayidx11.i51.i.i = getelementptr inbounds i32, ptr %41, i64 %idxprom.i.i.i
   %47 = load i32, ptr %arrayidx11.i51.i.i, align 4
   %and.i.i.i = and i32 %46, 15
   %add.i52.i.i = add i32 %47, %and.i.i.i
@@ -1790,8 +1792,8 @@ for.end21.i.i:                                    ; preds = %_ZNK6icu_7512_GLOBA
   store i32 0, ptr %allSameBlocks.i.i, align 4
   %mostRecent.i.i.i = getelementptr inbounds %"class.icu_75::(anonymous namespace)::AllSameBlocks", ptr %allSameBlocks.i.i, i64 0, i32 1
   store i32 -1, ptr %mostRecent.i.i.i, align 4
-  %shr.i60.i.i = lshr exact i32 %41, 4
-  %cmp94.i.i.not.i = icmp eq i32 %41, 0
+  %shr.i60.i.i = lshr exact i32 %43, 4
+  %cmp94.i.i.not.i = icmp eq i32 %43, 0
   br i1 %cmp94.i.i.not.i, label %if.end25.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.end21.i.i, %for.inc80.i.i.i
@@ -2991,15 +2993,15 @@ if.else.i186.i.i.i:                               ; preds = %do.body102.i.i.i
 if.else6.i189.i.i.i:                              ; preds = %if.else.i186.i.i.i
   %cmp7.i190.i.i.i = icmp ult i32 %sub.i184.i.i.i, 131071
   %..i = select i1 %cmp7.i190.i.i.i, i32 17, i32 21
-  %.282.i = select i1 %cmp7.i190.i.i.i, i32 131071, i32 2097151
-  %.283.i = select i1 %cmp7.i190.i.i.i, i32 200003, i32 1500007
+  %.285.i = select i1 %cmp7.i190.i.i.i, i32 131071, i32 2097151
+  %.286.i = select i1 %cmp7.i190.i.i.i, i32 200003, i32 1500007
   br label %if.end15.i193.i.i.i
 
 if.end15.i193.i.i.i:                              ; preds = %if.else6.i189.i.i.i, %if.else.i186.i.i.i, %do.body102.i.i.i
-  %.sink281.i = phi i32 [ 12, %do.body102.i.i.i ], [ 15, %if.else.i186.i.i.i ], [ %..i, %if.else6.i189.i.i.i ]
-  %.sink.i = phi i32 [ 4095, %do.body102.i.i.i ], [ 32767, %if.else.i186.i.i.i ], [ %.282.i, %if.else6.i189.i.i.i ]
-  %newLength.0.i194.i.i.i = phi i32 [ 6007, %do.body102.i.i.i ], [ 50021, %if.else.i186.i.i.i ], [ %.283.i, %if.else6.i189.i.i.i ]
-  store i32 %.sink281.i, ptr %shift.i.i175.i.i, align 8
+  %.sink284.i = phi i32 [ 12, %do.body102.i.i.i ], [ 15, %if.else.i186.i.i.i ], [ %..i, %if.else6.i189.i.i.i ]
+  %.sink.i = phi i32 [ 4095, %do.body102.i.i.i ], [ 32767, %if.else.i186.i.i.i ], [ %.285.i, %if.else6.i189.i.i.i ]
+  %newLength.0.i194.i.i.i = phi i32 [ 6007, %do.body102.i.i.i ], [ 50021, %if.else.i186.i.i.i ], [ %.286.i, %if.else6.i189.i.i.i ]
+  store i32 %.sink284.i, ptr %shift.i.i175.i.i, align 8
   store i32 %.sink.i, ptr %mask.i.i176.i.i, align 4
   %cmp16.i196.i.i.i = icmp ugt i32 %newLength.0.i194.i.i.i, %135
   br i1 %cmp16.i196.i.i.i, label %if.then17.i206.i.i.i, label %if.end15.if.end24_crit_edge.i198.i.i.i
@@ -3929,13 +3931,13 @@ land.lhs.true108.i:                               ; preds = %if.else103.i
   %errorValue114.i = getelementptr inbounds %"class.icu_75::(anonymous namespace)::MutableCodePointTrie", ptr %trie, i64 0, i32 9
   %308 = load i32, ptr %errorValue114.i, align 4
   %cmp115.i = icmp eq i32 %307, %308
-  %.pre241.i.pre63 = load i32, ptr %highValue.i102.i, align 4
+  %.pre241.i.pre64 = load i32, ptr %highValue.i102.i, align 4
   br i1 %cmp115.i, label %land.lhs.true116.i, label %while.body.lr.ph.i
 
 land.lhs.true116.i:                               ; preds = %land.lhs.true108.i
   %arrayidx121.i = getelementptr i32, ptr %306, i64 -2
   %309 = load i32, ptr %arrayidx121.i, align 4
-  %cmp123.i = icmp eq i32 %309, %.pre241.i.pre63
+  %cmp123.i = icmp eq i32 %309, %.pre241.i.pre64
   br i1 %cmp123.i, label %if.end165.i, label %while.body.lr.ph.i
 
 land.lhs.true127.i:                               ; preds = %if.else103.i
@@ -3957,7 +3959,7 @@ if.then135.i:                                     ; preds = %land.lhs.true127.i
   br label %if.end165.i
 
 while.body.lr.ph.i:                               ; preds = %if.else103.i.while.body.lr.ph.i_crit_edge, %land.lhs.true127.i, %land.lhs.true116.i, %land.lhs.true108.i
-  %.pre241.i = phi i32 [ %.pre241.i.pre, %if.else103.i.while.body.lr.ph.i_crit_edge ], [ %314, %land.lhs.true127.i ], [ %.pre241.i.pre63, %land.lhs.true116.i ], [ %.pre241.i.pre63, %land.lhs.true108.i ]
+  %.pre241.i = phi i32 [ %.pre241.i.pre, %if.else103.i.while.body.lr.ph.i_crit_edge ], [ %314, %land.lhs.true127.i ], [ %.pre241.i.pre64, %land.lhs.true116.i ], [ %.pre241.i.pre64, %land.lhs.true108.i ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i

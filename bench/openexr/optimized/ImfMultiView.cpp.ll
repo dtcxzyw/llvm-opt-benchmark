@@ -881,7 +881,7 @@ if.end.i.i52:                                     ; preds = %land.rhs.i47
   br label %cleanup
 
 if.end47:                                         ; preds = %if.end38
-  %cmp48.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i29
+  %cmp48.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i28
   br i1 %cmp48.not, label %for.body.lr.ph, label %cleanup
 
 for.body.lr.ph:                                   ; preds = %if.end47

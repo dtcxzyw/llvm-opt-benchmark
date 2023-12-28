@@ -9710,8 +9710,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 5
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -9753,8 +9752,7 @@ if.else:                                          ; preds = %if.then
   %7 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 5
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -9794,11 +9792,12 @@ for.body.i.i.i26:                                 ; preds = %_ZSt4copyIN9__gnu_c
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i26, !llvm.loop !120
 
 if.else49:                                        ; preds = %if.else
-  %cmp6.i.i.i.i.i36 = icmp sgt i64 %sub.ptr.div.i23, 0
+  %sub.ptr.div.i.i.i.i.i35 = ashr exact i64 %sub.ptr.sub.i22, 5
+  %cmp6.i.i.i.i.i36 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i35, 0
   br i1 %cmp6.i.i.i.i.i36, label %for.body.i.i.i.i.i38, label %_ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit
 
 for.body.i.i.i.i.i38:                             ; preds = %if.else49, %for.body.i.i.i.i.i38
-  %__n.09.i.i.i.i.i39 = phi i64 [ %dec.i.i.i.i.i45, %for.body.i.i.i.i.i38 ], [ %sub.ptr.div.i23, %if.else49 ]
+  %__n.09.i.i.i.i.i39 = phi i64 [ %dec.i.i.i.i.i45, %for.body.i.i.i.i.i38 ], [ %sub.ptr.div.i.i.i.i.i35, %if.else49 ]
   %__result.addr.08.i.i.i.i.i40 = phi ptr [ %incdec.ptr1.i.i.i.i.i44, %for.body.i.i.i.i.i38 ], [ %3, %if.else49 ]
   %__first.addr.07.i.i.i.i.i41 = phi ptr [ %incdec.ptr.i.i.i.i.i43, %for.body.i.i.i.i.i38 ], [ %1, %if.else49 ]
   %call.i.i.i.i.i.i42 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i.i40, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i41)
@@ -9820,7 +9819,7 @@ _ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit.loopexit: ; pr
   br label %_ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit.loopexit, %if.else49
-  %sub.ptr.div.i51.pre-phi = phi i64 [ %.pre64, %_ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
+  %sub.ptr.div.i51.pre-phi = phi i64 [ %.pre64, %_ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit.loopexit ], [ %sub.ptr.div.i.i.i.i.i35, %if.else49 ]
   %9 = phi ptr [ %.pre60, %_ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit.loopexit ], [ %0, %if.else49 ]
   %10 = phi ptr [ %.pre58, %_ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit.loopexit ], [ %7, %if.else49 ]
   %11 = phi ptr [ %.pre57, %_ZSt4copyIPN7rocksdb22BackupExcludedFileInfoES2_ET0_T_S4_S3_.exit.loopexit ], [ %1, %if.else49 ]
@@ -15778,7 +15777,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb4port7RWMutexESt6v
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds ptr, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

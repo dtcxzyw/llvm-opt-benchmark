@@ -25312,7 +25312,7 @@ if.then96:                                        ; preds = %cleanup.done88
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i4.i = ashr exact i64 %sub.ptr.sub.i3.i, 4
   %add.ptr.i5.i = getelementptr inbounds %"struct.std::pair.552", ptr %13, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.sub.i3.i, 16
+  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i, %14
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then96

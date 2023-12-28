@@ -3417,7 +3417,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %_Z
 new.ctorloop19:                                   ; preds = %arrayctor.cont
   %18 = add nsw i64 %17, -12
   %19 = urem i64 %18, 12
-  %20 = sub nsw i64 %18, %19
+  %20 = sub nuw nsw i64 %18, %19
   %21 = add nsw i64 %20, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call17, i8 0, i64 %21, i1 false)
   br label %arrayctor.cont25
@@ -4163,9 +4163,9 @@ new.ctorloop281:                                  ; preds = %if.end274
   %.lhs.trunc = trunc i64 %102 to i32
   %103 = urem i32 %.lhs.trunc, 12
   %.zext = zext nneg i32 %103 to i64
-  %104 = sub nsw i64 %102, %.zext
-  %105 = add nsw i64 %104, 12
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call279, i8 0, i64 %105, i1 false)
+  %104 = sub nuw nsw i64 %102, %.zext
+  %105 = add nuw nsw i64 %104, 12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call279, i8 0, i64 %105, i1 false)
   store ptr %call279, ptr %mVertices.i351, align 8
   %106 = load ptr, ptr %textures, align 8
   %107 = load ptr, ptr %_M_finish.i.i410, align 8
@@ -4177,7 +4177,7 @@ if.then290:                                       ; preds = %new.ctorloop281
           to label %new.ctorloop296 unwind label %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 new.ctorloop296:                                  ; preds = %if.then290
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call294, i8 0, i64 %105, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call294, i8 0, i64 %105, i1 false)
   %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %call209, i64 0, i32 8
   store ptr %call294, ptr %mTextureCoords, align 8
   %mNumUVComponents = getelementptr inbounds %struct.aiMesh, ptr %call209, i64 0, i32 9
@@ -4799,7 +4799,7 @@ if.then.i.i548:                                   ; preds = %invoke.cont688
   unreachable
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %invoke.cont688
-  %cmp.not.i.i.i.i541 = icmp eq i64 %sub.ptr.div.i539, %sub.ptr.div.i341
+  %cmp.not.i.i.i.i541 = icmp eq i64 %sub.ptr.sub.i538, %sub.ptr.sub.i340
   br i1 %cmp.not.i.i.i.i541, label %invoke.cont694, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i

@@ -1162,8 +1162,7 @@ _ZN14arrow_vendored4dateL6parse3B5cxx11ERSi.exit.i.i.i: ; preds = %invoke.cont12
 invoke.cont.i31.i.i:                              ; preds = %_ZN14arrow_vendored4dateL6parse3B5cxx11ERSi.exit.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i4.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.not.i.i70.i = icmp slt i64 %sub.ptr.div.i.i.i, 12
+  %cmp.not.i.i70.i = icmp slt i64 %sub.ptr.sub.i.i.i, 96
   br i1 %cmp.not.i.i70.i, label %invoke.cont45.i.i, label %if.then.i.i71.i
 
 if.then.i.i71.i:                                  ; preds = %invoke.cont.i31.i.i
@@ -1223,24 +1222,27 @@ invoke.cont45.i.i:                                ; preds = %invoke.cont.i31.i.i
           to label %invoke.cont67.i.i unwind label %lpad37.loopexit.i.i, !noalias !17
 
 invoke.cont67.i.i:                                ; preds = %invoke.cont45.i.i
-  %55 = trunc i64 %sub.ptr.div.i.i.i to i8
+  %55 = trunc i64 %sub.ptr.sub.i.i.i to i32
   %56 = load i32, ptr %y.i.i, align 4, !noalias !17
-  %57 = load i32, ptr %d.i.i, align 4, !noalias !17
-  %58 = add i8 %55, 1
+  %57 = shl i32 %55, 13
+  %retval.sroa.2.0.insert.shift.i.i.i.i = add i32 %57, 65536
+  %58 = load i32, ptr %d.i.i, align 4, !noalias !17
+  %ref.tmp53.sroa.2.0.extract.shift.i.i = lshr i32 %retval.sroa.2.0.insert.shift.i.i.i.i, 16
+  %ref.tmp53.sroa.2.0.extract.trunc.i.i = trunc i32 %ref.tmp53.sroa.2.0.extract.shift.i.i to i8
   %sext.i.i = shl i32 %56, 16
   %conv.i.i.i.i.i = ashr exact i32 %sext.i.i, 16
-  %cmp.i.i.i.i.i.i = icmp ult i8 %58, 3
+  %cmp.i.i.i.i.i.i = icmp ult i8 %ref.tmp53.sroa.2.0.extract.trunc.i.i, 3
   %conv.neg.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i to i32
   %sub.i.i.i72.i = add nsw i32 %conv.i.i.i.i.i, %conv.neg.i.i.i.i
-  %conv.i11.i.i.i.i = zext i8 %58 to i32
-  %conv.i12.i.i.i.i = and i32 %57, 255
+  %conv.i11.i.i.i.i = and i32 %ref.tmp53.sroa.2.0.extract.shift.i.i, 255
+  %conv.i12.i.i.i.i = and i32 %58, 255
   %sub6.i.i.i.i = add nsw i32 %sub.i.i.i72.i, -399
   %cmp9.i.i.i.i = icmp slt i32 %sub.i.i.i72.i, 0
   %cond.i.i.i.i = select i1 %cmp9.i.i.i.i, i32 %sub6.i.i.i.i, i32 %sub.i.i.i72.i
   %div.i.i.i.i = sdiv i32 %cond.i.i.i.i, 400
   %mul.neg.i.i.i.i = mul nsw i32 %div.i.i.i.i, -400
   %sub7.i.i.i.i = add nsw i32 %mul.neg.i.i.i.i, %sub.i.i.i72.i
-  %cmp8.i.i.i.i = icmp ugt i8 %58, 2
+  %cmp8.i.i.i.i = icmp ugt i8 %ref.tmp53.sroa.2.0.extract.trunc.i.i, 2
   %cond13.v.i.i.i.i = select i1 %cmp8.i.i.i.i, i32 -3, i32 9
   %cond13.i.i.i.i = add nsw i32 %cond13.v.i.i.i.i, %conv.i11.i.i.i.i
   %mul14.i.i.i.i = mul nsw i32 %cond13.i.i.i.i, 153

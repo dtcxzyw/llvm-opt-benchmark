@@ -10521,7 +10521,7 @@ for.inc.i.i:                                      ; preds = %if.then13.i.i, %for
   %add.ptr.i.i = getelementptr inbounds %"struct.duckdb::RelationsToTDom", ptr %11, i64 %sub.ptr.div.i.i
   %sub.ptr.div.i21.i = ashr exact i64 %sub.ptr.sub.i20.i.pre-phi, 7
   %add.ptr.i22.i = getelementptr inbounds %"struct.duckdb::RelationsToTDom", ptr %11, i64 %sub.ptr.div.i21.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i21.i
+  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i20.i.pre-phi
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN6duckdb15RelationsToTDomESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN6duckdb15RelationsToTDomESt6vectorIS3_SaIS3_EEEEZNS2_20CardinalityEstimator23RemoveEmptyTotalDomainsEvE3$_0ET_SB_SB_T0_.exit"
@@ -25747,11 +25747,11 @@ _ZNSt6vectorIN6duckdb13ColumnBindingESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i
   %sub.ptr.lhs.cast.i277 = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i278 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i279 = sub i64 %sub.ptr.lhs.cast.i277, %sub.ptr.rhs.cast.i278
-  %sub.ptr.div.i280 = ashr exact i64 %sub.ptr.sub.i279, 4
-  %cmp91407 = icmp ult i64 %sub.ptr.div.i280, %sub.ptr.div.i273
+  %cmp91407 = icmp ult i64 %sub.ptr.sub.i279, %sub.ptr.sub.i272
   br i1 %cmp91407, label %for.body93.lr.ph, label %nrvo.skipdtor
 
 for.body93.lr.ph:                                 ; preds = %_ZNSt6vectorIN6duckdb13ColumnBindingESaIS1_EED2Ev.exit
+  %sub.ptr.div.i280 = ashr exact i64 %sub.ptr.sub.i279, 4
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::DistinctCount, std::allocator<duckdb::DistinctCount>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::DistinctCount, std::allocator<duckdb::DistinctCount>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
   %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp102, i64 0, i32 2
@@ -26154,11 +26154,11 @@ _ZNSt6vectorIN6duckdb13ColumnBindingESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i
   %sub.ptr.lhs.cast.i41 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i42 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i43 = sub i64 %sub.ptr.lhs.cast.i41, %sub.ptr.rhs.cast.i42
-  %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i43, 4
-  %cmp66 = icmp ult i64 %sub.ptr.div.i44, %sub.ptr.div.i
+  %cmp66 = icmp ult i64 %sub.ptr.sub.i43, %sub.ptr.sub.i
   br i1 %cmp66, label %for.body.lr.ph, label %nrvo.skipdtor
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN6duckdb13ColumnBindingESaIS1_EED2Ev.exit
+  %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i43, 4
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::DistinctCount, std::allocator<duckdb::DistinctCount>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::DistinctCount, std::allocator<duckdb::DistinctCount>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
   %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp17, i64 0, i32 2
@@ -41774,8 +41774,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = ashr exact i64 %sub.ptr.sub.i91, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -41814,8 +41813,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !438
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i98 = ashr exact i64 %sub.ptr.sub.i97, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i98, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -41890,8 +41888,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = ashr exact i64 %sub.ptr.sub.i91, 5
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -41949,8 +41946,7 @@ if.else:                                          ; preds = %if.then
   %10 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !27
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i98 = ashr exact i64 %sub.ptr.sub.i97, 5
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i98, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -42006,6 +42002,7 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i101, !llvm.loop !961
 
 if.else49:                                        ; preds = %if.else
+  %sub.ptr.div.i98 = ashr exact i64 %sub.ptr.sub.i97, 5
   %cmp7.i.i.i.i.i117 = icmp sgt i64 %sub.ptr.div.i98, 0
   br i1 %cmp7.i.i.i.i.i117, label %for.body.i.i.i.i.i119, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit
 

@@ -8385,31 +8385,39 @@ land.rhs:                                         ; preds = %land.lhs.true5
   %sub.ptr.rhs.cast.i11 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i10, %sub.ptr.rhs.cast.i11
   %sub.ptr.div.i13 = ashr exact i64 %sub.ptr.sub.i12, 3
-  %cmp11 = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i13
-  br i1 %cmp11, label %for.cond.preheader.split, label %return
+  %cmp11 = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i12
+  br i1 %cmp11, label %for.cond.preheader, label %return
 
-for.cond.preheader.split:                         ; preds = %land.rhs
+for.cond.preheader:                               ; preds = %land.rhs
   %cmp1429.not = icmp eq ptr %15, %16
   br i1 %cmp1429.not, label %return, label %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader
 
-_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader:        ; preds = %for.cond.preheader.split
+_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader:        ; preds = %for.cond.preheader
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %_ZNKSt6vectorIlSaIlEE2atEm.exit
 
-_ZNKSt6vectorIlSaIlEE2atEm.exit:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit, %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader
-  %i.030 = phi i64 [ 0, %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader ], [ %inc, %_ZNKSt6vectorIlSaIlEE2atEm.exit ]
+_ZNKSt6vectorIlSaIlEE2atEm.exit:                  ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit27, %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader
+  %i.030 = phi i64 [ 0, %_ZNKSt6vectorIlSaIlEE2atEm.exit.preheader ], [ %inc, %_ZNKSt6vectorIlSaIlEE2atEm.exit27 ]
+  %exitcond.not = icmp eq i64 %i.030, %sub.ptr.div.i13
+  br i1 %exitcond.not, label %if.then.i.i25, label %_ZNKSt6vectorIlSaIlEE2atEm.exit27
+
+if.then.i.i25:                                    ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.114, i64 noundef %sub.ptr.div.i13, i64 noundef %sub.ptr.div.i13) #37
+  unreachable
+
+_ZNKSt6vectorIlSaIlEE2atEm.exit27:                ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit
   %add.ptr.i.i = getelementptr inbounds i64, ptr %16, i64 %i.030
   %19 = load i64, ptr %add.ptr.i.i, align 8
   %add.ptr.i.i26 = getelementptr inbounds i64, ptr %18, i64 %i.030
   %20 = load i64, ptr %add.ptr.i.i26, align 8
   %cmp19.not = icmp eq i64 %19, %20
   %inc = add nuw i64 %i.030, 1
-  %exitcond.not = icmp ne i64 %inc, %umax
-  %or.cond.not = select i1 %cmp19.not, i1 %exitcond.not, i1 false
+  %exitcond33.not = icmp ne i64 %inc, %umax
+  %or.cond.not = select i1 %cmp19.not, i1 %exitcond33.not, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit, label %return, !llvm.loop !115
 
-return:                                           ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit, %for.cond.preheader.split, %land.lhs.true, %land.lhs.true.i, %land.lhs.true5, %land.lhs.true2, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit, %entry, %land.rhs
-  %retval.0 = phi i1 [ false, %land.rhs ], [ false, %entry ], [ false, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true ], [ true, %for.cond.preheader.split ], [ %cmp19.not, %_ZNKSt6vectorIlSaIlEE2atEm.exit ]
+return:                                           ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit27, %for.cond.preheader, %land.lhs.true, %land.lhs.true.i, %land.lhs.true5, %land.lhs.true2, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit, %entry, %land.rhs
+  %retval.0 = phi i1 [ false, %land.rhs ], [ false, %entry ], [ false, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true ], [ true, %for.cond.preheader ], [ %cmp19.not, %_ZNKSt6vectorIlSaIlEE2atEm.exit27 ]
   ret i1 %retval.0
 }
 
@@ -48041,7 +48049,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

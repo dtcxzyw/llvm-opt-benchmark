@@ -45600,8 +45600,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -45642,8 +45641,7 @@ if.else:                                          ; preds = %entry
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i17, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %_ZSt7advanceIPKfmEvRT_T0_.exit, label %if.then25
 
 if.then25:                                        ; preds = %if.else
@@ -45666,6 +45664,7 @@ invoke.cont.i:                                    ; preds = %_ZSt4copyIPKfPfET0_
   br label %if.end41
 
 _ZSt7advanceIPKfmEvRT_T0_.exit:                   ; preds = %if.else
+  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
   %add.ptr.i.i = getelementptr inbounds float, ptr %__first, i64 %sub.ptr.div.i17
   %sub.ptr.lhs.cast.i.i.i.i.i25 = ptrtoint ptr %add.ptr.i.i to i64
   %tobool.not.i.i.i.i.i28 = icmp eq ptr %2, %1
@@ -45968,17 +45967,17 @@ invoke.cont30:                                    ; preds = %if.then.i53.invoke.
   %30 = phi ptr [ %.pre, %if.then.i53.invoke.cont30_crit_edge ], [ %28, %invoke.cont.i.i ], [ %28, %if.then5.i ], [ %28, %if.else.i51 ]
   %sub.ptr.lhs.cast.i.i56 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i56, %sub.ptr.rhs.cast.i.i57.pre-phi
-  %sub.ptr.div.i.i59 = ashr exact i64 %sub.ptr.sub.i.i58, 2
-  %cmp.i60 = icmp ult i64 %sub.ptr.div.i.i59, %sub.ptr.div.i
+  %cmp.i60 = icmp ult i64 %sub.ptr.sub.i.i58, %sub.ptr.sub.i
   br i1 %cmp.i60, label %if.then.i65, label %if.else.i61
 
 if.then.i65:                                      ; preds = %invoke.cont30
+  %sub.ptr.div.i.i59 = ashr exact i64 %sub.ptr.sub.i.i58, 2
   %sub.i66 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i59
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %vals, ptr %29, i64 noundef %sub.i66, ptr noundef nonnull align 4 dereferenceable(4) %30)
           to label %if.end33 unwind label %lpad.loopexit.split-lp
 
 if.else.i61:                                      ; preds = %invoke.cont30
-  %cmp6.i = icmp ugt i64 %sub.ptr.div.i.i59, %sub.ptr.div.i
+  %cmp6.i = icmp ugt i64 %sub.ptr.sub.i.i58, %sub.ptr.sub.i
   br i1 %cmp6.i, label %if.then7.i, label %if.end33
 
 if.then7.i:                                       ; preds = %if.else.i61

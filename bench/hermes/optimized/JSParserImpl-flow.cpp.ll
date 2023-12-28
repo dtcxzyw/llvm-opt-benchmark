@@ -12025,10 +12025,14 @@ land.lhs.true:                                    ; preds = %if.end21
 if.then27:                                        ; preds = %land.lhs.true
   %add.ptr.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %15, i64 %13
   %add.ptr.i5.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %15, i64 %sub.ptr.div.i
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i, %14
+  br i1 %cmp.i.not.i.i, label %if.end49, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.then27
   %cmp.i1.not.i.i = icmp eq ptr %14, %add.ptr.i5.i
   br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %if.then27
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %if.then.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i, ptr nonnull align 8 %add.ptr.i5.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
@@ -12036,10 +12040,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vect
   %.pre9.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then27, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i, %if.then27 ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i, %if.then27 ]
-  %16 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %14, %if.then27 ]
+if.end.i.i:                                       ; preds = %if.then.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
+  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i, %if.then.i.i ]
+  %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i, %if.then.i.i ]
+  %16 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6hermes6parser13StoredCommentESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %14, %if.then.i.i ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
   %add.ptr.i6.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %add.ptr.i, i64 %sub.ptr.div.i.i.i
@@ -12050,7 +12054,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %add.ptr.i6.i, ptr %_M_finish.i, align 8
   br label %if.end49
 
-if.end49:                                         ; preds = %if.then.i.i.i, %if.end.i.i, %land.lhs.true, %if.end21
+if.end49:                                         ; preds = %if.then.i.i.i, %if.end.i.i, %if.then27, %land.lhs.true, %if.end21
   %17 = load ptr, ptr %this, align 8
   %storeTokens_.i = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %17, i64 0, i32 8
   %18 = load i8, ptr %storeTokens_.i, align 2
@@ -12071,7 +12075,7 @@ if.then52:                                        ; preds = %if.end49
   %sub.ptr.sub.i3.i19 = sub i64 %sub.ptr.lhs.cast.i1.i18, %sub.ptr.rhs.cast.i.i14
   %sub.ptr.div.i4.i20 = sdiv exact i64 %sub.ptr.sub.i3.i19, 24
   %add.ptr.i5.i21 = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %20, i64 %sub.ptr.div.i4.i20
-  %cmp.i.not.i.i22 = icmp eq i64 %21, %sub.ptr.div.i4.i20
+  %cmp.i.not.i.i22 = icmp eq ptr %add.ptr.i11, %22
   br i1 %cmp.i.not.i.i22, label %if.end74, label %if.then.i.i23
 
 if.then.i.i23:                                    ; preds = %if.then52

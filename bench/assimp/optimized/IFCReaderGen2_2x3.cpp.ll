@@ -19808,8 +19808,7 @@ if.end.i:                                         ; preds = %if.end13
   %sub.ptr.lhs.cast.i.i22 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i23 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i22, %sub.ptr.rhs.cast.i.i23
-  %sub.ptr.div.i.i25 = ashr exact i64 %sub.ptr.sub.i.i24, 4
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i25, %sub.ptr.div.i.i21
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i24, %sub.ptr.sub.i.i20
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -22158,8 +22157,7 @@ if.end.i:                                         ; preds = %if.end9
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  %sub.ptr.div.i.i24 = ashr exact i64 %sub.ptr.sub.i.i23, 4
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i24, %sub.ptr.div.i.i20
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i23, %sub.ptr.sub.i.i19
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE11_M_allocateEm.exit.i: ; preds = %if.end.i

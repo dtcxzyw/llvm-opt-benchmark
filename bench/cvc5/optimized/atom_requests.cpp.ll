@@ -2517,7 +2517,7 @@ if.end:                                           ; preds = %entry, %if.end.sink
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i4.i = sdiv exact i64 %sub.ptr.sub.i3.i, 24
   %add.ptr.i5.i = getelementptr inbounds %"struct.cvc5::internal::AtomRequests::Element", ptr %2, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i4.i, %size
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i2, %3
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN4cvc58internal12AtomRequests7ElementESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end

@@ -2415,12 +2415,12 @@ ehcleanup214:                                     ; preds = %if.then194, %if.the
   br i1 %cmp.i.not.i.i, label %ehcleanup215, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i359
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i359: ; preds = %ehcleanup214.thread, %lpad208, %ehcleanup214
-  %.pn701058 = phi { ptr, i32 } [ %190, %lpad208 ], [ %193, %ehcleanup214 ], [ %169, %ehcleanup214.thread ]
+  %.pn701057 = phi { ptr, i32 } [ %190, %lpad208 ], [ %193, %ehcleanup214 ], [ %169, %ehcleanup214.thread ]
   call void @_ZdaPv(ptr noundef nonnull %152) #20
   br label %ehcleanup215
 
 ehcleanup215:                                     ; preds = %lpad208, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i359, %ehcleanup214, %lpad182
-  %.pn70.pn = phi { ptr, i32 } [ %189, %lpad182 ], [ %193, %ehcleanup214 ], [ %.pn701058, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i359 ], [ %190, %lpad208 ]
+  %.pn70.pn = phi { ptr, i32 } [ %189, %lpad182 ], [ %193, %ehcleanup214 ], [ %.pn701057, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i359 ], [ %190, %lpad208 ]
   %194 = load ptr, ptr %file_to_sync, align 8
   %cmp.not.i361 = icmp eq ptr %194, null
   br i1 %cmp.not.i361, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit365, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i362
@@ -2819,8 +2819,7 @@ land.lhs.true344:                                 ; preds = %land.lhs.true338
   %sub.ptr.lhs.cast.i464 = ptrtoint ptr %260 to i64
   %sub.ptr.rhs.cast.i465 = ptrtoint ptr %261 to i64
   %sub.ptr.sub.i466 = sub i64 %sub.ptr.lhs.cast.i464, %sub.ptr.rhs.cast.i465
-  %sub.ptr.div.i467 = ashr exact i64 %sub.ptr.sub.i466, 5
-  %cmp349 = icmp eq i64 %sub.ptr.div.i467, %sub.ptr.div.i
+  %cmp349 = icmp eq i64 %sub.ptr.sub.i466, %sub.ptr.sub.i
   br i1 %cmp349, label %if.end353, label %if.else351
 
 if.else351:                                       ; preds = %land.lhs.true344, %land.lhs.true338, %if.then333
@@ -3237,10 +3236,9 @@ if.then454:                                       ; preds = %invoke.cont452
   %sub.ptr.lhs.cast.i589 = ptrtoint ptr %336 to i64
   %sub.ptr.rhs.cast.i590 = ptrtoint ptr %337 to i64
   %sub.ptr.sub.i591 = sub i64 %sub.ptr.lhs.cast.i589, %sub.ptr.rhs.cast.i590
-  %sub.ptr.div.i592 = ashr exact i64 %sub.ptr.sub.i591, 5
-  %cmp465 = icmp eq i64 %sub.ptr.div.i592, %sub.ptr.div.i580
-  %or.cond1082 = select i1 %cmp459, i1 %cmp465, i1 false
-  br i1 %or.cond1082, label %if.then466, label %if.else587
+  %cmp465 = icmp eq i64 %sub.ptr.sub.i591, %sub.ptr.sub.i579
+  %or.cond1081 = select i1 %cmp459, i1 %cmp465, i1 false
+  br i1 %or.cond1081, label %if.then466, label %if.else587
 
 if.then466:                                       ; preds = %if.then454
   %338 = load ptr, ptr %ingestion_options_, align 8
@@ -3482,7 +3480,7 @@ for.inc583:                                       ; preds = %invoke.cont574
   br i1 %cmp538, label %for.body539, label %if.end618, !llvm.loop !28
 
 if.else587:                                       ; preds = %if.then454
-  %cmp590.not = icmp eq i64 %sub.ptr.div.i580, %sub.ptr.div.i592
+  %cmp590.not = icmp eq i64 %sub.ptr.sub.i579, %sub.ptr.sub.i591
   %cmp597.not = icmp eq ptr %331, %332
   %or.cond937 = and i1 %cmp597.not, %cmp590.not
   br i1 %or.cond937, label %if.end618, label %if.then598

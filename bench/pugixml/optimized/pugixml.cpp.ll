@@ -44152,8 +44152,7 @@ if.then19:                                        ; preds = %if.end
   %sub.ptr.lhs.cast.i37 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i38 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i38
-  %sub.ptr.div.i40 = ashr exact i64 %sub.ptr.sub.i39, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i40, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i39, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -44305,8 +44304,7 @@ if.then19:                                        ; preds = %if.end
   %sub.ptr.lhs.cast.i37 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i38 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i38
-  %sub.ptr.div.i40 = ashr exact i64 %sub.ptr.sub.i39, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i40, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i39, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -44542,8 +44540,7 @@ if.then22:                                        ; preds = %_ZN4pugi4impl12_GLO
   %sub.ptr.lhs.cast.i73 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i74 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i75 = sub i64 %sub.ptr.lhs.cast.i73, %sub.ptr.rhs.cast.i74
-  %sub.ptr.div.i76 = ashr exact i64 %sub.ptr.sub.i75, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i76, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i75, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then22
@@ -44836,8 +44833,7 @@ if.then19:                                        ; preds = %_ZN4pugi4impl12_GLO
   %sub.ptr.lhs.cast.i73 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i74 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i75 = sub i64 %sub.ptr.lhs.cast.i73, %sub.ptr.rhs.cast.i74
-  %sub.ptr.div.i76 = ashr exact i64 %sub.ptr.sub.i75, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i76, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i75, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -45052,8 +45048,7 @@ if.then19:                                        ; preds = %if.end
   %sub.ptr.lhs.cast.i37 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i38 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i38
-  %sub.ptr.div.i40 = ashr exact i64 %sub.ptr.sub.i39, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i40, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i39, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -45205,8 +45200,7 @@ if.then19:                                        ; preds = %if.end
   %sub.ptr.lhs.cast.i37 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i38 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i38
-  %sub.ptr.div.i40 = ashr exact i64 %sub.ptr.sub.i39, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i40, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i39, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -45358,8 +45352,7 @@ if.then19:                                        ; preds = %if.end
   %sub.ptr.lhs.cast.i37 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i38 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i38
-  %sub.ptr.div.i40 = ashr exact i64 %sub.ptr.sub.i39, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i40, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i39, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -45589,8 +45582,7 @@ if.then19:                                        ; preds = %_ZN4pugi4impl12_GLO
   %sub.ptr.lhs.cast.i75 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i76 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i77 = sub i64 %sub.ptr.lhs.cast.i75, %sub.ptr.rhs.cast.i76
-  %sub.ptr.div.i78 = ashr exact i64 %sub.ptr.sub.i77, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i78, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i77, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -45861,8 +45853,7 @@ if.then19:                                        ; preds = %_ZN4pugi4impl12_GLO
   %sub.ptr.lhs.cast.i65 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i66 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i67 = sub i64 %sub.ptr.lhs.cast.i65, %sub.ptr.rhs.cast.i66
-  %sub.ptr.div.i68 = ashr exact i64 %sub.ptr.sub.i67, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i68, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i67, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -46137,8 +46128,7 @@ if.then19:                                        ; preds = %_ZN4pugi4impl12_GLO
   %sub.ptr.lhs.cast.i60 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i61 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i62 = sub i64 %sub.ptr.lhs.cast.i60, %sub.ptr.rhs.cast.i61
-  %sub.ptr.div.i63 = ashr exact i64 %sub.ptr.sub.i62, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i63, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i62, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -46430,8 +46420,7 @@ if.then19:                                        ; preds = %_ZN4pugi4impl12_GLO
   %sub.ptr.lhs.cast.i78 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i79 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i80 = sub i64 %sub.ptr.lhs.cast.i78, %sub.ptr.rhs.cast.i79
-  %sub.ptr.div.i81 = ashr exact i64 %sub.ptr.sub.i80, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i81, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i80, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19
@@ -46635,8 +46624,7 @@ if.then18:                                        ; preds = %for.body
   %sub.ptr.lhs.cast.i35 = ptrtoint ptr %ns.val8.i to i64
   %sub.ptr.rhs.cast.i36 = ptrtoint ptr %ns.val7.i to i64
   %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
-  %sub.ptr.div.i38 = ashr exact i64 %sub.ptr.sub.i37, 4
-  %cmp.i = icmp eq i64 %sub.ptr.div.i38, %sub.ptr.div.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i37, %sub.ptr.sub.i
   br i1 %cmp.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then18

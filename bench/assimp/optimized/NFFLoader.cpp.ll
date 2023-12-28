@@ -4010,7 +4010,7 @@ while.end340:                                     ; preds = %while.end.i.i659, %
   %sub.ptr.rhs.cast.i890 = ptrtoint ptr %tempPositions.sroa.0.4 to i64
   %sub.ptr.sub.i891 = sub i64 %sub.ptr.lhs.cast.i889, %sub.ptr.rhs.cast.i890
   %sub.ptr.div.i892 = sdiv exact i64 %sub.ptr.sub.i891, 12
-  %cmp343.not = icmp eq i64 %sub.ptr.div.i887, %sub.ptr.div.i892
+  %cmp343.not = icmp eq i64 %sub.ptr.sub.i886, %sub.ptr.sub.i891
   br i1 %cmp343.not, label %if.end346, label %if.then344
 
 if.then344:                                       ; preds = %while.end340
@@ -4083,7 +4083,7 @@ if.end346:                                        ; preds = %_ZNSt6vectorI10aiVe
   %sub.ptr.rhs.cast.i939 = ptrtoint ptr %tempTextureCoords.sroa.0.4 to i64
   %sub.ptr.sub.i940 = sub i64 %sub.ptr.lhs.cast.i938, %sub.ptr.rhs.cast.i939
   %sub.ptr.div.i941 = sdiv exact i64 %sub.ptr.sub.i940, 12
-  %cmp349.not = icmp eq i64 %sub.ptr.div.i941, %sub.ptr.div.i892
+  %cmp349.not = icmp eq i64 %sub.ptr.sub.i940, %sub.ptr.sub.i891
   br i1 %cmp349.not, label %if.end352, label %if.then350
 
 if.then350:                                       ; preds = %if.end346
@@ -11402,7 +11402,7 @@ invoke.cont2435:                                  ; preds = %if.end2432
 new.ctorloop:                                     ; preds = %invoke.cont2435
   %825 = add nsw i64 %824, -12
   %826 = urem i64 %825, 12
-  %827 = sub nsw i64 %825, %826
+  %827 = sub nuw nsw i64 %825, %826
   %828 = add nsw i64 %827, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call2436, i8 0, i64 %828, i1 false)
   br label %arrayctor.cont
@@ -11455,7 +11455,7 @@ invoke.cont2472:                                  ; preds = %if.then2469
 new.ctorloop2475:                                 ; preds = %invoke.cont2472
   %836 = add nsw i64 %824, -12
   %837 = urem i64 %836, 12
-  %838 = sub nsw i64 %836, %837
+  %838 = sub nuw nsw i64 %836, %837
   %839 = add nsw i64 %838, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call2473, i8 0, i64 %839, i1 false)
   br label %arrayctor.cont2481
@@ -11485,7 +11485,7 @@ invoke.cont2494:                                  ; preds = %if.then2491
 new.ctorloop2497:                                 ; preds = %invoke.cont2494
   %843 = add nsw i64 %824, -12
   %844 = urem i64 %843, 12
-  %845 = sub nsw i64 %843, %844
+  %845 = sub nuw nsw i64 %843, %844
   %846 = add nsw i64 %845, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call2495, i8 0, i64 %846, i1 false)
   br label %arrayctor.cont2503
@@ -16986,8 +16986,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -17026,8 +17025,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 2
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -17102,8 +17100,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -17146,8 +17143,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else

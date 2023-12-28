@@ -2504,16 +2504,14 @@ sw.bb85:                                          ; preds = %if.end
 land.lhs.true91:                                  ; preds = %sw.bb85
   %nranges_.i = getelementptr inbounds %"class.re2::CharClass", ptr %51, i64 0, i32 4
   %56 = load i32, ptr %nranges_.i, align 8
-  %idx.ext.i = sext i32 %56 to i64
-  %add.ptr.i.idx = shl nsw i64 %idx.ext.i, 3
   %nranges_.i91 = getelementptr inbounds %"class.re2::CharClass", ptr %53, i64 0, i32 4
   %57 = load i32, ptr %nranges_.i91, align 8
-  %idx.ext.i92 = sext i32 %57 to i64
-  %add.ptr.i93.idx = shl nsw i64 %idx.ext.i92, 3
-  %cmp100 = icmp eq i64 %add.ptr.i.idx, %add.ptr.i93.idx
+  %cmp100 = icmp eq i32 %56, %57
   br i1 %cmp100, label %land.rhs101, label %return
 
 land.rhs101:                                      ; preds = %land.lhs.true91
+  %idx.ext.i = sext i32 %56 to i64
+  %add.ptr.i.idx = shl nsw i64 %idx.ext.i, 3
   %ranges_.i90 = getelementptr inbounds %"class.re2::CharClass", ptr %53, i64 0, i32 3
   %58 = load ptr, ptr %ranges_.i90, align 8
   %ranges_.i = getelementptr inbounds %"class.re2::CharClass", ptr %51, i64 0, i32 3

@@ -561,22 +561,21 @@ if.end.i:                                         ; preds = %do.body
   %sub.ptr.lhs.cast.i28.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i29.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i30.i = sub i64 %sub.ptr.lhs.cast.i28.i, %sub.ptr.rhs.cast.i29.i
-  %sub.ptr.div.i31.i = ashr exact i64 %sub.ptr.sub.i30.i, 4
   %_M_finish.i32.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::DataTypeLayout::BufferSpec, std::allocator<arrow::DataTypeLayout::BufferSpec>>::_Vector_impl_data", ptr %layout.i, i64 0, i32 1
   %10 = load ptr, ptr %_M_finish.i32.i, align 8, !noalias !4
   %11 = load ptr, ptr %layout.i, align 8, !noalias !4
   %sub.ptr.lhs.cast.i33.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i34.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i35.i = sub i64 %sub.ptr.lhs.cast.i33.i, %sub.ptr.rhs.cast.i34.i
-  %sub.ptr.div.i36.i = ashr exact i64 %sub.ptr.sub.i35.i, 4
   br i1 %tobool.i.i.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cmp7.i = icmp ult i64 %sub.ptr.div.i31.i, %sub.ptr.div.i36.i
+  %cmp7.i = icmp ult i64 %sub.ptr.sub.i30.i, %sub.ptr.sub.i35.i
   br i1 %cmp7.i, label %if.then8.i, label %invoke.cont47.i
 
 if.then8.i:                                       ; preds = %if.then2.i
-  store i64 %sub.ptr.div.i36.i, ptr %ref.tmp.i, align 8, !noalias !4
+  %sub.ptr.div.i16.i = ashr exact i64 %sub.ptr.sub.i35.i, 4
+  store i64 %sub.ptr.div.i16.i, ptr %ref.tmp.i, align 8, !noalias !4
   %vtable12.i = load ptr, ptr %1, align 8, !noalias !4
   %vfn13.i = getelementptr inbounds ptr, ptr %vtable12.i, i64 4
   %12 = load ptr, ptr %vfn13.i, align 8, !noalias !4
@@ -625,10 +624,11 @@ lpad19.body.i:                                    ; preds = %lpad19.i, %lpad.i.i
   br label %ehcleanup.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp27.not.i = icmp eq i64 %sub.ptr.div.i31.i, %sub.ptr.div.i36.i
+  %cmp27.not.i = icmp eq i64 %sub.ptr.sub.i30.i, %sub.ptr.sub.i35.i
   br i1 %cmp27.not.i, label %invoke.cont47.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.else.i
+  %sub.ptr.div.i36.i = ashr exact i64 %sub.ptr.sub.i35.i, 4
   store i64 %sub.ptr.div.i36.i, ptr %ref.tmp29.i, align 8, !noalias !4
   %vtable33.i = load ptr, ptr %1, align 8, !noalias !4
   %vfn34.i = getelementptr inbounds ptr, ptr %vtable33.i, i64 4

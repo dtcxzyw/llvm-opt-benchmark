@@ -9659,7 +9659,7 @@ for.inc.i.i.i.i:                                  ; preds = %if.then13.i.i.i.i, 
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 3
   %add.ptr.i5.i.i.i = getelementptr inbounds ptr, ptr %220, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i4.i.i.i
+  %cmp.i.not.i.i.i.i = icmp eq ptr %retval.sroa.0.2.i.i.i.i, %219
   br i1 %cmp.i.not.i.i.i.i, label %"_ZN6hermes2vm6GCBase28markFromReachableWeakMapKeysINS0_7HadesGC12MarkAcceptorEPFbPKNS0_6GCCellEEZNS3_22completeWeakMapMarkingERS4_E3$_0EEbRS3_PNS0_13JSWeakMapImplILNS0_8CellKindE51EEERT_PN4llvh8DenseMapISG_St6vectorIPNS0_6detail10WeakRefKeyESaISO_EENSJ_12DenseMapInfoISG_EENSJ_6detail12DenseMapPairISG_SQ_EEEET0_T1_.exit.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes2vm6detail10WeakRefKeyESt6vectorIS6_SaIS6_EEEEZNS3_6GCBase28markFromReachableWeakMapKeysINS3_7HadesGC12MarkAcceptorEPFbPKNS3_6GCCellEEZNSE_22completeWeakMapMarkingERSF_E3$_0EEbRSE_PNS3_13JSWeakMapImplILNS3_8CellKindE51EEERT_PN4llvh8DenseMapISR_SA_NSU_12DenseMapInfoISR_EENSU_6detail12DenseMapPairISR_SA_EEEET0_T1_EUlS6_E_ESS_SS_SS_S13_.exit.i.i"
@@ -16981,7 +16981,7 @@ _ZN4llvh15SmallVectorImplIPN6hermes2vm6GCCellEE7reserveEm.exit: ; preds = %if.en
   %sub.ptr.rhs.cast10 = ptrtoint ptr %add.ptr7 to i64
   %sub.ptr.sub11 = sub i64 %sub.ptr.lhs.cast9, %sub.ptr.rhs.cast10
   %sub.ptr.div12 = ashr exact i64 %sub.ptr.sub11, 3
-  %cmp13.not = icmp ult i64 %sub.ptr.div12, %sub.ptr.div.i.i.i
+  %cmp13.not = icmp ult i64 %sub.ptr.sub11, %sub.ptr.sub.i.i.i
   br i1 %cmp13.not, label %if.end25, label %if.then14
 
 if.then14:                                        ; preds = %_ZN4llvh15SmallVectorImplIPN6hermes2vm6GCCellEE7reserveEm.exit

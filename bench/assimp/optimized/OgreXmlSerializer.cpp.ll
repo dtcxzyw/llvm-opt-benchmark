@@ -1691,15 +1691,13 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %cond.
   %3 = and i32 %call.i.i14, 255
   %tobool.i.i = icmp ne i32 %3, 0
   %sext.i.i = shl i32 %call.i.i14, 24
-  %conv6.i.i = ashr exact i32 %sext.i.i, 24
   %sext4.i.i = shl i32 %call4.i.i, 24
-  %conv7.i.i = ashr exact i32 %sext4.i.i, 24
-  %cmp.i.i = icmp eq i32 %conv6.i.i, %conv7.i.i
+  %cmp.i.i = icmp eq i32 %sext.i.i, %sext4.i.i
   %4 = select i1 %tobool.i.i, i1 %cmp.i.i, i1 false
   br i1 %4, label %do.body.i.i, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i, !llvm.loop !6
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i:         ; preds = %do.body.i.i
-  %5 = icmp eq i32 %conv6.i.i, %conv7.i.i
+  %5 = icmp eq i32 %sext.i.i, %sext4.i.i
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i, %invoke.cont5
@@ -1763,16 +1761,16 @@ do.body.i.i33:                                    ; preds = %do.body.i.i33, %con
   %call4.i.i41 = call i32 @tolower(i32 noundef %conv3.i.i40) #30
   %11 = and i32 %call.i.i38, 255
   %tobool.i.i42 = icmp ne i32 %11, 0
-  %cmp.i.i47.unshifted = xor i32 %call.i.i38, %call4.i.i41
-  %cmp.i.i47.mask = and i32 %cmp.i.i47.unshifted, 255
-  %cmp.i.i47 = icmp eq i32 %cmp.i.i47.mask, 0
-  %12 = select i1 %tobool.i.i42, i1 %cmp.i.i47, i1 false
-  br i1 %12, label %do.body.i.i33, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i48, !llvm.loop !6
+  %cmp.i.i45.unshifted = xor i32 %call.i.i38, %call4.i.i41
+  %cmp.i.i45.mask = and i32 %cmp.i.i45.unshifted, 255
+  %cmp.i.i45 = icmp eq i32 %cmp.i.i45.mask, 0
+  %12 = select i1 %tobool.i.i42, i1 %cmp.i.i45, i1 false
+  br i1 %12, label %do.body.i.i33, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i46, !llvm.loop !6
 
-_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i48:       ; preds = %do.body.i.i33
+_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i46:       ; preds = %do.body.i.i33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #28
-  br i1 %cmp.i.i47, label %cleanup, label %if.end19
+  br i1 %cmp.i.i45, label %cleanup, label %if.end19
 
 lpad10:                                           ; preds = %call.i15.noexc, %if.else
   %13 = landingpad { ptr, i32 }
@@ -1784,7 +1782,7 @@ if.end19.critedge:                                ; preds = %invoke.cont11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #28
   br label %if.end19
 
-if.end19:                                         ; preds = %if.end19.critedge, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i48
+if.end19:                                         ; preds = %if.end19.critedge, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i46
   %14 = load ptr, ptr %xmlNode, align 8
   %tobool.not.i51 = icmp eq ptr %14, null
   br i1 %tobool.not.i51, label %_ZNK4pugi8xml_node4nameEv.exit, label %if.end.i
@@ -1865,7 +1863,7 @@ ehcleanup42:                                      ; preds = %ehcleanup41, %lpad2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #28
   br label %ehcleanup45
 
-cleanup:                                          ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i48, %invoke.cont7
+cleanup:                                          ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit.i46, %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #28
   ret i1 %cond.i
 
@@ -4800,8 +4798,7 @@ land.lhs.true159:                                 ; preds = %if.end157
   %sub.ptr.lhs.cast.i410 = ptrtoint ptr %86 to i64
   %sub.ptr.rhs.cast.i411 = ptrtoint ptr %87 to i64
   %sub.ptr.sub.i412 = sub i64 %sub.ptr.lhs.cast.i410, %sub.ptr.rhs.cast.i411
-  %sub.ptr.div.i413 = sdiv exact i64 %sub.ptr.sub.i412, 12
-  %cmp164.not = icmp eq i64 %sub.ptr.div.i413, %sub.ptr.div.i403
+  %cmp164.not = icmp eq i64 %sub.ptr.sub.i412, %sub.ptr.sub.i402
   br i1 %cmp164.not, label %if.end173, label %if.then165
 
 if.then165:                                       ; preds = %land.lhs.true159
@@ -4837,8 +4834,7 @@ land.lhs.true175:                                 ; preds = %if.end173
   %sub.ptr.lhs.cast.i420 = ptrtoint ptr %91 to i64
   %sub.ptr.rhs.cast.i421 = ptrtoint ptr %92 to i64
   %sub.ptr.sub.i422 = sub i64 %sub.ptr.lhs.cast.i420, %sub.ptr.rhs.cast.i421
-  %sub.ptr.div.i423 = sdiv exact i64 %sub.ptr.sub.i422, 12
-  %cmp180.not = icmp eq i64 %sub.ptr.div.i423, %sub.ptr.div.i403
+  %cmp180.not = icmp eq i64 %sub.ptr.sub.i422, %sub.ptr.sub.i402
   br i1 %cmp180.not, label %if.end189, label %if.then181
 
 if.then181:                                       ; preds = %land.lhs.true175
@@ -4885,8 +4881,7 @@ for.body196:                                      ; preds = %if.end189, %for.inc
   %sub.ptr.lhs.cast.i436 = ptrtoint ptr %98 to i64
   %sub.ptr.rhs.cast.i437 = ptrtoint ptr %99 to i64
   %sub.ptr.sub.i438 = sub i64 %sub.ptr.lhs.cast.i436, %sub.ptr.rhs.cast.i437
-  %sub.ptr.div.i439 = sdiv exact i64 %sub.ptr.sub.i438, 12
-  %cmp203.not = icmp eq i64 %sub.ptr.div.i439, %sub.ptr.div.i403
+  %cmp203.not = icmp eq i64 %sub.ptr.sub.i438, %sub.ptr.sub.i402
   br i1 %cmp203.not, label %for.inc215, label %if.then204
 
 if.then204:                                       ; preds = %for.body196
@@ -7954,7 +7949,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN6Assimp4Ogre4BoneESt6vecto
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %52, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %52, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

@@ -25410,12 +25410,11 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
   %sub.ptr.lhs.cast1.i = ptrtoint ptr %__last2 to i64
   %sub.ptr.rhs.cast2.i = ptrtoint ptr %__first2 to i64
   %sub.ptr.sub3.i = sub i64 %sub.ptr.lhs.cast1.i, %sub.ptr.rhs.cast2.i
   %sub.ptr.div4.i = ashr exact i64 %sub.ptr.sub3.i, 6
-  %cmp.i = icmp slt i64 %sub.ptr.div4.i, %sub.ptr.div.i
+  %cmp.i = icmp slt i64 %sub.ptr.sub3.i, %sub.ptr.sub.i
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::URI::QueryParam", ptr %__first1, i64 %sub.ptr.div4.i
   %cond.i = select i1 %cmp.i, ptr %add.ptr.i, ptr %__last1
   %cmp.not28 = icmp eq ptr %cond.i, %__first1

@@ -3400,7 +3400,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
   store i64 %sub.ptr.div.i.i.i, ptr %ref.tmp14, align 8
-  %cmp.i.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
+  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont11

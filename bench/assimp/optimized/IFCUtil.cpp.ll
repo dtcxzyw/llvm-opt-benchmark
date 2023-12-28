@@ -766,7 +766,7 @@ invoke.cont:                                      ; preds = %if.end
 new.ctorloop:                                     ; preds = %invoke.cont
   %3 = add nsw i64 %2, -12
   %4 = urem i64 %3, 12
-  %5 = sub nsw i64 %3, %4
+  %5 = sub nuw nsw i64 %3, %4
   %6 = add nsw i64 %5, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call9, i8 0, i64 %6, i1 false)
   br label %arrayctor.cont
@@ -1134,7 +1134,7 @@ invoke.cont15:                                    ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i5
   %sub.ptr.div.i4.i = sdiv exact i64 %sub.ptr.sub.i3.i, 24
   %add.ptr.i5.i = getelementptr inbounds %class.aiVector3t, ptr %13, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i9 = icmp eq i64 %sub.ptr.div.i.i7, %sub.ptr.div.i4.i
+  %cmp.i.not.i.i9 = icmp eq i32 %5, 0
   br i1 %cmp.i.not.i.i9, label %for.inc, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont15
@@ -3890,9 +3890,9 @@ while.end.i.i:                                    ; preds = %if.end24.i.i, %if.e
   %__dest.sroa.0.0.lcssa.i.i = phi ptr [ %__first.sroa.0.0.i.i.i, %if.end.i.i ], [ %__dest.sroa.0.1.i.i, %if.end24.i.i ]
   %incdec.ptr.i6.i.i = getelementptr inbounds %class.aiVector3t, ptr %__dest.sroa.0.0.lcssa.i.i, i64 1
   %cmp.i15.not = icmp eq ptr %incdec.ptr.i6.i.i, %add.ptr.i14
-  br i1 %cmp.i15.not, label %if.end36, label %if.then22
+  br i1 %cmp.i15.not, label %if.end36, label %if.then.i.i
 
-if.then22:                                        ; preds = %while.end.i.i
+if.then.i.i:                                      ; preds = %while.end.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i14 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %incdec.ptr.i6.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -3909,10 +3909,6 @@ if.then22:                                        ; preds = %while.end.i.i
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i4.i = sdiv exact i64 %sub.ptr.sub.i3.i, 24
   %add.ptr.i5.i = getelementptr inbounds %class.aiVector3t, ptr %38, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i4.i
-  br i1 %cmp.i.not.i.i, label %if.end36, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.then22
   %39 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i1.not.i.i = icmp eq ptr %39, %add.ptr.i5.i
   br i1 %cmp.i1.not.i.i, label %if.then.if.end_crit_edge.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
@@ -3944,8 +3940,8 @@ invoke.cont.i.i.i:                                ; preds = %if.end.i.i16
   store ptr %add.ptr.i6.i, ptr %_M_finish.i.i.i, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %while.cond.i.i.i, %invoke.cont.i.i.i, %if.end.i.i16, %if.then22, %while.end.i.i
-  %drop.1 = phi i8 [ %drop.066, %while.end.i.i ], [ 1, %if.then22 ], [ 1, %if.end.i.i16 ], [ 1, %invoke.cont.i.i.i ], [ %drop.066, %while.cond.i.i.i ]
+if.end36:                                         ; preds = %while.cond.i.i.i, %invoke.cont.i.i.i, %if.end.i.i16, %while.end.i.i
+  %drop.1 = phi i8 [ %drop.066, %while.end.i.i ], [ 1, %if.end.i.i16 ], [ 1, %invoke.cont.i.i.i ], [ %drop.066, %while.cond.i.i.i ]
   %41 = load i32, ptr %__begin2.sroa.0.064, align 4
   %cmp37 = icmp ugt i32 %41, 1
   br i1 %cmp37, label %land.rhs, label %for.inc
@@ -6581,15 +6577,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
   br i1 %cmp.not, label %if.else68, label %if.then9
 
 if.then9:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp15 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp15, label %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %if.then9

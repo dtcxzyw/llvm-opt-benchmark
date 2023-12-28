@@ -19841,8 +19841,7 @@ if.then60:                                        ; preds = %if.end56
   %sub.ptr.lhs.cast.i161 = ptrtoint ptr %54 to i64
   %sub.ptr.rhs.cast.i162 = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i163 = sub i64 %sub.ptr.lhs.cast.i161, %sub.ptr.rhs.cast.i162
-  %sub.ptr.div.i164 = ashr exact i64 %sub.ptr.sub.i163, 3
-  %cmp64.not = icmp eq i64 %sub.ptr.div.i164, %sub.ptr.div.i156
+  %cmp64.not = icmp eq i64 %sub.ptr.sub.i163, %sub.ptr.sub.i155
   br i1 %cmp64.not, label %if.end68, label %if.then65
 
 if.then65:                                        ; preds = %if.then60

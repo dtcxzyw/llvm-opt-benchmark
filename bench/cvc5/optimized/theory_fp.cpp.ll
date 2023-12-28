@@ -7878,7 +7878,6 @@ cond.end:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %3 = load ptr, ptr %node, align 8
   store ptr %3, ptr %agg.tmp, align 8
   call void @_ZN4cvc58internal6theory2fp13FpWordBlaster9wordBlastENS0_12NodeTemplateILb0EEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %wordBlasted, ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef nonnull %agg.tmp)
@@ -7891,10 +7890,11 @@ cond.end:
   %sub.ptr.rhs.cast.i.i58 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i58
   %sub.ptr.div.i.i60 = ashr exact i64 %sub.ptr.sub.i.i59, 3
-  %cmp491 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i60
+  %cmp491 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i.i59
   br i1 %cmp491, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %cond.end
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp106, i64 0, i32 1
   br label %while.body
 
@@ -8069,7 +8069,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN4cvc58internal12
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit330
-  %inc = add nuw i64 %oldSize.0492, 1
+  %inc = add i64 %oldSize.0492, 1
   %bf.load.i.i331 = load i64, ptr %9, align 8
   %25 = and i64 %bf.load.i.i331, 1152920405095219200
   %cmp.not.i.i332 = icmp eq i64 %25, 1152920405095219200
@@ -8096,8 +8096,8 @@ terminate.lpad.i340:                              ; preds = %if.then13.i.i339
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit341: ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit, %if.then.i.i333, %if.then13.i.i339
-  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i.i60
-  br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !183
+  %cmp = icmp ult i64 %inc, %sub.ptr.div.i.i60
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !183
 
 lpad82:                                           ; preds = %cond.true85
   %28 = landingpad { ptr, i32 }
@@ -22898,15 +22898,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
   br i1 %cmp.not, label %if.else68, label %if.then9
 
 if.then9:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp15 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp15, label %for.inc.i.i.i.i.i.preheader, label %_ZSt7advanceIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEmEvRT_T0_.exit
 
 for.inc.i.i.i.i.i.preheader:                      ; preds = %if.then9

@@ -591,7 +591,7 @@ if.end.i:                                         ; preds = %.noexc, %while.cond
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 4
   %add.ptr.i5.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %7, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.i.not.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -720,7 +720,7 @@ if.end.i:                                         ; preds = %.noexc, %while.cond
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 4
   %add.ptr.i5.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %7, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.i.not.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -9039,7 +9039,7 @@ if.end.i:                                         ; preds = %while.body.i, %if.e
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 4
   %add.ptr.i5.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %8, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i, %0
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %9
   br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListISt4pairIjPNS_8internal6theory5arith6linear10ConstraintEENS6_14ArithVariables17LowerBoundCleanUpESaIS9_EE12truncateListEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -9234,7 +9234,7 @@ if.end.i:                                         ; preds = %while.body.i, %if.e
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 4
   %add.ptr.i5.i.i = getelementptr inbounds %"struct.std::pair.36", ptr %8, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i, %0
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %9
   br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListISt4pairIjPNS_8internal6theory5arith6linear10ConstraintEENS6_14ArithVariables17UpperBoundCleanUpESaIS9_EE12truncateListEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i

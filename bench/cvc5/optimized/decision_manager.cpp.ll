@@ -1532,7 +1532,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 3
   %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %3, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i, %0
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %4
   br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EE12truncateListEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -1599,7 +1599,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 3
   %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %2, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -1683,7 +1683,7 @@ if.end.i.i:                                       ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 3
   %add.ptr.i5.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i

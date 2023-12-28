@@ -3970,7 +3970,7 @@ for.end:                                          ; preds = %for.inc, %if.end45
   %sub.ptr.rhs.cast.i87 = ptrtoint ptr %57 to i64
   %sub.ptr.sub.i88 = sub i64 %sub.ptr.lhs.cast.i86, %sub.ptr.rhs.cast.i87
   %sub.ptr.div.i89 = sdiv exact i64 %sub.ptr.sub.i88, 824
-  %cmp68.not = icmp eq i64 %sub.ptr.div.i83, %sub.ptr.div.i89
+  %cmp68.not = icmp eq i64 %sub.ptr.sub.i82, %sub.ptr.sub.i88
   br i1 %cmp68.not, label %if.end93, label %if.then69
 
 if.then69:                                        ; preds = %for.end

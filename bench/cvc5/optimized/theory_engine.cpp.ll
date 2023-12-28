@@ -3824,7 +3824,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 3
   %add.ptr.i5.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.799", ptr %2, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -25923,7 +25923,7 @@ if.end:                                           ; preds = %entry, %if.end.sink
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i4.i = sdiv exact i64 %sub.ptr.sub.i3.i, 24
   %add.ptr.i5.i = getelementptr inbounds %"struct.cvc5::internal::AtomRequests::Element", ptr %2, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i4.i, %size
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i2, %3
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN4cvc58internal12AtomRequests7ElementESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -28078,7 +28078,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 3
   %add.ptr.i5.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.799", ptr %3, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i, %0
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %4
   br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb0EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -28328,7 +28328,7 @@ if.end.i.i:                                       ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 3
   %add.ptr.i5.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq ptr %8, %7
+  %cmp.i.not.i.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.not.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
@@ -28425,7 +28425,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 3
   %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %2, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -28525,7 +28525,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 3
   %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %3, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i, %0
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %4
   br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EE12truncateListEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -28592,7 +28592,7 @@ if.end.i.i:                                       ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 3
   %add.ptr.i5.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
@@ -32956,15 +32956,13 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
   br i1 %cmp.not, label %if.else68, label %if.then9
 
 if.then9:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp15 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp15, label %if.then16, label %_ZSt7advanceIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb1EEEEEmEvRT_T0_.exit
 
 if.then16:                                        ; preds = %if.then9
@@ -33048,6 +33046,7 @@ _ZSt13move_backwardIPN4cvc58internal12NodeTemplateILb1EEES4_ET0_T_S6_S5_.exit: ;
   br label %if.end109
 
 _ZSt7advanceIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb1EEEEEmEvRT_T0_.exit: ; preds = %if.then9
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %sub.ptr.div.i
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb1EEEEEPS6_ET0_T_SA_S9_(ptr %incdec.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
   %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i

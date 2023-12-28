@@ -13246,12 +13246,11 @@ _ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp1.sroa.3.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.3.0.copyload to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %sub.ptr.lhs.cast.i9.i = ptrtoint ptr %agg.tmp3.sroa.3.0.copyload to i64
   %sub.ptr.rhs.cast.i10.i = ptrtoint ptr %agg.tmp2.sroa.3.0.copyload to i64
   %sub.ptr.sub.i11.i = sub i64 %sub.ptr.lhs.cast.i9.i, %sub.ptr.rhs.cast.i10.i
   %sub.ptr.div.i12.i = ashr exact i64 %sub.ptr.sub.i11.i, 2
-  %cmp.i = icmp slt i64 %sub.ptr.div.i12.i, %sub.ptr.div.i.i
+  %cmp.i = icmp slt i64 %sub.ptr.sub.i11.i, %sub.ptr.sub.i.i
   br i1 %cmp.i, label %cond.true.i, label %_ZNK3gsl7details13span_iteratorIiEneIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph
 
 cond.true.i:                                      ; preds = %_ZNK3gsl7details13span_iteratorIiEmiIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEElRKNS1_IS6_EE.exit13.i
@@ -13277,8 +13276,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %cmp9.not.i.i.i = icmp slt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i12.i
+  %cmp9.not.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i11.i
   br i1 %cmp9.not.i.i.i, label %cond.false13.i.i.i, label %_ZNK3gsl7details13span_iteratorIiEplEl.exit.i
 
 cond.false13.i.i.i:                               ; preds = %if.then6.i.i.i

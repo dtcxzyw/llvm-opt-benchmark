@@ -1260,7 +1260,7 @@ invoke.cont67:                                    ; preds = %if.end58
 new.ctorloop:                                     ; preds = %invoke.cont67
   %29 = add nsw i64 %28, -12
   %30 = urem i64 %29, 12
-  %31 = sub nsw i64 %29, %30
+  %31 = sub nuw nsw i64 %29, %30
   %32 = add nsw i64 %31, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call68, i8 0, i64 %32, i1 false)
   br label %arrayctor.cont
@@ -1285,7 +1285,7 @@ invoke.cont79:                                    ; preds = %if.then77
 new.ctorloop82:                                   ; preds = %invoke.cont79
   %35 = add nsw i64 %28, -12
   %36 = urem i64 %35, 12
-  %37 = sub nsw i64 %35, %36
+  %37 = sub nuw nsw i64 %35, %36
   %38 = add nsw i64 %37, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call80, i8 0, i64 %38, i1 false)
   br label %arrayctor.cont88
@@ -1691,11 +1691,11 @@ if.end21:                                         ; preds = %if.then16, %for.end
   %sub.ptr.lhs.cast.i41 = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i42 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i43 = sub i64 %sub.ptr.lhs.cast.i41, %sub.ptr.rhs.cast.i42
-  %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i43, 3
-  %cmp23.not = icmp eq i64 %sub.ptr.div.i44, %sub.ptr.div.i
+  %cmp23.not = icmp eq i64 %sub.ptr.sub.i43, %sub.ptr.sub.i
   br i1 %cmp23.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.end21
+  %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i43, 3
   %sub = sub nsw i64 %sub.ptr.div.i44, %sub.ptr.div.i
   %23 = icmp ugt i64 %sub, 4611686018427387903
   %24 = shl nsw i64 %sub, 2
@@ -1706,7 +1706,7 @@ if.then24:                                        ; preds = %if.end21
   %conv27 = trunc i64 %sub to i32
   %mNumMeshes28 = getelementptr inbounds %struct.aiNode, ptr %call2, i64 0, i32 5
   store i32 %conv27, ptr %mNumMeshes28, align 8
-  %cmp3261 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i44
+  %cmp3261 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i43
   br i1 %cmp3261, label %for.body33.lr.ph, label %return
 
 for.body33.lr.ph:                                 ; preds = %if.then24
@@ -3137,9 +3137,9 @@ if.end16:                                         ; preds = %if.else
   %call19 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
   %8 = add nsw i64 %7, -12
   %9 = urem i64 %8, 12
-  %10 = sub nsw i64 %8, %9
-  %11 = add nsw i64 %10, 12
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call19, i8 0, i64 %11, i1 false)
+  %10 = sub nuw nsw i64 %8, %9
+  %11 = add nuw nsw i64 %10, 12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call19, i8 0, i64 %11, i1 false)
   %mVertices = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 3
   store ptr %call19, ptr %mVertices, align 8
   %mNormals = getelementptr inbounds %"struct.Assimp::ObjFile::Model", ptr %pModel, i64 0, i32 7
@@ -3158,7 +3158,7 @@ land.lhs.true:                                    ; preds = %if.end16
 
 new.ctorloop26:                                   ; preds = %land.lhs.true
   %call24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call24, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call24, i8 0, i64 %11, i1 false)
   %mNormals33 = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 4
   store ptr %call24, ptr %mNormals33, align 8
   br label %if.end34
@@ -3199,7 +3199,7 @@ new.ctorloop59:                                   ; preds = %land.lhs.true50
   %mNumUVComponents = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 9
   store i32 %22, ptr %mNumUVComponents, align 8
   %call57 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call57, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call57, i8 0, i64 %11, i1 false)
   %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 8
   store ptr %call57, ptr %mTextureCoords, align 8
   br label %if.end67

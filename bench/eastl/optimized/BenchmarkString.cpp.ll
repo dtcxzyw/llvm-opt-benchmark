@@ -6944,8 +6944,8 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i229
   br i1 %cmp.not.i.i.i.i2303, label %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit.thread.i.i.i, label %for.body.i.i.i.i2299, !llvm.loop !104
 
 _ZN5eastl7CompareIDsEEiPKT_S3_m.exit.thread.i.i.i: ; preds = %for.inc.i.i.i.i, %for.body.i2275
-  %cmp711.i.i.i = icmp slt i64 %sub.ptr.div.i.i.i2294, %sub.ptr.div4.i.i.i
-  %cmp1012.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i2294, %sub.ptr.div4.i.i.i
+  %cmp711.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i2293, %sub.ptr.sub3.i.i.i2297
+  %cmp1012.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i2293, %sub.ptr.sub3.i.i.i2297
   %cond13.i.i.i = zext i1 %cmp1012.i.i.i to i32
   %cond1114.i.i.i = select i1 %cmp711.i.i.i, i32 -1, i32 %cond13.i.i.i
   br label %_ZNK5eastl12basic_stringIDsNS_9allocatorEE7compareERKS2_.exit.i
@@ -8278,8 +8278,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %cmp.not = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div6
+  %cmp.not = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub5
   %cmp11.not = icmp ule ptr %spec.select.i, %pEnd
   %cmp14 = icmp uge ptr %cond.i5.i, %pBegin
   %or.cond = select i1 %cmp11.not, i1 %cmp14, i1 false
@@ -8381,7 +8380,7 @@ if.else78.thread:                                 ; preds = %if.end
 if.then28:                                        ; preds = %if.end
   %sub.ptr.sub33 = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.lhs.cast
   %sub.ptr.div34 = ashr exact i64 %sub.ptr.sub33, 1
-  %cmp35.not = icmp ult i64 %sub.ptr.div34, %sub.ptr.div6
+  %cmp35.not = icmp ult i64 %sub.ptr.sub33, %sub.ptr.sub5
   br i1 %cmp35.not, label %if.else, label %if.then36
 
 if.then36:                                        ; preds = %if.then28

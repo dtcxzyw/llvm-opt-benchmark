@@ -8545,7 +8545,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vect
   %sub.ptr.div.i.i.i.i.i.i52.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i51.i.i.i.i, 4
   %.pre.i.i.i.i.i.i53.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i52.i.i.i.i
   %add.ptr.i.i.i.i.i.i54.i.i.i.i = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %add.ptr.i2.i49.i.i.i.i, i64 %.pre.i.i.i.i.i.i53.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i54.i.i.i.i, ptr nonnull align 8 %0, i64 %sub.ptr.sub.i.i.i.i.i.i51.i.i.i.i, i1 false), !noalias !187
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i54.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %sub.ptr.sub.i.i.i.i.i.i51.i.i.i.i, i1 false), !noalias !187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %__val.i18.i.i.i.i, i64 16, i1 false), !noalias !187
   br label %for.inc.i39.i.i.i.i
 
@@ -8654,11 +8654,11 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_Sa
   %23 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !187
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
+  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SE_E0_ET_SG_SG_T0_.exit.i
+  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
   invoke void @_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i64 noundef %sub.i.i)
           to label %.noexc unwind label %lpad
@@ -8669,7 +8669,7 @@ if.then.i.i:                                      ; preds = %_ZSt6uniqueIN9__gnu
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit.i
 
 if.else.i.i:                                      ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SE_E0_ET_SG_SG_T0_.exit.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i

@@ -3518,11 +3518,11 @@ _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4
   %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.sroa.0.2.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.pre-phi
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i.pre-phi, 4
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i.pre-phi, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal14ReadRangeCache4Impl7WaitForES8_EUlRKS4_E_ET_SG_SG_T0_.exit
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i.pre-phi, 4
   %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %ranges, i64 noundef %sub.i)
   %.pre139 = load ptr, ptr %_M_finish.i, align 8
@@ -3531,7 +3531,7 @@ if.then.i:                                        ; preds = %_ZSt9remove_ifIN9__
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal14ReadRangeCache4Impl7WaitForES8_EUlRKS4_E_ET_SG_SG_T0_.exit
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i.pre-phi, %sub.ptr.sub.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i

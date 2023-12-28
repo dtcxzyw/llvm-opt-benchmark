@@ -281,20 +281,18 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %pSrcEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   %1 = load ptr, ptr %pDest, align 8
   %sub.ptr.lhs.cast1 = ptrtoint ptr %pDestEnd to i64
   %sub.ptr.rhs.cast2 = ptrtoint ptr %1 to i64
   %sub.ptr.sub3 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.rhs.cast2
-  %sub.ptr.div4 = ashr exact i64 %sub.ptr.sub3, 1
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div, i64 %sub.ptr.div4)
-  %mul = shl nsw i64 %spec.select, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %1, ptr align 2 %0, i64 %mul, i1 false)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub, i64 %sub.ptr.sub3)
+  %sourceSize.0 = ashr exact i64 %spec.select, 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %1, ptr align 2 %0, i64 %spec.select, i1 false)
   %2 = load ptr, ptr %pSrc, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %spec.select
+  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %sourceSize.0
   store ptr %add.ptr, ptr %pSrc, align 8
   %3 = load ptr, ptr %pDest, align 8
-  %add.ptr5 = getelementptr inbounds i16, ptr %3, i64 %spec.select
+  %add.ptr5 = getelementptr inbounds i16, ptr %3, i64 %sourceSize.0
   store ptr %add.ptr5, ptr %pDest, align 8
   ret i1 true
 }
@@ -615,20 +613,18 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %pSrcEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %1 = load ptr, ptr %pDest, align 8
   %sub.ptr.lhs.cast1 = ptrtoint ptr %pDestEnd to i64
   %sub.ptr.rhs.cast2 = ptrtoint ptr %1 to i64
   %sub.ptr.sub3 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.rhs.cast2
-  %sub.ptr.div4 = ashr exact i64 %sub.ptr.sub3, 2
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div, i64 %sub.ptr.div4)
-  %mul = shl nsw i64 %spec.select, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %0, i64 %mul, i1 false)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub, i64 %sub.ptr.sub3)
+  %sourceSize.0 = ashr exact i64 %spec.select, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %0, i64 %spec.select, i1 false)
   %2 = load ptr, ptr %pSrc, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %spec.select
+  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %sourceSize.0
   store ptr %add.ptr, ptr %pSrc, align 8
   %3 = load ptr, ptr %pDest, align 8
-  %add.ptr5 = getelementptr inbounds i32, ptr %3, i64 %spec.select
+  %add.ptr5 = getelementptr inbounds i32, ptr %3, i64 %sourceSize.0
   store ptr %add.ptr5, ptr %pDest, align 8
   ret i1 true
 }
@@ -702,16 +698,15 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %pSrcEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %1 = load ptr, ptr %pDest, align 8
   %sub.ptr.lhs.cast1 = ptrtoint ptr %pDestEnd to i64
   %sub.ptr.rhs.cast2 = ptrtoint ptr %1 to i64
   %sub.ptr.sub3 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.rhs.cast2
+  %cmp = icmp ugt i64 %sub.ptr.sub, %sub.ptr.sub3
   %sub.ptr.div4 = ashr exact i64 %sub.ptr.sub3, 2
-  %cmp = icmp ugt i64 %sub.ptr.div, %sub.ptr.div4
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %sub.ptr.div4
-  %spec.select = select i1 %cmp, ptr %add.ptr, ptr %pSrcEnd
-  %cmp5.not7 = icmp eq ptr %0, %spec.select
+  %pSrcEnd.addr.0 = select i1 %cmp, ptr %add.ptr, ptr %pSrcEnd
+  %cmp5.not7 = icmp eq ptr %0, %pSrcEnd.addr.0
   br i1 %cmp5.not7, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
@@ -724,7 +719,7 @@ while.body:                                       ; preds = %entry, %while.body
   store ptr %incdec.ptr6, ptr %pDest, align 8
   store i32 %3, ptr %4, align 4
   %5 = load ptr, ptr %pSrc, align 8
-  %cmp5.not = icmp eq ptr %5, %spec.select
+  %cmp5.not = icmp eq ptr %5, %pSrcEnd.addr.0
   br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %while.body, %entry

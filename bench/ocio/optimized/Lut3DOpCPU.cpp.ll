@@ -3559,7 +3559,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLO
   %sub.ptr.div.i.i.i.i.i.i48.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i47.i.i.i.i, 5
   %.pre.i.i.i.i.i.i49.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i48.i.i.i.i
   %add.ptr.i.i.i.i.i.i50.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %add.ptr.i7.i45.i.i.i.i, i64 %.pre.i.i.i.i.i.i49.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i50.i.i.i.i, ptr nonnull align 8 %m_baseInds.val37.pre.i, i64 %sub.ptr.sub.i.i.i.i.i.i47.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i50.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %m_baseInds.val37.pre.i, i64 %sub.ptr.sub.i.i.i.i.i.i47.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_baseInds.val37.pre.i, ptr noundef nonnull align 8 dereferenceable(32) %__val.i17.i.i.i.i, i64 32, i1 false)
   br label %for.inc.i36.i.i.i.i
 
@@ -4474,8 +4474,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -4514,8 +4513,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 2
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else

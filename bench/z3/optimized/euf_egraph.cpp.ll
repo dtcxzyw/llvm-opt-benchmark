@@ -3624,8 +3624,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
   %bf.shl.i.i = shl i32 %bf.load.i.i.i, 24
   %bf.ashr.i.i = ashr exact i32 %bf.shl.i.i, 24
   %bf.shl.i.i41 = shl i32 %bf.load.i.i.i28, 24
-  %bf.ashr.i.i42 = ashr exact i32 %bf.shl.i.i41, 24
-  %cmp16 = icmp eq i32 %bf.ashr.i.i, %bf.ashr.i.i42
+  %cmp16 = icmp eq i32 %bf.shl.i.i, %bf.shl.i.i41
   br i1 %cmp16, label %if.then17, label %if.end24
 
 if.then17:                                        ; preds = %land.lhs.true13
@@ -3696,14 +3695,13 @@ for.body41:                                       ; preds = %if.end33, %for.inc
   %__begin2.sroa.0.090 = phi ptr [ %17, %for.inc ], [ %m_th_vars.i27, %if.end33 ]
   %bf.load.i67 = load i32, ptr %__begin1.sroa.0.091, align 8
   %bf.shl.i68 = shl i32 %bf.load.i67, 24
-  %bf.ashr.i69 = ashr exact i32 %bf.shl.i68, 24
   %bf.load.i70 = load i32, ptr %__begin2.sroa.0.090, align 8
   %bf.shl.i71 = shl i32 %bf.load.i70, 24
-  %bf.ashr.i72 = ashr exact i32 %bf.shl.i71, 24
-  %cmp45 = icmp eq i32 %bf.ashr.i69, %bf.ashr.i72
+  %cmp45 = icmp eq i32 %bf.shl.i68, %bf.shl.i71
   br i1 %cmp45, label %if.then46, label %for.inc
 
 if.then46:                                        ; preds = %for.body41
+  %bf.ashr.i69 = ashr exact i32 %bf.shl.i68, 24
   %bf.ashr.i77 = ashr i32 %bf.load.i67, 8
   %bf.ashr.i79 = ashr i32 %bf.load.i70, 8
   tail call void @_ZN3euf6egraph12add_th_diseqEiiiPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %this, i32 noundef %bf.ashr.i69, i32 noundef %bf.ashr.i77, i32 noundef %bf.ashr.i79, ptr noundef nonnull %n)
@@ -6238,8 +6236,7 @@ do.body.i.i:                                      ; preds = %for.body, %if.end5.
   %l.0.i.i = phi ptr [ %0, %if.end5.i.i ], [ %m_th_vars.i16, %for.body ]
   %bf.load.i.i.i17 = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i17, 24
-  %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
-  %cmp.i.i18 = icmp eq i32 %bf.ashr.i.i.i, %bf.ashr.i
+  %cmp.i.i18 = icmp eq i32 %bf.shl.i.i.i, %bf.shl.i
   br i1 %cmp.i.i18, label %_ZNK3euf5enode10get_th_varEi.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %do.body.i.i

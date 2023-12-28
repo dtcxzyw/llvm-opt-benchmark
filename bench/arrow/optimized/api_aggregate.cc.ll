@@ -22854,8 +22854,7 @@ entry:
   %sub.ptr.lhs.cast.i8.i.i.i.i.i.i = ptrtoint ptr %call2.val4.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i9.i.i.i.i.i.i = ptrtoint ptr %call2.val.i.i.i.i.i to i64
   %sub.ptr.sub.i10.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i8.i.i.i.i.i.i, %sub.ptr.rhs.cast.i9.i.i.i.i.i.i
-  %sub.ptr.div.i11.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i10.i.i.i.i.i.i, 3
-  %cmp.not.i.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i.i.i.i.i, %sub.ptr.div.i11.i.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i, %sub.ptr.sub.i10.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.preheader.i.i.i.i.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_15QuantileOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorIdSaIdEEEENS8_IS3_NS3_13InterpolationEEENS8_IS3_bEENS8_IS3_jEEEEEEERKS3_SJ_RKT_.exit
 
 for.cond.preheader.i.i.i.i.i.i:                   ; preds = %entry
@@ -30587,8 +30586,7 @@ entry:
   %sub.ptr.lhs.cast.i8.i.i.i = ptrtoint ptr %call2.val4.i.i to i64
   %sub.ptr.rhs.cast.i9.i.i.i = ptrtoint ptr %call2.val.i.i to i64
   %sub.ptr.sub.i10.i.i.i = sub i64 %sub.ptr.lhs.cast.i8.i.i.i, %sub.ptr.rhs.cast.i9.i.i.i
-  %sub.ptr.div.i11.i.i.i = ashr exact i64 %sub.ptr.sub.i10.i.i.i, 3
-  %cmp.not.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i11.i.i.i
+  %cmp.not.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i10.i.i.i
   br i1 %cmp.not.i.i.i, label %for.cond.preheader.i.i.i, label %_ZN5arrow8internal22ForEachTupleMemberImplIJLm0ELm1ELm2ELm3ELm4EEJNS0_18DataMemberPropertyINS_7compute14TDigestOptionsESt6vectorIdSaIdEEEENS2_IS4_jEES9_NS2_IS4_bEES9_ERNS3_8internal11CompareImplIS4_EEEEvRKSt5tupleIJDpT0_EEOT1_St16integer_sequenceImJXspT_EEE.exit
 
 for.cond.preheader.i.i.i:                         ; preds = %entry

@@ -20256,8 +20256,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 3
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -20296,8 +20295,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 3
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -20372,8 +20370,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -20416,8 +20413,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -20441,11 +20437,12 @@ for.body.i.i.i.i.i:                               ; preds = %if.then27, %for.bod
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end69, !llvm.loop !688
 
 if.else49:                                        ; preds = %if.else
-  %cmp6.i.i.i.i.i35 = icmp sgt i64 %sub.ptr.div.i23, 0
+  %sub.ptr.div.i.i.i.i.i34 = ashr exact i64 %sub.ptr.sub.i22, 4
+  %cmp6.i.i.i.i.i35 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i34, 0
   br i1 %cmp6.i.i.i.i.i35, label %for.body.i.i.i.i.i37, label %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit
 
 for.body.i.i.i.i.i37:                             ; preds = %if.else49, %for.body.i.i.i.i.i37
-  %__n.09.i.i.i.i.i38 = phi i64 [ %dec.i.i.i.i.i45, %for.body.i.i.i.i.i37 ], [ %sub.ptr.div.i23, %if.else49 ]
+  %__n.09.i.i.i.i.i38 = phi i64 [ %dec.i.i.i.i.i45, %for.body.i.i.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i34, %if.else49 ]
   %__result.addr.08.i.i.i.i.i39 = phi ptr [ %incdec.ptr1.i.i.i.i.i44, %for.body.i.i.i.i.i37 ], [ %3, %if.else49 ]
   %__first.addr.07.i.i.i.i.i40 = phi ptr [ %incdec.ptr.i.i.i.i.i43, %for.body.i.i.i.i.i37 ], [ %1, %if.else49 ]
   %11 = load double, ptr %__first.addr.07.i.i.i.i.i40, align 8
@@ -20472,7 +20469,7 @@ _ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %for.body.i.i.i.i
   br label %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit:       ; preds = %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit.loopexit, %if.else49
-  %sub.ptr.div.i51.pre-phi = phi i64 [ %.pre60, %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
+  %sub.ptr.div.i51.pre-phi = phi i64 [ %.pre60, %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit.loopexit ], [ %sub.ptr.div.i.i.i.i.i34, %if.else49 ]
   %13 = phi ptr [ %.pre56, %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit.loopexit ], [ %0, %if.else49 ]
   %14 = phi ptr [ %.pre54, %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit.loopexit ], [ %8, %if.else49 ]
   %15 = phi ptr [ %.pre, %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit.loopexit ], [ %1, %if.else49 ]

@@ -4631,11 +4631,8 @@ if.then73:                                        ; preds = %invoke.cont71
 if.then77:                                        ; preds = %if.then73
   %add.ptr.i370 = getelementptr inbounds %"class.duckdb::unique_ptr.26", ptr %.pre563, i64 %i.0550
   %add.ptr.i371 = getelementptr inbounds %"class.duckdb::unique_ptr.26", ptr %add.ptr.i370, i64 1
-  %sub.ptr.lhs.cast.i.i373 = ptrtoint ptr %add.ptr.i371 to i64
-  %sub.ptr.sub.i.i375 = sub i64 %sub.ptr.lhs.cast.i.i373, %sub.ptr.rhs.cast.i367
-  %sub.ptr.div.i.i376 = ashr exact i64 %sub.ptr.sub.i.i375, 3
   %add.ptr.i22.i = getelementptr inbounds %"class.duckdb::unique_ptr.26", ptr %.pre563, i64 %sub.ptr.div.i369
-  %cmp.i.not.i.i378 = icmp eq i64 %sub.ptr.div.i.i376, %sub.ptr.div.i369
+  %cmp.i.not.i.i378 = icmp eq ptr %add.ptr.i371, %.pre561
   br i1 %cmp.i.not.i.i378, label %invoke.cont98, label %if.then.i.i379
 
 if.then.i.i379:                                   ; preds = %if.then77
@@ -5278,7 +5275,7 @@ entry:
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 3
   %add.ptr.i22 = getelementptr inbounds %"class.duckdb::unique_ptr", ptr %0, i64 %sub.ptr.div.i21
-  %cmp.i.not.i = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i21
+  %cmp.i.not.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i.not.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEESaIS5_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS5_S7_EESB_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
