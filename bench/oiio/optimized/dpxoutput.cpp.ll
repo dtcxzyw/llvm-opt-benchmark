@@ -37666,16 +37666,12 @@ _ZSt22__uninitialized_move_aIPN18OpenImageIO_v2_6_09ImageSpecES2_SaIS1_EET0_T_S5
   %add.ptr44 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %35, i64 %sub.ptr.div.i
   store ptr %add.ptr44, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i88 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp6.i.i.i.i.i88, label %for.body.preheader.i.i.i.i.i95, label %if.end87
+  br i1 %cmp6.i.i.i.i.i88, label %for.body.i.i.i.i.i97, label %if.end87
 
-for.body.preheader.i.i.i.i.i95:                   ; preds = %_ZSt22__uninitialized_move_aIPN18OpenImageIO_v2_6_09ImageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit84
-  %sub.ptr.div10.i.i.i.i.i96 = udiv exact i64 %sub.ptr.sub.i, 160
-  br label %for.body.i.i.i.i.i97
-
-for.body.i.i.i.i.i97:                             ; preds = %for.body.i.i.i.i.i97, %for.body.preheader.i.i.i.i.i95
-  %__n.09.i.i.i.i.i98 = phi i64 [ %dec.i.i.i.i.i114, %for.body.i.i.i.i.i97 ], [ %sub.ptr.div10.i.i.i.i.i96, %for.body.preheader.i.i.i.i.i95 ]
-  %__result.addr.08.i.i.i.i.i99 = phi ptr [ %incdec.ptr1.i.i.i.i.i113, %for.body.i.i.i.i.i97 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i95 ]
-  %__first.addr.07.i.i.i.i.i100 = phi ptr [ %incdec.ptr.i.i.i.i.i112, %for.body.i.i.i.i.i97 ], [ %__first, %for.body.preheader.i.i.i.i.i95 ]
+for.body.i.i.i.i.i97:                             ; preds = %_ZSt22__uninitialized_move_aIPN18OpenImageIO_v2_6_09ImageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit84, %for.body.i.i.i.i.i97
+  %__n.09.i.i.i.i.i98 = phi i64 [ %dec.i.i.i.i.i114, %for.body.i.i.i.i.i97 ], [ %sub.ptr.div.i, %_ZSt22__uninitialized_move_aIPN18OpenImageIO_v2_6_09ImageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit84 ]
+  %__result.addr.08.i.i.i.i.i99 = phi ptr [ %incdec.ptr1.i.i.i.i.i113, %for.body.i.i.i.i.i97 ], [ %__position.coerce, %_ZSt22__uninitialized_move_aIPN18OpenImageIO_v2_6_09ImageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit84 ]
+  %__first.addr.07.i.i.i.i.i100 = phi ptr [ %incdec.ptr.i.i.i.i.i112, %for.body.i.i.i.i.i97 ], [ %__first, %_ZSt22__uninitialized_move_aIPN18OpenImageIO_v2_6_09ImageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit84 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__result.addr.08.i.i.i.i.i99, ptr noundef nonnull align 8 dereferenceable(72) %__first.addr.07.i.i.i.i.i100, i64 72, i1 false)
   %channelformats.i.i.i.i.i.i101 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__result.addr.08.i.i.i.i.i99, i64 0, i32 17
   %channelformats3.i.i.i.i.i.i102 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.07.i.i.i.i.i100, i64 0, i32 17

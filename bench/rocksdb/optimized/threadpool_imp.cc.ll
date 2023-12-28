@@ -3793,17 +3793,12 @@ if.end:                                           ; preds = %if.then, %while.bod
   %idx.neg = sub nsw i64 0, %.sroa.speculated
   %add.ptr8 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %__last.addr.012, i64 %idx.neg
   %cmp4.i.i.i = icmp sgt i64 %.sroa.speculated, 0
-  br i1 %cmp4.i.i.i, label %for.body.preheader.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit
+  br i1 %cmp4.i.i.i, label %for.body.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit
 
-for.body.preheader.i.i.i:                         ; preds = %if.end
-  %add.ptr8.idx.neg = mul nsw i64 %.sroa.speculated, 72
-  %sub.ptr.div8.i.i.i = udiv exact i64 %add.ptr8.idx.neg, 72
-  br label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit, %for.body.preheader.i.i.i
-  %__n.07.i.i.i = phi i64 [ %dec.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %sub.ptr.div8.i.i.i, %for.body.preheader.i.i.i ]
-  %__result.addr.06.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %__rend.0, %for.body.preheader.i.i.i ]
-  %__last.addr.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %__last.addr.012, %for.body.preheader.i.i.i ]
+for.body.i.i.i:                                   ; preds = %if.end, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit
+  %__n.07.i.i.i = phi i64 [ %dec.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %.sroa.speculated, %if.end ]
+  %__result.addr.06.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %__rend.0, %if.end ]
+  %__last.addr.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %__last.addr.012, %if.end ]
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %__last.addr.05.i.i.i, i64 -1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %__result.addr.06.i.i.i, i64 -1
   %4 = load ptr, ptr %incdec.ptr.i.i.i, align 8
@@ -4077,17 +4072,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %sub.ptr.div4, i64 %storemerge14)
   %add.ptr = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %__first.addr.015, i64 %.sroa.speculated
   %cmp6.i.i.i = icmp sgt i64 %sub.ptr.sub3, 0
-  br i1 %cmp6.i.i.i, label %for.body.preheader.i.i.i, label %_ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit
+  br i1 %cmp6.i.i.i, label %for.body.i.i.i, label %_ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit
 
-for.body.preheader.i.i.i:                         ; preds = %while.body
-  %add.ptr.idx = mul nsw i64 %.sroa.speculated, 72
-  %sub.ptr.div10.i.i.i = udiv exact i64 %add.ptr.idx, 72
-  br label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit, %for.body.preheader.i.i.i
-  %__n.09.i.i.i = phi i64 [ %dec.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %sub.ptr.div10.i.i.i, %for.body.preheader.i.i.i ]
-  %__result.addr.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %0, %for.body.preheader.i.i.i ]
-  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %__first.addr.015, %for.body.preheader.i.i.i ]
+for.body.i.i.i:                                   ; preds = %while.body, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit
+  %__n.09.i.i.i = phi i64 [ %dec.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %.sroa.speculated, %while.body ]
+  %__result.addr.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %0, %while.body ]
+  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit ], [ %__first.addr.015, %while.body ]
   %2 = load ptr, ptr %__first.addr.07.i.i.i, align 8
   store ptr %2, ptr %__result.addr.08.i.i.i, align 8
   %function.i = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %__result.addr.08.i.i.i, i64 0, i32 1

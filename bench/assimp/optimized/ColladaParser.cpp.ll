@@ -27519,16 +27519,12 @@ _ZSt22__uninitialized_move_aIPN6Assimp7Collada16AnimationChannelES3_SaIS2_EET0_T
   %add.ptr58 = getelementptr inbounds %"struct.Assimp::Collada::AnimationChannel", ptr %9, i64 %sub.ptr.div.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i81 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp6.i.i.i.i.i81, label %for.body.preheader.i.i.i.i.i88, label %if.end109
+  br i1 %cmp6.i.i.i.i.i81, label %for.body.i.i.i.i.i90, label %if.end109
 
-for.body.preheader.i.i.i.i.i88:                   ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp7Collada16AnimationChannelES3_SaIS2_EET0_T_S6_S5_RT1_.exit77
-  %sub.ptr.div10.i.i.i.i.i89 = udiv exact i64 %sub.ptr.sub.i, 192
-  br label %for.body.i.i.i.i.i90
-
-for.body.i.i.i.i.i90:                             ; preds = %for.body.i.i.i.i.i90, %for.body.preheader.i.i.i.i.i88
-  %__n.09.i.i.i.i.i91 = phi i64 [ %dec.i.i.i.i.i112, %for.body.i.i.i.i.i90 ], [ %sub.ptr.div10.i.i.i.i.i89, %for.body.preheader.i.i.i.i.i88 ]
-  %__result.addr.08.i.i.i.i.i92 = phi ptr [ %incdec.ptr1.i.i.i.i.i111, %for.body.i.i.i.i.i90 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i88 ]
-  %__first.addr.07.i.i.i.i.i93 = phi ptr [ %incdec.ptr.i.i.i.i.i110, %for.body.i.i.i.i.i90 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i88 ]
+for.body.i.i.i.i.i90:                             ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp7Collada16AnimationChannelES3_SaIS2_EET0_T_S6_S5_RT1_.exit77, %for.body.i.i.i.i.i90
+  %__n.09.i.i.i.i.i91 = phi i64 [ %dec.i.i.i.i.i112, %for.body.i.i.i.i.i90 ], [ %sub.ptr.div.i, %_ZSt22__uninitialized_move_aIPN6Assimp7Collada16AnimationChannelES3_SaIS2_EET0_T_S6_S5_RT1_.exit77 ]
+  %__result.addr.08.i.i.i.i.i92 = phi ptr [ %incdec.ptr1.i.i.i.i.i111, %for.body.i.i.i.i.i90 ], [ %__position.coerce, %_ZSt22__uninitialized_move_aIPN6Assimp7Collada16AnimationChannelES3_SaIS2_EET0_T_S6_S5_RT1_.exit77 ]
+  %__first.addr.07.i.i.i.i.i93 = phi ptr [ %incdec.ptr.i.i.i.i.i110, %for.body.i.i.i.i.i90 ], [ %__first.coerce, %_ZSt22__uninitialized_move_aIPN6Assimp7Collada16AnimationChannelES3_SaIS2_EET0_T_S6_S5_RT1_.exit77 ]
   %call.i.i.i.i.i.i94 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i.i92, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i93)
   %mSourceTimes.i.i.i.i.i.i95 = getelementptr inbounds %"struct.Assimp::Collada::AnimationChannel", ptr %__result.addr.08.i.i.i.i.i92, i64 0, i32 1
   %mSourceTimes3.i.i.i.i.i.i96 = getelementptr inbounds %"struct.Assimp::Collada::AnimationChannel", ptr %__first.addr.07.i.i.i.i.i93, i64 0, i32 1

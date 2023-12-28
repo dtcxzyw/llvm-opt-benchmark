@@ -31424,16 +31424,12 @@ _ZSt22__uninitialized_move_aIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS
   %add.ptr58 = getelementptr inbounds %"class.std::vector.9", ptr %18, i64 %sub.ptr.div.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i59 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp6.i.i.i.i.i59, label %for.body.preheader.i.i.i.i.i66, label %if.end109
+  br i1 %cmp6.i.i.i.i.i59, label %for.body.i.i.i.i.i68, label %if.end109
 
-for.body.preheader.i.i.i.i.i66:                   ; preds = %_ZSt22__uninitialized_move_aIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES7_SaIS6_EET0_T_SA_S9_RT1_.exit55
-  %sub.ptr.div10.i.i.i.i.i67 = udiv exact i64 %sub.ptr.sub.i, 24
-  br label %for.body.i.i.i.i.i68
-
-for.body.i.i.i.i.i68:                             ; preds = %for.body.i.i.i.i.i68, %for.body.preheader.i.i.i.i.i66
-  %__n.09.i.i.i.i.i69 = phi i64 [ %dec.i.i.i.i.i75, %for.body.i.i.i.i.i68 ], [ %sub.ptr.div10.i.i.i.i.i67, %for.body.preheader.i.i.i.i.i66 ]
-  %__result.addr.08.i.i.i.i.i70 = phi ptr [ %incdec.ptr1.i.i.i.i.i74, %for.body.i.i.i.i.i68 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i66 ]
-  %__first.addr.07.i.i.i.i.i71 = phi ptr [ %incdec.ptr.i.i.i.i.i73, %for.body.i.i.i.i.i68 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i66 ]
+for.body.i.i.i.i.i68:                             ; preds = %_ZSt22__uninitialized_move_aIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES7_SaIS6_EET0_T_SA_S9_RT1_.exit55, %for.body.i.i.i.i.i68
+  %__n.09.i.i.i.i.i69 = phi i64 [ %dec.i.i.i.i.i75, %for.body.i.i.i.i.i68 ], [ %sub.ptr.div.i, %_ZSt22__uninitialized_move_aIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES7_SaIS6_EET0_T_SA_S9_RT1_.exit55 ]
+  %__result.addr.08.i.i.i.i.i70 = phi ptr [ %incdec.ptr1.i.i.i.i.i74, %for.body.i.i.i.i.i68 ], [ %__position.coerce, %_ZSt22__uninitialized_move_aIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES7_SaIS6_EET0_T_SA_S9_RT1_.exit55 ]
+  %__first.addr.07.i.i.i.i.i71 = phi ptr [ %incdec.ptr.i.i.i.i.i73, %for.body.i.i.i.i.i68 ], [ %__first.coerce, %_ZSt22__uninitialized_move_aIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES7_SaIS6_EET0_T_SA_S9_RT1_.exit55 ]
   %call.i.i.i.i.i72 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %__result.addr.08.i.i.i.i.i70, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.07.i.i.i.i.i71)
   %incdec.ptr.i.i.i.i.i73 = getelementptr inbounds %"class.std::vector.9", ptr %__first.addr.07.i.i.i.i.i71, i64 1
   %incdec.ptr1.i.i.i.i.i74 = getelementptr inbounds %"class.std::vector.9", ptr %__result.addr.08.i.i.i.i.i70, i64 1
