@@ -637,7 +637,7 @@ init.i4:                                          ; preds = %init.check.i2
 
 invoke.cont.i6:                                   ; preds = %init.i4
   store ptr %call5.i.i.i.i5.i1.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
-  %add.ptr.i4.i.i = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SupportedBackend", ptr %call5.i.i.i.i5.i1.i, i64 2
+  %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 32
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
@@ -1428,7 +1428,7 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store ptr %call5.i.i.i.i5.i1.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
-  %add.ptr.i4.i.i = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SupportedBackend", ptr %call5.i.i.i.i5.i1.i, i64 2
+  %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 32
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
@@ -2556,7 +2556,7 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store ptr %call5.i.i.i.i5.i1.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
-  %add.ptr.i4.i.i = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SupportedBackend", ptr %call5.i.i.i.i5.i1.i, i64 2
+  %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 32
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
@@ -2588,7 +2588,7 @@ init.i7:                                          ; preds = %init.check.i5
 
 invoke.cont.i10:                                  ; preds = %init.i7
   store ptr %call5.i.i.i.i5.i1.i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
-  %add.ptr.i4.i.i11 = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SupportedBackend", ptr %call5.i.i.i.i5.i1.i8, i64 2
+  %add.ptr.i4.i.i11 = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i8, i64 32
   store ptr %add.ptr.i4.i.i11, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i8, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i11, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
@@ -2720,7 +2720,7 @@ init.i18:                                         ; preds = %init.check.i16
 
 invoke.cont.i21:                                  ; preds = %init.i18
   store ptr %call5.i.i.i.i5.i1.i19, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
-  %add.ptr.i4.i.i22 = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SupportedBackend", ptr %call5.i.i.i.i5.i1.i19, i64 2
+  %add.ptr.i4.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i19, i64 32
   store ptr %add.ptr.i4.i.i22, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i19, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i22, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
@@ -2770,7 +2770,7 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store ptr %call5.i.i.i.i5.i1.i.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
-  %add.ptr.i4.i.i.i = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SupportedBackend", ptr %call5.i.i.i.i5.i1.i.i, i64 2
+  %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i.i, i64 32
   store ptr %add.ptr.i4.i.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8

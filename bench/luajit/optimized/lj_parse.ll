@@ -359,7 +359,7 @@ if.end:                                           ; preds = %if.then
   %18 = load ptr, ptr %bcstack, align 8
   %sub.ptr.rhs.cast = ptrtoint ptr %18 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
+  %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 3
   %L = getelementptr inbounds %struct.FuncState, ptr %fs, i64 0, i32 2
   %19 = load ptr, ptr %L, align 8
   %call = tail call ptr @lj_mem_grow(ptr noundef %19, ptr noundef %18, ptr noundef nonnull %sizebcstack, i32 noundef 67108864, i32 noundef 8) #10
@@ -369,7 +369,7 @@ if.end:                                           ; preds = %if.then
   %conv13 = sub i32 %20, %21
   store i32 %conv13, ptr %bclim, align 8
   %22 = load ptr, ptr %bcstack, align 8
-  %add.ptr = getelementptr inbounds %struct.BCInsLine, ptr %22, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %22, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %bcbase, align 8
   br label %if.end17
 
@@ -7978,7 +7978,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
+  %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 3
   %L1.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
   %3 = load ptr, ptr %L1.i, align 8
   %prev.i = getelementptr inbounds %struct.FuncState, ptr %fs, i64 0, i32 4
@@ -8366,7 +8366,7 @@ if.end:                                           ; preds = %parse_params.exit
   store i32 %60, ptr %lastline, align 4
   %call8 = call fastcc ptr @fs_finish(ptr noundef nonnull %ls, i32 noundef %60)
   %62 = load ptr, ptr %bcstack, align 8
-  %add.ptr10 = getelementptr inbounds %struct.BCInsLine, ptr %62, i64 %sub.ptr.div
+  %add.ptr10 = getelementptr inbounds i8, ptr %62, i64 %sub.ptr.sub
   store ptr %add.ptr10, ptr %bcbase, align 8
   %sizebcstack = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 21
   %63 = load i32, ptr %sizebcstack, align 8

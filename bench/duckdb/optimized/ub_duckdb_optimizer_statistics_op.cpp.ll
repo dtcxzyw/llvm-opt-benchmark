@@ -428,7 +428,7 @@ if.else.i:                                        ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEESaIS5_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds %"class.duckdb::unique_ptr.38", ptr %5, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i
   %tobool.not.i.i = icmp eq ptr %4, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEESaIS5_EE6resizeEm.exit, label %for.body.i.i.i.i.i
 
@@ -12110,7 +12110,7 @@ _ZNKSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_EL
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
-  %add.ptr = getelementptr inbounds %"class.duckdb::unique_ptr.38", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %4 = shl nuw nsw i64 %__n, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr, i8 0, i64 %4, i1 false), !tbaa !15
   %cmp.not6.i.i.i.i = icmp eq ptr %1, %0

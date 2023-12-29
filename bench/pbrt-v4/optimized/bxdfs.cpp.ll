@@ -13226,19 +13226,18 @@ do.end241:                                        ; preds = %do.body231
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %shape.sroa.0.1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %shape246, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i78 = icmp eq ptr %__first.addr.0.i.i.i.i.i, %shape.sroa.0.1
   br i1 %cmp.not.i.i.i.i78, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %do.end241
-  %add.ptr.i.i.i79108 = getelementptr inbounds i64, ptr null, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i.i79108 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
   store i64 0, ptr %shape246, align 8
   store ptr %add.ptr.i.i.i79108, ptr %_M_end_of_storage.i.i.i80, align 8
   br label %invoke.cont247
 
 cond.true.i.i.i.i:                                ; preds = %do.end241
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i, 1152921504606846975
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
@@ -13254,15 +13253,16 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i82, ptr %shape246, align 8
-  %add.ptr.i.i.i79 = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i6.i82, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i.i79 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i82, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i.i.i79, ptr %_M_end_of_storage.i.i.i80, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i82, ptr align 8 %shape.sroa.0.1, i64 %sub.ptr.sub.i.i, i1 false)
   br label %invoke.cont247
 
 invoke.cont247:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
-  %23 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i82, %if.then.i.i.i.i.i.i.i.i.i ]
-  %24 = phi ptr [ %add.ptr.i.i.i79108, %invoke.cont.i.thread ], [ %add.ptr.i.i.i79, %if.then.i.i.i.i.i.i.i.i.i ]
-  store ptr %24, ptr %_M_finish.i.i.i, align 8
+  %23 = phi ptr [ %add.ptr.i.i.i79108, %invoke.cont.i.thread ], [ %add.ptr.i.i.i79, %if.then.i.i.i.i.i.i.i.i.i ]
+  %24 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i82, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 %sub.ptr.sub.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %25 = ptrtoint ptr %call195 to i64
   store i64 %25, ptr %data248, align 8
   %call.i84 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4pbrt6Tensor5FieldEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
@@ -13274,9 +13274,9 @@ invoke.cont251:                                   ; preds = %invoke.cont247
   %26 = load ptr, ptr %shape.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Tensor::Field", ptr %call.i84, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::Tensor::Field", ptr %call.i84, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  store ptr %23, ptr %shape.i, align 8
-  store ptr %24, ptr %_M_finish.i.i.i.i.i, align 8
-  store ptr %24, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %24, ptr %shape.i, align 8
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
+  store ptr %23, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %26, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %shape246, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEEaSEOS1_.exit.i, label %if.then.i.i.i.i.i.i

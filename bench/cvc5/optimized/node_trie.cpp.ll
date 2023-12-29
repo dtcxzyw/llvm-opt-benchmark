@@ -1131,7 +1131,7 @@ _ZNKSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb0EEEmESaIS7_EE12_M_c
           to label %call5.i.i.i.i.i.noexc64 unwind label %lpad.loopexit
 
 call5.i.i.i.i.i.noexc64:                          ; preds = %_ZNKSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb0EEEmESaIS7_EE12_M_check_lenEmPKc.exit.i.i37
-  %add.ptr.i.i47 = getelementptr inbounds %"struct.std::pair.33", ptr %call5.i.i.i.i.i65, i64 %sub.ptr.div.i.i.i.i38
+  %add.ptr.i.i47 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i65, i64 %sub.ptr.sub.i.i.i.i35
   store ptr %second14, ptr %add.ptr.i.i47, align 8
   %second.i.i.i.i.i48 = getelementptr inbounds %"struct.std::pair.33", ptr %call5.i.i.i.i.i65, i64 %sub.ptr.div.i.i.i.i38, i32 1
   store i64 %sub, ptr %second.i.i.i.i.i48, align 8
@@ -1413,7 +1413,7 @@ _ZNKSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb1EEEmESaIS7_EE12_M_c
           to label %call5.i.i.i.i.i.noexc57 unwind label %lpad.loopexit
 
 call5.i.i.i.i.i.noexc57:                          ; preds = %_ZNKSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb1EEEmESaIS7_EE12_M_check_lenEmPKc.exit.i.i30
-  %add.ptr.i.i40 = getelementptr inbounds %"struct.std::pair.40", ptr %call5.i.i.i.i.i58, i64 %sub.ptr.div.i.i.i.i31
+  %add.ptr.i.i40 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i58, i64 %sub.ptr.sub.i.i.i.i28
   store ptr %second11, ptr %add.ptr.i.i40, align 8
   %second.i.i.i.i.i41 = getelementptr inbounds %"struct.std::pair.40", ptr %call5.i.i.i.i.i58, i64 %sub.ptr.div.i.i.i.i31, i32 1
   store i64 %sub, ptr %second.i.i.i.i.i41, align 8

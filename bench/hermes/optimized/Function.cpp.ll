@@ -530,7 +530,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN6hermes2vm12Smal
   store i64 %conv.i.i, ptr %32, align 8, !alias.scope !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %31, i64 %add.ptr.i.idx.i.i, i1 false)
   store i64 %conv.i.i, ptr %_M_string_length.i.i.i, align 8, !alias.scope !7
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i.i.i.i, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
   %33 = load ptr, ptr %ref.tmp.i, align 8
@@ -910,7 +910,7 @@ if.end.i.i.i.i308:                                ; preds = %if.end85
   store i64 %conv.i.i302, ptr %77, align 8, !alias.scope !11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i311, ptr align 2 %76, i64 %add.ptr.i.idx.i.i309, i1 false)
   store i64 %conv.i.i302, ptr %_M_string_length.i.i.i306, align 8, !alias.scope !11
-  %arrayidx.i.i.i.i.i312 = getelementptr inbounds i16, ptr %call5.i.i.i.i.i.i.i311, i64 %conv.i.i302
+  %arrayidx.i.i.i.i.i312 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i311, i64 %add.ptr.i.idx.i.i309
   store i16 0, ptr %arrayidx.i.i.i.i.i312, align 2
   %call5.i313 = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i303) #13
   %78 = load ptr, ptr %ref.tmp.i303, align 8

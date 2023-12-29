@@ -18617,8 +18617,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
-  %add.ptr = getelementptr inbounds %"class.pugi::xpath_node", ptr %_storage3., i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %_storage3., i64 %sub.ptr.sub
   %_end12 = getelementptr inbounds %"class.pugi::xpath_node_set", ptr %this, i64 0, i32 3
   store ptr %add.ptr, ptr %_end12, align 8
   store i32 0, ptr %rhs, align 8
@@ -18878,8 +18877,7 @@ invoke.cont:                                      ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %add.ptr.i = getelementptr inbounds %"class.pugi::xpath_node", ptr %_storage3..i, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %_storage3..i, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i, ptr %_end, align 8
   store i32 0, ptr %rhs, align 8
   store ptr %_storage.i, ptr %_begin.i, align 8
@@ -18928,8 +18926,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %add.ptr.i = getelementptr inbounds %"class.pugi::xpath_node", ptr %_storage3..i, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %_storage3..i, i64 %sub.ptr.sub.i
   %_end12.i = getelementptr inbounds %"class.pugi::xpath_node_set", ptr %this, i64 0, i32 3
   store ptr %add.ptr.i, ptr %_end12.i, align 8
   store i32 0, ptr %rhs, align 8
@@ -43552,9 +43549,9 @@ if.then24.i:                                      ; preds = %if.then18.i
 if.end17:                                         ; preds = %if.then.i, %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.i, %if.then15.i, %if.then24.i, %if.then18.i
   %retval.0.i.ph = phi ptr [ %retval.0.i.i, %if.then18.i ], [ %retval.0.i.i, %if.then24.i ], [ %retval.0.i.i, %if.then15.i ], [ %retval.0.i.i, %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.i ], [ %1, %if.then.i ]
   store ptr %retval.0.i.ph, ptr %_begin, align 8
-  %add.ptr = getelementptr inbounds %"class.pugi::xpath_node", ptr %retval.0.i.ph, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %retval.0.i.ph, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %_end, align 8
-  %add.ptr21 = getelementptr inbounds %"class.pugi::xpath_node", ptr %add.ptr, i64 %sub.ptr.div10
+  %add.ptr21 = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.ptr.sub9
   store ptr %add.ptr21, ptr %_eos, align 8
   br label %if.end23
 
@@ -43562,7 +43559,7 @@ if.end23:                                         ; preds = %if.end17, %if.end
   %18 = phi ptr [ %add.ptr, %if.end17 ], [ %0, %if.end ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %begin_, i64 %sub.ptr.sub9, i1 false)
   %19 = load ptr, ptr %_end, align 8
-  %add.ptr27 = getelementptr inbounds %"class.pugi::xpath_node", ptr %19, i64 %sub.ptr.div10
+  %add.ptr27 = getelementptr inbounds i8, ptr %19, i64 %sub.ptr.sub9
   store ptr %add.ptr27, ptr %_end, align 8
   br label %return
 
@@ -46820,7 +46817,7 @@ if.then24.i.i:                                    ; preds = %if.then18.i.i
 if.end.i:                                         ; preds = %if.then24.i.i, %if.then18.i.i, %if.then15.i.i, %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.i.i, %if.then.i.i
   %retval.0.i.ph.i = phi ptr [ %retval.0.i.i.i, %if.then18.i.i ], [ %retval.0.i.i.i, %if.then24.i.i ], [ %retval.0.i.i.i, %if.then15.i.i ], [ %retval.0.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.i.i ], [ %2, %if.then.i.i ]
   store ptr %retval.0.i.ph.i, ptr %_begin.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.pugi::xpath_node", ptr %retval.0.i.ph.i, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 %sub.ptr.sub.i
   %add.ptr6.i = getelementptr inbounds %"class.pugi::xpath_node", ptr %retval.0.i.ph.i, i64 %add2.i
   store ptr %add.ptr6.i, ptr %_eos, align 8
   %incdec.ptr.i = getelementptr inbounds %"class.pugi::xpath_node", ptr %add.ptr.i, i64 1

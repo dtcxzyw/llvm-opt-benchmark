@@ -1605,30 +1605,31 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt16all
   %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i.i ], [ %call5.i.i.i.i.i.i66, %_ZNSt16allocator_traitsISaIPKcEE8allocateERS2_m.exit.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store ptr %call75, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i
+  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
 
 if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %statuses.sroa.0.1114, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i
+  br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
 
-_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i
+_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq ptr %statuses.sroa.0.1114, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
-if.then.i21.i.i.i:                                ; preds = %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i
+if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %statuses.sroa.0.1114) #23
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i21.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i.i
+_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
   %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i62
   %statuses.sroa.15.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.15.1112, %if.then.i.i62 ]
-  %add.ptr.i.i.i.pn = phi ptr [ %add.ptr.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.8.1113, %if.then.i.i62 ]
+  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.8.1113, %if.then.i.i62 ]
   %statuses.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.0.1114, %if.then.i.i62 ]
-  %statuses.sroa.8.2 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.pn, i64 1
+  %statuses.sroa.8.2 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i.pn, i64 1
   %call.i67 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0111) #24
   %cmp.i58.not = icmp eq ptr %call.i67, %add.ptr.i.i
   br i1 %cmp.i58.not, label %invoke.cont80, label %for.body
@@ -6248,7 +6249,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i58 = alloca %class.anon.144, align 8
+  %ref.tmp.i.i57 = alloca %class.anon.144, align 8
   %ref.tmp.i.i = alloca %class.anon.144, align 8
   %ref.tmp.i.i.i.i.i.i.i = alloca %class.anon.140, align 1
   %ref.tmp.i.i.i.i.i = alloca %class.anon.140, align 1
@@ -6325,7 +6326,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPN9gr
 
 _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit, %if.then.i
   store ptr %call11, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call11, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call11, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -6339,34 +6340,33 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp26.not, label %if.else49, label %for.cond.i.i.preheader
 
 for.cond.i.i.preheader:                           ; preds = %if.else
-  %cmp.i.i59 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i59, label %for.body.i.i, label %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit
+  %cmp.i.i58 = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i58, label %for.body.i.i, label %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit
 
 for.body.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i
-  %__n.0.i.i62 = phi i64 [ %dec.i.i, %for.body.i.i ], [ %sub.ptr.div.i, %for.cond.i.i.preheader ]
-  %__result.addr.0.i.i61 = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %3, %for.cond.i.i.preheader ]
-  %__first.addr.0.i.i60 = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %for.cond.i.i.preheader ]
+  %__n.0.i.i61 = phi i64 [ %dec.i.i, %for.body.i.i ], [ %sub.ptr.div.i, %for.cond.i.i.preheader ]
+  %__result.addr.0.i.i60 = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %3, %for.cond.i.i.preheader ]
+  %__first.addr.0.i.i59 = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %for.cond.i.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  store ptr %__result.addr.0.i.i61, ptr %ref.tmp.i.i, align 8
-  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i60)
+  store ptr %__result.addr.0.i.i60, ptr %ref.tmp.i.i, align 8
+  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i59)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  %incdec.ptr.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first.addr.0.i.i60, i64 1
-  %incdec.ptr1.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__result.addr.0.i.i61, i64 1
-  %dec.i.i = add nsw i64 %__n.0.i.i62, -1
-  %cmp.i.i = icmp sgt i64 %__n.0.i.i62, 1
+  %incdec.ptr.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first.addr.0.i.i59, i64 1
+  %incdec.ptr1.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__result.addr.0.i.i60, i64 1
+  %dec.i.i = add nsw i64 %__n.0.i.i61, -1
+  %cmp.i.i = icmp sgt i64 %__n.0.i.i61, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit, !llvm.loop !83
 
 _ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit: ; preds = %for.body.i.i
   %.pre = load ptr, ptr %_M_finish.i19, align 8
-  %.pre75 = ptrtoint ptr %incdec.ptr1.i.i to i64
+  %.pre73 = ptrtoint ptr %incdec.ptr1.i.i to i64
   br label %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit
 
 _ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit: ; preds = %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit, %for.cond.i.i.preheader
-  %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre75, %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %for.cond.i.i.preheader ]
+  %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre73, %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %for.cond.i.i.preheader ]
   %11 = phi ptr [ %.pre, %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit.loopexit ], [ %10, %for.cond.i.i.preheader ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 56
-  %add.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %3, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i
   %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i, %11
   br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i26
 
@@ -6400,46 +6400,45 @@ _ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i.i: ; preds = %.noexc
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i26, !llvm.loop !84
 
 if.else49:                                        ; preds = %if.else
-  %cmp.i.i5263 = icmp sgt i64 %sub.ptr.sub.i22, 0
-  br i1 %cmp.i.i5263, label %for.body.i.i53, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit
+  %cmp.i.i5162 = icmp sgt i64 %sub.ptr.sub.i22, 0
+  br i1 %cmp.i.i5162, label %for.body.i.i52, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit
 
-for.body.i.i53:                                   ; preds = %if.else49, %for.body.i.i53
-  %__n.0.i.i5166 = phi i64 [ %dec.i.i57, %for.body.i.i53 ], [ %sub.ptr.div.i23, %if.else49 ]
-  %__result.addr.0.i.i5065 = phi ptr [ %incdec.ptr1.i.i56, %for.body.i.i53 ], [ %3, %if.else49 ]
-  %__first.addr.0.i.i4964 = phi ptr [ %incdec.ptr.i.i55, %for.body.i.i53 ], [ %1, %if.else49 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i58)
-  store ptr %__result.addr.0.i.i5065, ptr %ref.tmp.i.i58, align 8
-  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i58, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i4964)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i58)
-  %incdec.ptr.i.i55 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first.addr.0.i.i4964, i64 1
-  %incdec.ptr1.i.i56 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__result.addr.0.i.i5065, i64 1
-  %dec.i.i57 = add nsw i64 %__n.0.i.i5166, -1
-  %cmp.i.i52 = icmp sgt i64 %__n.0.i.i5166, 1
-  br i1 %cmp.i.i52, label %for.body.i.i53, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, !llvm.loop !85
+for.body.i.i52:                                   ; preds = %if.else49, %for.body.i.i52
+  %__n.0.i.i5065 = phi i64 [ %dec.i.i56, %for.body.i.i52 ], [ %sub.ptr.div.i23, %if.else49 ]
+  %__result.addr.0.i.i4964 = phi ptr [ %incdec.ptr1.i.i55, %for.body.i.i52 ], [ %3, %if.else49 ]
+  %__first.addr.0.i.i4863 = phi ptr [ %incdec.ptr.i.i54, %for.body.i.i52 ], [ %1, %if.else49 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i57)
+  store ptr %__result.addr.0.i.i4964, ptr %ref.tmp.i.i57, align 8
+  call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i57, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i.i4863)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i57)
+  %incdec.ptr.i.i54 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first.addr.0.i.i4863, i64 1
+  %incdec.ptr1.i.i55 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__result.addr.0.i.i4964, i64 1
+  %dec.i.i56 = add nsw i64 %__n.0.i.i5065, -1
+  %cmp.i.i51 = icmp sgt i64 %__n.0.i.i5065, 1
+  br i1 %cmp.i.i51, label %for.body.i.i52, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, !llvm.loop !85
 
-_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit: ; preds = %for.body.i.i53
-  %.pre67 = load ptr, ptr %__x, align 8
-  %.pre68 = load ptr, ptr %_M_finish.i19, align 8
-  %.pre69 = load ptr, ptr %this, align 8
-  %.pre70 = load ptr, ptr %_M_finish.i, align 8
+_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit: ; preds = %for.body.i.i52
+  %.pre66 = load ptr, ptr %__x, align 8
+  %.pre67 = load ptr, ptr %_M_finish.i19, align 8
+  %.pre68 = load ptr, ptr %this, align 8
+  %.pre69 = load ptr, ptr %_M_finish.i, align 8
+  %.pre70 = ptrtoint ptr %.pre67 to i64
   %.pre71 = ptrtoint ptr %.pre68 to i64
-  %.pre72 = ptrtoint ptr %.pre69 to i64
-  %.pre73 = sub i64 %.pre71, %.pre72
-  %.pre74 = sdiv exact i64 %.pre73, 56
+  %.pre72 = sub i64 %.pre70, %.pre71
   br label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit
 
 _ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit: ; preds = %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, %if.else49
-  %sub.ptr.div.i37.pre-phi = phi i64 [ %.pre74, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
-  %15 = phi ptr [ %.pre70, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %0, %if.else49 ]
-  %16 = phi ptr [ %.pre68, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %10, %if.else49 ]
-  %17 = phi ptr [ %.pre67, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %1, %if.else49 ]
-  %add.ptr62 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %17, i64 %sub.ptr.div.i37.pre-phi
+  %sub.ptr.sub.i36.pre-phi = phi i64 [ %.pre72, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %sub.ptr.sub.i22, %if.else49 ]
+  %15 = phi ptr [ %.pre69, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %0, %if.else49 ]
+  %16 = phi ptr [ %.pre67, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %10, %if.else49 ]
+  %17 = phi ptr [ %.pre66, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit ], [ %1, %if.else49 ]
+  %add.ptr62 = getelementptr inbounds i8, ptr %17, i64 %sub.ptr.sub.i36.pre-phi
   %call.i.i.i = call noundef ptr @_ZSt16__do_uninit_copyIPN9grpc_core12experimental4JsonES3_ET0_T_S5_S4_(ptr noundef %add.ptr62, ptr noundef %15, ptr noundef %16)
   br label %if.end69
 
 if.end69:                                         ; preds = %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i.i, %_ZSt14__copy_move_a2ILb0EPKN9grpc_core12experimental4JsonEPS2_ET1_T0_S7_S6_.exit, %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit, %_ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit
   %18 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %18, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::experimental::Json, std::allocator<grpc_core::experimental::Json>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
@@ -10956,7 +10955,7 @@ if.then.i13:                                      ; preds = %_ZSt8_DestroyIPN9gr
 
 _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit, %if.then.i13
   store ptr %call5, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %call5, i64 %sub.ptr.div.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr, ptr %_M_finish, align 8
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end41
@@ -10968,7 +10967,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 56
   %cmp24.not = icmp ult i64 %sub.ptr.div.i17, %sub.ptr.div.i.i
-  br i1 %cmp24.not, label %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit, label %if.then25
+  br i1 %cmp24.not, label %if.else5.i.i, label %if.then25
 
 if.then25:                                        ; preds = %if.else
   %cmp.i1.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i, 0
@@ -11035,15 +11034,19 @@ invoke.cont.i:                                    ; preds = %_ZNSt8__detail9__va
   store ptr %__result.addr.0.i.lcssa.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 
-_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit: ; preds = %if.else
-  %incdec.ptr.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first, i64 %sub.ptr.div.i17
+if.else5.i.i:                                     ; preds = %if.else
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
   %cmp.i1.i.i.i.i30 = icmp sgt i64 %sub.ptr.sub.i16, 0
-  br i1 %cmp.i1.i.i.i.i30, label %for.body.i.i.i.i.i34, label %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42
+  br i1 %cmp.i1.i.i.i.i30, label %for.body.i.preheader.i.i.i.i32, label %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42
 
-for.body.i.i.i.i.i34:                             ; preds = %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit, %for.body.i.i.i.i.i34
-  %__n.0.i4.i.i.i.i35 = phi i64 [ %dec.i.i.i.i.i40, %for.body.i.i.i.i.i34 ], [ %sub.ptr.div.i17, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit ]
-  %__result.addr.0.i3.i.i.i.i36 = phi ptr [ %incdec.ptr1.i.i.i.i.i39, %for.body.i.i.i.i.i34 ], [ %1, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit ]
-  %__first.addr.0.i2.i.i.i.i37 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.body.i.i.i.i.i34 ], [ %__first, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit ]
+for.body.i.preheader.i.i.i.i32:                   ; preds = %if.else5.i.i
+  %sub.ptr.div.i5.i.i.i.i33 = udiv exact i64 %sub.ptr.sub.i16, 56
+  br label %for.body.i.i.i.i.i34
+
+for.body.i.i.i.i.i34:                             ; preds = %for.body.i.i.i.i.i34, %for.body.i.preheader.i.i.i.i32
+  %__n.0.i4.i.i.i.i35 = phi i64 [ %dec.i.i.i.i.i40, %for.body.i.i.i.i.i34 ], [ %sub.ptr.div.i5.i.i.i.i33, %for.body.i.preheader.i.i.i.i32 ]
+  %__result.addr.0.i3.i.i.i.i36 = phi ptr [ %incdec.ptr1.i.i.i.i.i39, %for.body.i.i.i.i.i34 ], [ %1, %for.body.i.preheader.i.i.i.i32 ]
+  %__first.addr.0.i2.i.i.i.i37 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.body.i.i.i.i.i34 ], [ %__first, %for.body.i.preheader.i.i.i.i32 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i26)
   store ptr %__result.addr.0.i3.i.i.i.i36, ptr %ref.tmp.i.i.i.i.i.i26, align 8
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i26, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i2.i.i.i.i37)
@@ -11058,9 +11061,9 @@ _ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit: ; p
   %.pre51 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42
 
-_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42: ; preds = %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit
-  %13 = phi ptr [ %.pre51, %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit ], [ %8, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit ]
-  %call.i.i.i = call noundef ptr @_ZSt16__do_uninit_copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_(ptr noundef %incdec.ptr.i.i, ptr noundef %__last, ptr noundef %13)
+_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42: ; preds = %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit, %if.else5.i.i
+  %13 = phi ptr [ %.pre51, %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit ], [ %8, %if.else5.i.i ]
+  %call.i.i.i = call noundef ptr @_ZSt16__do_uninit_copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_(ptr noundef %add.ptr.i.i, ptr noundef %__last, ptr noundef %13)
   store ptr %call.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 

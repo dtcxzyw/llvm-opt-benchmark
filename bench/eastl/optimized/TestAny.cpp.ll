@@ -819,7 +819,7 @@ invoke.cont119:                                   ; preds = %invoke.cont96, %if.
 
 call.i.i.i.i.i.noexc.i:                           ; preds = %invoke.cont119
   store ptr %call.i.i.i.i.i1.i, ptr %va, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %call.i.i.i.i.i1.i, i64 7
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 280
   %mCapacityAllocator.i.i.i.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va, i64 0, i32 2
   store ptr %add.ptr.i.i.i, ptr %mCapacityAllocator.i.i.i.i, align 8
   %mpEnd.i.i.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va, i64 0, i32 1
@@ -1210,7 +1210,7 @@ invoke.cont226:                                   ; preds = %if.then.i.i356, %_Z
 
 call.i.i.i.i.i.noexc.i403:                        ; preds = %invoke.cont226
   store ptr %call.i.i.i.i.i1.i395, ptr %va209, align 8
-  %add.ptr.i.i.i404 = getelementptr inbounds %"class.eastl::any", ptr %call.i.i.i.i.i1.i395, i64 4
+  %add.ptr.i.i.i404 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i395, i64 160
   %mCapacityAllocator.i.i.i.i405 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va209, i64 0, i32 2
   store ptr %add.ptr.i.i.i404, ptr %mCapacityAllocator.i.i.i.i405, align 8
   %mpEnd.i.i.i406 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va209, i64 0, i32 1
@@ -1907,7 +1907,7 @@ invoke.cont381:                                   ; preds = %invoke.cont.i751, %
 
 call.i.i.i.i.i.noexc.i772:                        ; preds = %invoke.cont381
   store ptr %call.i.i.i.i.i1.i764, ptr %va356, align 8
-  %add.ptr.i.i.i773 = getelementptr inbounds %"class.eastl::any", ptr %call.i.i.i.i.i1.i764, i64 7
+  %add.ptr.i.i.i773 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i764, i64 280
   %mCapacityAllocator.i.i.i.i774 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va356, i64 0, i32 2
   store ptr %add.ptr.i.i.i773, ptr %mCapacityAllocator.i.i.i.i774, align 8
   %mpEnd.i.i.i775 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va356, i64 0, i32 1

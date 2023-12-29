@@ -1505,7 +1505,7 @@ invoke.cont80.i:                                  ; preds = %.noexc174.i
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont80.i
   store ptr %call5.i.i.i.i316.i, ptr %ref.tmp5.i, align 8, !noalias !7
-  %add.ptr.i314.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i316.i, i64 22
+  %add.ptr.i314.i = getelementptr inbounds i8, ptr %call5.i.i.i.i316.i, i64 704
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp5.i, i64 0, i32 2
   store ptr %add.ptr.i314.i, ptr %_M_end_of_storage.i.i, align 8, !noalias !7
   br label %for.body.i.i.i.i.i.i
@@ -1997,7 +1997,7 @@ invoke.cont147.i:                                 ; preds = %invoke.cont145.i
 
 call5.i.i.i.i.noexc341.i:                         ; preds = %invoke.cont147.i
   store ptr %call5.i.i.i.i342.i, ptr %ref.tmp126.i, align 8, !noalias !7
-  %add.ptr.i320.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i342.i, i64 4
+  %add.ptr.i320.i = getelementptr inbounds i8, ptr %call5.i.i.i.i342.i, i64 128
   %_M_end_of_storage.i321.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp126.i, i64 0, i32 2
   store ptr %add.ptr.i320.i, ptr %_M_end_of_storage.i321.i, align 8, !noalias !7
   br label %for.body.i.i.i.i.i322.i
@@ -2773,7 +2773,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont.i398
 
 call5.i.i.i.i.noexc.i72:                          ; preds = %invoke.cont8.i
   store ptr %call5.i.i.i.i84.i, ptr %ref.tmp1.i58, align 8, !noalias !31
-  %add.ptr.i82.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i84.i, i64 2
+  %add.ptr.i82.i = getelementptr inbounds i8, ptr %call5.i.i.i.i84.i, i64 64
   %_M_end_of_storage.i.i73 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp1.i58, i64 0, i32 2
   store ptr %add.ptr.i82.i, ptr %_M_end_of_storage.i.i73, align 8, !noalias !31
   br label %for.body.i.i.i.i.i.i74
@@ -5829,7 +5829,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<arrow::internal::PlatformFilename, std::allocator<arrow::internal::PlatformFilename>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   %1 = load ptr, ptr %_M_finish, align 8
   %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<arrow::internal::PlatformFilename, std::allocator<arrow::internal::PlatformFilename>>::_Vector_impl_data", ptr %this, i64 0, i32 2
@@ -5849,7 +5848,7 @@ if.then9:                                         ; preds = %if.then
   br label %if.end29
 
 if.else:                                          ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds %"class.arrow::internal::PlatformFilename", ptr %0, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %add.ptr.i6 = getelementptr inbounds %"class.arrow::internal::PlatformFilename", ptr %1, i64 -1
   tail call void @_ZN5arrow8internal16PlatformFilenameC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i6)
   %4 = load ptr, ptr %_M_finish, align 8
@@ -5879,13 +5878,13 @@ _ZNSt6vectorIN5arrow8internal16PlatformFilenameESaIS2_EE13_M_insert_auxIS2_EEvN9
   br label %if.end29
 
 if.else21:                                        ; preds = %entry
-  %add.ptr.i7 = getelementptr inbounds %"class.arrow::internal::PlatformFilename", ptr %0, i64 %sub.ptr.div.i
+  %add.ptr.i7 = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   tail call void @_ZNSt6vectorIN5arrow8internal16PlatformFilenameESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %add.ptr.i7, ptr noundef nonnull align 8 dereferenceable(8) %__v)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then9, %_ZNSt6vectorIN5arrow8internal16PlatformFilenameESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit, %if.else21
   %5 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.arrow::internal::PlatformFilename", ptr %5, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i
   ret ptr %add.ptr
 }
 

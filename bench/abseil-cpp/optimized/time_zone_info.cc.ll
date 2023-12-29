@@ -289,16 +289,16 @@ if.then9.i.i:                                     ; preds = %if.then33
   br label %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
 
 if.else22.i.i:                                    ; preds = %if.then33
-  %add.ptr.i6.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %12, i64 %type_index.0.lcssa
+  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i21
   tail call void @_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %transition_types_, ptr %add.ptr.i6.i.i)
   br label %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
 
 _ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit: ; preds = %if.then9.i.i, %if.else22.i.i
   %15 = load ptr, ptr %transition_types_, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %15, i64 %type_index.0.lcssa
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i21
   %conv43 = trunc i64 %utc_offset to i32
   store i32 %conv43, ptr %add.ptr.i.i, align 8
-  %is_dst46 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %15, i64 %type_index.0.lcssa, i32 4
+  %is_dst46 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %add.ptr.i.i, i64 0, i32 4
   store i8 %frombool, ptr %is_dst46, align 8
   %call49 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %abbreviations_) #22
   %cmp50 = icmp eq i64 %abbr_index.2, %call49
@@ -311,7 +311,7 @@ if.then51:                                        ; preds = %_ZNSt6vectorIN4absl
 
 if.end56:                                         ; preds = %if.then51, %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
   %conv57 = trunc i64 %abbr_index.2 to i8
-  %abbr_index58 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %15, i64 %type_index.0.lcssa, i32 5
+  %abbr_index58 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %add.ptr.i.i, i64 0, i32 5
   store i8 %conv57, ptr %abbr_index58, align 1
   br label %if.end59
 
@@ -997,7 +997,6 @@ _ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE11_M_allocate
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i6 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i9 = sdiv exact i64 %sub.ptr.sub.i8, 48
   %mul.i.i.i = mul nuw nsw i64 %__n, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
   %cmp.not5.i.i.i = icmp eq ptr %1, %2
@@ -1022,7 +1021,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN4absl
 
 _ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %if.then.i
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %call5.i.i.i, i64 %sub.ptr.div.i9
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i8
   store ptr %add.ptr, ptr %_M_finish.i, align 8
   %add.ptr21 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8
@@ -1251,7 +1250,6 @@ for.body:                                         ; preds = %_ZNSt6vectorIN4absl
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 48
   %10 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i, label %if.else22.i.i, label %if.then9.i.i
@@ -1276,15 +1274,15 @@ if.then9.i.i:                                     ; preds = %for.body
   br label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
 
 if.else22.i.i:                                    ; preds = %for.body
-  %add.ptr.i6.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %9, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i.i.i
   tail call void @_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %transitions_, ptr %add.ptr.i6.i.i)
   br label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
 
 _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE7emplaceIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit: ; preds = %if.then9.i.i, %if.else22.i.i
   %12 = load ptr, ptr %transitions_, align 8
-  %add.ptr.i.i33 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %12, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i.i.i
   store i64 %7, ptr %add.ptr.i.i33, align 8
-  %type_index = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %12, i64 %sub.ptr.div.i.i.i, i32 1
+  %type_index = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr.i.i33, i64 0, i32 1
   store i8 0, ptr %type_index, align 8
   %div.i.i.i = sdiv i64 %7, 60
   %rem.i.i.i = srem i64 %7, 60
@@ -1314,9 +1312,9 @@ _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE7emplaceIJEEEN9__gnu
   %22 = load i8, ptr %abbr_index, align 1, !noalias !21
   %conv7.i = zext i8 %22 to i64
   %call8.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %abbreviations_.i, i64 noundef %conv7.i) #22, !noalias !21
-  %civil_sec = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %12, i64 %sub.ptr.div.i.i.i, i32 3
+  %civil_sec = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr.i.i33, i64 0, i32 3
   store i64 %20, ptr %civil_sec, align 8
-  %ref.tmp18.sroa.2.0.civil_sec.sroa_idx = getelementptr inbounds i8, ptr %civil_sec, i64 8
+  %ref.tmp18.sroa.2.0.civil_sec.sroa_idx = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr.i.i33, i64 0, i32 3, i32 0, i32 1
   store i64 %21, ptr %ref.tmp18.sroa.2.0.civil_sec.sroa_idx, align 8
   %sext.i5.i = shl i64 %21, 56
   %conv.i6.i = ashr exact i64 %sext.i5.i, 56
@@ -1332,9 +1330,9 @@ _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE7emplaceIJEEEN9__gnu
   %call.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %20, i64 noundef %conv.i6.i, i64 noundef %conv1.i7.i, i64 noundef %conv2.i8.i, i64 noundef %conv3.i9.i, i64 noundef %add5.i.i) #22
   %27 = extractvalue { i64, i64 } %call.i.i, 0
   %28 = extractvalue { i64, i64 } %call.i.i, 1
-  %prev_civil_sec = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %12, i64 %sub.ptr.div.i.i.i, i32 4
+  %prev_civil_sec = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr.i.i33, i64 0, i32 4
   store i64 %27, ptr %prev_civil_sec, align 8
-  %ref.tmp20.sroa.2.0.prev_civil_sec.sroa_idx = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %12, i64 %sub.ptr.div.i.i.i, i32 4, i32 0, i32 1
+  %ref.tmp20.sroa.2.0.prev_civil_sec.sroa_idx = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr.i.i33, i64 0, i32 4, i32 0, i32 1
   store i64 %28, ptr %ref.tmp20.sroa.2.0.prev_civil_sec.sroa_idx, align 8
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx83, 8
   %cmp.not = icmp eq i64 %__begin2.0.add, 96
@@ -1466,7 +1464,6 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::time_internal::cctz::Transition, std::allocator<absl::time_internal::cctz::Transition>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   %1 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<absl::time_internal::cctz::Transition, std::allocator<absl::time_internal::cctz::Transition>>::_Vector_impl_data", ptr %this, i64 0, i32 2
@@ -1498,7 +1495,7 @@ if.then9.i:                                       ; preds = %if.then.i
   br label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE14_M_emplace_auxIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %add.ptr.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   %add.ptr.i5.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %1, i64 -1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i5.i, i64 48, i1 false)
   %4 = load ptr, ptr %_M_finish.i, align 8
@@ -1538,13 +1535,13 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE14_M_emplace_auxIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
 
 if.else22.i:                                      ; preds = %entry
-  %add.ptr.i6.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 %sub.ptr.div.i.i
+  %add.ptr.i6.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   tail call void @_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %add.ptr.i6.i)
   br label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE14_M_emplace_auxIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit
 
 _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE14_M_emplace_auxIJEEEN9__gnu_cxx17__normal_iteratorIPS3_S5_EENS8_IPKS3_S5_EEDpOT_.exit: ; preds = %if.then9.i, %invoke.cont.i, %if.else22.i
   %5 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %5, i64 %sub.ptr.div.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i.i
   ret ptr %add.ptr.i
 }
 
@@ -2579,7 +2576,6 @@ _ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_M_allo
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i6 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i9 = sdiv exact i64 %sub.ptr.sub.i8, 48
   %mul.i.i.i = mul nuw nsw i64 %__n, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
   %cmp.not5.i.i.i = icmp eq ptr %1, %2
@@ -2604,7 +2600,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN4absl
 
 _ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %if.then.i
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %call5.i.i.i, i64 %sub.ptr.div.i9
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i8
   store ptr %add.ptr, ptr %_M_finish.i, align 8
   %add.ptr21 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8
@@ -3077,7 +3073,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %19 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %1, i64 %sub.ptr.div.i
+  %19 = getelementptr i8, ptr %1, i64 %sub.ptr.sub.i
   %add.ptr.i27 = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %19, i64 -1
   %20 = load i64, ptr %add.ptr.i27, align 8
   %cmp10.not = icmp slt i64 %retval.sroa.0.0.copyload.i.i1.i, %20
@@ -3347,7 +3343,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
-  %add.ptr = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %1, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr i8, ptr %1, i64 %sub.ptr.sub.i
   %civil_sec = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %1, i64 0, i32 3
   %2 = load i64, ptr %cs, align 8
   %3 = load i64, ptr %civil_sec, align 8
@@ -4720,8 +4716,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
-  %add.ptr = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %2 = load i64, ptr %0, align 8
   %cmp = icmp slt i64 %2, -576460752303423487
   %spec.select.idx = zext i1 %cmp to i64
@@ -4853,8 +4848,7 @@ if.end25:                                         ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
-  %add.ptr = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %0, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %2 = load i64, ptr %0, align 8
   %cmp = icmp slt i64 %2, -576460752303423487
   %spec.select.idx = zext i1 %cmp to i64
@@ -5674,7 +5668,7 @@ _ZNKSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE12_M_check_lenE
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
-  %add.ptr = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr, i8 0, i64 48, i1 false)
   %civil_max.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
   store i64 1970, ptr %civil_max.i.i.i, align 8
@@ -5906,7 +5900,7 @@ _ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
-  %add.ptr = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr, i8 0, i64 48, i1 false)
   %civil_sec.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 3
   store i64 1970, ptr %civil_sec.i.i.i, align 8
@@ -6014,7 +6008,7 @@ _ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EED2Ev.exit.i: 
 invoke.cont21:                                    ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i, %call5.i.i.i.i.noexc.i
   %ref.tmp.sroa.0.0 = phi ptr [ %call5.i.i.i.i1.i, %call5.i.i.i.i.noexc.i ], [ null, %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i, %call5.i.i.i.i.noexc.i ], [ null, %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
-  %ref.tmp.sroa.9.0 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %ref.tmp.sroa.0.0, i64 %sub.ptr.div.i.i.i.i.i.i
+  %ref.tmp.sroa.9.0 = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0, i64 %reass.sub.fr.i
   %_M_end_of_storage.i4.i.i = getelementptr inbounds %"struct.std::_Vector_base<absl::time_internal::cctz::Transition, std::allocator<absl::time_internal::cctz::Transition>>::_Vector_impl_data", ptr %__c, i64 0, i32 2
   store ptr %ref.tmp.sroa.0.0, ptr %__c, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i, align 8

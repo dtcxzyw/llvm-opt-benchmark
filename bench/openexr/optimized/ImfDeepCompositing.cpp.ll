@@ -317,8 +317,8 @@ if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i22
   br label %try.cont
 
 try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %if.then.i.i.i22
-  %cmp.i.i.i30.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i30.not, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, label %if.then.i.i.i31
+  %cmp.i.i.i30 = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i.i30, label %if.then.i.i.i31, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
 
 if.then.i.i.i31:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i19, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
@@ -721,7 +721,7 @@ if.then3.i72:                                     ; preds = %if.end28.i.i.i43, %
   %sub.ptr.div.i.i.i.i.i.i76 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i75, 2
   %.pre.i.i.i.i.i.i77 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i76
   %add.ptr.i.i.i.i.i.i78 = getelementptr inbounds i32, ptr %add.ptr4.i73, i64 %.pre.i.i.i.i.i.i77
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i78, ptr nonnull align 4 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i75, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i78, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i75, i1 false)
   br label %for.inc.i64
 
 while.cond.i.i48:                                 ; preds = %while.cond.i.i48.preheader, %while.body.i.i68

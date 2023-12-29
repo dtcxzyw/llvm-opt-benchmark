@@ -4359,7 +4359,7 @@ if.then.i.i90:                                    ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %if.then.i.i90, %_ZNSt6vectorImSaImEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKmS1_EEEEPmmT_S9_.exit.i
   store ptr %call5.i.i.i.i.i92, ptr %vertices.i505, align 8, !tbaa !38
-  %add.ptr.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i92, i64 %sub.ptr.div.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i92, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %call.i.i.i.i.noexc
 
@@ -4415,7 +4415,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt4copyIPmS0_ET0_
 
 call.i.i.i.i.noexc:                               ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, %if.then.i.i.i.i.i.i89, %if.then27.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
   %139 = load ptr, ptr %vertices.i505, align 8, !tbaa !38
-  %add.ptr72.i = getelementptr inbounds i64, ptr %139, i64 %sub.ptr.div.i.i
+  %add.ptr72.i = getelementptr inbounds i8, ptr %139, i64 %sub.ptr.sub.i.i
   %_M_finish74.i = getelementptr inbounds %"class.entt::basic_flow", ptr %other, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   store ptr %add.ptr72.i, ptr %_M_finish74.i, align 8, !tbaa !76
   %call.i.i8.i.i754 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairImjESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i532, ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i)
@@ -4476,7 +4476,7 @@ if.then.i.i142:                                   ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i143: ; preds = %if.then.i.i142, %_ZNSt6vectorImSaImEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKmS1_EEEEPmmT_S9_.exit.i140
   store ptr %call5.i.i.i.i.i148, ptr %deps.i, align 8, !tbaa !38
-  %add.ptr.i144 = getelementptr inbounds i64, ptr %call5.i.i.i.i.i148, i64 %sub.ptr.div.i.i97
+  %add.ptr.i144 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i148, i64 %sub.ptr.sub.i.i96
   store ptr %add.ptr.i144, ptr %_M_end_of_storage.i.i98, align 8, !tbaa !40
   br label %call.i.i.i10.i.noexc
 
@@ -4532,7 +4532,7 @@ if.then.i.i.i.i.i.i.i.i.i131:                     ; preds = %_ZSt4copyIPmS0_ET0_
 
 call.i.i.i10.i.noexc:                             ; preds = %if.then.i.i.i.i.i.i.i.i.i131, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i124, %if.then.i.i.i.i.i.i112, %if.then27.i110, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i143
   %149 = load ptr, ptr %deps.i, align 8, !tbaa !38
-  %add.ptr72.i113 = getelementptr inbounds i64, ptr %149, i64 %sub.ptr.div.i.i97
+  %add.ptr72.i113 = getelementptr inbounds i8, ptr %149, i64 %sub.ptr.sub.i.i96
   %_M_finish74.i114 = getelementptr inbounds %"class.entt::basic_flow", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   store ptr %add.ptr72.i113, ptr %_M_finish74.i114, align 8, !tbaa !76
   %packed.i11.i = getelementptr inbounds %"class.entt::basic_flow", ptr %other, i64 0, i32 2, i32 1
@@ -18499,7 +18499,7 @@ _ZNKSt6vectorISt4pairImbESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.
           to label %call5.i.i.i.i.noexc unwind label %lpad22.loopexit.loopexit
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorISt4pairImbESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.106", ptr %call5.i.i.i.i115, i64 %sub.ptr.div.i.i.i106
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i115, i64 %sub.ptr.sub.i.i.i104
   %21 = load i64, ptr %sync_on.i, align 8, !tbaa !20
   store i64 %21, ptr %add.ptr.i, align 8, !tbaa !161
   %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.106", ptr %call5.i.i.i.i115, i64 %sub.ptr.div.i.i.i106, i32 1
@@ -28227,7 +28227,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorISt4pai
 
 _ZNSt12_Vector_baseISt4pairImjESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %if.then.i, %_ZNSt6vectorISt4pairImjESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !19
-  %add.ptr = getelementptr inbounds %"struct.std::pair.102", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !41
   br label %if.end69
 
@@ -28318,7 +28318,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.3, label %for.body.i.i.i.i.i, label %if.end69, !llvm.loop !316
 
 if.else49:                                        ; preds = %if.else
-  %add.ptr55 = getelementptr %"struct.std::pair.102", ptr %1, i64 %sub.ptr.div.i98
+  %add.ptr55 = getelementptr i8, ptr %1, i64 %sub.ptr.sub.i97
   %cmp7.i.i.i.i.i110 = icmp sgt i64 %sub.ptr.div.i98, 0
   br i1 %cmp7.i.i.i.i.i110, label %for.body.i.i.i.i.i112.preheader, label %_ZSt4copyIPSt4pairImjES2_ET0_T_S4_S3_.exit
 
@@ -28410,7 +28410,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPSt4pairI
 
 if.end69:                                         ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i, %_ZSt4copyIPSt4pairImjES2_ET0_T_S4_S3_.exit, %for.body.i.i.i.i.i.prol.loopexit, %if.then27, %_ZNSt12_Vector_baseISt4pairImjESaIS1_EE13_M_deallocateEPS1_m.exit
   %35 = load ptr, ptr %this, align 8, !tbaa !19
-  %add.ptr72 = getelementptr inbounds %"struct.std::pair.102", ptr %35, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %35, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned long, unsigned int>, std::allocator<std::pair<unsigned long, unsigned int>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8, !tbaa !17
   br label %if.end75
@@ -28482,7 +28482,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPN4en
 
 _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt6vectorISt4pairImbESaIS5_EEEESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %if.then.i, %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt6vectorISt4pairImbESaIS5_EEEES8_EvT_SA_RSaIT0_E.exit
   store ptr %call11, ptr %this, align 8, !tbaa !55
-  %add.ptr = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %call11, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call11, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !58
   br label %if.end69
 
@@ -28531,8 +28531,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4entt8internal14dense_map_nodeIjSt6v
   %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre144, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4entt8internal14dense_map_nodeIjSt6vectorISt4pairImbESaIS7_EEEES5_ISA_SaISA_EEEENS1_IPSA_SE_EEET0_T_SJ_SI_.exit.loopexit ], [ %sub.ptr.rhs.cast.i90, %if.then27 ]
   %11 = phi ptr [ %.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4entt8internal14dense_map_nodeIjSt6vectorISt4pairImbESaIS7_EEEES5_ISA_SaISA_EEEENS1_IPSA_SE_EEET0_T_SJ_SI_.exit.loopexit ], [ %8, %if.then27 ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %3, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
   %cmp.i.not6.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %11
   br i1 %cmp.i.not6.i.i.i, label %if.end69, label %for.body.i.i.i101
 
@@ -28601,7 +28600,7 @@ _ZSt4copyIPN4entt8internal14dense_map_nodeIjSt6vectorISt4pairImbESaIS5_EEEES9_ET
 
 if.end69:                                         ; preds = %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt6vectorISt4pairImbESaIS5_EEEEEvPT_.exit.i.i.i105, %_ZSt4copyIPN4entt8internal14dense_map_nodeIjSt6vectorISt4pairImbESaIS5_EEEES9_ET0_T_SB_SA_.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4entt8internal14dense_map_nodeIjSt6vectorISt4pairImbESaIS7_EEEES5_ISA_SaISA_EEEENS1_IPSA_SE_EEET0_T_SJ_SI_.exit, %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt6vectorISt4pairImbESaIS5_EEEESaIS8_EE13_M_deallocateEPS8_m.exit
   %18 = load ptr, ptr %this, align 8, !tbaa !55
-  %add.ptr72 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %18, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<entt::internal::dense_map_node<unsigned int, std::vector<std::pair<unsigned long, bool>>>, std::allocator<entt::internal::dense_map_node<unsigned int, std::vector<std::pair<unsigned long, bool>>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8, !tbaa !57
   br label %if.end75
@@ -28736,7 +28735,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorISt4pai
 
 _ZNSt12_Vector_baseISt4pairImbESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %if.then.i, %_ZNSt6vectorISt4pairImbESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !59
-  %add.ptr = getelementptr inbounds %"struct.std::pair.106", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !160
   br label %if.end69
 
@@ -28827,7 +28826,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.3, label %for.body.i.i.i.i.i, label %if.end69, !llvm.loop !324
 
 if.else49:                                        ; preds = %if.else
-  %add.ptr55 = getelementptr %"struct.std::pair.106", ptr %1, i64 %sub.ptr.div.i98
+  %add.ptr55 = getelementptr i8, ptr %1, i64 %sub.ptr.sub.i97
   %cmp7.i.i.i.i.i110 = icmp sgt i64 %sub.ptr.div.i98, 0
   br i1 %cmp7.i.i.i.i.i110, label %for.body.i.i.i.i.i112.preheader, label %_ZSt4copyIPSt4pairImbES2_ET0_T_S4_S3_.exit
 
@@ -28919,7 +28918,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPSt4pairI
 
 if.end69:                                         ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i, %_ZSt4copyIPSt4pairImbES2_ET0_T_S4_S3_.exit, %for.body.i.i.i.i.i.prol.loopexit, %if.then27, %_ZNSt12_Vector_baseISt4pairImbESaIS1_EE13_M_deallocateEPS1_m.exit
   %35 = load ptr, ptr %this, align 8, !tbaa !59
-  %add.ptr72 = getelementptr inbounds %"struct.std::pair.106", ptr %35, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %35, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<unsigned long, bool>, std::allocator<std::pair<unsigned long, bool>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8, !tbaa !164
   br label %if.end75
@@ -31116,7 +31115,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
-  %add.ptr = getelementptr inbounds i64, ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i64 0, ptr %add.ptr, align 8, !tbaa !20
   %cmp.i.i.i.i.i70 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i70, label %try.cont, label %if.end.i.i.i.i.i71
@@ -31758,7 +31757,7 @@ _ZNKSt6vectorISt4pairImjESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 4
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #24
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.102", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i6
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i4
   store i64 %it.sroa.5.035.i, ptr %add.ptr.i, align 8, !tbaa !312
   %second.i.i.i.i7 = getelementptr inbounds %"struct.std::pair.102", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i6, i32 1
   store i32 %0, ptr %second.i.i.i.i7, align 8, !tbaa !314
@@ -32402,7 +32401,7 @@ _ZNKSt6vectorISt4pairImbESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.
   call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 4
   %call5.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #24
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.106", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
   %12 = load i64, ptr %sync_on, align 8, !tbaa !20
   store i64 %12, ptr %add.ptr.i, align 8, !tbaa !161
   %second.i.i.i.i6 = getelementptr inbounds %"struct.std::pair.106", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
@@ -32480,7 +32479,7 @@ _ZNKSt6vectorISt4pairImbESaIS1_EE12_M_check_lenEmPKc.exit.i14: ; preds = %if.els
   call void @llvm.assume(i1 %cmp.not.i.i25)
   %mul.i.i.i.i26 = shl nuw nsw i64 %cond.i.i21, 4
   %call5.i.i.i.i27 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i26) #24
-  %add.ptr.i28 = getelementptr inbounds %"struct.std::pair.106", ptr %call5.i.i.i.i27, i64 %sub.ptr.div.i.i.i15
+  %add.ptr.i28 = getelementptr inbounds i8, ptr %call5.i.i.i.i27, i64 %sub.ptr.sub.i.i.i12
   %18 = load i64, ptr %this, align 8, !tbaa !20
   store i64 %18, ptr %add.ptr.i28, align 8, !tbaa !161
   %second.i.i.i.i29 = getelementptr inbounds %"struct.std::pair.106", ptr %call5.i.i.i.i27, i64 %sub.ptr.div.i.i.i15, i32 1
@@ -35729,7 +35728,7 @@ _ZNKSt6vectorImN4test18throwing_allocatorImEEE12_M_check_lenEmPKc.exit: ; preds 
   %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %call.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorImE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i)
-  %add.ptr26 = getelementptr inbounds i64, ptr %call.i.i, i64 %sub.ptr.div.i
+  %add.ptr26 = getelementptr inbounds i8, ptr %call.i.i, i64 %sub.ptr.sub.i
   %4 = shl nuw nsw i64 %__n, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr26, i8 0, i64 %4, i1 false), !tbaa !20
   %cmp.not6.i.i.i = icmp eq ptr %1, %0
@@ -36125,7 +36124,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12_M_check_lenEmPKc.ex
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #24
-  %add.ptr.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.228", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i6
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i4
   store i64 %it.sroa.5.038.i, ptr %add.ptr.i, align 8, !tbaa !446
   %element.i.i.i.i7 = getelementptr inbounds %"struct.entt::internal::dense_map_node.228", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i6, i32 1
   store i32 %0, ptr %element.i.i.i.i7, align 8, !tbaa !464
@@ -36443,7 +36442,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12_M_check_lenEmPKc.ex
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #24
-  %add.ptr.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.228", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i6
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i4
   store i64 %it.sroa.5.038.i, ptr %add.ptr.i, align 8, !tbaa !446
   %element.i.i.i.i7 = getelementptr inbounds %"struct.entt::internal::dense_map_node.228", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i6, i32 1
   store i32 %0, ptr %element.i.i.i.i7, align 8, !tbaa !464
@@ -36642,7 +36641,7 @@ _ZNKSt6vectorISt4pairImjEN4test18throwing_allocatorIS1_EEE12_M_check_lenEmPKc.ex
   %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorISt4pairImjEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %packed, i64 noundef %cond.i.i)
-  %add.ptr11.i = getelementptr inbounds %"struct.std::pair.102", ptr %call.i.i.i, i64 %sub.ptr.div.i.i.i7
+  %add.ptr11.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i.i.i5
   %8 = load i64, ptr %add.ptr2.i.i.i, align 8, !tbaa !20
   store i64 %8, ptr %add.ptr11.i, align 8, !tbaa !312
   %second.i.i.i.i8 = getelementptr inbounds %"struct.std::pair.102", ptr %call.i.i.i, i64 %sub.ptr.div.i.i.i7, i32 1

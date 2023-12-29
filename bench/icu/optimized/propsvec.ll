@@ -217,12 +217,10 @@ do.body:                                          ; preds = %if.end52
   %sub.ptr.lhs.cast = ptrtoint ptr %call18 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %11 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %add.ptr = getelementptr inbounds i32, ptr %call55, i64 %sub.ptr.div
+  %add.ptr = getelementptr inbounds i8, ptr %call55, i64 %sub.ptr.sub
   %sub.ptr.lhs.cast65 = ptrtoint ptr %call19 to i64
   %sub.ptr.sub67 = sub i64 %sub.ptr.lhs.cast65, %sub.ptr.rhs.cast
-  %sub.ptr.div68 = ashr exact i64 %sub.ptr.sub67, 2
-  %add.ptr69 = getelementptr inbounds i32, ptr %call55, i64 %sub.ptr.div68
+  %add.ptr69 = getelementptr inbounds i8, ptr %call55, i64 %sub.ptr.sub67
   tail call void @uprv_free_75(ptr noundef %11)
   store ptr %call55, ptr %pv, align 8
   store i32 %newMaxRows.0, ptr %maxRows, align 4

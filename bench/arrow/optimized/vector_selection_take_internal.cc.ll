@@ -2400,7 +2400,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.
 
 call5.i.i.i.i.noexc.i.i.i:                        ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit.i.i
   store ptr %call5.i.i.i.i2.i.i.i, ptr %ref.tmp274.i.i, align 8, !noalias !10
-  %add.ptr.i1.i.i.i = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i.i.i, i64 2
+  %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i, i64 32
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %ref.tmp274.i.i, i64 0, i32 2
   store ptr %add.ptr.i1.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !noalias !10
   br label %for.body.i.i.i.i.i.i.i.i
@@ -4366,7 +4366,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit.i184.i: ; preds = %if.else.i.i.i
 
 call5.i.i.i.i.noexc.i.i189.i:                     ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit.i184.i
   store ptr %call5.i.i.i.i2.i.i186.i, ptr %ref.tmp234.i.i, align 8, !noalias !100
-  %add.ptr.i1.i.i190.i = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i.i186.i, i64 2
+  %add.ptr.i1.i.i190.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i186.i, i64 32
   %_M_end_of_storage.i.i.i191.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %ref.tmp234.i.i, i64 0, i32 2
   store ptr %add.ptr.i1.i.i190.i, ptr %_M_end_of_storage.i.i.i191.i, align 8, !noalias !100
   br label %for.body.i.i.i.i.i.i.i192.i
@@ -6209,7 +6209,7 @@ invoke.cont232.i:                                 ; preds = %if.else.i.i.i.i.i.i
 
 call5.i.i.i.i.noexc.i.i:                          ; preds = %invoke.cont232.i
   store ptr %call5.i.i.i.i2.i.i, ptr %ref.tmp233.i, align 8, !noalias !182
-  %add.ptr.i1.i.i = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i.i, i64 2
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 32
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %ref.tmp233.i, i64 0, i32 2
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !182
   br label %for.body.i.i.i.i.i.i.i
@@ -7876,7 +7876,7 @@ invoke.cont232.i179:                              ; preds = %if.else.i.i.i.i.i.i
 
 call5.i.i.i.i.noexc.i.i193:                       ; preds = %invoke.cont232.i179
   store ptr %call5.i.i.i.i2.i.i184, ptr %ref.tmp233.i26, align 8, !noalias !266
-  %add.ptr.i1.i.i194 = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i.i184, i64 2
+  %add.ptr.i1.i.i194 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i184, i64 32
   %_M_end_of_storage.i.i.i195 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %ref.tmp233.i26, i64 0, i32 2
   store ptr %add.ptr.i1.i.i194, ptr %_M_end_of_storage.i.i.i195, align 8, !noalias !266
   br label %for.body.i.i.i.i.i.i.i196
@@ -9532,7 +9532,7 @@ invoke.cont226.i:                                 ; preds = %if.else.i.i.i.i.i.i
 
 call5.i.i.i.i.noexc.i.i823:                       ; preds = %invoke.cont226.i
   store ptr %call5.i.i.i.i2.i.i820, ptr %ref.tmp227.i, align 8, !noalias !350
-  %add.ptr.i1.i.i824 = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i.i820, i64 2
+  %add.ptr.i1.i.i824 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i820, i64 32
   %_M_end_of_storage.i.i.i825 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %ref.tmp227.i, i64 0, i32 2
   store ptr %add.ptr.i1.i.i824, ptr %_M_end_of_storage.i.i.i825, align 8, !noalias !350
   br label %for.body.i.i.i.i.i.i.i826
@@ -21448,7 +21448,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52: ; preds = %_ZNSt10shared_ptrI
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp31, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp31, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -26571,7 +26571,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52: ; preds = %_ZNSt10shared_ptrI
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp27, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp27, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -28383,7 +28383,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52: ; preds = %_ZNSt10shared_ptrI
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp27, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp27, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -30092,7 +30092,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52: ; preds = %_ZNSt10shared_ptrI
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp27, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp27, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -31801,7 +31801,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52: ; preds = %_ZNSt10shared_ptrI
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit52
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp27, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.50", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data", ptr %agg.tmp27, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -40457,7 +40457,7 @@ invoke.cont67:                                    ; preds = %do.end64
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont67
   store ptr %call5.i.i.i.i2.i, ptr %chunks, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr.181", ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl_data", ptr %chunks, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %30 = load <2 x ptr>, ptr %ref.tmp65, align 16
@@ -43999,7 +43999,7 @@ if.then.i13:                                      ; preds = %_ZSt8_DestroyIPN5ar
 
 _ZNSt12_Vector_baseIN5arrow7compute8internal19SelectionKernelDataESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN5arrow7compute8internal19SelectionKernelDataES3_EvT_S5_RSaIT0_E.exit, %if.then.i13
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.arrow::compute::internal::SelectionKernelData", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr, ptr %_M_finish, align 8
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end41
@@ -44011,7 +44011,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 88
   %cmp24.not = icmp ult i64 %sub.ptr.div.i17, %sub.ptr.div.i.i
-  br i1 %cmp24.not, label %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit, label %if.then25
+  br i1 %cmp24.not, label %if.else5.i.i, label %if.then25
 
 if.then25:                                        ; preds = %if.else
   %cmp6.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i, 0
@@ -44062,15 +44062,19 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i.i
   store ptr %__result.addr.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 
-_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit: ; preds = %if.else
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.arrow::compute::internal::SelectionKernelData", ptr %__first, i64 %sub.ptr.div.i17
+if.else5.i.i:                                     ; preds = %if.else
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
   %cmp6.i.i.i.i.i31 = icmp sgt i64 %sub.ptr.sub.i16, 0
-  br i1 %cmp6.i.i.i.i.i31, label %for.body.i.i.i.i.i35, label %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47
+  br i1 %cmp6.i.i.i.i.i31, label %for.body.preheader.i.i.i.i.i33, label %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47
 
-for.body.i.i.i.i.i35:                             ; preds = %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit, %for.body.i.i.i.i.i35
-  %__n.09.i.i.i.i.i36 = phi i64 [ %dec.i.i.i.i.i45, %for.body.i.i.i.i.i35 ], [ %sub.ptr.div.i17, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit ]
-  %__result.addr.08.i.i.i.i.i37 = phi ptr [ %incdec.ptr1.i.i.i.i.i44, %for.body.i.i.i.i.i35 ], [ %1, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit ]
-  %__first.addr.07.i.i.i.i.i38 = phi ptr [ %incdec.ptr.i.i.i.i.i43, %for.body.i.i.i.i.i35 ], [ %__first, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit ]
+for.body.preheader.i.i.i.i.i33:                   ; preds = %if.else5.i.i
+  %sub.ptr.div10.i.i.i.i.i34 = udiv exact i64 %sub.ptr.sub.i16, 88
+  br label %for.body.i.i.i.i.i35
+
+for.body.i.i.i.i.i35:                             ; preds = %for.body.i.i.i.i.i35, %for.body.preheader.i.i.i.i.i33
+  %__n.09.i.i.i.i.i36 = phi i64 [ %dec.i.i.i.i.i45, %for.body.i.i.i.i.i35 ], [ %sub.ptr.div10.i.i.i.i.i34, %for.body.preheader.i.i.i.i.i33 ]
+  %__result.addr.08.i.i.i.i.i37 = phi ptr [ %incdec.ptr1.i.i.i.i.i44, %for.body.i.i.i.i.i35 ], [ %1, %for.body.preheader.i.i.i.i.i33 ]
+  %__first.addr.07.i.i.i.i.i38 = phi ptr [ %incdec.ptr.i.i.i.i.i43, %for.body.i.i.i.i.i35 ], [ %__first, %for.body.preheader.i.i.i.i.i33 ]
   tail call void @_ZN5arrow7compute9InputType8CopyIntoERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i38)
   %selection_type.i.i.i.i.i.i39 = getelementptr inbounds %"struct.arrow::compute::internal::SelectionKernelData", ptr %__result.addr.08.i.i.i.i.i37, i64 0, i32 1
   %selection_type3.i.i.i.i.i.i40 = getelementptr inbounds %"struct.arrow::compute::internal::SelectionKernelData", ptr %__first.addr.07.i.i.i.i.i38, i64 0, i32 1
@@ -44089,14 +44093,14 @@ _ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit4
   %.pre62 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47
 
-_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47: ; preds = %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47.loopexit, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit
-  %10 = phi ptr [ %.pre62, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47.loopexit ], [ %6, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit ]
-  %cmp.not7.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47: ; preds = %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47.loopexit, %if.else5.i.i
+  %10 = phi ptr [ %.pre62, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47.loopexit ], [ %6, %if.else5.i.i ]
+  %cmp.not7.i.i.i.i = icmp eq ptr %add.ptr.i.i, %__last
   br i1 %cmp.not7.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5arrow7compute8internal19SelectionKernelDataEPS3_S3_ET0_T_S8_S7_RSaIT1_E.exit, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47, %for.inc.i.i.i.i
   %__cur.09.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.inc.i.i.i.i ], [ %10, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47 ]
-  %__first.addr.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i57, %for.inc.i.i.i.i ], [ %incdec.ptr.i.i, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47 ]
+  %__first.addr.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i57, %for.inc.i.i.i.i ], [ %add.ptr.i.i, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47 ]
   %type_.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::compute::InputType", ptr %__cur.09.i.i.i.i, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %type_.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   tail call void @_ZN5arrow7compute9InputType8CopyIntoERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %__cur.09.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i)
@@ -44509,7 +44513,7 @@ invoke.cont13.i:                                  ; preds = %invoke.cont.i10
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont13.i
   store ptr %call5.i.i.i.i46.i, ptr %agg.tmp5.i, align 8
-  %add.ptr.i44.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i46.i, i64 2
+  %add.ptr.i44.i = getelementptr inbounds i8, ptr %call5.i.i.i.i46.i, i64 64
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %agg.tmp5.i, i64 0, i32 2
   store ptr %add.ptr.i44.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i

@@ -79,7 +79,7 @@ _ZNSt12_Vector_baseI21grpc_resolved_addressSaIS0_EED2Ev.exit.i: ; preds = %if.th
   br label %ehcleanup16
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit: ; preds = %if.then
-  %add.ptr.i1.i = getelementptr inbounds %struct.grpc_resolved_address, ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %call5.i.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(132) %addr, i64 132, i1 false)
   %2 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
   store ptr %call5.i.i.i.i2.i, ptr %2, align 8
@@ -244,7 +244,7 @@ _ZNSt12_Vector_baseI21grpc_resolved_addressSaIS0_EED2Ev.exit.i: ; preds = %if.th
   br label %ehcleanup16
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit: ; preds = %if.then
-  %add.ptr.i1.i = getelementptr inbounds %struct.grpc_resolved_address, ptr %call5.i.i.i.i2.i, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %call5.i.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(132) %addr, i64 132, i1 false)
   %2 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
   store ptr %call5.i.i.i.i2.i, ptr %2, align 8

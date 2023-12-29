@@ -68,7 +68,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.grpc_core::RefCountedPtr.40" = type { ptr }
 %class.anon.41 = type { ptr, ptr, ptr }
 %"class.grpc_core::ChannelArgs::Pointer" = type { ptr, ptr }
-%struct.grpc_resolved_address = type { [128 x i8], i32 }
 
 $_ZNSt3mapIN9grpc_core21RefCountedStringValueESt10shared_ptrINS0_25EndpointAddressesIteratorEENS0_29RefCountedStringValueLessThanESaISt4pairIKS1_S4_EEED2Ev = comdat any
 
@@ -1862,8 +1861,7 @@ if.then20.i.i.i.i:                                ; preds = %if.end13.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 3
-  %cmp.i.i.i15.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i, 1152921504606846975
+  %cmp.i.i.i15.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i15.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.body.i.i.i.i.preheader.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then20.i.i.i.i
@@ -1879,7 +1877,7 @@ for.body.i.i.i.i.preheader.i.i.i.i.i.i:           ; preds = %if.then20.i.i.i.i
 
 call5.i.i.i.i.noexc.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.preheader.i.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i.i.i.i.i, ptr %remaining_path.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %call5.i.i.i.i1.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::RefCountedStringValue, std::allocator<grpc_core::RefCountedStringValue>>::_Vector_impl_data", ptr %remaining_path.i.i.i.i, i64 0, i32 2
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.i.i.i
@@ -2146,20 +2144,20 @@ if.end46.i.i.i.i:                                 ; preds = %if.then.i.i.i42.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %50 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i53.i.i.i.i = icmp eq ptr %50, %51
   br i1 %cmp.not.i.i.i.i53.i.i.i.i, label %invoke.cont.i54.thread.i.i.i.i, label %cond.true.i.i.i.i.i.i.i.i
 
 invoke.cont.i54.thread.i.i.i.i:                   ; preds = %if.end46.i.i.i.i
   %_M_finish.i.i.i5578.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data", ptr %agg.tmp48.i.i.i.i, i64 0, i32 1
-  %add.ptr.i.i.i79.i.i.i.i = getelementptr inbounds %struct.grpc_resolved_address, ptr null, i64 %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i79.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i80.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data", ptr %agg.tmp48.i.i.i.i, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp48.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i79.i.i.i.i, ptr %_M_end_of_storage.i.i.i80.i.i.i.i, align 8
   br label %invoke.cont52.i.i.i.i
 
 cond.true.i.i.i.i.i.i.i.i:                        ; preds = %if.end46.i.i.i.i
+  %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 132
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, 69874030582233150
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI21grpc_resolved_addressEE8allocateERS1_m.exit.i.i.i.i.i.i.i.i
 
@@ -2178,16 +2176,17 @@ if.then.i.i.i.i.i.i.i.i.i56.i.i.i.i:              ; preds = %_ZNSt16allocator_tr
   store ptr %call5.i.i.i.i2.i6.i58.i.i.i.i, ptr %agg.tmp48.i.i.i.i, align 8
   %_M_finish.i.i.i55.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data", ptr %agg.tmp48.i.i.i.i, i64 0, i32 1
   store ptr %call5.i.i.i.i2.i6.i58.i.i.i.i, ptr %_M_finish.i.i.i55.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %struct.grpc_resolved_address, ptr %call5.i.i.i.i2.i6.i58.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i58.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data", ptr %agg.tmp48.i.i.i.i, i64 0, i32 2
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i58.i.i.i.i, ptr align 4 %51, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %invoke.cont52.i.i.i.i
 
 invoke.cont52.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i.i.i.i56.i.i.i.i, %invoke.cont.i54.thread.i.i.i.i
-  %add.ptr.i.i.i82.i.i.i.i = phi ptr [ %add.ptr.i.i.i79.i.i.i.i, %invoke.cont.i54.thread.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i56.i.i.i.i ]
-  %_M_finish.i.i.i5581.i.i.i.i = phi ptr [ %_M_finish.i.i.i5578.i.i.i.i, %invoke.cont.i54.thread.i.i.i.i ], [ %_M_finish.i.i.i55.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i56.i.i.i.i ]
-  store ptr %add.ptr.i.i.i82.i.i.i.i, ptr %_M_finish.i.i.i5581.i.i.i.i, align 8
+  %_M_finish.i.i.i5582.i.i.i.i = phi ptr [ %_M_finish.i.i.i5578.i.i.i.i, %invoke.cont.i54.thread.i.i.i.i ], [ %_M_finish.i.i.i55.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i56.i.i.i.i ]
+  %cond.i.i.i.i81.i.i.i.i = phi ptr [ null, %invoke.cont.i54.thread.i.i.i.i ], [ %call5.i.i.i.i2.i6.i58.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i56.i.i.i.i ]
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i81.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i5582.i.i.i.i, align 8
   invoke void @_ZN9grpc_core17EndpointAddressesC1ESt6vectorI21grpc_resolved_addressSaIS2_EERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47.i.i.i.i, ptr noundef nonnull %agg.tmp48.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %args.i.i.i.i)
           to label %invoke.cont54.i.i.i.i unwind label %lpad53.i.i.i.i
 

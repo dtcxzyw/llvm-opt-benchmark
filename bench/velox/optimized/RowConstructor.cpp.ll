@@ -187,7 +187,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 invoke.cont4.thread:                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %names, i8 0, i64 24, i1 false)
-  %_M_finish.i.i7.i1881 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl_data", ptr %types, i64 0, i32 1
+  %_M_finish.i.i7.i1880 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl_data", ptr %types, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types, i8 0, i64 24, i1 false)
   br label %for.end
 
@@ -199,13 +199,12 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i
 
 invoke.cont4:                                     ; preds = %for.body.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i22, ptr %types, align 8
-  %add.ptr.i.i.i16 = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i.i22, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i16 = getelementptr i8, ptr %call5.i.i.i.i2.i.i22, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i22, i8 0, i64 %sub.ptr.sub.i, i1 false)
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i22, i64 %sub.ptr.sub.i
   %_M_finish.i.i7.i18 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl_data", ptr %types, i64 0, i32 1
   %2 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl_data", ptr %types, i64 0, i32 2
   store ptr %add.ptr.i.i.i16, ptr %2, align 8
-  store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i18, align 8
+  store ptr %add.ptr.i.i.i16, ptr %_M_finish.i.i7.i18, align 8
   br i1 %cmp.not.i.i.i.i, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %invoke.cont4
@@ -363,7 +362,7 @@ lpad11:                                           ; preds = %lpad11.loopexit.spl
   br label %ehcleanup
 
 for.end:                                          ; preds = %invoke.cont14, %invoke.cont4.thread, %invoke.cont4
-  %_M_finish.i.i7.i1882 = phi ptr [ %_M_finish.i.i7.i1881, %invoke.cont4.thread ], [ %_M_finish.i.i7.i18, %invoke.cont4 ], [ %_M_finish.i.i7.i18, %invoke.cont14 ]
+  %_M_finish.i.i7.i1881 = phi ptr [ %_M_finish.i.i7.i1880, %invoke.cont4.thread ], [ %_M_finish.i.i7.i18, %invoke.cont4 ], [ %_M_finish.i.i7.i18, %invoke.cont14 ]
   invoke void @_ZN8facebook5velox3ROWEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEOS1_ISt10shared_ptrIKNS0_4TypeEESaISE_EE(ptr nonnull sret(%"class.std::shared_ptr.8") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(24) %names, ptr noundef nonnull align 8 dereferenceable(24) %types)
           to label %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit unwind label %lpad11.loopexit.split-lp
 
@@ -374,7 +373,7 @@ _ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit: ; preds = %for.end
   store <2 x ptr> %24, ptr %agg.result, align 8
   store ptr null, ptr %ref.tmp18, align 16
   %25 = load ptr, ptr %types, align 8
-  %26 = load ptr, ptr %_M_finish.i.i7.i1882, align 8
+  %26 = load ptr, ptr %_M_finish.i.i7.i1881, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %25, %26
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 

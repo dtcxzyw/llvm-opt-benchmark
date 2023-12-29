@@ -336,10 +336,10 @@ invoke.cont:                                      ; preds = %entry
   %name_resolver_ = getelementptr inbounds %"class.google::protobuf::compiler::java::EnumLiteGenerator", ptr %this, i64 0, i32 5
   store ptr %call, ptr %name_resolver_, align 8
   %0 = load ptr, ptr %this, align 8
-  %value_count_.i47 = getelementptr inbounds %"class.google::protobuf::EnumDescriptor", ptr %0, i64 0, i32 3
-  %1 = load i32, ptr %value_count_.i47, align 4
-  %cmp48 = icmp sgt i32 %1, 0
-  br i1 %cmp48, label %invoke.cont7.lr.ph, label %for.end
+  %value_count_.i48 = getelementptr inbounds %"class.google::protobuf::EnumDescriptor", ptr %0, i64 0, i32 3
+  %1 = load i32, ptr %value_count_.i48, align 4
+  %cmp49 = icmp sgt i32 %1, 0
+  br i1 %cmp49, label %invoke.cont7.lr.ph, label %for.end
 
 invoke.cont7.lr.ph:                               ; preds = %invoke.cont
   %_M_finish.i10 = getelementptr inbounds %"class.google::protobuf::compiler::java::EnumLiteGenerator", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
@@ -411,23 +411,24 @@ _ZNSt12_Vector_baseIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_M_alloca
   %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i5, %_ZNSt16allocator_traitsISaIPKN6google8protobuf19EnumValueDescriptorEEE8allocateERS5_m.exit.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %add.ptr.i, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
+  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
 
 if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %8, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
+  br label %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
 
-_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_M_allocateEm.exit.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
+  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
   %tobool.not.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i21.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i21.i.i:                                  ; preds = %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %8) #23
   br label %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
-_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i21.i.i, %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
+_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
   store ptr %cond.i10.i.i, ptr %canonical_values_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
@@ -435,17 +436,17 @@ _ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE17_M_realloc_inser
   br label %for.inc
 
 lpad.loopexit:                                    ; preds = %invoke.cont7, %_ZNSt16allocator_traitsISaIPKN6google8protobuf19EnumValueDescriptorEEE8allocateERS5_m.exit.i.i.i, %_ZNSt16allocator_traitsISaIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasEEE8allocateERS6_m.exit.i.i.i
-  %lpad.loopexit45 = landingpad { ptr, i32 }
+  %lpad.loopexit46 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.invoke, %entry
-  %lpad.loopexit.split-lp46 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp47 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit45, %lpad.loopexit ], [ %lpad.loopexit.split-lp46, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit46, %lpad.loopexit ], [ %lpad.loopexit.split-lp47, %lpad.loopexit.split-lp ]
   %9 = load ptr, ptr %aliases_, align 8
   %tobool.not.i.i.i6 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i6, label %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EED2Ev.exit, label %if.then.i.i.i7
@@ -502,36 +503,37 @@ _ZNKSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE1
 
 _ZNSt16allocator_traitsISaIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasEEE8allocateERS6_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i28 = shl nuw nsw i64 %cond.i.i.i26, 4
-  %call5.i.i.i.i.i40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i28) #22
+  %call5.i.i.i.i.i41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i28) #22
           to label %_ZNSt12_Vector_baseIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit
 
 _ZNSt12_Vector_baseIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasEEE8allocateERS6_m.exit.i.i.i, %_ZNKSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i29 = phi ptr [ null, %_ZNKSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i40, %_ZNSt16allocator_traitsISaIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasEEE8allocateERS6_m.exit.i.i.i ]
+  %cond.i10.i.i29 = phi ptr [ null, %_ZNKSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i41, %_ZNSt16allocator_traitsISaIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasEEE8allocateERS6_m.exit.i.i.i ]
   %add.ptr.i.i30 = getelementptr inbounds %"struct.google::protobuf::compiler::java::EnumLiteGenerator::Alias", ptr %cond.i10.i.i29, i64 %sub.ptr.div.i.i.i.i20
   store ptr %add.ptr.i, ptr %add.ptr.i.i30, align 8
   %alias.sroa.3.0.add.ptr.i.i30.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i30, i64 8
   store ptr %call13, ptr %alias.sroa.3.0.add.ptr.i.i30.sroa_idx, align 8
-  %cmp.i.i.i11.i.i31 = icmp sgt i64 %sub.ptr.div.i.i.i.i20, 0
-  br i1 %cmp.i.i.i11.i.i31, label %if.then.i.i.i12.i.i36, label %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i
+  %cmp.i.i.i11.i.i31 = icmp sgt i64 %sub.ptr.sub.i.i.i.i18, 0
+  br i1 %cmp.i.i.i11.i.i31, label %if.then.i.i.i12.i.i37, label %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i
 
-if.then.i.i.i12.i.i36:                            ; preds = %_ZNSt12_Vector_baseIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i12.i.i37:                            ; preds = %_ZNSt12_Vector_baseIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i29, ptr align 8 %14, i64 %sub.ptr.sub.i.i.i.i18, i1 false)
-  br label %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i
+  br label %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i
 
-_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i36, %_ZNSt12_Vector_baseIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i32 = getelementptr inbounds %"struct.google::protobuf::compiler::java::EnumLiteGenerator::Alias", ptr %add.ptr.i.i30, i64 1
-  %tobool.not.i.i.i33 = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i33, label %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %if.then.i21.i.i34
+_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i37, %_ZNSt12_Vector_baseIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_M_allocateEm.exit.i.i
+  %add.ptr.i.i.i.i.i32 = getelementptr inbounds i8, ptr %cond.i10.i.i29, i64 %sub.ptr.sub.i.i.i.i18
+  %incdec.ptr.i.i33 = getelementptr inbounds %"struct.google::protobuf::compiler::java::EnumLiteGenerator::Alias", ptr %add.ptr.i.i.i.i.i32, i64 1
+  %tobool.not.i.i.i34 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i.i34, label %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %if.then.i20.i.i35
 
-if.then.i21.i.i34:                                ; preds = %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i
+if.then.i20.i.i35:                                ; preds = %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %14) #23
   br label %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
 
-_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %if.then.i21.i.i34, %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i
+_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i35, %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i
   store ptr %cond.i10.i.i29, ptr %aliases_, align 8
-  store ptr %incdec.ptr.i.i32, ptr %_M_finish.i10, align 8
-  %add.ptr19.i.i35 = getelementptr inbounds %"struct.google::protobuf::compiler::java::EnumLiteGenerator::Alias", ptr %cond.i10.i.i29, i64 %cond.i.i.i26
-  store ptr %add.ptr19.i.i35, ptr %_M_end_of_storage.i11, align 8
+  store ptr %incdec.ptr.i.i33, ptr %_M_finish.i10, align 8
+  %add.ptr19.i.i36 = getelementptr inbounds %"struct.google::protobuf::compiler::java::EnumLiteGenerator::Alias", ptr %cond.i10.i.i29, i64 %cond.i.i.i26
+  store ptr %add.ptr19.i.i36, ptr %_M_end_of_storage.i11, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN6google8protobuf8compiler4java17EnumLiteGenerator5AliasESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, %if.then.i13, %_ZNSt6vectorIPKN6google8protobuf19EnumValueDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %if.then.i
@@ -3638,7 +3640,7 @@ _ZNKSt6vectorISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
-  %add.ptr = getelementptr inbounds %"class.std::function", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr, i64 0, i32 1
   %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %2 = getelementptr inbounds i8, ptr %add.ptr, i64 8
@@ -4541,7 +4543,7 @@ _ZNKSt6vectorISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
-  %add.ptr = getelementptr inbounds %"class.std::function", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr, i64 0, i32 1
   %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %2 = getelementptr inbounds i8, ptr %add.ptr, i64 8

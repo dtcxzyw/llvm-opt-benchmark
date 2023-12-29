@@ -2189,39 +2189,39 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else42.i.i
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
   %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %if.end.i.i.i.i.i66.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %if.end.i.i.i.i.i65.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i192.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
-          to label %if.end.i.i.i.i.i66.i.i unwind label %lpad.loopexit.split-lp.loopexit.i
+          to label %if.end.i.i.i.i.i65.i.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
-if.end.i.i.i.i.i66.i.i:                           ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
-  %cond.i64.i.i = phi ptr [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i192.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i ]
-  %add.ptr54.i.i = getelementptr i64, ptr %cond.i64.i.i, i64 %sub.ptr.div.i.i75
+if.end.i.i.i.i.i65.i.i:                           ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
+  %cond.i63.i.i = phi ptr [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i192.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i ]
+  %add.ptr54.i.i = getelementptr inbounds i8, ptr %cond.i63.i.i, i64 %sub.ptr.sub.i.i74
   %108 = shl nsw i64 %conv27.i, 3
   %109 = sub i64 %108, %sub.ptr.sub.i.i74
   %110 = and i64 %109, -8
   %111 = add i64 %110, 8
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr54.i.i, i8 0, i64 %111, i1 false)
-  %add.ptr.i.i.i.i.i67.i.i = getelementptr inbounds i64, ptr %cond.i64.i.i, i64 %add47.i
-  %tobool.not.i.i.i.i.i.i.i.i.i77.i.i = icmp eq ptr %nsamples_histogram.sroa.0.2537.i, %nsamples_histogram.sroa.12.2538.i
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i77.i.i, label %invoke.cont64.i.i, label %if.then.i.i.i.i.i.i.i.i.i78.i.i
+  %add.ptr.i.i.i.i.i66.i.i = getelementptr inbounds i64, ptr %add.ptr54.i.i, i64 %sub.i.i79
+  %tobool.not.i.i.i.i.i.i.i.i.i76.i.i = icmp eq ptr %nsamples_histogram.sroa.0.2537.i, %nsamples_histogram.sroa.12.2538.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i76.i.i, label %invoke.cont64.i.i, label %if.then.i.i.i.i.i.i.i.i.i77.i.i
 
-if.then.i.i.i.i.i.i.i.i.i78.i.i:                  ; preds = %if.end.i.i.i.i.i66.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %cond.i64.i.i, ptr align 8 %nsamples_histogram.sroa.0.2537.i, i64 %sub.ptr.sub.i.i74, i1 false)
+if.then.i.i.i.i.i.i.i.i.i77.i.i:                  ; preds = %if.end.i.i.i.i.i65.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %cond.i63.i.i, ptr align 8 %nsamples_histogram.sroa.0.2537.i, i64 %sub.ptr.sub.i.i74, i1 false)
   br label %invoke.cont64.i.i
 
-invoke.cont64.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i.i78.i.i, %if.end.i.i.i.i.i66.i.i
+invoke.cont64.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i.i77.i.i, %if.end.i.i.i.i.i65.i.i
   %tobool.not.i.i190.i = icmp eq ptr %nsamples_histogram.sroa.0.2537.i, null
-  br i1 %tobool.not.i.i190.i, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i, label %if.then.i89.i.i
+  br i1 %tobool.not.i.i190.i, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i, label %if.then.i86.i.i
 
-if.then.i89.i.i:                                  ; preds = %invoke.cont64.i.i
+if.then.i86.i.i:                                  ; preds = %invoke.cont64.i.i
   call void @_ZdlPv(ptr noundef nonnull %nsamples_histogram.sroa.0.2537.i) #21
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i
 
-_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i: ; preds = %if.then.i89.i.i, %invoke.cont64.i.i
-  %add.ptr90.i.i = getelementptr inbounds i64, ptr %cond.i64.i.i, i64 %cond.i.i.i
+_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i: ; preds = %if.then.i86.i.i, %invoke.cont64.i.i
+  %add.ptr90.i.i = getelementptr inbounds i64, ptr %cond.i63.i.i, i64 %cond.i.i.i
   br label %if.end49.i
 
 if.else.i.i:                                      ; preds = %if.then46.i76
@@ -2231,8 +2231,8 @@ if.else.i.i:                                      ; preds = %if.then46.i76
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.else.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i, %if.end.i.i.i.i.i.i.i, %if.end36.i
-  %nsamples_histogram.sroa.0.6.i = phi ptr [ %nsamples_histogram.sroa.0.2537.i, %if.end36.i ], [ %cond.i64.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i ], [ %nsamples_histogram.sroa.0.2537.i, %if.else.i.i ], [ %nsamples_histogram.sroa.0.2537.i, %if.end.i.i.i.i.i.i.i ]
-  %nsamples_histogram.sroa.12.5.i = phi ptr [ %nsamples_histogram.sroa.12.2538.i, %if.end36.i ], [ %add.ptr.i.i.i.i.i67.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i ], [ %spec.select241.i, %if.else.i.i ], [ %add.ptr.i.i.i.i.i49.i.i, %if.end.i.i.i.i.i.i.i ]
+  %nsamples_histogram.sroa.0.6.i = phi ptr [ %nsamples_histogram.sroa.0.2537.i, %if.end36.i ], [ %cond.i63.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i ], [ %nsamples_histogram.sroa.0.2537.i, %if.else.i.i ], [ %nsamples_histogram.sroa.0.2537.i, %if.end.i.i.i.i.i.i.i ]
+  %nsamples_histogram.sroa.12.5.i = phi ptr [ %nsamples_histogram.sroa.12.2538.i, %if.end36.i ], [ %add.ptr.i.i.i.i.i66.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i ], [ %spec.select241.i, %if.else.i.i ], [ %add.ptr.i.i.i.i.i49.i.i, %if.end.i.i.i.i.i.i.i ]
   %nsamples_histogram.sroa.25.5.i = phi ptr [ %nsamples_histogram.sroa.25.2539.i, %if.end36.i ], [ %add.ptr90.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i ], [ %nsamples_histogram.sroa.25.2539.i, %if.else.i.i ], [ %nsamples_histogram.sroa.25.2539.i, %if.end.i.i.i.i.i.i.i ]
   %add.ptr.i90.i = getelementptr inbounds i64, ptr %nsamples_histogram.sroa.0.6.i, i64 %conv27.i
   %112 = load i64, ptr %add.ptr.i90.i, align 8

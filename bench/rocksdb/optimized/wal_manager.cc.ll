@@ -715,7 +715,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaI
   %.pre83 = phi ptr [ %.pre83.pre, %if.then.i.i ], [ %39, %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i ]
   %.pre82 = phi ptr [ %.pre82.pre, %if.then.i.i ], [ %40, %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i ]
   store ptr %call5.i.i.i.i51, ptr %files, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.49", ptr %call5.i.i.i.i51, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i51, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds %"class.std::unique_ptr.49", ptr %call5.i.i.i.i51, i64 %add
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
@@ -1030,7 +1030,6 @@ _ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaI
   %18 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i9.i = ashr exact i64 %sub.ptr.sub.i8.i, 3
   %mul.i.i.i.i = ashr exact i64 %sub.ptr.sub.i, 2
   %call5.i.i.i.i18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
           to label %call5.i.i.i.i.noexc unwind label %lpad2.loopexit.split-lp
@@ -1067,7 +1066,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i18, ptr %log_files, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.49", ptr %call5.i.i.i.i18, i64 %sub.ptr.div.i9.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i18, i64 %sub.ptr.sub.i8.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds %"class.std::unique_ptr.49", ptr %call5.i.i.i.i18, i64 %sub.ptr.div.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
@@ -2214,19 +2213,19 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.not20 = icmp slt i64 %sub.ptr.div.i, 1
-  br i1 %cmp.not20, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %while.body.preheader
+  %cmp.not19 = icmp slt i64 %sub.ptr.div.i, 1
+  br i1 %cmp.not19, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div.i, -1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.else
-  %start.022 = phi i64 [ %start.1, %if.else ], [ 0, %while.body.preheader ]
-  %end.021 = phi i64 [ %end.1, %if.else ], [ %sub, %while.body.preheader ]
-  %sub2 = sub nsw i64 %end.021, %start.022
+  %start.021 = phi i64 [ %start.1, %if.else ], [ 0, %while.body.preheader ]
+  %end.020 = phi i64 [ %end.1, %if.else ], [ %sub, %while.body.preheader ]
+  %sub2 = sub nsw i64 %end.020, %start.021
   %div = sdiv i64 %sub2, 2
-  %add = add nsw i64 %div, %start.022
+  %add = add nsw i64 %div, %start.021
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %all_logs, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -2254,8 +2253,8 @@ if.else:                                          ; preds = %_ZNSt6vectorISt10un
   %cmp7 = icmp ult i64 %call5, %target
   %add9 = add nuw nsw i64 %add, 1
   %sub11 = add nsw i64 %add, -1
-  %end.1 = select i1 %cmp7, i64 %end.021, i64 %sub11
-  %start.1 = select i1 %cmp7, i64 %add9, i64 %start.022
+  %end.1 = select i1 %cmp7, i64 %end.020, i64 %sub11
+  %start.1 = select i1 %cmp7, i64 %add9, i64 %start.021
   %cmp.not = icmp slt i64 %end.1, %start.1
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !29
 
@@ -2314,8 +2313,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i13, %if.
   %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %if.end.loopexit.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i1.i, %if.then.i.i13 ]
   %10 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %6, %if.then6.i.i ], [ %add.ptr.i, %if.then.i.i13 ]
   %sub.ptr.sub.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.lhs.cast.i1.i
-  %sub.ptr.div.i.i.i16 = ashr exact i64 %sub.ptr.sub.i.i.i15, 3
-  %add.ptr.i6.i = getelementptr inbounds %"class.std::unique_ptr.49", ptr %.pre, i64 %sub.ptr.div.i.i.i16
+  %add.ptr.i6.i = getelementptr inbounds i8, ptr %.pre, i64 %sub.ptr.sub.i.i.i15
   %tobool.not.i.i.i = icmp eq ptr %10, %add.ptr.i6.i
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %for.body.i.i.i.i.i.i
 

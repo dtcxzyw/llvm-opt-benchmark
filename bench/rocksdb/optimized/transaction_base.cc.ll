@@ -4266,7 +4266,7 @@ _ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds
 _ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %call5.i.i.i.i2.i.i17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #24
   store ptr %call5.i.i.i.i2.i.i17, ptr %agg.result, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %call5.i.i.i.i2.i.i17, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i17, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Status, std::allocator<rocksdb::Status>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %for.inc.i.i.i.i.i
@@ -5090,7 +5090,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb6StatusEEE8allocateERS2_m.exit.i.i.i.i34: ; 
 _ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i35: ; preds = %_ZNSt16allocator_traitsISaIN7rocksdb6StatusEEE8allocateERS2_m.exit.i.i.i.i34
   store ptr %call5.i.i.i.i2.i.i47, ptr %agg.result, align 8
   store ptr %call5.i.i.i.i2.i.i47, ptr %_M_finish.i.i.i37, align 8
-  %add.ptr.i.i.i38 = getelementptr inbounds %"class.rocksdb::Status", ptr %call5.i.i.i.i2.i.i47, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i38 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i47, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i.i.i38, ptr %_M_end_of_storage.i.i.i39, align 8
   invoke void @_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE18_M_fill_initializeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(16) %s5)
           to label %cleanup unwind label %lpad.i40
@@ -5165,7 +5165,7 @@ invoke.cont18.thread:                             ; preds = %_ZNSt6vectorIN7rock
 _ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i61: ; preds = %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59
   %call5.i.i.i.i2.i.i69 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #24
   store ptr %call5.i.i.i.i2.i.i69, ptr %agg.result, align 8
-  %add.ptr.i.i.i62 = getelementptr inbounds %"class.rocksdb::Status", ptr %call5.i.i.i.i2.i.i69, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i62 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i69, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i63 = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Status, std::allocator<rocksdb::Status>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
   store ptr %add.ptr.i.i.i62, ptr %_M_end_of_storage.i.i.i63, align 8
   br label %for.inc.i.i.i.i.i

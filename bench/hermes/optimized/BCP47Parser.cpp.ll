@@ -395,7 +395,7 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEE9constructIS5_JRN9__gnu_cxx17__normal_iteratorIPKDsS5_EESE_EEEvRS6_PT_DpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   store i64 %sub.ptr.div.i.i.i.i.i.i.i.i, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i16, ptr %11, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i.i, align 2
   %13 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %13, i64 1
@@ -3018,7 +3018,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit: ; preds = %if.end.i.i, %if.then.i.i.i.i, %if.end.i.i.i.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
   store i64 %2, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %3, i64 %2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.idx.i
   store i16 0, ptr %arrayidx.i.i.i, align 2
   %second = getelementptr inbounds %"struct.std::pair.24", ptr %this, i64 0, i32 1
   %5 = getelementptr inbounds %"struct.std::pair.24", ptr %this, i64 0, i32 1, i32 2
@@ -3064,7 +3064,7 @@ if.end.i.i.i.i.i8:                                ; preds = %if.end.i.i4
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit15: ; preds = %if.end.i.i4, %if.then.i.i.i.i7, %if.end.i.i.i.i.i8
   %_M_string_length.i.i.i.i5 = getelementptr inbounds %"struct.std::pair.24", ptr %this, i64 0, i32 1, i32 1
   store i64 %7, ptr %_M_string_length.i.i.i.i5, align 8
-  %arrayidx.i.i.i6 = getelementptr inbounds i16, ptr %8, i64 %7
+  %arrayidx.i.i.i6 = getelementptr inbounds i8, ptr %8, i64 %add.ptr.idx.i2
   store i16 0, ptr %arrayidx.i.i.i6, align 2
   ret void
 }
@@ -5648,7 +5648,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEE9constructIS5_JRN9__gnu_cxx17__normal_iteratorIPKDsS5_EESE_EEEvRS6_PT_DpOT0_.exit: ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
   store i64 %sub.ptr.div.i.i.i.i.i.i.i, ptr %_M_string_length.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 %sub.ptr.div.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i
@@ -6028,7 +6028,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit: ; preds = %if.end.i.i, %if.then.i.i.i.i, %if.end.i.i.i.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds %"struct.hermes::platform_intl::ParsedLocaleIdentifier", ptr %this, i64 0, i32 6, i32 1
   store i64 %23, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %24, i64 %23
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %24, i64 %add.ptr.idx.i
   store i16 0, ptr %arrayidx.i.i.i, align 2
   ret void
 }
@@ -6080,7 +6080,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit: ; preds = %if.end.i.i, %if.then.i.i.i.i, %if.end.i.i.i.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
   store i64 %3, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %4, i64 %3
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %add.ptr.idx.i
   store i16 0, ptr %arrayidx.i.i.i, align 2
   %scriptSubtag = getelementptr inbounds %"struct.hermes::platform_intl::ParsedLocaleIdentifier::ParsedLanguageIdentifier", ptr %this, i64 0, i32 1
   %scriptSubtag3 = getelementptr inbounds %"struct.hermes::platform_intl::ParsedLocaleIdentifier::ParsedLanguageIdentifier", ptr %0, i64 0, i32 1
@@ -6127,7 +6127,7 @@ if.end.i.i.i.i.i11:                               ; preds = %if.end.i.i7
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit18: ; preds = %if.end.i.i7, %if.then.i.i.i.i10, %if.end.i.i.i.i.i11
   %_M_string_length.i.i.i.i8 = getelementptr inbounds %"struct.hermes::platform_intl::ParsedLocaleIdentifier::ParsedLanguageIdentifier", ptr %this, i64 0, i32 1, i32 1
   store i64 %8, ptr %_M_string_length.i.i.i.i8, align 8
-  %arrayidx.i.i.i9 = getelementptr inbounds i16, ptr %9, i64 %8
+  %arrayidx.i.i.i9 = getelementptr inbounds i8, ptr %9, i64 %add.ptr.idx.i5
   store i16 0, ptr %arrayidx.i.i.i9, align 2
   %regionSubtag = getelementptr inbounds %"struct.hermes::platform_intl::ParsedLocaleIdentifier::ParsedLanguageIdentifier", ptr %this, i64 0, i32 2
   %regionSubtag4 = getelementptr inbounds %"struct.hermes::platform_intl::ParsedLocaleIdentifier::ParsedLanguageIdentifier", ptr %0, i64 0, i32 2
@@ -6174,7 +6174,7 @@ if.end.i.i.i.i.i26:                               ; preds = %if.end.i.i22
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit33: ; preds = %if.end.i.i22, %if.then.i.i.i.i25, %if.end.i.i.i.i.i26
   %_M_string_length.i.i.i.i23 = getelementptr inbounds %"struct.hermes::platform_intl::ParsedLocaleIdentifier::ParsedLanguageIdentifier", ptr %this, i64 0, i32 2, i32 1
   store i64 %13, ptr %_M_string_length.i.i.i.i23, align 8
-  %arrayidx.i.i.i24 = getelementptr inbounds i16, ptr %14, i64 %13
+  %arrayidx.i.i.i24 = getelementptr inbounds i8, ptr %14, i64 %add.ptr.idx.i20
   store i16 0, ptr %arrayidx.i.i.i24, align 2
   %16 = getelementptr inbounds %"struct.hermes::platform_intl::ParsedLocaleIdentifier::ParsedLanguageIdentifier", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1
   store i32 0, ptr %16, align 8
@@ -6278,7 +6278,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE13_M_clone_nodeILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit: ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 %2
+  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.idx.i.i.i.i.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 2
   %5 = load i32, ptr %__x, align 8
   store i32 %5, ptr %call5.i.i.i.i.i.i, align 8
@@ -6352,7 +6352,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i34:                   ; preds = %if.end.i.i.i.i.i.i.
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE13_M_clone_nodeILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit41: ; preds = %if.end.i.i.i.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i.i.i.i33, %if.end.i.i.i.i.i.i.i.i.i.i.i34
   %_M_string_length.i.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i24, i64 0, i32 1, i32 0, i64 8
   store i64 %9, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i30, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i31 = getelementptr inbounds i16, ptr %10, i64 %9
+  %arrayidx.i.i.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %10, i64 %add.ptr.idx.i.i.i.i.i.i.i27
   store i16 0, ptr %arrayidx.i.i.i.i.i.i.i.i.i31, align 2
   %12 = load i32, ptr %__x.addr.048, align 8
   store i32 %12, ptr %call5.i.i.i.i.i.i24, align 8
@@ -6495,7 +6495,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit: ; preds = %if.end.i.i, %if.then.i.i.i.i, %if.end.i.i.i.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
   store i64 %3, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %4, i64 %3
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %add.ptr.idx.i
   store i16 0, ptr %arrayidx.i.i.i, align 2
   %second = getelementptr inbounds %"struct.std::pair.24", ptr %this, i64 0, i32 1
   %second3 = getelementptr inbounds %"struct.std::pair.24", ptr %0, i64 0, i32 1
@@ -6542,7 +6542,7 @@ if.end.i.i.i.i.i9:                                ; preds = %if.end.i.i5
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit16: ; preds = %if.end.i.i5, %if.then.i.i.i.i8, %if.end.i.i.i.i.i9
   %_M_string_length.i.i.i.i6 = getelementptr inbounds %"struct.std::pair.24", ptr %this, i64 0, i32 1, i32 1
   store i64 %8, ptr %_M_string_length.i.i.i.i6, align 8
-  %arrayidx.i.i.i7 = getelementptr inbounds i16, ptr %9, i64 %8
+  %arrayidx.i.i.i7 = getelementptr inbounds i8, ptr %9, i64 %add.ptr.idx.i3
   store i16 0, ptr %arrayidx.i.i.i7, align 2
   ret void
 }
@@ -6600,7 +6600,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i.
 _ZNSt8_Rb_treeIDsSt4pairIKDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEESt10_Select1stIS8_ESt4lessIDsESaIS8_EE13_M_clone_nodeILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_RT0_.exit: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.37", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
   store i64 %3, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %4, i64 %3
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %add.ptr.idx.i.i.i.i.i.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 2
   %6 = load i32, ptr %__x, align 8
   store i32 %6, ptr %call5.i.i.i.i.i.i, align 8
@@ -6678,7 +6678,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i36:                 ; preds = %if.end.i.i.i.i.i.i.
 _ZNSt8_Rb_treeIDsSt4pairIKDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEESt10_Select1stIS8_ESt4lessIDsESaIS8_EE13_M_clone_nodeILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_RT0_.exit43: ; preds = %if.end.i.i.i.i.i.i.i.i.i31, %if.then.i.i.i.i.i.i.i.i.i.i.i35, %if.end.i.i.i.i.i.i.i.i.i.i.i.i36
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds %"struct.std::_Rb_tree_node.37", ptr %call5.i.i.i.i.i.i24, i64 0, i32 1, i32 0, i64 16
   store i64 %11, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i32, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds i16, ptr %12, i64 %11
+  %arrayidx.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %12, i64 %add.ptr.idx.i.i.i.i.i.i.i.i29
   store i16 0, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i33, align 2
   %14 = load i32, ptr %__x.addr.050, align 8
   store i32 %14, ptr %call5.i.i.i.i.i.i24, align 8
@@ -7351,7 +7351,7 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE11_Alloc_nodeclIRKS5_EEPSt13_Rb_tree_nodeIS5_EOT_.exit: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
   store i64 %7, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %10, i64 %7
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %add.ptr.idx.i.i.i.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i.i.i.i, align 2
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %8, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #14
   %_M_node_count = getelementptr inbounds i8, ptr %this, i64 40
@@ -7618,7 +7618,7 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2ERKS4_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.35", ptr %call5.i.i.i, i64 0, i32 1, i32 0, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 %2
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.idx.i.i.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i.i.i, align 2
   %second.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.35", ptr %call5.i.i.i, i64 0, i32 1, i32 0, i64 32
   %second3.i.i.i.i = getelementptr inbounds %"struct.std::pair.24", ptr %__args, i64 0, i32 1

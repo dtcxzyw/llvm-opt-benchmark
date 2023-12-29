@@ -1260,8 +1260,7 @@ invoke.cont205:                                   ; preds = %invoke.cont202
   %sub.ptr.lhs.cast.i = ptrtoint ptr %107 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %108 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %109 = getelementptr %"class.std::__cxx11::basic_string", ptr %108, i64 %sub.ptr.div.i
+  %109 = getelementptr i8, ptr %108, i64 %sub.ptr.sub.i
   %add.ptr.i364 = getelementptr %"class.std::__cxx11::basic_string", ptr %109, i64 -1
   %call210 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i364, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #24

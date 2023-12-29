@@ -4765,7 +4765,7 @@ invoke.cont6:                                     ; preds = %.noexc14
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont6
   store ptr %call5.i.i.i.i110, ptr %ref.tmp, align 8
-  %add.ptr.i108 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i110, i64 2
+  %add.ptr.i108 = getelementptr inbounds i8, ptr %call5.i.i.i.i110, i64 64
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i108, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i.i.i.i
@@ -4861,7 +4861,7 @@ invoke.cont21:                                    ; preds = %invoke.cont17
 
 call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont21
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp10, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::shared_ptr", ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl_data", ptr %ref.tmp10, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i

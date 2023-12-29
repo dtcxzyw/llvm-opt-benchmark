@@ -184,7 +184,7 @@ lpad7:                                            ; preds = %if.then14.invoke
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont
-  %7 = getelementptr %"class.std::__cxx11::basic_string", ptr %1, i64 %sub.ptr.div.i
+  %7 = getelementptr i8, ptr %1, i64 %sub.ptr.sub.i
   %add.ptr.i16 = getelementptr %"class.std::__cxx11::basic_string", ptr %7, i64 -2
   %call12 = call fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_17viewNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i16, ptr noundef nonnull align 8 dereferenceable(24) %multiView)
   %cmp13 = icmp sgt i32 %call12, -1
@@ -760,7 +760,7 @@ if.end:                                           ; preds = %invoke.cont5
 
 land.lhs.true:                                    ; preds = %if.end
   %7 = load ptr, ptr %chan1, align 8
-  %8 = getelementptr %"class.std::__cxx11::basic_string", ptr %7, i64 %sub.ptr.div.i
+  %8 = getelementptr i8, ptr %7, i64 %sub.ptr.sub.i
   %add.ptr.i = getelementptr %"class.std::__cxx11::basic_string", ptr %8, i64 -2
   %call12 = call fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_17viewNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %multiView)
   %cmp13 = icmp eq i32 %call12, -1
@@ -777,7 +777,7 @@ if.end15:                                         ; preds = %land.lhs.true, %if.
 
 land.lhs.true17:                                  ; preds = %if.end15
   %10 = load ptr, ptr %chan2, align 8
-  %11 = getelementptr %"class.std::__cxx11::basic_string", ptr %10, i64 %sub.ptr.div.i29
+  %11 = getelementptr i8, ptr %10, i64 %sub.ptr.sub.i28
   %add.ptr.i30 = getelementptr %"class.std::__cxx11::basic_string", ptr %11, i64 -2
   %call21 = call fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_17viewNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i30, ptr noundef nonnull align 8 dereferenceable(24) %multiView)
   %cmp22 = icmp eq i32 %call21, -1

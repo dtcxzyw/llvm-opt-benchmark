@@ -473,7 +473,7 @@ _ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i: ; preds =
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
-  %add.ptr.i.i112 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i112 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store ptr %prev.i.0291, ptr %add.ptr.i.i112, align 8, !tbaa !15
   %e_.i.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %prev.i.0291, i64 %sub.ptr.sub.i.i
@@ -584,7 +584,7 @@ _ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i130: ; pred
   tail call void @llvm.assume(i1 %cmp.not.i.i.i138)
   %mul.i.i.i.i.i139 = shl nuw nsw i64 %cond.i.i.i137, 4
   %call5.i.i.i.i.i140 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i139) #22
-  %add.ptr.i.i141 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i140, i64 %sub.ptr.div.i.i.i.i131
+  %add.ptr.i.i141 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i140, i64 %sub.ptr.sub.i.i.i.i128
   store ptr %prev.i.2295, ptr %add.ptr.i.i141, align 8, !tbaa !15
   %e_.i.i.i.i.i142 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i140, i64 %sub.ptr.div.i.i.i.i131, i32 1
   %add.ptr.i.i.i.i.i143 = getelementptr inbounds i8, ptr %prev.i.2295, i64 %sub.ptr.sub.i.i.i
@@ -710,7 +710,7 @@ _ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i177: ; pred
   tail call void @llvm.assume(i1 %cmp.not.i.i.i185)
   %mul.i.i.i.i.i186 = shl nuw nsw i64 %cond.i.i.i184, 4
   %call5.i.i.i.i.i187 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i186) #22
-  %add.ptr.i.i188 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i187, i64 %sub.ptr.div.i.i.i.i178
+  %add.ptr.i.i188 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i187, i64 %sub.ptr.sub.i.i.i.i175
   store ptr %prev.i.5306, ptr %add.ptr.i.i188, align 8, !tbaa !15
   %e_.i.i.i.i.i189 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i187, i64 %sub.ptr.div.i.i.i.i178, i32 1
   %add.ptr.i.i.i.i.i190 = getelementptr inbounds i8, ptr %prev.i.5306, i64 %sub.ptr.sub.i.i65
@@ -795,7 +795,7 @@ _ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i224: ; pred
   tail call void @llvm.assume(i1 %cmp.not.i.i.i232)
   %mul.i.i.i.i.i233 = shl nuw nsw i64 %cond.i.i.i231, 4
   %call5.i.i.i.i.i234 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i233) #22
-  %add.ptr.i.i235 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i234, i64 %sub.ptr.div.i.i.i.i225
+  %add.ptr.i.i235 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i234, i64 %sub.ptr.sub.i.i.i.i222
   store ptr %prev.i.7, ptr %add.ptr.i.i235, align 8, !tbaa !15
   %e_.i.i.i.i.i236 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i234, i64 %sub.ptr.div.i.i.i.i225, i32 1
   %add.ptr.i.i.i.i.i237 = getelementptr inbounds i8, ptr %prev.i.7, i64 %sub.ptr.sub.i7
@@ -976,7 +976,7 @@ _ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i: ; preds =
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
-  %add.ptr.i.i105 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i105 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store ptr %prev.i.0288, ptr %add.ptr.i.i105, align 8, !tbaa !15
   %e_.i.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %prev.i.0288, i64 %sub.ptr.sub.i.i
@@ -1084,7 +1084,7 @@ _ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i123: ; pred
   tail call void @llvm.assume(i1 %cmp.not.i.i.i131)
   %mul.i.i.i.i.i132 = shl nuw nsw i64 %cond.i.i.i130, 4
   %call5.i.i.i.i.i133 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i132) #22
-  %add.ptr.i.i134 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i133, i64 %sub.ptr.div.i.i.i.i124
+  %add.ptr.i.i134 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i133, i64 %sub.ptr.sub.i.i.i.i121
   store ptr %prev.i.2292, ptr %add.ptr.i.i134, align 8, !tbaa !15
   %e_.i.i.i.i.i135 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i133, i64 %sub.ptr.div.i.i.i.i124, i32 1
   %add.ptr.i.i.i.i.i136 = getelementptr inbounds i8, ptr %prev.i.2292, i64 %sub.ptr.sub.i.i.i
@@ -1210,7 +1210,7 @@ _ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i170: ; pred
   tail call void @llvm.assume(i1 %cmp.not.i.i.i178)
   %mul.i.i.i.i.i179 = shl nuw nsw i64 %cond.i.i.i177, 4
   %call5.i.i.i.i.i180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i179) #22
-  %add.ptr.i.i181 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i180, i64 %sub.ptr.div.i.i.i.i171
+  %add.ptr.i.i181 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i180, i64 %sub.ptr.sub.i.i.i.i168
   store ptr %prev.i.5303, ptr %add.ptr.i.i181, align 8, !tbaa !15
   %e_.i.i.i.i.i182 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i180, i64 %sub.ptr.div.i.i.i.i171, i32 1
   %add.ptr.i.i.i.i.i183 = getelementptr inbounds i8, ptr %prev.i.5303, i64 %sub.ptr.sub.i.i72
@@ -1297,7 +1297,7 @@ _ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i217: ; pred
   tail call void @llvm.assume(i1 %cmp.not.i.i.i225)
   %mul.i.i.i.i.i226 = shl nuw nsw i64 %cond.i.i.i224, 4
   %call5.i.i.i.i.i227 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i226) #22
-  %add.ptr.i.i228 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i227, i64 %sub.ptr.div.i.i.i.i218
+  %add.ptr.i.i228 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i227, i64 %sub.ptr.sub.i.i.i.i215
   store ptr %prev.i.7, ptr %add.ptr.i.i228, align 8, !tbaa !15
   %e_.i.i.i.i.i229 = getelementptr inbounds %"class.folly::Range", ptr %call5.i.i.i.i.i227, i64 %sub.ptr.div.i.i.i.i218, i32 1
   %add.ptr.i.i.i.i.i230 = getelementptr inbounds i8, ptr %prev.i.7, i64 %sub.ptr.sub.i8
@@ -1800,7 +1800,7 @@ _ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE10M_allocateEm.exit: ; preds = %if.end
   %sub.ptr.rhs.cast.i87 = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i88 = sub i64 %sub.ptr.lhs.cast.i86, %sub.ptr.rhs.cast.i87
   %sub.ptr.div.i89 = ashr exact i64 %sub.ptr.sub.i88, 4
-  %add.ptr31 = getelementptr inbounds %"class.folly::Range", ptr %call.i.i.i, i64 %sub.ptr.div.i89
+  %add.ptr31 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i88
   %cmp.not.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINS_5RangeIPKcEESaIS6_EE16emplace_back_auxIJRS5_lEEEvDpOT_EUlvE_Lb1EED2Ev.exit.thread, label %if.then40
 
@@ -10583,7 +10583,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
-  %add.ptr.i.i98 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store i64 %sub.ptr.sub.i.i, ptr %add.ptr.i.i98, align 8, !tbaa !199
   %_M_str.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
   store ptr %prev.i.0271, ptr %_M_str.i.i.i.i.i, align 8, !tbaa !201
@@ -10692,7 +10692,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   tail call void @llvm.assume(i1 %cmp.not.i.i.i123)
   %mul.i.i.i.i.i124 = shl nuw nsw i64 %cond.i.i.i122, 4
   %call5.i.i.i.i.i125 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i124) #22
-  %add.ptr.i.i126 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i125, i64 %sub.ptr.div.i.i.i.i116
+  %add.ptr.i.i126 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i125, i64 %sub.ptr.sub.i.i.i.i113
   store i64 %sub.ptr.sub.i.i.i, ptr %add.ptr.i.i126, align 8, !tbaa !199
   %_M_str.i.i.i.i.i127 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i125, i64 %sub.ptr.div.i.i.i.i116, i32 1
   store ptr %prev.i.2275, ptr %_M_str.i.i.i.i.i127, align 8, !tbaa !201
@@ -10816,7 +10816,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   tail call void @llvm.assume(i1 %cmp.not.i.i.i168)
   %mul.i.i.i.i.i169 = shl nuw nsw i64 %cond.i.i.i167, 4
   %call5.i.i.i.i.i170 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i169) #22
-  %add.ptr.i.i171 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i170, i64 %sub.ptr.div.i.i.i.i161
+  %add.ptr.i.i171 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i170, i64 %sub.ptr.sub.i.i.i.i158
   store i64 %sub.ptr.sub.i.i67, ptr %add.ptr.i.i171, align 8, !tbaa !199
   %_M_str.i.i.i.i.i172 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i170, i64 %sub.ptr.div.i.i.i.i161, i32 1
   store ptr %prev.i.5286, ptr %_M_str.i.i.i.i.i172, align 8, !tbaa !201
@@ -10899,7 +10899,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   tail call void @llvm.assume(i1 %cmp.not.i.i.i213)
   %mul.i.i.i.i.i214 = shl nuw nsw i64 %cond.i.i.i212, 4
   %call5.i.i.i.i.i215 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i214) #22
-  %add.ptr.i.i216 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i215, i64 %sub.ptr.div.i.i.i.i206
+  %add.ptr.i.i216 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i215, i64 %sub.ptr.sub.i.i.i.i203
   store i64 %sub.ptr.sub.i6, ptr %add.ptr.i.i216, align 8, !tbaa !199
   %_M_str.i.i.i.i.i217 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i215, i64 %sub.ptr.div.i.i.i.i206, i32 1
   store ptr %prev.i.7, ptr %_M_str.i.i.i.i.i217, align 8, !tbaa !201
@@ -11043,7 +11043,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
-  %add.ptr.i.i105 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i105 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store i64 %sub.ptr.sub.i.i, ptr %add.ptr.i.i105, align 8, !tbaa !199
   %_M_str.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
   store ptr %prev.i.0282, ptr %_M_str.i.i.i.i.i, align 8, !tbaa !201
@@ -11149,7 +11149,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   tail call void @llvm.assume(i1 %cmp.not.i.i.i130)
   %mul.i.i.i.i.i131 = shl nuw nsw i64 %cond.i.i.i129, 4
   %call5.i.i.i.i.i132 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i131) #22
-  %add.ptr.i.i133 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i132, i64 %sub.ptr.div.i.i.i.i123
+  %add.ptr.i.i133 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i132, i64 %sub.ptr.sub.i.i.i.i120
   store i64 %sub.ptr.sub.i.i.i, ptr %add.ptr.i.i133, align 8, !tbaa !199
   %_M_str.i.i.i.i.i134 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i132, i64 %sub.ptr.div.i.i.i.i123, i32 1
   store ptr %prev.i.2286, ptr %_M_str.i.i.i.i.i134, align 8, !tbaa !201
@@ -11273,7 +11273,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   tail call void @llvm.assume(i1 %cmp.not.i.i.i175)
   %mul.i.i.i.i.i176 = shl nuw nsw i64 %cond.i.i.i174, 4
   %call5.i.i.i.i.i177 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i176) #22
-  %add.ptr.i.i178 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i177, i64 %sub.ptr.div.i.i.i.i168
+  %add.ptr.i.i178 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i177, i64 %sub.ptr.sub.i.i.i.i165
   store i64 %sub.ptr.sub.i.i72, ptr %add.ptr.i.i178, align 8, !tbaa !199
   %_M_str.i.i.i.i.i179 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i177, i64 %sub.ptr.div.i.i.i.i168, i32 1
   store ptr %prev.i.5297, ptr %_M_str.i.i.i.i.i179, align 8, !tbaa !201
@@ -11358,7 +11358,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   tail call void @llvm.assume(i1 %cmp.not.i.i.i220)
   %mul.i.i.i.i.i221 = shl nuw nsw i64 %cond.i.i.i219, 4
   %call5.i.i.i.i.i222 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i221) #22
-  %add.ptr.i.i223 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i222, i64 %sub.ptr.div.i.i.i.i213
+  %add.ptr.i.i223 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i222, i64 %sub.ptr.sub.i.i.i.i210
   store i64 %sub.ptr.sub.i8, ptr %add.ptr.i.i223, align 8, !tbaa !199
   %_M_str.i.i.i.i.i224 = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i.i222, i64 %sub.ptr.div.i.i.i.i213, i32 1
   store ptr %prev.i.7, ptr %_M_str.i.i.i.i.i224, align 8, !tbaa !201
@@ -11859,7 +11859,7 @@ _ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE10M_allocat
   br i1 %cmp.not.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit.thread, label %if.then39
 
 _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit.thread: ; preds = %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE10M_allocateEm.exit
-  %add.ptr31114 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i.i.i, i64 %sub.ptr.div.i88
+  %add.ptr31114 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i87
   %24 = load ptr, ptr %args, align 8, !tbaa !10
   %25 = load i64, ptr %args1, align 8, !tbaa !70
   store i64 %25, ptr %add.ptr31114, align 8, !tbaa !199
@@ -11869,7 +11869,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorISt17basic_string_viewIcSt11char_t
 
 if.then39:                                        ; preds = %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE10M_allocateEm.exit
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr nonnull align 1 %23, i64 %sub.ptr.sub.i87, i1 false)
-  %add.ptr31 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i.i.i, i64 %sub.ptr.div.i88
+  %add.ptr31 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i87
   %26 = load ptr, ptr %args, align 8, !tbaa !10
   %27 = load i64, ptr %args1, align 8, !tbaa !70
   store i64 %27, ptr %add.ptr31, align 8, !tbaa !199
@@ -11879,7 +11879,7 @@ if.then39:                                        ; preds = %_ZN5folly8fbvectorI
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then39, %_ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit.thread
-  %28 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i.i.i, i64 %sub.ptr.div.i88
+  %28 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i87
   %incdec.ptr36117 = getelementptr inbounds %"class.std::basic_string_view", ptr %28, i64 1
   store ptr %call.i.i.i, ptr %this, align 8, !tbaa !261
   store ptr %incdec.ptr36117, ptr %e_.i84, align 8, !tbaa !253
@@ -23176,7 +23176,7 @@ _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE1
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
   %sub.ptr.div.i92 = ashr exact i64 %sub.ptr.sub.i91, 5
-  %add.ptr31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i, i64 %sub.ptr.div.i92
+  %add.ptr31 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i91
   %31 = load ptr, ptr %args, align 8, !tbaa !10
   %32 = load i64, ptr %args1, align 8, !tbaa !70
   %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i, i64 %sub.ptr.div.i92, i32 2
@@ -24760,8 +24760,7 @@ _ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_cor
   %sub.ptr.lhs.cast.i84 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i85 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i86 = sub i64 %sub.ptr.lhs.cast.i84, %sub.ptr.rhs.cast.i85
-  %sub.ptr.div.i87 = sdiv exact i64 %sub.ptr.sub.i86, 24
-  %add.ptr31 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %call.i.i.i, i64 %sub.ptr.div.i87
+  %add.ptr31 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i86
   %cmp.not.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 

@@ -1758,7 +1758,7 @@ _ZN5eastlltIJifEEEbRKNS_7variantIJDpT_EEES6_.exit:
 
 call.i.i.i.i.i.noexc.i:                           ; preds = %_ZN5eastlltIJifEEEbRKNS_7variantIJDpT_EEES6_.exit
   store ptr %call.i.i.i.i.i1.i, ptr %v, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.eastl::variant.30", ptr %call.i.i.i.i.i1.i, i64 9
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 360
   %mCapacityAllocator.i.i.i.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %v, i64 0, i32 2
   store ptr %add.ptr.i.i.i, ptr %mCapacityAllocator.i.i.i.i, align 8
   %mpEnd.i.i.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %v, i64 0, i32 1

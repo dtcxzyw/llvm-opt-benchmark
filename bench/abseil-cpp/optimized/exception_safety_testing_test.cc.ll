@@ -35250,7 +35250,7 @@ for.body.i.i.i.i.preheader.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call5.i.i.i.i5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   store ptr %call5.i.i.i.i5, ptr %this, align 8
-  %add.ptr.i4 = getelementptr inbounds %"class.std::function.276", ptr %call5.i.i.i.i5, i64 1
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i5, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::ExampleStruct *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::ExampleStruct *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr.i4, ptr %_M_end_of_storage.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %call5.i.i.i.i5, i64 0, i32 1
@@ -36459,7 +36459,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.306", ptr %__l.coerce0, i64 %__l.coerce1
   %add.ptr.i.idx = shl nsw i64 %__l.coerce1, 5
-  %cmp.i.i = icmp ugt i64 %__l.coerce1, 288230376151711743
+  %cmp.i.i = icmp ugt i64 %add.ptr.i.idx, 9223372036854775776
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -36471,7 +36471,13 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i: ; preds = %entry
   %cmp.not.i.i = icmp eq i64 %__l.coerce1, 0
-  br i1 %cmp.not.i.i, label %invoke.cont, label %for.body.i.i.i.i.preheader.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i, label %for.body.i.i.i.i.preheader.i
+
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
+  %add.ptr9.i = getelementptr inbounds i8, ptr null, i64 %add.ptr.i.idx
+  %_M_end_of_storage10.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::FailsBasicGuarantee *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::FailsBasicGuarantee *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  store ptr %add.ptr9.i, ptr %_M_end_of_storage10.i, align 8
+  br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
   %call5.i.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #25
@@ -36479,7 +36485,7 @@ for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8fun
 
 call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.preheader.i
   store ptr %call5.i.i.i.i5, ptr %this, align 8
-  %add.ptr.i4 = getelementptr inbounds %"class.std::function.306", ptr %call5.i.i.i.i5, i64 %__l.coerce1
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i5, i64 %add.ptr.i.idx
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::FailsBasicGuarantee *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::FailsBasicGuarantee *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr.i4, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i.i.i.i
@@ -36553,8 +36559,8 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.i.i
   unreachable
 
-invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::FailsBasicGuarantee *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::FailsBasicGuarantee *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   ret void
@@ -37444,7 +37450,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.335", ptr %__l.coerce0, i64 %__l.coerce1
   %add.ptr.i.idx = shl nsw i64 %__l.coerce1, 5
-  %cmp.i.i = icmp ugt i64 %__l.coerce1, 288230376151711743
+  %cmp.i.i = icmp ugt i64 %add.ptr.i.idx, 9223372036854775776
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -37456,7 +37462,13 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i: ; preds = %entry
   %cmp.not.i.i = icmp eq i64 %__l.coerce1, 0
-  br i1 %cmp.not.i.i, label %invoke.cont, label %for.body.i.i.i.i.preheader.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i, label %for.body.i.i.i.i.preheader.i
+
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
+  %add.ptr9.i = getelementptr inbounds i8, ptr null, i64 %add.ptr.i.idx
+  %_M_end_of_storage10.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsBasicGuarantee *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsBasicGuarantee *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  store ptr %add.ptr9.i, ptr %_M_end_of_storage10.i, align 8
+  br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
   %call5.i.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #25
@@ -37464,7 +37476,7 @@ for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8fun
 
 call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.preheader.i
   store ptr %call5.i.i.i.i5, ptr %this, align 8
-  %add.ptr.i4 = getelementptr inbounds %"class.std::function.335", ptr %call5.i.i.i.i5, i64 %__l.coerce1
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i5, i64 %add.ptr.i.idx
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsBasicGuarantee *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsBasicGuarantee *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr.i4, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i.i.i.i
@@ -37538,8 +37550,8 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.i.i
   unreachable
 
-invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsBasicGuarantee *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsBasicGuarantee *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   ret void
@@ -39615,7 +39627,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.376", ptr %__l.coerce0, i64 %__l.coerce1
   %add.ptr.i.idx = shl nsw i64 %__l.coerce1, 5
-  %cmp.i.i = icmp ugt i64 %__l.coerce1, 288230376151711743
+  %cmp.i.i = icmp ugt i64 %add.ptr.i.idx, 9223372036854775776
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -39627,7 +39639,13 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i: ; preds = %entry
   %cmp.not.i.i = icmp eq i64 %__l.coerce1, 0
-  br i1 %cmp.not.i.i, label %invoke.cont, label %for.body.i.i.i.i.preheader.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE11_M_allocateEm.exit.thread.i, label %for.body.i.i.i.i.preheader.i
+
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
+  %add.ptr9.i = getelementptr inbounds i8, ptr null, i64 %add.ptr.i.idx
+  %_M_end_of_storage10.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::BasicGuaranteeWithExtraContracts *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::BasicGuaranteeWithExtraContracts *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  store ptr %add.ptr9.i, ptr %_M_end_of_storage10.i, align 8
+  br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
   %call5.i.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #25
@@ -39635,7 +39653,7 @@ for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8fun
 
 call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.preheader.i
   store ptr %call5.i.i.i.i5, ptr %this, align 8
-  %add.ptr.i4 = getelementptr inbounds %"class.std::function.376", ptr %call5.i.i.i.i5, i64 %__l.coerce1
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i5, i64 %add.ptr.i.idx
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::BasicGuaranteeWithExtraContracts *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::BasicGuaranteeWithExtraContracts *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr.i4, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i.i.i.i
@@ -39709,8 +39727,8 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.i.i
   unreachable
 
-invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE11_M_allocateEm.exit.thread.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EE11_M_allocateEm.exit.thread.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::BasicGuaranteeWithExtraContracts *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::BasicGuaranteeWithExtraContracts *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   ret void
@@ -41161,7 +41179,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.410", ptr %__l.coerce0, i64 %__l.coerce1
   %add.ptr.i.idx = shl nsw i64 %__l.coerce1, 5
-  %cmp.i.i = icmp ugt i64 %__l.coerce1, 288230376151711743
+  %cmp.i.i = icmp ugt i64 %add.ptr.i.idx, 9223372036854775776
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -41173,7 +41191,13 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i: ; preds = %entry
   %cmp.not.i.i = icmp eq i64 %__l.coerce1, 0
-  br i1 %cmp.not.i.i, label %invoke.cont, label %for.body.i.i.i.i.preheader.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i, label %for.body.i.i.i.i.preheader.i
+
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
+  %add.ptr9.i = getelementptr inbounds i8, ptr null, i64 %add.ptr.i.idx
+  %_M_end_of_storage10.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsStrongGuarantee *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsStrongGuarantee *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  store ptr %add.ptr9.i, ptr %_M_end_of_storage10.i, align 8
+  br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
   %call5.i.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #25
@@ -41181,7 +41205,7 @@ for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8fun
 
 call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.preheader.i
   store ptr %call5.i.i.i.i5, ptr %this, align 8
-  %add.ptr.i4 = getelementptr inbounds %"class.std::function.410", ptr %call5.i.i.i.i5, i64 %__l.coerce1
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i5, i64 %add.ptr.i.idx
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsStrongGuarantee *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsStrongGuarantee *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr.i4, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i.i.i.i
@@ -41255,8 +41279,8 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.i.i
   unreachable
 
-invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EE11_M_allocateEm.exit.thread.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsStrongGuarantee *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::FollowsStrongGuarantee *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   ret void
@@ -42192,7 +42216,7 @@ ehcleanup.thread.i.i:                             ; preds = %_ZN7testing15Assert
 
 invoke.cont.i.i:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit116
   store ptr %call5.i.i.i.i5.i16.i.i.i, ptr %contracts_.i.i.i123, align 8, !noalias !560
-  %add.ptr.i4.i.i.i.i = getelementptr inbounds %"class.std::function.476", ptr %call5.i.i.i.i5.i16.i.i.i, i64 1
+  %add.ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i16.i.i.i, i64 32
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.454", ptr %ref.tmp.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i4.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !noalias !560
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %call5.i.i.i.i5.i16.i.i.i, i64 0, i32 1
@@ -45457,7 +45481,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.539", ptr %__l.coerce0, i64 %__l.coerce1
   %add.ptr.i.idx = shl nsw i64 %__l.coerce1, 5
-  %cmp.i.i = icmp ugt i64 %__l.coerce1, 288230376151711743
+  %cmp.i.i = icmp ugt i64 %add.ptr.i.idx, 9223372036854775776
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -45469,7 +45493,13 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i: ; preds = %entry
   %cmp.not.i.i = icmp eq i64 %__l.coerce1, 0
-  br i1 %cmp.not.i.i, label %invoke.cont, label %for.body.i.i.i.i.preheader.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE11_M_allocateEm.exit.thread.i, label %for.body.i.i.i.i.preheader.i
+
+_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
+  %add.ptr9.i = getelementptr inbounds i8, ptr null, i64 %add.ptr.i.idx
+  %_M_end_of_storage10.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::NonCopyable *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::NonCopyable *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  store ptr %add.ptr9.i, ptr %_M_end_of_storage10.i, align 8
+  br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
   %call5.i.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #25
@@ -45477,7 +45507,7 @@ for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt8fun
 
 call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.preheader.i
   store ptr %call5.i.i.i.i5, ptr %this, align 8
-  %add.ptr.i4 = getelementptr inbounds %"class.std::function.539", ptr %call5.i.i.i.i5, i64 %__l.coerce1
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i5, i64 %add.ptr.i.idx
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::NonCopyable *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::NonCopyable *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr.i4, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i.i.i.i
@@ -45551,8 +45581,8 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.i.i
   unreachable
 
-invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE11_M_allocateEm.exit.thread.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EE11_M_allocateEm.exit.thread.i ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::function<testing::AssertionResult (testing::(anonymous namespace)::NonCopyable *)>, std::allocator<std::function<testing::AssertionResult (testing::(anonymous namespace)::NonCopyable *)>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   ret void
@@ -46312,7 +46342,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i14, %_
 
 call5.i.i.i.i5.i.noexc:                           ; preds = %invoke.cont
   store ptr %call5.i.i.i.i5.i19, ptr %contracts_, align 8
-  %add.ptr.i4.i = getelementptr inbounds %"class.std::function.581", ptr %call5.i.i.i.i5.i19, i64 2
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i19, i64 64
   %_M_end_of_storage.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.559", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i4.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -47214,7 +47244,7 @@ ehcleanup.thread.i.i.i:                           ; preds = %entry
 
 invoke.cont.i.i.i:                                ; preds = %entry
   store ptr %call5.i.i.i.i5.i16.i.i.i.i, ptr %contracts_.i.i.i.i, align 8, !noalias !766
-  %add.ptr.i4.i.i.i.i.i = getelementptr inbounds %"class.std::function.623", ptr %call5.i.i.i.i5.i16.i.i.i.i, i64 1
+  %add.ptr.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i16.i.i.i.i, i64 32
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.601", ptr %ref.tmp.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i4.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !noalias !766
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %call5.i.i.i.i5.i16.i.i.i.i, i64 0, i32 1
@@ -47816,7 +47846,7 @@ _ZN7testing15AssertionResultD2Ev.exit35:          ; preds = %if.end33, %_ZNKSt14
 
 call5.i.i.i.i5.i.noexc.i.i.i.i:                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit35
   store ptr %call5.i.i.i.i5.i19.i.i.i.i, ptr %contracts_.i.i.i.i56, align 8, !noalias !790
-  %add.ptr.i4.i.i.i.i.i59 = getelementptr inbounds %"class.std::function.653", ptr %call5.i.i.i.i5.i19.i.i.i.i, i64 2
+  %add.ptr.i4.i.i.i.i.i59 = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i19.i.i.i.i, i64 64
   %_M_end_of_storage.i.i.i.i.i.i60 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.631", ptr %ref.tmp.i.i.i44, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i4.i.i.i.i.i59, ptr %_M_end_of_storage.i.i.i.i.i.i60, align 8, !noalias !790
   br label %for.body.i.i.i.i.i.i.i.i.i.i

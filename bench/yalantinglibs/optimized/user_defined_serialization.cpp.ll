@@ -601,7 +601,7 @@ _ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
   tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 4
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
-  %add.ptr = getelementptr inbounds %"struct.my_name_space::array2D", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %2 = load i32, ptr %__args, align 4
   %3 = load i32, ptr %__args1, align 4
   store i32 %2, ptr %add.ptr, align 8
@@ -1012,7 +1012,6 @@ _ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE11_M_allocateEm.exit.i: ; p
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i5 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i8 = ashr exact i64 %sub.ptr.sub.i7, 4
   %mul.i.i.i.i = shl nuw nsw i64 %__n, 4
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #18
   %cmp.i7.i.i.i.i.i = icmp eq ptr %1, %2
@@ -1067,7 +1066,7 @@ if.then.i:                                        ; preds = %_ZSt8_DestroyIPN13m
 
 _ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN13my_name_space7array2DES1_EvT_S3_RSaIT0_E.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"struct.my_name_space::array2D", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i8
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i7
   store ptr %add.ptr, ptr %_M_finish.i, align 8
   %add.ptr30 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %call5.i.i.i.i, i64 %__n
   store ptr %add.ptr30, ptr %_M_end_of_storage.i, align 8

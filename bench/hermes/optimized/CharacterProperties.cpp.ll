@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6hermesL13UNICODE_FOLDSE = internal constant [198 x { i8, i8, i8, i8, i8, i8, i8, i8 }] [{ i8, i8, i8, i8, i8, i8, i8, i8 } { i8 65, i8 0, i8 0, i8 26, i8 32, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -75, i8 0, i8 0, i8 1, i8 7, i8 3, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -64, i8 0, i8 0, i8 23, i8 32, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -40, i8 0, i8 0, i8 7, i8 32, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 0, i8 1, i8 0, i8 47, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 50, i8 1, i8 0, i8 5, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 57, i8 1, i8 0, i8 15, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 74, i8 1, i8 0, i8 45, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 120, i8 1, i8 0, i8 1, i8 -121, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 121, i8 1, i8 0, i8 5, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 127, i8 1, i8 0, i8 1, i8 -12, i8 -2, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -127, i8 1, i8 0, i8 1, i8 -46, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -126, i8 1, i8 0, i8 3, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -122, i8 1, i8 0, i8 1, i8 -50, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -121, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -119, i8 1, i8 0, i8 2, i8 -51, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -117, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -114, i8 1, i8 0, i8 1, i8 79, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -113, i8 1, i8 0, i8 1, i8 -54, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -112, i8 1, i8 0, i8 1, i8 -53, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -111, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -109, i8 1, i8 0, i8 1, i8 -51, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -108, i8 1, i8 0, i8 1, i8 -49, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -106, i8 1, i8 0, i8 1, i8 -45, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -105, i8 1, i8 0, i8 1, i8 -47, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -104, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -100, i8 1, i8 0, i8 1, i8 -45, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -99, i8 1, i8 0, i8 1, i8 -43, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -97, i8 1, i8 0, i8 1, i8 -42, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -96, i8 1, i8 0, i8 5, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -90, i8 1, i8 0, i8 1, i8 -38, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -89, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -87, i8 1, i8 0, i8 1, i8 -38, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -84, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -82, i8 1, i8 0, i8 1, i8 -38, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -81, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -79, i8 1, i8 0, i8 2, i8 -39, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -77, i8 1, i8 0, i8 3, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -73, i8 1, i8 0, i8 1, i8 -37, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -72, i8 1, i8 0, i8 5, i8 1, i8 0, i8 0, i8 4 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -60, i8 1, i8 0, i8 1, i8 2, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -59, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -57, i8 1, i8 0, i8 1, i8 2, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -56, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -54, i8 1, i8 0, i8 1, i8 2, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -53, i8 1, i8 0, i8 17, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -34, i8 1, i8 0, i8 17, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -15, i8 1, i8 0, i8 1, i8 2, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -14, i8 1, i8 0, i8 3, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -10, i8 1, i8 0, i8 1, i8 -97, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -9, i8 1, i8 0, i8 1, i8 -56, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -8, i8 1, i8 0, i8 39, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 32, i8 2, i8 0, i8 1, i8 126, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 34, i8 2, i8 0, i8 17, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 58, i8 2, i8 0, i8 1, i8 43, i8 42, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 59, i8 2, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 61, i8 2, i8 0, i8 1, i8 93, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 62, i8 2, i8 0, i8 1, i8 40, i8 42, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 65, i8 2, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 67, i8 2, i8 0, i8 1, i8 61, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 68, i8 2, i8 0, i8 1, i8 69, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 69, i8 2, i8 0, i8 1, i8 71, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 70, i8 2, i8 0, i8 9, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 69, i8 3, i8 0, i8 1, i8 116, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 112, i8 3, i8 0, i8 3, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 118, i8 3, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 127, i8 3, i8 0, i8 1, i8 116, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -122, i8 3, i8 0, i8 1, i8 38, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -120, i8 3, i8 0, i8 3, i8 37, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -116, i8 3, i8 0, i8 1, i8 64, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -114, i8 3, i8 0, i8 2, i8 63, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -111, i8 3, i8 0, i8 17, i8 32, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -93, i8 3, i8 0, i8 9, i8 32, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -62, i8 3, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -49, i8 3, i8 0, i8 1, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -48, i8 3, i8 0, i8 1, i8 -30, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -47, i8 3, i8 0, i8 1, i8 -25, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -43, i8 3, i8 0, i8 1, i8 -15, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -42, i8 3, i8 0, i8 1, i8 -22, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -40, i8 3, i8 0, i8 23, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -16, i8 3, i8 0, i8 1, i8 -54, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -15, i8 3, i8 0, i8 1, i8 -48, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -12, i8 3, i8 0, i8 1, i8 -60, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -11, i8 3, i8 0, i8 1, i8 -64, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -9, i8 3, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -7, i8 3, i8 0, i8 1, i8 -7, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -6, i8 3, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -3, i8 3, i8 0, i8 3, i8 126, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 0, i8 4, i8 0, i8 16, i8 80, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 16, i8 4, i8 0, i8 32, i8 32, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 96, i8 4, i8 0, i8 33, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -118, i8 4, i8 0, i8 53, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -64, i8 4, i8 0, i8 1, i8 15, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -63, i8 4, i8 0, i8 13, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -48, i8 4, i8 0, i8 95, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 49, i8 5, i8 0, i8 38, i8 48, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -96, i8 16, i8 0, i8 38, i8 96, i8 28, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -57, i8 16, i8 0, i8 7, i8 96, i8 28, i8 0, i8 6 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -8, i8 19, i8 0, i8 6, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -128, i8 28, i8 0, i8 1, i8 -78, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -127, i8 28, i8 0, i8 1, i8 -77, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -126, i8 28, i8 0, i8 1, i8 -68, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -125, i8 28, i8 0, i8 2, i8 -66, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -123, i8 28, i8 0, i8 1, i8 -67, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -122, i8 28, i8 0, i8 1, i8 -60, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -121, i8 28, i8 0, i8 1, i8 -36, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -120, i8 28, i8 0, i8 1, i8 -61, i8 -119, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -112, i8 28, i8 0, i8 43, i8 64, i8 -12, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -67, i8 28, i8 0, i8 3, i8 64, i8 -12, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 0, i8 30, i8 0, i8 -107, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -101, i8 30, i8 0, i8 1, i8 -58, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -98, i8 30, i8 0, i8 1, i8 65, i8 -30, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -96, i8 30, i8 0, i8 95, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 8, i8 31, i8 0, i8 8, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 24, i8 31, i8 0, i8 6, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 40, i8 31, i8 0, i8 8, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 56, i8 31, i8 0, i8 8, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 72, i8 31, i8 0, i8 6, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 89, i8 31, i8 0, i8 7, i8 -8, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 104, i8 31, i8 0, i8 8, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -120, i8 31, i8 0, i8 8, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -104, i8 31, i8 0, i8 8, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -88, i8 31, i8 0, i8 8, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -72, i8 31, i8 0, i8 2, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -70, i8 31, i8 0, i8 2, i8 -74, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -68, i8 31, i8 0, i8 1, i8 -9, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -66, i8 31, i8 0, i8 1, i8 -5, i8 -29, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -56, i8 31, i8 0, i8 4, i8 -86, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -52, i8 31, i8 0, i8 1, i8 -9, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -40, i8 31, i8 0, i8 2, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -38, i8 31, i8 0, i8 2, i8 -100, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -24, i8 31, i8 0, i8 2, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -22, i8 31, i8 0, i8 2, i8 -112, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -20, i8 31, i8 0, i8 1, i8 -7, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -8, i8 31, i8 0, i8 2, i8 -128, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -6, i8 31, i8 0, i8 2, i8 -126, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -4, i8 31, i8 0, i8 1, i8 -9, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 38, i8 33, i8 0, i8 1, i8 -93, i8 -30, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 42, i8 33, i8 0, i8 1, i8 65, i8 -33, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 43, i8 33, i8 0, i8 1, i8 -70, i8 -33, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 50, i8 33, i8 0, i8 1, i8 28, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 96, i8 33, i8 0, i8 16, i8 16, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -125, i8 33, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -74, i8 36, i8 0, i8 26, i8 26, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 0, i8 44, i8 0, i8 48, i8 48, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 96, i8 44, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 98, i8 44, i8 0, i8 1, i8 9, i8 -42, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 99, i8 44, i8 0, i8 1, i8 26, i8 -15, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 100, i8 44, i8 0, i8 1, i8 25, i8 -42, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 103, i8 44, i8 0, i8 5, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 109, i8 44, i8 0, i8 1, i8 -28, i8 -43, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 110, i8 44, i8 0, i8 1, i8 3, i8 -42, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 111, i8 44, i8 0, i8 1, i8 -31, i8 -43, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 112, i8 44, i8 0, i8 1, i8 -30, i8 -43, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 114, i8 44, i8 0, i8 4, i8 1, i8 0, i8 0, i8 3 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 126, i8 44, i8 0, i8 2, i8 -63, i8 -43, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -128, i8 44, i8 0, i8 99, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -21, i8 44, i8 0, i8 3, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -14, i8 44, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 64, i8 -90, i8 0, i8 45, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -128, i8 -90, i8 0, i8 27, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 34, i8 -89, i8 0, i8 13, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 50, i8 -89, i8 0, i8 61, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 121, i8 -89, i8 0, i8 3, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 125, i8 -89, i8 0, i8 1, i8 -4, i8 117, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 126, i8 -89, i8 0, i8 9, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -117, i8 -89, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -115, i8 -89, i8 0, i8 1, i8 -40, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -112, i8 -89, i8 0, i8 3, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -106, i8 -89, i8 0, i8 19, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -86, i8 -89, i8 0, i8 1, i8 -68, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -85, i8 -89, i8 0, i8 1, i8 -79, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -84, i8 -89, i8 0, i8 1, i8 -75, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -83, i8 -89, i8 0, i8 1, i8 -65, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -82, i8 -89, i8 0, i8 1, i8 -68, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -80, i8 -89, i8 0, i8 1, i8 -18, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -79, i8 -89, i8 0, i8 1, i8 -42, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -78, i8 -89, i8 0, i8 1, i8 -21, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -77, i8 -89, i8 0, i8 1, i8 -96, i8 3, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -76, i8 -89, i8 0, i8 15, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -60, i8 -89, i8 0, i8 1, i8 -48, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -59, i8 -89, i8 0, i8 1, i8 -67, i8 90, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -58, i8 -89, i8 0, i8 1, i8 -56, i8 117, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -57, i8 -89, i8 0, i8 3, i8 1, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -48, i8 -89, i8 0, i8 7, i8 1, i8 0, i8 0, i8 6 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -40, i8 -89, i8 0, i8 30, i8 1, i8 0, i8 0, i8 29 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 112, i8 -85, i8 0, i8 80, i8 48, i8 104, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 33, i8 -1, i8 0, i8 26, i8 32, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 0, i8 4, i8 1, i8 40, i8 40, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -80, i8 4, i8 1, i8 36, i8 40, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 112, i8 5, i8 1, i8 11, i8 39, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 124, i8 5, i8 1, i8 15, i8 39, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -116, i8 5, i8 1, i8 7, i8 39, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -108, i8 5, i8 1, i8 2, i8 39, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -128, i8 12, i8 1, i8 51, i8 64, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -96, i8 24, i8 1, i8 32, i8 32, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 64, i8 110, i8 1, i8 32, i8 32, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 0, i8 -23, i8 1, i8 34, i8 34, i8 0, i8 0, i8 1 }], align 16
 @_ZN6hermesL13LEGACY_CANONSE = internal constant [175 x { i8, i8, i8, i8, i8, i8, i8, i8 }] [{ i8, i8, i8, i8, i8, i8, i8, i8 } { i8 97, i8 0, i8 0, i8 26, i8 -32, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -75, i8 0, i8 0, i8 1, i8 -25, i8 2, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -32, i8 0, i8 0, i8 23, i8 -32, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -8, i8 0, i8 0, i8 7, i8 -32, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -1, i8 0, i8 0, i8 1, i8 121, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 1, i8 1, i8 0, i8 47, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 51, i8 1, i8 0, i8 5, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 58, i8 1, i8 0, i8 15, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 75, i8 1, i8 0, i8 45, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 122, i8 1, i8 0, i8 5, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -128, i8 1, i8 0, i8 1, i8 -61, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -125, i8 1, i8 0, i8 3, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -120, i8 1, i8 0, i8 5, i8 -1, i8 -1, i8 -1, i8 4 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -110, i8 1, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -107, i8 1, i8 0, i8 1, i8 97, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -103, i8 1, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -102, i8 1, i8 0, i8 1, i8 -93, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -98, i8 1, i8 0, i8 1, i8 -126, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -95, i8 1, i8 0, i8 5, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -88, i8 1, i8 0, i8 6, i8 -1, i8 -1, i8 -1, i8 5 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -80, i8 1, i8 0, i8 5, i8 -1, i8 -1, i8 -1, i8 4 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -74, i8 1, i8 0, i8 4, i8 -1, i8 -1, i8 -1, i8 3 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -67, i8 1, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -65, i8 1, i8 0, i8 1, i8 56, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -59, i8 1, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -58, i8 1, i8 0, i8 1, i8 -2, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -56, i8 1, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -55, i8 1, i8 0, i8 1, i8 -2, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -53, i8 1, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -52, i8 1, i8 0, i8 1, i8 -2, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -50, i8 1, i8 0, i8 15, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -35, i8 1, i8 0, i8 1, i8 -79, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -33, i8 1, i8 0, i8 17, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -14, i8 1, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -13, i8 1, i8 0, i8 1, i8 -2, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -11, i8 1, i8 0, i8 5, i8 -1, i8 -1, i8 -1, i8 4 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -5, i8 1, i8 0, i8 37, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 35, i8 2, i8 0, i8 17, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 60, i8 2, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 63, i8 2, i8 0, i8 2, i8 63, i8 42, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 66, i8 2, i8 0, i8 6, i8 -1, i8 -1, i8 -1, i8 5 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 73, i8 2, i8 0, i8 7, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 80, i8 2, i8 0, i8 1, i8 31, i8 42, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 81, i8 2, i8 0, i8 1, i8 28, i8 42, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 82, i8 2, i8 0, i8 1, i8 30, i8 42, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 83, i8 2, i8 0, i8 1, i8 46, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 84, i8 2, i8 0, i8 1, i8 50, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 86, i8 2, i8 0, i8 2, i8 51, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 89, i8 2, i8 0, i8 1, i8 54, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 91, i8 2, i8 0, i8 1, i8 53, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 92, i8 2, i8 0, i8 1, i8 79, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 96, i8 2, i8 0, i8 1, i8 51, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 97, i8 2, i8 0, i8 1, i8 75, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 99, i8 2, i8 0, i8 1, i8 49, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 101, i8 2, i8 0, i8 1, i8 40, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 102, i8 2, i8 0, i8 1, i8 68, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 104, i8 2, i8 0, i8 1, i8 47, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 105, i8 2, i8 0, i8 1, i8 45, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 106, i8 2, i8 0, i8 1, i8 68, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 107, i8 2, i8 0, i8 1, i8 -9, i8 41, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 108, i8 2, i8 0, i8 1, i8 65, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 111, i8 2, i8 0, i8 1, i8 45, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 113, i8 2, i8 0, i8 1, i8 -3, i8 41, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 114, i8 2, i8 0, i8 1, i8 43, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 117, i8 2, i8 0, i8 1, i8 42, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 125, i8 2, i8 0, i8 1, i8 -25, i8 41, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -128, i8 2, i8 0, i8 1, i8 38, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -126, i8 2, i8 0, i8 1, i8 67, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -125, i8 2, i8 0, i8 1, i8 38, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -121, i8 2, i8 0, i8 1, i8 42, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -120, i8 2, i8 0, i8 1, i8 38, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -119, i8 2, i8 0, i8 1, i8 -69, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -118, i8 2, i8 0, i8 2, i8 39, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -116, i8 2, i8 0, i8 1, i8 -71, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -110, i8 2, i8 0, i8 1, i8 37, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -99, i8 2, i8 0, i8 1, i8 21, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -98, i8 2, i8 0, i8 1, i8 18, i8 -91, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 69, i8 3, i8 0, i8 1, i8 84, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 113, i8 3, i8 0, i8 3, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 119, i8 3, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 123, i8 3, i8 0, i8 3, i8 -126, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -84, i8 3, i8 0, i8 1, i8 -38, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -83, i8 3, i8 0, i8 3, i8 -37, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -79, i8 3, i8 0, i8 17, i8 -32, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -62, i8 3, i8 0, i8 1, i8 -31, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -61, i8 3, i8 0, i8 9, i8 -32, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -52, i8 3, i8 0, i8 1, i8 -64, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -51, i8 3, i8 0, i8 2, i8 -63, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -48, i8 3, i8 0, i8 1, i8 -62, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -47, i8 3, i8 0, i8 1, i8 -57, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -43, i8 3, i8 0, i8 1, i8 -47, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -42, i8 3, i8 0, i8 1, i8 -54, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -41, i8 3, i8 0, i8 1, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -39, i8 3, i8 0, i8 23, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -16, i8 3, i8 0, i8 1, i8 -86, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -15, i8 3, i8 0, i8 1, i8 -80, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -14, i8 3, i8 0, i8 1, i8 7, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -13, i8 3, i8 0, i8 1, i8 -116, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -11, i8 3, i8 0, i8 1, i8 -96, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -8, i8 3, i8 0, i8 4, i8 -1, i8 -1, i8 -1, i8 3 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 48, i8 4, i8 0, i8 32, i8 -32, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 80, i8 4, i8 0, i8 16, i8 -80, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 97, i8 4, i8 0, i8 33, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -117, i8 4, i8 0, i8 53, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -62, i8 4, i8 0, i8 13, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -49, i8 4, i8 0, i8 1, i8 -15, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -47, i8 4, i8 0, i8 95, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 97, i8 5, i8 0, i8 38, i8 -48, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -48, i8 16, i8 0, i8 43, i8 -64, i8 11, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -3, i8 16, i8 0, i8 3, i8 -64, i8 11, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -8, i8 19, i8 0, i8 6, i8 -8, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -128, i8 28, i8 0, i8 1, i8 -110, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -127, i8 28, i8 0, i8 1, i8 -109, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -126, i8 28, i8 0, i8 1, i8 -100, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -125, i8 28, i8 0, i8 2, i8 -98, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -123, i8 28, i8 0, i8 1, i8 -99, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -122, i8 28, i8 0, i8 1, i8 -92, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -121, i8 28, i8 0, i8 1, i8 -37, i8 -25, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -120, i8 28, i8 0, i8 1, i8 -62, i8 -119, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 121, i8 29, i8 0, i8 1, i8 4, i8 -118, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 125, i8 29, i8 0, i8 1, i8 -26, i8 14, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -114, i8 29, i8 0, i8 1, i8 56, i8 -118, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 1, i8 30, i8 0, i8 -107, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -101, i8 30, i8 0, i8 1, i8 -59, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -95, i8 30, i8 0, i8 95, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 0, i8 31, i8 0, i8 8, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 16, i8 31, i8 0, i8 6, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 32, i8 31, i8 0, i8 8, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 48, i8 31, i8 0, i8 8, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 64, i8 31, i8 0, i8 6, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 81, i8 31, i8 0, i8 7, i8 8, i8 0, i8 0, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 96, i8 31, i8 0, i8 8, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 112, i8 31, i8 0, i8 2, i8 74, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 114, i8 31, i8 0, i8 4, i8 86, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 118, i8 31, i8 0, i8 2, i8 100, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 120, i8 31, i8 0, i8 2, i8 -128, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 122, i8 31, i8 0, i8 2, i8 112, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 124, i8 31, i8 0, i8 2, i8 126, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -80, i8 31, i8 0, i8 2, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -66, i8 31, i8 0, i8 1, i8 -37, i8 -29, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -48, i8 31, i8 0, i8 2, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -32, i8 31, i8 0, i8 2, i8 8, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -27, i8 31, i8 0, i8 1, i8 7, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 78, i8 33, i8 0, i8 1, i8 -28, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 112, i8 33, i8 0, i8 16, i8 -16, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -124, i8 33, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -48, i8 36, i8 0, i8 26, i8 -26, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 48, i8 44, i8 0, i8 48, i8 -48, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 97, i8 44, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 101, i8 44, i8 0, i8 1, i8 -43, i8 -43, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 102, i8 44, i8 0, i8 1, i8 -40, i8 -43, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 104, i8 44, i8 0, i8 5, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 115, i8 44, i8 0, i8 4, i8 -1, i8 -1, i8 -1, i8 3 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -127, i8 44, i8 0, i8 99, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -20, i8 44, i8 0, i8 3, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -13, i8 44, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 0, i8 45, i8 0, i8 38, i8 -96, i8 -29, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 39, i8 45, i8 0, i8 7, i8 -96, i8 -29, i8 -1, i8 6 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 65, i8 -90, i8 0, i8 45, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -127, i8 -90, i8 0, i8 27, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 35, i8 -89, i8 0, i8 13, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 51, i8 -89, i8 0, i8 61, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 122, i8 -89, i8 0, i8 3, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 127, i8 -89, i8 0, i8 9, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -116, i8 -89, i8 0, i8 6, i8 -1, i8 -1, i8 -1, i8 5 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -109, i8 -89, i8 0, i8 1, i8 -1, i8 -1, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -108, i8 -89, i8 0, i8 1, i8 48, i8 0, i8 0, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -105, i8 -89, i8 0, i8 19, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -75, i8 -89, i8 0, i8 15, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -56, i8 -89, i8 0, i8 3, i8 -1, i8 -1, i8 -1, i8 2 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -47, i8 -89, i8 0, i8 7, i8 -1, i8 -1, i8 -1, i8 6 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 -39, i8 -89, i8 0, i8 30, i8 -1, i8 -1, i8 -1, i8 29 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 83, i8 -85, i8 0, i8 1, i8 96, i8 -4, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 112, i8 -85, i8 0, i8 80, i8 48, i8 104, i8 -1, i8 1 }, { i8, i8, i8, i8, i8, i8, i8, i8 } { i8 65, i8 -1, i8 0, i8 26, i8 -32, i8 -1, i8 -1, i8 1 }], align 16
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN6hermes19isUnicodeOnlyLetterEj(i32 noundef %cp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %cp, 128
@@ -62,7 +62,7 @@ return:                                           ; preds = %land.rhs.i.i, %_ZSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes18isUnicodeOnlySpaceEj(i32 noundef %cp) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_ZN6hermes18isUnicodeOnlySpaceEj(i32 noundef %cp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %cp, 128
   br i1 %cmp, label %return, label %if.end
@@ -95,7 +95,7 @@ return:                                           ; preds = %if.end, %if.end, %i
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN6hermes22isUnicodeCombiningMarkEj(i32 noundef %cp) local_unnamed_addr #0 {
 entry:
   br label %while.body.i.i.i
@@ -132,7 +132,7 @@ _ZN6hermes6lookupIA245_NS_12UnicodeRangeEEEbRKT_j.exit: ; preds = %_ZSt13__lower
   ret i1 %1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN6hermes14isUnicodeDigitEj(i32 noundef %cp) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %cp, -48
@@ -171,7 +171,7 @@ lor.end:                                          ; preds = %land.rhs.i.i, %_ZSt
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN6hermes29isUnicodeConnectorPunctuationEj(i32 noundef %cp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %cp, 95
@@ -210,7 +210,7 @@ lor.end:                                          ; preds = %land.rhs.i.i, %_ZSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes25makeCanonicallyEquivalentERKNS_12CodePointSetEb(ptr noalias sret(%"class.hermes::CodePointSet") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %set, i1 noundef zeroext %unicode) local_unnamed_addr #2 {
+define hidden void @_ZN6hermes25makeCanonicallyEquivalentERKNS_12CodePointSetEb(ptr noalias sret(%"class.hermes::CodePointSet") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %set, i1 noundef zeroext %unicode) local_unnamed_addr #1 {
 entry:
   %canonicalized = alloca %"class.hermes::CodePointSet", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %canonicalized, i64 16
@@ -232,7 +232,7 @@ if.end13.i.i.i:                                   ; preds = %entry
 
 if.end28.i.i.i:                                   ; preds = %if.end13.i.i.i
   %conv.i.i.i.i = zext i32 %0 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #7
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %return.sink.split.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
@@ -244,9 +244,9 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i:           ; preds = %if.end28.i.i.i
 if.then.i.i.i.i:                                  ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i, %if.end13.i.i.i
   %1 = phi ptr [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %add.ptr.i.i.i.i.i.i, %if.end13.i.i.i ]
   %2 = phi i32 [ %.pre.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %0, %if.end13.i.i.i ]
-  %conv.i35.i.i.i = zext i32 %2 to i64
+  %conv.i34.i.i.i = zext i32 %2 to i64
   %3 = load ptr, ptr %set, align 8
-  %add.ptr.i65.i.idx.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
+  %add.ptr.i65.i.idx.i.i = shl nuw nsw i64 %conv.i34.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %add.ptr.i65.i.idx.i.i, i1 false)
   %.pre.pre = load i32, ptr %Size.i.i.i, align 8
   br label %return.sink.split.i.i.i
@@ -262,8 +262,8 @@ _ZN6hermes12CodePointSetC2ERKS0_.exit:            ; preds = %entry, %return.sink
   %6 = load ptr, ptr %set, align 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %6, i64 %conv.i.i.i
-  %cmp.not213 = icmp eq i32 %5, 0
-  br i1 %cmp.not213, label %for.end, label %for.body.lr.ph
+  %cmp.not212 = icmp eq i32 %5, 0
+  br i1 %cmp.not212, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes12CodePointSetC2ERKS0_.exit
   %cond.i = select i1 %unicode, ptr @_ZN6hermesL13UNICODE_FOLDSE, ptr @_ZN6hermesL13LEGACY_CANONSE
@@ -276,8 +276,8 @@ for.body.lr.ph:                                   ; preds = %_ZN6hermes12CodePoi
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermesL17canonicalizeRangeENS_14CodePointRangeEPNS_12CodePointSetEb.exit
-  %__begin1.0214 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr, %_ZN6hermesL17canonicalizeRangeENS_14CodePointRangeEPNS_12CodePointSetEb.exit ]
-  %agg.tmp.sroa.0.0.copyload = load i64, ptr %__begin1.0214, align 4
+  %__begin1.0213 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr, %_ZN6hermesL17canonicalizeRangeENS_14CodePointRangeEPNS_12CodePointSetEb.exit ]
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %__begin1.0213, align 4
   %range.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp.sroa.0.0.copyload to i32
   %range.sroa.4.0.extract.shift.i = lshr i64 %agg.tmp.sroa.0.0.copyload, 32
   %range.sroa.4.0.extract.trunc.i = trunc i64 %range.sroa.4.0.extract.shift.i to i32
@@ -501,7 +501,7 @@ if.then.i.i:                                      ; preds = %if.then7.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #7
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre30.i.i = load ptr, ptr %canonicalized, align 8
   %.pre31.i.i = zext i32 %.pre.i.i.i to i64
@@ -525,10 +525,9 @@ if.end.i.i:                                       ; preds = %if.then7.i.i.i
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i44.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i22.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #7
   %32 = load ptr, ptr %canonicalized, align 8
-  %add.ptr9.i.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %32, i64 %sub.ptr.div.i.i
+  %add.ptr9.i.i = getelementptr inbounds i8, ptr %32, i64 %sub.ptr.sub.i.i
   %.pre.i.i11 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre32.i.i = zext i32 %.pre.i.i11 to i64
   br label %if.end10.i.i
@@ -598,8 +597,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.else.i.i.i
   br label %_ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i
 
 _ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.else.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %add.ptr26.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr26.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -627,16 +625,16 @@ if.end.i:                                         ; preds = %for.end.i, %while.b
   br i1 %44, label %while.body.i, label %_ZN6hermesL17canonicalizeRangeENS_14CodePointRangeEPNS_12CodePointSetEb.exit, !llvm.loop !11
 
 _ZN6hermesL17canonicalizeRangeENS_14CodePointRangeEPNS_12CodePointSetEb.exit: ; preds = %if.end.i, %_ZSt11lower_boundIPKN6hermes21UnicodeTransformRangeEjET_S4_S4_RKT0_.exit.i
-  %incdec.ptr = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %__begin1.0214, i64 1
+  %incdec.ptr = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %__begin1.0213, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %_ZN6hermesL17canonicalizeRangeENS_14CodePointRangeEPNS_12CodePointSetEb.exit
-  %.pre229 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %.pre228 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZN6hermes12CodePointSetC2ERKS0_.exit
-  %45 = phi i32 [ %.pre229, %for.end.loopexit ], [ %4, %_ZN6hermes12CodePointSetC2ERKS0_.exit ]
+  %45 = phi i32 [ %.pre228, %for.end.loopexit ], [ %4, %_ZN6hermes12CodePointSetC2ERKS0_.exit ]
   %add.ptr.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i.i.i13, ptr %agg.result, align 8
   %Size.i.i.i.i.i.i14 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.result, i64 0, i32 1
@@ -654,7 +652,7 @@ if.end13.i.i.i20:                                 ; preds = %for.end
 
 if.end28.i.i.i26:                                 ; preds = %if.end13.i.i.i20
   %conv.i.i.i.i27 = zext i32 %45 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i13, i64 noundef %conv.i.i.i.i27, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i13, i64 noundef %conv.i.i.i.i27, i64 noundef 8) #7
   %.pre.i.i28 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i29 = icmp eq i32 %.pre.i.i28, 0
   br i1 %cmp.not.i.i.i.i29, label %return.sink.split.i.i.i25, label %if.end28.i.i.if.then.i.i.i_crit_edge.i30
@@ -666,25 +664,25 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i30:         ; preds = %if.end28.i.i.i26
 if.then.i.i.i.i22:                                ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i30, %if.end13.i.i.i20
   %46 = phi ptr [ %.pre.i31, %if.end28.i.i.if.then.i.i.i_crit_edge.i30 ], [ %add.ptr.i.i.i.i.i.i13, %if.end13.i.i.i20 ]
   %47 = phi i32 [ %.pre.i.i28, %if.end28.i.i.if.then.i.i.i_crit_edge.i30 ], [ %45, %if.end13.i.i.i20 ]
-  %conv.i35.i.i.i23 = zext i32 %47 to i64
+  %conv.i34.i.i.i23 = zext i32 %47 to i64
   %48 = load ptr, ptr %canonicalized, align 8
-  %add.ptr.i65.i.idx.i.i24 = shl nuw nsw i64 %conv.i35.i.i.i23, 3
+  %add.ptr.i65.i.idx.i.i24 = shl nuw nsw i64 %conv.i34.i.i.i23, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 4 %48, i64 %add.ptr.i65.i.idx.i.i24, i1 false)
-  %.pre230.pre = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %.pre229.pre = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %return.sink.split.i.i.i25
 
 return.sink.split.i.i.i25:                        ; preds = %if.then.i.i.i.i22, %if.end28.i.i.i26
-  %.pre230 = phi i32 [ %.pre230.pre, %if.then.i.i.i.i22 ], [ 0, %if.end28.i.i.i26 ]
+  %.pre229 = phi i32 [ %.pre229.pre, %if.then.i.i.i.i22 ], [ 0, %if.end28.i.i.i26 ]
   store i32 %45, ptr %Size.i.i.i.i.i.i14, align 8
   br label %_ZN6hermes12CodePointSetC2ERKS0_.exit32
 
 _ZN6hermes12CodePointSetC2ERKS0_.exit32:          ; preds = %for.end, %return.sink.split.i.i.i25
-  %49 = phi i32 [ %45, %for.end ], [ %.pre230, %return.sink.split.i.i.i25 ]
+  %49 = phi i32 [ %45, %for.end ], [ %.pre229, %return.sink.split.i.i.i25 ]
   %50 = load ptr, ptr %canonicalized, align 8
   %conv.i.i.i34 = zext i32 %49 to i64
   %add.ptr.i38 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %50, i64 %conv.i.i.i34
-  %cmp11.not215 = icmp eq i32 %49, 0
-  br i1 %cmp11.not215, label %nrvo.skipdtor, label %for.body12.lr.ph
+  %cmp11.not214 = icmp eq i32 %49, 0
+  br i1 %cmp11.not214, label %nrvo.skipdtor, label %for.body12.lr.ph
 
 for.body12.lr.ph:                                 ; preds = %_ZN6hermes12CodePointSetC2ERKS0_.exit32
   %cond.i44 = select i1 %unicode, ptr @_ZN6hermesL13UNICODE_FOLDSE, ptr @_ZN6hermesL13LEGACY_CANONSE
@@ -693,8 +691,8 @@ for.body12.lr.ph:                                 ; preds = %_ZN6hermes12CodePoi
   br label %for.body12
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit
-  %__begin16.0216 = phi ptr [ %50, %for.body12.lr.ph ], [ %incdec.ptr17, %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit ]
-  %agg.tmp14.sroa.0.0.copyload = load i64, ptr %__begin16.0216, align 4
+  %__begin16.0215 = phi ptr [ %50, %for.body12.lr.ph ], [ %incdec.ptr17, %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit ]
+  %agg.tmp14.sroa.0.0.copyload = load i64, ptr %__begin16.0215, align 4
   %range.sroa.0.0.extract.trunc.i39 = trunc i64 %agg.tmp14.sroa.0.0.copyload to i32
   %range.sroa.4.0.extract.shift.i40 = lshr i64 %agg.tmp14.sroa.0.0.copyload, 32
   %range.sroa.4.0.extract.trunc.i41 = trunc i64 %range.sroa.4.0.extract.shift.i40 to i32
@@ -755,16 +753,16 @@ if.then29.i:                                      ; preds = %for.body21.i
   %cmp91.i.not.i59 = icmp eq i32 %58, 0
   %59 = lshr i64 %agg.tmp.sroa.0.0.insert.insert.i.i, 32
   %60 = trunc i64 %59 to i32
-  br i1 %cmp91.i.not.i59, label %if.then7.i.i.i150, label %while.body.lr.ph.i.i60
+  br i1 %cmp91.i.not.i59, label %if.then7.i.i.i149, label %while.body.lr.ph.i.i60
 
 while.body.lr.ph.i.i60:                           ; preds = %if.then29.i
   %conv.i.i.i.i61 = zext i32 %58 to i64
   %61 = add nuw nsw i64 %indvars.iv.i, 1
   br label %while.body.i.i62
 
-while.body.i.i62:                                 ; preds = %if.end11.i.i178, %while.body.lr.ph.i.i60
-  %__len.093.i.i63 = phi i64 [ %conv.i.i.i.i61, %while.body.lr.ph.i.i60 ], [ %__len.1.i.i180, %if.end11.i.i178 ]
-  %__first.addr.092.i.i64 = phi ptr [ %57, %while.body.lr.ph.i.i60 ], [ %__first.addr.1.i.i179, %if.end11.i.i178 ]
+while.body.i.i62:                                 ; preds = %if.end11.i.i177, %while.body.lr.ph.i.i60
+  %__len.093.i.i63 = phi i64 [ %conv.i.i.i.i61, %while.body.lr.ph.i.i60 ], [ %__len.1.i.i179, %if.end11.i.i177 ]
+  %__first.addr.092.i.i64 = phi ptr [ %57, %while.body.lr.ph.i.i60 ], [ %__first.addr.1.i.i178, %if.end11.i.i177 ]
   %shr.i.i65 = lshr i64 %__len.093.i.i63, 1
   %incdec.ptr4.sink.i.i.i.i69 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %__first.addr.092.i.i64, i64 %shr.i.i65
   %agg.tmp.sroa.0.0.copyload.i.i.i70 = load i64, ptr %incdec.ptr4.sink.i.i.i.i69, align 4
@@ -781,20 +779,20 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointR
   %cmp4.i6.i.i.i.i76 = icmp ne i64 %63, %indvars.iv.i
   %cmp.i.i9.i.i77 = icmp ugt i64 %indvars.iv.i, %62
   %spec.select.i.i.i.i78 = and i1 %cmp.i.i9.i.i77, %cmp4.i6.i.i.i.i76
-  br i1 %spec.select.i.i.i.i78, label %if.then.i.i181, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79
+  br i1 %spec.select.i.i.i.i78, label %if.then.i.i180, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79
 
-if.then.i.i181:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i75
-  %incdec.ptr.i.i182 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %incdec.ptr4.sink.i.i.i.i69, i64 1
+if.then.i.i180:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i75
+  %incdec.ptr.i.i181 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %incdec.ptr4.sink.i.i.i.i69, i64 1
   %65 = xor i64 %shr.i.i65, -1
-  %sub3.i.i183 = add nsw i64 %__len.093.i.i63, %65
-  br label %if.end11.i.i178
+  %sub3.i.i182 = add nsw i64 %__len.093.i.i63, %65
+  br label %if.end11.i.i177
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIPS4_KS4_EEbT_RT0_.exit.i.i75
   %cmp.i3.i.i.i.i80 = icmp ne i64 %61, %62
   %cmp.i.i26.i.i81 = icmp ult i64 %indvars.iv.i, %62
   %66 = and i1 %cmp.i3.i.i.i.i80, %cmp.i.i26.i.i81
   %spec.select.i.i27.i.i82 = and i1 %66, %cmp4.i6.i.i.i.i76
-  br i1 %spec.select.i.i27.i.i82, label %if.end11.i.i178, label %if.else6.i.i83
+  br i1 %spec.select.i.i27.i.i82, label %if.end11.i.i177, label %if.else6.i.i83
 
 if.else6.i.i83:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79, %while.body.i.i62
   %cmp25.i.not.i.i84 = icmp ult i64 %__len.093.i.i63, 2
@@ -842,109 +840,108 @@ _ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_v
   %sub.ptr.sub.i.i.i40.i.i118 = sub i64 %sub.ptr.lhs.cast.i.i.i38.i.i116, %sub.ptr.rhs.cast.i.i.i39.i.i117
   %sub.ptr.div.i.i.i41.i.i119 = ashr exact i64 %sub.ptr.sub.i.i.i40.i.i118, 3
   %cmp23.i.i.i120 = icmp sgt i64 %sub.ptr.div.i.i.i41.i.i119, 0
-  br i1 %cmp23.i.i.i120, label %while.body.i49.i.i151, label %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121
+  br i1 %cmp23.i.i.i120, label %while.body.i49.i.i150, label %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121
 
-while.body.i49.i.i151:                            ; preds = %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109, %while.cond.i.i.i173
-  %__first.addr.025.i.i.i152 = phi ptr [ %80, %while.cond.i.i.i173 ], [ %incdec.ptr8.i.i115, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109 ]
-  %__len.024.i.i.i153 = phi i64 [ %79, %while.cond.i.i.i173 ], [ %sub.ptr.div.i.i.i41.i.i119, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109 ]
-  %shr.i50.i.i154 = lshr i64 %__len.024.i.i.i153, 1
-  %incdec.ptr4.sink.i.i.i54.i.i158 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %__first.addr.025.i.i.i152, i64 %shr.i50.i.i154
-  %agg.tmp2.sroa.0.0.copyload.i.i55.i.i159 = load i64, ptr %incdec.ptr4.sink.i.i.i54.i.i158, align 4
-  %rhs.sroa.4.0.extract.shift.i.i.i57.i.i160 = lshr i64 %agg.tmp2.sroa.0.0.copyload.i.i55.i.i159, 32
-  %add.i.i.i.i.i59.i.i161 = add i64 %rhs.sroa.4.0.extract.shift.i.i.i57.i.i160, %agg.tmp2.sroa.0.0.copyload.i.i55.i.i159
-  %73 = and i64 %add.i.i.i.i.i59.i.i161, 4294967295
-  %cmp.i.i.i.i60.i.i162 = icmp ugt i64 %73, %indvars.iv.i
-  %74 = and i64 %agg.tmp2.sroa.0.0.copyload.i.i55.i.i159, 4294967295
-  %cmp4.i.i.i.i61.i.i163 = icmp uge i64 %indvars.iv.i, %74
-  %75 = and i1 %cmp4.i.i.i.i61.i.i163, %cmp.i.i.i.i60.i.i162
-  br i1 %75, label %.thread.i71.i.i175, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i164
+while.body.i49.i.i150:                            ; preds = %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109, %while.cond.i.i.i172
+  %__first.addr.025.i.i.i151 = phi ptr [ %80, %while.cond.i.i.i172 ], [ %incdec.ptr8.i.i115, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109 ]
+  %__len.024.i.i.i152 = phi i64 [ %79, %while.cond.i.i.i172 ], [ %sub.ptr.div.i.i.i41.i.i119, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109 ]
+  %shr.i50.i.i153 = lshr i64 %__len.024.i.i.i152, 1
+  %incdec.ptr4.sink.i.i.i54.i.i157 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %__first.addr.025.i.i.i151, i64 %shr.i50.i.i153
+  %agg.tmp2.sroa.0.0.copyload.i.i55.i.i158 = load i64, ptr %incdec.ptr4.sink.i.i.i54.i.i157, align 4
+  %rhs.sroa.4.0.extract.shift.i.i.i57.i.i159 = lshr i64 %agg.tmp2.sroa.0.0.copyload.i.i55.i.i158, 32
+  %add.i.i.i.i.i59.i.i160 = add i64 %rhs.sroa.4.0.extract.shift.i.i.i57.i.i159, %agg.tmp2.sroa.0.0.copyload.i.i55.i.i158
+  %73 = and i64 %add.i.i.i.i.i59.i.i160, 4294967295
+  %cmp.i.i.i.i60.i.i161 = icmp ugt i64 %73, %indvars.iv.i
+  %74 = and i64 %agg.tmp2.sroa.0.0.copyload.i.i55.i.i158, 4294967295
+  %cmp4.i.i.i.i61.i.i162 = icmp uge i64 %indvars.iv.i, %74
+  %75 = and i1 %cmp4.i.i.i.i61.i.i162, %cmp.i.i.i.i60.i.i161
+  br i1 %75, label %.thread.i71.i.i174, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i163
 
-.thread.i71.i.i175:                               ; preds = %while.body.i49.i.i151
-  %incdec.ptr13.i.i.i176 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %incdec.ptr4.sink.i.i.i54.i.i158, i64 1
-  %76 = xor i64 %shr.i50.i.i154, -1
-  %sub214.i.i.i177 = add nsw i64 %__len.024.i.i.i153, %76
-  br label %while.cond.i.i.i173
+.thread.i71.i.i174:                               ; preds = %while.body.i49.i.i150
+  %incdec.ptr13.i.i.i175 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %incdec.ptr4.sink.i.i.i54.i.i157, i64 1
+  %76 = xor i64 %shr.i50.i.i153, -1
+  %sub214.i.i.i176 = add nsw i64 %__len.024.i.i.i152, %76
+  br label %while.cond.i.i.i172
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i164: ; preds = %while.body.i49.i.i151
-  %cmp.i3.i.i.i62.i.i165 = icmp ne i64 %73, %indvars.iv.i
-  %cmp4.i6.i.i.i63.i.i166 = icmp ne i64 %61, %74
-  %.not.i.i.i64.i.i167 = and i1 %cmp4.i6.i.i.i63.i.i166, %cmp.i3.i.i.i62.i.i165
-  %cmp.i.i8.i65.i.i168 = icmp ult i64 %indvars.iv.i, %74
-  %spec.select.i.i.i66.i.i169 = and i1 %cmp.i.i8.i65.i.i168, %.not.i.i.i64.i.i167
-  %cond.fr.i67.i.i170 = freeze i1 %spec.select.i.i.i66.i.i169
-  br i1 %cond.fr.i67.i.i170, label %while.cond.i.i.i173, label %77
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i163: ; preds = %while.body.i49.i.i150
+  %cmp.i3.i.i.i62.i.i164 = icmp ne i64 %73, %indvars.iv.i
+  %cmp4.i6.i.i.i63.i.i165 = icmp ne i64 %61, %74
+  %.not.i.i.i64.i.i166 = and i1 %cmp4.i6.i.i.i63.i.i165, %cmp.i3.i.i.i62.i.i164
+  %cmp.i.i8.i65.i.i167 = icmp ult i64 %indvars.iv.i, %74
+  %spec.select.i.i.i66.i.i168 = and i1 %cmp.i.i8.i65.i.i167, %.not.i.i.i64.i.i166
+  %cond.fr.i67.i.i169 = freeze i1 %spec.select.i.i.i66.i.i168
+  br i1 %cond.fr.i67.i.i169, label %while.cond.i.i.i172, label %77
 
-77:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i164
-  %78 = xor i64 %shr.i50.i.i154, -1
-  %sub2.i68.i.i171 = add nsw i64 %__len.024.i.i.i153, %78
-  %incdec.ptr.i69.i.i172 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %incdec.ptr4.sink.i.i.i54.i.i158, i64 1
-  br label %while.cond.i.i.i173
+77:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i163
+  %78 = xor i64 %shr.i50.i.i153, -1
+  %sub2.i68.i.i170 = add nsw i64 %__len.024.i.i.i152, %78
+  %incdec.ptr.i69.i.i171 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %incdec.ptr4.sink.i.i.i54.i.i157, i64 1
+  br label %while.cond.i.i.i172
 
-while.cond.i.i.i173:                              ; preds = %77, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i164, %.thread.i71.i.i175
-  %79 = phi i64 [ %sub214.i.i.i177, %.thread.i71.i.i175 ], [ %shr.i50.i.i154, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i164 ], [ %sub2.i68.i.i171, %77 ]
-  %80 = phi ptr [ %incdec.ptr13.i.i.i176, %.thread.i71.i.i175 ], [ %__first.addr.025.i.i.i152, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i164 ], [ %incdec.ptr.i69.i.i172, %77 ]
-  %cmp.i70.i.i174 = icmp sgt i64 %79, 0
-  br i1 %cmp.i70.i.i174, label %while.body.i49.i.i151, label %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121, !llvm.loop !8
+while.cond.i.i.i172:                              ; preds = %77, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i163, %.thread.i71.i.i174
+  %79 = phi i64 [ %sub214.i.i.i176, %.thread.i71.i.i174 ], [ %shr.i50.i.i153, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i163 ], [ %sub2.i68.i.i170, %77 ]
+  %80 = phi ptr [ %incdec.ptr13.i.i.i175, %.thread.i71.i.i174 ], [ %__first.addr.025.i.i.i151, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i.i163 ], [ %incdec.ptr.i69.i.i171, %77 ]
+  %cmp.i70.i.i173 = icmp sgt i64 %79, 0
+  br i1 %cmp.i70.i.i173, label %while.body.i49.i.i150, label %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121, !llvm.loop !8
 
-if.end11.i.i178:                                  ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79, %if.then.i.i181
-  %__first.addr.1.i.i179 = phi ptr [ %incdec.ptr.i.i182, %if.then.i.i181 ], [ %__first.addr.092.i.i64, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79 ]
-  %__len.1.i.i180 = phi i64 [ %sub3.i.i183, %if.then.i.i181 ], [ %shr.i.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79 ]
-  %cmp.i22.i = icmp sgt i64 %__len.1.i.i180, 0
-  br i1 %cmp.i22.i, label %while.body.i.i62, label %if.then7.i.i.i150, !llvm.loop !9
+if.end11.i.i177:                                  ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79, %if.then.i.i180
+  %__first.addr.1.i.i178 = phi ptr [ %incdec.ptr.i.i181, %if.then.i.i180 ], [ %__first.addr.092.i.i64, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79 ]
+  %__len.1.i.i179 = phi i64 [ %sub3.i.i182, %if.then.i.i180 ], [ %shr.i.i65, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i79 ]
+  %cmp.i22.i = icmp sgt i64 %__len.1.i.i179, 0
+  br i1 %cmp.i22.i, label %while.body.i.i62, label %if.then7.i.i.i149, !llvm.loop !9
 
-_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121: ; preds = %while.cond.i.i.i173, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109
-  %retval.sroa.3.0.i.i122 = phi ptr [ %incdec.ptr8.i.i115, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109 ], [ %80, %while.cond.i.i.i173 ]
+_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121: ; preds = %while.cond.i.i.i172, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109
+  %retval.sroa.3.0.i.i122 = phi ptr [ %incdec.ptr8.i.i115, %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i109 ], [ %80, %while.cond.i.i.i172 ]
   %cmp6.i.i.i123 = icmp eq ptr %__first.addr.0.lcssa.i.i.i110, %retval.sroa.3.0.i.i122
-  br i1 %cmp6.i.i.i123, label %if.then7.i.i.i150, label %if.else.i.i.i124
+  br i1 %cmp6.i.i.i123, label %if.then7.i.i.i149, label %if.else.i.i.i124
 
-if.then7.i.i.i150:                                ; preds = %if.end11.i.i178, %if.then29.i, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121
-  %conv.i.i.pre-phi = phi i64 [ %conv.i.i.i.i61, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121 ], [ 0, %if.then29.i ], [ %conv.i.i.i.i61, %if.end11.i.i178 ]
-  %retval.sroa.0.0.i35.i = phi ptr [ %__first.addr.0.lcssa.i.i.i110, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121 ], [ %57, %if.then29.i ], [ %__first.addr.1.i.i179, %if.end11.i.i178 ]
+if.then7.i.i.i149:                                ; preds = %if.end11.i.i177, %if.then29.i, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121
+  %conv.i.i.pre-phi = phi i64 [ %conv.i.i.i.i61, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121 ], [ 0, %if.then29.i ], [ %conv.i.i.i.i61, %if.end11.i.i177 ]
+  %retval.sroa.0.0.i35.i = phi ptr [ %__first.addr.0.lcssa.i.i.i110, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i121 ], [ %57, %if.then29.i ], [ %__first.addr.1.i.i178, %if.end11.i.i177 ]
   %add.ptr.i56.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %57, i64 %conv.i.i.pre-phi
-  %cmp.i187 = icmp eq ptr %add.ptr.i56.i, %retval.sroa.0.0.i35.i
+  %cmp.i186 = icmp eq ptr %add.ptr.i56.i, %retval.sroa.0.0.i35.i
   %81 = load i32, ptr %Capacity2.i.i.i.i.i.i15, align 4
   %cmp.not.i.i = icmp ult i32 %58, %81
-  br i1 %cmp.i187, label %if.then.i, label %if.end.i188
+  br i1 %cmp.i186, label %if.then.i, label %if.end.i187
 
-if.then.i:                                        ; preds = %if.then7.i.i.i150
-  br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i, label %if.then.i.i194
+if.then.i:                                        ; preds = %if.then7.i.i.i149
+  br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i, label %if.then.i.i193
 
-if.then.i.i194:                                   ; preds = %if.then.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i13, i64 noundef 0, i64 noundef 8) #8
-  %.pre.i.i196 = load i32, ptr %Size.i.i.i.i.i.i14, align 8
+if.then.i.i193:                                   ; preds = %if.then.i
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i13, i64 noundef 0, i64 noundef 8) #7
+  %.pre.i.i195 = load i32, ptr %Size.i.i.i.i.i.i14, align 8
   %.pre30.i = load ptr, ptr %agg.result, align 8
-  %.pre31.i = zext i32 %.pre.i.i196 to i64
+  %.pre31.i = zext i32 %.pre.i.i195 to i64
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i
 
-_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i: ; preds = %if.then.i.i194, %if.then.i
-  %conv.i3.i.pre-phi.i = phi i64 [ %conv.i.i.pre-phi, %if.then.i ], [ %.pre31.i, %if.then.i.i194 ]
-  %82 = phi ptr [ %57, %if.then.i ], [ %.pre30.i, %if.then.i.i194 ]
-  %add.ptr.i.i.i197 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %82, i64 %conv.i3.i.pre-phi.i
-  store i64 %agg.tmp.sroa.0.0.insert.insert.i.i, ptr %add.ptr.i.i.i197, align 1
+_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i: ; preds = %if.then.i.i193, %if.then.i
+  %conv.i3.i.pre-phi.i = phi i64 [ %conv.i.i.pre-phi, %if.then.i ], [ %.pre31.i, %if.then.i.i193 ]
+  %82 = phi ptr [ %57, %if.then.i ], [ %.pre30.i, %if.then.i.i193 ]
+  %add.ptr.i.i.i196 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %82, i64 %conv.i3.i.pre-phi.i
+  store i64 %agg.tmp.sroa.0.0.insert.insert.i.i, ptr %add.ptr.i.i.i196, align 1
   %83 = load i32, ptr %Size.i.i.i.i.i.i14, align 8
-  %add.i.i198 = add i32 %83, 1
-  store i32 %add.i.i198, ptr %Size.i.i.i.i.i.i14, align 8
+  %add.i.i197 = add i32 %83, 1
+  store i32 %add.i.i197, ptr %Size.i.i.i.i.i.i14, align 8
   br label %for.inc.i
 
-if.end.i188:                                      ; preds = %if.then7.i.i.i150
+if.end.i187:                                      ; preds = %if.then7.i.i.i149
   br i1 %cmp.not.i.i, label %if.end10.i, label %if.then6.i
 
-if.then6.i:                                       ; preds = %if.end.i188
+if.then6.i:                                       ; preds = %if.end.i187
   %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.sroa.0.0.i35.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %57 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i13, i64 noundef 0, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i13, i64 noundef 0, i64 noundef 8) #7
   %84 = load ptr, ptr %agg.result, align 8
-  %add.ptr9.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %84, i64 %sub.ptr.div.i
-  %.pre.i190 = load i32, ptr %Size.i.i.i.i.i.i14, align 8
-  %.pre32.i = zext i32 %.pre.i190 to i64
+  %add.ptr9.i = getelementptr inbounds i8, ptr %84, i64 %sub.ptr.sub.i
+  %.pre.i189 = load i32, ptr %Size.i.i.i.i.i.i14, align 8
+  %.pre32.i = zext i32 %.pre.i189 to i64
   br label %if.end10.i
 
-if.end10.i:                                       ; preds = %if.then6.i, %if.end.i188
-  %conv.i16.pre-phi.i = phi i64 [ %.pre32.i, %if.then6.i ], [ %conv.i.i.pre-phi, %if.end.i188 ]
-  %85 = phi ptr [ %84, %if.then6.i ], [ %57, %if.end.i188 ]
-  %I.addr.0.i = phi ptr [ %add.ptr9.i, %if.then6.i ], [ %retval.sroa.0.0.i35.i, %if.end.i188 ]
+if.end10.i:                                       ; preds = %if.then6.i, %if.end.i187
+  %conv.i16.pre-phi.i = phi i64 [ %.pre32.i, %if.then6.i ], [ %conv.i.i.pre-phi, %if.end.i187 ]
+  %85 = phi ptr [ %84, %if.then6.i ], [ %57, %if.end.i187 ]
+  %I.addr.0.i = phi ptr [ %add.ptr9.i, %if.then6.i ], [ %retval.sroa.0.0.i35.i, %if.end.i187 ]
   %add.ptr.i44.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %85, i64 %conv.i16.pre-phi.i
   %arrayidx.i.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %add.ptr.i44.i, i64 -1
   %86 = load i64, ptr %arrayidx.i.i, align 4
@@ -963,15 +960,15 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end10.i
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i191 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %add.ptr.i38.i, i64 %.pre.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i191, ptr align 4 %I.addr.0.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i.i190 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %add.ptr.i38.i, i64 %.pre.i.i.i.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i190, ptr align 4 %I.addr.0.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   %.pre28.i = load i32, ptr %Size.i.i.i.i.i.i14, align 8
   br label %_ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit.i
 
 _ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %if.end10.i
   %89 = phi i32 [ %88, %if.end10.i ], [ %.pre28.i, %if.then.i.i.i.i.i.i ]
-  %add.i192 = add i32 %89, 1
-  store i32 %add.i192, ptr %Size.i.i.i.i.i.i14, align 8
+  %add.i191 = add i32 %89, 1
+  store i32 %add.i191, ptr %Size.i.i.i.i.i.i14, align 8
   store i64 %agg.tmp.sroa.0.0.insert.insert.i.i, ptr %I.addr.0.i, align 4
   br label %for.inc.i
 
@@ -1007,14 +1004,13 @@ if.then.i.i.i.i.i.i.i.i.i139:                     ; preds = %if.else.i.i.i124
 
 _ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i141: ; preds = %if.then.i.i.i.i.i.i.i.i.i139, %if.else.i.i.i124
   %96 = phi ptr [ %94, %if.else.i.i.i124 ], [ %.pre.i.i.i.i140, %if.then.i.i.i.i.i.i.i.i.i139 ]
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i142 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i137, 3
-  %add.ptr.i.i.i.i.i.i.i.i.i143 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %add.ptr26.i.i.i132, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i142
-  %sub.ptr.lhs.cast.i.i.i.i144 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.i.i143 to i64
-  %sub.ptr.rhs.cast.i.i.i.i145 = ptrtoint ptr %96 to i64
-  %sub.ptr.sub.i.i.i.i146 = sub i64 %sub.ptr.lhs.cast.i.i.i.i144, %sub.ptr.rhs.cast.i.i.i.i145
-  %sub.ptr.div.i.i.i.i147 = lshr exact i64 %sub.ptr.sub.i.i.i.i146, 3
-  %conv.i5.i.i.i.i148 = trunc i64 %sub.ptr.div.i.i.i.i147 to i32
-  store i32 %conv.i5.i.i.i.i148, ptr %Size.i.i.i.i.i.i14, align 8
+  %add.ptr.i.i.i.i.i.i.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr26.i.i.i132, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i137
+  %sub.ptr.lhs.cast.i.i.i.i143 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.i.i142 to i64
+  %sub.ptr.rhs.cast.i.i.i.i144 = ptrtoint ptr %96 to i64
+  %sub.ptr.sub.i.i.i.i145 = sub i64 %sub.ptr.lhs.cast.i.i.i.i143, %sub.ptr.rhs.cast.i.i.i.i144
+  %sub.ptr.div.i.i.i.i146 = lshr exact i64 %sub.ptr.sub.i.i.i.i145, 3
+  %conv.i5.i.i.i.i147 = trunc i64 %sub.ptr.div.i.i.i.i146 to i32
+  store i32 %conv.i5.i.i.i.i147, ptr %Size.i.i.i.i.i.i14, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i141, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i, %_ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit.i, %for.body21.i
@@ -1028,32 +1024,32 @@ for.inc31.i:                                      ; preds = %for.inc.i, %for.bod
   br i1 %cmp6.not.i, label %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit, label %for.body.i47, !llvm.loop !13
 
 _ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit: ; preds = %for.inc31.i, %for.body12
-  %incdec.ptr17 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %__begin16.0216, i64 1
+  %incdec.ptr17 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %__begin16.0215, i64 1
   %cmp11.not = icmp eq ptr %incdec.ptr17, %add.ptr.i38
   br i1 %cmp11.not, label %nrvo.skipdtor.loopexit, label %for.body12
 
 nrvo.skipdtor.loopexit:                           ; preds = %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit
-  %.pre231 = load ptr, ptr %canonicalized, align 8
+  %.pre230 = load ptr, ptr %canonicalized, align 8
   br label %nrvo.skipdtor
 
 nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.loopexit, %_ZN6hermes12CodePointSetC2ERKS0_.exit32
-  %97 = phi ptr [ %.pre231, %nrvo.skipdtor.loopexit ], [ %50, %_ZN6hermes12CodePointSetC2ERKS0_.exit32 ]
-  %cmp.i.i.i.i185 = icmp eq ptr %97, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i185, label %_ZN6hermes12CodePointSetD2Ev.exit, label %if.then.i.i.i186
+  %97 = phi ptr [ %.pre230, %nrvo.skipdtor.loopexit ], [ %50, %_ZN6hermes12CodePointSetC2ERKS0_.exit32 ]
+  %cmp.i.i.i.i184 = icmp eq ptr %97, %add.ptr.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i184, label %_ZN6hermes12CodePointSetD2Ev.exit, label %if.then.i.i.i185
 
-if.then.i.i.i186:                                 ; preds = %nrvo.skipdtor
-  call void @free(ptr noundef %97) #8
+if.then.i.i.i185:                                 ; preds = %nrvo.skipdtor
+  call void @free(ptr noundef %97) #7
   br label %_ZN6hermes12CodePointSetD2Ev.exit
 
-_ZN6hermes12CodePointSetD2Ev.exit:                ; preds = %nrvo.skipdtor, %if.then.i.i.i186
+_ZN6hermes12CodePointSetD2Ev.exit:                ; preds = %nrvo.skipdtor, %if.then.i.i.i185
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %cp, i1 noundef zeroext %unicode) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %cp, i1 noundef zeroext %unicode) local_unnamed_addr #3 {
 entry:
   %cond = select i1 %unicode, ptr @_ZN6hermesL13UNICODE_FOLDSE, ptr @_ZN6hermesL13LEGACY_CANONSE
   %cond5 = select i1 %unicode, ptr getelementptr inbounds ([198 x { i8, i8, i8, i8, i8, i8, i8, i8 }], ptr @_ZN6hermesL13UNICODE_FOLDSE, i64 1, i64 0, i32 0), ptr getelementptr inbounds ([175 x { i8, i8, i8, i8, i8, i8, i8, i8 }], ptr @_ZN6hermesL13LEGACY_CANONSE, i64 1, i64 0, i32 0)
@@ -1120,28 +1116,27 @@ return:                                           ; preds = %_ZSt11lower_boundIP
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
-declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #6
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

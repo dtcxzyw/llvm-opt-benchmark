@@ -283,7 +283,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers18QuantifiersModulesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %this, i8 0, i64 120, i1 false)
@@ -584,23 +584,24 @@ _ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allo
   %cond.i10.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store ptr %5, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i
+  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
 
 if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %9, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
-if.then.i21.i.i.i:                                ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i
+if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %9) #17
   br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i21.i.i.i, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
   store ptr %cond.i10.i.i.i, ptr %modules, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
@@ -637,11 +638,11 @@ _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19ConjectureGeneratorE
   %vfn.i.i.i100 = getelementptr inbounds ptr, ptr %vtable.i.i.i99, i64 1
   %15 = load ptr, ptr %vfn.i.i.i100, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(4072) %14) #14
-  %.pre573 = load ptr, ptr %d_sg_gen, align 8
+  %.pre585 = load ptr, ptr %d_sg_gen, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19ConjectureGeneratorESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19ConjectureGeneratorESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont10, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19ConjectureGeneratorEEclEPS4_.exit.i.i
-  %16 = phi ptr [ %call8, %invoke.cont10 ], [ %.pre573, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19ConjectureGeneratorEEclEPS4_.exit.i.i ]
+  %16 = phi ptr [ %call8, %invoke.cont10 ], [ %.pre585, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19ConjectureGeneratorEEclEPS4_.exit.i.i ]
   %_M_finish.i.i101 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
   %17 = load ptr, ptr %_M_finish.i.i101, align 8
   %_M_end_of_storage.i.i102 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
@@ -662,9 +663,9 @@ if.else.i.i106:                                   ; preds = %_ZNSt10unique_ptrIN
   %sub.ptr.rhs.cast.i.i.i.i.i108 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i.i.i109 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i107, %sub.ptr.rhs.cast.i.i.i.i.i108
   %cmp.i.i.i.i110 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i109, 9223372036854775800
-  br i1 %cmp.i.i.i.i110, label %if.then.i.i.i.i134, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i111
+  br i1 %cmp.i.i.i.i110, label %if.then.i.i.i.i135, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i111
 
-if.then.i.i.i.i134:                               ; preds = %if.else.i.i106
+if.then.i.i.i.i135:                               ; preds = %if.else.i.i106
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
@@ -688,27 +689,28 @@ _ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allo
   %cond.i10.i.i.i124 = phi ptr [ %call5.i.i.i.i.i.i122, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i120 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i111 ]
   %add.ptr.i.i.i125 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i124, i64 %sub.ptr.div.i.i.i.i.i112
   store ptr %16, ptr %add.ptr.i.i.i125, align 8
-  %cmp.i.i.i11.i.i.i126 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i112, 0
-  br i1 %cmp.i.i.i11.i.i.i126, label %if.then.i.i.i12.i.i.i133, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i127
+  %cmp.i.i.i11.i.i.i126 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i109, 0
+  br i1 %cmp.i.i.i11.i.i.i126, label %if.then.i.i.i12.i.i.i134, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i127
 
-if.then.i.i.i12.i.i.i133:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i123
+if.then.i.i.i12.i.i.i134:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i123
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i124, ptr align 8 %20, i64 %sub.ptr.sub.i.i.i.i.i109, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i127
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i127
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i127: ; preds = %if.then.i.i.i12.i.i.i133, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i123
-  %incdec.ptr.i.i.i128 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i125, i64 1
-  %tobool.not.i.i.i.i129 = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i.i.i129, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i131, label %if.then.i21.i.i.i130
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i127: ; preds = %if.then.i.i.i12.i.i.i134, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i123
+  %add.ptr.i.i.i.i.i.i128 = getelementptr inbounds i8, ptr %cond.i10.i.i.i124, i64 %sub.ptr.sub.i.i.i.i.i109
+  %incdec.ptr.i.i.i129 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i128, i64 1
+  %tobool.not.i.i.i.i130 = icmp eq ptr %20, null
+  br i1 %tobool.not.i.i.i.i130, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i132, label %if.then.i20.i.i.i131
 
-if.then.i21.i.i.i130:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i127
+if.then.i20.i.i.i131:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i127
   tail call void @_ZdlPv(ptr noundef nonnull %20) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i131
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i132
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i131: ; preds = %if.then.i21.i.i.i130, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i127
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i132: ; preds = %if.then.i20.i.i.i131, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i127
   store ptr %cond.i10.i.i.i124, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i128, ptr %_M_finish.i.i101, align 8
-  %add.ptr19.i.i.i132 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i124, i64 %cond.i.i.i.i118
-  store ptr %add.ptr19.i.i.i132, ptr %_M_end_of_storage.i.i102, align 8
+  store ptr %incdec.ptr.i.i.i129, ptr %_M_finish.i.i101, align 8
+  %add.ptr19.i.i.i133 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i124, i64 %cond.i.i.i.i118
+  store ptr %add.ptr19.i.i.i133, ptr %_M_end_of_storage.i.i102, align 8
   br label %if.end14
 
 lpad9:                                            ; preds = %if.then7
@@ -716,7 +718,7 @@ lpad9:                                            ; preds = %if.then7
           cleanup
   br label %eh.resume
 
-if.end14:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i131, %if.then.i.i104, %if.end
+if.end14:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i132, %if.then.i.i104, %if.end
   %22 = load ptr, ptr %quantifiers, align 8
   %eMatching = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %22, i64 0, i32 78
   %23 = load i8, ptr %eMatching, align 1
@@ -733,86 +735,87 @@ invoke.cont20:                                    ; preds = %if.then17
   %d_inst_engine = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 2
   %25 = load ptr, ptr %d_inst_engine, align 8
   store ptr %call18, ptr %d_inst_engine, align 8
-  %tobool.not.i.i136 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i136, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19InstantiationEngineESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19InstantiationEngineEEclEPS4_.exit.i.i
+  %tobool.not.i.i137 = icmp eq ptr %25, null
+  br i1 %tobool.not.i.i137, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19InstantiationEngineESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19InstantiationEngineEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19InstantiationEngineEEclEPS4_.exit.i.i: ; preds = %invoke.cont20
-  %vtable.i.i.i137 = load ptr, ptr %25, align 8
-  %vfn.i.i.i138 = getelementptr inbounds ptr, ptr %vtable.i.i.i137, i64 1
-  %26 = load ptr, ptr %vfn.i.i.i138, align 8
+  %vtable.i.i.i138 = load ptr, ptr %25, align 8
+  %vfn.i.i.i139 = getelementptr inbounds ptr, ptr %vtable.i.i.i138, i64 1
+  %26 = load ptr, ptr %vfn.i.i.i139, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(240) %25) #14
-  %.pre574 = load ptr, ptr %d_inst_engine, align 8
+  %.pre586 = load ptr, ptr %d_inst_engine, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19InstantiationEngineESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19InstantiationEngineESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont20, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19InstantiationEngineEEclEPS4_.exit.i.i
-  %27 = phi ptr [ %call18, %invoke.cont20 ], [ %.pre574, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19InstantiationEngineEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i139 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %28 = load ptr, ptr %_M_finish.i.i139, align 8
-  %_M_end_of_storage.i.i140 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %29 = load ptr, ptr %_M_end_of_storage.i.i140, align 8
-  %cmp.not.i.i141 = icmp eq ptr %28, %29
-  br i1 %cmp.not.i.i141, label %if.else.i.i144, label %if.then.i.i142
+  %27 = phi ptr [ %call18, %invoke.cont20 ], [ %.pre586, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers19InstantiationEngineEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i140 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %28 = load ptr, ptr %_M_finish.i.i140, align 8
+  %_M_end_of_storage.i.i141 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %29 = load ptr, ptr %_M_end_of_storage.i.i141, align 8
+  %cmp.not.i.i142 = icmp eq ptr %28, %29
+  br i1 %cmp.not.i.i142, label %if.else.i.i145, label %if.then.i.i143
 
-if.then.i.i142:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19InstantiationEngineESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i143:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19InstantiationEngineESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %27, ptr %28, align 8
-  %30 = load ptr, ptr %_M_finish.i.i139, align 8
-  %incdec.ptr.i.i143 = getelementptr inbounds ptr, ptr %30, i64 1
-  store ptr %incdec.ptr.i.i143, ptr %_M_finish.i.i139, align 8
+  %30 = load ptr, ptr %_M_finish.i.i140, align 8
+  %incdec.ptr.i.i144 = getelementptr inbounds ptr, ptr %30, i64 1
+  store ptr %incdec.ptr.i.i144, ptr %_M_finish.i.i140, align 8
   br label %if.end24
 
-if.else.i.i144:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19InstantiationEngineESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i145:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers19InstantiationEngineESt14default_deleteIS4_EE5resetEPS4_.exit
   %31 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i145 = ptrtoint ptr %28 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i146 = ptrtoint ptr %31 to i64
-  %sub.ptr.sub.i.i.i.i.i147 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i145, %sub.ptr.rhs.cast.i.i.i.i.i146
-  %cmp.i.i.i.i148 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i147, 9223372036854775800
-  br i1 %cmp.i.i.i.i148, label %if.then.i.i.i.i172, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i149
+  %sub.ptr.lhs.cast.i.i.i.i.i146 = ptrtoint ptr %28 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i147 = ptrtoint ptr %31 to i64
+  %sub.ptr.sub.i.i.i.i.i148 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i146, %sub.ptr.rhs.cast.i.i.i.i.i147
+  %cmp.i.i.i.i149 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i148, 9223372036854775800
+  br i1 %cmp.i.i.i.i149, label %if.then.i.i.i.i174, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i150
 
-if.then.i.i.i.i172:                               ; preds = %if.else.i.i144
+if.then.i.i.i.i174:                               ; preds = %if.else.i.i145
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i149: ; preds = %if.else.i.i144
-  %sub.ptr.div.i.i.i.i.i150 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i147, 3
-  %.sroa.speculated.i.i.i.i151 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i150, i64 1)
-  %add.i.i.i.i152 = add i64 %.sroa.speculated.i.i.i.i151, %sub.ptr.div.i.i.i.i.i150
-  %cmp7.i.i.i.i153 = icmp ult i64 %add.i.i.i.i152, %sub.ptr.div.i.i.i.i.i150
-  %cmp9.i.i.i.i154 = icmp ugt i64 %add.i.i.i.i152, 1152921504606846975
-  %or.cond.i.i.i.i155 = or i1 %cmp7.i.i.i.i153, %cmp9.i.i.i.i154
-  %cond.i.i.i.i156 = select i1 %or.cond.i.i.i.i155, i64 1152921504606846975, i64 %add.i.i.i.i152
-  %cmp.not.i.i.i.i157 = icmp eq i64 %cond.i.i.i.i156, 0
-  br i1 %cmp.not.i.i.i.i157, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i161, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i158
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i150: ; preds = %if.else.i.i145
+  %sub.ptr.div.i.i.i.i.i151 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i148, 3
+  %.sroa.speculated.i.i.i.i152 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i151, i64 1)
+  %add.i.i.i.i153 = add i64 %.sroa.speculated.i.i.i.i152, %sub.ptr.div.i.i.i.i.i151
+  %cmp7.i.i.i.i154 = icmp ult i64 %add.i.i.i.i153, %sub.ptr.div.i.i.i.i.i151
+  %cmp9.i.i.i.i155 = icmp ugt i64 %add.i.i.i.i153, 1152921504606846975
+  %or.cond.i.i.i.i156 = or i1 %cmp7.i.i.i.i154, %cmp9.i.i.i.i155
+  %cond.i.i.i.i157 = select i1 %or.cond.i.i.i.i156, i64 1152921504606846975, i64 %add.i.i.i.i153
+  %cmp.not.i.i.i.i158 = icmp eq i64 %cond.i.i.i.i157, 0
+  br i1 %cmp.not.i.i.i.i158, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i162, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i159
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i158: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i149
-  %mul.i.i.i.i.i.i159 = shl nuw nsw i64 %cond.i.i.i.i156, 3
-  %call5.i.i.i.i.i.i160 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i159) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i161
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i159: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i150
+  %mul.i.i.i.i.i.i160 = shl nuw nsw i64 %cond.i.i.i.i157, 3
+  %call5.i.i.i.i.i.i161 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i160) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i162
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i161: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i158, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i149
-  %cond.i10.i.i.i162 = phi ptr [ %call5.i.i.i.i.i.i160, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i158 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i149 ]
-  %add.ptr.i.i.i163 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i162, i64 %sub.ptr.div.i.i.i.i.i150
-  store ptr %27, ptr %add.ptr.i.i.i163, align 8
-  %cmp.i.i.i11.i.i.i164 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i150, 0
-  br i1 %cmp.i.i.i11.i.i.i164, label %if.then.i.i.i12.i.i.i171, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i165
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i162: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i159, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i150
+  %cond.i10.i.i.i163 = phi ptr [ %call5.i.i.i.i.i.i161, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i159 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i150 ]
+  %add.ptr.i.i.i164 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i163, i64 %sub.ptr.div.i.i.i.i.i151
+  store ptr %27, ptr %add.ptr.i.i.i164, align 8
+  %cmp.i.i.i11.i.i.i165 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i148, 0
+  br i1 %cmp.i.i.i11.i.i.i165, label %if.then.i.i.i12.i.i.i173, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i166
 
-if.then.i.i.i12.i.i.i171:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i161
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i162, ptr align 8 %31, i64 %sub.ptr.sub.i.i.i.i.i147, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i165
+if.then.i.i.i12.i.i.i173:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i162
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i163, ptr align 8 %31, i64 %sub.ptr.sub.i.i.i.i.i148, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i166
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i165: ; preds = %if.then.i.i.i12.i.i.i171, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i161
-  %incdec.ptr.i.i.i166 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i163, i64 1
-  %tobool.not.i.i.i.i167 = icmp eq ptr %31, null
-  br i1 %tobool.not.i.i.i.i167, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i169, label %if.then.i21.i.i.i168
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i166: ; preds = %if.then.i.i.i12.i.i.i173, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i162
+  %add.ptr.i.i.i.i.i.i167 = getelementptr inbounds i8, ptr %cond.i10.i.i.i163, i64 %sub.ptr.sub.i.i.i.i.i148
+  %incdec.ptr.i.i.i168 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i167, i64 1
+  %tobool.not.i.i.i.i169 = icmp eq ptr %31, null
+  br i1 %tobool.not.i.i.i.i169, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i171, label %if.then.i20.i.i.i170
 
-if.then.i21.i.i.i168:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i165
+if.then.i20.i.i.i170:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i166
   tail call void @_ZdlPv(ptr noundef nonnull %31) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i169
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i171
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i169: ; preds = %if.then.i21.i.i.i168, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i165
-  store ptr %cond.i10.i.i.i162, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i166, ptr %_M_finish.i.i139, align 8
-  %add.ptr19.i.i.i170 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i162, i64 %cond.i.i.i.i156
-  store ptr %add.ptr19.i.i.i170, ptr %_M_end_of_storage.i.i140, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i171: ; preds = %if.then.i20.i.i.i170, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i166
+  store ptr %cond.i10.i.i.i163, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i168, ptr %_M_finish.i.i140, align 8
+  %add.ptr19.i.i.i172 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i163, i64 %cond.i.i.i.i157
+  store ptr %add.ptr19.i.i.i172, ptr %_M_end_of_storage.i.i141, align 8
   br label %if.end24
 
 lpad19:                                           ; preds = %if.then17
@@ -820,7 +823,7 @@ lpad19:                                           ; preds = %if.then17
           cleanup
   br label %eh.resume
 
-if.end24:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i169, %if.then.i.i142, %if.end14
+if.end24:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i171, %if.then.i.i143, %if.end14
   %33 = load ptr, ptr %quantifiers, align 8
   %cegqi = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %33, i64 0, i32 19
   %34 = load i8, ptr %cegqi, align 1
@@ -837,94 +840,95 @@ invoke.cont30:                                    ; preds = %if.then27
   %d_i_cbqi = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 10
   %36 = load ptr, ptr %d_i_cbqi, align 8
   store ptr %call28, ptr %d_i_cbqi, align 8
-  %tobool.not.i.i174 = icmp eq ptr %36, null
-  br i1 %tobool.not.i.i174, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17InstStrategyCegqiESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17InstStrategyCegqiEEclEPS4_.exit.i.i
+  %tobool.not.i.i176 = icmp eq ptr %36, null
+  br i1 %tobool.not.i.i176, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17InstStrategyCegqiESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17InstStrategyCegqiEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17InstStrategyCegqiEEclEPS4_.exit.i.i: ; preds = %invoke.cont30
-  %vtable.i.i.i175 = load ptr, ptr %36, align 8
-  %vfn.i.i.i176 = getelementptr inbounds ptr, ptr %vtable.i.i.i175, i64 1
-  %37 = load ptr, ptr %vfn.i.i.i176, align 8
+  %vtable.i.i.i177 = load ptr, ptr %36, align 8
+  %vfn.i.i.i178 = getelementptr inbounds ptr, ptr %vtable.i.i.i177, i64 1
+  %37 = load ptr, ptr %vfn.i.i.i178, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(544) %36) #14
-  %.pre575 = load ptr, ptr %d_i_cbqi, align 8
+  %.pre587 = load ptr, ptr %d_i_cbqi, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17InstStrategyCegqiESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17InstStrategyCegqiESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont30, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17InstStrategyCegqiEEclEPS4_.exit.i.i
-  %38 = phi ptr [ %call28, %invoke.cont30 ], [ %.pre575, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17InstStrategyCegqiEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i177 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %39 = load ptr, ptr %_M_finish.i.i177, align 8
-  %_M_end_of_storage.i.i178 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %40 = load ptr, ptr %_M_end_of_storage.i.i178, align 8
-  %cmp.not.i.i179 = icmp eq ptr %39, %40
-  br i1 %cmp.not.i.i179, label %if.else.i.i182, label %if.then.i.i180
+  %38 = phi ptr [ %call28, %invoke.cont30 ], [ %.pre587, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers17InstStrategyCegqiEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i179 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %39 = load ptr, ptr %_M_finish.i.i179, align 8
+  %_M_end_of_storage.i.i180 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %40 = load ptr, ptr %_M_end_of_storage.i.i180, align 8
+  %cmp.not.i.i181 = icmp eq ptr %39, %40
+  br i1 %cmp.not.i.i181, label %if.else.i.i184, label %if.then.i.i182
 
-if.then.i.i180:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17InstStrategyCegqiESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i182:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17InstStrategyCegqiESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %38, ptr %39, align 8
-  %41 = load ptr, ptr %_M_finish.i.i177, align 8
-  %incdec.ptr.i.i181 = getelementptr inbounds ptr, ptr %41, i64 1
-  store ptr %incdec.ptr.i.i181, ptr %_M_finish.i.i177, align 8
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit211
+  %41 = load ptr, ptr %_M_finish.i.i179, align 8
+  %incdec.ptr.i.i183 = getelementptr inbounds ptr, ptr %41, i64 1
+  store ptr %incdec.ptr.i.i183, ptr %_M_finish.i.i179, align 8
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit214
 
-if.else.i.i182:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17InstStrategyCegqiESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i184:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17InstStrategyCegqiESt14default_deleteIS4_EE5resetEPS4_.exit
   %42 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i183 = ptrtoint ptr %39 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i184 = ptrtoint ptr %42 to i64
-  %sub.ptr.sub.i.i.i.i.i185 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i183, %sub.ptr.rhs.cast.i.i.i.i.i184
-  %cmp.i.i.i.i186 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i185, 9223372036854775800
-  br i1 %cmp.i.i.i.i186, label %if.then.i.i.i.i210, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i187
+  %sub.ptr.lhs.cast.i.i.i.i.i185 = ptrtoint ptr %39 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i186 = ptrtoint ptr %42 to i64
+  %sub.ptr.sub.i.i.i.i.i187 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i185, %sub.ptr.rhs.cast.i.i.i.i.i186
+  %cmp.i.i.i.i188 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i187, 9223372036854775800
+  br i1 %cmp.i.i.i.i188, label %if.then.i.i.i.i213, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i189
 
-if.then.i.i.i.i210:                               ; preds = %if.else.i.i182
+if.then.i.i.i.i213:                               ; preds = %if.else.i.i184
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i187: ; preds = %if.else.i.i182
-  %sub.ptr.div.i.i.i.i.i188 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i185, 3
-  %.sroa.speculated.i.i.i.i189 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i188, i64 1)
-  %add.i.i.i.i190 = add i64 %.sroa.speculated.i.i.i.i189, %sub.ptr.div.i.i.i.i.i188
-  %cmp7.i.i.i.i191 = icmp ult i64 %add.i.i.i.i190, %sub.ptr.div.i.i.i.i.i188
-  %cmp9.i.i.i.i192 = icmp ugt i64 %add.i.i.i.i190, 1152921504606846975
-  %or.cond.i.i.i.i193 = or i1 %cmp7.i.i.i.i191, %cmp9.i.i.i.i192
-  %cond.i.i.i.i194 = select i1 %or.cond.i.i.i.i193, i64 1152921504606846975, i64 %add.i.i.i.i190
-  %cmp.not.i.i.i.i195 = icmp eq i64 %cond.i.i.i.i194, 0
-  br i1 %cmp.not.i.i.i.i195, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i199, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i196
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i189: ; preds = %if.else.i.i184
+  %sub.ptr.div.i.i.i.i.i190 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i187, 3
+  %.sroa.speculated.i.i.i.i191 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i190, i64 1)
+  %add.i.i.i.i192 = add i64 %.sroa.speculated.i.i.i.i191, %sub.ptr.div.i.i.i.i.i190
+  %cmp7.i.i.i.i193 = icmp ult i64 %add.i.i.i.i192, %sub.ptr.div.i.i.i.i.i190
+  %cmp9.i.i.i.i194 = icmp ugt i64 %add.i.i.i.i192, 1152921504606846975
+  %or.cond.i.i.i.i195 = or i1 %cmp7.i.i.i.i193, %cmp9.i.i.i.i194
+  %cond.i.i.i.i196 = select i1 %or.cond.i.i.i.i195, i64 1152921504606846975, i64 %add.i.i.i.i192
+  %cmp.not.i.i.i.i197 = icmp eq i64 %cond.i.i.i.i196, 0
+  br i1 %cmp.not.i.i.i.i197, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i201, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i198
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i196: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i187
-  %mul.i.i.i.i.i.i197 = shl nuw nsw i64 %cond.i.i.i.i194, 3
-  %call5.i.i.i.i.i.i198 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i197) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i199
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i198: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i189
+  %mul.i.i.i.i.i.i199 = shl nuw nsw i64 %cond.i.i.i.i196, 3
+  %call5.i.i.i.i.i.i200 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i199) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i201
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i199: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i196, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i187
-  %cond.i10.i.i.i200 = phi ptr [ %call5.i.i.i.i.i.i198, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i196 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i187 ]
-  %add.ptr.i.i.i201 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i200, i64 %sub.ptr.div.i.i.i.i.i188
-  store ptr %38, ptr %add.ptr.i.i.i201, align 8
-  %cmp.i.i.i11.i.i.i202 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i188, 0
-  br i1 %cmp.i.i.i11.i.i.i202, label %if.then.i.i.i12.i.i.i209, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i203
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i201: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i198, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i189
+  %cond.i10.i.i.i202 = phi ptr [ %call5.i.i.i.i.i.i200, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i198 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i189 ]
+  %add.ptr.i.i.i203 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i202, i64 %sub.ptr.div.i.i.i.i.i190
+  store ptr %38, ptr %add.ptr.i.i.i203, align 8
+  %cmp.i.i.i11.i.i.i204 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i187, 0
+  br i1 %cmp.i.i.i11.i.i.i204, label %if.then.i.i.i12.i.i.i212, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i205
 
-if.then.i.i.i12.i.i.i209:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i199
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i200, ptr align 8 %42, i64 %sub.ptr.sub.i.i.i.i.i185, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i203
+if.then.i.i.i12.i.i.i212:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i201
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i202, ptr align 8 %42, i64 %sub.ptr.sub.i.i.i.i.i187, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i205
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i203: ; preds = %if.then.i.i.i12.i.i.i209, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i199
-  %incdec.ptr.i.i.i204 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i201, i64 1
-  %tobool.not.i.i.i.i205 = icmp eq ptr %42, null
-  br i1 %tobool.not.i.i.i.i205, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i207, label %if.then.i21.i.i.i206
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i205: ; preds = %if.then.i.i.i12.i.i.i212, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i201
+  %add.ptr.i.i.i.i.i.i206 = getelementptr inbounds i8, ptr %cond.i10.i.i.i202, i64 %sub.ptr.sub.i.i.i.i.i187
+  %incdec.ptr.i.i.i207 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i206, i64 1
+  %tobool.not.i.i.i.i208 = icmp eq ptr %42, null
+  br i1 %tobool.not.i.i.i.i208, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i210, label %if.then.i20.i.i.i209
 
-if.then.i21.i.i.i206:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i203
+if.then.i20.i.i.i209:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i205
   tail call void @_ZdlPv(ptr noundef nonnull %42) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i207
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i210
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i207: ; preds = %if.then.i21.i.i.i206, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i203
-  store ptr %cond.i10.i.i.i200, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i204, ptr %_M_finish.i.i177, align 8
-  %add.ptr19.i.i.i208 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i200, i64 %cond.i.i.i.i194
-  store ptr %add.ptr19.i.i.i208, ptr %_M_end_of_storage.i.i178, align 8
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit211
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i210: ; preds = %if.then.i20.i.i.i209, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i205
+  store ptr %cond.i10.i.i.i202, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i207, ptr %_M_finish.i.i179, align 8
+  %add.ptr19.i.i.i211 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i202, i64 %cond.i.i.i.i196
+  store ptr %add.ptr19.i.i.i211, ptr %_M_end_of_storage.i.i180, align 8
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit214
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit211: ; preds = %if.then.i.i180, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i207
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit214: ; preds = %if.then.i.i182, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i210
   %call34 = tail call noundef ptr @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManager14getInstantiateEv(ptr noundef nonnull align 8 dereferenceable(376) %qim)
   %43 = load ptr, ptr %d_i_cbqi, align 8
   %call37 = tail call noundef ptr @_ZNK4cvc58internal6theory11quantifiers17InstStrategyCegqi15getInstRewriterEv(ptr noundef nonnull align 8 dereferenceable(544) %43)
   tail call void @_ZN4cvc58internal6theory11quantifiers11Instantiate11addRewriterEPNS2_21InstantiationRewriterE(ptr noundef nonnull align 8 dereferenceable(472) %call34, ptr noundef %call37)
-  %.pre576 = load ptr, ptr %quantifiers, align 8
+  %.pre588 = load ptr, ptr %quantifiers, align 8
   br label %if.end38
 
 lpad29:                                           ; preds = %if.then27
@@ -932,8 +936,8 @@ lpad29:                                           ; preds = %if.then27
           cleanup
   br label %eh.resume
 
-if.end38:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit211, %if.end24
-  %45 = phi ptr [ %.pre576, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit211 ], [ %33, %if.end24 ]
+if.end38:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit214, %if.end24
+  %45 = phi ptr [ %.pre588, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE9push_backEOS4_.exit214 ], [ %33, %if.end24 ]
   %sygus = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %45, i64 0, i32 219
   %46 = load i8, ptr %sygus, align 1
   %47 = and i8 %46, 1
@@ -949,86 +953,87 @@ invoke.cont44:                                    ; preds = %if.then41
   %d_synth_e = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 7
   %48 = load ptr, ptr %d_synth_e, align 8
   store ptr %call42, ptr %d_synth_e, align 8
-  %tobool.not.i.i212 = icmp eq ptr %48, null
-  br i1 %tobool.not.i.i212, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthEngineESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11SynthEngineEEclEPS4_.exit.i.i
+  %tobool.not.i.i215 = icmp eq ptr %48, null
+  br i1 %tobool.not.i.i215, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthEngineESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11SynthEngineEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11SynthEngineEEclEPS4_.exit.i.i: ; preds = %invoke.cont44
-  %vtable.i.i.i213 = load ptr, ptr %48, align 8
-  %vfn.i.i.i214 = getelementptr inbounds ptr, ptr %vtable.i.i.i213, i64 1
-  %49 = load ptr, ptr %vfn.i.i.i214, align 8
+  %vtable.i.i.i216 = load ptr, ptr %48, align 8
+  %vfn.i.i.i217 = getelementptr inbounds ptr, ptr %vtable.i.i.i216, i64 1
+  %49 = load ptr, ptr %vfn.i.i.i217, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(120) %48) #14
-  %.pre577 = load ptr, ptr %d_synth_e, align 8
+  %.pre589 = load ptr, ptr %d_synth_e, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthEngineESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthEngineESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont44, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11SynthEngineEEclEPS4_.exit.i.i
-  %50 = phi ptr [ %call42, %invoke.cont44 ], [ %.pre577, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11SynthEngineEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i215 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %51 = load ptr, ptr %_M_finish.i.i215, align 8
-  %_M_end_of_storage.i.i216 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %52 = load ptr, ptr %_M_end_of_storage.i.i216, align 8
-  %cmp.not.i.i217 = icmp eq ptr %51, %52
-  br i1 %cmp.not.i.i217, label %if.else.i.i220, label %if.then.i.i218
+  %50 = phi ptr [ %call42, %invoke.cont44 ], [ %.pre589, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11SynthEngineEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i218 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %51 = load ptr, ptr %_M_finish.i.i218, align 8
+  %_M_end_of_storage.i.i219 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %52 = load ptr, ptr %_M_end_of_storage.i.i219, align 8
+  %cmp.not.i.i220 = icmp eq ptr %51, %52
+  br i1 %cmp.not.i.i220, label %if.else.i.i223, label %if.then.i.i221
 
-if.then.i.i218:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthEngineESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i221:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthEngineESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %50, ptr %51, align 8
-  %53 = load ptr, ptr %_M_finish.i.i215, align 8
-  %incdec.ptr.i.i219 = getelementptr inbounds ptr, ptr %53, i64 1
-  store ptr %incdec.ptr.i.i219, ptr %_M_finish.i.i215, align 8
+  %53 = load ptr, ptr %_M_finish.i.i218, align 8
+  %incdec.ptr.i.i222 = getelementptr inbounds ptr, ptr %53, i64 1
+  store ptr %incdec.ptr.i.i222, ptr %_M_finish.i.i218, align 8
   br label %if.end48
 
-if.else.i.i220:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthEngineESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i223:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthEngineESt14default_deleteIS4_EE5resetEPS4_.exit
   %54 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i221 = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i222 = ptrtoint ptr %54 to i64
-  %sub.ptr.sub.i.i.i.i.i223 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i221, %sub.ptr.rhs.cast.i.i.i.i.i222
-  %cmp.i.i.i.i224 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i223, 9223372036854775800
-  br i1 %cmp.i.i.i.i224, label %if.then.i.i.i.i248, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i225
+  %sub.ptr.lhs.cast.i.i.i.i.i224 = ptrtoint ptr %51 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i225 = ptrtoint ptr %54 to i64
+  %sub.ptr.sub.i.i.i.i.i226 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i224, %sub.ptr.rhs.cast.i.i.i.i.i225
+  %cmp.i.i.i.i227 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i226, 9223372036854775800
+  br i1 %cmp.i.i.i.i227, label %if.then.i.i.i.i252, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i228
 
-if.then.i.i.i.i248:                               ; preds = %if.else.i.i220
+if.then.i.i.i.i252:                               ; preds = %if.else.i.i223
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i225: ; preds = %if.else.i.i220
-  %sub.ptr.div.i.i.i.i.i226 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i223, 3
-  %.sroa.speculated.i.i.i.i227 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i226, i64 1)
-  %add.i.i.i.i228 = add i64 %.sroa.speculated.i.i.i.i227, %sub.ptr.div.i.i.i.i.i226
-  %cmp7.i.i.i.i229 = icmp ult i64 %add.i.i.i.i228, %sub.ptr.div.i.i.i.i.i226
-  %cmp9.i.i.i.i230 = icmp ugt i64 %add.i.i.i.i228, 1152921504606846975
-  %or.cond.i.i.i.i231 = or i1 %cmp7.i.i.i.i229, %cmp9.i.i.i.i230
-  %cond.i.i.i.i232 = select i1 %or.cond.i.i.i.i231, i64 1152921504606846975, i64 %add.i.i.i.i228
-  %cmp.not.i.i.i.i233 = icmp eq i64 %cond.i.i.i.i232, 0
-  br i1 %cmp.not.i.i.i.i233, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i237, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i234
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i228: ; preds = %if.else.i.i223
+  %sub.ptr.div.i.i.i.i.i229 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i226, 3
+  %.sroa.speculated.i.i.i.i230 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i229, i64 1)
+  %add.i.i.i.i231 = add i64 %.sroa.speculated.i.i.i.i230, %sub.ptr.div.i.i.i.i.i229
+  %cmp7.i.i.i.i232 = icmp ult i64 %add.i.i.i.i231, %sub.ptr.div.i.i.i.i.i229
+  %cmp9.i.i.i.i233 = icmp ugt i64 %add.i.i.i.i231, 1152921504606846975
+  %or.cond.i.i.i.i234 = or i1 %cmp7.i.i.i.i232, %cmp9.i.i.i.i233
+  %cond.i.i.i.i235 = select i1 %or.cond.i.i.i.i234, i64 1152921504606846975, i64 %add.i.i.i.i231
+  %cmp.not.i.i.i.i236 = icmp eq i64 %cond.i.i.i.i235, 0
+  br i1 %cmp.not.i.i.i.i236, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i240, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i237
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i234: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i225
-  %mul.i.i.i.i.i.i235 = shl nuw nsw i64 %cond.i.i.i.i232, 3
-  %call5.i.i.i.i.i.i236 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i235) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i237
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i237: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i228
+  %mul.i.i.i.i.i.i238 = shl nuw nsw i64 %cond.i.i.i.i235, 3
+  %call5.i.i.i.i.i.i239 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i238) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i240
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i237: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i234, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i225
-  %cond.i10.i.i.i238 = phi ptr [ %call5.i.i.i.i.i.i236, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i234 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i225 ]
-  %add.ptr.i.i.i239 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i238, i64 %sub.ptr.div.i.i.i.i.i226
-  store ptr %50, ptr %add.ptr.i.i.i239, align 8
-  %cmp.i.i.i11.i.i.i240 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i226, 0
-  br i1 %cmp.i.i.i11.i.i.i240, label %if.then.i.i.i12.i.i.i247, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i241
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i240: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i237, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i228
+  %cond.i10.i.i.i241 = phi ptr [ %call5.i.i.i.i.i.i239, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i237 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i228 ]
+  %add.ptr.i.i.i242 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i241, i64 %sub.ptr.div.i.i.i.i.i229
+  store ptr %50, ptr %add.ptr.i.i.i242, align 8
+  %cmp.i.i.i11.i.i.i243 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i226, 0
+  br i1 %cmp.i.i.i11.i.i.i243, label %if.then.i.i.i12.i.i.i251, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i244
 
-if.then.i.i.i12.i.i.i247:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i237
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i238, ptr align 8 %54, i64 %sub.ptr.sub.i.i.i.i.i223, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i241
+if.then.i.i.i12.i.i.i251:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i240
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i241, ptr align 8 %54, i64 %sub.ptr.sub.i.i.i.i.i226, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i244
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i241: ; preds = %if.then.i.i.i12.i.i.i247, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i237
-  %incdec.ptr.i.i.i242 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i239, i64 1
-  %tobool.not.i.i.i.i243 = icmp eq ptr %54, null
-  br i1 %tobool.not.i.i.i.i243, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i245, label %if.then.i21.i.i.i244
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i244: ; preds = %if.then.i.i.i12.i.i.i251, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i240
+  %add.ptr.i.i.i.i.i.i245 = getelementptr inbounds i8, ptr %cond.i10.i.i.i241, i64 %sub.ptr.sub.i.i.i.i.i226
+  %incdec.ptr.i.i.i246 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i245, i64 1
+  %tobool.not.i.i.i.i247 = icmp eq ptr %54, null
+  br i1 %tobool.not.i.i.i.i247, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i249, label %if.then.i20.i.i.i248
 
-if.then.i21.i.i.i244:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i241
+if.then.i20.i.i.i248:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i244
   tail call void @_ZdlPv(ptr noundef nonnull %54) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i245
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i249
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i245: ; preds = %if.then.i21.i.i.i244, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i241
-  store ptr %cond.i10.i.i.i238, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i242, ptr %_M_finish.i.i215, align 8
-  %add.ptr19.i.i.i246 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i238, i64 %cond.i.i.i.i232
-  store ptr %add.ptr19.i.i.i246, ptr %_M_end_of_storage.i.i216, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i249: ; preds = %if.then.i20.i.i.i248, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i244
+  store ptr %cond.i10.i.i.i241, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i246, ptr %_M_finish.i.i218, align 8
+  %add.ptr19.i.i.i250 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i241, i64 %cond.i.i.i.i235
+  store ptr %add.ptr19.i.i.i250, ptr %_M_end_of_storage.i.i219, align 8
   br label %if.end48
 
 lpad43:                                           ; preds = %if.then41
@@ -1036,7 +1041,7 @@ lpad43:                                           ; preds = %if.then41
           cleanup
   br label %eh.resume
 
-if.end48:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i245, %if.then.i.i218, %if.end38
+if.end48:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i249, %if.then.i.i221, %if.end38
   %56 = load ptr, ptr %quantifiers, align 8
   %fmfBound = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %56, i64 0, i32 99
   %57 = load i8, ptr %fmfBound, align 1
@@ -1062,86 +1067,87 @@ invoke.cont55:                                    ; preds = %if.then52
   %d_bint = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 4
   %62 = load ptr, ptr %d_bint, align 8
   store ptr %call53, ptr %d_bint, align 8
-  %tobool.not.i.i250 = icmp eq ptr %62, null
-  br i1 %tobool.not.i.i250, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15BoundedIntegersESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers15BoundedIntegersEEclEPS4_.exit.i.i
+  %tobool.not.i.i254 = icmp eq ptr %62, null
+  br i1 %tobool.not.i.i254, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15BoundedIntegersESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers15BoundedIntegersEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers15BoundedIntegersEEclEPS4_.exit.i.i: ; preds = %invoke.cont55
-  %vtable.i.i.i251 = load ptr, ptr %62, align 8
-  %vfn.i.i.i252 = getelementptr inbounds ptr, ptr %vtable.i.i.i251, i64 1
-  %63 = load ptr, ptr %vfn.i.i.i252, align 8
+  %vtable.i.i.i255 = load ptr, ptr %62, align 8
+  %vfn.i.i.i256 = getelementptr inbounds ptr, ptr %vtable.i.i.i255, i64 1
+  %63 = load ptr, ptr %vfn.i.i.i256, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(768) %62) #14
-  %.pre578 = load ptr, ptr %d_bint, align 8
+  %.pre590 = load ptr, ptr %d_bint, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15BoundedIntegersESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15BoundedIntegersESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont55, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers15BoundedIntegersEEclEPS4_.exit.i.i
-  %64 = phi ptr [ %call53, %invoke.cont55 ], [ %.pre578, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers15BoundedIntegersEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i253 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %65 = load ptr, ptr %_M_finish.i.i253, align 8
-  %_M_end_of_storage.i.i254 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %66 = load ptr, ptr %_M_end_of_storage.i.i254, align 8
-  %cmp.not.i.i255 = icmp eq ptr %65, %66
-  br i1 %cmp.not.i.i255, label %if.else.i.i258, label %if.then.i.i256
+  %64 = phi ptr [ %call53, %invoke.cont55 ], [ %.pre590, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers15BoundedIntegersEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i257 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %65 = load ptr, ptr %_M_finish.i.i257, align 8
+  %_M_end_of_storage.i.i258 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %66 = load ptr, ptr %_M_end_of_storage.i.i258, align 8
+  %cmp.not.i.i259 = icmp eq ptr %65, %66
+  br i1 %cmp.not.i.i259, label %if.else.i.i262, label %if.then.i.i260
 
-if.then.i.i256:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15BoundedIntegersESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i260:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15BoundedIntegersESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %64, ptr %65, align 8
-  %67 = load ptr, ptr %_M_finish.i.i253, align 8
-  %incdec.ptr.i.i257 = getelementptr inbounds ptr, ptr %67, i64 1
-  store ptr %incdec.ptr.i.i257, ptr %_M_finish.i.i253, align 8
+  %67 = load ptr, ptr %_M_finish.i.i257, align 8
+  %incdec.ptr.i.i261 = getelementptr inbounds ptr, ptr %67, i64 1
+  store ptr %incdec.ptr.i.i261, ptr %_M_finish.i.i257, align 8
   br label %if.end59
 
-if.else.i.i258:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15BoundedIntegersESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i262:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15BoundedIntegersESt14default_deleteIS4_EE5resetEPS4_.exit
   %68 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i259 = ptrtoint ptr %65 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i260 = ptrtoint ptr %68 to i64
-  %sub.ptr.sub.i.i.i.i.i261 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i259, %sub.ptr.rhs.cast.i.i.i.i.i260
-  %cmp.i.i.i.i262 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i261, 9223372036854775800
-  br i1 %cmp.i.i.i.i262, label %if.then.i.i.i.i286, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i263
+  %sub.ptr.lhs.cast.i.i.i.i.i263 = ptrtoint ptr %65 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i264 = ptrtoint ptr %68 to i64
+  %sub.ptr.sub.i.i.i.i.i265 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i263, %sub.ptr.rhs.cast.i.i.i.i.i264
+  %cmp.i.i.i.i266 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i265, 9223372036854775800
+  br i1 %cmp.i.i.i.i266, label %if.then.i.i.i.i291, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i267
 
-if.then.i.i.i.i286:                               ; preds = %if.else.i.i258
+if.then.i.i.i.i291:                               ; preds = %if.else.i.i262
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i263: ; preds = %if.else.i.i258
-  %sub.ptr.div.i.i.i.i.i264 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i261, 3
-  %.sroa.speculated.i.i.i.i265 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i264, i64 1)
-  %add.i.i.i.i266 = add i64 %.sroa.speculated.i.i.i.i265, %sub.ptr.div.i.i.i.i.i264
-  %cmp7.i.i.i.i267 = icmp ult i64 %add.i.i.i.i266, %sub.ptr.div.i.i.i.i.i264
-  %cmp9.i.i.i.i268 = icmp ugt i64 %add.i.i.i.i266, 1152921504606846975
-  %or.cond.i.i.i.i269 = or i1 %cmp7.i.i.i.i267, %cmp9.i.i.i.i268
-  %cond.i.i.i.i270 = select i1 %or.cond.i.i.i.i269, i64 1152921504606846975, i64 %add.i.i.i.i266
-  %cmp.not.i.i.i.i271 = icmp eq i64 %cond.i.i.i.i270, 0
-  br i1 %cmp.not.i.i.i.i271, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i275, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i272
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i267: ; preds = %if.else.i.i262
+  %sub.ptr.div.i.i.i.i.i268 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i265, 3
+  %.sroa.speculated.i.i.i.i269 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i268, i64 1)
+  %add.i.i.i.i270 = add i64 %.sroa.speculated.i.i.i.i269, %sub.ptr.div.i.i.i.i.i268
+  %cmp7.i.i.i.i271 = icmp ult i64 %add.i.i.i.i270, %sub.ptr.div.i.i.i.i.i268
+  %cmp9.i.i.i.i272 = icmp ugt i64 %add.i.i.i.i270, 1152921504606846975
+  %or.cond.i.i.i.i273 = or i1 %cmp7.i.i.i.i271, %cmp9.i.i.i.i272
+  %cond.i.i.i.i274 = select i1 %or.cond.i.i.i.i273, i64 1152921504606846975, i64 %add.i.i.i.i270
+  %cmp.not.i.i.i.i275 = icmp eq i64 %cond.i.i.i.i274, 0
+  br i1 %cmp.not.i.i.i.i275, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i279, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i276
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i272: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i263
-  %mul.i.i.i.i.i.i273 = shl nuw nsw i64 %cond.i.i.i.i270, 3
-  %call5.i.i.i.i.i.i274 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i273) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i275
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i276: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i267
+  %mul.i.i.i.i.i.i277 = shl nuw nsw i64 %cond.i.i.i.i274, 3
+  %call5.i.i.i.i.i.i278 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i277) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i279
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i275: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i272, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i263
-  %cond.i10.i.i.i276 = phi ptr [ %call5.i.i.i.i.i.i274, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i272 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i263 ]
-  %add.ptr.i.i.i277 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i276, i64 %sub.ptr.div.i.i.i.i.i264
-  store ptr %64, ptr %add.ptr.i.i.i277, align 8
-  %cmp.i.i.i11.i.i.i278 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i264, 0
-  br i1 %cmp.i.i.i11.i.i.i278, label %if.then.i.i.i12.i.i.i285, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i279
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i279: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i276, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i267
+  %cond.i10.i.i.i280 = phi ptr [ %call5.i.i.i.i.i.i278, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i276 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i267 ]
+  %add.ptr.i.i.i281 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i280, i64 %sub.ptr.div.i.i.i.i.i268
+  store ptr %64, ptr %add.ptr.i.i.i281, align 8
+  %cmp.i.i.i11.i.i.i282 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i265, 0
+  br i1 %cmp.i.i.i11.i.i.i282, label %if.then.i.i.i12.i.i.i290, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i283
 
-if.then.i.i.i12.i.i.i285:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i275
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i276, ptr align 8 %68, i64 %sub.ptr.sub.i.i.i.i.i261, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i279
+if.then.i.i.i12.i.i.i290:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i279
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i280, ptr align 8 %68, i64 %sub.ptr.sub.i.i.i.i.i265, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i283
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i279: ; preds = %if.then.i.i.i12.i.i.i285, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i275
-  %incdec.ptr.i.i.i280 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i277, i64 1
-  %tobool.not.i.i.i.i281 = icmp eq ptr %68, null
-  br i1 %tobool.not.i.i.i.i281, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i283, label %if.then.i21.i.i.i282
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i283: ; preds = %if.then.i.i.i12.i.i.i290, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i279
+  %add.ptr.i.i.i.i.i.i284 = getelementptr inbounds i8, ptr %cond.i10.i.i.i280, i64 %sub.ptr.sub.i.i.i.i.i265
+  %incdec.ptr.i.i.i285 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i284, i64 1
+  %tobool.not.i.i.i.i286 = icmp eq ptr %68, null
+  br i1 %tobool.not.i.i.i.i286, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i288, label %if.then.i20.i.i.i287
 
-if.then.i21.i.i.i282:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i279
+if.then.i20.i.i.i287:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i283
   tail call void @_ZdlPv(ptr noundef nonnull %68) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i283
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i288
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i283: ; preds = %if.then.i21.i.i.i282, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i279
-  store ptr %cond.i10.i.i.i276, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i280, ptr %_M_finish.i.i253, align 8
-  %add.ptr19.i.i.i284 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i276, i64 %cond.i.i.i.i270
-  store ptr %add.ptr19.i.i.i284, ptr %_M_end_of_storage.i.i254, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i288: ; preds = %if.then.i20.i.i.i287, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i283
+  store ptr %cond.i10.i.i.i280, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i285, ptr %_M_finish.i.i257, align 8
+  %add.ptr19.i.i.i289 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i280, i64 %cond.i.i.i.i274
+  store ptr %add.ptr19.i.i.i289, ptr %_M_end_of_storage.i.i258, align 8
   br label %if.end59
 
 lpad54:                                           ; preds = %if.then52
@@ -1149,7 +1155,7 @@ lpad54:                                           ; preds = %if.then52
           cleanup
   br label %eh.resume
 
-if.end59:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i283, %if.then.i.i256, %lor.lhs.false
+if.end59:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i288, %if.then.i.i260, %lor.lhs.false
   %70 = load ptr, ptr %quantifiers, align 8
   %finiteModelFind = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %70, i64 0, i32 97
   %71 = load i8, ptr %finiteModelFind, align 1
@@ -1182,86 +1188,87 @@ invoke.cont73:                                    ; preds = %if.then70
   %d_model_engine = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 3
   %78 = load ptr, ptr %d_model_engine, align 8
   store ptr %call71, ptr %d_model_engine, align 8
-  %tobool.not.i.i288 = icmp eq ptr %78, null
-  br i1 %tobool.not.i.i288, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ModelEngineESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11ModelEngineEEclEPS4_.exit.i.i
+  %tobool.not.i.i293 = icmp eq ptr %78, null
+  br i1 %tobool.not.i.i293, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ModelEngineESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11ModelEngineEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11ModelEngineEEclEPS4_.exit.i.i: ; preds = %invoke.cont73
-  %vtable.i.i.i289 = load ptr, ptr %78, align 8
-  %vfn.i.i.i290 = getelementptr inbounds ptr, ptr %vtable.i.i.i289, i64 1
-  %79 = load ptr, ptr %vfn.i.i.i290, align 8
+  %vtable.i.i.i294 = load ptr, ptr %78, align 8
+  %vfn.i.i.i295 = getelementptr inbounds ptr, ptr %vtable.i.i.i294, i64 1
+  %79 = load ptr, ptr %vfn.i.i.i295, align 8
   tail call void %79(ptr noundef nonnull align 8 dereferenceable(128) %78) #14
-  %.pre579 = load ptr, ptr %d_model_engine, align 8
+  %.pre591 = load ptr, ptr %d_model_engine, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ModelEngineESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ModelEngineESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont73, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11ModelEngineEEclEPS4_.exit.i.i
-  %80 = phi ptr [ %call71, %invoke.cont73 ], [ %.pre579, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11ModelEngineEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i291 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %81 = load ptr, ptr %_M_finish.i.i291, align 8
-  %_M_end_of_storage.i.i292 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %82 = load ptr, ptr %_M_end_of_storage.i.i292, align 8
-  %cmp.not.i.i293 = icmp eq ptr %81, %82
-  br i1 %cmp.not.i.i293, label %if.else.i.i296, label %if.then.i.i294
+  %80 = phi ptr [ %call71, %invoke.cont73 ], [ %.pre591, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11ModelEngineEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i296 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %81 = load ptr, ptr %_M_finish.i.i296, align 8
+  %_M_end_of_storage.i.i297 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %82 = load ptr, ptr %_M_end_of_storage.i.i297, align 8
+  %cmp.not.i.i298 = icmp eq ptr %81, %82
+  br i1 %cmp.not.i.i298, label %if.else.i.i301, label %if.then.i.i299
 
-if.then.i.i294:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ModelEngineESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i299:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ModelEngineESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %80, ptr %81, align 8
-  %83 = load ptr, ptr %_M_finish.i.i291, align 8
-  %incdec.ptr.i.i295 = getelementptr inbounds ptr, ptr %83, i64 1
-  store ptr %incdec.ptr.i.i295, ptr %_M_finish.i.i291, align 8
+  %83 = load ptr, ptr %_M_finish.i.i296, align 8
+  %incdec.ptr.i.i300 = getelementptr inbounds ptr, ptr %83, i64 1
+  store ptr %incdec.ptr.i.i300, ptr %_M_finish.i.i296, align 8
   br label %if.end77
 
-if.else.i.i296:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ModelEngineESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i301:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11ModelEngineESt14default_deleteIS4_EE5resetEPS4_.exit
   %84 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i297 = ptrtoint ptr %81 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i298 = ptrtoint ptr %84 to i64
-  %sub.ptr.sub.i.i.i.i.i299 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i297, %sub.ptr.rhs.cast.i.i.i.i.i298
-  %cmp.i.i.i.i300 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i299, 9223372036854775800
-  br i1 %cmp.i.i.i.i300, label %if.then.i.i.i.i324, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i301
+  %sub.ptr.lhs.cast.i.i.i.i.i302 = ptrtoint ptr %81 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i303 = ptrtoint ptr %84 to i64
+  %sub.ptr.sub.i.i.i.i.i304 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i302, %sub.ptr.rhs.cast.i.i.i.i.i303
+  %cmp.i.i.i.i305 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i304, 9223372036854775800
+  br i1 %cmp.i.i.i.i305, label %if.then.i.i.i.i330, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i306
 
-if.then.i.i.i.i324:                               ; preds = %if.else.i.i296
+if.then.i.i.i.i330:                               ; preds = %if.else.i.i301
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i301: ; preds = %if.else.i.i296
-  %sub.ptr.div.i.i.i.i.i302 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i299, 3
-  %.sroa.speculated.i.i.i.i303 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i302, i64 1)
-  %add.i.i.i.i304 = add i64 %.sroa.speculated.i.i.i.i303, %sub.ptr.div.i.i.i.i.i302
-  %cmp7.i.i.i.i305 = icmp ult i64 %add.i.i.i.i304, %sub.ptr.div.i.i.i.i.i302
-  %cmp9.i.i.i.i306 = icmp ugt i64 %add.i.i.i.i304, 1152921504606846975
-  %or.cond.i.i.i.i307 = or i1 %cmp7.i.i.i.i305, %cmp9.i.i.i.i306
-  %cond.i.i.i.i308 = select i1 %or.cond.i.i.i.i307, i64 1152921504606846975, i64 %add.i.i.i.i304
-  %cmp.not.i.i.i.i309 = icmp eq i64 %cond.i.i.i.i308, 0
-  br i1 %cmp.not.i.i.i.i309, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i313, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i310
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i306: ; preds = %if.else.i.i301
+  %sub.ptr.div.i.i.i.i.i307 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i304, 3
+  %.sroa.speculated.i.i.i.i308 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i307, i64 1)
+  %add.i.i.i.i309 = add i64 %.sroa.speculated.i.i.i.i308, %sub.ptr.div.i.i.i.i.i307
+  %cmp7.i.i.i.i310 = icmp ult i64 %add.i.i.i.i309, %sub.ptr.div.i.i.i.i.i307
+  %cmp9.i.i.i.i311 = icmp ugt i64 %add.i.i.i.i309, 1152921504606846975
+  %or.cond.i.i.i.i312 = or i1 %cmp7.i.i.i.i310, %cmp9.i.i.i.i311
+  %cond.i.i.i.i313 = select i1 %or.cond.i.i.i.i312, i64 1152921504606846975, i64 %add.i.i.i.i309
+  %cmp.not.i.i.i.i314 = icmp eq i64 %cond.i.i.i.i313, 0
+  br i1 %cmp.not.i.i.i.i314, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i318, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i315
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i310: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i301
-  %mul.i.i.i.i.i.i311 = shl nuw nsw i64 %cond.i.i.i.i308, 3
-  %call5.i.i.i.i.i.i312 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i311) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i313
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i315: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i306
+  %mul.i.i.i.i.i.i316 = shl nuw nsw i64 %cond.i.i.i.i313, 3
+  %call5.i.i.i.i.i.i317 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i316) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i318
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i313: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i310, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i301
-  %cond.i10.i.i.i314 = phi ptr [ %call5.i.i.i.i.i.i312, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i310 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i301 ]
-  %add.ptr.i.i.i315 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i314, i64 %sub.ptr.div.i.i.i.i.i302
-  store ptr %80, ptr %add.ptr.i.i.i315, align 8
-  %cmp.i.i.i11.i.i.i316 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i302, 0
-  br i1 %cmp.i.i.i11.i.i.i316, label %if.then.i.i.i12.i.i.i323, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i317
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i318: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i315, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i306
+  %cond.i10.i.i.i319 = phi ptr [ %call5.i.i.i.i.i.i317, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i315 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i306 ]
+  %add.ptr.i.i.i320 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i319, i64 %sub.ptr.div.i.i.i.i.i307
+  store ptr %80, ptr %add.ptr.i.i.i320, align 8
+  %cmp.i.i.i11.i.i.i321 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i304, 0
+  br i1 %cmp.i.i.i11.i.i.i321, label %if.then.i.i.i12.i.i.i329, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i322
 
-if.then.i.i.i12.i.i.i323:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i313
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i314, ptr align 8 %84, i64 %sub.ptr.sub.i.i.i.i.i299, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i317
+if.then.i.i.i12.i.i.i329:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i318
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i319, ptr align 8 %84, i64 %sub.ptr.sub.i.i.i.i.i304, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i322
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i317: ; preds = %if.then.i.i.i12.i.i.i323, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i313
-  %incdec.ptr.i.i.i318 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i315, i64 1
-  %tobool.not.i.i.i.i319 = icmp eq ptr %84, null
-  br i1 %tobool.not.i.i.i.i319, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i321, label %if.then.i21.i.i.i320
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i322: ; preds = %if.then.i.i.i12.i.i.i329, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i318
+  %add.ptr.i.i.i.i.i.i323 = getelementptr inbounds i8, ptr %cond.i10.i.i.i319, i64 %sub.ptr.sub.i.i.i.i.i304
+  %incdec.ptr.i.i.i324 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i323, i64 1
+  %tobool.not.i.i.i.i325 = icmp eq ptr %84, null
+  br i1 %tobool.not.i.i.i.i325, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i327, label %if.then.i20.i.i.i326
 
-if.then.i21.i.i.i320:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i317
+if.then.i20.i.i.i326:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i322
   tail call void @_ZdlPv(ptr noundef nonnull %84) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i321
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i327
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i321: ; preds = %if.then.i21.i.i.i320, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i317
-  store ptr %cond.i10.i.i.i314, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i318, ptr %_M_finish.i.i291, align 8
-  %add.ptr19.i.i.i322 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i314, i64 %cond.i.i.i.i308
-  store ptr %add.ptr19.i.i.i322, ptr %_M_end_of_storage.i.i292, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i327: ; preds = %if.then.i20.i.i.i326, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i322
+  store ptr %cond.i10.i.i.i319, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i324, ptr %_M_finish.i.i296, align 8
+  %add.ptr19.i.i.i328 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i319, i64 %cond.i.i.i.i313
+  store ptr %add.ptr19.i.i.i328, ptr %_M_end_of_storage.i.i297, align 8
   br label %if.end77
 
 lpad72:                                           ; preds = %if.then70
@@ -1269,7 +1276,7 @@ lpad72:                                           ; preds = %if.then70
           cleanup
   br label %eh.resume
 
-if.end77:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i321, %if.then.i.i294, %lor.lhs.false66
+if.end77:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i327, %if.then.i.i299, %lor.lhs.false66
   %86 = load ptr, ptr %quantifiers, align 8
   %quantDynamicSplit = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %86, i64 0, i32 204
   %87 = load i32, ptr %quantDynamicSplit, align 4
@@ -1285,86 +1292,87 @@ invoke.cont82:                                    ; preds = %if.then79
   %d_qsplit = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 11
   %88 = load ptr, ptr %d_qsplit, align 8
   store ptr %call80, ptr %d_qsplit, align 8
-  %tobool.not.i.i326 = icmp eq ptr %88, null
-  br i1 %tobool.not.i.i326, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11QuantDSplitESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11QuantDSplitEEclEPS4_.exit.i.i
+  %tobool.not.i.i332 = icmp eq ptr %88, null
+  br i1 %tobool.not.i.i332, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11QuantDSplitESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11QuantDSplitEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11QuantDSplitEEclEPS4_.exit.i.i: ; preds = %invoke.cont82
-  %vtable.i.i.i327 = load ptr, ptr %88, align 8
-  %vfn.i.i.i328 = getelementptr inbounds ptr, ptr %vtable.i.i.i327, i64 1
-  %89 = load ptr, ptr %vfn.i.i.i328, align 8
+  %vtable.i.i.i333 = load ptr, ptr %88, align 8
+  %vfn.i.i.i334 = getelementptr inbounds ptr, ptr %vtable.i.i.i333, i64 1
+  %89 = load ptr, ptr %vfn.i.i.i334, align 8
   tail call void %89(ptr noundef nonnull align 8 dereferenceable(152) %88) #14
-  %.pre580 = load ptr, ptr %d_qsplit, align 8
+  %.pre592 = load ptr, ptr %d_qsplit, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11QuantDSplitESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11QuantDSplitESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont82, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11QuantDSplitEEclEPS4_.exit.i.i
-  %90 = phi ptr [ %call80, %invoke.cont82 ], [ %.pre580, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11QuantDSplitEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i329 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %91 = load ptr, ptr %_M_finish.i.i329, align 8
-  %_M_end_of_storage.i.i330 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %92 = load ptr, ptr %_M_end_of_storage.i.i330, align 8
-  %cmp.not.i.i331 = icmp eq ptr %91, %92
-  br i1 %cmp.not.i.i331, label %if.else.i.i334, label %if.then.i.i332
+  %90 = phi ptr [ %call80, %invoke.cont82 ], [ %.pre592, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers11QuantDSplitEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i335 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %91 = load ptr, ptr %_M_finish.i.i335, align 8
+  %_M_end_of_storage.i.i336 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %92 = load ptr, ptr %_M_end_of_storage.i.i336, align 8
+  %cmp.not.i.i337 = icmp eq ptr %91, %92
+  br i1 %cmp.not.i.i337, label %if.else.i.i340, label %if.then.i.i338
 
-if.then.i.i332:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11QuantDSplitESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i338:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11QuantDSplitESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %90, ptr %91, align 8
-  %93 = load ptr, ptr %_M_finish.i.i329, align 8
-  %incdec.ptr.i.i333 = getelementptr inbounds ptr, ptr %93, i64 1
-  store ptr %incdec.ptr.i.i333, ptr %_M_finish.i.i329, align 8
+  %93 = load ptr, ptr %_M_finish.i.i335, align 8
+  %incdec.ptr.i.i339 = getelementptr inbounds ptr, ptr %93, i64 1
+  store ptr %incdec.ptr.i.i339, ptr %_M_finish.i.i335, align 8
   br label %if.end86
 
-if.else.i.i334:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11QuantDSplitESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i340:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11QuantDSplitESt14default_deleteIS4_EE5resetEPS4_.exit
   %94 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i335 = ptrtoint ptr %91 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i336 = ptrtoint ptr %94 to i64
-  %sub.ptr.sub.i.i.i.i.i337 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i335, %sub.ptr.rhs.cast.i.i.i.i.i336
-  %cmp.i.i.i.i338 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i337, 9223372036854775800
-  br i1 %cmp.i.i.i.i338, label %if.then.i.i.i.i362, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i339
+  %sub.ptr.lhs.cast.i.i.i.i.i341 = ptrtoint ptr %91 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i342 = ptrtoint ptr %94 to i64
+  %sub.ptr.sub.i.i.i.i.i343 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i341, %sub.ptr.rhs.cast.i.i.i.i.i342
+  %cmp.i.i.i.i344 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i343, 9223372036854775800
+  br i1 %cmp.i.i.i.i344, label %if.then.i.i.i.i369, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i345
 
-if.then.i.i.i.i362:                               ; preds = %if.else.i.i334
+if.then.i.i.i.i369:                               ; preds = %if.else.i.i340
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i339: ; preds = %if.else.i.i334
-  %sub.ptr.div.i.i.i.i.i340 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i337, 3
-  %.sroa.speculated.i.i.i.i341 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i340, i64 1)
-  %add.i.i.i.i342 = add i64 %.sroa.speculated.i.i.i.i341, %sub.ptr.div.i.i.i.i.i340
-  %cmp7.i.i.i.i343 = icmp ult i64 %add.i.i.i.i342, %sub.ptr.div.i.i.i.i.i340
-  %cmp9.i.i.i.i344 = icmp ugt i64 %add.i.i.i.i342, 1152921504606846975
-  %or.cond.i.i.i.i345 = or i1 %cmp7.i.i.i.i343, %cmp9.i.i.i.i344
-  %cond.i.i.i.i346 = select i1 %or.cond.i.i.i.i345, i64 1152921504606846975, i64 %add.i.i.i.i342
-  %cmp.not.i.i.i.i347 = icmp eq i64 %cond.i.i.i.i346, 0
-  br i1 %cmp.not.i.i.i.i347, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i351, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i348
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i345: ; preds = %if.else.i.i340
+  %sub.ptr.div.i.i.i.i.i346 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i343, 3
+  %.sroa.speculated.i.i.i.i347 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i346, i64 1)
+  %add.i.i.i.i348 = add i64 %.sroa.speculated.i.i.i.i347, %sub.ptr.div.i.i.i.i.i346
+  %cmp7.i.i.i.i349 = icmp ult i64 %add.i.i.i.i348, %sub.ptr.div.i.i.i.i.i346
+  %cmp9.i.i.i.i350 = icmp ugt i64 %add.i.i.i.i348, 1152921504606846975
+  %or.cond.i.i.i.i351 = or i1 %cmp7.i.i.i.i349, %cmp9.i.i.i.i350
+  %cond.i.i.i.i352 = select i1 %or.cond.i.i.i.i351, i64 1152921504606846975, i64 %add.i.i.i.i348
+  %cmp.not.i.i.i.i353 = icmp eq i64 %cond.i.i.i.i352, 0
+  br i1 %cmp.not.i.i.i.i353, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i357, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i354
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i348: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i339
-  %mul.i.i.i.i.i.i349 = shl nuw nsw i64 %cond.i.i.i.i346, 3
-  %call5.i.i.i.i.i.i350 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i349) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i351
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i354: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i345
+  %mul.i.i.i.i.i.i355 = shl nuw nsw i64 %cond.i.i.i.i352, 3
+  %call5.i.i.i.i.i.i356 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i355) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i357
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i351: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i348, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i339
-  %cond.i10.i.i.i352 = phi ptr [ %call5.i.i.i.i.i.i350, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i348 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i339 ]
-  %add.ptr.i.i.i353 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i352, i64 %sub.ptr.div.i.i.i.i.i340
-  store ptr %90, ptr %add.ptr.i.i.i353, align 8
-  %cmp.i.i.i11.i.i.i354 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i340, 0
-  br i1 %cmp.i.i.i11.i.i.i354, label %if.then.i.i.i12.i.i.i361, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i355
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i357: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i354, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i345
+  %cond.i10.i.i.i358 = phi ptr [ %call5.i.i.i.i.i.i356, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i354 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i345 ]
+  %add.ptr.i.i.i359 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i358, i64 %sub.ptr.div.i.i.i.i.i346
+  store ptr %90, ptr %add.ptr.i.i.i359, align 8
+  %cmp.i.i.i11.i.i.i360 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i343, 0
+  br i1 %cmp.i.i.i11.i.i.i360, label %if.then.i.i.i12.i.i.i368, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i361
 
-if.then.i.i.i12.i.i.i361:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i351
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i352, ptr align 8 %94, i64 %sub.ptr.sub.i.i.i.i.i337, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i355
+if.then.i.i.i12.i.i.i368:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i357
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i358, ptr align 8 %94, i64 %sub.ptr.sub.i.i.i.i.i343, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i361
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i355: ; preds = %if.then.i.i.i12.i.i.i361, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i351
-  %incdec.ptr.i.i.i356 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i353, i64 1
-  %tobool.not.i.i.i.i357 = icmp eq ptr %94, null
-  br i1 %tobool.not.i.i.i.i357, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i359, label %if.then.i21.i.i.i358
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i361: ; preds = %if.then.i.i.i12.i.i.i368, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i357
+  %add.ptr.i.i.i.i.i.i362 = getelementptr inbounds i8, ptr %cond.i10.i.i.i358, i64 %sub.ptr.sub.i.i.i.i.i343
+  %incdec.ptr.i.i.i363 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i362, i64 1
+  %tobool.not.i.i.i.i364 = icmp eq ptr %94, null
+  br i1 %tobool.not.i.i.i.i364, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i366, label %if.then.i20.i.i.i365
 
-if.then.i21.i.i.i358:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i355
+if.then.i20.i.i.i365:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i361
   tail call void @_ZdlPv(ptr noundef nonnull %94) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i359
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i366
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i359: ; preds = %if.then.i21.i.i.i358, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i355
-  store ptr %cond.i10.i.i.i352, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i356, ptr %_M_finish.i.i329, align 8
-  %add.ptr19.i.i.i360 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i352, i64 %cond.i.i.i.i346
-  store ptr %add.ptr19.i.i.i360, ptr %_M_end_of_storage.i.i330, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i366: ; preds = %if.then.i20.i.i.i365, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i361
+  store ptr %cond.i10.i.i.i358, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i363, ptr %_M_finish.i.i335, align 8
+  %add.ptr19.i.i.i367 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i358, i64 %cond.i.i.i.i352
+  store ptr %add.ptr19.i.i.i367, ptr %_M_end_of_storage.i.i336, align 8
   br label %if.end86
 
 lpad81:                                           ; preds = %if.then79
@@ -1372,7 +1380,7 @@ lpad81:                                           ; preds = %if.then79
           cleanup
   br label %eh.resume
 
-if.end86:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i359, %if.then.i.i332, %if.end77
+if.end86:                                         ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i366, %if.then.i.i338, %if.end77
   %96 = load ptr, ptr %quantifiers, align 8
   %quantAlphaEquiv = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %96, i64 0, i32 201
   %97 = load i8, ptr %quantAlphaEquiv, align 1
@@ -1389,13 +1397,13 @@ invoke.cont92:                                    ; preds = %if.then89
   %d_alpha_equiv = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 1
   %99 = load ptr, ptr %d_alpha_equiv, align 8
   store ptr %call90, ptr %d_alpha_equiv, align 8
-  %tobool.not.i.i364 = icmp eq ptr %99, null
-  br i1 %tobool.not.i.i364, label %if.end93, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16AlphaEquivalenceEEclEPS4_.exit.i.i
+  %tobool.not.i.i371 = icmp eq ptr %99, null
+  br i1 %tobool.not.i.i371, label %if.end93, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16AlphaEquivalenceEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16AlphaEquivalenceEEclEPS4_.exit.i.i: ; preds = %invoke.cont92
-  %vtable.i.i.i365 = load ptr, ptr %99, align 8
-  %vfn.i.i.i366 = getelementptr inbounds ptr, ptr %vtable.i.i.i365, i64 1
-  %100 = load ptr, ptr %vfn.i.i.i366, align 8
+  %vtable.i.i.i372 = load ptr, ptr %99, align 8
+  %vfn.i.i.i373 = getelementptr inbounds ptr, ptr %vtable.i.i.i372, i64 1
+  %100 = load ptr, ptr %vfn.i.i.i373, align 8
   tail call void %100(ptr noundef nonnull align 8 dereferenceable(472) %99) #14
   br label %if.end93
 
@@ -1427,19 +1435,19 @@ if.then99:                                        ; preds = %lor.lhs.false96, %i
 invoke.cont102:                                   ; preds = %if.then99
   %107 = load ptr, ptr %this, align 8
   store ptr %call100, ptr %this, align 8
-  %tobool.not.i.i367 = icmp eq ptr %107, null
-  br i1 %tobool.not.i.i367, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers14RelevantDomainESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers14RelevantDomainEEclEPS4_.exit.i.i
+  %tobool.not.i.i374 = icmp eq ptr %107, null
+  br i1 %tobool.not.i.i374, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers14RelevantDomainESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers14RelevantDomainEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers14RelevantDomainEEclEPS4_.exit.i.i: ; preds = %invoke.cont102
-  %vtable.i.i.i368 = load ptr, ptr %107, align 8
-  %vfn.i.i.i369 = getelementptr inbounds ptr, ptr %vtable.i.i.i368, i64 1
-  %108 = load ptr, ptr %vfn.i.i.i369, align 8
+  %vtable.i.i.i375 = load ptr, ptr %107, align 8
+  %vfn.i.i.i376 = getelementptr inbounds ptr, ptr %vtable.i.i.i375, i64 1
+  %108 = load ptr, ptr %vfn.i.i.i376, align 8
   tail call void %108(ptr noundef nonnull align 8 dereferenceable(144) %107) #14
-  %.pre581 = load ptr, ptr %this, align 8
+  %.pre593 = load ptr, ptr %this, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers14RelevantDomainESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers14RelevantDomainESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont102, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers14RelevantDomainEEclEPS4_.exit.i.i
-  %109 = phi ptr [ %call100, %invoke.cont102 ], [ %.pre581, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers14RelevantDomainEEclEPS4_.exit.i.i ]
+  %109 = phi ptr [ %call100, %invoke.cont102 ], [ %.pre593, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers14RelevantDomainEEclEPS4_.exit.i.i ]
   %call103 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   invoke void @_ZN4cvc58internal6theory11quantifiers16InstStrategyEnumC1ERNS0_3EnvERNS2_16QuantifiersStateERNS2_27QuantifiersInferenceManagerERNS2_19QuantifiersRegistryERNS2_12TermRegistryEPNS2_14RelevantDomainE(ptr noundef nonnull align 8 dereferenceable(60) %call103, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(248) %qs, ptr noundef nonnull align 8 dereferenceable(376) %qim, ptr noundef nonnull align 8 dereferenceable(488) %qr, ptr noundef nonnull align 8 dereferenceable(208) %tr, ptr noundef %109)
           to label %invoke.cont107 unwind label %lpad106
@@ -1448,86 +1456,87 @@ invoke.cont107:                                   ; preds = %_ZNSt10unique_ptrIN
   %d_fs = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 8
   %110 = load ptr, ptr %d_fs, align 8
   store ptr %call103, ptr %d_fs, align 8
-  %tobool.not.i.i370 = icmp eq ptr %110, null
-  br i1 %tobool.not.i.i370, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyEnumESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyEnumEEclEPS4_.exit.i.i
+  %tobool.not.i.i377 = icmp eq ptr %110, null
+  br i1 %tobool.not.i.i377, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyEnumESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyEnumEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyEnumEEclEPS4_.exit.i.i: ; preds = %invoke.cont107
-  %vtable.i.i.i371 = load ptr, ptr %110, align 8
-  %vfn.i.i.i372 = getelementptr inbounds ptr, ptr %vtable.i.i.i371, i64 1
-  %111 = load ptr, ptr %vfn.i.i.i372, align 8
+  %vtable.i.i.i378 = load ptr, ptr %110, align 8
+  %vfn.i.i.i379 = getelementptr inbounds ptr, ptr %vtable.i.i.i378, i64 1
+  %111 = load ptr, ptr %vfn.i.i.i379, align 8
   tail call void %111(ptr noundef nonnull align 8 dereferenceable(60) %110) #14
-  %.pre582 = load ptr, ptr %d_fs, align 8
+  %.pre594 = load ptr, ptr %d_fs, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyEnumESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyEnumESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont107, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyEnumEEclEPS4_.exit.i.i
-  %112 = phi ptr [ %call103, %invoke.cont107 ], [ %.pre582, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyEnumEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i373 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %113 = load ptr, ptr %_M_finish.i.i373, align 8
-  %_M_end_of_storage.i.i374 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %114 = load ptr, ptr %_M_end_of_storage.i.i374, align 8
-  %cmp.not.i.i375 = icmp eq ptr %113, %114
-  br i1 %cmp.not.i.i375, label %if.else.i.i378, label %if.then.i.i376
+  %112 = phi ptr [ %call103, %invoke.cont107 ], [ %.pre594, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyEnumEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i380 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %113 = load ptr, ptr %_M_finish.i.i380, align 8
+  %_M_end_of_storage.i.i381 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %114 = load ptr, ptr %_M_end_of_storage.i.i381, align 8
+  %cmp.not.i.i382 = icmp eq ptr %113, %114
+  br i1 %cmp.not.i.i382, label %if.else.i.i385, label %if.then.i.i383
 
-if.then.i.i376:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyEnumESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i383:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyEnumESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %112, ptr %113, align 8
-  %115 = load ptr, ptr %_M_finish.i.i373, align 8
-  %incdec.ptr.i.i377 = getelementptr inbounds ptr, ptr %115, i64 1
-  store ptr %incdec.ptr.i.i377, ptr %_M_finish.i.i373, align 8
+  %115 = load ptr, ptr %_M_finish.i.i380, align 8
+  %incdec.ptr.i.i384 = getelementptr inbounds ptr, ptr %115, i64 1
+  store ptr %incdec.ptr.i.i384, ptr %_M_finish.i.i380, align 8
   br label %if.end111
 
-if.else.i.i378:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyEnumESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i385:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyEnumESt14default_deleteIS4_EE5resetEPS4_.exit
   %116 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i379 = ptrtoint ptr %113 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i380 = ptrtoint ptr %116 to i64
-  %sub.ptr.sub.i.i.i.i.i381 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i379, %sub.ptr.rhs.cast.i.i.i.i.i380
-  %cmp.i.i.i.i382 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i381, 9223372036854775800
-  br i1 %cmp.i.i.i.i382, label %if.then.i.i.i.i406, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i383
+  %sub.ptr.lhs.cast.i.i.i.i.i386 = ptrtoint ptr %113 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i387 = ptrtoint ptr %116 to i64
+  %sub.ptr.sub.i.i.i.i.i388 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i386, %sub.ptr.rhs.cast.i.i.i.i.i387
+  %cmp.i.i.i.i389 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i388, 9223372036854775800
+  br i1 %cmp.i.i.i.i389, label %if.then.i.i.i.i414, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i390
 
-if.then.i.i.i.i406:                               ; preds = %if.else.i.i378
+if.then.i.i.i.i414:                               ; preds = %if.else.i.i385
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i383: ; preds = %if.else.i.i378
-  %sub.ptr.div.i.i.i.i.i384 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i381, 3
-  %.sroa.speculated.i.i.i.i385 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i384, i64 1)
-  %add.i.i.i.i386 = add i64 %.sroa.speculated.i.i.i.i385, %sub.ptr.div.i.i.i.i.i384
-  %cmp7.i.i.i.i387 = icmp ult i64 %add.i.i.i.i386, %sub.ptr.div.i.i.i.i.i384
-  %cmp9.i.i.i.i388 = icmp ugt i64 %add.i.i.i.i386, 1152921504606846975
-  %or.cond.i.i.i.i389 = or i1 %cmp7.i.i.i.i387, %cmp9.i.i.i.i388
-  %cond.i.i.i.i390 = select i1 %or.cond.i.i.i.i389, i64 1152921504606846975, i64 %add.i.i.i.i386
-  %cmp.not.i.i.i.i391 = icmp eq i64 %cond.i.i.i.i390, 0
-  br i1 %cmp.not.i.i.i.i391, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i395, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i392
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i390: ; preds = %if.else.i.i385
+  %sub.ptr.div.i.i.i.i.i391 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i388, 3
+  %.sroa.speculated.i.i.i.i392 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i391, i64 1)
+  %add.i.i.i.i393 = add i64 %.sroa.speculated.i.i.i.i392, %sub.ptr.div.i.i.i.i.i391
+  %cmp7.i.i.i.i394 = icmp ult i64 %add.i.i.i.i393, %sub.ptr.div.i.i.i.i.i391
+  %cmp9.i.i.i.i395 = icmp ugt i64 %add.i.i.i.i393, 1152921504606846975
+  %or.cond.i.i.i.i396 = or i1 %cmp7.i.i.i.i394, %cmp9.i.i.i.i395
+  %cond.i.i.i.i397 = select i1 %or.cond.i.i.i.i396, i64 1152921504606846975, i64 %add.i.i.i.i393
+  %cmp.not.i.i.i.i398 = icmp eq i64 %cond.i.i.i.i397, 0
+  br i1 %cmp.not.i.i.i.i398, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i402, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i399
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i392: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i383
-  %mul.i.i.i.i.i.i393 = shl nuw nsw i64 %cond.i.i.i.i390, 3
-  %call5.i.i.i.i.i.i394 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i393) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i395
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i399: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i390
+  %mul.i.i.i.i.i.i400 = shl nuw nsw i64 %cond.i.i.i.i397, 3
+  %call5.i.i.i.i.i.i401 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i400) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i402
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i395: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i392, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i383
-  %cond.i10.i.i.i396 = phi ptr [ %call5.i.i.i.i.i.i394, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i392 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i383 ]
-  %add.ptr.i.i.i397 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i396, i64 %sub.ptr.div.i.i.i.i.i384
-  store ptr %112, ptr %add.ptr.i.i.i397, align 8
-  %cmp.i.i.i11.i.i.i398 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i384, 0
-  br i1 %cmp.i.i.i11.i.i.i398, label %if.then.i.i.i12.i.i.i405, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i399
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i402: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i399, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i390
+  %cond.i10.i.i.i403 = phi ptr [ %call5.i.i.i.i.i.i401, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i399 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i390 ]
+  %add.ptr.i.i.i404 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i403, i64 %sub.ptr.div.i.i.i.i.i391
+  store ptr %112, ptr %add.ptr.i.i.i404, align 8
+  %cmp.i.i.i11.i.i.i405 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i388, 0
+  br i1 %cmp.i.i.i11.i.i.i405, label %if.then.i.i.i12.i.i.i413, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i406
 
-if.then.i.i.i12.i.i.i405:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i395
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i396, ptr align 8 %116, i64 %sub.ptr.sub.i.i.i.i.i381, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i399
+if.then.i.i.i12.i.i.i413:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i402
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i403, ptr align 8 %116, i64 %sub.ptr.sub.i.i.i.i.i388, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i406
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i399: ; preds = %if.then.i.i.i12.i.i.i405, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i395
-  %incdec.ptr.i.i.i400 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i397, i64 1
-  %tobool.not.i.i.i.i401 = icmp eq ptr %116, null
-  br i1 %tobool.not.i.i.i.i401, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i403, label %if.then.i21.i.i.i402
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i406: ; preds = %if.then.i.i.i12.i.i.i413, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i402
+  %add.ptr.i.i.i.i.i.i407 = getelementptr inbounds i8, ptr %cond.i10.i.i.i403, i64 %sub.ptr.sub.i.i.i.i.i388
+  %incdec.ptr.i.i.i408 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i407, i64 1
+  %tobool.not.i.i.i.i409 = icmp eq ptr %116, null
+  br i1 %tobool.not.i.i.i.i409, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i411, label %if.then.i20.i.i.i410
 
-if.then.i21.i.i.i402:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i399
+if.then.i20.i.i.i410:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i406
   tail call void @_ZdlPv(ptr noundef nonnull %116) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i403
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i411
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i403: ; preds = %if.then.i21.i.i.i402, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i399
-  store ptr %cond.i10.i.i.i396, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i400, ptr %_M_finish.i.i373, align 8
-  %add.ptr19.i.i.i404 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i396, i64 %cond.i.i.i.i390
-  store ptr %add.ptr19.i.i.i404, ptr %_M_end_of_storage.i.i374, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i411: ; preds = %if.then.i20.i.i.i410, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i406
+  store ptr %cond.i10.i.i.i403, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i408, ptr %_M_finish.i.i380, align 8
+  %add.ptr19.i.i.i412 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i403, i64 %cond.i.i.i.i397
+  store ptr %add.ptr19.i.i.i412, ptr %_M_end_of_storage.i.i381, align 8
   br label %if.end111
 
 lpad101:                                          ; preds = %if.then99
@@ -1540,7 +1549,7 @@ lpad106:                                          ; preds = %_ZNSt10unique_ptrIN
           cleanup
   br label %eh.resume
 
-if.end111:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i403, %if.then.i.i376, %lor.lhs.false96
+if.end111:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i411, %if.then.i.i383, %lor.lhs.false96
   %119 = load ptr, ptr %quantifiers, align 8
   %poolInst = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %119, i64 0, i32 182
   %120 = load i8, ptr %poolInst, align 1
@@ -1557,86 +1566,87 @@ invoke.cont117:                                   ; preds = %if.then114
   %d_ipool = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 9
   %122 = load ptr, ptr %d_ipool, align 8
   store ptr %call115, ptr %d_ipool, align 8
-  %tobool.not.i.i408 = icmp eq ptr %122, null
-  br i1 %tobool.not.i.i408, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyPoolESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyPoolEEclEPS4_.exit.i.i
+  %tobool.not.i.i416 = icmp eq ptr %122, null
+  br i1 %tobool.not.i.i416, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyPoolESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyPoolEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyPoolEEclEPS4_.exit.i.i: ; preds = %invoke.cont117
-  %vtable.i.i.i409 = load ptr, ptr %122, align 8
-  %vfn.i.i.i410 = getelementptr inbounds ptr, ptr %vtable.i.i.i409, i64 1
-  %123 = load ptr, ptr %vfn.i.i.i410, align 8
+  %vtable.i.i.i417 = load ptr, ptr %122, align 8
+  %vfn.i.i.i418 = getelementptr inbounds ptr, ptr %vtable.i.i.i417, i64 1
+  %123 = load ptr, ptr %vfn.i.i.i418, align 8
   tail call void %123(ptr noundef nonnull align 8 dereferenceable(96) %122) #14
-  %.pre583 = load ptr, ptr %d_ipool, align 8
+  %.pre595 = load ptr, ptr %d_ipool, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyPoolESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyPoolESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont117, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyPoolEEclEPS4_.exit.i.i
-  %124 = phi ptr [ %call115, %invoke.cont117 ], [ %.pre583, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyPoolEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i411 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %125 = load ptr, ptr %_M_finish.i.i411, align 8
-  %_M_end_of_storage.i.i412 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %126 = load ptr, ptr %_M_end_of_storage.i.i412, align 8
-  %cmp.not.i.i413 = icmp eq ptr %125, %126
-  br i1 %cmp.not.i.i413, label %if.else.i.i416, label %if.then.i.i414
+  %124 = phi ptr [ %call115, %invoke.cont117 ], [ %.pre595, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyPoolEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i419 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %125 = load ptr, ptr %_M_finish.i.i419, align 8
+  %_M_end_of_storage.i.i420 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %126 = load ptr, ptr %_M_end_of_storage.i.i420, align 8
+  %cmp.not.i.i421 = icmp eq ptr %125, %126
+  br i1 %cmp.not.i.i421, label %if.else.i.i424, label %if.then.i.i422
 
-if.then.i.i414:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyPoolESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i422:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyPoolESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %124, ptr %125, align 8
-  %127 = load ptr, ptr %_M_finish.i.i411, align 8
-  %incdec.ptr.i.i415 = getelementptr inbounds ptr, ptr %127, i64 1
-  store ptr %incdec.ptr.i.i415, ptr %_M_finish.i.i411, align 8
+  %127 = load ptr, ptr %_M_finish.i.i419, align 8
+  %incdec.ptr.i.i423 = getelementptr inbounds ptr, ptr %127, i64 1
+  store ptr %incdec.ptr.i.i423, ptr %_M_finish.i.i419, align 8
   br label %if.end121
 
-if.else.i.i416:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyPoolESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i424:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyPoolESt14default_deleteIS4_EE5resetEPS4_.exit
   %128 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i417 = ptrtoint ptr %125 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i418 = ptrtoint ptr %128 to i64
-  %sub.ptr.sub.i.i.i.i.i419 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i417, %sub.ptr.rhs.cast.i.i.i.i.i418
-  %cmp.i.i.i.i420 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i419, 9223372036854775800
-  br i1 %cmp.i.i.i.i420, label %if.then.i.i.i.i444, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i421
+  %sub.ptr.lhs.cast.i.i.i.i.i425 = ptrtoint ptr %125 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i426 = ptrtoint ptr %128 to i64
+  %sub.ptr.sub.i.i.i.i.i427 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i425, %sub.ptr.rhs.cast.i.i.i.i.i426
+  %cmp.i.i.i.i428 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i427, 9223372036854775800
+  br i1 %cmp.i.i.i.i428, label %if.then.i.i.i.i453, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i429
 
-if.then.i.i.i.i444:                               ; preds = %if.else.i.i416
+if.then.i.i.i.i453:                               ; preds = %if.else.i.i424
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i421: ; preds = %if.else.i.i416
-  %sub.ptr.div.i.i.i.i.i422 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i419, 3
-  %.sroa.speculated.i.i.i.i423 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i422, i64 1)
-  %add.i.i.i.i424 = add i64 %.sroa.speculated.i.i.i.i423, %sub.ptr.div.i.i.i.i.i422
-  %cmp7.i.i.i.i425 = icmp ult i64 %add.i.i.i.i424, %sub.ptr.div.i.i.i.i.i422
-  %cmp9.i.i.i.i426 = icmp ugt i64 %add.i.i.i.i424, 1152921504606846975
-  %or.cond.i.i.i.i427 = or i1 %cmp7.i.i.i.i425, %cmp9.i.i.i.i426
-  %cond.i.i.i.i428 = select i1 %or.cond.i.i.i.i427, i64 1152921504606846975, i64 %add.i.i.i.i424
-  %cmp.not.i.i.i.i429 = icmp eq i64 %cond.i.i.i.i428, 0
-  br i1 %cmp.not.i.i.i.i429, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i433, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i430
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i429: ; preds = %if.else.i.i424
+  %sub.ptr.div.i.i.i.i.i430 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i427, 3
+  %.sroa.speculated.i.i.i.i431 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i430, i64 1)
+  %add.i.i.i.i432 = add i64 %.sroa.speculated.i.i.i.i431, %sub.ptr.div.i.i.i.i.i430
+  %cmp7.i.i.i.i433 = icmp ult i64 %add.i.i.i.i432, %sub.ptr.div.i.i.i.i.i430
+  %cmp9.i.i.i.i434 = icmp ugt i64 %add.i.i.i.i432, 1152921504606846975
+  %or.cond.i.i.i.i435 = or i1 %cmp7.i.i.i.i433, %cmp9.i.i.i.i434
+  %cond.i.i.i.i436 = select i1 %or.cond.i.i.i.i435, i64 1152921504606846975, i64 %add.i.i.i.i432
+  %cmp.not.i.i.i.i437 = icmp eq i64 %cond.i.i.i.i436, 0
+  br i1 %cmp.not.i.i.i.i437, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i441, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i438
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i430: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i421
-  %mul.i.i.i.i.i.i431 = shl nuw nsw i64 %cond.i.i.i.i428, 3
-  %call5.i.i.i.i.i.i432 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i431) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i433
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i438: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i429
+  %mul.i.i.i.i.i.i439 = shl nuw nsw i64 %cond.i.i.i.i436, 3
+  %call5.i.i.i.i.i.i440 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i439) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i441
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i433: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i430, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i421
-  %cond.i10.i.i.i434 = phi ptr [ %call5.i.i.i.i.i.i432, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i430 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i421 ]
-  %add.ptr.i.i.i435 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i434, i64 %sub.ptr.div.i.i.i.i.i422
-  store ptr %124, ptr %add.ptr.i.i.i435, align 8
-  %cmp.i.i.i11.i.i.i436 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i422, 0
-  br i1 %cmp.i.i.i11.i.i.i436, label %if.then.i.i.i12.i.i.i443, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i437
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i441: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i438, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i429
+  %cond.i10.i.i.i442 = phi ptr [ %call5.i.i.i.i.i.i440, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i438 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i429 ]
+  %add.ptr.i.i.i443 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i442, i64 %sub.ptr.div.i.i.i.i.i430
+  store ptr %124, ptr %add.ptr.i.i.i443, align 8
+  %cmp.i.i.i11.i.i.i444 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i427, 0
+  br i1 %cmp.i.i.i11.i.i.i444, label %if.then.i.i.i12.i.i.i452, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i445
 
-if.then.i.i.i12.i.i.i443:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i433
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i434, ptr align 8 %128, i64 %sub.ptr.sub.i.i.i.i.i419, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i437
+if.then.i.i.i12.i.i.i452:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i441
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i442, ptr align 8 %128, i64 %sub.ptr.sub.i.i.i.i.i427, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i445
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i437: ; preds = %if.then.i.i.i12.i.i.i443, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i433
-  %incdec.ptr.i.i.i438 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i435, i64 1
-  %tobool.not.i.i.i.i439 = icmp eq ptr %128, null
-  br i1 %tobool.not.i.i.i.i439, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i441, label %if.then.i21.i.i.i440
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i445: ; preds = %if.then.i.i.i12.i.i.i452, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i441
+  %add.ptr.i.i.i.i.i.i446 = getelementptr inbounds i8, ptr %cond.i10.i.i.i442, i64 %sub.ptr.sub.i.i.i.i.i427
+  %incdec.ptr.i.i.i447 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i446, i64 1
+  %tobool.not.i.i.i.i448 = icmp eq ptr %128, null
+  br i1 %tobool.not.i.i.i.i448, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i450, label %if.then.i20.i.i.i449
 
-if.then.i21.i.i.i440:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i437
+if.then.i20.i.i.i449:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i445
   tail call void @_ZdlPv(ptr noundef nonnull %128) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i441
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i450
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i441: ; preds = %if.then.i21.i.i.i440, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i437
-  store ptr %cond.i10.i.i.i434, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i438, ptr %_M_finish.i.i411, align 8
-  %add.ptr19.i.i.i442 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i434, i64 %cond.i.i.i.i428
-  store ptr %add.ptr19.i.i.i442, ptr %_M_end_of_storage.i.i412, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i450: ; preds = %if.then.i20.i.i.i449, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i445
+  store ptr %cond.i10.i.i.i442, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i447, ptr %_M_finish.i.i419, align 8
+  %add.ptr19.i.i.i451 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i442, i64 %cond.i.i.i.i436
+  store ptr %add.ptr19.i.i.i451, ptr %_M_end_of_storage.i.i420, align 8
   br label %if.end121
 
 lpad116:                                          ; preds = %if.then114
@@ -1644,7 +1654,7 @@ lpad116:                                          ; preds = %if.then114
           cleanup
   br label %eh.resume
 
-if.end121:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i441, %if.then.i.i414, %if.end111
+if.end121:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i450, %if.then.i.i422, %if.end111
   %130 = load ptr, ptr %quantifiers, align 8
   %sygusInst = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %130, i64 0, i32 262
   %131 = load i8, ptr %sygusInst, align 1
@@ -1661,86 +1671,87 @@ invoke.cont127:                                   ; preds = %if.then124
   %d_sygus_inst = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 12
   %133 = load ptr, ptr %d_sygus_inst, align 8
   store ptr %call125, ptr %d_sygus_inst, align 8
-  %tobool.not.i.i446 = icmp eq ptr %133, null
-  br i1 %tobool.not.i.i446, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers9SygusInstESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers9SygusInstEEclEPS4_.exit.i.i
+  %tobool.not.i.i455 = icmp eq ptr %133, null
+  br i1 %tobool.not.i.i455, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers9SygusInstESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers9SygusInstEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers9SygusInstEEclEPS4_.exit.i.i: ; preds = %invoke.cont127
-  %vtable.i.i.i447 = load ptr, ptr %133, align 8
-  %vfn.i.i.i448 = getelementptr inbounds ptr, ptr %vtable.i.i.i447, i64 1
-  %134 = load ptr, ptr %vfn.i.i.i448, align 8
+  %vtable.i.i.i456 = load ptr, ptr %133, align 8
+  %vfn.i.i.i457 = getelementptr inbounds ptr, ptr %vtable.i.i.i456, i64 1
+  %134 = load ptr, ptr %vfn.i.i.i457, align 8
   tail call void %134(ptr noundef nonnull align 8 dereferenceable(664) %133) #14
-  %.pre584 = load ptr, ptr %d_sygus_inst, align 8
+  %.pre596 = load ptr, ptr %d_sygus_inst, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers9SygusInstESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers9SygusInstESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont127, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers9SygusInstEEclEPS4_.exit.i.i
-  %135 = phi ptr [ %call125, %invoke.cont127 ], [ %.pre584, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers9SygusInstEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i449 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %136 = load ptr, ptr %_M_finish.i.i449, align 8
-  %_M_end_of_storage.i.i450 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %137 = load ptr, ptr %_M_end_of_storage.i.i450, align 8
-  %cmp.not.i.i451 = icmp eq ptr %136, %137
-  br i1 %cmp.not.i.i451, label %if.else.i.i454, label %if.then.i.i452
+  %135 = phi ptr [ %call125, %invoke.cont127 ], [ %.pre596, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers9SygusInstEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i458 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %136 = load ptr, ptr %_M_finish.i.i458, align 8
+  %_M_end_of_storage.i.i459 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %137 = load ptr, ptr %_M_end_of_storage.i.i459, align 8
+  %cmp.not.i.i460 = icmp eq ptr %136, %137
+  br i1 %cmp.not.i.i460, label %if.else.i.i463, label %if.then.i.i461
 
-if.then.i.i452:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers9SygusInstESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i461:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers9SygusInstESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %135, ptr %136, align 8
-  %138 = load ptr, ptr %_M_finish.i.i449, align 8
-  %incdec.ptr.i.i453 = getelementptr inbounds ptr, ptr %138, i64 1
-  store ptr %incdec.ptr.i.i453, ptr %_M_finish.i.i449, align 8
+  %138 = load ptr, ptr %_M_finish.i.i458, align 8
+  %incdec.ptr.i.i462 = getelementptr inbounds ptr, ptr %138, i64 1
+  store ptr %incdec.ptr.i.i462, ptr %_M_finish.i.i458, align 8
   br label %if.end131
 
-if.else.i.i454:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers9SygusInstESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i463:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers9SygusInstESt14default_deleteIS4_EE5resetEPS4_.exit
   %139 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i455 = ptrtoint ptr %136 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i456 = ptrtoint ptr %139 to i64
-  %sub.ptr.sub.i.i.i.i.i457 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i455, %sub.ptr.rhs.cast.i.i.i.i.i456
-  %cmp.i.i.i.i458 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i457, 9223372036854775800
-  br i1 %cmp.i.i.i.i458, label %if.then.i.i.i.i482, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i459
+  %sub.ptr.lhs.cast.i.i.i.i.i464 = ptrtoint ptr %136 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i465 = ptrtoint ptr %139 to i64
+  %sub.ptr.sub.i.i.i.i.i466 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i464, %sub.ptr.rhs.cast.i.i.i.i.i465
+  %cmp.i.i.i.i467 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i466, 9223372036854775800
+  br i1 %cmp.i.i.i.i467, label %if.then.i.i.i.i492, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i468
 
-if.then.i.i.i.i482:                               ; preds = %if.else.i.i454
+if.then.i.i.i.i492:                               ; preds = %if.else.i.i463
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i459: ; preds = %if.else.i.i454
-  %sub.ptr.div.i.i.i.i.i460 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i457, 3
-  %.sroa.speculated.i.i.i.i461 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i460, i64 1)
-  %add.i.i.i.i462 = add i64 %.sroa.speculated.i.i.i.i461, %sub.ptr.div.i.i.i.i.i460
-  %cmp7.i.i.i.i463 = icmp ult i64 %add.i.i.i.i462, %sub.ptr.div.i.i.i.i.i460
-  %cmp9.i.i.i.i464 = icmp ugt i64 %add.i.i.i.i462, 1152921504606846975
-  %or.cond.i.i.i.i465 = or i1 %cmp7.i.i.i.i463, %cmp9.i.i.i.i464
-  %cond.i.i.i.i466 = select i1 %or.cond.i.i.i.i465, i64 1152921504606846975, i64 %add.i.i.i.i462
-  %cmp.not.i.i.i.i467 = icmp eq i64 %cond.i.i.i.i466, 0
-  br i1 %cmp.not.i.i.i.i467, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i471, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i468
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i468: ; preds = %if.else.i.i463
+  %sub.ptr.div.i.i.i.i.i469 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i466, 3
+  %.sroa.speculated.i.i.i.i470 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i469, i64 1)
+  %add.i.i.i.i471 = add i64 %.sroa.speculated.i.i.i.i470, %sub.ptr.div.i.i.i.i.i469
+  %cmp7.i.i.i.i472 = icmp ult i64 %add.i.i.i.i471, %sub.ptr.div.i.i.i.i.i469
+  %cmp9.i.i.i.i473 = icmp ugt i64 %add.i.i.i.i471, 1152921504606846975
+  %or.cond.i.i.i.i474 = or i1 %cmp7.i.i.i.i472, %cmp9.i.i.i.i473
+  %cond.i.i.i.i475 = select i1 %or.cond.i.i.i.i474, i64 1152921504606846975, i64 %add.i.i.i.i471
+  %cmp.not.i.i.i.i476 = icmp eq i64 %cond.i.i.i.i475, 0
+  br i1 %cmp.not.i.i.i.i476, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i480, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i477
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i468: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i459
-  %mul.i.i.i.i.i.i469 = shl nuw nsw i64 %cond.i.i.i.i466, 3
-  %call5.i.i.i.i.i.i470 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i469) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i471
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i477: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i468
+  %mul.i.i.i.i.i.i478 = shl nuw nsw i64 %cond.i.i.i.i475, 3
+  %call5.i.i.i.i.i.i479 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i478) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i480
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i471: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i468, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i459
-  %cond.i10.i.i.i472 = phi ptr [ %call5.i.i.i.i.i.i470, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i468 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i459 ]
-  %add.ptr.i.i.i473 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i472, i64 %sub.ptr.div.i.i.i.i.i460
-  store ptr %135, ptr %add.ptr.i.i.i473, align 8
-  %cmp.i.i.i11.i.i.i474 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i460, 0
-  br i1 %cmp.i.i.i11.i.i.i474, label %if.then.i.i.i12.i.i.i481, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i475
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i480: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i477, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i468
+  %cond.i10.i.i.i481 = phi ptr [ %call5.i.i.i.i.i.i479, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i477 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i468 ]
+  %add.ptr.i.i.i482 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i481, i64 %sub.ptr.div.i.i.i.i.i469
+  store ptr %135, ptr %add.ptr.i.i.i482, align 8
+  %cmp.i.i.i11.i.i.i483 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i466, 0
+  br i1 %cmp.i.i.i11.i.i.i483, label %if.then.i.i.i12.i.i.i491, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i484
 
-if.then.i.i.i12.i.i.i481:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i471
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i472, ptr align 8 %139, i64 %sub.ptr.sub.i.i.i.i.i457, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i475
+if.then.i.i.i12.i.i.i491:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i480
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i481, ptr align 8 %139, i64 %sub.ptr.sub.i.i.i.i.i466, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i484
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i475: ; preds = %if.then.i.i.i12.i.i.i481, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i471
-  %incdec.ptr.i.i.i476 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i473, i64 1
-  %tobool.not.i.i.i.i477 = icmp eq ptr %139, null
-  br i1 %tobool.not.i.i.i.i477, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i479, label %if.then.i21.i.i.i478
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i484: ; preds = %if.then.i.i.i12.i.i.i491, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i480
+  %add.ptr.i.i.i.i.i.i485 = getelementptr inbounds i8, ptr %cond.i10.i.i.i481, i64 %sub.ptr.sub.i.i.i.i.i466
+  %incdec.ptr.i.i.i486 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i485, i64 1
+  %tobool.not.i.i.i.i487 = icmp eq ptr %139, null
+  br i1 %tobool.not.i.i.i.i487, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i489, label %if.then.i20.i.i.i488
 
-if.then.i21.i.i.i478:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i475
+if.then.i20.i.i.i488:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i484
   tail call void @_ZdlPv(ptr noundef nonnull %139) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i479
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i489
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i479: ; preds = %if.then.i21.i.i.i478, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i475
-  store ptr %cond.i10.i.i.i472, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i476, ptr %_M_finish.i.i449, align 8
-  %add.ptr19.i.i.i480 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i472, i64 %cond.i.i.i.i466
-  store ptr %add.ptr19.i.i.i480, ptr %_M_end_of_storage.i.i450, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i489: ; preds = %if.then.i20.i.i.i488, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i484
+  store ptr %cond.i10.i.i.i481, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i486, ptr %_M_finish.i.i458, align 8
+  %add.ptr19.i.i.i490 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i481, i64 %cond.i.i.i.i475
+  store ptr %add.ptr19.i.i.i490, ptr %_M_end_of_storage.i.i459, align 8
   br label %if.end131
 
 lpad126:                                          ; preds = %if.then124
@@ -1748,7 +1759,7 @@ lpad126:                                          ; preds = %if.then124
           cleanup
   br label %eh.resume
 
-if.end131:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i479, %if.then.i.i452, %if.end121
+if.end131:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i489, %if.then.i.i461, %if.end121
   %141 = load ptr, ptr %quantifiers, align 8
   %mbqi = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %141, i64 0, i32 161
   %142 = load i8, ptr %mbqi, align 1
@@ -1765,86 +1776,87 @@ invoke.cont137:                                   ; preds = %if.then134
   %d_mbqi = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 13
   %144 = load ptr, ptr %d_mbqi, align 8
   store ptr %call135, ptr %d_mbqi, align 8
-  %tobool.not.i.i484 = icmp eq ptr %144, null
-  br i1 %tobool.not.i.i484, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyMbqiESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyMbqiEEclEPS4_.exit.i.i
+  %tobool.not.i.i494 = icmp eq ptr %144, null
+  br i1 %tobool.not.i.i494, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyMbqiESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyMbqiEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyMbqiEEclEPS4_.exit.i.i: ; preds = %invoke.cont137
-  %vtable.i.i.i485 = load ptr, ptr %144, align 8
-  %vfn.i.i.i486 = getelementptr inbounds ptr, ptr %vtable.i.i.i485, i64 1
-  %145 = load ptr, ptr %vfn.i.i.i486, align 8
+  %vtable.i.i.i495 = load ptr, ptr %144, align 8
+  %vfn.i.i.i496 = getelementptr inbounds ptr, ptr %vtable.i.i.i495, i64 1
+  %145 = load ptr, ptr %vfn.i.i.i496, align 8
   tail call void %145(ptr noundef nonnull align 8 dereferenceable(160) %144) #14
-  %.pre585 = load ptr, ptr %d_mbqi, align 8
+  %.pre597 = load ptr, ptr %d_mbqi, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyMbqiESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyMbqiESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont137, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyMbqiEEclEPS4_.exit.i.i
-  %146 = phi ptr [ %call135, %invoke.cont137 ], [ %.pre585, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyMbqiEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i487 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %147 = load ptr, ptr %_M_finish.i.i487, align 8
-  %_M_end_of_storage.i.i488 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %148 = load ptr, ptr %_M_end_of_storage.i.i488, align 8
-  %cmp.not.i.i489 = icmp eq ptr %147, %148
-  br i1 %cmp.not.i.i489, label %if.else.i.i492, label %if.then.i.i490
+  %146 = phi ptr [ %call135, %invoke.cont137 ], [ %.pre597, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16InstStrategyMbqiEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i497 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %147 = load ptr, ptr %_M_finish.i.i497, align 8
+  %_M_end_of_storage.i.i498 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %148 = load ptr, ptr %_M_end_of_storage.i.i498, align 8
+  %cmp.not.i.i499 = icmp eq ptr %147, %148
+  br i1 %cmp.not.i.i499, label %if.else.i.i502, label %if.then.i.i500
 
-if.then.i.i490:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyMbqiESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i500:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyMbqiESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %146, ptr %147, align 8
-  %149 = load ptr, ptr %_M_finish.i.i487, align 8
-  %incdec.ptr.i.i491 = getelementptr inbounds ptr, ptr %149, i64 1
-  store ptr %incdec.ptr.i.i491, ptr %_M_finish.i.i487, align 8
+  %149 = load ptr, ptr %_M_finish.i.i497, align 8
+  %incdec.ptr.i.i501 = getelementptr inbounds ptr, ptr %149, i64 1
+  store ptr %incdec.ptr.i.i501, ptr %_M_finish.i.i497, align 8
   br label %if.end141
 
-if.else.i.i492:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyMbqiESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i502:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16InstStrategyMbqiESt14default_deleteIS4_EE5resetEPS4_.exit
   %150 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i493 = ptrtoint ptr %147 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i494 = ptrtoint ptr %150 to i64
-  %sub.ptr.sub.i.i.i.i.i495 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i493, %sub.ptr.rhs.cast.i.i.i.i.i494
-  %cmp.i.i.i.i496 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i495, 9223372036854775800
-  br i1 %cmp.i.i.i.i496, label %if.then.i.i.i.i520, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i497
+  %sub.ptr.lhs.cast.i.i.i.i.i503 = ptrtoint ptr %147 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i504 = ptrtoint ptr %150 to i64
+  %sub.ptr.sub.i.i.i.i.i505 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i503, %sub.ptr.rhs.cast.i.i.i.i.i504
+  %cmp.i.i.i.i506 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i505, 9223372036854775800
+  br i1 %cmp.i.i.i.i506, label %if.then.i.i.i.i531, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i507
 
-if.then.i.i.i.i520:                               ; preds = %if.else.i.i492
+if.then.i.i.i.i531:                               ; preds = %if.else.i.i502
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i497: ; preds = %if.else.i.i492
-  %sub.ptr.div.i.i.i.i.i498 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i495, 3
-  %.sroa.speculated.i.i.i.i499 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i498, i64 1)
-  %add.i.i.i.i500 = add i64 %.sroa.speculated.i.i.i.i499, %sub.ptr.div.i.i.i.i.i498
-  %cmp7.i.i.i.i501 = icmp ult i64 %add.i.i.i.i500, %sub.ptr.div.i.i.i.i.i498
-  %cmp9.i.i.i.i502 = icmp ugt i64 %add.i.i.i.i500, 1152921504606846975
-  %or.cond.i.i.i.i503 = or i1 %cmp7.i.i.i.i501, %cmp9.i.i.i.i502
-  %cond.i.i.i.i504 = select i1 %or.cond.i.i.i.i503, i64 1152921504606846975, i64 %add.i.i.i.i500
-  %cmp.not.i.i.i.i505 = icmp eq i64 %cond.i.i.i.i504, 0
-  br i1 %cmp.not.i.i.i.i505, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i509, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i506
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i507: ; preds = %if.else.i.i502
+  %sub.ptr.div.i.i.i.i.i508 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i505, 3
+  %.sroa.speculated.i.i.i.i509 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i508, i64 1)
+  %add.i.i.i.i510 = add i64 %.sroa.speculated.i.i.i.i509, %sub.ptr.div.i.i.i.i.i508
+  %cmp7.i.i.i.i511 = icmp ult i64 %add.i.i.i.i510, %sub.ptr.div.i.i.i.i.i508
+  %cmp9.i.i.i.i512 = icmp ugt i64 %add.i.i.i.i510, 1152921504606846975
+  %or.cond.i.i.i.i513 = or i1 %cmp7.i.i.i.i511, %cmp9.i.i.i.i512
+  %cond.i.i.i.i514 = select i1 %or.cond.i.i.i.i513, i64 1152921504606846975, i64 %add.i.i.i.i510
+  %cmp.not.i.i.i.i515 = icmp eq i64 %cond.i.i.i.i514, 0
+  br i1 %cmp.not.i.i.i.i515, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i519, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i516
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i506: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i497
-  %mul.i.i.i.i.i.i507 = shl nuw nsw i64 %cond.i.i.i.i504, 3
-  %call5.i.i.i.i.i.i508 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i507) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i509
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i516: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i507
+  %mul.i.i.i.i.i.i517 = shl nuw nsw i64 %cond.i.i.i.i514, 3
+  %call5.i.i.i.i.i.i518 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i517) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i519
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i509: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i506, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i497
-  %cond.i10.i.i.i510 = phi ptr [ %call5.i.i.i.i.i.i508, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i506 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i497 ]
-  %add.ptr.i.i.i511 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i510, i64 %sub.ptr.div.i.i.i.i.i498
-  store ptr %146, ptr %add.ptr.i.i.i511, align 8
-  %cmp.i.i.i11.i.i.i512 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i498, 0
-  br i1 %cmp.i.i.i11.i.i.i512, label %if.then.i.i.i12.i.i.i519, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i513
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i519: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i516, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i507
+  %cond.i10.i.i.i520 = phi ptr [ %call5.i.i.i.i.i.i518, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i516 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i507 ]
+  %add.ptr.i.i.i521 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i520, i64 %sub.ptr.div.i.i.i.i.i508
+  store ptr %146, ptr %add.ptr.i.i.i521, align 8
+  %cmp.i.i.i11.i.i.i522 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i505, 0
+  br i1 %cmp.i.i.i11.i.i.i522, label %if.then.i.i.i12.i.i.i530, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i523
 
-if.then.i.i.i12.i.i.i519:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i509
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i510, ptr align 8 %150, i64 %sub.ptr.sub.i.i.i.i.i495, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i513
+if.then.i.i.i12.i.i.i530:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i519
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i520, ptr align 8 %150, i64 %sub.ptr.sub.i.i.i.i.i505, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i523
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i513: ; preds = %if.then.i.i.i12.i.i.i519, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i509
-  %incdec.ptr.i.i.i514 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i511, i64 1
-  %tobool.not.i.i.i.i515 = icmp eq ptr %150, null
-  br i1 %tobool.not.i.i.i.i515, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i517, label %if.then.i21.i.i.i516
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i523: ; preds = %if.then.i.i.i12.i.i.i530, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i519
+  %add.ptr.i.i.i.i.i.i524 = getelementptr inbounds i8, ptr %cond.i10.i.i.i520, i64 %sub.ptr.sub.i.i.i.i.i505
+  %incdec.ptr.i.i.i525 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i524, i64 1
+  %tobool.not.i.i.i.i526 = icmp eq ptr %150, null
+  br i1 %tobool.not.i.i.i.i526, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i528, label %if.then.i20.i.i.i527
 
-if.then.i21.i.i.i516:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i513
+if.then.i20.i.i.i527:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i523
   tail call void @_ZdlPv(ptr noundef nonnull %150) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i517
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i528
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i517: ; preds = %if.then.i21.i.i.i516, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i513
-  store ptr %cond.i10.i.i.i510, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i514, ptr %_M_finish.i.i487, align 8
-  %add.ptr19.i.i.i518 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i510, i64 %cond.i.i.i.i504
-  store ptr %add.ptr19.i.i.i518, ptr %_M_end_of_storage.i.i488, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i528: ; preds = %if.then.i20.i.i.i527, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i523
+  store ptr %cond.i10.i.i.i520, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i525, ptr %_M_finish.i.i497, align 8
+  %add.ptr19.i.i.i529 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i520, i64 %cond.i.i.i.i514
+  store ptr %add.ptr19.i.i.i529, ptr %_M_end_of_storage.i.i498, align 8
   br label %if.end141
 
 lpad136:                                          ; preds = %if.then134
@@ -1852,7 +1864,7 @@ lpad136:                                          ; preds = %if.then134
           cleanup
   br label %eh.resume
 
-if.end141:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i517, %if.then.i.i490, %if.end131
+if.end141:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i528, %if.then.i.i500, %if.end131
   %152 = load ptr, ptr %quantifiers, align 8
   %oracles = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %152, i64 0, i32 178
   %153 = load i8, ptr %oracles, align 1
@@ -1869,86 +1881,87 @@ invoke.cont147:                                   ; preds = %if.then144
   %d_oracleEngine = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QuantifiersModules", ptr %this, i64 0, i32 14
   %155 = load ptr, ptr %d_oracleEngine, align 8
   store ptr %call145, ptr %d_oracleEngine, align 8
-  %tobool.not.i.i522 = icmp eq ptr %155, null
-  br i1 %tobool.not.i.i522, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12OracleEngineESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12OracleEngineEEclEPS4_.exit.i.i
+  %tobool.not.i.i533 = icmp eq ptr %155, null
+  br i1 %tobool.not.i.i533, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12OracleEngineESt14default_deleteIS4_EE5resetEPS4_.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12OracleEngineEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12OracleEngineEEclEPS4_.exit.i.i: ; preds = %invoke.cont147
-  %vtable.i.i.i523 = load ptr, ptr %155, align 8
-  %vfn.i.i.i524 = getelementptr inbounds ptr, ptr %vtable.i.i.i523, i64 1
-  %156 = load ptr, ptr %vfn.i.i.i524, align 8
+  %vtable.i.i.i534 = load ptr, ptr %155, align 8
+  %vfn.i.i.i535 = getelementptr inbounds ptr, ptr %vtable.i.i.i534, i64 1
+  %156 = load ptr, ptr %vfn.i.i.i535, align 8
   tail call void %156(ptr noundef nonnull align 8 dereferenceable(137) %155) #14
-  %.pre586 = load ptr, ptr %d_oracleEngine, align 8
+  %.pre598 = load ptr, ptr %d_oracleEngine, align 8
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12OracleEngineESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12OracleEngineESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %invoke.cont147, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12OracleEngineEEclEPS4_.exit.i.i
-  %157 = phi ptr [ %call145, %invoke.cont147 ], [ %.pre586, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12OracleEngineEEclEPS4_.exit.i.i ]
-  %_M_finish.i.i525 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
-  %158 = load ptr, ptr %_M_finish.i.i525, align 8
-  %_M_end_of_storage.i.i526 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
-  %159 = load ptr, ptr %_M_end_of_storage.i.i526, align 8
-  %cmp.not.i.i527 = icmp eq ptr %158, %159
-  br i1 %cmp.not.i.i527, label %if.else.i.i530, label %if.then.i.i528
+  %157 = phi ptr [ %call145, %invoke.cont147 ], [ %.pre598, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12OracleEngineEEclEPS4_.exit.i.i ]
+  %_M_finish.i.i536 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 1
+  %158 = load ptr, ptr %_M_finish.i.i536, align 8
+  %_M_end_of_storage.i.i537 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::QuantifiersModule *, std::allocator<cvc5::internal::theory::QuantifiersModule *>>::_Vector_impl_data", ptr %modules, i64 0, i32 2
+  %159 = load ptr, ptr %_M_end_of_storage.i.i537, align 8
+  %cmp.not.i.i538 = icmp eq ptr %158, %159
+  br i1 %cmp.not.i.i538, label %if.else.i.i541, label %if.then.i.i539
 
-if.then.i.i528:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12OracleEngineESt14default_deleteIS4_EE5resetEPS4_.exit
+if.then.i.i539:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12OracleEngineESt14default_deleteIS4_EE5resetEPS4_.exit
   store ptr %157, ptr %158, align 8
-  %160 = load ptr, ptr %_M_finish.i.i525, align 8
-  %incdec.ptr.i.i529 = getelementptr inbounds ptr, ptr %160, i64 1
-  store ptr %incdec.ptr.i.i529, ptr %_M_finish.i.i525, align 8
+  %160 = load ptr, ptr %_M_finish.i.i536, align 8
+  %incdec.ptr.i.i540 = getelementptr inbounds ptr, ptr %160, i64 1
+  store ptr %incdec.ptr.i.i540, ptr %_M_finish.i.i536, align 8
   br label %if.end151
 
-if.else.i.i530:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12OracleEngineESt14default_deleteIS4_EE5resetEPS4_.exit
+if.else.i.i541:                                   ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12OracleEngineESt14default_deleteIS4_EE5resetEPS4_.exit
   %161 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i531 = ptrtoint ptr %158 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i532 = ptrtoint ptr %161 to i64
-  %sub.ptr.sub.i.i.i.i.i533 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i531, %sub.ptr.rhs.cast.i.i.i.i.i532
-  %cmp.i.i.i.i534 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i533, 9223372036854775800
-  br i1 %cmp.i.i.i.i534, label %if.then.i.i.i.i558, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i535
+  %sub.ptr.lhs.cast.i.i.i.i.i542 = ptrtoint ptr %158 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i543 = ptrtoint ptr %161 to i64
+  %sub.ptr.sub.i.i.i.i.i544 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i542, %sub.ptr.rhs.cast.i.i.i.i.i543
+  %cmp.i.i.i.i545 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i544, 9223372036854775800
+  br i1 %cmp.i.i.i.i545, label %if.then.i.i.i.i570, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i546
 
-if.then.i.i.i.i558:                               ; preds = %if.else.i.i530
+if.then.i.i.i.i570:                               ; preds = %if.else.i.i541
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i535: ; preds = %if.else.i.i530
-  %sub.ptr.div.i.i.i.i.i536 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i533, 3
-  %.sroa.speculated.i.i.i.i537 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i536, i64 1)
-  %add.i.i.i.i538 = add i64 %.sroa.speculated.i.i.i.i537, %sub.ptr.div.i.i.i.i.i536
-  %cmp7.i.i.i.i539 = icmp ult i64 %add.i.i.i.i538, %sub.ptr.div.i.i.i.i.i536
-  %cmp9.i.i.i.i540 = icmp ugt i64 %add.i.i.i.i538, 1152921504606846975
-  %or.cond.i.i.i.i541 = or i1 %cmp7.i.i.i.i539, %cmp9.i.i.i.i540
-  %cond.i.i.i.i542 = select i1 %or.cond.i.i.i.i541, i64 1152921504606846975, i64 %add.i.i.i.i538
-  %cmp.not.i.i.i.i543 = icmp eq i64 %cond.i.i.i.i542, 0
-  br i1 %cmp.not.i.i.i.i543, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i547, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i544
+_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i546: ; preds = %if.else.i.i541
+  %sub.ptr.div.i.i.i.i.i547 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i544, 3
+  %.sroa.speculated.i.i.i.i548 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i547, i64 1)
+  %add.i.i.i.i549 = add i64 %.sroa.speculated.i.i.i.i548, %sub.ptr.div.i.i.i.i.i547
+  %cmp7.i.i.i.i550 = icmp ult i64 %add.i.i.i.i549, %sub.ptr.div.i.i.i.i.i547
+  %cmp9.i.i.i.i551 = icmp ugt i64 %add.i.i.i.i549, 1152921504606846975
+  %or.cond.i.i.i.i552 = or i1 %cmp7.i.i.i.i550, %cmp9.i.i.i.i551
+  %cond.i.i.i.i553 = select i1 %or.cond.i.i.i.i552, i64 1152921504606846975, i64 %add.i.i.i.i549
+  %cmp.not.i.i.i.i554 = icmp eq i64 %cond.i.i.i.i553, 0
+  br i1 %cmp.not.i.i.i.i554, label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i558, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i555
 
-_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i544: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i535
-  %mul.i.i.i.i.i.i545 = shl nuw nsw i64 %cond.i.i.i.i542, 3
-  %call5.i.i.i.i.i.i546 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i545) #15
-  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i547
+_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i555: ; preds = %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i546
+  %mul.i.i.i.i.i.i556 = shl nuw nsw i64 %cond.i.i.i.i553, 3
+  %call5.i.i.i.i.i.i557 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i556) #15
+  br label %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i558
 
-_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i547: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i544, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i535
-  %cond.i10.i.i.i548 = phi ptr [ %call5.i.i.i.i.i.i546, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i544 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i535 ]
-  %add.ptr.i.i.i549 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i548, i64 %sub.ptr.div.i.i.i.i.i536
-  store ptr %157, ptr %add.ptr.i.i.i549, align 8
-  %cmp.i.i.i11.i.i.i550 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i536, 0
-  br i1 %cmp.i.i.i11.i.i.i550, label %if.then.i.i.i12.i.i.i557, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i551
+_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i558: ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i555, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i546
+  %cond.i10.i.i.i559 = phi ptr [ %call5.i.i.i.i.i.i557, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory17QuantifiersModuleEEE8allocateERS5_m.exit.i.i.i.i555 ], [ null, %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i546 ]
+  %add.ptr.i.i.i560 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i559, i64 %sub.ptr.div.i.i.i.i.i547
+  store ptr %157, ptr %add.ptr.i.i.i560, align 8
+  %cmp.i.i.i11.i.i.i561 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i544, 0
+  br i1 %cmp.i.i.i11.i.i.i561, label %if.then.i.i.i12.i.i.i569, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i562
 
-if.then.i.i.i12.i.i.i557:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i547
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i548, ptr align 8 %161, i64 %sub.ptr.sub.i.i.i.i.i533, i1 false)
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i551
+if.then.i.i.i12.i.i.i569:                         ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i558
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i559, ptr align 8 %161, i64 %sub.ptr.sub.i.i.i.i.i544, i1 false)
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i562
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i551: ; preds = %if.then.i.i.i12.i.i.i557, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i547
-  %incdec.ptr.i.i.i552 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i549, i64 1
-  %tobool.not.i.i.i.i553 = icmp eq ptr %161, null
-  br i1 %tobool.not.i.i.i.i553, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i555, label %if.then.i21.i.i.i554
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i562: ; preds = %if.then.i.i.i12.i.i.i569, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i.i558
+  %add.ptr.i.i.i.i.i.i563 = getelementptr inbounds i8, ptr %cond.i10.i.i.i559, i64 %sub.ptr.sub.i.i.i.i.i544
+  %incdec.ptr.i.i.i564 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i563, i64 1
+  %tobool.not.i.i.i.i565 = icmp eq ptr %161, null
+  br i1 %tobool.not.i.i.i.i565, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i567, label %if.then.i20.i.i.i566
 
-if.then.i21.i.i.i554:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i551
+if.then.i20.i.i.i566:                             ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i562
   tail call void @_ZdlPv(ptr noundef nonnull %161) #17
-  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i555
+  br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i567
 
-_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i555: ; preds = %if.then.i21.i.i.i554, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i551
-  store ptr %cond.i10.i.i.i548, ptr %modules, align 8
-  store ptr %incdec.ptr.i.i.i552, ptr %_M_finish.i.i525, align 8
-  %add.ptr19.i.i.i556 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i548, i64 %cond.i.i.i.i542
-  store ptr %add.ptr19.i.i.i556, ptr %_M_end_of_storage.i.i526, align 8
+_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i567: ; preds = %if.then.i20.i.i.i566, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i562
+  store ptr %cond.i10.i.i.i559, ptr %modules, align 8
+  store ptr %incdec.ptr.i.i.i564, ptr %_M_finish.i.i536, align 8
+  %add.ptr19.i.i.i568 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i559, i64 %cond.i.i.i.i553
+  store ptr %add.ptr19.i.i.i568, ptr %_M_end_of_storage.i.i537, align 8
   br label %if.end151
 
 lpad146:                                          ; preds = %if.then144
@@ -1956,7 +1969,7 @@ lpad146:                                          ; preds = %if.then144
           cleanup
   br label %eh.resume
 
-if.end151:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i555, %if.then.i.i528, %if.end141
+if.end151:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i567, %if.then.i.i539, %if.end141
   ret void
 
 eh.resume:                                        ; preds = %lpad146, %lpad136, %lpad126, %lpad116, %lpad106, %lpad101, %lpad91, %lpad81, %lpad72, %lpad54, %lpad43, %lpad29, %lpad19, %lpad9, %lpad
@@ -2166,7 +2179,7 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

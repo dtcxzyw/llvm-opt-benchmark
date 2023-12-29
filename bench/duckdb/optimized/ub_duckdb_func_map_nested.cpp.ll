@@ -6660,7 +6660,7 @@ _ZNKSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12_M_check_lenEmPK
           to label %call5.i.i.i.i.i.noexc unwind label %lpad61.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIN6duckdb12_GLOBAL__N_115MapKeyIndexPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds %"struct.duckdb::(anonymous namespace)::MapKeyIndexPair", ptr %call5.i.i.i.i.i333, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i333, i64 %sub.ptr.sub.i.i.i.i
   store i64 %storemerge619, ptr %add.ptr.i.i, align 8, !tbaa !171
   %key_index.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::(anonymous namespace)::MapKeyIndexPair", ptr %call5.i.i.i.i.i333, i64 %sub.ptr.div.i.i.i.i, i32 1
   store i64 %add, ptr %key_index.i.i.i.i.i, align 8, !tbaa !173

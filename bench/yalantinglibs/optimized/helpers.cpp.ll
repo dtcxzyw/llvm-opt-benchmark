@@ -519,14 +519,13 @@ entry:
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
-  %cmp69.not = icmp eq ptr %0, %1
+  %sub.ptr.lhs.cast.i65 = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i66 = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i67 = sub i64 %sub.ptr.lhs.cast.i65, %sub.ptr.rhs.cast.i66
+  %cmp69.not = icmp eq i64 %sub.ptr.sub.i67, 0
   br i1 %cmp69.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sub.ptr.rhs.cast.i66 = ptrtoint ptr %1 to i64
-  %sub.ptr.lhs.cast.i65 = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i67 = sub i64 %sub.ptr.lhs.cast.i65, %sub.ptr.rhs.cast.i66
-  %sub.ptr.div.i68 = ashr exact i64 %sub.ptr.sub.i67, 5
   %p_ = getelementptr inbounds %"class.struct_pb::compiler::NamespaceOpener", ptr %this, i64 0, i32 1
   %second.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp8, i64 0, i32 1
   %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -545,10 +544,10 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %sub.ptr.div.i72 = phi i64 [ %sub.ptr.div.i68, %for.body.lr.ph ], [ %sub.ptr.div.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %sub.ptr.sub.i72 = phi i64 [ %sub.ptr.sub.i67, %for.body.lr.ph ], [ %sub.ptr.sub.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %6 = phi ptr [ %1, %for.body.lr.ph ], [ %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %7 = xor i64 %indvars.iv, -1
-  %8 = getelementptr %"class.std::__cxx11::basic_string", ptr %6, i64 %sub.ptr.div.i72
+  %8 = getelementptr i8, ptr %6, i64 %sub.ptr.sub.i72
   %add.ptr.i = getelementptr %"class.std::__cxx11::basic_string", ptr %8, i64 %7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ns, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
   %9 = load ptr, ptr %p_, align 8

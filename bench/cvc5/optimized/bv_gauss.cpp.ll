@@ -9027,8 +9027,7 @@ invoke.cont354:                                   ; preds = %for.cond.i.i.i2104,
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %376 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %377 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
-  %add.ptr.i.i1352 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %377, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i1352 = getelementptr inbounds i8, ptr %377, i64 %sub.ptr.sub.i.i
   invoke void @_ZNSt6vectorIN4cvc58internal7IntegerESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %retval.0.i2073, ptr %add.ptr.i.i1352, i64 noundef %i.02302, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp353)
           to label %invoke.cont357 unwind label %lpad356
 
@@ -17670,7 +17669,7 @@ invoke.cont27:                                    ; preds = %for.inc.i.i.i.i, %i
   br i1 %cmp.i.i.not8.i.i.i.i.i56, label %invoke.cont35.thread, label %for.body.i.i.i.i.i57
 
 invoke.cont35.thread:                             ; preds = %invoke.cont27
-  %add.ptr39149 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %18, i64 %sub.ptr.div.i
+  %add.ptr39149 = getelementptr inbounds i8, ptr %18, i64 %sub.ptr.sub.i
   store ptr %add.ptr39149, ptr %_M_finish, align 8
   br label %if.end
 
@@ -17716,7 +17715,7 @@ unreachable.i.i.i.i.i65:                          ; preds = %invoke.cont8.i.i.i.
 
 for.body.i.i.i75.preheader:                       ; preds = %for.inc.i.i.i.i.i66
   %25 = load ptr, ptr %_M_finish, align 8
-  %add.ptr39 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %25, i64 %sub.ptr.div.i
+  %add.ptr39 = getelementptr inbounds i8, ptr %25, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
   br label %for.body.i.i.i75
 
@@ -17763,7 +17762,6 @@ _ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit: ; preds 
   %cond.i = select i1 %or.cond.i, i64 576460752303423487, i64 %add.i
   %sub.ptr.lhs.cast49 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub51 = sub i64 %sub.ptr.lhs.cast49, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div52 = ashr exact i64 %sub.ptr.sub51, 4
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4cvc58internal7IntegerESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4cvc58internal7IntegerEEE8allocateERS3_m.exit.i
 
@@ -17774,7 +17772,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal7IntegerEEE8allocateERS3_m.exit.i: ; p
 
 _ZNSt12_Vector_baseIN4cvc58internal7IntegerESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4cvc58internal7IntegerEEE8allocateERS3_m.exit.i
   %cond.i85 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4cvc58internal7IntegerEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr54 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %cond.i85, i64 %sub.ptr.div52
+  %add.ptr54 = getelementptr inbounds i8, ptr %cond.i85, i64 %sub.ptr.sub51
   br label %for.body.i.i.i.i87
 
 for.body.i.i.i.i87:                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal7IntegerESaIS2_EE11_M_allocateEm.exit, %for.inc.i.i.i.i96

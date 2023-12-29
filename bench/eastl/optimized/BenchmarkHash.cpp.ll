@@ -767,8 +767,7 @@ invoke.cont82:                                    ; preds = %for.cond76.preheade
   %sub.ptr.lhs.cast.i211 = ptrtoint ptr %45 to i64
   %sub.ptr.rhs.cast.i212 = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i213 = sub i64 %sub.ptr.lhs.cast.i211, %sub.ptr.rhs.cast.i212
-  %sub.ptr.div.i214 = ashr exact i64 %sub.ptr.sub.i213, 5
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %44, i64 %sub.ptr.div.i214
+  %add.ptr = getelementptr inbounds i8, ptr %44, i64 %sub.ptr.sub.i213
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %46 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %46, 1
@@ -924,8 +923,7 @@ invoke.cont87:                                    ; preds = %_ZNSt13unordered_ma
   %sub.ptr.lhs.cast.i221 = ptrtoint ptr %70 to i64
   %sub.ptr.rhs.cast.i222 = ptrtoint ptr %69 to i64
   %sub.ptr.sub.i223 = sub i64 %sub.ptr.lhs.cast.i221, %sub.ptr.rhs.cast.i222
-  %sub.ptr.div.i224 = ashr exact i64 %sub.ptr.sub.i223, 5
-  %add.ptr91 = getelementptr inbounds %"struct.eastl::pair", ptr %69, i64 %sub.ptr.div.i224
+  %add.ptr91 = getelementptr inbounds i8, ptr %69, i64 %sub.ptr.sub.i223
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %71 = load i32, ptr %mnUnits.i.i.i226, align 8
   %cmp.i.i.i227 = icmp eq i32 %71, 1
@@ -1065,8 +1063,7 @@ if.end:                                           ; preds = %invoke.cont98, %inv
   %sub.ptr.lhs.cast.i243 = ptrtoint ptr %77 to i64
   %sub.ptr.rhs.cast.i244 = ptrtoint ptr %76 to i64
   %sub.ptr.sub.i245 = sub i64 %sub.ptr.lhs.cast.i243, %sub.ptr.rhs.cast.i244
-  %sub.ptr.div.i246 = sdiv exact i64 %sub.ptr.sub.i245, 40
-  %add.ptr104 = getelementptr inbounds %"struct.std::pair.12", ptr %76, i64 %sub.ptr.div.i246
+  %add.ptr104 = getelementptr inbounds i8, ptr %76, i64 %sub.ptr.sub.i245
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %78 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i250 = icmp eq i32 %78, 1
@@ -1123,8 +1120,7 @@ invoke.cont105:                                   ; preds = %_ZNSt13unordered_ma
   %sub.ptr.lhs.cast.i272 = ptrtoint ptr %83 to i64
   %sub.ptr.rhs.cast.i273 = ptrtoint ptr %82 to i64
   %sub.ptr.sub.i274 = sub i64 %sub.ptr.lhs.cast.i272, %sub.ptr.rhs.cast.i273
-  %sub.ptr.div.i275 = ashr exact i64 %sub.ptr.sub.i274, 5
-  %add.ptr109 = getelementptr inbounds %"struct.eastl::pair.14", ptr %82, i64 %sub.ptr.div.i275
+  %add.ptr109 = getelementptr inbounds i8, ptr %82, i64 %sub.ptr.sub.i274
   invoke fastcc void @_ZN12_GLOBAL__N_110TestInsertIN5eastl8hash_mapINS1_12basic_stringIcNS1_9allocatorEEEj11HashString8IS5_ENS1_8equal_toIS5_EES4_Lb0EEENS1_4pairIS5_jEEEEvRN2EA4StdC9StopwatchERT_PKT0_SL_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef nonnull align 8 dereferenceable(45) %eaMapStrUint32, ptr noundef %82, ptr noundef %add.ptr109)
           to label %invoke.cont110 unwind label %lpad86.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1652,8 +1648,7 @@ if.end185:                                        ; preds = %invoke.cont182, %_Z
   %sub.ptr.lhs.cast.i546 = ptrtoint ptr %162 to i64
   %sub.ptr.rhs.cast.i547 = ptrtoint ptr %161 to i64
   %sub.ptr.sub.i548 = sub i64 %sub.ptr.lhs.cast.i546, %sub.ptr.rhs.cast.i547
-  %sub.ptr.div.i549 = ashr exact i64 %sub.ptr.sub.i548, 5
-  %add.ptr189 = getelementptr inbounds %"struct.std::pair", ptr %161, i64 %sub.ptr.div.i549
+  %add.ptr189 = getelementptr inbounds i8, ptr %161, i64 %sub.ptr.sub.i548
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %163 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i552 = icmp eq i32 %163, 1
@@ -1783,8 +1778,7 @@ invoke.cont190:                                   ; preds = %while.end.i
   %sub.ptr.lhs.cast.i571 = ptrtoint ptr %180 to i64
   %sub.ptr.rhs.cast.i572 = ptrtoint ptr %179 to i64
   %sub.ptr.sub.i573 = sub i64 %sub.ptr.lhs.cast.i571, %sub.ptr.rhs.cast.i572
-  %sub.ptr.div.i574 = ashr exact i64 %sub.ptr.sub.i573, 5
-  %add.ptr194 = getelementptr inbounds %"struct.eastl::pair", ptr %179, i64 %sub.ptr.div.i574
+  %add.ptr194 = getelementptr inbounds i8, ptr %179, i64 %sub.ptr.sub.i573
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %181 = load i32, ptr %mnUnits.i.i.i226, align 8
   %cmp.i.i.i577 = icmp eq i32 %181, 1
@@ -1864,8 +1858,7 @@ if.end205:                                        ; preds = %invoke.cont202, %in
   %sub.ptr.lhs.cast.i602 = ptrtoint ptr %189 to i64
   %sub.ptr.rhs.cast.i603 = ptrtoint ptr %188 to i64
   %sub.ptr.sub.i604 = sub i64 %sub.ptr.lhs.cast.i602, %sub.ptr.rhs.cast.i603
-  %sub.ptr.div.i605 = sdiv exact i64 %sub.ptr.sub.i604, 40
-  %add.ptr209 = getelementptr inbounds %"struct.std::pair.12", ptr %188, i64 %sub.ptr.div.i605
+  %add.ptr209 = getelementptr inbounds i8, ptr %188, i64 %sub.ptr.sub.i604
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %190 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i608 = icmp eq i32 %190, 1
@@ -2255,8 +2248,7 @@ invoke.cont210:                                   ; preds = %while.end.i624
   %sub.ptr.lhs.cast.i632 = ptrtoint ptr %245 to i64
   %sub.ptr.rhs.cast.i633 = ptrtoint ptr %244 to i64
   %sub.ptr.sub.i634 = sub i64 %sub.ptr.lhs.cast.i632, %sub.ptr.rhs.cast.i633
-  %sub.ptr.div.i635 = ashr exact i64 %sub.ptr.sub.i634, 5
-  %add.ptr214 = getelementptr inbounds %"struct.eastl::pair.14", ptr %244, i64 %sub.ptr.div.i635
+  %add.ptr214 = getelementptr inbounds i8, ptr %244, i64 %sub.ptr.sub.i634
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %246 = load i32, ptr %mnUnits.i.i.i226, align 8
   %cmp.i.i.i639 = icmp eq i32 %246, 1
@@ -2361,8 +2353,7 @@ if.end225:                                        ; preds = %invoke.cont222, %in
   %sub.ptr.lhs.cast.i665 = ptrtoint ptr %259 to i64
   %sub.ptr.rhs.cast.i666 = ptrtoint ptr %258 to i64
   %sub.ptr.sub.i667 = sub i64 %sub.ptr.lhs.cast.i665, %sub.ptr.rhs.cast.i666
-  %sub.ptr.div.i668 = ashr exact i64 %sub.ptr.sub.i667, 5
-  %add.ptr229 = getelementptr inbounds %"struct.std::pair", ptr %258, i64 %sub.ptr.div.i668
+  %add.ptr229 = getelementptr inbounds i8, ptr %258, i64 %sub.ptr.sub.i667
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %260 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2473,8 +2464,7 @@ invoke.cont230:                                   ; preds = %while.end.i686
   %sub.ptr.lhs.cast.i694 = ptrtoint ptr %275 to i64
   %sub.ptr.rhs.cast.i695 = ptrtoint ptr %274 to i64
   %sub.ptr.sub.i696 = sub i64 %sub.ptr.lhs.cast.i694, %sub.ptr.rhs.cast.i695
-  %sub.ptr.div.i697 = ashr exact i64 %sub.ptr.sub.i696, 5
-  %add.ptr234 = getelementptr inbounds %"struct.eastl::pair", ptr %274, i64 %sub.ptr.div.i697
+  %add.ptr234 = getelementptr inbounds i8, ptr %274, i64 %sub.ptr.sub.i696
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it.i699)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %276 = load i32, ptr %mnUnits.i.i.i226, align 8
@@ -2580,8 +2570,7 @@ if.end245:                                        ; preds = %invoke.cont242, %in
   %sub.ptr.lhs.cast.i729 = ptrtoint ptr %289 to i64
   %sub.ptr.rhs.cast.i730 = ptrtoint ptr %288 to i64
   %sub.ptr.sub.i731 = sub i64 %sub.ptr.lhs.cast.i729, %sub.ptr.rhs.cast.i730
-  %sub.ptr.div.i732 = sdiv exact i64 %sub.ptr.sub.i731, 40
-  %add.ptr249 = getelementptr inbounds %"struct.std::pair.12", ptr %288, i64 %sub.ptr.div.i732
+  %add.ptr249 = getelementptr inbounds i8, ptr %288, i64 %sub.ptr.sub.i731
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i734)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %290 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2755,8 +2744,7 @@ invoke.cont250:                                   ; preds = %while.end.i752
   %sub.ptr.lhs.cast.i760 = ptrtoint ptr %311 to i64
   %sub.ptr.rhs.cast.i761 = ptrtoint ptr %310 to i64
   %sub.ptr.sub.i762 = sub i64 %sub.ptr.lhs.cast.i760, %sub.ptr.rhs.cast.i761
-  %sub.ptr.div.i763 = ashr exact i64 %sub.ptr.sub.i762, 5
-  %add.ptr254 = getelementptr inbounds %"struct.eastl::pair.14", ptr %310, i64 %sub.ptr.div.i763
+  %add.ptr254 = getelementptr inbounds i8, ptr %310, i64 %sub.ptr.sub.i762
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it.i765)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %312 = load i32, ptr %mnUnits.i.i.i226, align 8
@@ -2906,8 +2894,7 @@ if.end265:                                        ; preds = %invoke.cont262, %in
   %sub.ptr.lhs.cast.i815 = ptrtoint ptr %332 to i64
   %sub.ptr.rhs.cast.i816 = ptrtoint ptr %331 to i64
   %sub.ptr.sub.i817 = sub i64 %sub.ptr.lhs.cast.i815, %sub.ptr.rhs.cast.i816
-  %sub.ptr.div.i818 = sdiv exact i64 %sub.ptr.sub.i817, 40
-  %add.ptr269 = getelementptr inbounds %"struct.std::pair.12", ptr %331, i64 %sub.ptr.div.i818
+  %add.ptr269 = getelementptr inbounds i8, ptr %331, i64 %sub.ptr.sub.i817
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i820)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -3186,8 +3173,7 @@ invoke.cont270:                                   ; preds = %while.end.i839
   %sub.ptr.lhs.cast.i848 = ptrtoint ptr %360 to i64
   %sub.ptr.rhs.cast.i849 = ptrtoint ptr %359 to i64
   %sub.ptr.sub.i850 = sub i64 %sub.ptr.lhs.cast.i848, %sub.ptr.rhs.cast.i849
-  %sub.ptr.div.i851 = ashr exact i64 %sub.ptr.sub.i850, 5
-  %add.ptr274 = getelementptr inbounds %"struct.eastl::pair.14", ptr %359, i64 %sub.ptr.div.i851
+  %add.ptr274 = getelementptr inbounds i8, ptr %359, i64 %sub.ptr.sub.i850
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it.i853)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %361 = load i32, ptr %mnUnits.i.i.i226, align 8
@@ -3349,8 +3335,7 @@ if.end285:                                        ; preds = %invoke.cont282, %in
   %sub.ptr.lhs.cast.i890 = ptrtoint ptr %382 to i64
   %sub.ptr.rhs.cast.i891 = ptrtoint ptr %381 to i64
   %sub.ptr.sub.i892 = sub i64 %sub.ptr.lhs.cast.i890, %sub.ptr.rhs.cast.i891
-  %sub.ptr.div.i893 = ashr exact i64 %sub.ptr.sub.i892, 5
-  %add.ptr289 = getelementptr inbounds %"struct.std::pair", ptr %381, i64 %sub.ptr.div.i893
+  %add.ptr289 = getelementptr inbounds i8, ptr %381, i64 %sub.ptr.sub.i892
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %383 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i896 = icmp eq i32 %383, 1
@@ -3473,8 +3458,7 @@ invoke.cont290:                                   ; preds = %while.end.i916
   %sub.ptr.lhs.cast.i922 = ptrtoint ptr %399 to i64
   %sub.ptr.rhs.cast.i923 = ptrtoint ptr %398 to i64
   %sub.ptr.sub.i924 = sub i64 %sub.ptr.lhs.cast.i922, %sub.ptr.rhs.cast.i923
-  %sub.ptr.div.i925 = ashr exact i64 %sub.ptr.sub.i924, 5
-  %add.ptr294 = getelementptr inbounds %"struct.eastl::pair", ptr %398, i64 %sub.ptr.div.i925
+  %add.ptr294 = getelementptr inbounds i8, ptr %398, i64 %sub.ptr.sub.i924
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %400 = load i32, ptr %mnUnits.i.i.i226, align 8
   %cmp.i.i.i928 = icmp eq i32 %400, 1
@@ -3572,8 +3556,7 @@ if.end305:                                        ; preds = %invoke.cont302, %in
   %sub.ptr.lhs.cast.i963 = ptrtoint ptr %410 to i64
   %sub.ptr.rhs.cast.i964 = ptrtoint ptr %409 to i64
   %sub.ptr.sub.i965 = sub i64 %sub.ptr.lhs.cast.i963, %sub.ptr.rhs.cast.i964
-  %sub.ptr.div.i966 = sdiv exact i64 %sub.ptr.sub.i965, 40
-  %add.ptr309 = getelementptr inbounds %"struct.std::pair.12", ptr %409, i64 %sub.ptr.div.i966
+  %add.ptr309 = getelementptr inbounds i8, ptr %409, i64 %sub.ptr.sub.i965
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %411 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i969 = icmp eq i32 %411, 1
@@ -3746,8 +3729,7 @@ invoke.cont310:                                   ; preds = %while.end.i988
   %sub.ptr.lhs.cast.i997 = ptrtoint ptr %432 to i64
   %sub.ptr.rhs.cast.i998 = ptrtoint ptr %431 to i64
   %sub.ptr.sub.i999 = sub i64 %sub.ptr.lhs.cast.i997, %sub.ptr.rhs.cast.i998
-  %sub.ptr.div.i1000 = ashr exact i64 %sub.ptr.sub.i999, 5
-  %add.ptr314 = getelementptr inbounds %"struct.eastl::pair.14", ptr %431, i64 %sub.ptr.div.i1000
+  %add.ptr314 = getelementptr inbounds i8, ptr %431, i64 %sub.ptr.sub.i999
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %433 = load i32, ptr %mnUnits.i.i.i226, align 8
   %cmp.i.i.i1003 = icmp eq i32 %433, 1
@@ -5742,8 +5724,7 @@ invoke.cont421:                                   ; preds = %invoke.cont420
   %sub.ptr.lhs.cast.i1594 = ptrtoint ptr %701 to i64
   %sub.ptr.rhs.cast.i1595 = ptrtoint ptr %700 to i64
   %sub.ptr.sub.i1596 = sub i64 %sub.ptr.lhs.cast.i1594, %sub.ptr.rhs.cast.i1595
-  %sub.ptr.div.i1597 = ashr exact i64 %sub.ptr.sub.i1596, 5
-  %add.ptr425 = getelementptr inbounds %"struct.std::pair", ptr %700, i64 %sub.ptr.div.i1597
+  %add.ptr425 = getelementptr inbounds i8, ptr %700, i64 %sub.ptr.sub.i1596
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %702 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1601 = icmp eq i32 %702, 1
@@ -5899,8 +5880,7 @@ invoke.cont426:                                   ; preds = %_ZNSt13unordered_ma
   %sub.ptr.lhs.cast.i1625 = ptrtoint ptr %726 to i64
   %sub.ptr.rhs.cast.i1626 = ptrtoint ptr %725 to i64
   %sub.ptr.sub.i1627 = sub i64 %sub.ptr.lhs.cast.i1625, %sub.ptr.rhs.cast.i1626
-  %sub.ptr.div.i1628 = ashr exact i64 %sub.ptr.sub.i1627, 5
-  %add.ptr430 = getelementptr inbounds %"struct.eastl::pair", ptr %725, i64 %sub.ptr.div.i1628
+  %add.ptr430 = getelementptr inbounds i8, ptr %725, i64 %sub.ptr.sub.i1627
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %727 = load i32, ptr %mnUnits.i.i.i226, align 8
   %cmp.i.i.i1631 = icmp eq i32 %727, 1
@@ -5944,8 +5924,7 @@ invoke.cont431:                                   ; preds = %.noexc1644
   %sub.ptr.lhs.cast.i1648 = ptrtoint ptr %732 to i64
   %sub.ptr.rhs.cast.i1649 = ptrtoint ptr %731 to i64
   %sub.ptr.sub.i1650 = sub i64 %sub.ptr.lhs.cast.i1648, %sub.ptr.rhs.cast.i1649
-  %sub.ptr.div.i1651 = sdiv exact i64 %sub.ptr.sub.i1650, 40
-  %add.ptr435 = getelementptr inbounds %"struct.std::pair.12", ptr %731, i64 %sub.ptr.div.i1651
+  %add.ptr435 = getelementptr inbounds i8, ptr %731, i64 %sub.ptr.sub.i1650
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %733 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1655 = icmp eq i32 %733, 1
@@ -6002,8 +5981,7 @@ invoke.cont436:                                   ; preds = %_ZNSt13unordered_ma
   %sub.ptr.lhs.cast.i1679 = ptrtoint ptr %738 to i64
   %sub.ptr.rhs.cast.i1680 = ptrtoint ptr %737 to i64
   %sub.ptr.sub.i1681 = sub i64 %sub.ptr.lhs.cast.i1679, %sub.ptr.rhs.cast.i1680
-  %sub.ptr.div.i1682 = ashr exact i64 %sub.ptr.sub.i1681, 5
-  %add.ptr440 = getelementptr inbounds %"struct.eastl::pair.14", ptr %737, i64 %sub.ptr.div.i1682
+  %add.ptr440 = getelementptr inbounds i8, ptr %737, i64 %sub.ptr.sub.i1681
   invoke fastcc void @_ZN12_GLOBAL__N_110TestInsertIN5eastl8hash_mapINS1_12basic_stringIcNS1_9allocatorEEEj11HashString8IS5_ENS1_8equal_toIS5_EES4_Lb0EEENS1_4pairIS5_jEEEEvRN2EA4StdC9StopwatchERT_PKT0_SL_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, ptr noundef nonnull align 8 dereferenceable(45) %eaMapStrUint32, ptr noundef %737, ptr noundef %add.ptr440)
           to label %invoke.cont441 unwind label %lpad86.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

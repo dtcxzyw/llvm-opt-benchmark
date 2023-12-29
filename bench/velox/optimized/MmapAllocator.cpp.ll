@@ -236,7 +236,7 @@ entry:
 
 invoke.cont.i:                                    ; preds = %entry
   store ptr %call5.i.i.i.i2.i.i, ptr %sizeClassSizes_.i, align 8
-  %add.ptr.i1.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 9
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 72
   %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::MemoryAllocator", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call5.i.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(72) @constinit, i64 72, i1 false)

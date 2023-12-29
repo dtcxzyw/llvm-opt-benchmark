@@ -4428,7 +4428,7 @@ _ZNKSt6vectorIN6duckdb15IndexBufferInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; 
           to label %call5.i.i.i.i.i.noexc unwind label %lpad9.loopexit
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIN6duckdb15IndexBufferInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds %"struct.duckdb::IndexBufferInfo", ptr %call5.i.i.i.i.i30, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i30, i64 %sub.ptr.sub.i.i.i.i
   %9 = load i64, ptr %allocation_size, align 8, !tbaa !55
   store ptr %5, ptr %add.ptr.i.i, align 8, !tbaa !178
   %allocation_size3.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::IndexBufferInfo", ptr %call5.i.i.i.i.i30, i64 %sub.ptr.div.i.i.i.i, i32 1

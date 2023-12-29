@@ -38344,7 +38344,7 @@ invoke.cont27:                                    ; preds = %for.inc.i.i.i.i, %i
   br i1 %cmp.i.i.not8.i.i.i.i.i56, label %invoke.cont35.thread, label %for.body.i.i.i.i.i57
 
 invoke.cont35.thread:                             ; preds = %invoke.cont27
-  %add.ptr39179 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::Monomial", ptr %16, i64 %sub.ptr.div.i
+  %add.ptr39179 = getelementptr inbounds i8, ptr %16, i64 %sub.ptr.sub.i
   store ptr %add.ptr39179, ptr %_M_finish, align 8
   br label %if.end
 
@@ -38397,7 +38397,7 @@ unreachable.i.i.i.i.i70:                          ; preds = %invoke.cont8.i.i.i.
 
 for.body.i.i.i80.preheader:                       ; preds = %for.inc.i.i.i.i.i71
   %23 = load ptr, ptr %_M_finish, align 8
-  %add.ptr39 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::Monomial", ptr %23, i64 %sub.ptr.div.i
+  %add.ptr39 = getelementptr inbounds i8, ptr %23, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
   br label %for.body.i.i.i80
 
@@ -38437,7 +38437,6 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith6linear8MonomialESaIS5_EE12_M_check_le
   %cond.i = select i1 %or.cond.i, i64 384307168202282325, i64 %add.i
   %sub.ptr.lhs.cast49 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub51 = sub i64 %sub.ptr.lhs.cast49, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div52 = sdiv exact i64 %sub.ptr.sub51, 24
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear8MonomialESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith6linear8MonomialEEE8allocateERS6_m.exit.i
 
@@ -38448,7 +38447,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith6linear8MonomialEEE8alloc
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear8MonomialESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith6linear8MonomialESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith6linear8MonomialEEE8allocateERS6_m.exit.i
   %cond.i88 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith6linear8MonomialEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorIN4cvc58internal6theory5arith6linear8MonomialESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr54 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::Monomial", ptr %cond.i88, i64 %sub.ptr.div52
+  %add.ptr54 = getelementptr inbounds i8, ptr %cond.i88, i64 %sub.ptr.sub51
   br label %for.body.i.i.i.i90
 
 for.body.i.i.i.i90:                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith6linear8MonomialESaIS5_EE11_M_allocateEm.exit, %for.inc.i.i.i.i104

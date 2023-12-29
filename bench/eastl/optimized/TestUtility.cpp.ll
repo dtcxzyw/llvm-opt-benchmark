@@ -280,7 +280,7 @@ common.resume.i:                                  ; preds = %_ZN5eastl6vectorIiN
   br label %common.resume
 
 invoke.cont262.i:                                 ; preds = %land.end197.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %call.i.i.i.i.i1.i.i, i64 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i, i64 20
   %7 = load i32, ptr %add.ptr.i, align 4
   %cmp264.i = icmp eq i32 %7, 6
   %call266.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp264.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @.str.41)

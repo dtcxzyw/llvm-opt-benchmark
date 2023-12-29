@@ -3150,7 +3150,7 @@ invoke.cont5:                                     ; preds = %.noexc17
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont5
   store ptr %call5.i.i.i.i37, ptr %c, align 8
-  %add.ptr.i35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i37, i64 2
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %call5.i.i.i.i37, i64 64
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %c, i64 0, i32 2
   store ptr %add.ptr.i35, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i.i.i.i
@@ -4686,7 +4686,7 @@ _ZN7testing15AssertionResultD2Ev.exit124:         ; preds = %if.end39, %_ZNKSt14
   store ptr null, ptr %message_.i121, align 8
   %call5.i.i.i.i2.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp44, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.std::optional.38", ptr %call5.i.i.i.i2.i, i64 3
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 24
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::optional<int>, std::allocator<std::optional<int>>>::_Vector_impl_data", ptr %ref.tmp44, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)

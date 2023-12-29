@@ -2851,8 +2851,7 @@ invoke.cont:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__end to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__begin to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, 2305843009213693951
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775804
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont
@@ -2875,7 +2874,7 @@ invoke.cont6.lr.ph:                               ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %call5.i.i.i.i19, ptr %this, align 8, !tbaa !98
   store ptr %call5.i.i.i.i19, ptr %_M_finish.i.i, align 8, !tbaa !132
-  %add.ptr21.i = getelementptr inbounds i32, ptr %call5.i.i.i.i19, i64 %sub.ptr.div.i.i
+  %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i19, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !133
   br label %invoke.cont6
 

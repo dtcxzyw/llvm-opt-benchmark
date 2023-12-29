@@ -46,8 +46,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %5 = getelementptr %"class.std::__cxx11::basic_string", ptr %0, i64 %sub.ptr.div.i
+  %5 = getelementptr i8, ptr %0, i64 %sub.ptr.sub.i
   %add.ptr.i = getelementptr %"class.std::__cxx11::basic_string", ptr %5, i64 -1
   br label %return
 

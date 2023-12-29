@@ -1039,7 +1039,7 @@ invoke.cont173:                                   ; preds = %.noexc159
 
 call5.i.i.i.i.noexc:                              ; preds = %invoke.cont173
   store ptr %call5.i.i.i.i341, ptr %ref.tmp168, align 8
-  %add.ptr.i336 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i341, i64 1
+  %add.ptr.i336 = getelementptr inbounds i8, ptr %call5.i.i.i.i341, i64 32
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp168, i64 0, i32 2
   store ptr %add.ptr.i336, ptr %_M_end_of_storage.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i341, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170)

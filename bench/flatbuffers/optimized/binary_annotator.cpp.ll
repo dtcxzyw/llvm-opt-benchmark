@@ -6052,13 +6052,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %48 = phi ptr [ %1, %if.end ], [ %.pre176, %for.end.loopexit ]
   %49 = phi ptr [ %2, %if.end ], [ %.pre176, %for.end.loopexit ]
   %.lcssa = phi ptr [ %3, %if.end ], [ %46, %for.end.loopexit ]
-  %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i165, %if.end ], [ %sub.ptr.div.i, %for.end.loopexit ]
+  %sub.ptr.sub.i.lcssa = phi i64 [ %sub.ptr.sub.i164, %if.end ], [ %sub.ptr.sub.i, %for.end.loopexit ]
   %50 = load ptr, ptr %regions_to_insert, align 8
   %cmp.i.i116 = icmp eq ptr %50, %49
   br i1 %cmp.i.i116, label %for.inc87, label %if.then56
 
 if.then56:                                        ; preds = %for.end
-  %add.ptr.i.i119 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %.lcssa, i64 %sub.ptr.div.i.lcssa
+  %add.ptr.i.i119 = getelementptr inbounds i8, ptr %.lcssa, i64 %sub.ptr.sub.i.lcssa
   invoke void @_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEEvS8_T_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %regions, ptr %add.ptr.i.i119, ptr %50, ptr %49)
           to label %invoke.cont72 unwind label %lpad
 
@@ -25888,8 +25888,7 @@ for.body.i.i.i:                                   ; preds = %if.end5.i.i, %for.b
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
   %sub.ptr.sub.i12.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i54, %sub.ptr.lhs.cast.i6.i.i
-  %sub.ptr.div.i13.i.i = ashr exact i64 %sub.ptr.sub.i12.i.i, 4
-  %add.ptr.i.i.i59 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first_cut.sroa.0.0, i64 %sub.ptr.div.i13.i.i
+  %add.ptr.i.i.i59 = getelementptr inbounds i8, ptr %__first_cut.sroa.0.0, i64 %sub.ptr.sub.i12.i.i
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.backedge, %if.end16.i.i
@@ -25993,7 +25992,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %add.ptr = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__buffer, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i
   %cmp45.i = icmp sgt i64 %sub.ptr.sub.i, 96
   br i1 %cmp45.i, label %for.body.lr.ph.i.i, label %while.end.i
 
@@ -26129,51 +26128,51 @@ for.inc.i25.i:                                    ; preds = %"_ZSt25__unguarded_
 
 "_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_.exit": ; preds = %for.inc.i25.i, %while.end.i, %for.cond.preheader.i7.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.i5.i)
-  %cmp49 = icmp sgt i64 %sub.ptr.div.i, 7
-  br i1 %cmp49, label %while.body.lr.ph, label %while.end
+  %cmp47 = icmp sgt i64 %sub.ptr.div.i, 7
+  br i1 %cmp47, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_.exit"
-  %sub.ptr.lhs.cast.i25 = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.lhs.cast.i24 = ptrtoint ptr %add.ptr to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %"_ZSt17__merge_sort_loopIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit"
-  %__step_size.050 = phi i64 [ 7, %while.body.lr.ph ], [ %mul.i24, %"_ZSt17__merge_sort_loopIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ]
-  %mul.i = shl nsw i64 %__step_size.050, 1
-  %cmp.not71.i = icmp slt i64 %sub.ptr.div.i, %mul.i
-  br i1 %cmp.not71.i, label %while.end.i22, label %while.body.i
+  %__step_size.048 = phi i64 [ 7, %while.body.lr.ph ], [ %mul.i23, %"_ZSt17__merge_sort_loopIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ]
+  %mul.i = shl nsw i64 %__step_size.048, 1
+  %cmp.not69.i = icmp slt i64 %sub.ptr.div.i, %mul.i
+  br i1 %cmp.not69.i, label %while.end.i21, label %while.body.i
 
 while.body.i:                                     ; preds = %while.body, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i"
-  %__result.addr.073.i = phi ptr [ %add.ptr.i.i.i.i.i12.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ], [ %__buffer, %while.body ]
-  %__first.sroa.0.072.i = phi ptr [ %add.ptr.i6.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ], [ %__first.coerce, %while.body ]
-  %add.ptr.i.i12 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.sroa.0.072.i, i64 %__step_size.050
-  %add.ptr.i6.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.sroa.0.072.i, i64 %mul.i
+  %__result.addr.071.i = phi ptr [ %add.ptr.i.i.i.i.i11.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ], [ %__buffer, %while.body ]
+  %__first.sroa.0.070.i = phi ptr [ %add.ptr.i6.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ], [ %__first.coerce, %while.body ]
+  %add.ptr.i.i12 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.sroa.0.070.i, i64 %__step_size.048
+  %add.ptr.i6.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.sroa.0.070.i, i64 %mul.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i
-  %__result.addr.023.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %__result.addr.073.i, %while.body.i ]
-  %__first1.sroa.0.022.i.i = phi ptr [ %__first1.sroa.0.1.i.i, %if.end.i.i ], [ %__first.sroa.0.072.i, %while.body.i ]
-  %__first2.sroa.0.021.i.i = phi ptr [ %__first2.sroa.0.1.i.i, %if.end.i.i ], [ %add.ptr.i.i12, %while.body.i ]
-  %8 = getelementptr i8, ptr %__first2.sroa.0.021.i.i, i64 8
+  %__result.addr.022.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %__result.addr.071.i, %while.body.i ]
+  %__first1.sroa.0.021.i.i = phi ptr [ %__first1.sroa.0.1.i.i, %if.end.i.i ], [ %__first.sroa.0.070.i, %while.body.i ]
+  %__first2.sroa.0.020.i.i = phi ptr [ %__first2.sroa.0.1.i.i, %if.end.i.i ], [ %add.ptr.i.i12, %while.body.i ]
+  %8 = getelementptr i8, ptr %__first2.sroa.0.020.i.i, i64 8
   %call.val.i.i.i13 = load i16, ptr %8, align 8
-  %9 = getelementptr i8, ptr %__first1.sroa.0.022.i.i, i64 8
+  %9 = getelementptr i8, ptr %__first1.sroa.0.021.i.i, i64 8
   %call3.val.i.i.i14 = load i16, ptr %9, align 8
   %cmp.i.i.i.i15 = icmp ult i16 %call.val.i.i.i13, %call3.val.i.i.i14
   br i1 %cmp.i.i.i.i15, label %if.then.i.i, label %if.else.i.i16
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.addr.023.i.i, ptr noundef nonnull align 8 dereferenceable(10) %__first2.sroa.0.021.i.i, i64 10, i1 false)
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first2.sroa.0.021.i.i, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.addr.022.i.i, ptr noundef nonnull align 8 dereferenceable(10) %__first2.sroa.0.020.i.i, i64 10, i1 false)
+  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first2.sroa.0.020.i.i, i64 1
   br label %if.end.i.i
 
 if.else.i.i16:                                    ; preds = %while.body.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.addr.023.i.i, ptr noundef nonnull align 8 dereferenceable(10) %__first1.sroa.0.022.i.i, i64 10, i1 false)
-  %incdec.ptr.i5.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first1.sroa.0.022.i.i, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.addr.022.i.i, ptr noundef nonnull align 8 dereferenceable(10) %__first1.sroa.0.021.i.i, i64 10, i1 false)
+  %incdec.ptr.i5.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first1.sroa.0.021.i.i, i64 1
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i16, %if.then.i.i
-  %__first2.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i ], [ %__first2.sroa.0.021.i.i, %if.else.i.i16 ]
-  %__first1.sroa.0.1.i.i = phi ptr [ %__first1.sroa.0.022.i.i, %if.then.i.i ], [ %incdec.ptr.i5.i.i, %if.else.i.i16 ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.addr.023.i.i, i64 1
+  %__first2.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i ], [ %__first2.sroa.0.020.i.i, %if.else.i.i16 ]
+  %__first1.sroa.0.1.i.i = phi ptr [ %__first1.sroa.0.021.i.i, %if.then.i.i ], [ %incdec.ptr.i5.i.i, %if.else.i.i16 ]
+  %incdec.ptr.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.addr.022.i.i, i64 1
   %cmp.i.i.i = icmp ne ptr %__first1.sroa.0.1.i.i, %add.ptr.i.i12
   %cmp.i4.i.i = icmp ne ptr %__first2.sroa.0.1.i.i, %add.ptr.i6.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i4.i.i, i1 false
@@ -26191,8 +26190,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %while.end.i.loopexi
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %while.end.i.loopexit.i
-  %sub.ptr.div.i.i.i.i.i.i.i19 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i18, 4
-  %add.ptr.i.i.i.i.i.i.i20 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %incdec.ptr.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i19
+  %add.ptr.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %incdec.ptr.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i18
   %sub.ptr.lhs.cast.i.i.i.i.i6.i.i = ptrtoint ptr %add.ptr.i6.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i7.i.i = ptrtoint ptr %__first2.sroa.0.1.i.i to i64
   %sub.ptr.sub.i.i.i.i.i8.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i6.i.i, %sub.ptr.rhs.cast.i.i.i.i.i7.i.i
@@ -26200,62 +26198,61 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable
   br i1 %tobool.not.i.i.i.i.i9.i.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i", label %if.then.i.i.i.i.i10.i.i
 
 if.then.i.i.i.i.i10.i.i:                          ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i.i20, ptr nonnull align 8 %__first2.sroa.0.1.i.i, i64 %sub.ptr.sub.i.i.i.i.i8.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i.i19, ptr nonnull align 8 %__first2.sroa.0.1.i.i, i64 %sub.ptr.sub.i.i.i.i.i8.i.i, i1 false)
   br label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i"
 
 "_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i": ; preds = %if.then.i.i.i.i.i10.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
-  %sub.ptr.div.i.i.i.i.i11.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i8.i.i, 4
-  %add.ptr.i.i.i.i.i12.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %add.ptr.i.i.i.i.i.i.i20, i64 %sub.ptr.div.i.i.i.i.i11.i.i
-  %sub.ptr.sub.i.i21 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i.i.i.i.i6.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i21, 4
+  %add.ptr.i.i.i.i.i11.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i19, i64 %sub.ptr.sub.i.i.i.i.i8.i.i
+  %sub.ptr.sub.i.i20 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i.i.i.i.i6.i.i
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i20, 4
   %cmp.not.i = icmp slt i64 %sub.ptr.div.i.i, %mul.i
-  br i1 %cmp.not.i, label %while.end.i22, label %while.body.i, !llvm.loop !285
+  br i1 %cmp.not.i, label %while.end.i21, label %while.body.i, !llvm.loop !285
 
-while.end.i22:                                    ; preds = %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i", %while.body
-  %__first.sroa.0.0.lcssa.i23 = phi ptr [ %__first.coerce, %while.body ], [ %add.ptr.i6.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
-  %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %add.ptr.i.i.i.i.i12.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
+while.end.i21:                                    ; preds = %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i", %while.body
+  %__first.sroa.0.0.lcssa.i22 = phi ptr [ %__first.coerce, %while.body ], [ %add.ptr.i6.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
+  %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %add.ptr.i.i.i.i.i11.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
   %sub.ptr.div.i.lcssa.i = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.i.lcssa.i, i64 %__step_size.050)
-  %add.ptr.i12.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.sroa.0.0.lcssa.i23, i64 %.sroa.speculated.i
-  %cmp.i18.i14.i = icmp ne i64 %.sroa.speculated.i, 0
-  %cmp.i419.i15.i = icmp ne ptr %add.ptr.i12.i, %__last.coerce
-  %or.cond20.i16.i = select i1 %cmp.i18.i14.i, i1 %cmp.i419.i15.i, i1 false
-  br i1 %or.cond20.i16.i, label %while.body.i36.i, label %while.end.i17.i
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.i.lcssa.i, i64 %__step_size.048)
+  %add.ptr.i12.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.sroa.0.0.lcssa.i22, i64 %.sroa.speculated.i
+  %cmp.i17.i14.i = icmp ne i64 %.sroa.speculated.i, 0
+  %cmp.i418.i15.i = icmp ne ptr %add.ptr.i12.i, %__last.coerce
+  %or.cond19.i16.i = select i1 %cmp.i17.i14.i, i1 %cmp.i418.i15.i, i1 false
+  br i1 %or.cond19.i16.i, label %while.body.i34.i, label %while.end.i17.i
 
-while.body.i36.i:                                 ; preds = %while.end.i22, %if.end.i45.i
-  %__result.addr.023.i37.i = phi ptr [ %incdec.ptr.i48.i, %if.end.i45.i ], [ %__result.addr.0.lcssa.i, %while.end.i22 ]
-  %__first1.sroa.0.022.i38.i = phi ptr [ %__first1.sroa.0.1.i47.i, %if.end.i45.i ], [ %__first.sroa.0.0.lcssa.i23, %while.end.i22 ]
-  %__first2.sroa.0.021.i39.i = phi ptr [ %__first2.sroa.0.1.i46.i, %if.end.i45.i ], [ %add.ptr.i12.i, %while.end.i22 ]
-  %10 = getelementptr i8, ptr %__first2.sroa.0.021.i39.i, i64 8
-  %call.val.i.i40.i = load i16, ptr %10, align 8
-  %11 = getelementptr i8, ptr %__first1.sroa.0.022.i38.i, i64 8
-  %call3.val.i.i41.i = load i16, ptr %11, align 8
-  %cmp.i.i.i42.i = icmp ult i16 %call.val.i.i40.i, %call3.val.i.i41.i
-  br i1 %cmp.i.i.i42.i, label %if.then.i52.i, label %if.else.i43.i
+while.body.i34.i:                                 ; preds = %while.end.i21, %if.end.i43.i
+  %__result.addr.022.i35.i = phi ptr [ %incdec.ptr.i46.i, %if.end.i43.i ], [ %__result.addr.0.lcssa.i, %while.end.i21 ]
+  %__first1.sroa.0.021.i36.i = phi ptr [ %__first1.sroa.0.1.i45.i, %if.end.i43.i ], [ %__first.sroa.0.0.lcssa.i22, %while.end.i21 ]
+  %__first2.sroa.0.020.i37.i = phi ptr [ %__first2.sroa.0.1.i44.i, %if.end.i43.i ], [ %add.ptr.i12.i, %while.end.i21 ]
+  %10 = getelementptr i8, ptr %__first2.sroa.0.020.i37.i, i64 8
+  %call.val.i.i38.i = load i16, ptr %10, align 8
+  %11 = getelementptr i8, ptr %__first1.sroa.0.021.i36.i, i64 8
+  %call3.val.i.i39.i = load i16, ptr %11, align 8
+  %cmp.i.i.i40.i = icmp ult i16 %call.val.i.i38.i, %call3.val.i.i39.i
+  br i1 %cmp.i.i.i40.i, label %if.then.i50.i, label %if.else.i41.i
 
-if.then.i52.i:                                    ; preds = %while.body.i36.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.addr.023.i37.i, ptr noundef nonnull align 8 dereferenceable(10) %__first2.sroa.0.021.i39.i, i64 10, i1 false)
-  %incdec.ptr.i.i53.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first2.sroa.0.021.i39.i, i64 1
-  br label %if.end.i45.i
+if.then.i50.i:                                    ; preds = %while.body.i34.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.addr.022.i35.i, ptr noundef nonnull align 8 dereferenceable(10) %__first2.sroa.0.020.i37.i, i64 10, i1 false)
+  %incdec.ptr.i.i51.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first2.sroa.0.020.i37.i, i64 1
+  br label %if.end.i43.i
 
-if.else.i43.i:                                    ; preds = %while.body.i36.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.addr.023.i37.i, ptr noundef nonnull align 8 dereferenceable(10) %__first1.sroa.0.022.i38.i, i64 10, i1 false)
-  %incdec.ptr.i5.i44.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first1.sroa.0.022.i38.i, i64 1
-  br label %if.end.i45.i
+if.else.i41.i:                                    ; preds = %while.body.i34.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.addr.022.i35.i, ptr noundef nonnull align 8 dereferenceable(10) %__first1.sroa.0.021.i36.i, i64 10, i1 false)
+  %incdec.ptr.i5.i42.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first1.sroa.0.021.i36.i, i64 1
+  br label %if.end.i43.i
 
-if.end.i45.i:                                     ; preds = %if.else.i43.i, %if.then.i52.i
-  %__first2.sroa.0.1.i46.i = phi ptr [ %incdec.ptr.i.i53.i, %if.then.i52.i ], [ %__first2.sroa.0.021.i39.i, %if.else.i43.i ]
-  %__first1.sroa.0.1.i47.i = phi ptr [ %__first1.sroa.0.022.i38.i, %if.then.i52.i ], [ %incdec.ptr.i5.i44.i, %if.else.i43.i ]
-  %incdec.ptr.i48.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.addr.023.i37.i, i64 1
-  %cmp.i.i49.i = icmp ne ptr %__first1.sroa.0.1.i47.i, %add.ptr.i12.i
-  %cmp.i4.i50.i = icmp ne ptr %__first2.sroa.0.1.i46.i, %__last.coerce
-  %or.cond.i51.i = select i1 %cmp.i.i49.i, i1 %cmp.i4.i50.i, i1 false
-  br i1 %or.cond.i51.i, label %while.body.i36.i, label %while.end.i17.i, !llvm.loop !284
+if.end.i43.i:                                     ; preds = %if.else.i41.i, %if.then.i50.i
+  %__first2.sroa.0.1.i44.i = phi ptr [ %incdec.ptr.i.i51.i, %if.then.i50.i ], [ %__first2.sroa.0.020.i37.i, %if.else.i41.i ]
+  %__first1.sroa.0.1.i45.i = phi ptr [ %__first1.sroa.0.021.i36.i, %if.then.i50.i ], [ %incdec.ptr.i5.i42.i, %if.else.i41.i ]
+  %incdec.ptr.i46.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.addr.022.i35.i, i64 1
+  %cmp.i.i47.i = icmp ne ptr %__first1.sroa.0.1.i45.i, %add.ptr.i12.i
+  %cmp.i4.i48.i = icmp ne ptr %__first2.sroa.0.1.i44.i, %__last.coerce
+  %or.cond.i49.i = select i1 %cmp.i.i47.i, i1 %cmp.i4.i48.i, i1 false
+  br i1 %or.cond.i49.i, label %while.body.i34.i, label %while.end.i17.i, !llvm.loop !284
 
-while.end.i17.i:                                  ; preds = %if.end.i45.i, %while.end.i22
-  %__first2.sroa.0.0.lcssa.i18.i = phi ptr [ %add.ptr.i12.i, %while.end.i22 ], [ %__first2.sroa.0.1.i46.i, %if.end.i45.i ]
-  %__first1.sroa.0.0.lcssa.i19.i = phi ptr [ %__first.sroa.0.0.lcssa.i23, %while.end.i22 ], [ %__first1.sroa.0.1.i47.i, %if.end.i45.i ]
-  %__result.addr.0.lcssa.i20.i = phi ptr [ %__result.addr.0.lcssa.i, %while.end.i22 ], [ %incdec.ptr.i48.i, %if.end.i45.i ]
+while.end.i17.i:                                  ; preds = %if.end.i43.i, %while.end.i21
+  %__first2.sroa.0.0.lcssa.i18.i = phi ptr [ %add.ptr.i12.i, %while.end.i21 ], [ %__first2.sroa.0.1.i44.i, %if.end.i43.i ]
+  %__first1.sroa.0.0.lcssa.i19.i = phi ptr [ %__first.sroa.0.0.lcssa.i22, %while.end.i21 ], [ %__first1.sroa.0.1.i45.i, %if.end.i43.i ]
+  %__result.addr.0.lcssa.i20.i = phi ptr [ %__result.addr.0.lcssa.i, %while.end.i21 ], [ %incdec.ptr.i46.i, %if.end.i43.i ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i21.i = ptrtoint ptr %add.ptr.i12.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i22.i = ptrtoint ptr %__first1.sroa.0.0.lcssa.i19.i to i64
   %sub.ptr.sub.i.i.i.i.i.i23.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i21.i, %sub.ptr.rhs.cast.i.i.i.i.i.i22.i
@@ -26267,73 +26264,71 @@ if.then.i.i.i.i.i.i25.i:                          ; preds = %while.end.i17.i
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i26.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i26.i: ; preds = %if.then.i.i.i.i.i.i25.i, %while.end.i17.i
-  %tobool.not.i.i.i.i.i9.i32.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i18.i, %__last.coerce
-  br i1 %tobool.not.i.i.i.i.i9.i32.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit", label %if.then.i.i.i.i.i10.i33.i
+  %tobool.not.i.i.i.i.i9.i31.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i18.i, %__last.coerce
+  br i1 %tobool.not.i.i.i.i.i9.i31.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit", label %if.then.i.i.i.i.i10.i32.i
 
-if.then.i.i.i.i.i10.i33.i:                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i26.i
-  %sub.ptr.rhs.cast.i.i.i.i.i7.i30.i = ptrtoint ptr %__first2.sroa.0.0.lcssa.i18.i to i64
-  %sub.ptr.sub.i.i.i.i.i8.i31.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i.i7.i30.i
-  %sub.ptr.div.i.i.i.i.i.i27.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i23.i, 4
-  %add.ptr.i.i.i.i.i.i28.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.addr.0.lcssa.i20.i, i64 %sub.ptr.div.i.i.i.i.i.i27.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i28.i, ptr align 8 %__first2.sroa.0.0.lcssa.i18.i, i64 %sub.ptr.sub.i.i.i.i.i8.i31.i, i1 false)
+if.then.i.i.i.i.i10.i32.i:                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i26.i
+  %sub.ptr.rhs.cast.i.i.i.i.i7.i29.i = ptrtoint ptr %__first2.sroa.0.0.lcssa.i18.i to i64
+  %sub.ptr.sub.i.i.i.i.i8.i30.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i.i7.i29.i
+  %add.ptr.i.i.i.i.i.i27.i = getelementptr inbounds i8, ptr %__result.addr.0.lcssa.i20.i, i64 %sub.ptr.sub.i.i.i.i.i.i23.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i27.i, ptr align 8 %__first2.sroa.0.0.lcssa.i18.i, i64 %sub.ptr.sub.i.i.i.i.i8.i30.i, i1 false)
   br label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit"
 
-"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit": ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i26.i, %if.then.i.i.i.i.i10.i33.i
-  %mul.i24 = shl nsw i64 %__step_size.050, 2
-  %cmp.not61.i = icmp slt i64 %sub.ptr.div.i, %mul.i24
-  br i1 %cmp.not61.i, label %while.end.i44, label %while.body.i27
+"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit": ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i26.i, %if.then.i.i.i.i.i10.i32.i
+  %mul.i23 = shl nsw i64 %__step_size.048, 2
+  %cmp.not59.i = icmp slt i64 %sub.ptr.div.i, %mul.i23
+  br i1 %cmp.not59.i, label %while.end.i42, label %while.body.i26
 
-while.body.i27:                                   ; preds = %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit", %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i"
-  %__result.sroa.0.063.i = phi ptr [ %add.ptr.i.i.i.i.i17.i.i, %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ], [ %__first.coerce, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ]
-  %__first.addr.062.i = phi ptr [ %add.ptr2.i, %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ], [ %__buffer, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ]
-  %add.ptr.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.addr.062.i, i64 %mul.i
-  %add.ptr2.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.addr.062.i, i64 %mul.i24
-  br label %while.body.i.i28
+while.body.i26:                                   ; preds = %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit", %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i"
+  %__result.sroa.0.061.i = phi ptr [ %add.ptr.i.i.i.i.i16.i.i, %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ], [ %__first.coerce, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ]
+  %__first.addr.060.i = phi ptr [ %add.ptr2.i, %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ], [ %__buffer, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ]
+  %add.ptr.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.addr.060.i, i64 %mul.i
+  %add.ptr2.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.addr.060.i, i64 %mul.i23
+  br label %while.body.i.i27
 
-while.body.i.i28:                                 ; preds = %if.end.i.i31, %while.body.i27
-  %__first1.addr.025.i.i = phi ptr [ %__first1.addr.1.i.i, %if.end.i.i31 ], [ %__first.addr.062.i, %while.body.i27 ]
-  %__first2.addr.024.i.i = phi ptr [ %__first2.addr.1.i.i, %if.end.i.i31 ], [ %add.ptr.i, %while.body.i27 ]
-  %__result.sroa.0.023.i.i = phi ptr [ %incdec.ptr.i.i.i32, %if.end.i.i31 ], [ %__result.sroa.0.063.i, %while.body.i27 ]
-  %12 = getelementptr i8, ptr %__first2.addr.024.i.i, i64 8
+while.body.i.i27:                                 ; preds = %if.end.i.i30, %while.body.i26
+  %__first1.addr.024.i.i = phi ptr [ %__first1.addr.1.i.i, %if.end.i.i30 ], [ %__first.addr.060.i, %while.body.i26 ]
+  %__first2.addr.023.i.i = phi ptr [ %__first2.addr.1.i.i, %if.end.i.i30 ], [ %add.ptr.i, %while.body.i26 ]
+  %__result.sroa.0.022.i.i = phi ptr [ %incdec.ptr.i.i.i31, %if.end.i.i30 ], [ %__result.sroa.0.061.i, %while.body.i26 ]
+  %12 = getelementptr i8, ptr %__first2.addr.023.i.i, i64 8
   %__first2.addr.0.val.i.i = load i16, ptr %12, align 8
-  %13 = getelementptr i8, ptr %__first1.addr.025.i.i, i64 8
+  %13 = getelementptr i8, ptr %__first1.addr.024.i.i, i64 8
   %__first1.addr.0.val.i.i = load i16, ptr %13, align 8
-  %cmp.i.i.i.i29 = icmp ult i16 %__first2.addr.0.val.i.i, %__first1.addr.0.val.i.i
-  br i1 %cmp.i.i.i.i29, label %if.then.i.i47, label %if.else.i.i30
+  %cmp.i.i.i.i28 = icmp ult i16 %__first2.addr.0.val.i.i, %__first1.addr.0.val.i.i
+  br i1 %cmp.i.i.i.i28, label %if.then.i.i45, label %if.else.i.i29
 
-if.then.i.i47:                                    ; preds = %while.body.i.i28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.sroa.0.023.i.i, ptr noundef nonnull align 8 dereferenceable(10) %__first2.addr.024.i.i, i64 10, i1 false)
-  %incdec.ptr.i.i48 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first2.addr.024.i.i, i64 1
-  br label %if.end.i.i31
+if.then.i.i45:                                    ; preds = %while.body.i.i27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.sroa.0.022.i.i, ptr noundef nonnull align 8 dereferenceable(10) %__first2.addr.023.i.i, i64 10, i1 false)
+  %incdec.ptr.i.i46 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first2.addr.023.i.i, i64 1
+  br label %if.end.i.i30
 
-if.else.i.i30:                                    ; preds = %while.body.i.i28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.sroa.0.023.i.i, ptr noundef nonnull align 8 dereferenceable(10) %__first1.addr.025.i.i, i64 10, i1 false)
-  %incdec.ptr4.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first1.addr.025.i.i, i64 1
-  br label %if.end.i.i31
+if.else.i.i29:                                    ; preds = %while.body.i.i27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.sroa.0.022.i.i, ptr noundef nonnull align 8 dereferenceable(10) %__first1.addr.024.i.i, i64 10, i1 false)
+  %incdec.ptr4.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first1.addr.024.i.i, i64 1
+  br label %if.end.i.i30
 
-if.end.i.i31:                                     ; preds = %if.else.i.i30, %if.then.i.i47
-  %__first2.addr.1.i.i = phi ptr [ %incdec.ptr.i.i48, %if.then.i.i47 ], [ %__first2.addr.024.i.i, %if.else.i.i30 ]
-  %__first1.addr.1.i.i = phi ptr [ %__first1.addr.025.i.i, %if.then.i.i47 ], [ %incdec.ptr4.i.i, %if.else.i.i30 ]
-  %incdec.ptr.i.i.i32 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.sroa.0.023.i.i, i64 1
+if.end.i.i30:                                     ; preds = %if.else.i.i29, %if.then.i.i45
+  %__first2.addr.1.i.i = phi ptr [ %incdec.ptr.i.i46, %if.then.i.i45 ], [ %__first2.addr.023.i.i, %if.else.i.i29 ]
+  %__first1.addr.1.i.i = phi ptr [ %__first1.addr.024.i.i, %if.then.i.i45 ], [ %incdec.ptr4.i.i, %if.else.i.i29 ]
+  %incdec.ptr.i.i.i31 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.sroa.0.022.i.i, i64 1
   %cmp.i.i = icmp ne ptr %__first1.addr.1.i.i, %add.ptr.i
   %cmp1.i.i = icmp ne ptr %__first2.addr.1.i.i, %add.ptr2.i
   %14 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
-  br i1 %14, label %while.body.i.i28, label %while.end.i.loopexit.i33, !llvm.loop !286
+  br i1 %14, label %while.body.i.i27, label %while.end.i.loopexit.i32, !llvm.loop !286
 
-while.end.i.loopexit.i33:                         ; preds = %if.end.i.i31
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i34 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i35 = ptrtoint ptr %__first1.addr.1.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i34, %sub.ptr.rhs.cast.i.i.i.i.i.i.i35
-  %tobool.not.i.i.i.i.i.i.i37 = icmp eq ptr %__first1.addr.1.i.i, %add.ptr.i
-  br i1 %tobool.not.i.i.i.i.i.i.i37, label %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i, label %if.then.i.i.i.i.i.i.i38
+while.end.i.loopexit.i32:                         ; preds = %if.end.i.i30
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i33 = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i34 = ptrtoint ptr %__first1.addr.1.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i33, %sub.ptr.rhs.cast.i.i.i.i.i.i.i34
+  %tobool.not.i.i.i.i.i.i.i36 = icmp eq ptr %__first1.addr.1.i.i, %add.ptr.i
+  br i1 %tobool.not.i.i.i.i.i.i.i36, label %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i, label %if.then.i.i.i.i.i.i.i37
 
-if.then.i.i.i.i.i.i.i38:                          ; preds = %while.end.i.loopexit.i33
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %incdec.ptr.i.i.i32, ptr nonnull align 8 %__first1.addr.1.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i36, i1 false)
+if.then.i.i.i.i.i.i.i37:                          ; preds = %while.end.i.loopexit.i32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %incdec.ptr.i.i.i31, ptr nonnull align 8 %__first1.addr.1.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i35, i1 false)
   br label %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
 
-_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i38, %while.end.i.loopexit.i33
-  %sub.ptr.div.i.i.i.i.i.i.i39 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i36, 4
-  %add.ptr.i.i.i.i.i.i.i40 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %incdec.ptr.i.i.i32, i64 %sub.ptr.div.i.i.i.i.i.i.i39
+_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i37, %while.end.i.loopexit.i32
+  %add.ptr.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i31, i64 %sub.ptr.sub.i.i.i.i.i.i.i35
   %sub.ptr.lhs.cast.i.i.i.i.i11.i.i = ptrtoint ptr %add.ptr2.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i12.i.i = ptrtoint ptr %__first2.addr.1.i.i to i64
   %sub.ptr.sub.i.i.i.i.i13.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i11.i.i, %sub.ptr.rhs.cast.i.i.i.i.i12.i.i
@@ -26341,62 +26336,61 @@ _ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_it
   br i1 %tobool.not.i.i.i.i.i14.i.i, label %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i", label %if.then.i.i.i.i.i15.i.i
 
 if.then.i.i.i.i.i15.i.i:                          ; preds = %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i.i40, ptr nonnull align 8 %__first2.addr.1.i.i, i64 %sub.ptr.sub.i.i.i.i.i13.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i.i38, ptr nonnull align 8 %__first2.addr.1.i.i, i64 %sub.ptr.sub.i.i.i.i.i13.i.i, i1 false)
   br label %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i"
 
 "_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i": ; preds = %if.then.i.i.i.i.i15.i.i, %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
-  %sub.ptr.div.i.i.i.i.i16.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i13.i.i, 4
-  %add.ptr.i.i.i.i.i17.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %add.ptr.i.i.i.i.i.i.i40, i64 %sub.ptr.div.i.i.i.i.i16.i.i
-  %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i25, %sub.ptr.lhs.cast.i.i.i.i.i11.i.i
-  %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 4
-  %cmp.not.i43 = icmp slt i64 %sub.ptr.div.i42, %mul.i24
-  br i1 %cmp.not.i43, label %while.end.i44, label %while.body.i27, !llvm.loop !287
+  %add.ptr.i.i.i.i.i16.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i38, i64 %sub.ptr.sub.i.i.i.i.i13.i.i
+  %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i24, %sub.ptr.lhs.cast.i.i.i.i.i11.i.i
+  %sub.ptr.div.i40 = ashr exact i64 %sub.ptr.sub.i39, 4
+  %cmp.not.i41 = icmp slt i64 %sub.ptr.div.i40, %mul.i23
+  br i1 %cmp.not.i41, label %while.end.i42, label %while.body.i26, !llvm.loop !287
 
-while.end.i44:                                    ; preds = %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i", %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit"
+while.end.i42:                                    ; preds = %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i", %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit"
   %__first.addr.0.lcssa.i = phi ptr [ %__buffer, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ], [ %add.ptr2.i, %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
-  %__result.sroa.0.0.lcssa.i = phi ptr [ %__first.coerce, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ], [ %add.ptr.i.i.i.i.i17.i.i, %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
-  %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div.i, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ], [ %sub.ptr.div.i42, %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
-  %.sroa.speculated.i45 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa.i, i64 %mul.i)
-  %add.ptr13.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.addr.0.lcssa.i, i64 %.sroa.speculated.i45
-  %cmp21.i16.i = icmp ne i64 %.sroa.speculated.i45, 0
-  %cmp122.i17.i = icmp ne ptr %add.ptr13.i, %add.ptr
-  %15 = and i1 %cmp21.i16.i, %cmp122.i17.i
-  br i1 %15, label %while.body.i37.i, label %while.end.i18.i
+  %__result.sroa.0.0.lcssa.i = phi ptr [ %__first.coerce, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ], [ %add.ptr.i.i.i.i.i16.i.i, %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
+  %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div.i, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit" ], [ %sub.ptr.div.i40, %"_ZSt12__move_mergeIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET0_T_SL_SL_SL_SK_T1_.exit.i" ]
+  %.sroa.speculated.i43 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa.i, i64 %mul.i)
+  %add.ptr13.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.addr.0.lcssa.i, i64 %.sroa.speculated.i43
+  %cmp20.i16.i = icmp ne i64 %.sroa.speculated.i43, 0
+  %cmp121.i17.i = icmp ne ptr %add.ptr13.i, %add.ptr
+  %15 = and i1 %cmp20.i16.i, %cmp121.i17.i
+  br i1 %15, label %while.body.i35.i, label %while.end.i18.i
 
-while.body.i37.i:                                 ; preds = %while.end.i44, %if.end.i46.i
-  %__first1.addr.025.i38.i = phi ptr [ %__first1.addr.1.i48.i, %if.end.i46.i ], [ %__first.addr.0.lcssa.i, %while.end.i44 ]
-  %__first2.addr.024.i39.i = phi ptr [ %__first2.addr.1.i47.i, %if.end.i46.i ], [ %add.ptr13.i, %while.end.i44 ]
-  %__result.sroa.0.023.i40.i = phi ptr [ %incdec.ptr.i.i49.i, %if.end.i46.i ], [ %__result.sroa.0.0.lcssa.i, %while.end.i44 ]
-  %16 = getelementptr i8, ptr %__first2.addr.024.i39.i, i64 8
-  %__first2.addr.0.val.i41.i = load i16, ptr %16, align 8
-  %17 = getelementptr i8, ptr %__first1.addr.025.i38.i, i64 8
-  %__first1.addr.0.val.i42.i = load i16, ptr %17, align 8
-  %cmp.i.i.i43.i = icmp ult i16 %__first2.addr.0.val.i41.i, %__first1.addr.0.val.i42.i
-  br i1 %cmp.i.i.i43.i, label %if.then.i52.i46, label %if.else.i44.i
+while.body.i35.i:                                 ; preds = %while.end.i42, %if.end.i44.i
+  %__first1.addr.024.i36.i = phi ptr [ %__first1.addr.1.i46.i, %if.end.i44.i ], [ %__first.addr.0.lcssa.i, %while.end.i42 ]
+  %__first2.addr.023.i37.i = phi ptr [ %__first2.addr.1.i45.i, %if.end.i44.i ], [ %add.ptr13.i, %while.end.i42 ]
+  %__result.sroa.0.022.i38.i = phi ptr [ %incdec.ptr.i.i47.i, %if.end.i44.i ], [ %__result.sroa.0.0.lcssa.i, %while.end.i42 ]
+  %16 = getelementptr i8, ptr %__first2.addr.023.i37.i, i64 8
+  %__first2.addr.0.val.i39.i = load i16, ptr %16, align 8
+  %17 = getelementptr i8, ptr %__first1.addr.024.i36.i, i64 8
+  %__first1.addr.0.val.i40.i = load i16, ptr %17, align 8
+  %cmp.i.i.i41.i = icmp ult i16 %__first2.addr.0.val.i39.i, %__first1.addr.0.val.i40.i
+  br i1 %cmp.i.i.i41.i, label %if.then.i50.i44, label %if.else.i42.i
 
-if.then.i52.i46:                                  ; preds = %while.body.i37.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.sroa.0.023.i40.i, ptr noundef nonnull align 8 dereferenceable(10) %__first2.addr.024.i39.i, i64 10, i1 false)
-  %incdec.ptr.i53.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first2.addr.024.i39.i, i64 1
-  br label %if.end.i46.i
+if.then.i50.i44:                                  ; preds = %while.body.i35.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.sroa.0.022.i38.i, ptr noundef nonnull align 8 dereferenceable(10) %__first2.addr.023.i37.i, i64 10, i1 false)
+  %incdec.ptr.i51.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first2.addr.023.i37.i, i64 1
+  br label %if.end.i44.i
 
-if.else.i44.i:                                    ; preds = %while.body.i37.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.sroa.0.023.i40.i, ptr noundef nonnull align 8 dereferenceable(10) %__first1.addr.025.i38.i, i64 10, i1 false)
-  %incdec.ptr4.i45.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first1.addr.025.i38.i, i64 1
-  br label %if.end.i46.i
+if.else.i42.i:                                    ; preds = %while.body.i35.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %__result.sroa.0.022.i38.i, ptr noundef nonnull align 8 dereferenceable(10) %__first1.addr.024.i36.i, i64 10, i1 false)
+  %incdec.ptr4.i43.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first1.addr.024.i36.i, i64 1
+  br label %if.end.i44.i
 
-if.end.i46.i:                                     ; preds = %if.else.i44.i, %if.then.i52.i46
-  %__first2.addr.1.i47.i = phi ptr [ %incdec.ptr.i53.i, %if.then.i52.i46 ], [ %__first2.addr.024.i39.i, %if.else.i44.i ]
-  %__first1.addr.1.i48.i = phi ptr [ %__first1.addr.025.i38.i, %if.then.i52.i46 ], [ %incdec.ptr4.i45.i, %if.else.i44.i ]
-  %incdec.ptr.i.i49.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.sroa.0.023.i40.i, i64 1
-  %cmp.i50.i = icmp ne ptr %__first1.addr.1.i48.i, %add.ptr13.i
-  %cmp1.i51.i = icmp ne ptr %__first2.addr.1.i47.i, %add.ptr
-  %18 = select i1 %cmp.i50.i, i1 %cmp1.i51.i, i1 false
-  br i1 %18, label %while.body.i37.i, label %while.end.i18.i, !llvm.loop !286
+if.end.i44.i:                                     ; preds = %if.else.i42.i, %if.then.i50.i44
+  %__first2.addr.1.i45.i = phi ptr [ %incdec.ptr.i51.i, %if.then.i50.i44 ], [ %__first2.addr.023.i37.i, %if.else.i42.i ]
+  %__first1.addr.1.i46.i = phi ptr [ %__first1.addr.024.i36.i, %if.then.i50.i44 ], [ %incdec.ptr4.i43.i, %if.else.i42.i ]
+  %incdec.ptr.i.i47.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.sroa.0.022.i38.i, i64 1
+  %cmp.i48.i = icmp ne ptr %__first1.addr.1.i46.i, %add.ptr13.i
+  %cmp1.i49.i = icmp ne ptr %__first2.addr.1.i45.i, %add.ptr
+  %18 = select i1 %cmp.i48.i, i1 %cmp1.i49.i, i1 false
+  br i1 %18, label %while.body.i35.i, label %while.end.i18.i, !llvm.loop !286
 
-while.end.i18.i:                                  ; preds = %if.end.i46.i, %while.end.i44
-  %__result.sroa.0.0.lcssa.i19.i = phi ptr [ %__result.sroa.0.0.lcssa.i, %while.end.i44 ], [ %incdec.ptr.i.i49.i, %if.end.i46.i ]
-  %__first2.addr.0.lcssa.i20.i = phi ptr [ %add.ptr13.i, %while.end.i44 ], [ %__first2.addr.1.i47.i, %if.end.i46.i ]
-  %__first1.addr.0.lcssa.i21.i = phi ptr [ %__first.addr.0.lcssa.i, %while.end.i44 ], [ %__first1.addr.1.i48.i, %if.end.i46.i ]
+while.end.i18.i:                                  ; preds = %if.end.i44.i, %while.end.i42
+  %__result.sroa.0.0.lcssa.i19.i = phi ptr [ %__result.sroa.0.0.lcssa.i, %while.end.i42 ], [ %incdec.ptr.i.i47.i, %if.end.i44.i ]
+  %__first2.addr.0.lcssa.i20.i = phi ptr [ %add.ptr13.i, %while.end.i42 ], [ %__first2.addr.1.i45.i, %if.end.i44.i ]
+  %__first1.addr.0.lcssa.i21.i = phi ptr [ %__first.addr.0.lcssa.i, %while.end.i42 ], [ %__first1.addr.1.i46.i, %if.end.i44.i ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i22.i = ptrtoint ptr %add.ptr13.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i23.i = ptrtoint ptr %__first1.addr.0.lcssa.i21.i to i64
   %sub.ptr.sub.i.i.i.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i.i.i.i23.i
@@ -26408,19 +26402,18 @@ if.then.i.i.i.i.i.i26.i:                          ; preds = %while.end.i18.i
   br label %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i27.i
 
 _ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i27.i: ; preds = %if.then.i.i.i.i.i.i26.i, %while.end.i18.i
-  %tobool.not.i.i.i.i.i14.i33.i = icmp eq ptr %__first2.addr.0.lcssa.i20.i, %add.ptr
-  br i1 %tobool.not.i.i.i.i.i14.i33.i, label %"_ZSt17__merge_sort_loopIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit", label %if.then.i.i.i.i.i15.i34.i
+  %tobool.not.i.i.i.i.i14.i32.i = icmp eq ptr %__first2.addr.0.lcssa.i20.i, %add.ptr
+  br i1 %tobool.not.i.i.i.i.i14.i32.i, label %"_ZSt17__merge_sort_loopIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit", label %if.then.i.i.i.i.i15.i33.i
 
-if.then.i.i.i.i.i15.i34.i:                        ; preds = %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i27.i
-  %sub.ptr.rhs.cast.i.i.i.i.i12.i31.i = ptrtoint ptr %__first2.addr.0.lcssa.i20.i to i64
-  %sub.ptr.sub.i.i.i.i.i13.i32.i = sub i64 %sub.ptr.lhs.cast.i25, %sub.ptr.rhs.cast.i.i.i.i.i12.i31.i
-  %sub.ptr.div.i.i.i.i.i.i28.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i24.i, 4
-  %add.ptr.i.i.i.i.i.i29.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.sroa.0.0.lcssa.i19.i, i64 %sub.ptr.div.i.i.i.i.i.i28.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i29.i, ptr align 8 %__first2.addr.0.lcssa.i20.i, i64 %sub.ptr.sub.i.i.i.i.i13.i32.i, i1 false)
+if.then.i.i.i.i.i15.i33.i:                        ; preds = %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i27.i
+  %sub.ptr.rhs.cast.i.i.i.i.i12.i30.i = ptrtoint ptr %__first2.addr.0.lcssa.i20.i to i64
+  %sub.ptr.sub.i.i.i.i.i13.i31.i = sub i64 %sub.ptr.lhs.cast.i24, %sub.ptr.rhs.cast.i.i.i.i.i12.i30.i
+  %add.ptr.i.i.i.i.i.i28.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.lcssa.i19.i, i64 %sub.ptr.sub.i.i.i.i.i.i24.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i28.i, ptr align 8 %__first2.addr.0.lcssa.i20.i, i64 %sub.ptr.sub.i.i.i.i.i13.i31.i, i1 false)
   br label %"_ZSt17__merge_sort_loopIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit"
 
-"_ZSt17__merge_sort_loopIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit": ; preds = %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i27.i, %if.then.i.i.i.i.i15.i34.i
-  %cmp = icmp slt i64 %mul.i24, %sub.ptr.div.i
+"_ZSt17__merge_sort_loopIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit": ; preds = %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i27.i, %if.then.i.i.i.i.i15.i33.i
+  %cmp = icmp slt i64 %mul.i23, %sub.ptr.div.i
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !288
 
 while.end:                                        ; preds = %"_ZSt17__merge_sort_loopIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNS1_10BuildTableEmNS0_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_T2_.exit", %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_T0_T1_.exit"
@@ -26430,10 +26423,10 @@ while.end:                                        ; preds = %"_ZSt17__merge_sort
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_SK_T0_SL_T1_SL_T2_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr noundef %__buffer, i64 noundef %__buffer_size) unnamed_addr #3 {
 entry:
-  %cmp.not104 = icmp sgt i64 %__len1, %__len2
-  %cmp3.not105 = icmp sgt i64 %__len1, %__buffer_size
-  %or.cond106 = or i1 %cmp3.not105, %cmp.not104
-  br i1 %or.cond106, label %if.else.lr.ph, label %if.then
+  %cmp.not103 = icmp sgt i64 %__len1, %__len2
+  %cmp3.not104 = icmp sgt i64 %__len1, %__buffer_size
+  %or.cond105 = or i1 %cmp3.not104, %cmp.not103
+  br i1 %or.cond105, label %if.else.lr.ph, label %if.then
 
 if.else.lr.ph:                                    ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %__last.coerce to i64
@@ -26450,8 +26443,7 @@ land.rhs.i.preheader:                             ; preds = %if.then
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first.coerce.tr.lcssa to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__first.coerce.tr.lcssa, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__buffer, i64 %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %if.end.i
@@ -26494,59 +26486,59 @@ _ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_it
   br label %if.end89
 
 if.else:                                          ; preds = %if.else.lr.ph, %if.end
-  %cmp.not113 = phi i1 [ %cmp.not104, %if.else.lr.ph ], [ %cmp.not, %if.end ]
-  %__len2.tr112 = phi i64 [ %__len2, %if.else.lr.ph ], [ %sub83, %if.end ]
-  %__len1.tr111 = phi i64 [ %__len1, %if.else.lr.ph ], [ %sub, %if.end ]
-  %__middle.coerce.tr109 = phi ptr [ %__middle.coerce, %if.else.lr.ph ], [ %__second_cut.sroa.0.0, %if.end ]
-  %__first.coerce.tr107 = phi ptr [ %__first.coerce, %if.else.lr.ph ], [ %call70, %if.end ]
-  %cmp14.not = icmp sgt i64 %__len2.tr112, %__buffer_size
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %__middle.coerce.tr109 to i64
+  %cmp.not112 = phi i1 [ %cmp.not103, %if.else.lr.ph ], [ %cmp.not, %if.end ]
+  %__len2.tr111 = phi i64 [ %__len2, %if.else.lr.ph ], [ %sub83, %if.end ]
+  %__len1.tr110 = phi i64 [ %__len1, %if.else.lr.ph ], [ %sub, %if.end ]
+  %__middle.coerce.tr108 = phi ptr [ %__middle.coerce, %if.else.lr.ph ], [ %__second_cut.sroa.0.0, %if.end ]
+  %__first.coerce.tr106 = phi ptr [ %__first.coerce, %if.else.lr.ph ], [ %call70, %if.end ]
+  %cmp14.not = icmp sgt i64 %__len2.tr111, %__buffer_size
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %__middle.coerce.tr108 to i64
   br i1 %cmp14.not, label %if.else29, label %if.then15
 
 if.then15:                                        ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %tobool.not.i.i.i.i.i34 = icmp eq ptr %__middle.coerce.tr109, %__last.coerce
-  br i1 %tobool.not.i.i.i.i.i34, label %if.end89, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit38.thread
+  %tobool.not.i.i.i.i.i34 = icmp eq ptr %__middle.coerce.tr108, %__last.coerce
+  br i1 %tobool.not.i.i.i.i.i34, label %if.end89, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit37.thread
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit38.thread: ; preds = %if.then15
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce.tr109, i64 %sub.ptr.sub.i.i.i.i.i33, i1 false)
-  %sub.ptr.div.i.i.i.i.i36125 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i33, 4
-  %cmp.i.i127 = icmp eq ptr %__first.coerce.tr107, %__middle.coerce.tr109
-  br i1 %cmp.i.i127, label %if.then.i.i.i.i.i.i, label %if.end7.i
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit37.thread: ; preds = %if.then15
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce.tr108, i64 %sub.ptr.sub.i.i.i.i.i33, i1 false)
+  %cmp.i.i124 = icmp eq ptr %__first.coerce.tr106, %__middle.coerce.tr108
+  br i1 %cmp.i.i124, label %if.then.i.i.i.i.i.i, label %if.end7.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit38.thread
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i36125
+if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit37.thread
+  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i33, 4
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last.coerce, i64 %.pre.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i33, i1 false)
   br label %if.end89
 
-if.end7.i:                                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit38.thread
-  %add.ptr.i.i.i.i.i37126 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__buffer, i64 %sub.ptr.div.i.i.i.i.i36125
-  %incdec.ptr.i41 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %add.ptr.i.i.i.i.i37126, i64 -1
-  br label %while.body.i42.outer
+if.end7.i:                                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit37.thread
+  %add.ptr.i.i.i.i.i36123 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i33
+  %incdec.ptr.i40 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %add.ptr.i.i.i.i.i36123, i64 -1
+  br label %while.body.i41.outer
 
-while.body.i42.outer:                             ; preds = %if.then12.i, %if.end7.i
-  %__last1.sroa.0.0.i.ph.pn = phi ptr [ %__middle.coerce.tr109, %if.end7.i ], [ %__last1.sroa.0.0.i.ph, %if.then12.i ]
+while.body.i41.outer:                             ; preds = %if.then12.i, %if.end7.i
+  %__last1.sroa.0.0.i.ph.pn = phi ptr [ %__middle.coerce.tr108, %if.end7.i ], [ %__last1.sroa.0.0.i.ph, %if.then12.i ]
   %__result.sroa.0.0.i.ph = phi ptr [ %__last.coerce, %if.end7.i ], [ %incdec.ptr.i11.i, %if.then12.i ]
-  %__last2.addr.0.i.ph = phi ptr [ %incdec.ptr.i41, %if.end7.i ], [ %__last2.addr.0.i, %if.then12.i ]
+  %__last2.addr.0.i.ph = phi ptr [ %incdec.ptr.i40, %if.end7.i ], [ %__last2.addr.0.i, %if.then12.i ]
   %__last1.sroa.0.0.i.ph = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last1.sroa.0.0.i.ph.pn, i64 -1
   %2 = getelementptr %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last1.sroa.0.0.i.ph.pn, i64 -1, i32 1
-  br label %while.body.i42
+  br label %while.body.i41
 
-while.body.i42:                                   ; preds = %while.body.i42.outer, %if.end31.i
-  %__result.sroa.0.0.i = phi ptr [ %incdec.ptr.i11.i, %if.end31.i ], [ %__result.sroa.0.0.i.ph, %while.body.i42.outer ]
-  %__last2.addr.0.i = phi ptr [ %incdec.ptr32.i, %if.end31.i ], [ %__last2.addr.0.i.ph, %while.body.i42.outer ]
+while.body.i41:                                   ; preds = %while.body.i41.outer, %if.end31.i
+  %__result.sroa.0.0.i = phi ptr [ %incdec.ptr.i11.i, %if.end31.i ], [ %__result.sroa.0.0.i.ph, %while.body.i41.outer ]
+  %__last2.addr.0.i = phi ptr [ %incdec.ptr32.i, %if.end31.i ], [ %__last2.addr.0.i.ph, %while.body.i41.outer ]
   %3 = getelementptr i8, ptr %__last2.addr.0.i, i64 8
   %__last2.addr.0.val.i = load i16, ptr %3, align 8
-  %call.val.i.i43 = load i16, ptr %2, align 8
-  %cmp.i.i.i44 = icmp ugt i16 %call.val.i.i43, %__last2.addr.0.val.i
+  %call.val.i.i42 = load i16, ptr %2, align 8
+  %cmp.i.i.i43 = icmp ugt i16 %call.val.i.i42, %__last2.addr.0.val.i
   %incdec.ptr.i11.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__result.sroa.0.0.i, i64 -1
-  br i1 %cmp.i.i.i44, label %if.then12.i, label %if.else26.i
+  br i1 %cmp.i.i.i43, label %if.then12.i, label %if.else26.i
 
-if.then12.i:                                      ; preds = %while.body.i42
+if.then12.i:                                      ; preds = %while.body.i41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %incdec.ptr.i11.i, ptr noundef nonnull align 8 dereferenceable(10) %__last1.sroa.0.0.i.ph, i64 10, i1 false)
-  %cmp.i12.i = icmp eq ptr %__last1.sroa.0.0.i.ph, %__first.coerce.tr107
-  br i1 %cmp.i12.i, label %if.then17.i, label %while.body.i42.outer, !llvm.loop !290
+  %cmp.i12.i = icmp eq ptr %__last1.sroa.0.0.i.ph, %__first.coerce.tr106
+  br i1 %cmp.i12.i, label %if.then17.i, label %while.body.i41.outer, !llvm.loop !290
 
 if.then17.i:                                      ; preds = %if.then12.i
   %incdec.ptr18.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last2.addr.0.i, i64 1
@@ -26563,102 +26555,102 @@ if.then.i.i.i.i.i19.i:                            ; preds = %if.then17.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i20.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i15.i, i1 false)
   br label %if.end89
 
-if.else26.i:                                      ; preds = %while.body.i42
+if.else26.i:                                      ; preds = %while.body.i41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %incdec.ptr.i11.i, ptr noundef nonnull align 8 dereferenceable(10) %__last2.addr.0.i, i64 10, i1 false)
   %cmp29.i = icmp eq ptr %__last2.addr.0.i, %__buffer
   br i1 %cmp29.i, label %if.end89, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.else26.i
   %incdec.ptr32.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last2.addr.0.i, i64 -1
-  br label %while.body.i42, !llvm.loop !290
+  br label %while.body.i41, !llvm.loop !290
 
 if.else29:                                        ; preds = %if.else
-  br i1 %cmp.not113, label %if.then31, label %if.else46
+  br i1 %cmp.not112, label %if.then31, label %if.else46
 
 if.then31:                                        ; preds = %if.else29
-  %div = sdiv i64 %__len1.tr111, 2
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.coerce.tr107, i64 %div
+  %div = sdiv i64 %__len1.tr110, 2
+  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.coerce.tr106, i64 %div
   %4 = getelementptr i8, ptr %incdec.ptr.i.i.i, i64 8
   %call34.val = load i16, ptr %4, align 8
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
   %cmp2.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
-  br i1 %cmp2.i, label %while.body.i50, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit"
+  br i1 %cmp2.i, label %while.body.i49, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit"
 
-while.body.i50:                                   ; preds = %if.then31, %while.body.i50
-  %__len.04.i = phi i64 [ %__len.1.i, %while.body.i50 ], [ %sub.ptr.div.i.i.i.i, %if.then31 ]
-  %__first.sroa.0.03.i = phi ptr [ %__first.sroa.0.1.i, %while.body.i50 ], [ %__middle.coerce.tr109, %if.then31 ]
+while.body.i49:                                   ; preds = %if.then31, %while.body.i49
+  %__len.04.i = phi i64 [ %__len.1.i, %while.body.i49 ], [ %sub.ptr.div.i.i.i.i, %if.then31 ]
+  %__first.sroa.0.03.i = phi ptr [ %__first.sroa.0.1.i, %while.body.i49 ], [ %__middle.coerce.tr108, %if.then31 ]
   %shr.i = lshr i64 %__len.04.i, 1
   %incdec.ptr.i8.sink.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.sroa.0.03.i, i64 %shr.i
   %5 = getelementptr i8, ptr %incdec.ptr.i8.sink.i.i.i, i64 8
-  %call.val.i.i52 = load i16, ptr %5, align 8
-  %cmp.i.i5.i = icmp ult i16 %call.val.i.i52, %call34.val
-  %incdec.ptr.i.i53 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %incdec.ptr.i8.sink.i.i.i, i64 1
+  %call.val.i.i51 = load i16, ptr %5, align 8
+  %cmp.i.i5.i = icmp ult i16 %call.val.i.i51, %call34.val
+  %incdec.ptr.i.i52 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %incdec.ptr.i8.sink.i.i.i, i64 1
   %6 = xor i64 %shr.i, -1
   %sub9.i = add nsw i64 %__len.04.i, %6
-  %__first.sroa.0.1.i = select i1 %cmp.i.i5.i, ptr %incdec.ptr.i.i53, ptr %__first.sroa.0.03.i
+  %__first.sroa.0.1.i = select i1 %cmp.i.i5.i, ptr %incdec.ptr.i.i52, ptr %__first.sroa.0.03.i
   %__len.1.i = select i1 %cmp.i.i5.i, i64 %sub9.i, i64 %shr.i
-  %cmp.i54 = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i54, label %while.body.i50, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit", !llvm.loop !277
+  %cmp.i53 = icmp sgt i64 %__len.1.i, 0
+  br i1 %cmp.i53, label %while.body.i49, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit", !llvm.loop !277
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit": ; preds = %while.body.i50
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit": ; preds = %while.body.i49
   %.pre = ptrtoint ptr %__first.sroa.0.1.i to i64
   br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit", %if.then31
   %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then31 ]
-  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %__middle.coerce.tr109, %if.then31 ]
+  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %__middle.coerce.tr108, %if.then31 ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   br label %if.end
 
 if.else46:                                        ; preds = %if.else29
-  %div47 = sdiv i64 %__len2.tr112, 2
-  %incdec.ptr.i.i.i66 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__middle.coerce.tr109, i64 %div47
-  %7 = getelementptr i8, ptr %incdec.ptr.i.i.i66, i64 8
+  %div47 = sdiv i64 %__len2.tr111, 2
+  %incdec.ptr.i.i.i65 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__middle.coerce.tr108, i64 %div47
+  %7 = getelementptr i8, ptr %incdec.ptr.i.i.i65, i64 8
   %call51.val = load i16, ptr %7, align 8
-  %sub.ptr.rhs.cast.i.i.i.i69 = ptrtoint ptr %__first.coerce.tr107 to i64
-  %sub.ptr.sub.i.i.i.i70 = sub i64 %sub.ptr.rhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i69
-  %sub.ptr.div.i.i.i.i71 = ashr exact i64 %sub.ptr.sub.i.i.i.i70, 4
-  %cmp2.i72 = icmp sgt i64 %sub.ptr.div.i.i.i.i71, 0
-  br i1 %cmp2.i72, label %while.body.i74, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit"
+  %sub.ptr.rhs.cast.i.i.i.i68 = ptrtoint ptr %__first.coerce.tr106 to i64
+  %sub.ptr.sub.i.i.i.i69 = sub i64 %sub.ptr.rhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i68
+  %sub.ptr.div.i.i.i.i70 = ashr exact i64 %sub.ptr.sub.i.i.i.i69, 4
+  %cmp2.i71 = icmp sgt i64 %sub.ptr.div.i.i.i.i70, 0
+  br i1 %cmp2.i71, label %while.body.i73, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit"
 
-while.body.i74:                                   ; preds = %if.else46, %while.body.i74
-  %__len.04.i75 = phi i64 [ %__len.1.i87, %while.body.i74 ], [ %sub.ptr.div.i.i.i.i71, %if.else46 ]
-  %__first.sroa.0.03.i76 = phi ptr [ %__first.sroa.0.1.i86, %while.body.i74 ], [ %__first.coerce.tr107, %if.else46 ]
-  %shr.i77 = lshr i64 %__len.04.i75, 1
-  %incdec.ptr.i8.sink.i.i.i81 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.sroa.0.03.i76, i64 %shr.i77
-  %8 = getelementptr i8, ptr %incdec.ptr.i8.sink.i.i.i81, i64 8
-  %call.val.i.i82 = load i16, ptr %8, align 8
-  %cmp.i.i5.i83 = icmp ugt i16 %call.val.i.i82, %call51.val
-  %incdec.ptr.i.i84 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %incdec.ptr.i8.sink.i.i.i81, i64 1
-  %9 = xor i64 %shr.i77, -1
-  %sub9.i85 = add nsw i64 %__len.04.i75, %9
-  %__first.sroa.0.1.i86 = select i1 %cmp.i.i5.i83, ptr %__first.sroa.0.03.i76, ptr %incdec.ptr.i.i84
-  %__len.1.i87 = select i1 %cmp.i.i5.i83, i64 %shr.i77, i64 %sub9.i85
-  %cmp.i88 = icmp sgt i64 %__len.1.i87, 0
-  br i1 %cmp.i88, label %while.body.i74, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit", !llvm.loop !278
+while.body.i73:                                   ; preds = %if.else46, %while.body.i73
+  %__len.04.i74 = phi i64 [ %__len.1.i86, %while.body.i73 ], [ %sub.ptr.div.i.i.i.i70, %if.else46 ]
+  %__first.sroa.0.03.i75 = phi ptr [ %__first.sroa.0.1.i85, %while.body.i73 ], [ %__first.coerce.tr106, %if.else46 ]
+  %shr.i76 = lshr i64 %__len.04.i74, 1
+  %incdec.ptr.i8.sink.i.i.i80 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.sroa.0.03.i75, i64 %shr.i76
+  %8 = getelementptr i8, ptr %incdec.ptr.i8.sink.i.i.i80, i64 8
+  %call.val.i.i81 = load i16, ptr %8, align 8
+  %cmp.i.i5.i82 = icmp ugt i16 %call.val.i.i81, %call51.val
+  %incdec.ptr.i.i83 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %incdec.ptr.i8.sink.i.i.i80, i64 1
+  %9 = xor i64 %shr.i76, -1
+  %sub9.i84 = add nsw i64 %__len.04.i74, %9
+  %__first.sroa.0.1.i85 = select i1 %cmp.i.i5.i82, ptr %__first.sroa.0.03.i75, ptr %incdec.ptr.i.i83
+  %__len.1.i86 = select i1 %cmp.i.i5.i82, i64 %shr.i76, i64 %sub9.i84
+  %cmp.i87 = icmp sgt i64 %__len.1.i86, 0
+  br i1 %cmp.i87, label %while.body.i73, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit", !llvm.loop !278
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit": ; preds = %while.body.i74
-  %.pre122 = ptrtoint ptr %__first.sroa.0.1.i86 to i64
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit": ; preds = %while.body.i73
+  %.pre121 = ptrtoint ptr %__first.sroa.0.1.i85 to i64
   br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit", %if.else46
-  %sub.ptr.lhs.cast.i.i.i89.pre-phi = phi i64 [ %.pre122, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %sub.ptr.rhs.cast.i.i.i.i69, %if.else46 ]
-  %__first.sroa.0.0.lcssa.i73 = phi ptr [ %__first.sroa.0.1.i86, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %__first.coerce.tr107, %if.else46 ]
-  %sub.ptr.sub.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i89.pre-phi, %sub.ptr.rhs.cast.i.i.i.i69
-  %sub.ptr.div.i.i.i92 = ashr exact i64 %sub.ptr.sub.i.i.i91, 4
+  %sub.ptr.lhs.cast.i.i.i88.pre-phi = phi i64 [ %.pre121, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %sub.ptr.rhs.cast.i.i.i.i68, %if.else46 ]
+  %__first.sroa.0.0.lcssa.i72 = phi ptr [ %__first.sroa.0.1.i85, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %__first.coerce.tr106, %if.else46 ]
+  %sub.ptr.sub.i.i.i90 = sub i64 %sub.ptr.lhs.cast.i.i.i88.pre-phi, %sub.ptr.rhs.cast.i.i.i.i68
+  %sub.ptr.div.i.i.i91 = ashr exact i64 %sub.ptr.sub.i.i.i90, 4
   br label %if.end
 
 if.end:                                           ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit"
-  %__first_cut.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ], [ %__first.sroa.0.0.lcssa.i73, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ]
-  %__second_cut.sroa.0.0 = phi ptr [ %__first.sroa.0.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ], [ %incdec.ptr.i.i.i66, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ]
+  %__first_cut.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ], [ %__first.sroa.0.0.lcssa.i72, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ]
+  %__second_cut.sroa.0.0 = phi ptr [ %__first.sroa.0.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ], [ %incdec.ptr.i.i.i65, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ], [ %div47, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ]
-  %__len11.0 = phi i64 [ %div, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ], [ %sub.ptr.div.i.i.i92, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ]
-  %sub = sub nsw i64 %__len1.tr111, %__len11.0
-  %call70 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_(ptr %__first_cut.sroa.0.0, ptr %__middle.coerce.tr109, ptr %__second_cut.sroa.0.0, i64 noundef %sub, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
-  tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_SK_T0_SL_T1_SL_T2_"(ptr %__first.coerce.tr107, ptr %__first_cut.sroa.0.0, ptr %call70, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
-  %sub83 = sub nsw i64 %__len2.tr112, %__len22.0
+  %__len11.0 = phi i64 [ %div, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ], [ %sub.ptr.div.i.i.i91, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEET_SK_SK_RKT0_T1_.exit" ]
+  %sub = sub nsw i64 %__len1.tr110, %__len11.0
+  %call70 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_(ptr %__first_cut.sroa.0.0, ptr %__middle.coerce.tr108, ptr %__second_cut.sroa.0.0, i64 noundef %sub, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_10BuildTableEmNS2_17BinarySectionTypeEPKN10reflection6ObjectEE3$_0EEEvT_SK_SK_T0_SL_T1_SL_T2_"(ptr %__first.coerce.tr106, ptr %__first_cut.sroa.0.0, ptr %call70, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  %sub83 = sub nsw i64 %__len2.tr111, %__len22.0
   %cmp.not = icmp sgt i64 %sub, %sub83
   %cmp3.not = icmp sgt i64 %sub, %__buffer_size
   %or.cond = or i1 %cmp3.not, %cmp.not
@@ -26695,28 +26687,27 @@ if.then.i.i.i.i.i:                                ; preds = %if.then4
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit: ; preds = %if.then4, %if.then.i.i.i.i.i
-  %tobool.not.i.i.i.i.i14 = icmp eq ptr %__middle.coerce, %__first.coerce
-  br i1 %tobool.not.i.i.i.i.i14, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i15
+  %tobool.not.i.i.i.i.i13 = icmp eq ptr %__middle.coerce, %__first.coerce
+  br i1 %tobool.not.i.i.i.i.i13, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i14
 
-if.then.i.i.i.i.i15:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit
+if.then.i.i.i.i.i14:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit
   %sub.ptr.rhs.cast.i.i.i.i.i11 = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i.i.i12 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i11
-  %sub.ptr.div.i.i.i.i.i13 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i12, 4
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i13
-  %add.ptr.i.i.i.i.i16 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last.coerce, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i16, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i12, i1 false)
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i12, 4
+  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i15 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last.coerce, i64 %.pre.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i15, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i12, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit, %if.then.i.i.i.i.i15
-  br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i21
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit, %if.then.i.i.i.i.i14
+  br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i20
 
-if.then.i.i.i.i.i21:                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
+if.then.i.i.i.i.i20:                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first.coerce, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit
 
-_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit: ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %if.then.i.i.i.i.i21
-  %sub.ptr.div.i.i.i.i.i22 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.coerce, i64 %sub.ptr.div.i.i.i.i.i22
+_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit: ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %if.then.i.i.i.i.i20
+  %add.ptr.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i
   br label %return
 
 if.else20:                                        ; preds = %entry
@@ -26728,38 +26719,38 @@ if.then22:                                        ; preds = %if.else20
   br i1 %tobool23.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.then22
-  %sub.ptr.lhs.cast.i.i.i.i.i24 = ptrtoint ptr %__middle.coerce to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i25 = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.sub.i.i.i.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i24, %sub.ptr.rhs.cast.i.i.i.i.i25
-  %tobool.not.i.i.i.i.i27 = icmp eq ptr %__middle.coerce, %__first.coerce
-  br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit31, label %if.then.i.i.i.i.i28
+  %sub.ptr.lhs.cast.i.i.i.i.i22 = ptrtoint ptr %__middle.coerce to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i23 = ptrtoint ptr %__first.coerce to i64
+  %sub.ptr.sub.i.i.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i22, %sub.ptr.rhs.cast.i.i.i.i.i23
+  %tobool.not.i.i.i.i.i25 = icmp eq ptr %__middle.coerce, %__first.coerce
+  br i1 %tobool.not.i.i.i.i.i25, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28, label %if.then.i.i.i.i.i26
 
-if.then.i.i.i.i.i28:                              ; preds = %if.then24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i26, i1 false)
-  br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit31
+if.then.i.i.i.i.i26:                              ; preds = %if.then24
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i24, i1 false)
+  br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit31: ; preds = %if.then24, %if.then.i.i.i.i.i28
-  %tobool.not.i.i.i.i.i35 = icmp eq ptr %__last.coerce, %__middle.coerce
-  br i1 %tobool.not.i.i.i.i.i35, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i36
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28: ; preds = %if.then24, %if.then.i.i.i.i.i26
+  %tobool.not.i.i.i.i.i32 = icmp eq ptr %__last.coerce, %__middle.coerce
+  br i1 %tobool.not.i.i.i.i.i32, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i33
 
-if.then.i.i.i.i.i36:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit31
-  %sub.ptr.lhs.cast.i.i.i.i.i32 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i.i.i.i.i34 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i32, %sub.ptr.lhs.cast.i.i.i.i.i24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first.coerce, ptr align 8 %__middle.coerce, i64 %sub.ptr.sub.i.i.i.i.i34, i1 false)
+if.then.i.i.i.i.i33:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28
+  %sub.ptr.lhs.cast.i.i.i.i.i29 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i.i.i.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i29, %sub.ptr.lhs.cast.i.i.i.i.i22
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first.coerce, ptr align 8 %__middle.coerce, i64 %sub.ptr.sub.i.i.i.i.i31, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit31, %if.then.i.i.i.i.i36
-  %sub.ptr.div.i.i.i.i.i42 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i26, 4
-  %.pre.i.i.i.i.i44 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i42
-  br i1 %tobool.not.i.i.i.i.i27, label %_ZSt13move_backwardIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i45
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28, %if.then.i.i.i.i.i33
+  %sub.ptr.div.i.i.i.i.i38 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i24, 4
+  %.pre.i.i.i.i.i40 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i38
+  br i1 %tobool.not.i.i.i.i.i25, label %_ZSt13move_backwardIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i41
 
-if.then.i.i.i.i.i45:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
-  %add.ptr.i.i.i.i.i46 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last.coerce, i64 %.pre.i.i.i.i.i44
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i46, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i26, i1 false)
+if.then.i.i.i.i.i41:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
+  %add.ptr.i.i.i.i.i42 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last.coerce, i64 %.pre.i.i.i.i.i40
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i42, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24, i1 false)
   br label %_ZSt13move_backwardIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit
 
-_ZSt13move_backwardIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %if.then.i.i.i.i.i45
-  %add.ptr2.i.i.i.i.i47 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last.coerce, i64 %.pre.i.i.i.i.i44
+_ZSt13move_backwardIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers15BinaryAnnotator6VTable5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %if.then.i.i.i.i.i41
+  %add.ptr2.i.i.i.i.i43 = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__last.coerce, i64 %.pre.i.i.i.i.i40
   br label %return
 
 if.else44:                                        ; preds = %if.else20
@@ -26797,8 +26788,7 @@ for.body.i.i.i:                                   ; preds = %if.end5.i.i, %for.b
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
   %sub.ptr.sub.i12.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i6.i.i
-  %sub.ptr.div.i13.i.i = ashr exact i64 %sub.ptr.sub.i12.i.i, 4
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryAnnotator::VTable::Entry", ptr %__first.coerce, i64 %sub.ptr.div.i13.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i12.i.i
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.backedge, %if.end16.i.i
@@ -26877,7 +26867,7 @@ for.cond.i.i.backedge:                            ; preds = %for.end58.i.i, %if.
   br label %for.cond.i.i, !llvm.loop !282
 
 return:                                           ; preds = %for.end58.i.i, %for.end.i.i, %for.body.i.i.i, %if.else.i.i, %if.else44, %if.then22, %if.then, %_ZSt13move_backwardIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit, %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit
-  %retval.sroa.0.0 = phi ptr [ %add.ptr.i.i.i.i.i23, %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit ], [ %add.ptr2.i.i.i.i.i47, %_ZSt13move_backwardIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit ], [ %__first.coerce, %if.then ], [ %__last.coerce, %if.then22 ], [ %__last.coerce, %if.else44 ], [ %__first.coerce, %if.else.i.i ], [ %__middle.coerce, %for.body.i.i.i ], [ %add.ptr.i.i.i, %for.end.i.i ], [ %add.ptr.i.i.i, %for.end58.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %add.ptr.i.i.i.i.i21, %_ZSt4moveIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit ], [ %add.ptr2.i.i.i.i.i43, %_ZSt13move_backwardIPN11flatbuffers15BinaryAnnotator6VTable5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit ], [ %__first.coerce, %if.then ], [ %__last.coerce, %if.then22 ], [ %__last.coerce, %if.else44 ], [ %__first.coerce, %if.else.i.i ], [ %__middle.coerce, %for.body.i.i.i ], [ %add.ptr.i.i.i, %for.end.i.i ], [ %add.ptr.i.i.i, %for.end58.i.i ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -29397,8 +29387,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !343
 
 _ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %for.body.i.i.i.i.i
-  %.pre171 = load ptr, ptr %_M_finish, align 8
-  %add.ptr27 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %.pre171, i64 %sub.ptr.div.i.i.i
+  %.pre169 = load ptr, ptr %_M_finish, align 8
+  %add.ptr27 = getelementptr inbounds i8, ptr %.pre169, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr27, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
@@ -29443,126 +29433,130 @@ for.body.i.i.i.i.i26:                             ; preds = %for.body.i.i.i.i.i2
 
 _ZSt13move_backwardIPN11flatbuffers12BinaryRegionES2_ET0_T_S4_S3_.exit: ; preds = %for.body.i.i.i.i.i26, %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %cmp6.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 0
-  br i1 %cmp6.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i36, label %if.end109
+  br i1 %cmp6.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i35, label %if.end109
 
-for.body.preheader.i.i.i.i.i36:                   ; preds = %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionES2_ET0_T_S4_S3_.exit
+for.body.preheader.i.i.i.i.i35:                   ; preds = %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionES2_ET0_T_S4_S3_.exit
   %sub.ptr.div10.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i, 160
-  br label %for.body.i.i.i.i.i37
+  br label %for.body.i.i.i.i.i36
 
-for.body.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i37, %for.body.preheader.i.i.i.i.i36
-  %__n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i55, %for.body.i.i.i.i.i37 ], [ %sub.ptr.div10.i.i.i.i.i, %for.body.preheader.i.i.i.i.i36 ]
-  %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i54, %for.body.i.i.i.i.i37 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i36 ]
-  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i53, %for.body.i.i.i.i.i37 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i36 ]
+for.body.i.i.i.i.i36:                             ; preds = %for.body.i.i.i.i.i36, %for.body.preheader.i.i.i.i.i35
+  %__n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i54, %for.body.i.i.i.i.i36 ], [ %sub.ptr.div10.i.i.i.i.i, %for.body.preheader.i.i.i.i.i35 ]
+  %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i53, %for.body.i.i.i.i.i36 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i35 ]
+  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i52, %for.body.i.i.i.i.i36 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i35 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i, i64 40, i1 false)
-  %comment.i.i.i.i.i.i38 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5
-  %comment3.i.i.i.i.i.i39 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5
-  %8 = load i32, ptr %comment3.i.i.i.i.i.i39, align 8
-  store i32 %8, ptr %comment.i.i.i.i.i.i38, align 8
-  %status_message.i.i.i.i.i.i.i40 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i41 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 1
-  %call.i.i.i.i.i.i.i42 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i40, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i41)
-  %type.i.i.i.i.i.i.i43 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 2
-  %9 = load i32, ptr %type.i.i.i.i.i.i.i43, align 8
-  %type4.i.i.i.i.i.i.i44 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 2
-  store i32 %9, ptr %type4.i.i.i.i.i.i.i44, align 8
-  %name.i.i.i.i.i.i.i45 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i46 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 3
-  %call6.i.i.i.i.i.i.i47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i45, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i46)
-  %default_value.i.i.i.i.i.i.i48 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 4
-  %default_value7.i.i.i.i.i.i.i49 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 4
-  %call8.i.i.i.i.i.i.i50 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i49)
-  %index.i.i.i.i.i.i.i51 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 5
-  %10 = load i64, ptr %index.i.i.i.i.i.i.i51, align 8
-  %index9.i.i.i.i.i.i.i52 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 5
-  store i64 %10, ptr %index9.i.i.i.i.i.i.i52, align 8
-  %incdec.ptr.i.i.i.i.i53 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i54 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 1
-  %dec.i.i.i.i.i55 = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i56 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i56, label %for.body.i.i.i.i.i37, label %if.end109, !llvm.loop !345
+  %comment.i.i.i.i.i.i37 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5
+  %comment3.i.i.i.i.i.i38 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5
+  %8 = load i32, ptr %comment3.i.i.i.i.i.i38, align 8
+  store i32 %8, ptr %comment.i.i.i.i.i.i37, align 8
+  %status_message.i.i.i.i.i.i.i39 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i40 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 1
+  %call.i.i.i.i.i.i.i41 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i40)
+  %type.i.i.i.i.i.i.i42 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 2
+  %9 = load i32, ptr %type.i.i.i.i.i.i.i42, align 8
+  %type4.i.i.i.i.i.i.i43 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 2
+  store i32 %9, ptr %type4.i.i.i.i.i.i.i43, align 8
+  %name.i.i.i.i.i.i.i44 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i45 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 3
+  %call6.i.i.i.i.i.i.i46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i45)
+  %default_value.i.i.i.i.i.i.i47 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 4
+  %default_value7.i.i.i.i.i.i.i48 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 4
+  %call8.i.i.i.i.i.i.i49 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i47, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i48)
+  %index.i.i.i.i.i.i.i50 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 5, i32 5
+  %10 = load i64, ptr %index.i.i.i.i.i.i.i50, align 8
+  %index9.i.i.i.i.i.i.i51 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 5, i32 5
+  store i64 %10, ptr %index9.i.i.i.i.i.i.i51, align 8
+  %incdec.ptr.i.i.i.i.i52 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i53 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i, i64 1
+  %dec.i.i.i.i.i54 = add nsw i64 %__n.09.i.i.i.i.i, -1
+  %cmp.i.i.i.i.i55 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  br i1 %cmp.i.i.i.i.i55, label %for.body.i.i.i.i.i36, label %if.end109, !llvm.loop !345
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.coerce, i64 %sub.ptr.div.i
-  %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %incdec.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %add.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
   %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %11 = load ptr, ptr %_M_finish, align 8
   %add.ptr50 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %11, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i57 = icmp eq ptr %1, %__position.coerce
-  br i1 %cmp.i.i.not7.i.i.i.i.i57, label %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77, label %for.body.i.i.i.i.i58
+  %cmp.i.i.not7.i.i.i.i.i56 = icmp eq ptr %1, %__position.coerce
+  br i1 %cmp.i.i.not7.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit76, label %for.body.i.i.i.i.i57
 
-for.body.i.i.i.i.i58:                             ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %for.body.i.i.i.i.i58
-  %__cur.09.i.i.i.i.i59 = phi ptr [ %incdec.ptr.i.i.i.i.i74, %for.body.i.i.i.i.i58 ], [ %add.ptr50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %__first.sroa.0.08.i.i.i.i.i60 = phi ptr [ %incdec.ptr.i.i.i.i.i.i73, %for.body.i.i.i.i.i58 ], [ %__position.coerce, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.09.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.08.i.i.i.i.i60, i64 40, i1 false)
-  %comment.i.i.i.i.i.i.i61 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i59, i64 0, i32 5
-  %comment3.i.i.i.i.i.i.i62 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i60, i64 0, i32 5
-  %12 = load i32, ptr %comment3.i.i.i.i.i.i.i62, align 8
-  store i32 %12, ptr %comment.i.i.i.i.i.i.i61, align 8
-  %status_message.i.i.i.i.i.i.i.i63 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i59, i64 0, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i.i64 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i60, i64 0, i32 5, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i.i63, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i.i64) #29
-  %type.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i59, i64 0, i32 5, i32 2
-  %type4.i.i.i.i.i.i.i.i66 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i60, i64 0, i32 5, i32 2
-  %13 = load i32, ptr %type4.i.i.i.i.i.i.i.i66, align 8
-  store i32 %13, ptr %type.i.i.i.i.i.i.i.i65, align 8
-  %name.i.i.i.i.i.i.i.i67 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i59, i64 0, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i.i68 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i60, i64 0, i32 5, i32 3
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i.i68) #29
-  %default_value.i.i.i.i.i.i.i.i69 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i59, i64 0, i32 5, i32 4
-  %default_value6.i.i.i.i.i.i.i.i70 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i60, i64 0, i32 5, i32 4
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %default_value6.i.i.i.i.i.i.i.i70) #29
-  %index.i.i.i.i.i.i.i.i71 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i59, i64 0, i32 5, i32 5
-  %index7.i.i.i.i.i.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i60, i64 0, i32 5, i32 5
-  %14 = load i64, ptr %index7.i.i.i.i.i.i.i.i72, align 8
-  store i64 %14, ptr %index.i.i.i.i.i.i.i.i71, align 8
-  %incdec.ptr.i.i.i.i.i.i73 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i60, i64 1
-  %incdec.ptr.i.i.i.i.i74 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i59, i64 1
-  %cmp.i.i.not.i.i.i.i.i75 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i73, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i75, label %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77.loopexit, label %for.body.i.i.i.i.i58, !llvm.loop !343
+for.body.i.i.i.i.i57:                             ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %for.body.i.i.i.i.i57
+  %__cur.09.i.i.i.i.i58 = phi ptr [ %incdec.ptr.i.i.i.i.i73, %for.body.i.i.i.i.i57 ], [ %add.ptr50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
+  %__first.sroa.0.08.i.i.i.i.i59 = phi ptr [ %incdec.ptr.i.i.i.i.i.i72, %for.body.i.i.i.i.i57 ], [ %__position.coerce, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.09.i.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.08.i.i.i.i.i59, i64 40, i1 false)
+  %comment.i.i.i.i.i.i.i60 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i58, i64 0, i32 5
+  %comment3.i.i.i.i.i.i.i61 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i59, i64 0, i32 5
+  %12 = load i32, ptr %comment3.i.i.i.i.i.i.i61, align 8
+  store i32 %12, ptr %comment.i.i.i.i.i.i.i60, align 8
+  %status_message.i.i.i.i.i.i.i.i62 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i58, i64 0, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i.i63 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i59, i64 0, i32 5, i32 1
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i.i62, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i.i63) #29
+  %type.i.i.i.i.i.i.i.i64 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i58, i64 0, i32 5, i32 2
+  %type4.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i59, i64 0, i32 5, i32 2
+  %13 = load i32, ptr %type4.i.i.i.i.i.i.i.i65, align 8
+  store i32 %13, ptr %type.i.i.i.i.i.i.i.i64, align 8
+  %name.i.i.i.i.i.i.i.i66 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i58, i64 0, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i.i67 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i59, i64 0, i32 5, i32 3
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i.i66, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i.i67) #29
+  %default_value.i.i.i.i.i.i.i.i68 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i58, i64 0, i32 5, i32 4
+  %default_value6.i.i.i.i.i.i.i.i69 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i59, i64 0, i32 5, i32 4
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %default_value6.i.i.i.i.i.i.i.i69) #29
+  %index.i.i.i.i.i.i.i.i70 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i58, i64 0, i32 5, i32 5
+  %index7.i.i.i.i.i.i.i.i71 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i59, i64 0, i32 5, i32 5
+  %14 = load i64, ptr %index7.i.i.i.i.i.i.i.i71, align 8
+  store i64 %14, ptr %index.i.i.i.i.i.i.i.i70, align 8
+  %incdec.ptr.i.i.i.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i59, i64 1
+  %incdec.ptr.i.i.i.i.i73 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i58, i64 1
+  %cmp.i.i.not.i.i.i.i.i74 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i72, %1
+  br i1 %cmp.i.i.not.i.i.i.i.i74, label %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit76.loopexit, label %for.body.i.i.i.i.i57, !llvm.loop !343
 
-_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77.loopexit: ; preds = %for.body.i.i.i.i.i58
+_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit76.loopexit: ; preds = %for.body.i.i.i.i.i57
   %.pre = load ptr, ptr %_M_finish, align 8
-  br label %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77
+  br label %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit76
 
-_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77: ; preds = %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
-  %15 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77.loopexit ], [ %add.ptr50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %add.ptr58 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %15, i64 %sub.ptr.div.i
+_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit76: ; preds = %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit76.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
+  %15 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit76.loopexit ], [ %add.ptr50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
+  %add.ptr58 = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %cmp6.i.i.i.i.i81 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp6.i.i.i.i.i81, label %for.body.i.i.i.i.i90, label %if.end109
+  %cmp6.i.i.i.i.i80 = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp6.i.i.i.i.i80, label %for.body.preheader.i.i.i.i.i86, label %if.end109
 
-for.body.i.i.i.i.i90:                             ; preds = %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77, %for.body.i.i.i.i.i90
-  %__n.09.i.i.i.i.i91 = phi i64 [ %dec.i.i.i.i.i111, %for.body.i.i.i.i.i90 ], [ %sub.ptr.div.i, %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77 ]
-  %__result.addr.08.i.i.i.i.i92 = phi ptr [ %incdec.ptr1.i.i.i.i.i110, %for.body.i.i.i.i.i90 ], [ %__position.coerce, %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77 ]
-  %__first.addr.07.i.i.i.i.i93 = phi ptr [ %incdec.ptr.i.i.i.i.i109, %for.body.i.i.i.i.i90 ], [ %__first.coerce, %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i92, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i93, i64 40, i1 false)
-  %comment.i.i.i.i.i.i94 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i92, i64 0, i32 5
-  %comment3.i.i.i.i.i.i95 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i93, i64 0, i32 5
-  %16 = load i32, ptr %comment3.i.i.i.i.i.i95, align 8
-  store i32 %16, ptr %comment.i.i.i.i.i.i94, align 8
-  %status_message.i.i.i.i.i.i.i96 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i92, i64 0, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i97 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i93, i64 0, i32 5, i32 1
-  %call.i.i.i.i.i.i.i98 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i96, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i97)
-  %type.i.i.i.i.i.i.i99 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i93, i64 0, i32 5, i32 2
-  %17 = load i32, ptr %type.i.i.i.i.i.i.i99, align 8
-  %type4.i.i.i.i.i.i.i100 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i92, i64 0, i32 5, i32 2
-  store i32 %17, ptr %type4.i.i.i.i.i.i.i100, align 8
-  %name.i.i.i.i.i.i.i101 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i92, i64 0, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i102 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i93, i64 0, i32 5, i32 3
-  %call6.i.i.i.i.i.i.i103 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i101, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i102)
-  %default_value.i.i.i.i.i.i.i104 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i92, i64 0, i32 5, i32 4
-  %default_value7.i.i.i.i.i.i.i105 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i93, i64 0, i32 5, i32 4
-  %call8.i.i.i.i.i.i.i106 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i104, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i105)
-  %index.i.i.i.i.i.i.i107 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i93, i64 0, i32 5, i32 5
-  %18 = load i64, ptr %index.i.i.i.i.i.i.i107, align 8
-  %index9.i.i.i.i.i.i.i108 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i92, i64 0, i32 5, i32 5
-  store i64 %18, ptr %index9.i.i.i.i.i.i.i108, align 8
-  %incdec.ptr.i.i.i.i.i109 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i93, i64 1
-  %incdec.ptr1.i.i.i.i.i110 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i92, i64 1
-  %dec.i.i.i.i.i111 = add nsw i64 %__n.09.i.i.i.i.i91, -1
-  %cmp.i.i.i.i.i112 = icmp ugt i64 %__n.09.i.i.i.i.i91, 1
-  br i1 %cmp.i.i.i.i.i112, label %for.body.i.i.i.i.i90, label %if.end109, !llvm.loop !345
+for.body.preheader.i.i.i.i.i86:                   ; preds = %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit76
+  %sub.ptr.div10.i.i.i.i.i87 = udiv exact i64 %sub.ptr.sub.i, 160
+  br label %for.body.i.i.i.i.i88
+
+for.body.i.i.i.i.i88:                             ; preds = %for.body.i.i.i.i.i88, %for.body.preheader.i.i.i.i.i86
+  %__n.09.i.i.i.i.i89 = phi i64 [ %dec.i.i.i.i.i109, %for.body.i.i.i.i.i88 ], [ %sub.ptr.div10.i.i.i.i.i87, %for.body.preheader.i.i.i.i.i86 ]
+  %__result.addr.08.i.i.i.i.i90 = phi ptr [ %incdec.ptr1.i.i.i.i.i108, %for.body.i.i.i.i.i88 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i86 ]
+  %__first.addr.07.i.i.i.i.i91 = phi ptr [ %incdec.ptr.i.i.i.i.i107, %for.body.i.i.i.i.i88 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i86 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i90, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i91, i64 40, i1 false)
+  %comment.i.i.i.i.i.i92 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i90, i64 0, i32 5
+  %comment3.i.i.i.i.i.i93 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i91, i64 0, i32 5
+  %16 = load i32, ptr %comment3.i.i.i.i.i.i93, align 8
+  store i32 %16, ptr %comment.i.i.i.i.i.i92, align 8
+  %status_message.i.i.i.i.i.i.i94 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i90, i64 0, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i95 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i91, i64 0, i32 5, i32 1
+  %call.i.i.i.i.i.i.i96 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i94, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i95)
+  %type.i.i.i.i.i.i.i97 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i91, i64 0, i32 5, i32 2
+  %17 = load i32, ptr %type.i.i.i.i.i.i.i97, align 8
+  %type4.i.i.i.i.i.i.i98 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i90, i64 0, i32 5, i32 2
+  store i32 %17, ptr %type4.i.i.i.i.i.i.i98, align 8
+  %name.i.i.i.i.i.i.i99 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i90, i64 0, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i100 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i91, i64 0, i32 5, i32 3
+  %call6.i.i.i.i.i.i.i101 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i99, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i100)
+  %default_value.i.i.i.i.i.i.i102 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i90, i64 0, i32 5, i32 4
+  %default_value7.i.i.i.i.i.i.i103 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i91, i64 0, i32 5, i32 4
+  %call8.i.i.i.i.i.i.i104 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i102, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i103)
+  %index.i.i.i.i.i.i.i105 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i91, i64 0, i32 5, i32 5
+  %18 = load i64, ptr %index.i.i.i.i.i.i.i105, align 8
+  %index9.i.i.i.i.i.i.i106 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i90, i64 0, i32 5, i32 5
+  store i64 %18, ptr %index9.i.i.i.i.i.i.i106, align 8
+  %incdec.ptr.i.i.i.i.i107 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i91, i64 1
+  %incdec.ptr1.i.i.i.i.i108 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i90, i64 1
+  %dec.i.i.i.i.i109 = add nsw i64 %__n.09.i.i.i.i.i89, -1
+  %cmp.i.i.i.i.i110 = icmp ugt i64 %__n.09.i.i.i.i.i89, 1
+  br i1 %cmp.i.i.i.i.i110, label %for.body.i.i.i.i.i88, label %if.end109, !llvm.loop !345
 
 if.else68:                                        ; preds = %if.then
   %19 = load ptr, ptr %this, align 8
@@ -29570,8 +29564,8 @@ if.else68:                                        ; preds = %if.then
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 160
   %sub.i = sub nsw i64 57646075230342348, %sub.ptr.div.i.i
-  %cmp.i114 = icmp ult i64 %sub.i, %sub.ptr.div.i.i.i
-  br i1 %cmp.i114, label %if.then.i, label %_ZNKSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE12_M_check_lenEmPKc.exit
+  %cmp.i112 = icmp ult i64 %sub.i, %sub.ptr.div.i.i.i
+  br i1 %cmp.i112, label %if.then.i, label %_ZNKSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else68
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.54) #31
@@ -29593,108 +29587,108 @@ _ZNSt16allocator_traitsISaIN11flatbuffers12BinaryRegionEEE8allocateERS2_m.exit.i
   br label %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN11flatbuffers12BinaryRegionEEE8allocateERS2_m.exit.i
-  %cond.i115 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN11flatbuffers12BinaryRegionEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %cmp.i.i.not7.i.i.i.i.i116 = icmp eq ptr %19, %__position.coerce
-  br i1 %cmp.i.i.not7.i.i.i.i.i116, label %invoke.cont, label %for.body.i.i.i.i.i117
+  %cond.i113 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN11flatbuffers12BinaryRegionEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %cmp.i.i.not7.i.i.i.i.i114 = icmp eq ptr %19, %__position.coerce
+  br i1 %cmp.i.i.not7.i.i.i.i.i114, label %invoke.cont, label %for.body.i.i.i.i.i115
 
-for.body.i.i.i.i.i117:                            ; preds = %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit, %for.body.i.i.i.i.i117
-  %__cur.09.i.i.i.i.i118 = phi ptr [ %incdec.ptr.i.i.i.i.i133, %for.body.i.i.i.i.i117 ], [ %cond.i115, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit ]
-  %__first.sroa.0.08.i.i.i.i.i119 = phi ptr [ %incdec.ptr.i.i.i.i.i.i132, %for.body.i.i.i.i.i117 ], [ %19, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.09.i.i.i.i.i118, ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.08.i.i.i.i.i119, i64 40, i1 false)
-  %comment.i.i.i.i.i.i.i120 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i118, i64 0, i32 5
-  %comment3.i.i.i.i.i.i.i121 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i119, i64 0, i32 5
-  %20 = load i32, ptr %comment3.i.i.i.i.i.i.i121, align 8
-  store i32 %20, ptr %comment.i.i.i.i.i.i.i120, align 8
-  %status_message.i.i.i.i.i.i.i.i122 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i118, i64 0, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i.i123 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i119, i64 0, i32 5, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i.i122, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i.i123) #29
-  %type.i.i.i.i.i.i.i.i124 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i118, i64 0, i32 5, i32 2
-  %type4.i.i.i.i.i.i.i.i125 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i119, i64 0, i32 5, i32 2
-  %21 = load i32, ptr %type4.i.i.i.i.i.i.i.i125, align 8
-  store i32 %21, ptr %type.i.i.i.i.i.i.i.i124, align 8
-  %name.i.i.i.i.i.i.i.i126 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i118, i64 0, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i.i127 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i119, i64 0, i32 5, i32 3
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i.i126, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i.i127) #29
-  %default_value.i.i.i.i.i.i.i.i128 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i118, i64 0, i32 5, i32 4
-  %default_value6.i.i.i.i.i.i.i.i129 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i119, i64 0, i32 5, i32 4
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i.i128, ptr noundef nonnull align 8 dereferenceable(32) %default_value6.i.i.i.i.i.i.i.i129) #29
-  %index.i.i.i.i.i.i.i.i130 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i118, i64 0, i32 5, i32 5
-  %index7.i.i.i.i.i.i.i.i131 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i119, i64 0, i32 5, i32 5
-  %22 = load i64, ptr %index7.i.i.i.i.i.i.i.i131, align 8
-  store i64 %22, ptr %index.i.i.i.i.i.i.i.i130, align 8
-  %incdec.ptr.i.i.i.i.i.i132 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i119, i64 1
-  %incdec.ptr.i.i.i.i.i133 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i118, i64 1
-  %cmp.i.i.not.i.i.i.i.i134 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i132, %__position.coerce
-  br i1 %cmp.i.i.not.i.i.i.i.i134, label %invoke.cont, label %for.body.i.i.i.i.i117, !llvm.loop !343
+for.body.i.i.i.i.i115:                            ; preds = %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit, %for.body.i.i.i.i.i115
+  %__cur.09.i.i.i.i.i116 = phi ptr [ %incdec.ptr.i.i.i.i.i131, %for.body.i.i.i.i.i115 ], [ %cond.i113, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit ]
+  %__first.sroa.0.08.i.i.i.i.i117 = phi ptr [ %incdec.ptr.i.i.i.i.i.i130, %for.body.i.i.i.i.i115 ], [ %19, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.09.i.i.i.i.i116, ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.08.i.i.i.i.i117, i64 40, i1 false)
+  %comment.i.i.i.i.i.i.i118 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i116, i64 0, i32 5
+  %comment3.i.i.i.i.i.i.i119 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i117, i64 0, i32 5
+  %20 = load i32, ptr %comment3.i.i.i.i.i.i.i119, align 8
+  store i32 %20, ptr %comment.i.i.i.i.i.i.i118, align 8
+  %status_message.i.i.i.i.i.i.i.i120 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i116, i64 0, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i.i121 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i117, i64 0, i32 5, i32 1
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i.i120, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i.i121) #29
+  %type.i.i.i.i.i.i.i.i122 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i116, i64 0, i32 5, i32 2
+  %type4.i.i.i.i.i.i.i.i123 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i117, i64 0, i32 5, i32 2
+  %21 = load i32, ptr %type4.i.i.i.i.i.i.i.i123, align 8
+  store i32 %21, ptr %type.i.i.i.i.i.i.i.i122, align 8
+  %name.i.i.i.i.i.i.i.i124 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i116, i64 0, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i.i125 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i117, i64 0, i32 5, i32 3
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i.i124, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i.i125) #29
+  %default_value.i.i.i.i.i.i.i.i126 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i116, i64 0, i32 5, i32 4
+  %default_value6.i.i.i.i.i.i.i.i127 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i117, i64 0, i32 5, i32 4
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i.i126, ptr noundef nonnull align 8 dereferenceable(32) %default_value6.i.i.i.i.i.i.i.i127) #29
+  %index.i.i.i.i.i.i.i.i128 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i116, i64 0, i32 5, i32 5
+  %index7.i.i.i.i.i.i.i.i129 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i117, i64 0, i32 5, i32 5
+  %22 = load i64, ptr %index7.i.i.i.i.i.i.i.i129, align 8
+  store i64 %22, ptr %index.i.i.i.i.i.i.i.i128, align 8
+  %incdec.ptr.i.i.i.i.i.i130 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i117, i64 1
+  %incdec.ptr.i.i.i.i.i131 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i116, i64 1
+  %cmp.i.i.not.i.i.i.i.i132 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i130, %__position.coerce
+  br i1 %cmp.i.i.not.i.i.i.i.i132, label %invoke.cont, label %for.body.i.i.i.i.i115, !llvm.loop !343
 
-invoke.cont:                                      ; preds = %for.body.i.i.i.i.i117, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit
-  %__cur.0.lcssa.i.i.i.i.i135 = phi ptr [ %cond.i115, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr.i.i.i.i.i133, %for.body.i.i.i.i.i117 ]
-  %call.i.i.i136137 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__cur.0.lcssa.i.i.i.i.i135)
+invoke.cont:                                      ; preds = %for.body.i.i.i.i.i115, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit
+  %__cur.0.lcssa.i.i.i.i.i133 = phi ptr [ %cond.i113, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr.i.i.i.i.i131, %for.body.i.i.i.i.i115 ]
+  %call.i.i.i134135 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__cur.0.lcssa.i.i.i.i.i133)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %invoke.cont
-  %cmp.i.i.not7.i.i.i.i.i138 = icmp eq ptr %1, %__position.coerce
-  br i1 %cmp.i.i.not7.i.i.i.i.i138, label %invoke.cont87, label %for.body.i.i.i.i.i139
+  %cmp.i.i.not7.i.i.i.i.i136 = icmp eq ptr %1, %__position.coerce
+  br i1 %cmp.i.i.not7.i.i.i.i.i136, label %invoke.cont87, label %for.body.i.i.i.i.i137
 
-for.body.i.i.i.i.i139:                            ; preds = %invoke.cont83, %for.body.i.i.i.i.i139
-  %__cur.09.i.i.i.i.i140 = phi ptr [ %incdec.ptr.i.i.i.i.i155, %for.body.i.i.i.i.i139 ], [ %call.i.i.i136137, %invoke.cont83 ]
-  %__first.sroa.0.08.i.i.i.i.i141 = phi ptr [ %incdec.ptr.i.i.i.i.i.i154, %for.body.i.i.i.i.i139 ], [ %__position.coerce, %invoke.cont83 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.09.i.i.i.i.i140, ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.08.i.i.i.i.i141, i64 40, i1 false)
-  %comment.i.i.i.i.i.i.i142 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i140, i64 0, i32 5
-  %comment3.i.i.i.i.i.i.i143 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i141, i64 0, i32 5
-  %23 = load i32, ptr %comment3.i.i.i.i.i.i.i143, align 8
-  store i32 %23, ptr %comment.i.i.i.i.i.i.i142, align 8
-  %status_message.i.i.i.i.i.i.i.i144 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i140, i64 0, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i.i145 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i141, i64 0, i32 5, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i.i144, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i.i145) #29
-  %type.i.i.i.i.i.i.i.i146 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i140, i64 0, i32 5, i32 2
-  %type4.i.i.i.i.i.i.i.i147 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i141, i64 0, i32 5, i32 2
-  %24 = load i32, ptr %type4.i.i.i.i.i.i.i.i147, align 8
-  store i32 %24, ptr %type.i.i.i.i.i.i.i.i146, align 8
-  %name.i.i.i.i.i.i.i.i148 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i140, i64 0, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i.i149 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i141, i64 0, i32 5, i32 3
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i.i148, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i.i149) #29
-  %default_value.i.i.i.i.i.i.i.i150 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i140, i64 0, i32 5, i32 4
-  %default_value6.i.i.i.i.i.i.i.i151 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i141, i64 0, i32 5, i32 4
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i.i150, ptr noundef nonnull align 8 dereferenceable(32) %default_value6.i.i.i.i.i.i.i.i151) #29
-  %index.i.i.i.i.i.i.i.i152 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i140, i64 0, i32 5, i32 5
-  %index7.i.i.i.i.i.i.i.i153 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i141, i64 0, i32 5, i32 5
-  %25 = load i64, ptr %index7.i.i.i.i.i.i.i.i153, align 8
-  store i64 %25, ptr %index.i.i.i.i.i.i.i.i152, align 8
-  %incdec.ptr.i.i.i.i.i.i154 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i141, i64 1
-  %incdec.ptr.i.i.i.i.i155 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i140, i64 1
-  %cmp.i.i.not.i.i.i.i.i156 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i154, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i156, label %invoke.cont87, label %for.body.i.i.i.i.i139, !llvm.loop !343
+for.body.i.i.i.i.i137:                            ; preds = %invoke.cont83, %for.body.i.i.i.i.i137
+  %__cur.09.i.i.i.i.i138 = phi ptr [ %incdec.ptr.i.i.i.i.i153, %for.body.i.i.i.i.i137 ], [ %call.i.i.i134135, %invoke.cont83 ]
+  %__first.sroa.0.08.i.i.i.i.i139 = phi ptr [ %incdec.ptr.i.i.i.i.i.i152, %for.body.i.i.i.i.i137 ], [ %__position.coerce, %invoke.cont83 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.09.i.i.i.i.i138, ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.08.i.i.i.i.i139, i64 40, i1 false)
+  %comment.i.i.i.i.i.i.i140 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i138, i64 0, i32 5
+  %comment3.i.i.i.i.i.i.i141 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i139, i64 0, i32 5
+  %23 = load i32, ptr %comment3.i.i.i.i.i.i.i141, align 8
+  store i32 %23, ptr %comment.i.i.i.i.i.i.i140, align 8
+  %status_message.i.i.i.i.i.i.i.i142 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i138, i64 0, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i.i143 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i139, i64 0, i32 5, i32 1
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i.i142, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i.i143) #29
+  %type.i.i.i.i.i.i.i.i144 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i138, i64 0, i32 5, i32 2
+  %type4.i.i.i.i.i.i.i.i145 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i139, i64 0, i32 5, i32 2
+  %24 = load i32, ptr %type4.i.i.i.i.i.i.i.i145, align 8
+  store i32 %24, ptr %type.i.i.i.i.i.i.i.i144, align 8
+  %name.i.i.i.i.i.i.i.i146 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i138, i64 0, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i.i147 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i139, i64 0, i32 5, i32 3
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i.i146, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i.i147) #29
+  %default_value.i.i.i.i.i.i.i.i148 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i138, i64 0, i32 5, i32 4
+  %default_value6.i.i.i.i.i.i.i.i149 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i139, i64 0, i32 5, i32 4
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i.i148, ptr noundef nonnull align 8 dereferenceable(32) %default_value6.i.i.i.i.i.i.i.i149) #29
+  %index.i.i.i.i.i.i.i.i150 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i138, i64 0, i32 5, i32 5
+  %index7.i.i.i.i.i.i.i.i151 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i139, i64 0, i32 5, i32 5
+  %25 = load i64, ptr %index7.i.i.i.i.i.i.i.i151, align 8
+  store i64 %25, ptr %index.i.i.i.i.i.i.i.i150, align 8
+  %incdec.ptr.i.i.i.i.i.i152 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.sroa.0.08.i.i.i.i.i139, i64 1
+  %incdec.ptr.i.i.i.i.i153 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__cur.09.i.i.i.i.i138, i64 1
+  %cmp.i.i.not.i.i.i.i.i154 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i152, %1
+  br i1 %cmp.i.i.not.i.i.i.i.i154, label %invoke.cont87, label %for.body.i.i.i.i.i137, !llvm.loop !343
 
-invoke.cont87:                                    ; preds = %for.body.i.i.i.i.i139, %invoke.cont83
-  %__cur.0.lcssa.i.i.i.i.i157 = phi ptr [ %call.i.i.i136137, %invoke.cont83 ], [ %incdec.ptr.i.i.i.i.i155, %for.body.i.i.i.i.i139 ]
+invoke.cont87:                                    ; preds = %for.body.i.i.i.i.i137, %invoke.cont83
+  %__cur.0.lcssa.i.i.i.i.i155 = phi ptr [ %call.i.i.i134135, %invoke.cont83 ], [ %incdec.ptr.i.i.i.i.i153, %for.body.i.i.i.i.i137 ]
   %cmp.not3.i.i.i = icmp eq ptr %19, %1
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIPN11flatbuffers12BinaryRegionES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont87, %for.body.i.i.i
-  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i159, %for.body.i.i.i ], [ %19, %invoke.cont87 ]
+  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i157, %for.body.i.i.i ], [ %19, %invoke.cont87 ]
   %default_value.i.i.i.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.04.i.i.i, i64 0, i32 5, i32 4
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i) #29
   %name.i.i.i.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.04.i.i.i, i64 0, i32 5, i32 3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i) #29
   %status_message.i.i.i.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.04.i.i.i, i64 0, i32 5, i32 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i) #29
-  %incdec.ptr.i.i.i159 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.04.i.i.i, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i159, %1
+  %incdec.ptr.i.i.i157 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.04.i.i.i, i64 1
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i157, %1
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN11flatbuffers12BinaryRegionES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !24
 
 _ZSt8_DestroyIPN11flatbuffers12BinaryRegionES1_EvT_S3_RSaIT0_E.exit: ; preds = %for.body.i.i.i, %invoke.cont87
   %tobool.not.i = icmp eq ptr %19, null
-  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE13_M_deallocateEPS1_m.exit, label %if.then.i160
+  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE13_M_deallocateEPS1_m.exit, label %if.then.i158
 
-if.then.i160:                                     ; preds = %_ZSt8_DestroyIPN11flatbuffers12BinaryRegionES1_EvT_S3_RSaIT0_E.exit
+if.then.i158:                                     ; preds = %_ZSt8_DestroyIPN11flatbuffers12BinaryRegionES1_EvT_S3_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %19) #30
   br label %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN11flatbuffers12BinaryRegionES1_EvT_S3_RSaIT0_E.exit, %if.then.i160
-  store ptr %cond.i115, ptr %this, align 8
-  store ptr %__cur.0.lcssa.i.i.i.i.i157, ptr %_M_finish, align 8
-  %add.ptr105 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %cond.i115, i64 %cond.i
+_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN11flatbuffers12BinaryRegionES1_EvT_S3_RSaIT0_E.exit, %if.then.i158
+  store ptr %cond.i113, ptr %this, align 8
+  store ptr %__cur.0.lcssa.i.i.i.i.i155, ptr %_M_finish, align 8
+  %add.ptr105 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %cond.i113, i64 %cond.i
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8
   br label %if.end109
 
@@ -29703,18 +29697,18 @@ lpad:                                             ; preds = %invoke.cont
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
   %28 = tail call ptr @__cxa_begin_catch(ptr %27) #29
-  invoke void @_ZSt8_DestroyIPN11flatbuffers12BinaryRegionES1_EvT_S3_RSaIT0_E(ptr noundef %cond.i115, ptr noundef %__cur.0.lcssa.i.i.i.i.i135, ptr noundef nonnull align 1 dereferenceable(1) %this)
+  invoke void @_ZSt8_DestroyIPN11flatbuffers12BinaryRegionES1_EvT_S3_RSaIT0_E(ptr noundef %cond.i113, ptr noundef %__cur.0.lcssa.i.i.i.i.i133, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %lpad
-  %tobool.not.i161 = icmp eq ptr %cond.i115, null
-  br i1 %tobool.not.i161, label %invoke.cont92, label %if.then.i162
+  %tobool.not.i159 = icmp eq ptr %cond.i113, null
+  br i1 %tobool.not.i159, label %invoke.cont92, label %if.then.i160
 
-if.then.i162:                                     ; preds = %invoke.cont91
-  tail call void @_ZdlPv(ptr noundef nonnull %cond.i115) #30
+if.then.i160:                                     ; preds = %invoke.cont91
+  tail call void @_ZdlPv(ptr noundef nonnull %cond.i113) #30
   br label %invoke.cont92
 
-invoke.cont92:                                    ; preds = %if.then.i162, %invoke.cont91
+invoke.cont92:                                    ; preds = %if.then.i160, %invoke.cont91
   invoke void @__cxa_rethrow() #31
           to label %unreachable unwind label %lpad90
 
@@ -29724,7 +29718,7 @@ lpad90:                                           ; preds = %invoke.cont92, %lpa
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.end109:                                        ; preds = %for.body.i.i.i.i.i90, %for.body.i.i.i.i.i37, %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit77, %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionES2_ET0_T_S4_S3_.exit, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE13_M_deallocateEPS1_m.exit, %entry
+if.end109:                                        ; preds = %for.body.i.i.i.i.i88, %for.body.i.i.i.i.i36, %_ZSt22__uninitialized_move_aIPN11flatbuffers12BinaryRegionES2_SaIS1_EET0_T_S5_S4_RT1_.exit76, %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionES2_ET0_T_S4_S3_.exit, %_ZNSt12_Vector_baseIN11flatbuffers12BinaryRegionESaIS1_EE13_M_deallocateEPS1_m.exit, %entry
   ret void
 
 eh.resume:                                        ; preds = %lpad90
@@ -30531,8 +30525,7 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
 
 if.end16:                                         ; preds = %if.end5
   %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i6
-  %sub.ptr.div.i13 = sdiv exact i64 %sub.ptr.sub.i12, 160
-  %add.ptr.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.coerce, i64 %sub.ptr.div.i13
+  %add.ptr.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i12
   %comment.i.i21 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__tmp.i20, i64 0, i32 5
   %status_message.i.i.i23 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__tmp.i20, i64 0, i32 5, i32 1
   %type.i.i.i25 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__tmp.i20, i64 0, i32 5, i32 2
@@ -30718,7 +30711,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 160
-  %add.ptr = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__buffer, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i
   %cmp.not9.i = icmp slt i64 %sub.ptr.sub.i, 1120
   br i1 %cmp.not9.i, label %_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_.exit.thread, label %while.body.i
 
@@ -31179,66 +31172,66 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vector
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZSt12__move_mergeIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEET0_T_SH_SH_SH_SG_T1_(ptr noundef %__first1, ptr noundef %__last1, ptr noundef %__first2, ptr noundef %__last2, ptr %__result.coerce, ptr %__comp.coerce) local_unnamed_addr #3 comdat {
 entry:
-  %cmp64 = icmp ne ptr %__first1, %__last1
-  %cmp265 = icmp ne ptr %__first2, %__last2
-  %0 = and i1 %cmp64, %cmp265
+  %cmp63 = icmp ne ptr %__first1, %__last1
+  %cmp264 = icmp ne ptr %__first2, %__last2
+  %0 = and i1 %cmp63, %cmp264
   br i1 %0, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end
-  %__first1.addr.068 = phi ptr [ %__first1.addr.1, %if.end ], [ %__first1, %entry ]
-  %__first2.addr.067 = phi ptr [ %__first2.addr.1, %if.end ], [ %__first2, %entry ]
-  %__result.sroa.0.066 = phi ptr [ %incdec.ptr.i, %if.end ], [ %__result.coerce, %entry ]
-  %call.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(160) %__first2.addr.067, ptr noundef nonnull align 8 dereferenceable(160) %__first1.addr.068)
-  %comment.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.066, i64 0, i32 5
-  %status_message.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.066, i64 0, i32 5, i32 1
-  %type4.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.066, i64 0, i32 5, i32 2
-  %name.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.066, i64 0, i32 5, i32 3
-  %default_value.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.066, i64 0, i32 5, i32 4
+  %__first1.addr.067 = phi ptr [ %__first1.addr.1, %if.end ], [ %__first1, %entry ]
+  %__first2.addr.066 = phi ptr [ %__first2.addr.1, %if.end ], [ %__first2, %entry ]
+  %__result.sroa.0.065 = phi ptr [ %incdec.ptr.i, %if.end ], [ %__result.coerce, %entry ]
+  %call.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(160) %__first2.addr.066, ptr noundef nonnull align 8 dereferenceable(160) %__first1.addr.067)
+  %comment.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.065, i64 0, i32 5
+  %status_message.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.065, i64 0, i32 5, i32 1
+  %type4.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.065, i64 0, i32 5, i32 2
+  %name.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.065, i64 0, i32 5, i32 3
+  %default_value.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.065, i64 0, i32 5, i32 4
   br i1 %call.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.sroa.0.066, ptr noundef nonnull align 8 dereferenceable(40) %__first2.addr.067, i64 40, i1 false)
-  %comment3.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.067, i64 0, i32 5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.sroa.0.065, ptr noundef nonnull align 8 dereferenceable(40) %__first2.addr.066, i64 40, i1 false)
+  %comment3.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.066, i64 0, i32 5
   %1 = load i32, ptr %comment3.i, align 8
   store i32 %1, ptr %comment.i, align 8
-  %status_message3.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.067, i64 0, i32 5, i32 1
+  %status_message3.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.066, i64 0, i32 5, i32 1
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i) #29
-  %type.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.067, i64 0, i32 5, i32 2
+  %type.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.066, i64 0, i32 5, i32 2
   %2 = load i32, ptr %type.i.i, align 8
   store i32 %2, ptr %type4.i.i, align 8
-  %name5.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.067, i64 0, i32 5, i32 3
+  %name5.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.066, i64 0, i32 5, i32 3
   %call6.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i) #29
-  %default_value7.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.067, i64 0, i32 5, i32 4
+  %default_value7.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.066, i64 0, i32 5, i32 4
   %call8.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i) #29
-  %incdec.ptr = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.067, i64 1
+  %incdec.ptr = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.066, i64 1
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.sroa.0.066, ptr noundef nonnull align 8 dereferenceable(40) %__first1.addr.068, i64 40, i1 false)
-  %comment3.i12 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.068, i64 0, i32 5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.sroa.0.065, ptr noundef nonnull align 8 dereferenceable(40) %__first1.addr.067, i64 40, i1 false)
+  %comment3.i12 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.067, i64 0, i32 5
   %3 = load i32, ptr %comment3.i12, align 8
   store i32 %3, ptr %comment.i, align 8
-  %status_message3.i.i14 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.068, i64 0, i32 5, i32 1
+  %status_message3.i.i14 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.067, i64 0, i32 5, i32 1
   %call.i.i15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i14) #29
-  %type.i.i16 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.068, i64 0, i32 5, i32 2
+  %type.i.i16 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.067, i64 0, i32 5, i32 2
   %4 = load i32, ptr %type.i.i16, align 8
   store i32 %4, ptr %type4.i.i, align 8
-  %name5.i.i19 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.068, i64 0, i32 5, i32 3
+  %name5.i.i19 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.067, i64 0, i32 5, i32 3
   %call6.i.i20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i19) #29
-  %default_value7.i.i22 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.068, i64 0, i32 5, i32 4
+  %default_value7.i.i22 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.067, i64 0, i32 5, i32 4
   %call8.i.i23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i22) #29
-  %incdec.ptr7 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.068, i64 1
+  %incdec.ptr7 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first1.addr.067, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %__first2.addr.067.pn = phi ptr [ %__first2.addr.067, %if.then ], [ %__first1.addr.068, %if.else ]
-  %__first2.addr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %__first2.addr.067, %if.else ]
-  %__first1.addr.1 = phi ptr [ %__first1.addr.068, %if.then ], [ %incdec.ptr7, %if.else ]
-  %.sink.in = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.067.pn, i64 0, i32 5, i32 5
+  %__first2.addr.066.pn = phi ptr [ %__first2.addr.066, %if.then ], [ %__first1.addr.067, %if.else ]
+  %__first2.addr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %__first2.addr.066, %if.else ]
+  %__first1.addr.1 = phi ptr [ %__first1.addr.067, %if.then ], [ %incdec.ptr7, %if.else ]
+  %.sink.in = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first2.addr.066.pn, i64 0, i32 5, i32 5
   %.sink = load i64, ptr %.sink.in, align 8
-  %5 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.066, i64 0, i32 5, i32 5
+  %5 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.065, i64 0, i32 5, i32 5
   store i64 %.sink, ptr %5, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.066, i64 1
+  %incdec.ptr.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.065, i64 1
   %cmp = icmp ne ptr %__first1.addr.1, %__last1
   %cmp2 = icmp ne ptr %__first2.addr.1, %__last2
   %6 = select i1 %cmp, i1 %cmp2, i1 false
@@ -31295,58 +31288,56 @@ _ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vec
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__result.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 160
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.sroa.0.0.lcssa, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i26 = ptrtoint ptr %__last2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i27 = ptrtoint ptr %__first2.addr.0.lcssa to i64
   %sub.ptr.sub.i.i.i.i.i28 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i26, %sub.ptr.rhs.cast.i.i.i.i.i27
   %cmp6.i.i.i.i.i29 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i28, 0
-  br i1 %cmp6.i.i.i.i.i29, label %for.body.preheader.i.i.i.i.i36, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit61
+  br i1 %cmp6.i.i.i.i.i29, label %for.body.preheader.i.i.i.i.i35, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60
 
-for.body.preheader.i.i.i.i.i36:                   ; preds = %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
-  %sub.ptr.div10.i.i.i.i.i37 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i28, 160
-  br label %for.body.i.i.i.i.i38
+for.body.preheader.i.i.i.i.i35:                   ; preds = %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
+  %sub.ptr.div10.i.i.i.i.i36 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i28, 160
+  br label %for.body.i.i.i.i.i37
 
-for.body.i.i.i.i.i38:                             ; preds = %for.body.i.i.i.i.i38, %for.body.preheader.i.i.i.i.i36
-  %__n.09.i.i.i.i.i39 = phi i64 [ %dec.i.i.i.i.i59, %for.body.i.i.i.i.i38 ], [ %sub.ptr.div10.i.i.i.i.i37, %for.body.preheader.i.i.i.i.i36 ]
-  %__result.addr.08.i.i.i.i.i40 = phi ptr [ %incdec.ptr1.i.i.i.i.i58, %for.body.i.i.i.i.i38 ], [ %add.ptr.i.i.i.i, %for.body.preheader.i.i.i.i.i36 ]
-  %__first.addr.07.i.i.i.i.i41 = phi ptr [ %incdec.ptr.i.i.i.i.i57, %for.body.i.i.i.i.i38 ], [ %__first2.addr.0.lcssa, %for.body.preheader.i.i.i.i.i36 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i40, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i41, i64 40, i1 false)
-  %comment.i.i.i.i.i.i42 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i40, i64 0, i32 5
-  %comment3.i.i.i.i.i.i43 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i41, i64 0, i32 5
-  %10 = load i32, ptr %comment3.i.i.i.i.i.i43, align 8
-  store i32 %10, ptr %comment.i.i.i.i.i.i42, align 8
-  %status_message.i.i.i.i.i.i.i44 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i40, i64 0, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i45 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i41, i64 0, i32 5, i32 1
-  %call.i.i.i.i.i.i.i46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i45) #29
-  %type.i.i.i.i.i.i.i47 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i41, i64 0, i32 5, i32 2
-  %11 = load i32, ptr %type.i.i.i.i.i.i.i47, align 8
-  %type4.i.i.i.i.i.i.i48 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i40, i64 0, i32 5, i32 2
-  store i32 %11, ptr %type4.i.i.i.i.i.i.i48, align 8
-  %name.i.i.i.i.i.i.i49 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i40, i64 0, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i50 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i41, i64 0, i32 5, i32 3
-  %call6.i.i.i.i.i.i.i51 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i49, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i50) #29
-  %default_value.i.i.i.i.i.i.i52 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i40, i64 0, i32 5, i32 4
-  %default_value7.i.i.i.i.i.i.i53 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i41, i64 0, i32 5, i32 4
-  %call8.i.i.i.i.i.i.i54 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i52, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i53) #29
-  %index.i.i.i.i.i.i.i55 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i41, i64 0, i32 5, i32 5
-  %12 = load i64, ptr %index.i.i.i.i.i.i.i55, align 8
-  %index9.i.i.i.i.i.i.i56 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i40, i64 0, i32 5, i32 5
-  store i64 %12, ptr %index9.i.i.i.i.i.i.i56, align 8
-  %incdec.ptr.i.i.i.i.i57 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i41, i64 1
-  %incdec.ptr1.i.i.i.i.i58 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i40, i64 1
-  %dec.i.i.i.i.i59 = add nsw i64 %__n.09.i.i.i.i.i39, -1
-  %cmp.i.i.i.i.i60 = icmp ugt i64 %__n.09.i.i.i.i.i39, 1
-  br i1 %cmp.i.i.i.i.i60, label %for.body.i.i.i.i.i38, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit61, !llvm.loop !361
+for.body.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i37, %for.body.preheader.i.i.i.i.i35
+  %__n.09.i.i.i.i.i38 = phi i64 [ %dec.i.i.i.i.i58, %for.body.i.i.i.i.i37 ], [ %sub.ptr.div10.i.i.i.i.i36, %for.body.preheader.i.i.i.i.i35 ]
+  %__result.addr.08.i.i.i.i.i39 = phi ptr [ %incdec.ptr1.i.i.i.i.i57, %for.body.i.i.i.i.i37 ], [ %add.ptr.i.i.i.i, %for.body.preheader.i.i.i.i.i35 ]
+  %__first.addr.07.i.i.i.i.i40 = phi ptr [ %incdec.ptr.i.i.i.i.i56, %for.body.i.i.i.i.i37 ], [ %__first2.addr.0.lcssa, %for.body.preheader.i.i.i.i.i35 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i40, i64 40, i1 false)
+  %comment.i.i.i.i.i.i41 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i39, i64 0, i32 5
+  %comment3.i.i.i.i.i.i42 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i40, i64 0, i32 5
+  %10 = load i32, ptr %comment3.i.i.i.i.i.i42, align 8
+  store i32 %10, ptr %comment.i.i.i.i.i.i41, align 8
+  %status_message.i.i.i.i.i.i.i43 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i39, i64 0, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i44 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i40, i64 0, i32 5, i32 1
+  %call.i.i.i.i.i.i.i45 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i44) #29
+  %type.i.i.i.i.i.i.i46 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i40, i64 0, i32 5, i32 2
+  %11 = load i32, ptr %type.i.i.i.i.i.i.i46, align 8
+  %type4.i.i.i.i.i.i.i47 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i39, i64 0, i32 5, i32 2
+  store i32 %11, ptr %type4.i.i.i.i.i.i.i47, align 8
+  %name.i.i.i.i.i.i.i48 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i39, i64 0, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i49 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i40, i64 0, i32 5, i32 3
+  %call6.i.i.i.i.i.i.i50 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i49) #29
+  %default_value.i.i.i.i.i.i.i51 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i39, i64 0, i32 5, i32 4
+  %default_value7.i.i.i.i.i.i.i52 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i40, i64 0, i32 5, i32 4
+  %call8.i.i.i.i.i.i.i53 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i51, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i52) #29
+  %index.i.i.i.i.i.i.i54 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i40, i64 0, i32 5, i32 5
+  %12 = load i64, ptr %index.i.i.i.i.i.i.i54, align 8
+  %index9.i.i.i.i.i.i.i55 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i39, i64 0, i32 5, i32 5
+  store i64 %12, ptr %index9.i.i.i.i.i.i.i55, align 8
+  %incdec.ptr.i.i.i.i.i56 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i40, i64 1
+  %incdec.ptr1.i.i.i.i.i57 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i39, i64 1
+  %dec.i.i.i.i.i58 = add nsw i64 %__n.09.i.i.i.i.i38, -1
+  %cmp.i.i.i.i.i59 = icmp ugt i64 %__n.09.i.i.i.i.i38, 1
+  br i1 %cmp.i.i.i.i.i59, label %for.body.i.i.i.i.i37, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60, !llvm.loop !361
 
-_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit61: ; preds = %for.body.i.i.i.i.i38, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
-  %__result.addr.0.lcssa.i.i.i.i.i30 = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %incdec.ptr1.i.i.i.i.i58, %for.body.i.i.i.i.i38 ]
+_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60: ; preds = %for.body.i.i.i.i.i37, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
+  %__result.addr.0.lcssa.i.i.i.i.i30 = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %incdec.ptr1.i.i.i.i.i57, %for.body.i.i.i.i.i37 ]
   %sub.ptr.lhs.cast.i.i.i31 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i30 to i64
   %sub.ptr.rhs.cast.i.i.i32 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %sub.ptr.sub.i.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i.i31, %sub.ptr.rhs.cast.i.i.i32
-  %sub.ptr.div.i.i.i34 = sdiv exact i64 %sub.ptr.sub.i.i.i33, 160
-  %add.ptr.i.i.i.i35 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %add.ptr.i.i.i.i, i64 %sub.ptr.div.i.i.i34
-  ret ptr %add.ptr.i.i.i.i35
+  %add.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.sub.i.i.i33
+  ret ptr %add.ptr.i.i.i.i34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31567,60 +31558,60 @@ if.then19:                                        ; preds = %if.then13
   %sub.ptr.rhs.cast.i.i.i.i.i14 = ptrtoint ptr %__first2 to i64
   %sub.ptr.sub.i.i.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i13, %sub.ptr.rhs.cast.i.i.i.i.i14
   %cmp4.i.i.i.i.i16 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i15, 0
-  br i1 %cmp4.i.i.i.i.i16, label %for.body.preheader.i.i.i.i.i23, label %return
+  br i1 %cmp4.i.i.i.i.i16, label %for.body.preheader.i.i.i.i.i22, label %return
 
-for.body.preheader.i.i.i.i.i23:                   ; preds = %if.then19
-  %sub.ptr.div8.i.i.i.i.i24 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i15, 160
-  br label %for.body.i.i.i.i.i25
+for.body.preheader.i.i.i.i.i22:                   ; preds = %if.then19
+  %sub.ptr.div8.i.i.i.i.i23 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i15, 160
+  br label %for.body.i.i.i.i.i24
 
-for.body.i.i.i.i.i25:                             ; preds = %for.body.i.i.i.i.i25, %for.body.preheader.i.i.i.i.i23
-  %__n.07.i.i.i.i.i26 = phi i64 [ %dec.i.i.i.i.i46, %for.body.i.i.i.i.i25 ], [ %sub.ptr.div8.i.i.i.i.i24, %for.body.preheader.i.i.i.i.i23 ]
-  %__result.addr.06.i.i.i.i.i27 = phi ptr [ %incdec.ptr1.i.i.i.i.i30, %for.body.i.i.i.i.i25 ], [ %incdec.ptr.i11, %for.body.preheader.i.i.i.i.i23 ]
-  %__last.addr.05.i.i.i.i.i28 = phi ptr [ %incdec.ptr.i.i.i.i.i29, %for.body.i.i.i.i.i25 ], [ %incdec.ptr20, %for.body.preheader.i.i.i.i.i23 ]
-  %incdec.ptr.i.i.i.i.i29 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i28, i64 -1
-  %incdec.ptr1.i.i.i.i.i30 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i27, i64 -1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i30, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i29, i64 40, i1 false)
-  %comment.i.i.i.i.i.i31 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i27, i64 -1, i32 5
-  %comment3.i.i.i.i.i.i32 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i28, i64 -1, i32 5
-  %6 = load i32, ptr %comment3.i.i.i.i.i.i32, align 8
-  store i32 %6, ptr %comment.i.i.i.i.i.i31, align 8
-  %status_message.i.i.i.i.i.i.i33 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i27, i64 -1, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i34 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i28, i64 -1, i32 5, i32 1
-  %call.i.i.i.i.i.i.i35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i34) #29
-  %type.i.i.i.i.i.i.i36 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i28, i64 -1, i32 5, i32 2
-  %7 = load i32, ptr %type.i.i.i.i.i.i.i36, align 8
-  %type4.i.i.i.i.i.i.i37 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i27, i64 -1, i32 5, i32 2
-  store i32 %7, ptr %type4.i.i.i.i.i.i.i37, align 8
-  %name.i.i.i.i.i.i.i38 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i27, i64 -1, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i39 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i28, i64 -1, i32 5, i32 3
-  %call6.i.i.i.i.i.i.i40 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i38, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i39) #29
-  %default_value.i.i.i.i.i.i.i41 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i27, i64 -1, i32 5, i32 4
-  %default_value7.i.i.i.i.i.i.i42 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i28, i64 -1, i32 5, i32 4
-  %call8.i.i.i.i.i.i.i43 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i41, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i42) #29
-  %index.i.i.i.i.i.i.i44 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i28, i64 -1, i32 5, i32 5
-  %8 = load i64, ptr %index.i.i.i.i.i.i.i44, align 8
-  %index9.i.i.i.i.i.i.i45 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i27, i64 -1, i32 5, i32 5
-  store i64 %8, ptr %index9.i.i.i.i.i.i.i45, align 8
-  %dec.i.i.i.i.i46 = add nsw i64 %__n.07.i.i.i.i.i26, -1
-  %cmp.i.i.i.i.i47 = icmp ugt i64 %__n.07.i.i.i.i.i26, 1
-  br i1 %cmp.i.i.i.i.i47, label %for.body.i.i.i.i.i25, label %return, !llvm.loop !344
+for.body.i.i.i.i.i24:                             ; preds = %for.body.i.i.i.i.i24, %for.body.preheader.i.i.i.i.i22
+  %__n.07.i.i.i.i.i25 = phi i64 [ %dec.i.i.i.i.i45, %for.body.i.i.i.i.i24 ], [ %sub.ptr.div8.i.i.i.i.i23, %for.body.preheader.i.i.i.i.i22 ]
+  %__result.addr.06.i.i.i.i.i26 = phi ptr [ %incdec.ptr1.i.i.i.i.i29, %for.body.i.i.i.i.i24 ], [ %incdec.ptr.i11, %for.body.preheader.i.i.i.i.i22 ]
+  %__last.addr.05.i.i.i.i.i27 = phi ptr [ %incdec.ptr.i.i.i.i.i28, %for.body.i.i.i.i.i24 ], [ %incdec.ptr20, %for.body.preheader.i.i.i.i.i22 ]
+  %incdec.ptr.i.i.i.i.i28 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i27, i64 -1
+  %incdec.ptr1.i.i.i.i.i29 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i26, i64 -1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i28, i64 40, i1 false)
+  %comment.i.i.i.i.i.i30 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i26, i64 -1, i32 5
+  %comment3.i.i.i.i.i.i31 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i27, i64 -1, i32 5
+  %6 = load i32, ptr %comment3.i.i.i.i.i.i31, align 8
+  store i32 %6, ptr %comment.i.i.i.i.i.i30, align 8
+  %status_message.i.i.i.i.i.i.i32 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i26, i64 -1, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i33 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i27, i64 -1, i32 5, i32 1
+  %call.i.i.i.i.i.i.i34 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i32, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i33) #29
+  %type.i.i.i.i.i.i.i35 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i27, i64 -1, i32 5, i32 2
+  %7 = load i32, ptr %type.i.i.i.i.i.i.i35, align 8
+  %type4.i.i.i.i.i.i.i36 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i26, i64 -1, i32 5, i32 2
+  store i32 %7, ptr %type4.i.i.i.i.i.i.i36, align 8
+  %name.i.i.i.i.i.i.i37 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i26, i64 -1, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i38 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i27, i64 -1, i32 5, i32 3
+  %call6.i.i.i.i.i.i.i39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i38) #29
+  %default_value.i.i.i.i.i.i.i40 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i26, i64 -1, i32 5, i32 4
+  %default_value7.i.i.i.i.i.i.i41 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i27, i64 -1, i32 5, i32 4
+  %call8.i.i.i.i.i.i.i42 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i40, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i41) #29
+  %index.i.i.i.i.i.i.i43 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i27, i64 -1, i32 5, i32 5
+  %8 = load i64, ptr %index.i.i.i.i.i.i.i43, align 8
+  %index9.i.i.i.i.i.i.i44 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i26, i64 -1, i32 5, i32 5
+  store i64 %8, ptr %index9.i.i.i.i.i.i.i44, align 8
+  %dec.i.i.i.i.i45 = add nsw i64 %__n.07.i.i.i.i.i25, -1
+  %cmp.i.i.i.i.i46 = icmp ugt i64 %__n.07.i.i.i.i.i25, 1
+  br i1 %cmp.i.i.i.i.i46, label %for.body.i.i.i.i.i24, label %return, !llvm.loop !344
 
 if.else28:                                        ; preds = %while.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i11, ptr noundef nonnull align 8 dereferenceable(40) %__last2.addr.0, i64 40, i1 false)
-  %comment3.i52 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5
-  %9 = load i32, ptr %comment3.i52, align 8
+  %comment3.i51 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5
+  %9 = load i32, ptr %comment3.i51, align 8
   store i32 %9, ptr %comment.i, align 8
-  %status_message3.i.i54 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 1
-  %call.i.i55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i54) #29
-  %type.i.i56 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 2
-  %10 = load i32, ptr %type.i.i56, align 8
+  %status_message3.i.i53 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 1
+  %call.i.i54 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i53) #29
+  %type.i.i55 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 2
+  %10 = load i32, ptr %type.i.i55, align 8
   store i32 %10, ptr %type4.i.i, align 8
-  %name5.i.i59 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 3
-  %call6.i.i60 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i59) #29
-  %default_value7.i.i62 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 4
-  %call8.i.i63 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i62) #29
-  %index.i.i64 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 5
-  %11 = load i64, ptr %index.i.i64, align 8
+  %name5.i.i58 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 3
+  %call6.i.i59 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i58) #29
+  %default_value7.i.i61 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 4
+  %call8.i.i62 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i61) #29
+  %index.i.i63 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 0, i32 5, i32 5
+  %11 = load i64, ptr %index.i.i63, align 8
   store i64 %11, ptr %index9.i.i, align 8
   %cmp32 = icmp eq ptr %__last2.addr.0, %__first2
   br i1 %cmp32, label %return, label %if.end34
@@ -31629,7 +31620,7 @@ if.end34:                                         ; preds = %if.else28
   %incdec.ptr35 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last2.addr.0, i64 -1
   br label %while.body, !llvm.loop !365
 
-return:                                           ; preds = %if.else28, %for.body.i.i.i.i.i25, %for.body.i.i.i.i.i, %if.then19, %if.then, %if.else
+return:                                           ; preds = %if.else28, %for.body.i.i.i.i.i24, %for.body.i.i.i.i.i, %if.then19, %if.then, %if.else
   ret void
 }
 
@@ -31736,53 +31727,52 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegion
   %sub.ptr.rhs.cast.i.i.i.i.i36 = ptrtoint ptr %__buffer to i64
   %sub.ptr.sub.i.i.i.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i35, %sub.ptr.rhs.cast.i.i.i.i.i36
   %cmp6.i.i.i.i.i38 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i37, 0
-  br i1 %cmp6.i.i.i.i.i38, label %for.body.preheader.i.i.i.i.i45, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
+  br i1 %cmp6.i.i.i.i.i38, label %for.body.preheader.i.i.i.i.i44, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
 
-for.body.preheader.i.i.i.i.i45:                   ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
-  %sub.ptr.div10.i.i.i.i.i46 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i37, 160
-  br label %for.body.i.i.i.i.i47
+for.body.preheader.i.i.i.i.i44:                   ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
+  %sub.ptr.div10.i.i.i.i.i45 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i37, 160
+  br label %for.body.i.i.i.i.i46
 
-for.body.i.i.i.i.i47:                             ; preds = %for.body.i.i.i.i.i47, %for.body.preheader.i.i.i.i.i45
-  %__n.09.i.i.i.i.i48 = phi i64 [ %dec.i.i.i.i.i68, %for.body.i.i.i.i.i47 ], [ %sub.ptr.div10.i.i.i.i.i46, %for.body.preheader.i.i.i.i.i45 ]
-  %__result.addr.08.i.i.i.i.i49 = phi ptr [ %incdec.ptr1.i.i.i.i.i67, %for.body.i.i.i.i.i47 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i45 ]
-  %__first.addr.07.i.i.i.i.i50 = phi ptr [ %incdec.ptr.i.i.i.i.i66, %for.body.i.i.i.i.i47 ], [ %__buffer, %for.body.preheader.i.i.i.i.i45 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i49, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i50, i64 40, i1 false)
-  %comment.i.i.i.i.i.i51 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i49, i64 0, i32 5
-  %comment3.i.i.i.i.i.i52 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i50, i64 0, i32 5
-  %6 = load i32, ptr %comment3.i.i.i.i.i.i52, align 8
-  store i32 %6, ptr %comment.i.i.i.i.i.i51, align 8
-  %status_message.i.i.i.i.i.i.i53 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i49, i64 0, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i54 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i50, i64 0, i32 5, i32 1
-  %call.i.i.i.i.i.i.i55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i53, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i54) #29
-  %type.i.i.i.i.i.i.i56 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i50, i64 0, i32 5, i32 2
-  %7 = load i32, ptr %type.i.i.i.i.i.i.i56, align 8
-  %type4.i.i.i.i.i.i.i57 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i49, i64 0, i32 5, i32 2
-  store i32 %7, ptr %type4.i.i.i.i.i.i.i57, align 8
-  %name.i.i.i.i.i.i.i58 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i49, i64 0, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i59 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i50, i64 0, i32 5, i32 3
-  %call6.i.i.i.i.i.i.i60 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i59) #29
-  %default_value.i.i.i.i.i.i.i61 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i49, i64 0, i32 5, i32 4
-  %default_value7.i.i.i.i.i.i.i62 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i50, i64 0, i32 5, i32 4
-  %call8.i.i.i.i.i.i.i63 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i61, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i62) #29
-  %index.i.i.i.i.i.i.i64 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i50, i64 0, i32 5, i32 5
-  %8 = load i64, ptr %index.i.i.i.i.i.i.i64, align 8
-  %index9.i.i.i.i.i.i.i65 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i49, i64 0, i32 5, i32 5
-  store i64 %8, ptr %index9.i.i.i.i.i.i.i65, align 8
-  %incdec.ptr.i.i.i.i.i66 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i50, i64 1
-  %incdec.ptr1.i.i.i.i.i67 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i49, i64 1
-  %dec.i.i.i.i.i68 = add nsw i64 %__n.09.i.i.i.i.i48, -1
-  %cmp.i.i.i.i.i69 = icmp ugt i64 %__n.09.i.i.i.i.i48, 1
-  br i1 %cmp.i.i.i.i.i69, label %for.body.i.i.i.i.i47, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit, !llvm.loop !361
+for.body.i.i.i.i.i46:                             ; preds = %for.body.i.i.i.i.i46, %for.body.preheader.i.i.i.i.i44
+  %__n.09.i.i.i.i.i47 = phi i64 [ %dec.i.i.i.i.i67, %for.body.i.i.i.i.i46 ], [ %sub.ptr.div10.i.i.i.i.i45, %for.body.preheader.i.i.i.i.i44 ]
+  %__result.addr.08.i.i.i.i.i48 = phi ptr [ %incdec.ptr1.i.i.i.i.i66, %for.body.i.i.i.i.i46 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i44 ]
+  %__first.addr.07.i.i.i.i.i49 = phi ptr [ %incdec.ptr.i.i.i.i.i65, %for.body.i.i.i.i.i46 ], [ %__buffer, %for.body.preheader.i.i.i.i.i44 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i49, i64 40, i1 false)
+  %comment.i.i.i.i.i.i50 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i48, i64 0, i32 5
+  %comment3.i.i.i.i.i.i51 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i49, i64 0, i32 5
+  %6 = load i32, ptr %comment3.i.i.i.i.i.i51, align 8
+  store i32 %6, ptr %comment.i.i.i.i.i.i50, align 8
+  %status_message.i.i.i.i.i.i.i52 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i48, i64 0, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i53 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i49, i64 0, i32 5, i32 1
+  %call.i.i.i.i.i.i.i54 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i52, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i53) #29
+  %type.i.i.i.i.i.i.i55 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i49, i64 0, i32 5, i32 2
+  %7 = load i32, ptr %type.i.i.i.i.i.i.i55, align 8
+  %type4.i.i.i.i.i.i.i56 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i48, i64 0, i32 5, i32 2
+  store i32 %7, ptr %type4.i.i.i.i.i.i.i56, align 8
+  %name.i.i.i.i.i.i.i57 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i48, i64 0, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i58 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i49, i64 0, i32 5, i32 3
+  %call6.i.i.i.i.i.i.i59 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i58) #29
+  %default_value.i.i.i.i.i.i.i60 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i48, i64 0, i32 5, i32 4
+  %default_value7.i.i.i.i.i.i.i61 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i49, i64 0, i32 5, i32 4
+  %call8.i.i.i.i.i.i.i62 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i60, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i61) #29
+  %index.i.i.i.i.i.i.i63 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i49, i64 0, i32 5, i32 5
+  %8 = load i64, ptr %index.i.i.i.i.i.i.i63, align 8
+  %index9.i.i.i.i.i.i.i64 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i48, i64 0, i32 5, i32 5
+  store i64 %8, ptr %index9.i.i.i.i.i.i.i64, align 8
+  %incdec.ptr.i.i.i.i.i65 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i49, i64 1
+  %incdec.ptr1.i.i.i.i.i66 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i48, i64 1
+  %dec.i.i.i.i.i67 = add nsw i64 %__n.09.i.i.i.i.i47, -1
+  %cmp.i.i.i.i.i68 = icmp ugt i64 %__n.09.i.i.i.i.i47, 1
+  br i1 %cmp.i.i.i.i.i68, label %for.body.i.i.i.i.i46, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit, !llvm.loop !361
 
-_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit: ; preds = %for.body.i.i.i.i.i47
-  %.pre171 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i67 to i64
+_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit: ; preds = %for.body.i.i.i.i.i46
+  %.pre168 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i66 to i64
   br label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
 
 _ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit: ; preds = %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
-  %sub.ptr.lhs.cast.i.i.i40.pre-phi = phi i64 [ %.pre171, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i11, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ]
+  %sub.ptr.lhs.cast.i.i.i40.pre-phi = phi i64 [ %.pre168, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i11, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ]
   %sub.ptr.sub.i.i.i42 = sub i64 %sub.ptr.lhs.cast.i.i.i40.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i11
-  %sub.ptr.div.i.i.i43 = sdiv exact i64 %sub.ptr.sub.i.i.i42, 160
-  %add.ptr.i.i.i.i44 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.coerce, i64 %sub.ptr.div.i.i.i43
+  %add.ptr.i.i.i.i43 = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i.i.i42
   br label %return
 
 if.else20:                                        ; preds = %entry
@@ -31794,143 +31784,142 @@ if.then22:                                        ; preds = %if.else20
   br i1 %tobool23.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.then22
-  %sub.ptr.lhs.cast.i.i.i.i.i70 = ptrtoint ptr %__middle.coerce to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i71 = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.sub.i.i.i.i.i72 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i70, %sub.ptr.rhs.cast.i.i.i.i.i71
-  %cmp6.i.i.i.i.i73 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i72, 0
-  br i1 %cmp6.i.i.i.i.i73, label %for.body.preheader.i.i.i.i.i75, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit100
+  %sub.ptr.lhs.cast.i.i.i.i.i69 = ptrtoint ptr %__middle.coerce to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i70 = ptrtoint ptr %__first.coerce to i64
+  %sub.ptr.sub.i.i.i.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i69, %sub.ptr.rhs.cast.i.i.i.i.i70
+  %cmp6.i.i.i.i.i72 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i71, 0
+  br i1 %cmp6.i.i.i.i.i72, label %for.body.preheader.i.i.i.i.i74, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit99
 
-for.body.preheader.i.i.i.i.i75:                   ; preds = %if.then24
-  %sub.ptr.div10.i.i.i.i.i76 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i72, 160
-  br label %for.body.i.i.i.i.i77
+for.body.preheader.i.i.i.i.i74:                   ; preds = %if.then24
+  %sub.ptr.div10.i.i.i.i.i75 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i71, 160
+  br label %for.body.i.i.i.i.i76
 
-for.body.i.i.i.i.i77:                             ; preds = %for.body.i.i.i.i.i77, %for.body.preheader.i.i.i.i.i75
-  %__n.09.i.i.i.i.i78 = phi i64 [ %dec.i.i.i.i.i98, %for.body.i.i.i.i.i77 ], [ %sub.ptr.div10.i.i.i.i.i76, %for.body.preheader.i.i.i.i.i75 ]
-  %__result.addr.08.i.i.i.i.i79 = phi ptr [ %incdec.ptr1.i.i.i.i.i97, %for.body.i.i.i.i.i77 ], [ %__buffer, %for.body.preheader.i.i.i.i.i75 ]
-  %__first.addr.07.i.i.i.i.i80 = phi ptr [ %incdec.ptr.i.i.i.i.i96, %for.body.i.i.i.i.i77 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i75 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i80, i64 40, i1 false)
-  %comment.i.i.i.i.i.i81 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i79, i64 0, i32 5
-  %comment3.i.i.i.i.i.i82 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i80, i64 0, i32 5
-  %9 = load i32, ptr %comment3.i.i.i.i.i.i82, align 8
-  store i32 %9, ptr %comment.i.i.i.i.i.i81, align 8
-  %status_message.i.i.i.i.i.i.i83 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i79, i64 0, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i84 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i80, i64 0, i32 5, i32 1
-  %call.i.i.i.i.i.i.i85 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i83, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i84) #29
-  %type.i.i.i.i.i.i.i86 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i80, i64 0, i32 5, i32 2
-  %10 = load i32, ptr %type.i.i.i.i.i.i.i86, align 8
-  %type4.i.i.i.i.i.i.i87 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i79, i64 0, i32 5, i32 2
-  store i32 %10, ptr %type4.i.i.i.i.i.i.i87, align 8
-  %name.i.i.i.i.i.i.i88 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i79, i64 0, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i89 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i80, i64 0, i32 5, i32 3
-  %call6.i.i.i.i.i.i.i90 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i88, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i89) #29
-  %default_value.i.i.i.i.i.i.i91 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i79, i64 0, i32 5, i32 4
-  %default_value7.i.i.i.i.i.i.i92 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i80, i64 0, i32 5, i32 4
-  %call8.i.i.i.i.i.i.i93 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i91, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i92) #29
-  %index.i.i.i.i.i.i.i94 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i80, i64 0, i32 5, i32 5
-  %11 = load i64, ptr %index.i.i.i.i.i.i.i94, align 8
-  %index9.i.i.i.i.i.i.i95 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i79, i64 0, i32 5, i32 5
-  store i64 %11, ptr %index9.i.i.i.i.i.i.i95, align 8
-  %incdec.ptr.i.i.i.i.i96 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i80, i64 1
-  %incdec.ptr1.i.i.i.i.i97 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i79, i64 1
-  %dec.i.i.i.i.i98 = add nsw i64 %__n.09.i.i.i.i.i78, -1
-  %cmp.i.i.i.i.i99 = icmp ugt i64 %__n.09.i.i.i.i.i78, 1
-  br i1 %cmp.i.i.i.i.i99, label %for.body.i.i.i.i.i77, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit100, !llvm.loop !361
+for.body.i.i.i.i.i76:                             ; preds = %for.body.i.i.i.i.i76, %for.body.preheader.i.i.i.i.i74
+  %__n.09.i.i.i.i.i77 = phi i64 [ %dec.i.i.i.i.i97, %for.body.i.i.i.i.i76 ], [ %sub.ptr.div10.i.i.i.i.i75, %for.body.preheader.i.i.i.i.i74 ]
+  %__result.addr.08.i.i.i.i.i78 = phi ptr [ %incdec.ptr1.i.i.i.i.i96, %for.body.i.i.i.i.i76 ], [ %__buffer, %for.body.preheader.i.i.i.i.i74 ]
+  %__first.addr.07.i.i.i.i.i79 = phi ptr [ %incdec.ptr.i.i.i.i.i95, %for.body.i.i.i.i.i76 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i74 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i78, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i79, i64 40, i1 false)
+  %comment.i.i.i.i.i.i80 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i78, i64 0, i32 5
+  %comment3.i.i.i.i.i.i81 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i79, i64 0, i32 5
+  %9 = load i32, ptr %comment3.i.i.i.i.i.i81, align 8
+  store i32 %9, ptr %comment.i.i.i.i.i.i80, align 8
+  %status_message.i.i.i.i.i.i.i82 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i78, i64 0, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i83 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i79, i64 0, i32 5, i32 1
+  %call.i.i.i.i.i.i.i84 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i82, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i83) #29
+  %type.i.i.i.i.i.i.i85 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i79, i64 0, i32 5, i32 2
+  %10 = load i32, ptr %type.i.i.i.i.i.i.i85, align 8
+  %type4.i.i.i.i.i.i.i86 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i78, i64 0, i32 5, i32 2
+  store i32 %10, ptr %type4.i.i.i.i.i.i.i86, align 8
+  %name.i.i.i.i.i.i.i87 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i78, i64 0, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i88 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i79, i64 0, i32 5, i32 3
+  %call6.i.i.i.i.i.i.i89 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i87, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i88) #29
+  %default_value.i.i.i.i.i.i.i90 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i78, i64 0, i32 5, i32 4
+  %default_value7.i.i.i.i.i.i.i91 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i79, i64 0, i32 5, i32 4
+  %call8.i.i.i.i.i.i.i92 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i90, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i91) #29
+  %index.i.i.i.i.i.i.i93 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i79, i64 0, i32 5, i32 5
+  %11 = load i64, ptr %index.i.i.i.i.i.i.i93, align 8
+  %index9.i.i.i.i.i.i.i94 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i78, i64 0, i32 5, i32 5
+  store i64 %11, ptr %index9.i.i.i.i.i.i.i94, align 8
+  %incdec.ptr.i.i.i.i.i95 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i79, i64 1
+  %incdec.ptr1.i.i.i.i.i96 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i78, i64 1
+  %dec.i.i.i.i.i97 = add nsw i64 %__n.09.i.i.i.i.i77, -1
+  %cmp.i.i.i.i.i98 = icmp ugt i64 %__n.09.i.i.i.i.i77, 1
+  br i1 %cmp.i.i.i.i.i98, label %for.body.i.i.i.i.i76, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit99, !llvm.loop !361
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit100: ; preds = %for.body.i.i.i.i.i77, %if.then24
-  %__result.addr.0.lcssa.i.i.i.i.i74 = phi ptr [ %__buffer, %if.then24 ], [ %incdec.ptr1.i.i.i.i.i97, %for.body.i.i.i.i.i77 ]
-  %sub.ptr.lhs.cast.i.i.i.i.i101 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i.i.i.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i101, %sub.ptr.lhs.cast.i.i.i.i.i70
-  %cmp6.i.i.i.i.i104 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i103, 0
-  br i1 %cmp6.i.i.i.i.i104, label %for.body.preheader.i.i.i.i.i111, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit99: ; preds = %for.body.i.i.i.i.i76, %if.then24
+  %__result.addr.0.lcssa.i.i.i.i.i73 = phi ptr [ %__buffer, %if.then24 ], [ %incdec.ptr1.i.i.i.i.i96, %for.body.i.i.i.i.i76 ]
+  %sub.ptr.lhs.cast.i.i.i.i.i100 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i.i.i.i.i102 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i100, %sub.ptr.lhs.cast.i.i.i.i.i69
+  %cmp6.i.i.i.i.i103 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i102, 0
+  br i1 %cmp6.i.i.i.i.i103, label %for.body.preheader.i.i.i.i.i109, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
-for.body.preheader.i.i.i.i.i111:                  ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit100
-  %sub.ptr.div10.i.i.i.i.i112 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i103, 160
-  br label %for.body.i.i.i.i.i113
+for.body.preheader.i.i.i.i.i109:                  ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit99
+  %sub.ptr.div10.i.i.i.i.i110 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i102, 160
+  br label %for.body.i.i.i.i.i111
 
-for.body.i.i.i.i.i113:                            ; preds = %for.body.i.i.i.i.i113, %for.body.preheader.i.i.i.i.i111
-  %__n.09.i.i.i.i.i114 = phi i64 [ %dec.i.i.i.i.i134, %for.body.i.i.i.i.i113 ], [ %sub.ptr.div10.i.i.i.i.i112, %for.body.preheader.i.i.i.i.i111 ]
-  %__result.addr.08.i.i.i.i.i115 = phi ptr [ %incdec.ptr1.i.i.i.i.i133, %for.body.i.i.i.i.i113 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i111 ]
-  %__first.addr.07.i.i.i.i.i116 = phi ptr [ %incdec.ptr.i.i.i.i.i132, %for.body.i.i.i.i.i113 ], [ %__middle.coerce, %for.body.preheader.i.i.i.i.i111 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i115, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i116, i64 40, i1 false)
-  %comment.i.i.i.i.i.i117 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i115, i64 0, i32 5
-  %comment3.i.i.i.i.i.i118 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i116, i64 0, i32 5
-  %12 = load i32, ptr %comment3.i.i.i.i.i.i118, align 8
-  store i32 %12, ptr %comment.i.i.i.i.i.i117, align 8
-  %status_message.i.i.i.i.i.i.i119 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i115, i64 0, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i120 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i116, i64 0, i32 5, i32 1
-  %call.i.i.i.i.i.i.i121 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i119, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i120) #29
-  %type.i.i.i.i.i.i.i122 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i116, i64 0, i32 5, i32 2
-  %13 = load i32, ptr %type.i.i.i.i.i.i.i122, align 8
-  %type4.i.i.i.i.i.i.i123 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i115, i64 0, i32 5, i32 2
-  store i32 %13, ptr %type4.i.i.i.i.i.i.i123, align 8
-  %name.i.i.i.i.i.i.i124 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i115, i64 0, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i125 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i116, i64 0, i32 5, i32 3
-  %call6.i.i.i.i.i.i.i126 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i124, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i125) #29
-  %default_value.i.i.i.i.i.i.i127 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i115, i64 0, i32 5, i32 4
-  %default_value7.i.i.i.i.i.i.i128 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i116, i64 0, i32 5, i32 4
-  %call8.i.i.i.i.i.i.i129 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i127, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i128) #29
-  %index.i.i.i.i.i.i.i130 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i116, i64 0, i32 5, i32 5
-  %14 = load i64, ptr %index.i.i.i.i.i.i.i130, align 8
-  %index9.i.i.i.i.i.i.i131 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i115, i64 0, i32 5, i32 5
-  store i64 %14, ptr %index9.i.i.i.i.i.i.i131, align 8
-  %incdec.ptr.i.i.i.i.i132 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i116, i64 1
-  %incdec.ptr1.i.i.i.i.i133 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i115, i64 1
-  %dec.i.i.i.i.i134 = add nsw i64 %__n.09.i.i.i.i.i114, -1
-  %cmp.i.i.i.i.i135 = icmp ugt i64 %__n.09.i.i.i.i.i114, 1
-  br i1 %cmp.i.i.i.i.i135, label %for.body.i.i.i.i.i113, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !361
+for.body.i.i.i.i.i111:                            ; preds = %for.body.i.i.i.i.i111, %for.body.preheader.i.i.i.i.i109
+  %__n.09.i.i.i.i.i112 = phi i64 [ %dec.i.i.i.i.i132, %for.body.i.i.i.i.i111 ], [ %sub.ptr.div10.i.i.i.i.i110, %for.body.preheader.i.i.i.i.i109 ]
+  %__result.addr.08.i.i.i.i.i113 = phi ptr [ %incdec.ptr1.i.i.i.i.i131, %for.body.i.i.i.i.i111 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i109 ]
+  %__first.addr.07.i.i.i.i.i114 = phi ptr [ %incdec.ptr.i.i.i.i.i130, %for.body.i.i.i.i.i111 ], [ %__middle.coerce, %for.body.preheader.i.i.i.i.i109 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i113, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i114, i64 40, i1 false)
+  %comment.i.i.i.i.i.i115 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i113, i64 0, i32 5
+  %comment3.i.i.i.i.i.i116 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i114, i64 0, i32 5
+  %12 = load i32, ptr %comment3.i.i.i.i.i.i116, align 8
+  store i32 %12, ptr %comment.i.i.i.i.i.i115, align 8
+  %status_message.i.i.i.i.i.i.i117 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i113, i64 0, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i118 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i114, i64 0, i32 5, i32 1
+  %call.i.i.i.i.i.i.i119 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i117, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i118) #29
+  %type.i.i.i.i.i.i.i120 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i114, i64 0, i32 5, i32 2
+  %13 = load i32, ptr %type.i.i.i.i.i.i.i120, align 8
+  %type4.i.i.i.i.i.i.i121 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i113, i64 0, i32 5, i32 2
+  store i32 %13, ptr %type4.i.i.i.i.i.i.i121, align 8
+  %name.i.i.i.i.i.i.i122 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i113, i64 0, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i123 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i114, i64 0, i32 5, i32 3
+  %call6.i.i.i.i.i.i.i124 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i122, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i123) #29
+  %default_value.i.i.i.i.i.i.i125 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i113, i64 0, i32 5, i32 4
+  %default_value7.i.i.i.i.i.i.i126 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i114, i64 0, i32 5, i32 4
+  %call8.i.i.i.i.i.i.i127 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i125, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i126) #29
+  %index.i.i.i.i.i.i.i128 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i114, i64 0, i32 5, i32 5
+  %14 = load i64, ptr %index.i.i.i.i.i.i.i128, align 8
+  %index9.i.i.i.i.i.i.i129 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i113, i64 0, i32 5, i32 5
+  store i64 %14, ptr %index9.i.i.i.i.i.i.i129, align 8
+  %incdec.ptr.i.i.i.i.i130 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__first.addr.07.i.i.i.i.i114, i64 1
+  %incdec.ptr1.i.i.i.i.i131 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.08.i.i.i.i.i113, i64 1
+  %dec.i.i.i.i.i132 = add nsw i64 %__n.09.i.i.i.i.i112, -1
+  %cmp.i.i.i.i.i133 = icmp ugt i64 %__n.09.i.i.i.i.i112, 1
+  br i1 %cmp.i.i.i.i.i133, label %for.body.i.i.i.i.i111, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !361
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %for.body.i.i.i.i.i113, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit100
-  %sub.ptr.lhs.cast.i.i.i.i.i136 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i74 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i137 = ptrtoint ptr %__buffer to i64
-  %sub.ptr.sub.i.i.i.i.i138 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i136, %sub.ptr.rhs.cast.i.i.i.i.i137
-  %cmp4.i.i.i.i.i139 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i138, 0
-  br i1 %cmp4.i.i.i.i.i139, label %for.body.preheader.i.i.i.i.i146, label %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %for.body.i.i.i.i.i111, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit99
+  %sub.ptr.lhs.cast.i.i.i.i.i134 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i73 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i135 = ptrtoint ptr %__buffer to i64
+  %sub.ptr.sub.i.i.i.i.i136 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i134, %sub.ptr.rhs.cast.i.i.i.i.i135
+  %cmp4.i.i.i.i.i137 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i136, 0
+  br i1 %cmp4.i.i.i.i.i137, label %for.body.preheader.i.i.i.i.i143, label %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
 
-for.body.preheader.i.i.i.i.i146:                  ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
-  %sub.ptr.div8.i.i.i.i.i147 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i138, 160
-  br label %for.body.i.i.i.i.i148
+for.body.preheader.i.i.i.i.i143:                  ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
+  %sub.ptr.div8.i.i.i.i.i144 = udiv exact i64 %sub.ptr.sub.i.i.i.i.i136, 160
+  br label %for.body.i.i.i.i.i145
 
-for.body.i.i.i.i.i148:                            ; preds = %for.body.i.i.i.i.i148, %for.body.preheader.i.i.i.i.i146
-  %__n.07.i.i.i.i.i149 = phi i64 [ %dec.i.i.i.i.i169, %for.body.i.i.i.i.i148 ], [ %sub.ptr.div8.i.i.i.i.i147, %for.body.preheader.i.i.i.i.i146 ]
-  %__result.addr.06.i.i.i.i.i150 = phi ptr [ %incdec.ptr1.i.i.i.i.i153, %for.body.i.i.i.i.i148 ], [ %__last.coerce, %for.body.preheader.i.i.i.i.i146 ]
-  %__last.addr.05.i.i.i.i.i151 = phi ptr [ %incdec.ptr.i.i.i.i.i152, %for.body.i.i.i.i.i148 ], [ %__result.addr.0.lcssa.i.i.i.i.i74, %for.body.preheader.i.i.i.i.i146 ]
-  %incdec.ptr.i.i.i.i.i152 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i151, i64 -1
-  %incdec.ptr1.i.i.i.i.i153 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i150, i64 -1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i153, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i152, i64 40, i1 false)
-  %comment.i.i.i.i.i.i154 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i150, i64 -1, i32 5
-  %comment3.i.i.i.i.i.i155 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i151, i64 -1, i32 5
-  %15 = load i32, ptr %comment3.i.i.i.i.i.i155, align 8
-  store i32 %15, ptr %comment.i.i.i.i.i.i154, align 8
-  %status_message.i.i.i.i.i.i.i156 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i150, i64 -1, i32 5, i32 1
-  %status_message3.i.i.i.i.i.i.i157 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i151, i64 -1, i32 5, i32 1
-  %call.i.i.i.i.i.i.i158 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i156, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i157) #29
-  %type.i.i.i.i.i.i.i159 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i151, i64 -1, i32 5, i32 2
-  %16 = load i32, ptr %type.i.i.i.i.i.i.i159, align 8
-  %type4.i.i.i.i.i.i.i160 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i150, i64 -1, i32 5, i32 2
-  store i32 %16, ptr %type4.i.i.i.i.i.i.i160, align 8
-  %name.i.i.i.i.i.i.i161 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i150, i64 -1, i32 5, i32 3
-  %name5.i.i.i.i.i.i.i162 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i151, i64 -1, i32 5, i32 3
-  %call6.i.i.i.i.i.i.i163 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i161, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i162) #29
-  %default_value.i.i.i.i.i.i.i164 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i150, i64 -1, i32 5, i32 4
-  %default_value7.i.i.i.i.i.i.i165 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i151, i64 -1, i32 5, i32 4
-  %call8.i.i.i.i.i.i.i166 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i164, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i165) #29
-  %index.i.i.i.i.i.i.i167 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i151, i64 -1, i32 5, i32 5
-  %17 = load i64, ptr %index.i.i.i.i.i.i.i167, align 8
-  %index9.i.i.i.i.i.i.i168 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i150, i64 -1, i32 5, i32 5
-  store i64 %17, ptr %index9.i.i.i.i.i.i.i168, align 8
-  %dec.i.i.i.i.i169 = add nsw i64 %__n.07.i.i.i.i.i149, -1
-  %cmp.i.i.i.i.i170 = icmp ugt i64 %__n.07.i.i.i.i.i149, 1
-  br i1 %cmp.i.i.i.i.i170, label %for.body.i.i.i.i.i148, label %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit, !llvm.loop !344
+for.body.i.i.i.i.i145:                            ; preds = %for.body.i.i.i.i.i145, %for.body.preheader.i.i.i.i.i143
+  %__n.07.i.i.i.i.i146 = phi i64 [ %dec.i.i.i.i.i166, %for.body.i.i.i.i.i145 ], [ %sub.ptr.div8.i.i.i.i.i144, %for.body.preheader.i.i.i.i.i143 ]
+  %__result.addr.06.i.i.i.i.i147 = phi ptr [ %incdec.ptr1.i.i.i.i.i150, %for.body.i.i.i.i.i145 ], [ %__last.coerce, %for.body.preheader.i.i.i.i.i143 ]
+  %__last.addr.05.i.i.i.i.i148 = phi ptr [ %incdec.ptr.i.i.i.i.i149, %for.body.i.i.i.i.i145 ], [ %__result.addr.0.lcssa.i.i.i.i.i73, %for.body.preheader.i.i.i.i.i143 ]
+  %incdec.ptr.i.i.i.i.i149 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i148, i64 -1
+  %incdec.ptr1.i.i.i.i.i150 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i147, i64 -1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i.i.i.i.i150, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i.i.i.i.i149, i64 40, i1 false)
+  %comment.i.i.i.i.i.i151 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i147, i64 -1, i32 5
+  %comment3.i.i.i.i.i.i152 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i148, i64 -1, i32 5
+  %15 = load i32, ptr %comment3.i.i.i.i.i.i152, align 8
+  store i32 %15, ptr %comment.i.i.i.i.i.i151, align 8
+  %status_message.i.i.i.i.i.i.i153 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i147, i64 -1, i32 5, i32 1
+  %status_message3.i.i.i.i.i.i.i154 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i148, i64 -1, i32 5, i32 1
+  %call.i.i.i.i.i.i.i155 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %status_message.i.i.i.i.i.i.i153, ptr noundef nonnull align 8 dereferenceable(32) %status_message3.i.i.i.i.i.i.i154) #29
+  %type.i.i.i.i.i.i.i156 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i148, i64 -1, i32 5, i32 2
+  %16 = load i32, ptr %type.i.i.i.i.i.i.i156, align 8
+  %type4.i.i.i.i.i.i.i157 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i147, i64 -1, i32 5, i32 2
+  store i32 %16, ptr %type4.i.i.i.i.i.i.i157, align 8
+  %name.i.i.i.i.i.i.i158 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i147, i64 -1, i32 5, i32 3
+  %name5.i.i.i.i.i.i.i159 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i148, i64 -1, i32 5, i32 3
+  %call6.i.i.i.i.i.i.i160 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i158, ptr noundef nonnull align 8 dereferenceable(32) %name5.i.i.i.i.i.i.i159) #29
+  %default_value.i.i.i.i.i.i.i161 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i147, i64 -1, i32 5, i32 4
+  %default_value7.i.i.i.i.i.i.i162 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i148, i64 -1, i32 5, i32 4
+  %call8.i.i.i.i.i.i.i163 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_value.i.i.i.i.i.i.i161, ptr noundef nonnull align 8 dereferenceable(32) %default_value7.i.i.i.i.i.i.i162) #29
+  %index.i.i.i.i.i.i.i164 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__last.addr.05.i.i.i.i.i148, i64 -1, i32 5, i32 5
+  %17 = load i64, ptr %index.i.i.i.i.i.i.i164, align 8
+  %index9.i.i.i.i.i.i.i165 = getelementptr %"struct.flatbuffers::BinaryRegion", ptr %__result.addr.06.i.i.i.i.i147, i64 -1, i32 5, i32 5
+  store i64 %17, ptr %index9.i.i.i.i.i.i.i165, align 8
+  %dec.i.i.i.i.i166 = add nsw i64 %__n.07.i.i.i.i.i146, -1
+  %cmp.i.i.i.i.i167 = icmp ugt i64 %__n.07.i.i.i.i.i146, 1
+  br i1 %cmp.i.i.i.i.i167, label %for.body.i.i.i.i.i145, label %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit, !llvm.loop !344
 
-_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit: ; preds = %for.body.i.i.i.i.i148
-  %.pre = ptrtoint ptr %incdec.ptr1.i.i.i.i.i153 to i64
+_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit: ; preds = %for.body.i.i.i.i.i145
+  %.pre = ptrtoint ptr %incdec.ptr1.i.i.i.i.i150 to i64
   br label %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
 
 _ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit: ; preds = %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
-  %sub.ptr.lhs.cast.i.i.i141.pre-phi = phi i64 [ %.pre, %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit ], [ %sub.ptr.lhs.cast.i.i.i.i.i101, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ]
-  %sub.ptr.sub.i.i.i143 = sub i64 %sub.ptr.lhs.cast.i.i.i141.pre-phi, %sub.ptr.lhs.cast.i.i.i.i.i101
-  %sub.ptr.div.i.i.i144 = sdiv exact i64 %sub.ptr.sub.i.i.i143, 160
-  %add.ptr.i.i.i.i145 = getelementptr inbounds %"struct.flatbuffers::BinaryRegion", ptr %__last.coerce, i64 %sub.ptr.div.i.i.i144
+  %sub.ptr.lhs.cast.i.i.i139.pre-phi = phi i64 [ %.pre, %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit ], [ %sub.ptr.lhs.cast.i.i.i.i.i100, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12BinaryRegionESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ]
+  %sub.ptr.sub.i.i.i141 = sub i64 %sub.ptr.lhs.cast.i.i.i139.pre-phi, %sub.ptr.lhs.cast.i.i.i.i.i100
+  %add.ptr.i.i.i.i142 = getelementptr inbounds i8, ptr %__last.coerce, i64 %sub.ptr.sub.i.i.i141
   br label %return
 
 if.else44:                                        ; preds = %if.else20
@@ -31938,7 +31927,7 @@ if.else44:                                        ; preds = %if.else20
   br label %return
 
 return:                                           ; preds = %if.then22, %if.then, %if.else44, %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
-  %retval.sroa.0.0 = phi ptr [ %add.ptr.i.i.i.i44, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %add.ptr.i.i.i.i145, %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %call.i, %if.else44 ], [ %__first.coerce, %if.then ], [ %__last.coerce, %if.then22 ]
+  %retval.sroa.0.0 = phi ptr [ %add.ptr.i.i.i.i43, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %add.ptr.i.i.i.i142, %_ZSt13move_backwardIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %call.i, %if.else44 ], [ %__first.coerce, %if.then ], [ %__last.coerce, %if.then22 ]
   ret ptr %retval.sroa.0.0
 }
 

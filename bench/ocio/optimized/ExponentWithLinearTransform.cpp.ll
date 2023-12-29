@@ -227,7 +227,7 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont5:                                     ; preds = %entry
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp, align 8
-  %add.ptr.i1.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i, align 8
@@ -257,85 +257,85 @@ lpad.i14:                                         ; preds = %_ZNSt6vectorIdSaIdE
 
 invoke.cont19:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   store ptr %call5.i.i.i.i2.i13, ptr %ref.tmp9, align 8
-  %add.ptr.i1.i18 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i13, i64 2
+  %add.ptr.i1.i18 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i13, i64 16
   %_M_end_of_storage.i.i19 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp9, i64 0, i32 2
   store ptr %add.ptr.i1.i18, ptr %_M_end_of_storage.i.i19, align 8
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i13, align 8
-  %_M_finish.i.i20 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp9, i64 0, i32 1
-  store ptr %add.ptr.i1.i18, ptr %_M_finish.i.i20, align 8
+  %_M_finish.i.i21 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp9, i64 0, i32 1
+  store ptr %add.ptr.i1.i18, ptr %_M_finish.i.i21, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData14setGreenParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
   %3 = load ptr, ptr %ref.tmp9, align 8
-  %tobool.not.i.i.i23 = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i23, label %_ZNSt6vectorIdSaIdEED2Ev.exit26, label %if.then.i.i.i24
+  %tobool.not.i.i.i24 = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i.i24, label %_ZNSt6vectorIdSaIdEED2Ev.exit27, label %if.then.i.i.i25
 
-if.then.i.i.i24:                                  ; preds = %invoke.cont21
+if.then.i.i.i25:                                  ; preds = %invoke.cont21
   call void @_ZdlPv(ptr noundef nonnull %3) #22
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit26
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit27
 
-_ZNSt6vectorIdSaIdEED2Ev.exit26:                  ; preds = %invoke.cont21, %if.then.i.i.i24
+_ZNSt6vectorIdSaIdEED2Ev.exit27:                  ; preds = %invoke.cont21, %if.then.i.i.i25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp25, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i28 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %invoke.cont35 unwind label %lpad.i29
+  %call5.i.i.i.i2.i29 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
+          to label %invoke.cont35 unwind label %lpad.i30
 
-lpad.i29:                                         ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit26
+lpad.i30:                                         ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit27
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup58
 
-invoke.cont35:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit26
-  store ptr %call5.i.i.i.i2.i28, ptr %ref.tmp25, align 8
-  %add.ptr.i1.i33 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i28, i64 2
-  %_M_end_of_storage.i.i34 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp25, i64 0, i32 2
-  store ptr %add.ptr.i1.i33, ptr %_M_end_of_storage.i.i34, align 8
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i28, align 8
-  %_M_finish.i.i35 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp25, i64 0, i32 1
-  store ptr %add.ptr.i1.i33, ptr %_M_finish.i.i35, align 8
+invoke.cont35:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit27
+  store ptr %call5.i.i.i.i2.i29, ptr %ref.tmp25, align 8
+  %add.ptr.i1.i34 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i29, i64 16
+  %_M_end_of_storage.i.i35 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp25, i64 0, i32 2
+  store ptr %add.ptr.i1.i34, ptr %_M_end_of_storage.i.i35, align 8
+  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i29, align 8
+  %_M_finish.i.i37 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp25, i64 0, i32 1
+  store ptr %add.ptr.i1.i34, ptr %_M_finish.i.i37, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData13setBlueParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp25)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont35
   %5 = load ptr, ptr %ref.tmp25, align 8
-  %tobool.not.i.i.i38 = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i38, label %_ZNSt6vectorIdSaIdEED2Ev.exit41, label %if.then.i.i.i39
+  %tobool.not.i.i.i40 = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i.i40, label %_ZNSt6vectorIdSaIdEED2Ev.exit43, label %if.then.i.i.i41
 
-if.then.i.i.i39:                                  ; preds = %invoke.cont37
+if.then.i.i.i41:                                  ; preds = %invoke.cont37
   call void @_ZdlPv(ptr noundef nonnull %5) #22
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit41
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit43
 
-_ZNSt6vectorIdSaIdEED2Ev.exit41:                  ; preds = %invoke.cont37, %if.then.i.i.i39
+_ZNSt6vectorIdSaIdEED2Ev.exit43:                  ; preds = %invoke.cont37, %if.then.i.i.i41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp41, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i43 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %invoke.cont51 unwind label %lpad.i44
+  %call5.i.i.i.i2.i45 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
+          to label %invoke.cont51 unwind label %lpad.i46
 
-lpad.i44:                                         ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit41
+lpad.i46:                                         ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit43
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup58
 
-invoke.cont51:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit41
-  store ptr %call5.i.i.i.i2.i43, ptr %ref.tmp41, align 8
-  %add.ptr.i1.i48 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i43, i64 2
-  %_M_end_of_storage.i.i49 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp41, i64 0, i32 2
-  store ptr %add.ptr.i1.i48, ptr %_M_end_of_storage.i.i49, align 8
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i43, align 8
-  %_M_finish.i.i50 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp41, i64 0, i32 1
-  store ptr %add.ptr.i1.i48, ptr %_M_finish.i.i50, align 8
+invoke.cont51:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit43
+  store ptr %call5.i.i.i.i2.i45, ptr %ref.tmp41, align 8
+  %add.ptr.i1.i50 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i45, i64 16
+  %_M_end_of_storage.i.i51 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp41, i64 0, i32 2
+  store ptr %add.ptr.i1.i50, ptr %_M_end_of_storage.i.i51, align 8
+  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i45, align 8
+  %_M_finish.i.i53 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp41, i64 0, i32 1
+  store ptr %add.ptr.i1.i50, ptr %_M_finish.i.i53, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData14setAlphaParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp41)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont51
   %7 = load ptr, ptr %ref.tmp41, align 8
-  %tobool.not.i.i.i53 = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i53, label %_ZNSt6vectorIdSaIdEED2Ev.exit56, label %if.then.i.i.i54
+  %tobool.not.i.i.i56 = icmp eq ptr %7, null
+  br i1 %tobool.not.i.i.i56, label %_ZNSt6vectorIdSaIdEED2Ev.exit59, label %if.then.i.i.i57
 
-if.then.i.i.i54:                                  ; preds = %invoke.cont53
+if.then.i.i.i57:                                  ; preds = %invoke.cont53
   call void @_ZdlPv(ptr noundef nonnull %7) #22
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit56
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit59
 
-_ZNSt6vectorIdSaIdEED2Ev.exit56:                  ; preds = %invoke.cont53, %if.then.i.i.i54
+_ZNSt6vectorIdSaIdEED2Ev.exit59:                  ; preds = %invoke.cont53, %if.then.i.i.i57
   store i32 6, ptr %ref.tmp57, align 4
   call void @_ZN19OpenColorIO_v2_4dev11GammaOpData8setStyleERKNS0_5StyleE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp57) #19
   ret void
@@ -344,10 +344,10 @@ lpad6:                                            ; preds = %invoke.cont5
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %ref.tmp, align 8
-  %tobool.not.i.i.i58 = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i.i58, label %ehcleanup58, label %if.then.i.i.i59
+  %tobool.not.i.i.i61 = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i61, label %ehcleanup58, label %if.then.i.i.i62
 
-if.then.i.i.i59:                                  ; preds = %lpad6
+if.then.i.i.i62:                                  ; preds = %lpad6
   call void @_ZdlPv(ptr noundef nonnull %9) #22
   br label %ehcleanup58
 
@@ -355,10 +355,10 @@ lpad20:                                           ; preds = %invoke.cont19
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load ptr, ptr %ref.tmp9, align 8
-  %tobool.not.i.i.i62 = icmp eq ptr %11, null
-  br i1 %tobool.not.i.i.i62, label %ehcleanup58, label %if.then.i.i.i63
+  %tobool.not.i.i.i65 = icmp eq ptr %11, null
+  br i1 %tobool.not.i.i.i65, label %ehcleanup58, label %if.then.i.i.i66
 
-if.then.i.i.i63:                                  ; preds = %lpad20
+if.then.i.i.i66:                                  ; preds = %lpad20
   call void @_ZdlPv(ptr noundef nonnull %11) #22
   br label %ehcleanup58
 
@@ -366,10 +366,10 @@ lpad36:                                           ; preds = %invoke.cont35
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = load ptr, ptr %ref.tmp25, align 8
-  %tobool.not.i.i.i66 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i66, label %ehcleanup58, label %if.then.i.i.i67
+  %tobool.not.i.i.i69 = icmp eq ptr %13, null
+  br i1 %tobool.not.i.i.i69, label %ehcleanup58, label %if.then.i.i.i70
 
-if.then.i.i.i67:                                  ; preds = %lpad36
+if.then.i.i.i70:                                  ; preds = %lpad36
   call void @_ZdlPv(ptr noundef nonnull %13) #22
   br label %ehcleanup58
 
@@ -377,15 +377,15 @@ lpad52:                                           ; preds = %invoke.cont51
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = load ptr, ptr %ref.tmp41, align 8
-  %tobool.not.i.i.i70 = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i70, label %ehcleanup58, label %if.then.i.i.i71
+  %tobool.not.i.i.i73 = icmp eq ptr %15, null
+  br i1 %tobool.not.i.i.i73, label %ehcleanup58, label %if.then.i.i.i74
 
-if.then.i.i.i71:                                  ; preds = %lpad52
+if.then.i.i.i74:                                  ; preds = %lpad52
   call void @_ZdlPv(ptr noundef nonnull %15) #22
   br label %ehcleanup58
 
-ehcleanup58:                                      ; preds = %lpad.i44, %lpad.i29, %lpad.i14, %lpad.i, %lpad52, %if.then.i.i.i71, %lpad36, %if.then.i.i.i67, %lpad20, %if.then.i.i.i63, %lpad6, %if.then.i.i.i59
-  %.pn6.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %8, %lpad6 ], [ %8, %if.then.i.i.i59 ], [ %2, %lpad.i14 ], [ %10, %lpad20 ], [ %10, %if.then.i.i.i63 ], [ %4, %lpad.i29 ], [ %12, %lpad36 ], [ %12, %if.then.i.i.i67 ], [ %6, %lpad.i44 ], [ %14, %lpad52 ], [ %14, %if.then.i.i.i71 ]
+ehcleanup58:                                      ; preds = %lpad.i46, %lpad.i30, %lpad.i14, %lpad.i, %lpad52, %if.then.i.i.i74, %lpad36, %if.then.i.i.i70, %lpad20, %if.then.i.i.i66, %lpad6, %if.then.i.i.i62
+  %.pn6.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %8, %lpad6 ], [ %8, %if.then.i.i.i62 ], [ %2, %lpad.i14 ], [ %10, %lpad20 ], [ %10, %if.then.i.i.i66 ], [ %4, %lpad.i30 ], [ %12, %lpad36 ], [ %12, %if.then.i.i.i70 ], [ %6, %lpad.i46 ], [ %14, %lpad52 ], [ %14, %if.then.i.i.i74 ]
   call void @_ZN19OpenColorIO_v2_4dev11GammaOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(272) %m_data) #19
   resume { ptr, i32 } %.pn6.pn
 }
@@ -821,7 +821,7 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont5:                                     ; preds = %entry
   store ptr %call5.i.i.i.i2.i, ptr %red, align 8
-  %add.ptr.i1.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i, i64 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %red, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store double %1, ptr %call5.i.i.i.i2.i, align 8
@@ -845,62 +845,62 @@ lpad.i6:                                          ; preds = %invoke.cont5
 
 invoke.cont19:                                    ; preds = %invoke.cont5
   store ptr %call5.i.i.i.i2.i5, ptr %grn, align 8
-  %add.ptr.i1.i10 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i5, i64 2
+  %add.ptr.i1.i10 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i5, i64 16
   %_M_end_of_storage.i.i11 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %grn, i64 0, i32 2
   store ptr %add.ptr.i1.i10, ptr %_M_end_of_storage.i.i11, align 8
   store double %5, ptr %call5.i.i.i.i2.i5, align 8
   %ref.tmp7.sroa.2.0.call5.i.i.i.i2.i5.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i5, i64 8
   store double %6, ptr %ref.tmp7.sroa.2.0.call5.i.i.i.i2.i5.sroa_idx, align 8
-  %_M_finish.i.i12 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %grn, i64 0, i32 1
-  store ptr %add.ptr.i1.i10, ptr %_M_finish.i.i12, align 8
+  %_M_finish.i.i13 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %grn, i64 0, i32 1
+  store ptr %add.ptr.i1.i10, ptr %_M_finish.i.i13, align 8
   %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 4
   %8 = load ptr, ptr %m_blueParams.i, align 8
   %9 = load double, ptr %8, align 8
   %arrayidx28 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 2
   %10 = load double, ptr %arrayidx28, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %blu, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i17 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %invoke.cont33 unwind label %lpad.i18
+  %call5.i.i.i.i2.i18 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
+          to label %invoke.cont33 unwind label %lpad.i19
 
-lpad.i18:                                         ; preds = %invoke.cont19
+lpad.i19:                                         ; preds = %invoke.cont19
   %11 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 invoke.cont33:                                    ; preds = %invoke.cont19
-  store ptr %call5.i.i.i.i2.i17, ptr %blu, align 8
-  %add.ptr.i1.i22 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i17, i64 2
-  %_M_end_of_storage.i.i23 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %blu, i64 0, i32 2
-  store ptr %add.ptr.i1.i22, ptr %_M_end_of_storage.i.i23, align 8
-  store double %9, ptr %call5.i.i.i.i2.i17, align 8
-  %ref.tmp21.sroa.2.0.call5.i.i.i.i2.i17.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i17, i64 8
-  store double %10, ptr %ref.tmp21.sroa.2.0.call5.i.i.i.i2.i17.sroa_idx, align 8
-  %_M_finish.i.i24 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %blu, i64 0, i32 1
-  store ptr %add.ptr.i1.i22, ptr %_M_finish.i.i24, align 8
+  store ptr %call5.i.i.i.i2.i18, ptr %blu, align 8
+  %add.ptr.i1.i23 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i18, i64 16
+  %_M_end_of_storage.i.i24 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %blu, i64 0, i32 2
+  store ptr %add.ptr.i1.i23, ptr %_M_end_of_storage.i.i24, align 8
+  store double %9, ptr %call5.i.i.i.i2.i18, align 8
+  %ref.tmp21.sroa.2.0.call5.i.i.i.i2.i18.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i18, i64 8
+  store double %10, ptr %ref.tmp21.sroa.2.0.call5.i.i.i.i2.i18.sroa_idx, align 8
+  %_M_finish.i.i26 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %blu, i64 0, i32 1
+  store ptr %add.ptr.i1.i23, ptr %_M_finish.i.i26, align 8
   %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 5
   %12 = load ptr, ptr %m_alphaParams.i, align 8
   %13 = load double, ptr %12, align 8
   %arrayidx42 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 3
   %14 = load double, ptr %arrayidx42, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %alp, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i29 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %invoke.cont47 unwind label %lpad.i30
+  %call5.i.i.i.i2.i31 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
+          to label %invoke.cont47 unwind label %lpad.i32
 
-lpad.i30:                                         ; preds = %invoke.cont33
+lpad.i32:                                         ; preds = %invoke.cont33
   %15 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 invoke.cont47:                                    ; preds = %invoke.cont33
-  store ptr %call5.i.i.i.i2.i29, ptr %alp, align 8
-  %add.ptr.i1.i34 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i29, i64 2
-  %_M_end_of_storage.i.i35 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %alp, i64 0, i32 2
-  store ptr %add.ptr.i1.i34, ptr %_M_end_of_storage.i.i35, align 8
-  store double %13, ptr %call5.i.i.i.i2.i29, align 8
-  %ref.tmp35.sroa.2.0.call5.i.i.i.i2.i29.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i29, i64 8
-  store double %14, ptr %ref.tmp35.sroa.2.0.call5.i.i.i.i2.i29.sroa_idx, align 8
-  %_M_finish.i.i36 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %alp, i64 0, i32 1
-  store ptr %add.ptr.i1.i34, ptr %_M_finish.i.i36, align 8
+  store ptr %call5.i.i.i.i2.i31, ptr %alp, align 8
+  %add.ptr.i1.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i31, i64 16
+  %_M_end_of_storage.i.i37 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %alp, i64 0, i32 2
+  store ptr %add.ptr.i1.i36, ptr %_M_end_of_storage.i.i37, align 8
+  store double %13, ptr %call5.i.i.i.i2.i31, align 8
+  %ref.tmp35.sroa.2.0.call5.i.i.i.i2.i31.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i31, i64 8
+  store double %14, ptr %ref.tmp35.sroa.2.0.call5.i.i.i.i2.i31.sroa_idx, align 8
+  %_M_finish.i.i39 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %alp, i64 0, i32 1
+  store ptr %add.ptr.i1.i36, ptr %_M_finish.i.i39, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData12setRedParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i, ptr noundef nonnull align 8 dereferenceable(24) %red)
           to label %invoke.cont49 unwind label %terminate.lpad
 
@@ -918,8 +918,8 @@ invoke.cont53:                                    ; preds = %invoke.cont51
 
 invoke.cont55:                                    ; preds = %invoke.cont53
   %16 = load ptr, ptr %alp, align 8
-  %tobool.not.i.i.i44 = icmp eq ptr %16, null
-  br i1 %tobool.not.i.i.i44, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
+  %tobool.not.i.i.i47 = icmp eq ptr %16, null
+  br i1 %tobool.not.i.i.i47, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont55
   call void @_ZdlPv(ptr noundef nonnull %16) #22
@@ -927,32 +927,32 @@ if.then.i.i.i:                                    ; preds = %invoke.cont55
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont55, %if.then.i.i.i
   %17 = load ptr, ptr %blu, align 8
-  %tobool.not.i.i.i46 = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i.i46, label %_ZNSt6vectorIdSaIdEED2Ev.exit49, label %if.then.i.i.i47
+  %tobool.not.i.i.i49 = icmp eq ptr %17, null
+  br i1 %tobool.not.i.i.i49, label %_ZNSt6vectorIdSaIdEED2Ev.exit52, label %if.then.i.i.i50
 
-if.then.i.i.i47:                                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
+if.then.i.i.i50:                                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %17) #22
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit49
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit52
 
-_ZNSt6vectorIdSaIdEED2Ev.exit49:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %if.then.i.i.i47
+_ZNSt6vectorIdSaIdEED2Ev.exit52:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %if.then.i.i.i50
   %18 = load ptr, ptr %grn, align 8
-  %tobool.not.i.i.i50 = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i.i50, label %_ZNSt6vectorIdSaIdEED2Ev.exit53, label %if.then.i.i.i51
+  %tobool.not.i.i.i53 = icmp eq ptr %18, null
+  br i1 %tobool.not.i.i.i53, label %_ZNSt6vectorIdSaIdEED2Ev.exit56, label %if.then.i.i.i54
 
-if.then.i.i.i51:                                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit49
+if.then.i.i.i54:                                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit52
   call void @_ZdlPv(ptr noundef nonnull %18) #22
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit53
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit56
 
-_ZNSt6vectorIdSaIdEED2Ev.exit53:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit49, %if.then.i.i.i51
+_ZNSt6vectorIdSaIdEED2Ev.exit56:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit52, %if.then.i.i.i54
   %19 = load ptr, ptr %red, align 8
-  %tobool.not.i.i.i54 = icmp eq ptr %19, null
-  br i1 %tobool.not.i.i.i54, label %_ZNSt6vectorIdSaIdEED2Ev.exit57, label %if.then.i.i.i55
+  %tobool.not.i.i.i57 = icmp eq ptr %19, null
+  br i1 %tobool.not.i.i.i57, label %_ZNSt6vectorIdSaIdEED2Ev.exit60, label %if.then.i.i.i58
 
-if.then.i.i.i55:                                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit53
+if.then.i.i.i58:                                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit56
   call void @_ZdlPv(ptr noundef nonnull %19) #22
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit57
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit60
 
-_ZNSt6vectorIdSaIdEED2Ev.exit57:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit53, %if.then.i.i.i55
+_ZNSt6vectorIdSaIdEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit56, %if.then.i.i.i58
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont53, %invoke.cont51, %invoke.cont49, %invoke.cont47
@@ -960,8 +960,8 @@ terminate.lpad:                                   ; preds = %invoke.cont53, %inv
           catch ptr null
   br label %terminate.lpad.body
 
-terminate.lpad.body:                              ; preds = %lpad.i30, %lpad.i18, %lpad.i6, %lpad.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad.i ], [ %7, %lpad.i6 ], [ %11, %lpad.i18 ], [ %20, %terminate.lpad ], [ %15, %lpad.i30 ]
+terminate.lpad.body:                              ; preds = %lpad.i32, %lpad.i19, %lpad.i6, %lpad.i, %terminate.lpad
+  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad.i ], [ %7, %lpad.i6 ], [ %11, %lpad.i19 ], [ %20, %terminate.lpad ], [ %15, %lpad.i32 ]
   %21 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   call void @__clang_call_terminate(ptr %21) #21
   unreachable
@@ -1227,7 +1227,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds double, ptr %call5.i.i.i.i, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
@@ -1255,22 +1255,21 @@ if.else49:                                        ; preds = %if.else
 if.then.i.i.i.i.i35:                              ; preds = %if.else49
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %1, i64 %sub.ptr.sub.i22, i1 false)
   %.pre = load ptr, ptr %__x, align 8
-  %.pre43 = load ptr, ptr %_M_finish.i19, align 8
-  %.pre44 = load ptr, ptr %this, align 8
-  %.pre45 = load ptr, ptr %_M_finish.i, align 8
+  %.pre42 = load ptr, ptr %_M_finish.i19, align 8
+  %.pre43 = load ptr, ptr %this, align 8
+  %.pre44 = load ptr, ptr %_M_finish.i, align 8
+  %.pre45 = ptrtoint ptr %.pre42 to i64
   %.pre46 = ptrtoint ptr %.pre43 to i64
-  %.pre47 = ptrtoint ptr %.pre44 to i64
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.rhs.cast.i40.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.lhs.cast.i39.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre46, %if.then.i.i.i.i.i35 ]
-  %5 = phi ptr [ %0, %if.else49 ], [ %.pre45, %if.then.i.i.i.i.i35 ]
-  %6 = phi ptr [ %3, %if.else49 ], [ %.pre43, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.rhs.cast.i39.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre46, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.lhs.cast.i38.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i15, %if.else49 ], [ %.pre45, %if.then.i.i.i.i.i35 ]
+  %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
+  %6 = phi ptr [ %3, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
-  %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39.pre-phi, %sub.ptr.rhs.cast.i40.pre-phi
-  %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 3
-  %add.ptr62 = getelementptr inbounds double, ptr %7, i64 %sub.ptr.div.i42
+  %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38.pre-phi, %sub.ptr.rhs.cast.i39.pre-phi
+  %add.ptr62 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i40
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, %add.ptr62
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.end69, label %if.then.i.i.i.i.i.i.i.i
 
@@ -1283,7 +1282,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPdS0_ET0_
 
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit
   %8 = load ptr, ptr %this, align 8
-  %add.ptr72 = getelementptr inbounds double, ptr %8, i64 %sub.ptr.div.i
+  %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
   %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
