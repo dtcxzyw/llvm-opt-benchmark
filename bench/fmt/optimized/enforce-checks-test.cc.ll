@@ -35946,8 +35946,8 @@ sw.bb66:                                          ; preds = %if.end36
   %33 = load i64, ptr %s.i3.i, align 8
   %div.i.i184 = udiv i64 %33, 3600
   %rem.i.i.i185 = urem i64 %div.i.i184, 12
-  %cmp.i.i = icmp eq i64 %rem.i.i.i185, 0
-  %cond.i.i = select i1 %cmp.i.i, i64 12, i64 %rem.i.i.i185
+  %cmp.not.i.i = icmp eq i64 %rem.i.i.i185, 1
+  %cond.i.i = select i1 %cmp.not.i.i, i64 1, i64 12
   call void @_ZN3fmt3v106detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEESt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEElSt5ratioILl1ELl1EEE5writeEliNS1_8pad_typeE(ptr noundef nonnull align 8 dereferenceable(41) %handler, i64 noundef %cond.i.i, i32 noundef 2, i32 noundef %pad.1)
   br label %sw.epilog134
 
@@ -36821,8 +36821,8 @@ if.then2:                                         ; preds = %if.end
   %0 = load i64, ptr %s.i, align 8
   %div.i = udiv i64 %0, 3600
   %rem.i.i = urem i64 %div.i, 12
-  %cmp.i = icmp eq i64 %rem.i.i, 0
-  %cond.i = select i1 %cmp.i, i64 12, i64 %rem.i.i
+  %cmp.not.i = icmp eq i64 %rem.i.i, 1
+  %cond.i = select i1 %cmp.not.i, i64 1, i64 12
   tail call void @_ZN3fmt3v106detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEESt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEElSt5ratioILl1ELl1EEE5writeEliNS1_8pad_typeE(ptr noundef nonnull align 8 dereferenceable(41) %this, i64 noundef %cond.i, i32 noundef 2, i32 noundef %pad)
   br label %return
 
@@ -36832,9 +36832,8 @@ if.end4:                                          ; preds = %if.end
   %1 = load i64, ptr %s.i3, align 8
   %div.i4 = udiv i64 %1, 3600
   %rem.i.i5 = urem i64 %div.i4, 12
-  %cmp.i6 = icmp eq i64 %rem.i.i5, 0
-  %2 = trunc i64 %rem.i.i5 to i32
-  %conv3.i = select i1 %cmp.i6, i32 12, i32 %2
+  %cmp.not.i6 = icmp eq i64 %rem.i.i5, 1
+  %conv3.i = select i1 %cmp.not.i6, i32 1, i32 12
   %tm_hour = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 2
   store i32 %conv3.i, ptr %tm_hour, align 8
   call void @_ZN3fmt3v106detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEESt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEElSt5ratioILl1ELl1EEE9format_tmIMNS1_9tm_writerISA_cNSt6chrono8durationIlSC_EEEEFvNS1_14numeric_systemENS1_8pad_typeEEJSK_SL_EEEvRK2tmT_DpT0_(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(56) %time, i64 ptrtoint (ptr @_ZN3fmt3v106detail9tm_writerISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEcNSt6chrono8durationIlSt5ratioILl1ELl1EEEEE10on_12_hourENS1_14numeric_systemENS1_8pad_typeE to i64), i64 0, i32 noundef %ns, i32 noundef %pad)
@@ -37489,131 +37488,123 @@ declare noundef zeroext i1 @_ZNKSt6localeeqERKS_(ptr noundef nonnull align 8 der
 define linkonce_odr hidden void @_ZN3fmt3v106detail9tm_writerISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEcNSt6chrono8durationIlSt5ratioILl1ELl1EEEEE6write2EiNS1_8pad_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %value, i32 noundef %pad) local_unnamed_addr #0 comdat align 2 {
 entry:
   %rem = urem i32 %value, 100
-  %cmp = icmp ugt i32 %rem, 9
+  %cmp = icmp eq i32 %rem, 10
+  %out_ = getelementptr inbounds %"class.fmt::v10::detail::tm_writer", ptr %this, i64 0, i32 2
+  %retval.sroa.0.0.copyload.i = load ptr, ptr %out_, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %0 = shl nuw nsw i32 %rem, 1
-  %mul.i = zext nneg i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds [201 x i8], ptr @.str.4, i64 0, i64 %mul.i
-  %incdec.ptr = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
-  %out_ = getelementptr inbounds %"class.fmt::v10::detail::tm_writer", ptr %this, i64 0, i32 2
-  %retval.sroa.0.0.copyload.i = load ptr, ptr %out_, align 8
   %size_.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 2
-  %1 = load i64, ptr %size_.i.i, align 8
-  %add.i.i = add i64 %1, 1
+  %0 = load i64, ptr %size_.i.i, align 8
+  %add.i.i = add i64 %0, 1
   %capacity_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 3
-  %2 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %2, %add.i.i
+  %1 = load i64, ptr %capacity_.i.i.i, align 8
+  %cmp.i.i.i = icmp ult i64 %1, %add.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit
 
 if.then.i.i.i:                                    ; preds = %if.then
   %vtable.i.i.i = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
-  %3 = load ptr, ptr %vtable.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef %add.i.i)
+  %2 = load ptr, ptr %vtable.i.i.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef %add.i.i)
   %.pre.i.i = load i64, ptr %size_.i.i, align 8
   %.pre1.i.i = add i64 %.pre.i.i, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit
 
 _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit: ; preds = %if.then, %if.then.i.i.i
   %inc.pre-phi.i.i = phi i64 [ %add.i.i, %if.then ], [ %.pre1.i.i, %if.then.i.i.i ]
-  %4 = phi i64 [ %1, %if.then ], [ %.pre.i.i, %if.then.i.i.i ]
-  %5 = load i8, ptr %arrayidx.i, align 1
+  %3 = phi i64 [ %0, %if.then ], [ %.pre.i.i, %if.then.i.i.i ]
   %ptr_.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 1
-  %6 = load ptr, ptr %ptr_.i.i, align 8
+  %4 = load ptr, ptr %ptr_.i.i, align 8
   store i64 %inc.pre-phi.i.i, ptr %size_.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 %4
-  store i8 %5, ptr %arrayidx.i.i, align 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 %3
+  store i8 49, ptr %arrayidx.i.i, align 1
   %retval.sroa.0.0.copyload.i4 = load ptr, ptr %out_, align 8
   %size_.i.i5 = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i4, i64 0, i32 2
-  %7 = load i64, ptr %size_.i.i5, align 8
-  %add.i.i6 = add i64 %7, 1
+  %5 = load i64, ptr %size_.i.i5, align 8
+  %add.i.i6 = add i64 %5, 1
   %capacity_.i.i.i7 = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i4, i64 0, i32 3
-  %8 = load i64, ptr %capacity_.i.i.i7, align 8
-  %cmp.i.i.i8 = icmp ult i64 %8, %add.i.i6
+  %6 = load i64, ptr %capacity_.i.i.i7, align 8
+  %cmp.i.i.i8 = icmp ult i64 %6, %add.i.i6
   br i1 %cmp.i.i.i8, label %if.then.i.i.i12, label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit16
 
 if.then.i.i.i12:                                  ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit
   %vtable.i.i.i13 = load ptr, ptr %retval.sroa.0.0.copyload.i4, align 8
-  %9 = load ptr, ptr %vtable.i.i.i13, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i4, i64 noundef %add.i.i6)
+  %7 = load ptr, ptr %vtable.i.i.i13, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i4, i64 noundef %add.i.i6)
   %.pre.i.i14 = load i64, ptr %size_.i.i5, align 8
   %.pre1.i.i15 = add i64 %.pre.i.i14, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit16
 
 _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit16: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit, %if.then.i.i.i12
   %inc.pre-phi.i.i9 = phi i64 [ %add.i.i6, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit ], [ %.pre1.i.i15, %if.then.i.i.i12 ]
-  %10 = phi i64 [ %7, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit ], [ %.pre.i.i14, %if.then.i.i.i12 ]
-  %11 = load i8, ptr %incdec.ptr, align 1
+  %8 = phi i64 [ %5, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit ], [ %.pre.i.i14, %if.then.i.i.i12 ]
   %ptr_.i.i10 = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i4, i64 0, i32 1
-  %12 = load ptr, ptr %ptr_.i.i10, align 8
+  %9 = load ptr, ptr %ptr_.i.i10, align 8
   store i64 %inc.pre-phi.i.i9, ptr %size_.i.i5, align 8
-  %arrayidx.i.i11 = getelementptr inbounds i8, ptr %12, i64 %10
-  store i8 %11, ptr %arrayidx.i.i11, align 1
+  %arrayidx.i.i11 = getelementptr inbounds i8, ptr %9, i64 %8
+  store i8 48, ptr %arrayidx.i.i11, align 1
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %out_13 = getelementptr inbounds %"class.fmt::v10::detail::tm_writer", ptr %this, i64 0, i32 2
-  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %out_13, align 8
   %cmp.not.i = icmp eq i32 %pad, 1
   br i1 %cmp.not.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
   %cmp1.i = icmp eq i32 %pad, 3
   %cond.i = select i1 %cmp1.i, i8 32, i8 48
-  %size_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 2
-  %13 = load i64, ptr %size_.i.i.i, align 8
-  %add.i.i.i = add i64 %13, 1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 3
-  %14 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %14, %add.i.i.i
+  %size_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 2
+  %10 = load i64, ptr %size_.i.i.i, align 8
+  %add.i.i.i = add i64 %10, 1
+  %capacity_.i.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 3
+  %11 = load i64, ptr %capacity_.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp ult i64 %11, %add.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
-  %vtable.i.i.i.i = load ptr, ptr %agg.tmp.sroa.0.0.copyload, align 8
-  %15 = load ptr, ptr %vtable.i.i.i.i, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload, i64 noundef %add.i.i.i)
+  %vtable.i.i.i.i = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
+  %12 = load ptr, ptr %vtable.i.i.i.i, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef %add.i.i.i)
   %.pre.i.i.i = load i64, ptr %size_.i.i.i, align 8
   %.pre1.i.i.i = add i64 %.pre.i.i.i, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i
 
 _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i: ; preds = %if.then.i.i.i.i, %if.then.i
   %inc.pre-phi.i.i.i = phi i64 [ %add.i.i.i, %if.then.i ], [ %.pre1.i.i.i, %if.then.i.i.i.i ]
-  %16 = phi i64 [ %13, %if.then.i ], [ %.pre.i.i.i, %if.then.i.i.i.i ]
-  %ptr_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 1
-  %17 = load ptr, ptr %ptr_.i.i.i, align 8
+  %13 = phi i64 [ %10, %if.then.i ], [ %.pre.i.i.i, %if.then.i.i.i.i ]
+  %ptr_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 1
+  %14 = load ptr, ptr %ptr_.i.i.i, align 8
   store i64 %inc.pre-phi.i.i.i, ptr %size_.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %17, i64 %16
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 %cond.i, ptr %arrayidx.i.i.i, align 1
   br label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeE.exit
 
 _ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeE.exit: ; preds = %if.else, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit.i
-  store ptr %agg.tmp.sroa.0.0.copyload, ptr %out_13, align 8
-  %18 = trunc i32 %rem to i8
-  %conv19 = or disjoint i8 %18, 48
-  %size_.i.i18 = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 2
-  %19 = load i64, ptr %size_.i.i18, align 8
-  %add.i.i19 = add i64 %19, 1
-  %capacity_.i.i.i20 = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 3
-  %20 = load i64, ptr %capacity_.i.i.i20, align 8
-  %cmp.i.i.i21 = icmp ult i64 %20, %add.i.i19
+  store ptr %retval.sroa.0.0.copyload.i, ptr %out_, align 8
+  %15 = trunc i32 %rem to i8
+  %conv19 = add nuw i8 %15, 48
+  %size_.i.i18 = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 2
+  %16 = load i64, ptr %size_.i.i18, align 8
+  %add.i.i19 = add i64 %16, 1
+  %capacity_.i.i.i20 = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 3
+  %17 = load i64, ptr %capacity_.i.i.i20, align 8
+  %cmp.i.i.i21 = icmp ult i64 %17, %add.i.i19
   br i1 %cmp.i.i.i21, label %if.then.i.i.i25, label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit
 
 if.then.i.i.i25:                                  ; preds = %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeE.exit
-  %vtable.i.i.i26 = load ptr, ptr %agg.tmp.sroa.0.0.copyload, align 8
-  %21 = load ptr, ptr %vtable.i.i.i26, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload, i64 noundef %add.i.i19)
+  %vtable.i.i.i26 = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
+  %18 = load ptr, ptr %vtable.i.i.i26, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef %add.i.i19)
   %.pre.i.i27 = load i64, ptr %size_.i.i18, align 8
   %.pre1.i.i28 = add i64 %.pre.i.i27, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit
 
 _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit: ; preds = %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeE.exit, %if.then.i.i.i25
   %inc.pre-phi.i.i22 = phi i64 [ %add.i.i19, %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeE.exit ], [ %.pre1.i.i28, %if.then.i.i.i25 ]
-  %22 = phi i64 [ %19, %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeE.exit ], [ %.pre.i.i27, %if.then.i.i.i25 ]
-  %ptr_.i.i23 = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 1
-  %23 = load ptr, ptr %ptr_.i.i23, align 8
+  %19 = phi i64 [ %16, %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET_S8_NS1_8pad_typeE.exit ], [ %.pre.i.i27, %if.then.i.i.i25 ]
+  %ptr_.i.i23 = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 1
+  %20 = load ptr, ptr %ptr_.i.i23, align 8
   store i64 %inc.pre-phi.i.i22, ptr %size_.i.i18, align 8
-  %arrayidx.i.i24 = getelementptr inbounds i8, ptr %23, i64 %22
+  %arrayidx.i.i24 = getelementptr inbounds i8, ptr %20, i64 %19
   store i8 %conv19, ptr %arrayidx.i.i24, align 1
   br label %if.end
 
@@ -42488,8 +42479,8 @@ sw.bb61:                                          ; preds = %if.end32
   %33 = load i64, ptr %s.i3.i, align 8
   %div.i.i185 = udiv i64 %33, 3600
   %rem.i.i.i186 = urem i64 %div.i.i185, 12
-  %cmp.i.i = icmp eq i64 %rem.i.i.i186, 0
-  %cond.i.i = select i1 %cmp.i.i, i64 12, i64 %rem.i.i.i186
+  %cmp.not.i.i = icmp eq i64 %rem.i.i.i186, 1
+  %cond.i.i = select i1 %cmp.not.i.i, i64 1, i64 12
   call void @_ZN3fmt3v106detail16chrono_formatterINS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEES4_INS0_19basic_memory_bufferIwLm500ESaIwEEEElSt5ratioILl1ELl1EEE5writeEliNS1_8pad_typeE(ptr noundef nonnull align 8 dereferenceable(41) %handler, i64 noundef %cond.i.i, i32 noundef 2, i32 noundef %pad.1)
   br label %sw.epilog127
 
@@ -42955,8 +42946,8 @@ if.then2:                                         ; preds = %if.end
   %0 = load i64, ptr %s.i, align 8
   %div.i = udiv i64 %0, 3600
   %rem.i.i = urem i64 %div.i, 12
-  %cmp.i = icmp eq i64 %rem.i.i, 0
-  %cond.i = select i1 %cmp.i, i64 12, i64 %rem.i.i
+  %cmp.not.i = icmp eq i64 %rem.i.i, 1
+  %cond.i = select i1 %cmp.not.i, i64 1, i64 12
   tail call void @_ZN3fmt3v106detail16chrono_formatterINS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEES4_INS0_19basic_memory_bufferIwLm500ESaIwEEEElSt5ratioILl1ELl1EEE5writeEliNS1_8pad_typeE(ptr noundef nonnull align 8 dereferenceable(41) %this, i64 noundef %cond.i, i32 noundef 2, i32 noundef %pad)
   br label %return
 
@@ -42966,9 +42957,8 @@ if.end4:                                          ; preds = %if.end
   %1 = load i64, ptr %s.i3, align 8
   %div.i4 = udiv i64 %1, 3600
   %rem.i.i5 = urem i64 %div.i4, 12
-  %cmp.i6 = icmp eq i64 %rem.i.i5, 0
-  %2 = trunc i64 %rem.i.i5 to i32
-  %conv3.i = select i1 %cmp.i6, i32 12, i32 %2
+  %cmp.not.i6 = icmp eq i64 %rem.i.i5, 1
+  %conv3.i = select i1 %cmp.not.i6, i32 1, i32 12
   %tm_hour = getelementptr inbounds %struct.tm, ptr %time, i64 0, i32 2
   store i32 %conv3.i, ptr %tm_hour, align 8
   call void @_ZN3fmt3v106detail16chrono_formatterINS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEES4_INS0_19basic_memory_bufferIwLm500ESaIwEEEElSt5ratioILl1ELl1EEE9format_tmIMNS1_9tm_writerISC_wNSt6chrono8durationIlSE_EEEEFvNS1_14numeric_systemENS1_8pad_typeEEJSM_SN_EEEvRK2tmT_DpT0_(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(56) %time, i64 ptrtoint (ptr @_ZN3fmt3v106detail9tm_writerISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNSt6chrono8durationIlSt5ratioILl1ELl1EEEEE10on_12_hourENS1_14numeric_systemENS1_8pad_typeE to i64), i64 0, i32 noundef %ns, i32 noundef %pad)
@@ -43642,132 +43632,122 @@ return:                                           ; preds = %if.end, %if.then
 define linkonce_odr hidden void @_ZN3fmt3v106detail9tm_writerISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNSt6chrono8durationIlSt5ratioILl1ELl1EEEEE6write2EiNS1_8pad_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %value, i32 noundef %pad) local_unnamed_addr #0 comdat align 2 {
 entry:
   %rem = urem i32 %value, 100
-  %cmp = icmp ugt i32 %rem, 9
+  %cmp = icmp eq i32 %rem, 10
+  %out_ = getelementptr inbounds %"class.fmt::v10::detail::tm_writer.206", ptr %this, i64 0, i32 2
+  %retval.sroa.0.0.copyload.i = load ptr, ptr %out_, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %0 = shl nuw nsw i32 %rem, 1
-  %mul.i = zext nneg i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds [201 x i8], ptr @.str.4, i64 0, i64 %mul.i
-  %incdec.ptr = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
-  %1 = load i8, ptr %arrayidx.i, align 1
-  %conv3 = sext i8 %1 to i32
-  %out_ = getelementptr inbounds %"class.fmt::v10::detail::tm_writer.206", ptr %this, i64 0, i32 2
-  %retval.sroa.0.0.copyload.i = load ptr, ptr %out_, align 8
   %size_.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 2
-  %2 = load i64, ptr %size_.i.i, align 8
-  %add.i.i = add i64 %2, 1
+  %0 = load i64, ptr %size_.i.i, align 8
+  %add.i.i = add i64 %0, 1
   %capacity_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 3
-  %3 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %3, %add.i.i
+  %1 = load i64, ptr %capacity_.i.i.i, align 8
+  %cmp.i.i.i = icmp ult i64 %1, %add.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit
 
 if.then.i.i.i:                                    ; preds = %if.then
   %vtable.i.i.i = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
-  %4 = load ptr, ptr %vtable.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef %add.i.i)
+  %2 = load ptr, ptr %vtable.i.i.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef %add.i.i)
   %.pre.i.i = load i64, ptr %size_.i.i, align 8
   %.pre1.i.i = add i64 %.pre.i.i, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit
 
 _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit: ; preds = %if.then, %if.then.i.i.i
   %inc.pre-phi.i.i = phi i64 [ %add.i.i, %if.then ], [ %.pre1.i.i, %if.then.i.i.i ]
-  %5 = phi i64 [ %2, %if.then ], [ %.pre.i.i, %if.then.i.i.i ]
+  %3 = phi i64 [ %0, %if.then ], [ %.pre.i.i, %if.then.i.i.i ]
   %ptr_.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 1
-  %6 = load ptr, ptr %ptr_.i.i, align 8
+  %4 = load ptr, ptr %ptr_.i.i, align 8
   store i64 %inc.pre-phi.i.i, ptr %size_.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %6, i64 %5
-  store i32 %conv3, ptr %arrayidx.i.i, align 4
-  %7 = load i8, ptr %incdec.ptr, align 1
-  %conv9 = sext i8 %7 to i32
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 %3
+  store i32 49, ptr %arrayidx.i.i, align 4
   %retval.sroa.0.0.copyload.i4 = load ptr, ptr %out_, align 8
   %size_.i.i5 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i4, i64 0, i32 2
-  %8 = load i64, ptr %size_.i.i5, align 8
-  %add.i.i6 = add i64 %8, 1
+  %5 = load i64, ptr %size_.i.i5, align 8
+  %add.i.i6 = add i64 %5, 1
   %capacity_.i.i.i7 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i4, i64 0, i32 3
-  %9 = load i64, ptr %capacity_.i.i.i7, align 8
-  %cmp.i.i.i8 = icmp ult i64 %9, %add.i.i6
+  %6 = load i64, ptr %capacity_.i.i.i7, align 8
+  %cmp.i.i.i8 = icmp ult i64 %6, %add.i.i6
   br i1 %cmp.i.i.i8, label %if.then.i.i.i12, label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit16
 
 if.then.i.i.i12:                                  ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit
   %vtable.i.i.i13 = load ptr, ptr %retval.sroa.0.0.copyload.i4, align 8
-  %10 = load ptr, ptr %vtable.i.i.i13, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i4, i64 noundef %add.i.i6)
+  %7 = load ptr, ptr %vtable.i.i.i13, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i4, i64 noundef %add.i.i6)
   %.pre.i.i14 = load i64, ptr %size_.i.i5, align 8
   %.pre1.i.i15 = add i64 %.pre.i.i14, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit16
 
 _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit16: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit, %if.then.i.i.i12
   %inc.pre-phi.i.i9 = phi i64 [ %add.i.i6, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit ], [ %.pre1.i.i15, %if.then.i.i.i12 ]
-  %11 = phi i64 [ %8, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit ], [ %.pre.i.i14, %if.then.i.i.i12 ]
+  %8 = phi i64 [ %5, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit ], [ %.pre.i.i14, %if.then.i.i.i12 ]
   %ptr_.i.i10 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i4, i64 0, i32 1
-  %12 = load ptr, ptr %ptr_.i.i10, align 8
+  %9 = load ptr, ptr %ptr_.i.i10, align 8
   store i64 %inc.pre-phi.i.i9, ptr %size_.i.i5, align 8
-  %arrayidx.i.i11 = getelementptr inbounds i32, ptr %12, i64 %11
-  store i32 %conv9, ptr %arrayidx.i.i11, align 4
+  %arrayidx.i.i11 = getelementptr inbounds i32, ptr %9, i64 %8
+  store i32 48, ptr %arrayidx.i.i11, align 4
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %out_17 = getelementptr inbounds %"class.fmt::v10::detail::tm_writer.206", ptr %this, i64 0, i32 2
-  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %out_17, align 8
   %cmp.not.i = icmp eq i32 %pad, 1
   br i1 %cmp.not.i, label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEEET_S8_NS1_8pad_typeE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
   %cmp1.i = icmp eq i32 %pad, 3
   %conv.i = select i1 %cmp1.i, i32 32, i32 48
-  %size_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 2
-  %13 = load i64, ptr %size_.i.i.i, align 8
-  %add.i.i.i = add i64 %13, 1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 3
-  %14 = load i64, ptr %capacity_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %14, %add.i.i.i
+  %size_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 2
+  %10 = load i64, ptr %size_.i.i.i, align 8
+  %add.i.i.i = add i64 %10, 1
+  %capacity_.i.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 3
+  %11 = load i64, ptr %capacity_.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp ult i64 %11, %add.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
-  %vtable.i.i.i.i = load ptr, ptr %agg.tmp.sroa.0.0.copyload, align 8
-  %15 = load ptr, ptr %vtable.i.i.i.i, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload, i64 noundef %add.i.i.i)
+  %vtable.i.i.i.i = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
+  %12 = load ptr, ptr %vtable.i.i.i.i, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef %add.i.i.i)
   %.pre.i.i.i = load i64, ptr %size_.i.i.i, align 8
   %.pre1.i.i.i = add i64 %.pre.i.i.i, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit.i
 
 _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit.i: ; preds = %if.then.i.i.i.i, %if.then.i
   %inc.pre-phi.i.i.i = phi i64 [ %add.i.i.i, %if.then.i ], [ %.pre1.i.i.i, %if.then.i.i.i.i ]
-  %16 = phi i64 [ %13, %if.then.i ], [ %.pre.i.i.i, %if.then.i.i.i.i ]
-  %ptr_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 1
-  %17 = load ptr, ptr %ptr_.i.i.i, align 8
+  %13 = phi i64 [ %10, %if.then.i ], [ %.pre.i.i.i, %if.then.i.i.i.i ]
+  %ptr_.i.i.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 1
+  %14 = load ptr, ptr %ptr_.i.i.i, align 8
   store i64 %inc.pre-phi.i.i.i, ptr %size_.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %17, i64 %16
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %14, i64 %13
   store i32 %conv.i, ptr %arrayidx.i.i.i, align 4
   br label %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEEET_S8_NS1_8pad_typeE.exit
 
 _ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEEET_S8_NS1_8pad_typeE.exit: ; preds = %if.else, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit.i
-  store ptr %agg.tmp.sroa.0.0.copyload, ptr %out_17, align 8
-  %conv23 = or disjoint i32 %rem, 48
-  %size_.i.i18 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 2
-  %18 = load i64, ptr %size_.i.i18, align 8
-  %add.i.i19 = add i64 %18, 1
-  %capacity_.i.i.i20 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 3
-  %19 = load i64, ptr %capacity_.i.i.i20, align 8
-  %cmp.i.i.i21 = icmp ult i64 %19, %add.i.i19
+  store ptr %retval.sroa.0.0.copyload.i, ptr %out_, align 8
+  %conv23 = add nuw nsw i32 %rem, 48
+  %size_.i.i18 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 2
+  %15 = load i64, ptr %size_.i.i18, align 8
+  %add.i.i19 = add i64 %15, 1
+  %capacity_.i.i.i20 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 3
+  %16 = load i64, ptr %capacity_.i.i.i20, align 8
+  %cmp.i.i.i21 = icmp ult i64 %16, %add.i.i19
   br i1 %cmp.i.i.i21, label %if.then.i.i.i25, label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit29
 
 if.then.i.i.i25:                                  ; preds = %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEEET_S8_NS1_8pad_typeE.exit
-  %vtable.i.i.i26 = load ptr, ptr %agg.tmp.sroa.0.0.copyload, align 8
-  %20 = load ptr, ptr %vtable.i.i.i26, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload, i64 noundef %add.i.i19)
+  %vtable.i.i.i26 = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
+  %17 = load ptr, ptr %vtable.i.i.i26, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.copyload.i, i64 noundef %add.i.i19)
   %.pre.i.i27 = load i64, ptr %size_.i.i18, align 8
   %.pre1.i.i28 = add i64 %.pre.i.i27, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit29
 
 _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEEEaSEOw.exit29: ; preds = %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEEET_S8_NS1_8pad_typeE.exit, %if.then.i.i.i25
   %inc.pre-phi.i.i22 = phi i64 [ %add.i.i19, %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEEET_S8_NS1_8pad_typeE.exit ], [ %.pre1.i.i28, %if.then.i.i.i25 ]
-  %21 = phi i64 [ %18, %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEEET_S8_NS1_8pad_typeE.exit ], [ %.pre.i.i27, %if.then.i.i.i25 ]
-  %ptr_.i.i23 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 1
-  %22 = load ptr, ptr %ptr_.i.i23, align 8
+  %18 = phi i64 [ %15, %_ZN3fmt3v106detail13write_paddingISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEEET_S8_NS1_8pad_typeE.exit ], [ %.pre.i.i27, %if.then.i.i.i25 ]
+  %ptr_.i.i23 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %retval.sroa.0.0.copyload.i, i64 0, i32 1
+  %19 = load ptr, ptr %ptr_.i.i23, align 8
   store i64 %inc.pre-phi.i.i22, ptr %size_.i.i18, align 8
-  %arrayidx.i.i24 = getelementptr inbounds i32, ptr %22, i64 %21
+  %arrayidx.i.i24 = getelementptr inbounds i32, ptr %19, i64 %18
   store i32 %conv23, ptr %arrayidx.i.i24, align 4
   br label %if.end
 

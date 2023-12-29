@@ -684,12 +684,12 @@ if.then.i:                                        ; preds = %for.body
   br label %_ZN6icu_756number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
 
 if.end.i:                                         ; preds = %for.body
-  %cmp3.i.i = icmp eq i32 %rem, 0
+  %cmp3.i.i.not = icmp eq i32 %rem, 1
   %arrayidx.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %17, i64 0, i32 1, i64 4
   %sub.i.i = add nuw nsw i32 %rem, 17
   %idxprom.i.i = zext nneg i32 %sub.i.i to i64
   %arrayidx7.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %17, i64 0, i32 1, i64 %idxprom.i.i
-  %retval.0.i.i = select i1 %cmp3.i.i, ptr %arrayidx.i.i, ptr %arrayidx7.i.i
+  %retval.0.i.i = select i1 %cmp3.i.i.not, ptr %arrayidx7.i.i, ptr %arrayidx.i.i
   %call8.i = call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %sub, ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i, i8 37, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %_ZN6icu_756number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
 
