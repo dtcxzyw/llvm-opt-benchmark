@@ -4043,9 +4043,7 @@ if.then9:                                         ; preds = %sw.bb
   %sdmasysad = getelementptr inbounds %struct.SDHCIState, ptr %opaque, i64 0, i32 10
   %6 = load i32, ptr %sdmasysad, align 8
   %and10 = and i32 %6, %conv4
-  %or = or i32 %and10, %shl6
-  %and13 = and i32 %or, %conv4
-  %or14 = or i32 %and13, %shl6
+  %or14 = or i32 %and10, %shl6
   store i32 %or14, ptr %sdmasysad, align 8
   %tobool17.not = icmp ugt i32 %1, -16777217
   br i1 %tobool17.not, label %land.lhs.true, label %sw.epilog
