@@ -32,8 +32,6 @@ $_ZN5eastl12partial_sortIPNS_8optionalIiEEEEvT_S4_S4_ = comdat any
 
 $_ZN5eastl16adjust_heap_implIPNS_8optionalIiEElOS2_S2_EEvT_T0_S6_S6_T1_ = comdat any
 
-$_ZN5eastl14insertion_sortIPNS_8optionalIiEENS_4lessIS2_EEEEvT_S6_T0_ = comdat any
-
 $_ZN5eastl12basic_stringIcNS_9allocatorEEaSERKS2_ = comdat any
 
 $_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_ = comdat any
@@ -1188,174 +1186,148 @@ _ZN5eastl8Internal4Log2IlEET_S2_.exit:            ; preds = %for.body.i
   %mul = zext i32 %0 to i64
   tail call void @_ZN5eastl8Internal22quick_sort_impl_helperIPNS_8optionalIiEElKS3_EEvT_S6_T0_(ptr noundef %first, ptr noundef %last, i64 noundef %mul)
   %cmp5 = icmp sgt i64 %sub.ptr.div, 28
-  br i1 %cmp5, label %for.body.i14, label %if.else
+  br i1 %cmp5, label %for.body.i.i, label %if.else
 
-for.body.i14:                                     ; preds = %_ZN5eastl8Internal4Log2IlEET_S2_.exit, %_ZN5eastl8optionalIiEaSEOS1_.exit25.i
-  %i.039.i.idx = phi i64 [ %i.039.i.add, %_ZN5eastl8optionalIiEaSEOS1_.exit25.i ], [ 8, %_ZN5eastl8Internal4Log2IlEET_S2_.exit ]
-  %first.pn38.i = phi ptr [ %i.039.i.ptr, %_ZN5eastl8optionalIiEaSEOS1_.exit25.i ], [ %first, %_ZN5eastl8Internal4Log2IlEET_S2_.exit ]
-  %i.039.i.ptr = getelementptr inbounds i8, ptr %first, i64 %i.039.i.idx
-  %engaged.i.i15 = getelementptr inbounds %"class.eastl::optional", ptr %first.pn38.i, i64 1, i32 0, i32 1
-  %1 = load i8, ptr %engaged.i.i15, align 4
+for.body.i.i:                                     ; preds = %_ZN5eastl8Internal4Log2IlEET_S2_.exit, %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
+  %i.039.i.i.idx = phi i64 [ %i.039.i.i.add, %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i ], [ 8, %_ZN5eastl8Internal4Log2IlEET_S2_.exit ]
+  %first.pn38.i.i = phi ptr [ %i.039.i.i.ptr, %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i ], [ %first, %_ZN5eastl8Internal4Log2IlEET_S2_.exit ]
+  %i.039.i.i.ptr = getelementptr inbounds i8, ptr %first, i64 %i.039.i.i.idx
+  %engaged.i.i.i = getelementptr inbounds %"class.eastl::optional", ptr %first.pn38.i.i, i64 1, i32 0, i32 1
+  %1 = load i8, ptr %engaged.i.i.i, align 4
   %2 = and i8 %1, 1
-  %tobool.not.i.i16 = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i16, label %land.rhs.us.i, label %land.rhs.preheader.i
+  %tobool.not.i.i.i = icmp eq i8 %2, 0
+  br i1 %tobool.not.i.i.i, label %land.rhs.us.i.i, label %land.rhs.preheader.i.i
 
-land.rhs.preheader.i:                             ; preds = %for.body.i14
-  %3 = load i32, ptr %i.039.i.ptr, align 4
-  br label %land.rhs.i
+land.rhs.preheader.i.i:                           ; preds = %for.body.i.i
+  %3 = load i32, ptr %i.039.i.i.ptr, align 4
+  br label %land.rhs.i.i
 
-land.rhs.us.i:                                    ; preds = %for.body.i14, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i21
-  %movePosition.035.us.i = phi ptr [ %incdec.ptr4.us.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i21 ], [ %i.039.i.ptr, %for.body.i14 ]
-  %incdec.ptr4.us.i = getelementptr %"class.eastl::optional", ptr %movePosition.035.us.i, i64 -1
-  %engaged.i.i.i.us.i = getelementptr %"class.eastl::optional", ptr %movePosition.035.us.i, i64 -1, i32 0, i32 1
-  %4 = load i8, ptr %engaged.i.i.i.us.i, align 4
+land.rhs.us.i.i:                                  ; preds = %for.body.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i
+  %movePosition.035.us.i.i = phi ptr [ %incdec.ptr4.us.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i ], [ %i.039.i.i.ptr, %for.body.i.i ]
+  %incdec.ptr4.us.i.i = getelementptr %"class.eastl::optional", ptr %movePosition.035.us.i.i, i64 -1
+  %engaged.i.i.i.us.i.i = getelementptr %"class.eastl::optional", ptr %movePosition.035.us.i.i, i64 -1, i32 0, i32 1
+  %4 = load i8, ptr %engaged.i.i.i.us.i.i, align 4
   %5 = and i8 %4, 1
-  %tobool.i.not.i.i.us.i = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i.i.us.i, label %for.end.i17, label %cond.false.i.i.us.i
+  %tobool.i.not.i.i.us.i.i = icmp eq i8 %5, 0
+  br i1 %tobool.i.not.i.i.us.i.i, label %for.end.i.i, label %cond.false.i.i.us.i.i
 
-cond.false.i.i.us.i:                              ; preds = %land.rhs.us.i
-  %engaged.i13.us.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %movePosition.035.us.i, i64 0, i32 1
-  %6 = load i8, ptr %engaged.i13.us.i, align 4
+cond.false.i.i.us.i.i:                            ; preds = %land.rhs.us.i.i
+  %engaged.i13.us.i.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %movePosition.035.us.i.i, i64 0, i32 1
+  %6 = load i8, ptr %engaged.i13.us.i.i, align 4
   %7 = and i8 %6, 1
-  %cmp.i.us.i = icmp eq i8 %7, %5
-  br i1 %cmp.i.us.i, label %if.then.i15.us.i, label %if.else.i.us.i
+  %cmp.i.us.i.i = icmp eq i8 %7, %5
+  %8 = load i32, ptr %incdec.ptr4.us.i.i, align 4
+  br i1 %cmp.i.us.i.i, label %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i, label %if.else14.i.us.i.i
 
-if.else.i.us.i:                                   ; preds = %cond.false.i.i.us.i
-  %tobool.not.i14.us.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i14.us.i, label %if.else14.i.us.i22, label %if.then12.i.us.i
+if.else14.i.us.i.i:                               ; preds = %cond.false.i.i.us.i.i
+  store i8 1, ptr %engaged.i13.us.i.i, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i
 
-if.then12.i.us.i:                                 ; preds = %if.else.i.us.i
-  store i8 0, ptr %engaged.i13.us.i, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i21
+_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i:         ; preds = %if.else14.i.us.i.i, %cond.false.i.i.us.i.i
+  store i32 %8, ptr %movePosition.035.us.i.i, align 4
+  %cmp3.not.us.i.i = icmp eq ptr %incdec.ptr4.us.i.i, %first
+  br i1 %cmp3.not.us.i.i, label %for.end.i.i, label %land.rhs.us.i.i, !llvm.loop !17
 
-if.else14.i.us.i22:                               ; preds = %if.else.i.us.i
-  %8 = load i32, ptr %incdec.ptr4.us.i, align 4
-  store i32 %8, ptr %movePosition.035.us.i, align 4
-  store i8 1, ptr %engaged.i13.us.i, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i21
+land.rhs.i.i:                                     ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i, %land.rhs.preheader.i.i
+  %movePosition.035.i.i = phi ptr [ %incdec.ptr4.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ], [ %i.039.i.i.ptr, %land.rhs.preheader.i.i ]
+  %incdec.ptr4.i.i = getelementptr %"class.eastl::optional", ptr %movePosition.035.i.i, i64 -1
+  %engaged.i.i.i.i.i = getelementptr %"class.eastl::optional", ptr %movePosition.035.i.i, i64 -1, i32 0, i32 1
+  %9 = load i8, ptr %engaged.i.i.i.i.i, align 4
+  %10 = and i8 %9, 1
+  %tobool.i.not.i.i.i.i = icmp eq i8 %10, 0
+  br i1 %tobool.i.not.i.i.i.i, label %for.end.i.i, label %cond.false.i.i.i.i
 
-if.then.i15.us.i:                                 ; preds = %cond.false.i.i.us.i
-  %9 = load i32, ptr %incdec.ptr4.us.i, align 4
-  store i32 %9, ptr %movePosition.035.us.i, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i21
+cond.false.i.i.i.i:                               ; preds = %land.rhs.i.i
+  %11 = load i32, ptr %incdec.ptr4.i.i, align 4
+  %cmp.i.i.i.i = icmp slt i32 %3, %11
+  br i1 %cmp.i.i.i.i, label %for.body6.i.i, label %for.end.i.i
 
-_ZN5eastl8optionalIiEaSEOS1_.exit.us.i21:         ; preds = %if.then.i15.us.i, %if.else14.i.us.i22, %if.then12.i.us.i
-  %cmp3.not.us.i = icmp eq ptr %incdec.ptr4.us.i, %first
-  br i1 %cmp3.not.us.i, label %for.end.i17, label %land.rhs.us.i, !llvm.loop !17
+for.body6.i.i:                                    ; preds = %cond.false.i.i.i.i
+  %engaged.i13.i.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %movePosition.035.i.i, i64 0, i32 1
+  %12 = load i8, ptr %engaged.i13.i.i, align 4
+  %13 = and i8 %12, 1
+  %cmp.i.i.i = icmp eq i8 %13, %10
+  br i1 %cmp.i.i.i, label %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i, label %if.else14.i.i.i
 
-land.rhs.i:                                       ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i19, %land.rhs.preheader.i
-  %movePosition.035.i = phi ptr [ %incdec.ptr4.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i19 ], [ %i.039.i.ptr, %land.rhs.preheader.i ]
-  %incdec.ptr4.i = getelementptr %"class.eastl::optional", ptr %movePosition.035.i, i64 -1
-  %engaged.i.i.i.i = getelementptr %"class.eastl::optional", ptr %movePosition.035.i, i64 -1, i32 0, i32 1
-  %10 = load i8, ptr %engaged.i.i.i.i, align 4
-  %11 = and i8 %10, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.i.not.i.i.i, label %for.end.i17, label %cond.false.i.i.i
+if.else14.i.i.i:                                  ; preds = %for.body6.i.i
+  store i8 1, ptr %engaged.i13.i.i, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i
 
-cond.false.i.i.i:                                 ; preds = %land.rhs.i
-  %12 = load i32, ptr %incdec.ptr4.i, align 4
-  %cmp.i.i.i = icmp slt i32 %3, %12
-  br i1 %cmp.i.i.i, label %for.body6.i, label %for.end.i17
+_ZN5eastl8optionalIiEaSEOS1_.exit.i.i:            ; preds = %if.else14.i.i.i, %for.body6.i.i
+  store i32 %11, ptr %movePosition.035.i.i, align 4
+  %cmp3.not.i.i = icmp eq ptr %incdec.ptr4.i.i, %first
+  br i1 %cmp3.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !17
 
-for.body6.i:                                      ; preds = %cond.false.i.i.i
-  %engaged.i13.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %movePosition.035.i, i64 0, i32 1
-  %13 = load i8, ptr %engaged.i13.i, align 4
-  %14 = and i8 %13, 1
-  %cmp.i.i18 = icmp eq i8 %14, %11
-  br i1 %cmp.i.i18, label %if.then.i15.i, label %if.else.i.i
+for.end.i.i:                                      ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i, %cond.false.i.i.i.i, %land.rhs.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i, %land.rhs.us.i.i
+  %insertValue.sroa.0.144.i.i = phi i32 [ 0, %land.rhs.us.i.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i ], [ %3, %land.rhs.i.i ], [ %3, %cond.false.i.i.i.i ], [ %3, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ]
+  %.us-phi.i.i = phi ptr [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i ], [ %movePosition.035.us.i.i, %land.rhs.us.i.i ], [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ], [ %movePosition.035.i.i, %cond.false.i.i.i.i ], [ %movePosition.035.i.i, %land.rhs.i.i ]
+  %engaged.i16.i.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %.us-phi.i.i, i64 0, i32 1
+  %14 = load i8, ptr %engaged.i16.i.i, align 4
+  %15 = and i8 %14, 1
+  %tobool.not.i17.i.i = icmp eq i8 %15, 0
+  %cmp.i19.i.i = icmp eq i8 %15, %2
+  br i1 %cmp.i19.i.i, label %if.then.i23.i.i, label %if.else.i20.i.i
 
-if.then.i15.i:                                    ; preds = %for.body6.i
-  store i32 %12, ptr %movePosition.035.i, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.i19
+if.then.i23.i.i:                                  ; preds = %for.end.i.i
+  br i1 %tobool.not.i17.i.i, label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i, label %if.then7.i24.i.i
 
-if.else.i.i:                                      ; preds = %for.body6.i
-  %tobool.not.i14.i = icmp eq i8 %14, 0
-  br i1 %tobool.not.i14.i, label %if.else14.i.i20, label %if.then12.i.i
+if.then7.i24.i.i:                                 ; preds = %if.then.i23.i.i
+  store i32 %insertValue.sroa.0.144.i.i, ptr %.us-phi.i.i, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
 
-if.then12.i.i:                                    ; preds = %if.else.i.i
-  store i8 0, ptr %engaged.i13.i, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.i19
+if.else.i20.i.i:                                  ; preds = %for.end.i.i
+  br i1 %tobool.not.i17.i.i, label %if.else14.i22.i.i, label %if.then12.i21.i.i
 
-if.else14.i.i20:                                  ; preds = %if.else.i.i
-  store i32 %12, ptr %movePosition.035.i, align 4
-  store i8 1, ptr %engaged.i13.i, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.i19
+if.then12.i21.i.i:                                ; preds = %if.else.i20.i.i
+  store i8 0, ptr %engaged.i16.i.i, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
 
-_ZN5eastl8optionalIiEaSEOS1_.exit.i19:            ; preds = %if.else14.i.i20, %if.then12.i.i, %if.then.i15.i
-  %cmp3.not.i = icmp eq ptr %incdec.ptr4.i, %first
-  br i1 %cmp3.not.i, label %for.end.i17, label %land.rhs.i, !llvm.loop !17
+if.else14.i22.i.i:                                ; preds = %if.else.i20.i.i
+  store i32 %insertValue.sroa.0.144.i.i, ptr %.us-phi.i.i, align 4
+  store i8 1, ptr %engaged.i16.i.i, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
 
-for.end.i17:                                      ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i19, %cond.false.i.i.i, %land.rhs.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i21, %land.rhs.us.i
-  %insertValue.sroa.0.143.i = phi i32 [ 0, %land.rhs.us.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i21 ], [ %3, %land.rhs.i ], [ %3, %cond.false.i.i.i ], [ %3, %_ZN5eastl8optionalIiEaSEOS1_.exit.i19 ]
-  %.us-phi.i = phi ptr [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i21 ], [ %movePosition.035.us.i, %land.rhs.us.i ], [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.i19 ], [ %movePosition.035.i, %cond.false.i.i.i ], [ %movePosition.035.i, %land.rhs.i ]
-  %engaged.i16.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %.us-phi.i, i64 0, i32 1
-  %15 = load i8, ptr %engaged.i16.i, align 4
-  %16 = and i8 %15, 1
-  %tobool.not.i17.i = icmp eq i8 %16, 0
-  %cmp.i19.i = icmp eq i8 %16, %2
-  br i1 %cmp.i19.i, label %if.then.i23.i, label %if.else.i20.i
+_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i:          ; preds = %if.else14.i22.i.i, %if.then12.i21.i.i, %if.then7.i24.i.i, %if.then.i23.i.i
+  %i.039.i.i.add = add nuw nsw i64 %i.039.i.i.idx, 8
+  %cmp1.not.i.i = icmp eq i64 %i.039.i.i.add, 224
+  br i1 %cmp1.not.i.i, label %_ZN5eastl14insertion_sortIPNS_8optionalIiEEEEvT_S4_.exit, label %for.body.i.i, !llvm.loop !18
 
-if.then.i23.i:                                    ; preds = %for.end.i17
-  br i1 %tobool.not.i17.i, label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i, label %if.then7.i24.i
-
-if.then7.i24.i:                                   ; preds = %if.then.i23.i
-  store i32 %insertValue.sroa.0.143.i, ptr %.us-phi.i, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i
-
-if.else.i20.i:                                    ; preds = %for.end.i17
-  br i1 %tobool.not.i17.i, label %if.else14.i22.i, label %if.then12.i21.i
-
-if.then12.i21.i:                                  ; preds = %if.else.i20.i
-  store i8 0, ptr %engaged.i16.i, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i
-
-if.else14.i22.i:                                  ; preds = %if.else.i20.i
-  store i32 %insertValue.sroa.0.143.i, ptr %.us-phi.i, align 4
-  store i8 1, ptr %engaged.i16.i, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i
-
-_ZN5eastl8optionalIiEaSEOS1_.exit25.i:            ; preds = %if.else14.i22.i, %if.then12.i21.i, %if.then7.i24.i, %if.then.i23.i
-  %i.039.i.add = add nuw nsw i64 %i.039.i.idx, 8
-  %cmp1.not.i = icmp eq i64 %i.039.i.add, 224
-  br i1 %cmp1.not.i, label %_ZN5eastl14insertion_sortIPNS_8optionalIiEENS_4lessIS2_EEEEvT_S6_T0_.exit, label %for.body.i14, !llvm.loop !18
-
-_ZN5eastl14insertion_sortIPNS_8optionalIiEENS_4lessIS2_EEEEvT_S6_T0_.exit: ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit25.i
+_ZN5eastl14insertion_sortIPNS_8optionalIiEEEEvT_S4_.exit: ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i
   %add.ptr = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 28
   %cmp.not39.i = icmp eq ptr %add.ptr, %last
   br i1 %cmp.not39.i, label %if.end8, label %for.body.i13
 
-for.body.i13:                                     ; preds = %_ZN5eastl14insertion_sortIPNS_8optionalIiEENS_4lessIS2_EEEEvT_S6_T0_.exit, %_ZN5eastl8optionalIiEaSEOS1_.exit24.i
-  %current.040.i = phi ptr [ %incdec.ptr11.i, %_ZN5eastl8optionalIiEaSEOS1_.exit24.i ], [ %add.ptr, %_ZN5eastl14insertion_sortIPNS_8optionalIiEENS_4lessIS2_EEEEvT_S6_T0_.exit ]
+for.body.i13:                                     ; preds = %_ZN5eastl14insertion_sortIPNS_8optionalIiEEEEvT_S4_.exit, %_ZN5eastl8optionalIiEaSEOS1_.exit24.i
+  %current.040.i = phi ptr [ %incdec.ptr11.i, %_ZN5eastl8optionalIiEaSEOS1_.exit24.i ], [ %add.ptr, %_ZN5eastl14insertion_sortIPNS_8optionalIiEEEEvT_S4_.exit ]
   %engaged.i.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %current.040.i, i64 0, i32 1
-  %17 = load i8, ptr %engaged.i.i, align 4
-  %18 = and i8 %17, 1
-  %tobool.not.i.i = icmp eq i8 %18, 0
+  %16 = load i8, ptr %engaged.i.i, align 4
+  %17 = and i8 %16, 1
+  %tobool.not.i.i = icmp eq i8 %17, 0
   br i1 %tobool.not.i.i, label %_ZN5eastl8optionalIiEC2EOS1_.exit.i, label %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i
 
 _ZN5eastl8optionalIiEC2EOS1_.exit.i:              ; preds = %for.body.i13
   %engaged.i.i1034.i = getelementptr %"class.eastl::optional", ptr %current.040.i, i64 -1, i32 0, i32 1
-  %19 = load i8, ptr %engaged.i.i1034.i, align 4
-  %20 = and i8 %19, 1
-  %tobool.i.not.i35.i = icmp eq i8 %20, 0
+  %18 = load i8, ptr %engaged.i.i1034.i, align 4
+  %19 = and i8 %18, 1
+  %tobool.i.not.i35.i = icmp eq i8 %19, 0
   br i1 %tobool.i.not.i35.i, label %for.end.i, label %cond.false.i.us.i
 
 _ZN5eastl8optionalIiEC2EOS1_.exit.thread.i:       ; preds = %for.body.i13
-  %21 = load i32, ptr %current.040.i, align 4
-  %engaged.i.i103444.i = getelementptr %"class.eastl::optional", ptr %current.040.i, i64 -1, i32 0, i32 1
-  %22 = load i8, ptr %engaged.i.i103444.i, align 4
-  %23 = and i8 %22, 1
-  %tobool.i.not.i3545.i = icmp eq i8 %23, 0
-  br i1 %tobool.i.not.i3545.i, label %for.end.i, label %cond.false.i.i
+  %20 = load i32, ptr %current.040.i, align 4
+  %engaged.i.i103445.i = getelementptr %"class.eastl::optional", ptr %current.040.i, i64 -1, i32 0, i32 1
+  %21 = load i8, ptr %engaged.i.i103445.i, align 4
+  %22 = and i8 %21, 1
+  %tobool.i.not.i3546.i = icmp eq i8 %22, 0
+  br i1 %tobool.i.not.i3546.i, label %for.end.i, label %cond.false.i.i
 
 cond.false.i.us.i:                                ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i
   %prev.037.us.pn.i = phi ptr [ %prev.037.us.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i ], [ %current.040.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ]
   %prev.037.us.i = getelementptr %"class.eastl::optional", ptr %prev.037.us.pn.i, i64 -1
   %engaged.i11.us.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %prev.037.us.pn.i, i64 0, i32 1
-  %24 = load i8, ptr %engaged.i11.us.i, align 4
-  %25 = and i8 %24, 1
-  %cmp.i13.us.not.i = icmp eq i8 %25, 0
-  %26 = load i32, ptr %prev.037.us.i, align 4
-  store i32 %26, ptr %prev.037.us.pn.i, align 4
+  %23 = load i8, ptr %engaged.i11.us.i, align 4
+  %24 = and i8 %23, 1
+  %cmp.i13.us.not.i = icmp eq i8 %24, 0
+  %25 = load i32, ptr %prev.037.us.i, align 4
   br i1 %cmp.i13.us.not.i, label %if.else14.i.us.i, label %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i
 
 if.else14.i.us.i:                                 ; preds = %cond.false.i.us.i
@@ -1363,25 +1335,25 @@ if.else14.i.us.i:                                 ; preds = %cond.false.i.us.i
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i
 
 _ZN5eastl8optionalIiEaSEOS1_.exit.us.i:           ; preds = %if.else14.i.us.i, %cond.false.i.us.i
+  store i32 %25, ptr %prev.037.us.pn.i, align 4
   %engaged.i.i10.us.i = getelementptr %"class.eastl::optional", ptr %prev.037.us.pn.i, i64 -2, i32 0, i32 1
-  %27 = load i8, ptr %engaged.i.i10.us.i, align 4
-  %28 = and i8 %27, 1
-  %tobool.i.not.i.us.i = icmp eq i8 %28, 0
+  %26 = load i8, ptr %engaged.i.i10.us.i, align 4
+  %27 = and i8 %26, 1
+  %tobool.i.not.i.us.i = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.us.i, label %for.end.i, label %cond.false.i.us.i, !llvm.loop !19
 
 cond.false.i.i:                                   ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i
   %prev.037.pn.i = phi ptr [ %prev.037.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i ], [ %current.040.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i ]
   %prev.037.i = getelementptr %"class.eastl::optional", ptr %prev.037.pn.i, i64 -1
-  %29 = load i32, ptr %prev.037.i, align 4
-  %cmp.i.i = icmp slt i32 %21, %29
+  %28 = load i32, ptr %prev.037.i, align 4
+  %cmp.i.i = icmp slt i32 %20, %28
   br i1 %cmp.i.i, label %for.body3.i, label %for.end.i
 
 for.body3.i:                                      ; preds = %cond.false.i.i
   %engaged.i11.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %prev.037.pn.i, i64 0, i32 1
-  %30 = load i8, ptr %engaged.i11.i, align 4
-  %31 = and i8 %30, 1
-  %cmp.i13.not.i = icmp eq i8 %31, 0
-  store i32 %29, ptr %prev.037.pn.i, align 4
+  %29 = load i8, ptr %engaged.i11.i, align 4
+  %30 = and i8 %29, 1
+  %cmp.i13.not.i = icmp eq i8 %30, 0
   br i1 %cmp.i13.not.i, label %if.else14.i.i, label %_ZN5eastl8optionalIiEaSEOS1_.exit.i
 
 if.else14.i.i:                                    ; preds = %for.body3.i
@@ -1389,27 +1361,28 @@ if.else14.i.i:                                    ; preds = %for.body3.i
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit.i
 
 _ZN5eastl8optionalIiEaSEOS1_.exit.i:              ; preds = %if.else14.i.i, %for.body3.i
+  store i32 %28, ptr %prev.037.pn.i, align 4
   %engaged.i.i10.i = getelementptr %"class.eastl::optional", ptr %prev.037.pn.i, i64 -2, i32 0, i32 1
-  %32 = load i8, ptr %engaged.i.i10.i, align 4
-  %33 = and i8 %32, 1
-  %tobool.i.not.i.i = icmp eq i8 %33, 0
+  %31 = load i8, ptr %engaged.i.i10.i, align 4
+  %32 = and i8 %31, 1
+  %tobool.i.not.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.not.i.i, label %for.end.i, label %cond.false.i.i, !llvm.loop !19
 
 for.end.i:                                        ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i, %cond.false.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.i
-  %value.sroa.0.147.i = phi i32 [ 0, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ], [ %21, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i ], [ %21, %cond.false.i.i ], [ %21, %_ZN5eastl8optionalIiEaSEOS1_.exit.i ]
+  %value.sroa.0.148.i = phi i32 [ 0, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ], [ %20, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i ], [ %20, %cond.false.i.i ], [ %20, %_ZN5eastl8optionalIiEaSEOS1_.exit.i ]
   %end.0.lcssa.i = phi ptr [ %current.040.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ], [ %current.040.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i ], [ %prev.037.us.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i ], [ %prev.037.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i ], [ %prev.037.pn.i, %cond.false.i.i ]
   %engaged.i15.i = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %end.0.lcssa.i, i64 0, i32 1
-  %34 = load i8, ptr %engaged.i15.i, align 4
-  %35 = and i8 %34, 1
-  %tobool.not.i16.i = icmp eq i8 %35, 0
-  %cmp.i18.i = icmp eq i8 %35, %18
+  %33 = load i8, ptr %engaged.i15.i, align 4
+  %34 = and i8 %33, 1
+  %tobool.not.i16.i = icmp eq i8 %34, 0
+  %cmp.i18.i = icmp eq i8 %34, %17
   br i1 %cmp.i18.i, label %if.then.i22.i, label %if.else.i19.i
 
 if.then.i22.i:                                    ; preds = %for.end.i
   br i1 %tobool.not.i16.i, label %_ZN5eastl8optionalIiEaSEOS1_.exit24.i, label %if.then7.i23.i
 
 if.then7.i23.i:                                   ; preds = %if.then.i22.i
-  store i32 %value.sroa.0.147.i, ptr %end.0.lcssa.i, align 4
+  store i32 %value.sroa.0.148.i, ptr %end.0.lcssa.i, align 4
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit24.i
 
 if.else.i19.i:                                    ; preds = %for.end.i
@@ -1420,7 +1393,7 @@ if.then12.i20.i:                                  ; preds = %if.else.i19.i
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit24.i
 
 if.else14.i21.i:                                  ; preds = %if.else.i19.i
-  store i32 %value.sroa.0.147.i, ptr %end.0.lcssa.i, align 4
+  store i32 %value.sroa.0.148.i, ptr %end.0.lcssa.i, align 4
   store i8 1, ptr %engaged.i15.i, align 4
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit24.i
 
@@ -1430,10 +1403,114 @@ _ZN5eastl8optionalIiEaSEOS1_.exit24.i:            ; preds = %if.else14.i21.i, %i
   br i1 %cmp.not.i, label %if.end8, label %for.body.i13, !llvm.loop !20
 
 if.else:                                          ; preds = %_ZN5eastl8Internal4Log2IlEET_S2_.exit
-  tail call void @_ZN5eastl14insertion_sortIPNS_8optionalIiEENS_4lessIS2_EEEEvT_S6_T0_(ptr noundef %first, ptr noundef %last)
-  br label %if.end8
+  %i.036.i.i14 = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 1
+  %cmp1.not37.i.i = icmp eq ptr %i.036.i.i14, %last
+  br i1 %cmp1.not37.i.i, label %if.end8, label %for.body.i.i15
 
-if.end8:                                          ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit24.i, %_ZN5eastl14insertion_sortIPNS_8optionalIiEENS_4lessIS2_EEEEvT_S6_T0_.exit, %if.else, %entry
+for.body.i.i15:                                   ; preds = %if.else, %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i36
+  %i.039.i.i16 = phi ptr [ %i.0.i.i37, %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i36 ], [ %i.036.i.i14, %if.else ]
+  %first.pn38.i.i17 = phi ptr [ %i.039.i.i16, %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i36 ], [ %first, %if.else ]
+  %engaged.i.i.i18 = getelementptr inbounds %"class.eastl::optional", ptr %first.pn38.i.i17, i64 1, i32 0, i32 1
+  %35 = load i8, ptr %engaged.i.i.i18, align 4
+  %36 = and i8 %35, 1
+  %tobool.not.i.i.i19 = icmp eq i8 %36, 0
+  br i1 %tobool.not.i.i.i19, label %land.rhs.us.i.i48, label %land.rhs.preheader.i.i20
+
+land.rhs.preheader.i.i20:                         ; preds = %for.body.i.i15
+  %37 = load i32, ptr %i.039.i.i16, align 4
+  br label %land.rhs.i.i21
+
+land.rhs.us.i.i48:                                ; preds = %for.body.i.i15, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i57
+  %movePosition.035.us.i.i49 = phi ptr [ %incdec.ptr4.us.i.i50, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i57 ], [ %i.039.i.i16, %for.body.i.i15 ]
+  %incdec.ptr4.us.i.i50 = getelementptr %"class.eastl::optional", ptr %movePosition.035.us.i.i49, i64 -1
+  %engaged.i.i.i.us.i.i51 = getelementptr %"class.eastl::optional", ptr %movePosition.035.us.i.i49, i64 -1, i32 0, i32 1
+  %38 = load i8, ptr %engaged.i.i.i.us.i.i51, align 4
+  %39 = and i8 %38, 1
+  %tobool.i.not.i.i.us.i.i52 = icmp eq i8 %39, 0
+  br i1 %tobool.i.not.i.i.us.i.i52, label %for.end.i.i28, label %cond.false.i.i.us.i.i53
+
+cond.false.i.i.us.i.i53:                          ; preds = %land.rhs.us.i.i48
+  %engaged.i13.us.i.i54 = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %movePosition.035.us.i.i49, i64 0, i32 1
+  %40 = load i8, ptr %engaged.i13.us.i.i54, align 4
+  %41 = and i8 %40, 1
+  %cmp.i.us.i.i55 = icmp eq i8 %41, %39
+  %42 = load i32, ptr %incdec.ptr4.us.i.i50, align 4
+  br i1 %cmp.i.us.i.i55, label %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i57, label %if.else14.i.us.i.i56
+
+if.else14.i.us.i.i56:                             ; preds = %cond.false.i.i.us.i.i53
+  store i8 1, ptr %engaged.i13.us.i.i54, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i57
+
+_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i57:       ; preds = %if.else14.i.us.i.i56, %cond.false.i.i.us.i.i53
+  store i32 %42, ptr %movePosition.035.us.i.i49, align 4
+  %cmp3.not.us.i.i58 = icmp eq ptr %incdec.ptr4.us.i.i50, %first
+  br i1 %cmp3.not.us.i.i58, label %for.end.i.i28, label %land.rhs.us.i.i48, !llvm.loop !17
+
+land.rhs.i.i21:                                   ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46, %land.rhs.preheader.i.i20
+  %movePosition.035.i.i22 = phi ptr [ %incdec.ptr4.i.i23, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46 ], [ %i.039.i.i16, %land.rhs.preheader.i.i20 ]
+  %incdec.ptr4.i.i23 = getelementptr %"class.eastl::optional", ptr %movePosition.035.i.i22, i64 -1
+  %engaged.i.i.i.i.i24 = getelementptr %"class.eastl::optional", ptr %movePosition.035.i.i22, i64 -1, i32 0, i32 1
+  %43 = load i8, ptr %engaged.i.i.i.i.i24, align 4
+  %44 = and i8 %43, 1
+  %tobool.i.not.i.i.i.i25 = icmp eq i8 %44, 0
+  br i1 %tobool.i.not.i.i.i.i25, label %for.end.i.i28, label %cond.false.i.i.i.i26
+
+cond.false.i.i.i.i26:                             ; preds = %land.rhs.i.i21
+  %45 = load i32, ptr %incdec.ptr4.i.i23, align 4
+  %cmp.i.i.i.i27 = icmp slt i32 %37, %45
+  br i1 %cmp.i.i.i.i27, label %for.body6.i.i42, label %for.end.i.i28
+
+for.body6.i.i42:                                  ; preds = %cond.false.i.i.i.i26
+  %engaged.i13.i.i43 = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %movePosition.035.i.i22, i64 0, i32 1
+  %46 = load i8, ptr %engaged.i13.i.i43, align 4
+  %47 = and i8 %46, 1
+  %cmp.i.i.i44 = icmp eq i8 %47, %44
+  br i1 %cmp.i.i.i44, label %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46, label %if.else14.i.i.i45
+
+if.else14.i.i.i45:                                ; preds = %for.body6.i.i42
+  store i8 1, ptr %engaged.i13.i.i43, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46
+
+_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46:          ; preds = %if.else14.i.i.i45, %for.body6.i.i42
+  store i32 %45, ptr %movePosition.035.i.i22, align 4
+  %cmp3.not.i.i47 = icmp eq ptr %incdec.ptr4.i.i23, %first
+  br i1 %cmp3.not.i.i47, label %for.end.i.i28, label %land.rhs.i.i21, !llvm.loop !17
+
+for.end.i.i28:                                    ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46, %cond.false.i.i.i.i26, %land.rhs.i.i21, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i57, %land.rhs.us.i.i48
+  %insertValue.sroa.0.144.i.i29 = phi i32 [ 0, %land.rhs.us.i.i48 ], [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i57 ], [ %37, %land.rhs.i.i21 ], [ %37, %cond.false.i.i.i.i26 ], [ %37, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46 ]
+  %.us-phi.i.i30 = phi ptr [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.us.i.i57 ], [ %movePosition.035.us.i.i49, %land.rhs.us.i.i48 ], [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i46 ], [ %movePosition.035.i.i22, %cond.false.i.i.i.i26 ], [ %movePosition.035.i.i22, %land.rhs.i.i21 ]
+  %engaged.i16.i.i31 = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %.us-phi.i.i30, i64 0, i32 1
+  %48 = load i8, ptr %engaged.i16.i.i31, align 4
+  %49 = and i8 %48, 1
+  %tobool.not.i17.i.i32 = icmp eq i8 %49, 0
+  %cmp.i19.i.i33 = icmp eq i8 %49, %36
+  br i1 %cmp.i19.i.i33, label %if.then.i23.i.i40, label %if.else.i20.i.i34
+
+if.then.i23.i.i40:                                ; preds = %for.end.i.i28
+  br i1 %tobool.not.i17.i.i32, label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i36, label %if.then7.i24.i.i41
+
+if.then7.i24.i.i41:                               ; preds = %if.then.i23.i.i40
+  store i32 %insertValue.sroa.0.144.i.i29, ptr %.us-phi.i.i30, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i36
+
+if.else.i20.i.i34:                                ; preds = %for.end.i.i28
+  br i1 %tobool.not.i17.i.i32, label %if.else14.i22.i.i39, label %if.then12.i21.i.i35
+
+if.then12.i21.i.i35:                              ; preds = %if.else.i20.i.i34
+  store i8 0, ptr %engaged.i16.i.i31, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i36
+
+if.else14.i22.i.i39:                              ; preds = %if.else.i20.i.i34
+  store i32 %insertValue.sroa.0.144.i.i29, ptr %.us-phi.i.i30, align 4
+  store i8 1, ptr %engaged.i16.i.i31, align 4
+  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i36
+
+_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i36:        ; preds = %if.else14.i22.i.i39, %if.then12.i21.i.i35, %if.then7.i24.i.i41, %if.then.i23.i.i40
+  %i.0.i.i37 = getelementptr inbounds %"class.eastl::optional", ptr %i.039.i.i16, i64 1
+  %cmp1.not.i.i38 = icmp eq ptr %i.0.i.i37, %last
+  br i1 %cmp1.not.i.i38, label %if.end8, label %for.body.i.i15, !llvm.loop !18
+
+if.end8:                                          ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit25.i.i36, %_ZN5eastl8optionalIiEaSEOS1_.exit24.i, %if.else, %_ZN5eastl14insertion_sortIPNS_8optionalIiEEEEvT_S4_.exit, %entry
   ret void
 }
 
@@ -1772,38 +1849,36 @@ cond.false.i:                                     ; preds = %for.body
   %5 = load i8, ptr %engaged.i3.i, align 4
   %6 = and i8 %5, 1
   %tobool.i4.not.i = icmp eq i8 %6, 0
-  br i1 %tobool.i4.not.i, label %_ZN5eastl8optionalIiEC2EOS1_.exit, label %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit
+  br i1 %tobool.i4.not.i, label %if.then.thread, label %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit
+
+if.then.thread:                                   ; preds = %cond.false.i
+  store i32 0, ptr %temp, align 4
+  store i8 %6, ptr %engaged.i.i15, align 4
+  br label %_ZN5eastl8optionalIiEC2EOS1_.exit
 
 _ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit:      ; preds = %cond.false.i
   %7 = load i32, ptr %i.030, align 4
   %8 = load i32, ptr %first, align 4
   %cmp.i14 = icmp slt i32 %7, %8
-  br i1 %cmp.i14, label %_ZN5eastl8optionalIiEC2EOS1_.exit.thread, label %for.inc
+  br i1 %cmp.i14, label %if.then.i16, label %for.inc
 
-_ZN5eastl8optionalIiEC2EOS1_.exit:                ; preds = %cond.false.i
-  store i32 0, ptr %temp, align 4
-  store i8 %6, ptr %engaged.i.i15, align 4
-  %cmp.i19 = icmp eq i8 %6, %4
-  br i1 %cmp.i19, label %if.then.i20, label %if.else14.i
-
-_ZN5eastl8optionalIiEC2EOS1_.exit.thread:         ; preds = %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit
+if.then.i16:                                      ; preds = %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit
   store i8 %6, ptr %engaged.i.i15, align 4
   %9 = load i32, ptr %i.030, align 4
   store i32 %9, ptr %temp, align 4
-  br label %if.then.i20
+  br label %_ZN5eastl8optionalIiEC2EOS1_.exit
 
-if.then.i20:                                      ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.thread, %_ZN5eastl8optionalIiEC2EOS1_.exit
+_ZN5eastl8optionalIiEC2EOS1_.exit:                ; preds = %if.then.thread, %if.then.i16
+  %cmp.i19 = icmp eq i8 %6, %4
   %10 = load i32, ptr %first, align 4
-  store i32 %10, ptr %i.030, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit
+  br i1 %cmp.i19, label %_ZN5eastl8optionalIiEaSEOS1_.exit, label %if.else14.i
 
 if.else14.i:                                      ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit
-  %11 = load i32, ptr %first, align 4
-  store i32 %11, ptr %i.030, align 4
   store i8 1, ptr %engaged.i3.i, align 4
   br label %_ZN5eastl8optionalIiEaSEOS1_.exit
 
-_ZN5eastl8optionalIiEaSEOS1_.exit:                ; preds = %if.then.i20, %if.else14.i
+_ZN5eastl8optionalIiEaSEOS1_.exit:                ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit, %if.else14.i
+  store i32 %10, ptr %i.030, align 4
   call void @_ZN5eastl16adjust_heap_implIPNS_8optionalIiEElOS2_S2_EEvT_T0_S6_S6_T1_(ptr noundef nonnull %first, i64 noundef 0, i64 noundef %sub.ptr.div.i, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(5) %temp)
   br label %for.inc
 
@@ -1828,29 +1903,29 @@ for.body.i:                                       ; preds = %_ZN5eastl8pop_heapI
   %add.ptr.i.i = getelementptr inbounds %"class.eastl::optional", ptr %last.addr.07.i, i64 -1
   %engaged.i.i.i22 = getelementptr %"class.eastl::optional", ptr %last.addr.07.i, i64 -1, i32 0, i32 1
   store i32 0, ptr %tempBottom.i.i, align 4
-  %12 = load i8, ptr %engaged.i.i.i22, align 4
-  %13 = and i8 %12, 1
-  %tobool.not.i.i.i = icmp eq i8 %13, 0
-  store i8 %13, ptr %engaged.i.i.i.i, align 4
+  %11 = load i8, ptr %engaged.i.i.i22, align 4
+  %12 = and i8 %11, 1
+  %tobool.not.i.i.i = icmp eq i8 %12, 0
+  store i8 %12, ptr %engaged.i.i.i.i, align 4
   br i1 %tobool.not.i.i.i, label %_ZN5eastl8optionalIiEC2EOS1_.exit.i.i, label %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i.i
 
 _ZN5eastl8optionalIiEC2EOS1_.exit.i.i:            ; preds = %for.body.i
-  %14 = load i8, ptr %engaged2.i8.i.i, align 4
-  %15 = and i8 %14, 1
-  %cmp.i.i.i = icmp eq i8 %15, 0
+  %13 = load i8, ptr %engaged2.i8.i.i, align 4
+  %14 = and i8 %13, 1
+  %cmp.i.i.i = icmp eq i8 %14, 0
   br i1 %cmp.i.i.i, label %_ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i, label %if.else14.i.i.i
 
 _ZN5eastl8optionalIiEC2EOS1_.exit.thread.i.i:     ; preds = %for.body.i
-  %16 = load i32, ptr %add.ptr.i.i, align 4
-  store i32 %16, ptr %tempBottom.i.i, align 4
-  %17 = load i8, ptr %engaged2.i8.i.i, align 4
-  %18 = and i8 %17, 1
-  %cmp.i9.i.i = icmp eq i8 %13, %18
+  %15 = load i32, ptr %add.ptr.i.i, align 4
+  store i32 %15, ptr %tempBottom.i.i, align 4
+  %16 = load i8, ptr %engaged2.i8.i.i, align 4
+  %17 = and i8 %16, 1
+  %cmp.i9.i.i = icmp eq i8 %12, %17
   br i1 %cmp.i9.i.i, label %if.then7.i.i.i, label %if.then12.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i.i
-  %19 = load i32, ptr %first, align 4
-  store i32 %19, ptr %add.ptr.i.i, align 4
+  %18 = load i32, ptr %first, align 4
+  store i32 %18, ptr %add.ptr.i.i, align 4
   br label %_ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i
 
 if.then12.i.i.i:                                  ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.thread.i.i
@@ -1858,8 +1933,8 @@ if.then12.i.i.i:                                  ; preds = %_ZN5eastl8optionalI
   br label %_ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i
 
 if.else14.i.i.i:                                  ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.i.i
-  %20 = load i32, ptr %first, align 4
-  store i32 %20, ptr %add.ptr.i.i, align 4
+  %19 = load i32, ptr %first, align 4
+  store i32 %19, ptr %add.ptr.i.i, align 4
   store i8 1, ptr %engaged.i.i.i22, align 4
   br label %_ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i
 
@@ -2099,147 +2174,6 @@ if.else14.i18.i.i:                                ; preds = %if.else.i16.i.i
   br label %_ZN5eastl12promote_heapIPNS_8optionalIiEElOS2_EEvT_T0_S6_OT1_.exit
 
 _ZN5eastl12promote_heapIPNS_8optionalIiEElOS2_EEvT_T0_S6_OT1_.exit: ; preds = %if.then.i19.i.i, %if.then7.i20.i.i, %if.then12.i17.i.i, %if.else14.i18.i.i
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5eastl14insertion_sortIPNS_8optionalIiEENS_4lessIS2_EEEEvT_S6_T0_(ptr noundef %first, ptr noundef %last) local_unnamed_addr #1 comdat {
-entry:
-  %cmp.not = icmp eq ptr %first, %last
-  %i.036 = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 1
-  %cmp1.not37 = icmp eq ptr %i.036, %last
-  %or.cond = select i1 %cmp.not, i1 true, i1 %cmp1.not37
-  br i1 %or.cond, label %if.end, label %for.body
-
-for.body:                                         ; preds = %entry, %_ZN5eastl8optionalIiEaSEOS1_.exit25
-  %i.039 = phi ptr [ %i.0, %_ZN5eastl8optionalIiEaSEOS1_.exit25 ], [ %i.036, %entry ]
-  %first.pn38 = phi ptr [ %i.039, %_ZN5eastl8optionalIiEaSEOS1_.exit25 ], [ %first, %entry ]
-  %engaged.i = getelementptr inbounds %"class.eastl::optional", ptr %first.pn38, i64 1, i32 0, i32 1
-  %0 = load i8, ptr %engaged.i, align 4
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %land.rhs.us, label %land.rhs.preheader
-
-land.rhs.preheader:                               ; preds = %for.body
-  %2 = load i32, ptr %i.039, align 4
-  br label %land.rhs
-
-land.rhs.us:                                      ; preds = %for.body, %_ZN5eastl8optionalIiEaSEOS1_.exit.us
-  %movePosition.035.us = phi ptr [ %incdec.ptr4.us, %_ZN5eastl8optionalIiEaSEOS1_.exit.us ], [ %i.039, %for.body ]
-  %incdec.ptr4.us = getelementptr %"class.eastl::optional", ptr %movePosition.035.us, i64 -1
-  %engaged.i.i.i.us = getelementptr %"class.eastl::optional", ptr %movePosition.035.us, i64 -1, i32 0, i32 1
-  %3 = load i8, ptr %engaged.i.i.i.us, align 4
-  %4 = and i8 %3, 1
-  %tobool.i.not.i.i.us = icmp eq i8 %4, 0
-  br i1 %tobool.i.not.i.i.us, label %for.end, label %cond.false.i.i.us
-
-cond.false.i.i.us:                                ; preds = %land.rhs.us
-  %engaged.i13.us = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %movePosition.035.us, i64 0, i32 1
-  %5 = load i8, ptr %engaged.i13.us, align 4
-  %6 = and i8 %5, 1
-  %cmp.i.us = icmp eq i8 %6, %4
-  br i1 %cmp.i.us, label %if.then.i15.us, label %if.else.i.us
-
-if.else.i.us:                                     ; preds = %cond.false.i.i.us
-  %tobool.not.i14.us = icmp eq i8 %6, 0
-  br i1 %tobool.not.i14.us, label %if.else14.i.us, label %if.then12.i.us
-
-if.then12.i.us:                                   ; preds = %if.else.i.us
-  store i8 0, ptr %engaged.i13.us, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.us
-
-if.else14.i.us:                                   ; preds = %if.else.i.us
-  %7 = load i32, ptr %incdec.ptr4.us, align 4
-  store i32 %7, ptr %movePosition.035.us, align 4
-  store i8 1, ptr %engaged.i13.us, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.us
-
-if.then.i15.us:                                   ; preds = %cond.false.i.i.us
-  %8 = load i32, ptr %incdec.ptr4.us, align 4
-  store i32 %8, ptr %movePosition.035.us, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit.us
-
-_ZN5eastl8optionalIiEaSEOS1_.exit.us:             ; preds = %if.then.i15.us, %if.else14.i.us, %if.then12.i.us
-  %cmp3.not.us = icmp eq ptr %incdec.ptr4.us, %first
-  br i1 %cmp3.not.us, label %for.end, label %land.rhs.us, !llvm.loop !17
-
-land.rhs:                                         ; preds = %land.rhs.preheader, %_ZN5eastl8optionalIiEaSEOS1_.exit
-  %movePosition.035 = phi ptr [ %incdec.ptr4, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %i.039, %land.rhs.preheader ]
-  %incdec.ptr4 = getelementptr %"class.eastl::optional", ptr %movePosition.035, i64 -1
-  %engaged.i.i.i = getelementptr %"class.eastl::optional", ptr %movePosition.035, i64 -1, i32 0, i32 1
-  %9 = load i8, ptr %engaged.i.i.i, align 4
-  %10 = and i8 %9, 1
-  %tobool.i.not.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.i.not.i.i, label %for.end, label %cond.false.i.i
-
-cond.false.i.i:                                   ; preds = %land.rhs
-  %11 = load i32, ptr %incdec.ptr4, align 4
-  %cmp.i.i = icmp slt i32 %2, %11
-  br i1 %cmp.i.i, label %for.body6, label %for.end
-
-for.body6:                                        ; preds = %cond.false.i.i
-  %engaged.i13 = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %movePosition.035, i64 0, i32 1
-  %12 = load i8, ptr %engaged.i13, align 4
-  %13 = and i8 %12, 1
-  %cmp.i = icmp eq i8 %13, %10
-  br i1 %cmp.i, label %if.then.i15, label %if.else.i
-
-if.then.i15:                                      ; preds = %for.body6
-  store i32 %11, ptr %movePosition.035, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit
-
-if.else.i:                                        ; preds = %for.body6
-  %tobool.not.i14 = icmp eq i8 %13, 0
-  br i1 %tobool.not.i14, label %if.else14.i, label %if.then12.i
-
-if.then12.i:                                      ; preds = %if.else.i
-  store i8 0, ptr %engaged.i13, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit
-
-if.else14.i:                                      ; preds = %if.else.i
-  store i32 %11, ptr %movePosition.035, align 4
-  store i8 1, ptr %engaged.i13, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit
-
-_ZN5eastl8optionalIiEaSEOS1_.exit:                ; preds = %if.then.i15, %if.then12.i, %if.else14.i
-  %cmp3.not = icmp eq ptr %incdec.ptr4, %first
-  br i1 %cmp3.not, label %for.end, label %land.rhs, !llvm.loop !17
-
-for.end:                                          ; preds = %cond.false.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit, %land.rhs, %land.rhs.us, %_ZN5eastl8optionalIiEaSEOS1_.exit.us
-  %insertValue.sroa.0.143 = phi i32 [ 0, %_ZN5eastl8optionalIiEaSEOS1_.exit.us ], [ 0, %land.rhs.us ], [ %2, %land.rhs ], [ %2, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %2, %cond.false.i.i ]
-  %.us-phi = phi ptr [ %movePosition.035.us, %land.rhs.us ], [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit.us ], [ %movePosition.035, %cond.false.i.i ], [ %first, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %movePosition.035, %land.rhs ]
-  %engaged.i16 = getelementptr inbounds %"struct.eastl::Internal::optional_storage", ptr %.us-phi, i64 0, i32 1
-  %14 = load i8, ptr %engaged.i16, align 4
-  %15 = and i8 %14, 1
-  %tobool.not.i17 = icmp eq i8 %15, 0
-  %cmp.i19 = icmp eq i8 %15, %1
-  br i1 %cmp.i19, label %if.then.i23, label %if.else.i20
-
-if.then.i23:                                      ; preds = %for.end
-  br i1 %tobool.not.i17, label %_ZN5eastl8optionalIiEaSEOS1_.exit25, label %if.then7.i24
-
-if.then7.i24:                                     ; preds = %if.then.i23
-  store i32 %insertValue.sroa.0.143, ptr %.us-phi, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25
-
-if.else.i20:                                      ; preds = %for.end
-  br i1 %tobool.not.i17, label %if.else14.i22, label %if.then12.i21
-
-if.then12.i21:                                    ; preds = %if.else.i20
-  store i8 0, ptr %engaged.i16, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25
-
-if.else14.i22:                                    ; preds = %if.else.i20
-  store i32 %insertValue.sroa.0.143, ptr %.us-phi, align 4
-  store i8 1, ptr %engaged.i16, align 4
-  br label %_ZN5eastl8optionalIiEaSEOS1_.exit25
-
-_ZN5eastl8optionalIiEaSEOS1_.exit25:              ; preds = %if.then.i23, %if.then7.i24, %if.then12.i21, %if.else14.i22
-  %i.0 = getelementptr inbounds %"class.eastl::optional", ptr %i.039, i64 1
-  %cmp1.not = icmp eq ptr %i.0, %last
-  br i1 %cmp1.not, label %if.end, label %for.body, !llvm.loop !18
-
-if.end:                                           ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit25, %entry
   ret void
 }
 

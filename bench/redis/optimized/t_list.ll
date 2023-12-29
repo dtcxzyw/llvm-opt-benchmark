@@ -2394,7 +2394,7 @@ if.then10:                                        ; preds = %listTypeLength.exit
   br label %if.end30
 
 if.end11:                                         ; preds = %listTypeLength.exit
-  %cmp12.not = icmp slt i64 %end.addr.0, %retval.0.i
+  %cmp12.not = icmp ult i64 %end.addr.0, %retval.0.i
   %sub = add nsw i64 %retval.0.i, -1
   %spec.select26 = select i1 %cmp12.not, i64 %end.addr.0, i64 %sub
   %sub15 = sub nsw i64 %spec.select26, %spec.store.select
@@ -3068,7 +3068,7 @@ if.end23:                                         ; preds = %if.then22, %if.end2
   br i1 %or.cond, label %if.else, label %if.end33
 
 if.else:                                          ; preds = %if.end23
-  %cmp28.not = icmp slt i64 %12, %retval.0.i
+  %cmp28.not = icmp ult i64 %12, %retval.0.i
   br i1 %cmp28.not, label %if.end30, label %if.then29
 
 if.then29:                                        ; preds = %if.else
@@ -3079,7 +3079,7 @@ if.then29:                                        ; preds = %if.else
 if.end30:                                         ; preds = %if.then29, %if.else
   %14 = phi i64 [ %sub, %if.then29 ], [ %12, %if.else ]
   %15 = xor i64 %14, -1
-  %sub32 = add i64 %retval.0.i, %15
+  %sub32 = add nsw i64 %retval.0.i, %15
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end23, %if.end30

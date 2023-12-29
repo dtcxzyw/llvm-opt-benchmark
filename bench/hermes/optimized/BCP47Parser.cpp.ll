@@ -910,7 +910,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i.i.i
   unreachable
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then4.i.i.i
-  %mul.i.i.i.i = shl i64 %cond.i.i.i.i, 1
+  %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 1
   %cmp3.i.i.i.i = icmp ult i64 %1, %mul.i.i.i.i
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %mul.i.i.i.i, i64 2305843009213693951)
   %__new_capacity.0.i.i.i = select i1 %cmp3.i.i.i.i, i64 %spec.store.select.i.i.i.i, i64 %1
@@ -1192,10 +1192,8 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i8
   br i1 %cmp3.i.i.i82, label %land.lhs.true.i.i.i.i99, label %if.end10.sink.split.i.i.i92
 
 land.lhs.true.i.i.i.i99:                          ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i80
-  %mul.i.i.i.i100 = shl i64 %cond.i.i.i.i81, 1
-  %cmp3.i.i.i.i101 = icmp ult i64 %call19.val7, %mul.i.i.i.i100
-  %spec.store.select.i.i.i.i102 = tail call i64 @llvm.umin.i64(i64 %mul.i.i.i.i100, i64 2305843009213693951)
-  %__new_capacity.0.i.i.i103 = select i1 %cmp3.i.i.i.i101, i64 %spec.store.select.i.i.i.i102, i64 %call19.val7
+  %mul.i.i.i.i100 = shl nuw nsw i64 %cond.i.i.i.i81, 1
+  %__new_capacity.0.i.i.i103 = tail call i64 @llvm.umax.i64(i64 %call19.val7, i64 %mul.i.i.i.i100)
   %add.i.i.i.i104 = shl nuw nsw i64 %__new_capacity.0.i.i.i103, 1
   %mul.i.i.i.i.i.i105 = add nuw nsw i64 %add.i.i.i.i104, 2
   %call5.i.i.i.i.i.i106 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i105) #17
@@ -5583,7 +5581,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -7692,7 +7690,7 @@ if.end.i:                                         ; preds = %_ZNKSt7__cxx1112bas
   br i1 %cmp2.i, label %land.lhs.true.i, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %mul.i = shl i64 %cond.i, 1
+  %mul.i = shl nuw nsw i64 %cond.i, 1
   %cmp3.i = icmp ult i64 %sub4, %mul.i
   br i1 %cmp3.i, label %if.then4.i, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit
 

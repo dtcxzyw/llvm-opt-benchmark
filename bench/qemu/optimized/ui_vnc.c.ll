@@ -4350,7 +4350,7 @@ return:                                           ; preds = %reject, %vnc_flush.
   ret i32 0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @vnc_sent_lossy_rect(ptr nocapture noundef readonly %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #8 {
 entry:
   %add = add i32 %w, %x
@@ -7428,7 +7428,7 @@ for.body.lr.ph:                                   ; preds = %if.end42
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %43 = shl i64 %indvars.iv, 2
+  %43 = shl nuw nsw i64 %indvars.iv, 2
   %44 = getelementptr i8, ptr %data, i64 %43
   %arrayidx.i162 = getelementptr i8, ptr %44, i64 4
   %45 = load i8, ptr %arrayidx.i162, align 1
@@ -7461,8 +7461,8 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then33, %if.end42
-  %cmp44386.not394 = phi i1 [ true, %if.end42 ], [ true, %if.then33 ], [ %cmp44386.not, %for.end.loopexit ]
-  %limit.0393 = phi i64 [ 4294967295, %if.end42 ], [ 4294967295, %if.then33 ], [ %51, %for.end.loopexit ]
+  %cmp44386.not393 = phi i1 [ true, %if.end42 ], [ true, %if.then33 ], [ %cmp44386.not, %for.end.loopexit ]
+  %limit.0392 = phi i64 [ 4294967295, %if.end42 ], [ 4294967295, %if.then33 ], [ %51, %for.end.loopexit ]
   %add.ptr52 = getelementptr i8, ptr %data, i64 4
   %features.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 11
   store i32 0, ptr %features.i, align 4
@@ -7477,7 +7477,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   store i8 -1, ptr %quality.i, align 4
   %absolute.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 12
   store i32 -1, ptr %absolute.i, align 8
-  br i1 %cmp44386.not394, label %set_encodings.exit, label %for.body.lr.ph.i
+  br i1 %cmp44386.not393, label %set_encodings.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
   %output_mutex.i.i61.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 42
@@ -7498,7 +7498,7 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %limit.0393, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %indvars.iv.i = phi i64 [ %limit.0392, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i171 = getelementptr i32, ptr %add.ptr52, i64 %indvars.iv.i
   %54 = load i32, ptr %arrayidx.i171, align 4
   switch i32 %54, label %for.inc.i [
@@ -7979,10 +7979,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.else.i
   %div27.i.i = sdiv i32 %sub26.i.i, 16
   %conv28.i.i = sext i32 %div27.i.i to i64
   %120 = tail call i32 @llvm.smin.i32(i32 %call.i.i26.i.i, i32 %or.i188)
-  %121 = tail call i32 @llvm.smin.i32(i32 %120, i32 2048)
-  %smin30.i.i = sext i32 %121 to i64
-  %122 = sub i32 %121, %cond8.i.i
-  %123 = add i32 %122, %cond23.i.i
+  %smin30.i.i = sext i32 %120 to i64
+  %121 = sub i32 %120, %cond8.i.i
+  %122 = add i32 %121, %cond23.i.i
   br label %for.body.i.i207
 
 for.body.i.i207:                                  ; preds = %for.body.i.i207, %for.body.lr.ph.i.i
@@ -7991,12 +7990,12 @@ for.body.i.i207:                                  ; preds = %for.body.i.i207, %f
   tail call void @bitmap_set(ptr noundef %arrayidx.i.i, i64 noundef %conv.i.i206, i64 noundef %conv28.i.i) #23
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
-  %exitcond.not.i.i208 = icmp eq i32 %123, %lftr.wideiv.i.i
+  %exitcond.not.i.i208 = icmp eq i32 %122, %lftr.wideiv.i.i
   br i1 %exitcond.not.i.i208, label %vnc_set_area_dirty.exit.i, label %for.body.i.i207, !llvm.loop !13
 
 vnc_set_area_dirty.exit.i:                        ; preds = %for.body.i.i207, %if.else.i
-  %124 = getelementptr i8, ptr %vs, i64 49212
-  %vs.val.i = load i32, ptr %124, align 4
+  %123 = getelementptr i8, ptr %vs, i64 49212
+  %vs.val.i = load i32, ptr %123, align 4
   %and.i.i204 = and i32 %vs.val.i, 2
   %tobool4.not.i = icmp eq i32 %and.i.i204, 0
   br i1 %tobool4.not.i, label %sw.epilog276, label %if.then5.i
@@ -8011,25 +8010,25 @@ sw.bb69:                                          ; preds = %if.end
 
 if.end73:                                         ; preds = %sw.bb69
   %arrayidx.i209 = getelementptr i8, ptr %data, i64 1
-  %125 = load i8, ptr %arrayidx.i209, align 1
-  %conv75 = zext i8 %125 to i32
+  %124 = load i8, ptr %arrayidx.i209, align 1
+  %conv75 = zext i8 %124 to i32
   %arrayidx.i210 = getelementptr i8, ptr %data, i64 4
-  %126 = load i8, ptr %arrayidx.i210, align 1
-  %conv.i211 = zext i8 %126 to i32
+  %125 = load i8, ptr %arrayidx.i210, align 1
+  %conv.i211 = zext i8 %125 to i32
   %shl.i212 = shl nuw i32 %conv.i211, 24
   %arrayidx1.i213 = getelementptr i8, ptr %data, i64 5
-  %127 = load i8, ptr %arrayidx1.i213, align 1
-  %conv2.i214 = zext i8 %127 to i32
+  %126 = load i8, ptr %arrayidx1.i213, align 1
+  %conv2.i214 = zext i8 %126 to i32
   %shl3.i215 = shl nuw nsw i32 %conv2.i214, 16
   %or.i216 = or disjoint i32 %shl3.i215, %shl.i212
   %arrayidx5.i217 = getelementptr i8, ptr %data, i64 6
-  %128 = load i8, ptr %arrayidx5.i217, align 1
-  %conv6.i218 = zext i8 %128 to i32
+  %127 = load i8, ptr %arrayidx5.i217, align 1
+  %conv6.i218 = zext i8 %127 to i32
   %shl7.i219 = shl nuw nsw i32 %conv6.i218, 8
   %or8.i220 = or disjoint i32 %or.i216, %shl7.i219
   %arrayidx10.i221 = getelementptr i8, ptr %data, i64 7
-  %129 = load i8, ptr %arrayidx10.i221, align 1
-  %conv11.i222 = zext i8 %129 to i32
+  %128 = load i8, ptr %arrayidx10.i221, align 1
+  %conv11.i222 = zext i8 %128 to i32
   %or12.i223 = or disjoint i32 %or8.i220, %conv11.i222
   tail call fastcc void @key_event(ptr noundef %vs, i32 noundef %conv75, i32 noundef %or12.i223)
   br label %sw.epilog276
@@ -8040,82 +8039,82 @@ sw.bb77:                                          ; preds = %if.end
 
 if.end81:                                         ; preds = %sw.bb77
   %arrayidx.i224 = getelementptr i8, ptr %data, i64 1
-  %130 = load i8, ptr %arrayidx.i224, align 1
-  %conv83 = zext i8 %130 to i32
+  %129 = load i8, ptr %arrayidx.i224, align 1
+  %conv83 = zext i8 %129 to i32
   %arrayidx.i225 = getelementptr i8, ptr %data, i64 2
-  %131 = load i8, ptr %arrayidx.i225, align 1
-  %conv.i226 = zext i8 %131 to i32
+  %130 = load i8, ptr %arrayidx.i225, align 1
+  %conv.i226 = zext i8 %130 to i32
   %shl.i227 = shl nuw nsw i32 %conv.i226, 8
   %arrayidx1.i228 = getelementptr i8, ptr %data, i64 3
-  %132 = load i8, ptr %arrayidx1.i228, align 1
-  %conv2.i229 = zext i8 %132 to i32
+  %131 = load i8, ptr %arrayidx1.i228, align 1
+  %conv2.i229 = zext i8 %131 to i32
   %or.i230 = or disjoint i32 %shl.i227, %conv2.i229
   %arrayidx.i231 = getelementptr i8, ptr %data, i64 4
-  %133 = load i8, ptr %arrayidx.i231, align 1
-  %conv.i232 = zext i8 %133 to i32
+  %132 = load i8, ptr %arrayidx.i231, align 1
+  %conv.i232 = zext i8 %132 to i32
   %shl.i233 = shl nuw nsw i32 %conv.i232, 8
   %arrayidx1.i234 = getelementptr i8, ptr %data, i64 5
-  %134 = load i8, ptr %arrayidx1.i234, align 1
-  %conv2.i235 = zext i8 %134 to i32
+  %133 = load i8, ptr %arrayidx1.i234, align 1
+  %conv2.i235 = zext i8 %133 to i32
   %or.i236 = or disjoint i32 %shl.i233, %conv2.i235
-  %135 = load ptr, ptr %vd1, align 8
-  %con1.i = getelementptr inbounds %struct.VncDisplay, ptr %135, i64 0, i32 9, i32 3
-  %136 = load ptr, ptr %con1.i, align 8
-  %server.i = getelementptr inbounds %struct.VncDisplay, ptr %135, i64 0, i32 19
-  %137 = load ptr, ptr %server.i, align 8
-  %call.i238 = tail call i32 @pixman_image_get_width(ptr noundef %137) #23
-  %138 = load ptr, ptr %vd1, align 8
-  %server4.i = getelementptr inbounds %struct.VncDisplay, ptr %138, i64 0, i32 19
-  %139 = load ptr, ptr %server4.i, align 8
-  %call5.i = tail call i32 @pixman_image_get_height(ptr noundef %139) #23
+  %134 = load ptr, ptr %vd1, align 8
+  %con1.i = getelementptr inbounds %struct.VncDisplay, ptr %134, i64 0, i32 9, i32 3
+  %135 = load ptr, ptr %con1.i, align 8
+  %server.i = getelementptr inbounds %struct.VncDisplay, ptr %134, i64 0, i32 19
+  %136 = load ptr, ptr %server.i, align 8
+  %call.i238 = tail call i32 @pixman_image_get_width(ptr noundef %136) #23
+  %137 = load ptr, ptr %vd1, align 8
+  %server4.i = getelementptr inbounds %struct.VncDisplay, ptr %137, i64 0, i32 19
+  %138 = load ptr, ptr %server4.i, align 8
+  %call5.i = tail call i32 @pixman_image_get_height(ptr noundef %138) #23
   %last_bmask.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 15
-  %140 = load i32, ptr %last_bmask.i, align 4
-  %cmp.not.i239 = icmp eq i32 %140, %conv83
+  %139 = load i32, ptr %last_bmask.i, align 4
+  %cmp.not.i239 = icmp eq i32 %139, %conv83
   br i1 %cmp.not.i239, label %if.end.i241, label %if.then.i240
 
 if.then.i240:                                     ; preds = %if.end81
-  tail call void @qemu_input_update_buttons(ptr noundef %136, ptr noundef nonnull @pointer_event.bmap, i32 noundef %140, i32 noundef %conv83) #23
+  tail call void @qemu_input_update_buttons(ptr noundef %135, ptr noundef nonnull @pointer_event.bmap, i32 noundef %139, i32 noundef %conv83) #23
   store i32 %conv83, ptr %last_bmask.i, align 4
   br label %if.end.i241
 
 if.end.i241:                                      ; preds = %if.then.i240, %if.end81
   %absolute.i242 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 12
-  %141 = load i32, ptr %absolute.i242, align 8
-  %tobool.not.i243 = icmp eq i32 %141, 0
+  %140 = load i32, ptr %absolute.i242, align 8
+  %tobool.not.i243 = icmp eq i32 %140, 0
   br i1 %tobool.not.i243, label %if.else.i244, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i241
-  tail call void @qemu_input_queue_abs(ptr noundef %136, i32 noundef 0, i32 noundef %or.i230, i32 noundef 0, i32 noundef %call.i238) #23
-  tail call void @qemu_input_queue_abs(ptr noundef %136, i32 noundef 1, i32 noundef %or.i236, i32 noundef 0, i32 noundef %call5.i) #23
+  tail call void @qemu_input_queue_abs(ptr noundef %135, i32 noundef 0, i32 noundef %or.i230, i32 noundef 0, i32 noundef %call.i238) #23
+  tail call void @qemu_input_queue_abs(ptr noundef %135, i32 noundef 1, i32 noundef %or.i236, i32 noundef 0, i32 noundef %call5.i) #23
   br label %pointer_event.exit
 
 if.else.i244:                                     ; preds = %if.end.i241
-  %142 = getelementptr i8, ptr %vs, i64 49212
-  %vs.val.i245 = load i32, ptr %142, align 4
+  %141 = getelementptr i8, ptr %vs, i64 49212
+  %vs.val.i245 = load i32, ptr %141, align 4
   %and.i.i246 = and i32 %vs.val.i245, 8
   %tobool10.not.i = icmp eq i32 %and.i.i246, 0
   br i1 %tobool10.not.i, label %if.else13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i244
   %sub.i = add nsw i32 %or.i230, -32767
-  tail call void @qemu_input_queue_rel(ptr noundef %136, i32 noundef 0, i32 noundef %sub.i) #23
+  tail call void @qemu_input_queue_rel(ptr noundef %135, i32 noundef 0, i32 noundef %sub.i) #23
   %sub12.i = add nsw i32 %or.i236, -32767
-  tail call void @qemu_input_queue_rel(ptr noundef %136, i32 noundef 1, i32 noundef %sub12.i) #23
+  tail call void @qemu_input_queue_rel(ptr noundef %135, i32 noundef 1, i32 noundef %sub12.i) #23
   br label %pointer_event.exit
 
 if.else13.i:                                      ; preds = %if.else.i244
   %last_x.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 13
-  %143 = load i32, ptr %last_x.i, align 4
-  %cmp14.not.i = icmp eq i32 %143, -1
+  %142 = load i32, ptr %last_x.i, align 4
+  %cmp14.not.i = icmp eq i32 %142, -1
   br i1 %cmp14.not.i, label %if.end19.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.else13.i
-  %sub17.i = sub i32 %or.i230, %143
-  tail call void @qemu_input_queue_rel(ptr noundef %136, i32 noundef 0, i32 noundef %sub17.i) #23
+  %sub17.i = sub i32 %or.i230, %142
+  tail call void @qemu_input_queue_rel(ptr noundef %135, i32 noundef 0, i32 noundef %sub17.i) #23
   %last_y.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 14
-  %144 = load i32, ptr %last_y.i, align 8
-  %sub18.i = sub i32 %or.i236, %144
-  tail call void @qemu_input_queue_rel(ptr noundef %136, i32 noundef 1, i32 noundef %sub18.i) #23
+  %143 = load i32, ptr %last_y.i, align 8
+  %sub18.i = sub i32 %or.i236, %143
+  tail call void @qemu_input_queue_rel(ptr noundef %135, i32 noundef 1, i32 noundef %sub18.i) #23
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then15.i, %if.else13.i
@@ -8134,33 +8133,33 @@ sw.bb88:                                          ; preds = %if.end
 
 if.end92:                                         ; preds = %sw.bb88
   %arrayidx.i247 = getelementptr i8, ptr %data, i64 4
-  %145 = load i8, ptr %arrayidx.i247, align 1
-  %conv.i248 = zext i8 %145 to i32
+  %144 = load i8, ptr %arrayidx.i247, align 1
+  %conv.i248 = zext i8 %144 to i32
   %shl.i249 = shl nuw i32 %conv.i248, 24
   %arrayidx1.i250 = getelementptr i8, ptr %data, i64 5
-  %146 = load i8, ptr %arrayidx1.i250, align 1
-  %conv2.i251 = zext i8 %146 to i32
+  %145 = load i8, ptr %arrayidx1.i250, align 1
+  %conv2.i251 = zext i8 %145 to i32
   %shl3.i252 = shl nuw nsw i32 %conv2.i251, 16
   %or.i253 = or disjoint i32 %shl3.i252, %shl.i249
   %arrayidx5.i254 = getelementptr i8, ptr %data, i64 6
-  %147 = load i8, ptr %arrayidx5.i254, align 1
-  %conv6.i255 = zext i8 %147 to i32
+  %146 = load i8, ptr %arrayidx5.i254, align 1
+  %conv6.i255 = zext i8 %146 to i32
   %shl7.i256 = shl nuw nsw i32 %conv6.i255, 8
   %or8.i257 = or disjoint i32 %or.i253, %shl7.i256
   %arrayidx10.i258 = getelementptr i8, ptr %data, i64 7
-  %148 = load i8, ptr %arrayidx10.i258, align 1
-  %conv11.i259 = zext i8 %148 to i32
+  %147 = load i8, ptr %arrayidx10.i258, align 1
+  %conv11.i259 = zext i8 %147 to i32
   %or12.i260 = or disjoint i32 %or8.i257, %conv11.i259
-  %149 = tail call i32 @llvm.abs.i32(i32 %or12.i260, i1 false)
+  %148 = tail call i32 @llvm.abs.i32(i32 %or12.i260, i1 false)
   %cmp94 = icmp eq i64 %len, 8
   br i1 %cmp94, label %if.then96, label %if.end106
 
 if.then96:                                        ; preds = %if.end92
-  %cmp97 = icmp ugt i32 %149, 1048576
+  %cmp97 = icmp ugt i32 %148, 1048576
   br i1 %cmp97, label %if.then99, label %if.end100
 
 if.then99:                                        ; preds = %if.then96
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.86, i32 noundef %149) #23
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.86, i32 noundef %148) #23
   tail call fastcc void @vnc_disconnect_start(ptr noundef %vs)
   br label %sw.epilog276
 
@@ -8169,7 +8168,7 @@ if.end100:                                        ; preds = %if.then96
   br i1 %cmp101.not, label %if.end117, label %if.then103
 
 if.then103:                                       ; preds = %if.end100
-  %add104 = add nuw nsw i32 %149, 8
+  %add104 = add nuw nsw i32 %148, 8
   br label %return
 
 if.end106:                                        ; preds = %if.end92
@@ -8177,7 +8176,7 @@ if.end106:                                        ; preds = %if.end92
   br i1 %cmp108, label %if.then110, label %if.end117
 
 if.then110:                                       ; preds = %if.end106
-  %cmp111 = icmp ult i32 %149, 4
+  %cmp111 = icmp ult i32 %148, 4
   br i1 %cmp111, label %if.then113, label %if.end114
 
 if.then113:                                       ; preds = %if.then110
@@ -8187,25 +8186,25 @@ if.then113:                                       ; preds = %if.then110
 
 if.end114:                                        ; preds = %if.then110
   %arrayidx.i275 = getelementptr i8, ptr %data, i64 8
-  %150 = load i8, ptr %arrayidx.i275, align 1
-  %conv.i276 = zext i8 %150 to i32
+  %149 = load i8, ptr %arrayidx.i275, align 1
+  %conv.i276 = zext i8 %149 to i32
   %shl.i277 = shl nuw i32 %conv.i276, 24
   %arrayidx1.i278 = getelementptr i8, ptr %data, i64 9
-  %151 = load i8, ptr %arrayidx1.i278, align 1
-  %conv2.i279 = zext i8 %151 to i32
+  %150 = load i8, ptr %arrayidx1.i278, align 1
+  %conv2.i279 = zext i8 %150 to i32
   %shl3.i280 = shl nuw nsw i32 %conv2.i279, 16
   %or.i281 = or disjoint i32 %shl3.i280, %shl.i277
   %arrayidx5.i282 = getelementptr i8, ptr %data, i64 10
-  %152 = load i8, ptr %arrayidx5.i282, align 1
-  %conv6.i283 = zext i8 %152 to i32
+  %151 = load i8, ptr %arrayidx5.i282, align 1
+  %conv6.i283 = zext i8 %151 to i32
   %shl7.i284 = shl nuw nsw i32 %conv6.i283, 8
   %or8.i285 = or disjoint i32 %or.i281, %shl7.i284
   %arrayidx10.i286 = getelementptr i8, ptr %data, i64 11
-  %153 = load i8, ptr %arrayidx10.i286, align 1
-  %conv11.i287 = zext i8 %153 to i32
+  %152 = load i8, ptr %arrayidx10.i286, align 1
+  %conv11.i287 = zext i8 %152 to i32
   %or12.i288 = or disjoint i32 %or8.i285, %conv11.i287
   %add.ptr116 = getelementptr i8, ptr %data, i64 12
-  tail call void @vnc_client_cut_text_ext(ptr noundef %vs, i32 noundef %149, i32 noundef %or12.i288, ptr noundef %add.ptr116) #23
+  tail call void @vnc_client_cut_text_ext(ptr noundef %vs, i32 noundef %148, i32 noundef %or12.i288, ptr noundef %add.ptr116) #23
   br label %sw.epilog276
 
 if.end117:                                        ; preds = %if.end100, %if.end106
@@ -8215,8 +8214,8 @@ if.end117:                                        ; preds = %if.end100, %if.end1
   br label %sw.epilog276
 
 sw.bb121:                                         ; preds = %if.end
-  %154 = getelementptr i8, ptr %vs, i64 49212
-  %vs.val = load i32, ptr %154, align 4
+  %153 = getelementptr i8, ptr %vs, i64 49212
+  %vs.val = load i32, ptr %153, align 4
   %and.i303 = and i32 %vs.val, 8192
   %tobool.not = icmp eq i32 %and.i303, 0
   br i1 %tobool.not, label %if.then123, label %if.end124
@@ -8234,20 +8233,20 @@ if.end124:                                        ; preds = %sw.bb121
 
 if.then131:                                       ; preds = %if.end124
   %arrayidx.i304 = getelementptr i8, ptr %data, i64 2
-  %155 = load i8, ptr %arrayidx.i304, align 1
-  %cmp135.not = icmp eq i8 %155, 1
+  %154 = load i8, ptr %arrayidx.i304, align 1
+  %cmp135.not = icmp eq i8 %154, 1
   br i1 %cmp135.not, label %if.end139, label %if.then137
 
 if.then137:                                       ; preds = %if.then131
-  %conv134 = zext i8 %155 to i32
+  %conv134 = zext i8 %154 to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.89, i32 noundef %conv134) #23
   tail call fastcc void @vnc_disconnect_start(ptr noundef nonnull %vs)
   br label %sw.epilog276
 
 if.end139:                                        ; preds = %if.then131
   %arrayidx.i305 = getelementptr i8, ptr %data, i64 3
-  %156 = load i8, ptr %arrayidx.i305, align 1
-  switch i8 %156, label %sw.default [
+  %155 = load i8, ptr %arrayidx.i305, align 1
+  switch i8 %155, label %sw.default [
     i8 2, label %sw.bb141
     i8 3, label %sw.bb142
     i8 4, label %sw.bb143
@@ -8275,8 +8274,8 @@ sw.bb145:                                         ; preds = %if.end
 
 if.end149:                                        ; preds = %sw.bb145
   %arrayidx.i306 = getelementptr i8, ptr %data, i64 1
-  %157 = load i8, ptr %arrayidx.i306, align 1
-  switch i8 %157, label %do.end240 [
+  %156 = load i8, ptr %arrayidx.i306, align 1
+  switch i8 %156, label %do.end240 [
     i8 0, label %sw.bb152
     i8 1, label %sw.bb162
   ]
@@ -8287,53 +8286,53 @@ sw.bb152:                                         ; preds = %if.end149
 
 if.end156:                                        ; preds = %sw.bb152
   %arrayidx.i307 = getelementptr i8, ptr %data, i64 2
-  %158 = load i8, ptr %arrayidx.i307, align 1
-  %conv.i308 = zext i8 %158 to i32
+  %157 = load i8, ptr %arrayidx.i307, align 1
+  %conv.i308 = zext i8 %157 to i32
   %shl.i309 = shl nuw nsw i32 %conv.i308, 8
   %arrayidx1.i310 = getelementptr i8, ptr %data, i64 3
-  %159 = load i8, ptr %arrayidx1.i310, align 1
-  %conv2.i311 = zext i8 %159 to i32
+  %158 = load i8, ptr %arrayidx1.i310, align 1
+  %conv2.i311 = zext i8 %158 to i32
   %or.i312 = or disjoint i32 %shl.i309, %conv2.i311
   %arrayidx.i313 = getelementptr i8, ptr %data, i64 4
-  %160 = load i8, ptr %arrayidx.i313, align 1
-  %conv.i314 = zext i8 %160 to i32
+  %159 = load i8, ptr %arrayidx.i313, align 1
+  %conv.i314 = zext i8 %159 to i32
   %shl.i315 = shl nuw i32 %conv.i314, 24
   %arrayidx1.i316 = getelementptr i8, ptr %data, i64 5
-  %161 = load i8, ptr %arrayidx1.i316, align 1
-  %conv2.i317 = zext i8 %161 to i32
+  %160 = load i8, ptr %arrayidx1.i316, align 1
+  %conv2.i317 = zext i8 %160 to i32
   %shl3.i318 = shl nuw nsw i32 %conv2.i317, 16
   %or.i319 = or disjoint i32 %shl3.i318, %shl.i315
   %arrayidx5.i320 = getelementptr i8, ptr %data, i64 6
-  %162 = load i8, ptr %arrayidx5.i320, align 1
-  %conv6.i321 = zext i8 %162 to i32
+  %161 = load i8, ptr %arrayidx5.i320, align 1
+  %conv6.i321 = zext i8 %161 to i32
   %shl7.i322 = shl nuw nsw i32 %conv6.i321, 8
   %or8.i323 = or disjoint i32 %or.i319, %shl7.i322
   %arrayidx10.i324 = getelementptr i8, ptr %data, i64 7
-  %163 = load i8, ptr %arrayidx10.i324, align 1
-  %conv11.i325 = zext i8 %163 to i32
+  %162 = load i8, ptr %arrayidx10.i324, align 1
+  %conv11.i325 = zext i8 %162 to i32
   %or12.i326 = or disjoint i32 %or8.i323, %conv11.i325
   %arrayidx5.i334 = getelementptr i8, ptr %data, i64 10
-  %164 = load i8, ptr %arrayidx5.i334, align 1
-  %conv6.i335 = zext i8 %164 to i16
+  %163 = load i8, ptr %arrayidx5.i334, align 1
+  %conv6.i335 = zext i8 %163 to i16
   %shl7.i336 = shl nuw i16 %conv6.i335, 8
   %arrayidx10.i338 = getelementptr i8, ptr %data, i64 11
-  %165 = load i8, ptr %arrayidx10.i338, align 1
-  %conv11.i339 = zext i8 %165 to i16
+  %164 = load i8, ptr %arrayidx10.i338, align 1
+  %conv11.i339 = zext i8 %164 to i16
   %or12.i340 = or disjoint i16 %shl7.i336, %conv11.i339
   tail call fastcc void @ext_key_event(ptr noundef %vs, i32 noundef %or.i312, i32 noundef %or12.i326, i16 noundef zeroext %or12.i340)
   br label %sw.epilog276
 
 sw.bb162:                                         ; preds = %if.end149
-  %166 = getelementptr i8, ptr %vs, i64 49212
-  %vs.val130 = load i32, ptr %166, align 4
+  %165 = getelementptr i8, ptr %vs, i64 49212
+  %vs.val130 = load i32, ptr %165, align 4
   %and.i341 = and i32 %vs.val130, 32768
   %tobool164.not = icmp eq i32 %and.i341, 0
   br i1 %tobool164.not, label %if.then165, label %if.end168
 
 if.then165:                                       ; preds = %sw.bb162
   %arrayidx.i342 = getelementptr i8, ptr %data, i64 2
-  %167 = load i8, ptr %arrayidx.i342, align 1
-  %conv167 = zext i8 %167 to i32
+  %166 = load i8, ptr %arrayidx.i342, align 1
+  %conv167 = zext i8 %166 to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.90, i32 noundef %conv167) #23
   tail call fastcc void @vnc_disconnect_start(ptr noundef nonnull %vs)
   br label %sw.epilog276
@@ -8344,12 +8343,12 @@ if.end168:                                        ; preds = %sw.bb162
 
 if.end172:                                        ; preds = %if.end168
   %arrayidx.i343 = getelementptr i8, ptr %data, i64 2
-  %168 = load i8, ptr %arrayidx.i343, align 1
-  %conv.i344 = zext i8 %168 to i16
+  %167 = load i8, ptr %arrayidx.i343, align 1
+  %conv.i344 = zext i8 %167 to i16
   %shl.i345 = shl nuw i16 %conv.i344, 8
   %arrayidx1.i346 = getelementptr i8, ptr %data, i64 3
-  %169 = load i8, ptr %arrayidx1.i346, align 1
-  %conv2.i347 = zext i8 %169 to i16
+  %168 = load i8, ptr %arrayidx1.i346, align 1
+  %conv2.i347 = zext i8 %168 to i16
   %or.i348 = or disjoint i16 %shl.i345, %conv2.i347
   switch i16 %or.i348, label %do.end236 [
     i16 0, label %sw.bb175
@@ -8359,22 +8358,22 @@ if.end172:                                        ; preds = %if.end168
 
 sw.bb175:                                         ; preds = %if.end172
   %ioc = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 2
-  %170 = load ptr, ptr %ioc, align 8
-  tail call fastcc void @trace_vnc_msg_client_audio_enable(ptr noundef nonnull %vs, ptr noundef %170)
+  %169 = load ptr, ptr %ioc, align 8
+  tail call fastcc void @trace_vnc_msg_client_audio_enable(ptr noundef nonnull %vs, ptr noundef %169)
   tail call fastcc void @audio_add(ptr noundef nonnull %vs)
   br label %sw.epilog276
 
 sw.bb176:                                         ; preds = %if.end172
   %ioc177 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 2
-  %171 = load ptr, ptr %ioc177, align 8
-  tail call fastcc void @trace_vnc_msg_client_audio_disable(ptr noundef nonnull %vs, ptr noundef %171)
+  %170 = load ptr, ptr %ioc177, align 8
+  tail call fastcc void @trace_vnc_msg_client_audio_disable(ptr noundef nonnull %vs, ptr noundef %170)
   %audio_cap.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 37
-  %172 = load ptr, ptr %audio_cap.i, align 8
-  %tobool.not.i349 = icmp eq ptr %172, null
+  %171 = load ptr, ptr %audio_cap.i, align 8
+  %tobool.not.i349 = icmp eq ptr %171, null
   br i1 %tobool.not.i349, label %sw.epilog276, label %if.then.i350
 
 if.then.i350:                                     ; preds = %sw.bb176
-  tail call void @AUD_del_capture(ptr noundef nonnull %172, ptr noundef nonnull %vs) #23
+  tail call void @AUD_del_capture(ptr noundef nonnull %171, ptr noundef nonnull %vs) #23
   store ptr null, ptr %audio_cap.i, align 8
   br label %sw.epilog276
 
@@ -8384,8 +8383,8 @@ sw.bb178:                                         ; preds = %if.end172
 
 if.end182:                                        ; preds = %sw.bb178
   %arrayidx.i352 = getelementptr i8, ptr %data, i64 4
-  %173 = load i8, ptr %arrayidx.i352, align 1
-  switch i8 %173, label %do.end [
+  %172 = load i8, ptr %arrayidx.i352, align 1
+  switch i8 %172, label %do.end [
     i8 0, label %sw.bb185
     i8 1, label %sw.bb186
     i8 2, label %sw.bb189
@@ -8430,12 +8429,12 @@ do.end:                                           ; preds = %if.end182
 
 sw.epilog202:                                     ; preds = %do.end, %sw.bb198, %sw.bb195, %sw.bb192, %sw.bb189, %sw.bb186, %sw.bb185
   %arrayidx.i353 = getelementptr i8, ptr %data, i64 5
-  %174 = load i8, ptr %arrayidx.i353, align 1
-  %conv204 = zext i8 %174 to i32
+  %173 = load i8, ptr %arrayidx.i353, align 1
+  %conv204 = zext i8 %173 to i32
   %as205 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 38
   %nchannels = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 38, i32 1
   store i32 %conv204, ptr %nchannels, align 4
-  %call203.off = add i8 %174, -1
+  %call203.off = add i8 %173, -1
   %switch = icmp ult i8 %call203.off, 2
   br i1 %switch, label %if.end217, label %do.end216
 
@@ -8445,22 +8444,22 @@ do.end216:                                        ; preds = %sw.epilog202
 
 if.end217:                                        ; preds = %sw.epilog202
   %arrayidx.i354 = getelementptr i8, ptr %data, i64 6
-  %175 = load i8, ptr %arrayidx.i354, align 1
-  %conv.i355 = zext i8 %175 to i32
+  %174 = load i8, ptr %arrayidx.i354, align 1
+  %conv.i355 = zext i8 %174 to i32
   %shl.i356 = shl nuw i32 %conv.i355, 24
   %arrayidx1.i357 = getelementptr i8, ptr %data, i64 7
-  %176 = load i8, ptr %arrayidx1.i357, align 1
-  %conv2.i358 = zext i8 %176 to i32
+  %175 = load i8, ptr %arrayidx1.i357, align 1
+  %conv2.i358 = zext i8 %175 to i32
   %shl3.i359 = shl nuw nsw i32 %conv2.i358, 16
   %or.i360 = or disjoint i32 %shl3.i359, %shl.i356
   %arrayidx5.i361 = getelementptr i8, ptr %data, i64 8
-  %177 = load i8, ptr %arrayidx5.i361, align 1
-  %conv6.i362 = zext i8 %177 to i32
+  %176 = load i8, ptr %arrayidx5.i361, align 1
+  %conv6.i362 = zext i8 %176 to i32
   %shl7.i363 = shl nuw nsw i32 %conv6.i362, 8
   %or8.i364 = or disjoint i32 %or.i360, %shl7.i363
   %arrayidx10.i365 = getelementptr i8, ptr %data, i64 9
-  %178 = load i8, ptr %arrayidx10.i365, align 1
-  %conv11.i366 = zext i8 %178 to i32
+  %177 = load i8, ptr %arrayidx10.i365, align 1
+  %conv11.i366 = zext i8 %177 to i32
   %or12.i367 = or disjoint i32 %or8.i364, %conv11.i366
   %cmp219 = icmp ugt i32 %or12.i367, 48000
   br i1 %cmp219, label %do.end223, label %if.end224
@@ -8472,10 +8471,10 @@ do.end223:                                        ; preds = %if.end217
 if.end224:                                        ; preds = %if.end217
   store i32 %or12.i367, ptr %as205, align 8
   %ioc227 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 2
-  %179 = load ptr, ptr %ioc227, align 8
+  %178 = load ptr, ptr %ioc227, align 8
   %fmt229 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 38, i32 2
-  %180 = load i32, ptr %fmt229, align 8
-  tail call fastcc void @trace_vnc_msg_client_audio_format(ptr noundef nonnull %vs, ptr noundef %179, i32 noundef %180, i32 noundef %conv204, i32 noundef %or12.i367)
+  %179 = load i32, ptr %fmt229, align 8
+  tail call fastcc void @trace_vnc_msg_client_audio_format(ptr noundef nonnull %vs, ptr noundef %178, i32 noundef %179, i32 noundef %conv204, i32 noundef %or12.i367)
   br label %sw.epilog276
 
 do.end236:                                        ; preds = %if.end172
@@ -8492,8 +8491,8 @@ sw.bb242:                                         ; preds = %if.end
 
 if.end246:                                        ; preds = %sw.bb242
   %arrayidx.i368 = getelementptr i8, ptr %data, i64 6
-  %181 = load i8, ptr %arrayidx.i368, align 1
-  %conv248 = zext i8 %181 to i32
+  %180 = load i8, ptr %arrayidx.i368, align 1
+  %conv248 = zext i8 %180 to i32
   %mul249 = shl nuw nsw i32 %conv248, 4
   %add250 = or disjoint i32 %mul249, 8
   %conv251 = zext nneg i32 %add250 to i64
@@ -8502,62 +8501,62 @@ if.end246:                                        ; preds = %sw.bb242
 
 if.end256:                                        ; preds = %if.end246
   %arrayidx.i369 = getelementptr i8, ptr %data, i64 2
-  %182 = load i8, ptr %arrayidx.i369, align 1
-  %conv.i370 = zext i8 %182 to i32
+  %181 = load i8, ptr %arrayidx.i369, align 1
+  %conv.i370 = zext i8 %181 to i32
   %shl.i371 = shl nuw nsw i32 %conv.i370, 8
   %arrayidx1.i372 = getelementptr i8, ptr %data, i64 3
-  %183 = load i8, ptr %arrayidx1.i372, align 1
-  %conv2.i373 = zext i8 %183 to i32
+  %182 = load i8, ptr %arrayidx1.i372, align 1
+  %conv2.i373 = zext i8 %182 to i32
   %or.i374 = or disjoint i32 %shl.i371, %conv2.i373
   %arrayidx.i375 = getelementptr i8, ptr %data, i64 4
-  %184 = load i8, ptr %arrayidx.i375, align 1
-  %conv.i376 = zext i8 %184 to i32
+  %183 = load i8, ptr %arrayidx.i375, align 1
+  %conv.i376 = zext i8 %183 to i32
   %shl.i377 = shl nuw nsw i32 %conv.i376, 8
   %arrayidx1.i378 = getelementptr i8, ptr %data, i64 5
-  %185 = load i8, ptr %arrayidx1.i378, align 1
-  %conv2.i379 = zext i8 %185 to i32
+  %184 = load i8, ptr %arrayidx1.i378, align 1
+  %conv2.i379 = zext i8 %184 to i32
   %or.i380 = or disjoint i32 %shl.i377, %conv2.i379
   %ioc261 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 2
-  %186 = load ptr, ptr %ioc261, align 8
+  %185 = load ptr, ptr %ioc261, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %187 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %187, 0
-  %188 = load i16, ptr @_TRACE_VNC_MSG_CLIENT_SET_DESKTOP_SIZE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %188, 0
+  %186 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %186, 0
+  %187 = load i16, ptr @_TRACE_VNC_MSG_CLIENT_SET_DESKTOP_SIZE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %187, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_vnc_msg_client_set_desktop_size.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end256
-  %189 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i381 = and i32 %189, 32768
+  %188 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i381 = and i32 %188, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i381, 0
   br i1 %cmp.i.not.i.i, label %trace_vnc_msg_client_set_desktop_size.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %190 = load i8, ptr @message_with_timestamp, align 1
-  %191 = and i8 %190, 1
-  %tobool7.not.i.i = icmp eq i8 %191, 0
+  %189 = load i8, ptr @message_with_timestamp, align 1
+  %190 = and i8 %189, 1
+  %tobool7.not.i.i = icmp eq i8 %190, 0
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
-  %192 = load i64, ptr %_now.i.i, align 8
+  %191 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %193 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i, i64 noundef %192, i64 noundef %193, ptr noundef nonnull %vs, ptr noundef %186, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #23
+  %192 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i, i64 noundef %191, i64 noundef %192, ptr noundef nonnull %vs, ptr noundef %185, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #23
   br label %trace_vnc_msg_client_set_desktop_size.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull %vs, ptr noundef %186, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull %vs, ptr noundef %185, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #23
   br label %trace_vnc_msg_client_set_desktop_size.exit
 
 trace_vnc_msg_client_set_desktop_size.exit:       ; preds = %if.end256, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %194 = load ptr, ptr %vd1, align 8
-  %con = getelementptr inbounds %struct.VncDisplay, ptr %194, i64 0, i32 9, i32 3
-  %195 = load ptr, ptr %con, align 8
-  %call265 = tail call zeroext i1 @dpy_ui_info_supported(ptr noundef %195) #23
+  %193 = load ptr, ptr %vd1, align 8
+  %con = getelementptr inbounds %struct.VncDisplay, ptr %193, i64 0, i32 9, i32 3
+  %194 = load ptr, ptr %con, align 8
+  %call265 = tail call zeroext i1 @dpy_ui_info_supported(ptr noundef %194) #23
   br i1 %call265, label %if.then266, label %if.else271
 
 if.then266:                                       ; preds = %trace_vnc_msg_client_set_desktop_size.exit
@@ -8566,10 +8565,10 @@ if.then266:                                       ; preds = %trace_vnc_msg_clien
   store i32 %or.i374, ptr %width, align 4
   %height = getelementptr inbounds %struct.QemuUIInfo, ptr %info, i64 0, i32 5
   store i32 %or.i380, ptr %height, align 4
-  %196 = load ptr, ptr %vd1, align 8
-  %con269 = getelementptr inbounds %struct.VncDisplay, ptr %196, i64 0, i32 9, i32 3
-  %197 = load ptr, ptr %con269, align 8
-  %call270 = call i32 @dpy_set_ui_info(ptr noundef %197, ptr noundef nonnull %info, i1 noundef zeroext false) #23
+  %195 = load ptr, ptr %vd1, align 8
+  %con269 = getelementptr inbounds %struct.VncDisplay, ptr %195, i64 0, i32 9, i32 3
+  %196 = load ptr, ptr %con269, align 8
+  %call270 = call i32 @dpy_set_ui_info(ptr noundef %196, ptr noundef nonnull %info, i1 noundef zeroext false) #23
   call fastcc void @vnc_desktop_resize_ext(ptr noundef nonnull %vs, i32 noundef 4)
   br label %sw.epilog276
 
@@ -12004,10 +12003,9 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %div27.i = sdiv i32 %sub26.i, 16
   %conv28.i = sext i32 %div27.i to i64
   %1 = tail call i32 @llvm.smin.i32(i32 %call.i.i26.i, i32 %y)
-  %2 = tail call i32 @llvm.smin.i32(i32 %1, i32 2048)
-  %smin30.i = sext i32 %2 to i64
-  %3 = sub i32 %2, %cond8.i
-  %4 = add i32 %3, %cond23.i
+  %smin30.i = sext i32 %1 to i64
+  %2 = sub i32 %1, %cond8.i
+  %3 = add i32 %2, %cond23.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -12016,7 +12014,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @bitmap_set(ptr noundef %arrayidx.i, i64 noundef %conv.i, i64 noundef %conv28.i) #23
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %4, %lftr.wideiv.i
+  %exitcond.not.i = icmp eq i32 %3, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %vnc_set_area_dirty.exit, label %for.body.i, !llvm.loop !13
 
 vnc_set_area_dirty.exit:                          ; preds = %for.body.i, %entry
@@ -12872,7 +12870,7 @@ attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

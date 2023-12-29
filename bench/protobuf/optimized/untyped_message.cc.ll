@@ -4856,7 +4856,7 @@ if.then.i.i.i63:                                  ; preds = %if.else.i35
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i40: ; preds = %if.else.i35
   %sub.ptr.div.i.i.i.i41 = ashr exact i64 %sub.ptr.sub.i.i.i.i38, 2
   %.sroa.speculated.i.i.i42 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i41, i64 1)
-  %add.i.i.i43 = add i64 %.sroa.speculated.i.i.i42, %sub.ptr.div.i.i.i.i41
+  %add.i.i.i43 = add nsw i64 %.sroa.speculated.i.i.i42, %sub.ptr.div.i.i.i.i41
   %cmp7.i.i.i44 = icmp ult i64 %add.i.i.i43, %sub.ptr.div.i.i.i.i41
   %cmp9.i.i.i45 = icmp ugt i64 %add.i.i.i43, 2305843009213693951
   %or.cond.i.i.i46 = or i1 %cmp7.i.i.i44, %cmp9.i.i.i45
@@ -5184,7 +5184,7 @@ if.then.i.i.i.i95:                                ; preds = %if.else.i.i67
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i72: ; preds = %if.else.i.i67
   %sub.ptr.div.i.i.i.i.i73 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i70, 2
   %.sroa.speculated.i.i.i.i74 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i73, i64 1)
-  %add.i.i.i.i75 = add i64 %.sroa.speculated.i.i.i.i74, %sub.ptr.div.i.i.i.i.i73
+  %add.i.i.i.i75 = add nsw i64 %.sroa.speculated.i.i.i.i74, %sub.ptr.div.i.i.i.i.i73
   %cmp7.i.i.i.i76 = icmp ult i64 %add.i.i.i.i75, %sub.ptr.div.i.i.i.i.i73
   %cmp9.i.i.i.i77 = icmp ugt i64 %add.i.i.i.i75, 2305843009213693951
   %or.cond.i.i.i.i78 = or i1 %cmp7.i.i.i.i76, %cmp9.i.i.i.i77
@@ -5512,7 +5512,7 @@ if.then.i.i.i63:                                  ; preds = %if.else.i35
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i40: ; preds = %if.else.i35
   %sub.ptr.div.i.i.i.i41 = ashr exact i64 %sub.ptr.sub.i.i.i.i38, 3
   %.sroa.speculated.i.i.i42 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i41, i64 1)
-  %add.i.i.i43 = add i64 %.sroa.speculated.i.i.i42, %sub.ptr.div.i.i.i.i41
+  %add.i.i.i43 = add nsw i64 %.sroa.speculated.i.i.i42, %sub.ptr.div.i.i.i.i41
   %cmp7.i.i.i44 = icmp ult i64 %add.i.i.i43, %sub.ptr.div.i.i.i.i41
   %cmp9.i.i.i45 = icmp ugt i64 %add.i.i.i43, 1152921504606846975
   %or.cond.i.i.i46 = or i1 %cmp7.i.i.i44, %cmp9.i.i.i45
@@ -5840,7 +5840,7 @@ if.then.i.i.i.i95:                                ; preds = %if.else.i.i67
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i72: ; preds = %if.else.i.i67
   %sub.ptr.div.i.i.i.i.i73 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i70, 3
   %.sroa.speculated.i.i.i.i74 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i73, i64 1)
-  %add.i.i.i.i75 = add i64 %.sroa.speculated.i.i.i.i74, %sub.ptr.div.i.i.i.i.i73
+  %add.i.i.i.i75 = add nsw i64 %.sroa.speculated.i.i.i.i74, %sub.ptr.div.i.i.i.i.i73
   %cmp7.i.i.i.i76 = icmp ult i64 %add.i.i.i.i75, %sub.ptr.div.i.i.i.i.i73
   %cmp9.i.i.i.i77 = icmp ugt i64 %add.i.i.i.i75, 1152921504606846975
   %or.cond.i.i.i.i78 = or i1 %cmp7.i.i.i.i76, %cmp9.i.i.i.i77
@@ -6168,7 +6168,7 @@ if.then.i.i.i.i95:                                ; preds = %if.else.i.i67
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i72: ; preds = %if.else.i.i67
   %sub.ptr.div.i.i.i.i.i73 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i70, 3
   %.sroa.speculated.i.i.i.i74 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i73, i64 1)
-  %add.i.i.i.i75 = add i64 %.sroa.speculated.i.i.i.i74, %sub.ptr.div.i.i.i.i.i73
+  %add.i.i.i.i75 = add nsw i64 %.sroa.speculated.i.i.i.i74, %sub.ptr.div.i.i.i.i.i73
   %cmp7.i.i.i.i76 = icmp ult i64 %add.i.i.i.i75, %sub.ptr.div.i.i.i.i.i73
   %cmp9.i.i.i.i77 = icmp ugt i64 %add.i.i.i.i75, 1152921504606846975
   %or.cond.i.i.i.i78 = or i1 %cmp7.i.i.i.i76, %cmp9.i.i.i.i77
@@ -6496,7 +6496,7 @@ if.then.i.i.i.i95:                                ; preds = %if.else.i.i67
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i72: ; preds = %if.else.i.i67
   %sub.ptr.div.i.i.i.i.i73 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i70, 2
   %.sroa.speculated.i.i.i.i74 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i73, i64 1)
-  %add.i.i.i.i75 = add i64 %.sroa.speculated.i.i.i.i74, %sub.ptr.div.i.i.i.i.i73
+  %add.i.i.i.i75 = add nsw i64 %.sroa.speculated.i.i.i.i74, %sub.ptr.div.i.i.i.i.i73
   %cmp7.i.i.i.i76 = icmp ult i64 %add.i.i.i.i75, %sub.ptr.div.i.i.i.i.i73
   %cmp9.i.i.i.i77 = icmp ugt i64 %add.i.i.i.i75, 2305843009213693951
   %or.cond.i.i.i.i78 = or i1 %cmp7.i.i.i.i76, %cmp9.i.i.i.i77
@@ -8083,17 +8083,14 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !305
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !305
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #27
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -8315,17 +8312,14 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !306
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !306
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #27
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -8633,17 +8627,14 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !311
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !311
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #27
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -9021,17 +9012,14 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !316
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !316
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #27
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -9410,17 +9398,14 @@ _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashM
 for.inc:                                          ; preds = %for.body, %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St6vectorIS9_SaIS9_EESG_IiSaIiEESG_IjSaIjEESG_IlSaIlEESG_ImSaImEESG_IfSaIfEESG_IdSaIdEESG_ISF_SaISF_EESG_IS8_SaIS8_EEEEEEvE8transferISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EES1B_.exit
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !323
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !323
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #27
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St6vectorIS9_SaIS9_EESG_IiSaIiEESG_IjSaIjEESG_IlSaIlEESG_ImSaImEESG_IfSaIfEESG_IdSaIdEESG_ISF_SaISF_EESG_IS8_SaIS8_EEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSZ_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St6vectorIS9_SaIS9_EESG_IiSaIiEESG_IjSaIjEESG_IlSaIlEESG_ImSaImEESG_IfSaIfEESG_IdSaIdEESG_ISF_SaISF_EESG_IS8_SaIS8_EEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSZ_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -9776,7 +9761,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN6google8protobuf13json_internal14UntypedMessageESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -10001,7 +9986,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
   %or.cond.i = or i1 %cmp7.i, %cmp9.i

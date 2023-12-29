@@ -1592,7 +1592,7 @@ for.inc.i:                                        ; preds = %for.body.i150
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %mul.i = shl nsw i32 %twotoi.026.i, 1
   %div22.i = and i32 %twotoi.026.i, 2147483647
-  %cmp.i153 = icmp slt i32 %div22.i, %add5.i
+  %cmp.i153 = icmp ult i32 %div22.i, %add5.i
   br i1 %cmp.i153, label %for.body.i150, label %computesizes.exit, !llvm.loop !44
 
 computesizes.exit:                                ; preds = %for.inc.i, %for.body.i150, %countint.exit

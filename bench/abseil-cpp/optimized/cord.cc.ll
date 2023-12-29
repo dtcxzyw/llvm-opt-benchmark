@@ -2170,8 +2170,8 @@ if.else12.i.i:                                    ; preds = %if.then7.i.i
   br label %_ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i
 
 _ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i: ; preds = %if.else12.i.i, %if.then7.i.i, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i, %if.else.i.i, %cond.true
-  %capacity.addr.0.i.i = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i ], [ %shl14.i.i, %if.else12.i.i ], [ %.sroa.speculated18.i.i, %cond.true ], [ %add.i.i, %if.else.i.i ], [ %shl.i.i, %if.then7.i.i ]
-  %sub18.i.i = add nsw i64 %capacity.addr.0.i.i, -13
+  %capacity.addr.0.i.i = phi i64 [ %capacity, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i ], [ %shl14.i.i, %if.else12.i.i ], [ %.sroa.speculated18.i.i, %cond.true ], [ %add.i.i, %if.else.i.i ], [ %shl.i.i, %if.then7.i.i ]
+  %sub18.i.i = add i64 %capacity.addr.0.i.i, -13
   %cmp.i.i.i.i11 = icmp ult i64 %sub18.i.i, 20
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub18.i.i, i64 262131)
   %18 = add nuw nsw i64 %spec.store.select.i.i.i.i, 13
@@ -2304,8 +2304,8 @@ if.else12.i.i.i:                                  ; preds = %if.then7.i.i.i
   br label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i
 
 _ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i: ; preds = %if.else12.i.i.i, %if.then7.i.i.i, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i, %if.else.i.i.i, %cond.true.i
-  %capacity.addr.0.i.i.i = phi i64 [ %.sroa.speculated.i.i.i, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i ], [ %shl14.i.i.i, %if.else12.i.i.i ], [ %.sroa.speculated18.i.i.i, %cond.true.i ], [ %add.i.i.i, %if.else.i.i.i ], [ %shl.i.i.i, %if.then7.i.i.i ]
-  %sub18.i.i.i = add nsw i64 %capacity.addr.0.i.i.i, -13
+  %capacity.addr.0.i.i.i = phi i64 [ %add.i, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i ], [ %shl14.i.i.i, %if.else12.i.i.i ], [ %.sroa.speculated18.i.i.i, %cond.true.i ], [ %add.i.i.i, %if.else.i.i.i ], [ %shl.i.i.i, %if.then7.i.i.i ]
+  %sub18.i.i.i = add i64 %capacity.addr.0.i.i.i, -13
   %cmp.i.i.i.i.i25 = icmp ult i64 %sub18.i.i.i, 20
   %spec.store.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub18.i.i.i, i64 262131)
   %30 = add nuw nsw i64 %spec.store.select.i.i.i.i.i, 13
@@ -7207,7 +7207,7 @@ while.cond.backedge:                              ; preds = %if.else6.i.i33, %if
 
 if.end:                                           ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
   %cmp.i.i3 = icmp ugt i64 %retval.sroa.0.0.copyload.i.i, %sub.ptr.sub.i
-  br i1 %cmp.i.i3, label %if.then.i.i16, label %if.else.i.i4
+  br i1 %cmp.i.i3, label %if.then.i.i16, label %if.then3.i.i6
 
 if.then.i.i16:                                    ; preds = %if.end
   %add.ptr.i.i.i.i18 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %sub.ptr.sub.i
@@ -7218,11 +7218,7 @@ if.then.i.i16:                                    ; preds = %if.end
   store i64 %sub.i.i.i21, ptr %bytes_remaining_, align 8
   br label %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit22
 
-if.else.i.i4:                                     ; preds = %if.end
-  %cmp2.not.i.i5 = icmp eq ptr %call.i.i, %retval.sroa.2.0.copyload.i.i
-  br i1 %cmp2.not.i.i5, label %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit22, label %if.then3.i.i6
-
-if.then3.i.i6:                                    ; preds = %if.else.i.i4
+if.then3.i.i6:                                    ; preds = %if.end
   %8 = load i32, ptr %navigator_.i.i.i7, align 8
   %cmp.i.i.i.i8 = icmp sgt i32 %8, -1
   br i1 %cmp.i.i.i.i8, label %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i.i11, label %if.else6.i.i9
@@ -7243,8 +7239,8 @@ if.else6.i.i9:                                    ; preds = %_ZNK4absl13cord_int
   store i64 0, ptr %bytes_remaining_, align 8
   br label %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit22
 
-_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit22: ; preds = %if.then.i.i16, %if.else.i.i4, %if.then5.i.i15, %if.else6.i.i9
-  %10 = phi i64 [ %sub.i.i.i21, %if.then.i.i16 ], [ %3, %if.else.i.i4 ], [ %.pre, %if.then5.i.i15 ], [ 0, %if.else6.i.i9 ]
+_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit22: ; preds = %if.then.i.i16, %if.then5.i.i15, %if.else6.i.i9
+  %10 = phi i64 [ %sub.i.i.i21, %if.then.i.i16 ], [ %.pre, %if.then5.i.i15 ], [ 0, %if.else6.i.i9 ]
   %cmp10 = icmp ult i64 %10, %needle.coerce0
   br i1 %cmp10, label %while.end, label %if.end12
 

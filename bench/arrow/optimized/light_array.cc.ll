@@ -7513,7 +7513,7 @@ for.body.i.i:                                     ; preds = %for.body.i556, %for
   store i64 %ret.0.copyload.i.i.i, ptr %add.ptr6.i.i, align 1
   %inc.i.i = add i32 %word_id.05.i.i, 1
   %conv3.i.i = zext i32 %inc.i.i to i64
-  %cmp.not.i.i574 = icmp slt i64 %div.i.i.i, %conv3.i.i
+  %cmp.not.i.i574 = icmp ult i64 %div.i.i.i, %conv3.i.i
   br i1 %cmp.not.i.i574, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i", label %for.body.i.i, !llvm.loop !127
 
 "_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i": ; preds = %for.body.i.i, %for.body.i556
@@ -7577,7 +7577,7 @@ for.body.i48.i:                                   ; preds = %for.body.i48.i, %fo
   store i64 %ret.0.copyload.i.i53.i, ptr %add.ptr6.i51.i, align 1
   %inc.i54.i = add i32 %word_id.05.i50.i, 1
   %conv3.i55.i = zext i32 %inc.i54.i to i64
-  %cmp.not.i56.i = icmp slt i64 %div.i.i46.i, %conv3.i55.i
+  %cmp.not.i56.i = icmp ult i64 %div.i.i46.i, %conv3.i55.i
   br i1 %cmp.not.i56.i, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit57.loopexit.i", label %for.body.i48.i, !llvm.loop !127
 
 "_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit57.loopexit.i": ; preds = %for.body.i48.i
@@ -11616,27 +11616,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i22, label %_ZNSt16allocator_traitsISaIN5arrow7compute17KeyColumnMetadataEEE8allocateERS3_m.exit.i
-
-_ZNSt16allocator_traitsISaIN5arrow7compute17KeyColumnMetadataEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
-  br label %if.then.i.i.i22
-
-if.then.i.i.i22:                                  ; preds = %_ZNSt16allocator_traitsISaIN5arrow7compute17KeyColumnMetadataEEE8allocateERS3_m.exit.i, %_ZNKSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN5arrow7compute17KeyColumnMetadataEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"struct.arrow::compute::KeyColumnMetadata", ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i64 0, ptr %add.ptr, align 4
   %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i22
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i23 = getelementptr inbounds %"struct.arrow::compute::KeyColumnMetadata", ptr %add.ptr, i64 1
   %add.ptr.i.i.i.i.i26 = getelementptr inbounds %"struct.arrow::compute::KeyColumnMetadata", ptr %add.ptr, i64 %__n
   br label %for.body.i.i.i.i.i.i.i27
@@ -11649,12 +11638,12 @@ for.body.i.i.i.i.i.i.i27:                         ; preds = %for.body.i.i.i.i.i.
   %cmp.not.i.i.i.i.i.i.i30 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i29, %add.ptr.i.i.i.i.i26
   br i1 %cmp.not.i.i.i.i.i.i.i30, label %try.cont, label %for.body.i.i.i.i.i.i.i27, !llvm.loop !183
 
-try.cont:                                         ; preds = %for.body.i.i.i.i.i.i.i27, %if.then.i.i.i22
+try.cont:                                         ; preds = %for.body.i.i.i.i.i.i.i27, %_ZNKSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE12_M_check_lenEmPKc.exit
   %cmp.i.i.i34 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i34, label %if.then.i.i.i35, label %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
 if.then.i.i.i35:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i19, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
 _ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %try.cont, %if.then.i.i.i35
@@ -11666,10 +11655,10 @@ if.then.i37:                                      ; preds = %_ZNSt6vectorIN5arro
   br label %_ZNSt12_Vector_baseIN5arrow7compute17KeyColumnMetadataESaIS2_EE13_M_deallocateEPS2_m.exit38
 
 _ZNSt12_Vector_baseIN5arrow7compute17KeyColumnMetadataESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i37
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.arrow::compute::KeyColumnMetadata", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.arrow::compute::KeyColumnMetadata", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"struct.arrow::compute::KeyColumnMetadata", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -11742,27 +11731,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 128102389400760775
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 128102389400760775, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i22, label %_ZNSt16allocator_traitsISaIN5arrow7compute14KeyColumnArrayEEE8allocateERS3_m.exit.i
-
-_ZNSt16allocator_traitsISaIN5arrow7compute14KeyColumnArrayEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 128102389400760775)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 72
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
-  br label %if.then.i.i.i22
-
-if.then.i.i.i22:                                  ; preds = %_ZNSt16allocator_traitsISaIN5arrow7compute14KeyColumnArrayEEE8allocateERS3_m.exit.i, %_ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN5arrow7compute14KeyColumnArrayEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr, i8 0, i64 72, i1 false)
   %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i22
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i23 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %add.ptr, i64 1
   %add.ptr.i.i.i.i.i26 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %add.ptr, i64 %__n
   br label %for.body.i.i.i.i.i.i.i27
@@ -11774,12 +11752,12 @@ for.body.i.i.i.i.i.i.i27:                         ; preds = %for.body.i.i.i.i.i.
   %cmp.not.i.i.i.i.i.i.i30 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i29, %add.ptr.i.i.i.i.i26
   br i1 %cmp.not.i.i.i.i.i.i.i30, label %try.cont, label %for.body.i.i.i.i.i.i.i27, !llvm.loop !184
 
-try.cont:                                         ; preds = %for.body.i.i.i.i.i.i.i27, %if.then.i.i.i22
+try.cont:                                         ; preds = %for.body.i.i.i.i.i.i.i27, %_ZNKSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE12_M_check_lenEmPKc.exit
   %cmp.i.i.i34 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i34, label %if.then.i.i.i35, label %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
 if.then.i.i.i35:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i19, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
 _ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %try.cont, %if.then.i.i.i35
@@ -11791,10 +11769,10 @@ if.then.i37:                                      ; preds = %_ZNSt6vectorIN5arro
   br label %_ZNSt12_Vector_baseIN5arrow7compute14KeyColumnArrayESaIS2_EE13_M_deallocateEPS2_m.exit38
 
 _ZNSt12_Vector_baseIN5arrow7compute14KeyColumnArrayESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i37
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"class.arrow::compute::KeyColumnArray", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -12167,27 +12145,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN5arrow7compute18ResizableArrayDataESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN5arrow7compute18ResizableArrayDataESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN5arrow7compute18ResizableArrayDataEEE8allocateERS3_m.exit.i
-
-_ZNSt16allocator_traitsISaIN5arrow7compute18ResizableArrayDataEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN5arrow7compute18ResizableArrayDataESaIS2_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
-  br label %_ZNSt12_Vector_baseIN5arrow7compute18ResizableArrayDataESaIS2_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN5arrow7compute18ResizableArrayDataESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5arrow7compute18ResizableArrayDataESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN5arrow7compute18ResizableArrayDataEEE8allocateERS3_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN5arrow7compute18ResizableArrayDataEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN5arrow7compute18ResizableArrayDataESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"class.arrow::compute::ResizableArrayData", ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   br label %for.inc.i.i.i21
 
-for.inc.i.i.i21:                                  ; preds = %_ZNSt12_Vector_baseIN5arrow7compute18ResizableArrayDataESaIS2_EE11_M_allocateEm.exit, %for.inc.i.i.i21
-  %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i27, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNSt12_Vector_baseIN5arrow7compute18ResizableArrayDataESaIS2_EE11_M_allocateEm.exit ]
-  %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i26, %for.inc.i.i.i21 ], [ %__n, %_ZNSt12_Vector_baseIN5arrow7compute18ResizableArrayDataESaIS2_EE11_M_allocateEm.exit ]
+for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN5arrow7compute18ResizableArrayDataESaIS2_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i21
+  %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i27, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN5arrow7compute18ResizableArrayDataESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i26, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN5arrow7compute18ResizableArrayDataESaIS2_EE12_M_check_lenEmPKc.exit ]
   store i32 0, ptr %__cur.08.i.i.i22, align 8
   %data_type_.i.i.i.i.i24 = getelementptr inbounds %"class.arrow::compute::ResizableArrayData", ptr %__cur.08.i.i.i22, i64 0, i32 1
   %scevgep.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 48
@@ -12203,7 +12170,7 @@ try.cont:                                         ; preds = %for.inc.i.i.i21
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN5arrow7compute18ResizableArrayDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %try.cont, %_ZSt19__relocate_object_aIN5arrow7compute18ResizableArrayDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN5arrow7compute18ResizableArrayDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %cond.i19, %try.cont ]
+  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN5arrow7compute18ResizableArrayDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i32, %_ZSt19__relocate_object_aIN5arrow7compute18ResizableArrayDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %try.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
@@ -12287,10 +12254,10 @@ if.then.i36:                                      ; preds = %_ZNSt6vectorIN5arro
   br label %_ZNSt12_Vector_baseIN5arrow7compute18ResizableArrayDataESaIS2_EE13_M_deallocateEPS2_m.exit37
 
 _ZNSt12_Vector_baseIN5arrow7compute18ResizableArrayDataESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN5arrow7compute18ResizableArrayDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i36
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"class.arrow::compute::ResizableArrayData", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"class.arrow::compute::ResizableArrayData", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"class.arrow::compute::ResizableArrayData", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -12551,30 +12518,19 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN5arrow5DatumESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 384307168202282325
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 384307168202282325, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %try.cont, label %_ZNSt16allocator_traitsISaIN5arrow5DatumEEE8allocateERS2_m.exit.i
-
-_ZNSt16allocator_traitsISaIN5arrow5DatumEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
-  br label %try.cont
-
-try.cont:                                         ; preds = %_ZNSt16allocator_traitsISaIN5arrow5DatumEEE8allocateERS2_m.exit.i, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN5arrow5DatumEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"struct.arrow::Datum", ptr %cond.i19, i64 %sub.ptr.div.i
-  %4 = mul nuw i64 %__n, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %4, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
+  %4 = mul nuw nsw i64 %__n, 24
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr, i8 0, i64 %4, i1 false)
   %cmp.not7.i.i.i = icmp eq ptr %1, %0
   br i1 %cmp.not7.i.i.i, label %_ZNSt6vectorIN5arrow5DatumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %try.cont, %_ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
-  %__cur.09.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %cond.i19, %try.cont ]
-  %__first.addr.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %try.cont ]
+for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE12_M_check_lenEmPKc.exit, %_ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
+  %__cur.09.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %__first.addr.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE12_M_check_lenEmPKc.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !199)
   call void @llvm.experimental.noalias.scope.decl(metadata !202)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__cur.09.i.i.i, i64 0, i32 1
@@ -12657,7 +12613,7 @@ _ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; pr
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN5arrow5DatumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !205
 
-_ZNSt6vectorIN5arrow5DatumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %try.cont
+_ZNSt6vectorIN5arrow5DatumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE12_M_check_lenEmPKc.exit
   %tobool.not.i27 = icmp eq ptr %1, null
   br i1 %tobool.not.i27, label %_ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE13_M_deallocateEPS1_m.exit29, label %if.then.i28
 
@@ -12666,10 +12622,10 @@ if.then.i28:                                      ; preds = %_ZNSt6vectorIN5arro
   br label %_ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE13_M_deallocateEPS1_m.exit29
 
 _ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE13_M_deallocateEPS1_m.exit29: ; preds = %_ZNSt6vectorIN5arrow5DatumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i28
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.arrow::Datum", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.arrow::Datum", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"struct.arrow::Datum", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -12691,6 +12647,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15

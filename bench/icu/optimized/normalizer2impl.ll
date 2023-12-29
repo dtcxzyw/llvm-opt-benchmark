@@ -1786,9 +1786,9 @@ entry:
   %value = alloca i32, align 4
   %normTrie = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 13
   %1 = load ptr, ptr %normTrie, align 8
-  %call47 = call i32 @ucptrie_getRange_75(ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %value)
-  %cmp48 = icmp sgt i32 %call47, -1
-  br i1 %cmp48, label %while.body.lr.ph, label %for.cond.preheader
+  %call46 = call i32 @ucptrie_getRange_75(ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %value)
+  %cmp47 = icmp sgt i32 %call46, -1
+  br i1 %cmp47, label %while.body.lr.ph, label %for.cond.preheader
 
 while.body.lr.ph:                                 ; preds = %entry
   %add = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
@@ -1803,12 +1803,12 @@ for.cond.preheader:                               ; preds = %if.end17, %entry
   br label %for.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end17
-  %call50 = phi i32 [ %call47, %while.body.lr.ph ], [ %call, %if.end17 ]
-  %start.049 = phi i32 [ 0, %while.body.lr.ph ], [ %add18, %if.end17 ]
+  %call49 = phi i32 [ %call46, %while.body.lr.ph ], [ %call, %if.end17 ]
+  %start.048 = phi i32 [ 0, %while.body.lr.ph ], [ %add18, %if.end17 ]
   %2 = load ptr, ptr %add, align 8
   %3 = load ptr, ptr %sa, align 8
-  call void %2(ptr noundef %3, i32 noundef %start.049)
-  %cmp2.not = icmp eq i32 %start.049, %call50
+  call void %2(ptr noundef %3, i32 noundef %start.048)
+  %cmp2.not = icmp eq i32 %start.048, %call49
   br i1 %cmp2.not, label %if.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
@@ -1827,22 +1827,22 @@ land.lhs.true:                                    ; preds = %while.body
 if.then:                                          ; preds = %land.lhs.true
   %7 = load i16, ptr %minDecompNoCP.i, align 8
   %conv.i = zext i16 %7 to i32
-  %cmp.i = icmp slt i32 %start.049, %conv.i
+  %cmp.i = icmp slt i32 %start.048, %conv.i
   br i1 %cmp.i, label %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  %cmp2.i = icmp slt i32 %start.049, 65536
+  %cmp2.i = icmp ult i32 %start.048, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
   %8 = load ptr, ptr %smallFCD.i.i, align 8
-  %shr.i.i = ashr i32 %start.049, 8
-  %idxprom.i.i = sext i32 %shr.i.i to i64
+  %shr.i.i = lshr i32 %start.048, 8
+  %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i = icmp eq i8 %9, 0
   %conv.i.i = zext i8 %9 to i32
-  %shr3.i.i = lshr i32 %start.049, 5
+  %shr3.i.i = lshr i32 %start.048, 5
   %and.i.i = and i32 %shr3.i.i, 7
   %10 = shl nuw nsw i32 1, %and.i.i
   %11 = and i32 %10, %conv.i.i
@@ -1851,36 +1851,36 @@ if.then3.i:                                       ; preds = %if.else.i
   br i1 %tobool.not.i, label %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then3.i, %if.else.i
-  %call7.i = call noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %start.049)
+  %call7.i = call noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %start.048)
   br label %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit
 
 _ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit:     ; preds = %if.then, %if.then3.i, %if.end6.i
   %retval.0.i = phi i16 [ %call7.i, %if.end6.i ], [ 0, %if.then ], [ 0, %if.then3.i ]
-  %cmp8.not.not43 = icmp slt i32 %start.049, %call50
+  %cmp8.not.not43 = icmp slt i32 %start.048, %call49
   br i1 %cmp8.not.not43, label %while.body9, label %if.end17
 
 while.body9:                                      ; preds = %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit, %if.end
-  %start.145 = phi i32 [ %inc46, %if.end ], [ %start.049, %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit ]
+  %inc45.in = phi i32 [ %inc45, %if.end ], [ %start.048, %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit ]
   %prevFCD16.044 = phi i16 [ %prevFCD16.1, %if.end ], [ %retval.0.i, %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit ]
-  %inc46 = add nsw i32 %start.145, 1
+  %inc45 = add nsw i32 %inc45.in, 1
   %12 = load i16, ptr %minDecompNoCP.i, align 8
   %conv.i23 = zext i16 %12 to i32
-  %cmp.i24 = icmp slt i32 %inc46, %conv.i23
+  %cmp.i24 = icmp slt i32 %inc45, %conv.i23
   br i1 %cmp.i24, label %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit41, label %if.else.i25
 
 if.else.i25:                                      ; preds = %while.body9
-  %cmp2.i26 = icmp slt i32 %start.145, 65535
+  %cmp2.i26 = icmp ult i32 %inc45, 65536
   br i1 %cmp2.i26, label %if.then3.i30, label %if.end6.i27
 
 if.then3.i30:                                     ; preds = %if.else.i25
   %13 = load ptr, ptr %smallFCD.i.i, align 8
-  %shr.i.i32 = ashr i32 %inc46, 8
-  %idxprom.i.i33 = sext i32 %shr.i.i32 to i64
+  %shr.i.i32 = lshr i32 %inc45, 8
+  %idxprom.i.i33 = zext nneg i32 %shr.i.i32 to i64
   %arrayidx.i.i34 = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i33
   %14 = load i8, ptr %arrayidx.i.i34, align 1
   %cmp.i.i35 = icmp eq i8 %14, 0
   %conv.i.i36 = zext i8 %14 to i32
-  %shr3.i.i37 = lshr i32 %inc46, 5
+  %shr3.i.i37 = lshr i32 %inc45, 5
   %and.i.i38 = and i32 %shr3.i.i37, 7
   %15 = shl nuw nsw i32 1, %and.i.i38
   %16 = and i32 %15, %conv.i.i36
@@ -1889,7 +1889,7 @@ if.then3.i30:                                     ; preds = %if.else.i25
   br i1 %tobool.not.i40, label %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit41, label %if.end6.i27
 
 if.end6.i27:                                      ; preds = %if.then3.i30, %if.else.i25
-  %call7.i28 = call noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %inc46)
+  %call7.i28 = call noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %inc45)
   br label %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit41
 
 _ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit41:   ; preds = %while.body9, %if.then3.i30, %if.end6.i27
@@ -1900,32 +1900,32 @@ _ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit41:   ; preds = %while.body9, %if.th
 if.then14:                                        ; preds = %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit41
   %17 = load ptr, ptr %add, align 8
   %18 = load ptr, ptr %sa, align 8
-  call void %17(ptr noundef %18, i32 noundef %inc46)
+  call void %17(ptr noundef %18, i32 noundef %inc45)
   br label %if.end
 
 if.end:                                           ; preds = %if.then14, %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit41
   %prevFCD16.1 = phi i16 [ %retval.0.i29, %if.then14 ], [ %prevFCD16.044, %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit41 ]
-  %exitcond.not = icmp eq i32 %inc46, %call50
+  %exitcond.not = icmp eq i32 %inc45, %call49
   br i1 %exitcond.not, label %if.end17, label %while.body9, !llvm.loop !13
 
 if.end17:                                         ; preds = %if.end, %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit, %land.lhs.true, %while.body
-  %add18 = add nuw nsw i32 %call50, 1
+  %add18 = add nuw nsw i32 %call49, 1
   %19 = load ptr, ptr %normTrie, align 8
   %call = call i32 @ucptrie_getRange_75(ptr noundef %19, i32 noundef %add18, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %value)
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %while.body, label %for.cond.preheader, !llvm.loop !14
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %conv2052 = phi i32 [ 44032, %for.cond.preheader ], [ %add30, %for.body ]
+  %conv2051 = phi i32 [ 44032, %for.cond.preheader ], [ %add30, %for.body ]
   %20 = load ptr, ptr %add22, align 8
   %21 = load ptr, ptr %sa, align 8
-  call void %20(ptr noundef %21, i32 noundef %conv2052)
+  call void %20(ptr noundef %21, i32 noundef %conv2051)
   %22 = load ptr, ptr %add22, align 8
   %23 = load ptr, ptr %sa, align 8
-  %add28 = or disjoint i32 %conv2052, 1
+  %add28 = or disjoint i32 %conv2051, 1
   call void %22(ptr noundef %23, i32 noundef %add28)
-  %add30 = add nuw nsw i32 %conv2052, 28
-  %cmp21 = icmp ult i32 %conv2052, 55176
+  %add30 = add nuw nsw i32 %conv2051, 28
+  %cmp21 = icmp ult i32 %conv2051, 55176
   br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body
@@ -4277,11 +4277,11 @@ if.end:                                           ; preds = %_ZNK6icu_7515Normal
 if.then5:                                         ; preds = %if.end
   %11 = lshr i16 %cond26.i, 3
   %shr.i28 = zext nneg i16 %11 to i32
-  %add.i29 = add nsw i32 %shr.i28, %c
+  %add.i29 = add nuw nsw i32 %shr.i28, %c
   %centerNoNoDelta.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 11
   %12 = load i16, ptr %centerNoNoDelta.i, align 4
   %conv2.i = zext i16 %12 to i32
-  %sub.i30 = sub i32 %add.i29, %conv2.i
+  %sub.i30 = sub nsw i32 %add.i29, %conv2.i
   %cmp7 = icmp ult i32 %sub.i30, 65536
   br i1 %cmp7, label %cond.true.i, label %cond.false.i34
 
@@ -4549,11 +4549,11 @@ if.else9:                                         ; preds = %lor.lhs.false5
 if.then12:                                        ; preds = %if.else9
   %17 = lshr i16 %cond26.i, 3
   %shr.i48 = zext nneg i16 %17 to i32
-  %add.i49 = add nsw i32 %shr.i48, %c
+  %add.i49 = add nuw nsw i32 %shr.i48, %c
   %centerNoNoDelta.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 11
   %18 = load i16, ptr %centerNoNoDelta.i, align 4
   %conv2.i = zext i16 %18 to i32
-  %sub.i50 = sub i32 %add.i49, %conv2.i
+  %sub.i50 = sub nsw i32 %add.i49, %conv2.i
   %cmp14 = icmp ult i32 %sub.i50, 65536
   br i1 %cmp14, label %if.then15, label %if.else17
 
@@ -4849,14 +4849,14 @@ entry:
   br i1 %cmp, label %lor.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %cmp2 = icmp slt i32 %c, 65536
-  br i1 %cmp2, label %land.lhs.true, label %lor.rhs
+  %cmp2 = icmp ult i32 %c, 65536
+  br i1 %cmp2, label %land.lhs.true, label %lor.rhs.thread
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %smallFCD.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 16
   %1 = load ptr, ptr %smallFCD.i, align 8
-  %shr.i = ashr i32 %c, 8
-  %idxprom.i = sext i32 %shr.i to i64
+  %shr.i = lshr i32 %c, 8
+  %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %2, 0
@@ -4869,20 +4869,21 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   %tobool.not = select i1 %cmp.i, i1 true, i1 %tobool.not12
   br i1 %tobool.not, label %lor.end, label %lor.rhs
 
-lor.rhs:                                          ; preds = %land.lhs.true, %lor.lhs.false
-  %and.i4 = and i32 %c, -1024
+lor.rhs:                                          ; preds = %land.lhs.true
+  %and.i4 = and i32 %c, 64512
   %cmp.i5 = icmp eq i32 %and.i4, 55296
-  br i1 %cmp.i5, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.false.i
+  br i1 %cmp.i5, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.true3.i
 
-cond.false.i:                                     ; preds = %lor.rhs
+lor.rhs.thread:                                   ; preds = %lor.lhs.false
+  %and.i414 = and i32 %c, -1024
+  %cmp.i515 = icmp eq i32 %and.i414, 55296
+  br i1 %cmp.i515, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.false6.i
+
+cond.true3.i:                                     ; preds = %lor.rhs
   %normTrie.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 13
   %5 = load ptr, ptr %normTrie.i, align 8
   %data.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 1
   %6 = load ptr, ptr %data.i, align 8
-  %cmp2.i = icmp ult i32 %c, 65536
-  br i1 %cmp2.i, label %cond.true3.i, label %cond.false6.i
-
-cond.true3.i:                                     ; preds = %cond.false.i
   %7 = load ptr, ptr %5, align 8
   %shr.i6 = lshr i32 %c, 6
   %idxprom.i7 = zext nneg i32 %shr.i6 to i64
@@ -4893,77 +4894,82 @@ cond.true3.i:                                     ; preds = %cond.false.i
   %add.i = add nuw nsw i32 %and5.i, %conv.i9
   br label %cond.end21.i
 
-cond.false6.i:                                    ; preds = %cond.false.i
+cond.false6.i:                                    ; preds = %lor.rhs.thread
+  %normTrie.i16 = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 13
+  %9 = load ptr, ptr %normTrie.i16, align 8
+  %data.i17 = getelementptr inbounds %struct.UCPTrie, ptr %9, i64 0, i32 1
+  %10 = load ptr, ptr %data.i17, align 8
   %cmp7.i = icmp ult i32 %c, 1114112
   br i1 %cmp7.i, label %cond.true8.i, label %cond.false15.i
 
 cond.true8.i:                                     ; preds = %cond.false6.i
-  %highStart.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 4
-  %9 = load i32, ptr %highStart.i, align 8
-  %cmp10.not.i = icmp sgt i32 %9, %c
+  %highStart.i = getelementptr inbounds %struct.UCPTrie, ptr %9, i64 0, i32 4
+  %11 = load i32, ptr %highStart.i, align 8
+  %cmp10.not.i = icmp sgt i32 %11, %c
   br i1 %cmp10.not.i, label %cond.false13.i, label %cond.true11.i
 
 cond.true11.i:                                    ; preds = %cond.true8.i
-  %dataLength.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 3
-  %10 = load i32, ptr %dataLength.i, align 4
-  %sub.i = add nsw i32 %10, -2
+  %dataLength.i = getelementptr inbounds %struct.UCPTrie, ptr %9, i64 0, i32 3
+  %12 = load i32, ptr %dataLength.i, align 4
+  %sub.i = add nsw i32 %12, -2
   br label %cond.end21.i
 
 cond.false13.i:                                   ; preds = %cond.true8.i
-  %call.i = tail call i32 @ucptrie_internalSmallIndex_75(ptr noundef nonnull %5, i32 noundef %c)
+  %call.i = tail call i32 @ucptrie_internalSmallIndex_75(ptr noundef nonnull %9, i32 noundef %c)
   br label %cond.end21.i
 
 cond.false15.i:                                   ; preds = %cond.false6.i
-  %dataLength17.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 3
-  %11 = load i32, ptr %dataLength17.i, align 4
-  %sub18.i = add nsw i32 %11, -1
+  %dataLength17.i = getelementptr inbounds %struct.UCPTrie, ptr %9, i64 0, i32 3
+  %13 = load i32, ptr %dataLength17.i, align 4
+  %sub18.i = add nsw i32 %13, -1
   br label %cond.end21.i
 
 cond.end21.i:                                     ; preds = %cond.false15.i, %cond.false13.i, %cond.true11.i, %cond.true3.i
+  %14 = phi ptr [ %6, %cond.true3.i ], [ %10, %cond.false15.i ], [ %10, %cond.true11.i ], [ %10, %cond.false13.i ]
   %cond22.i = phi i32 [ %add.i, %cond.true3.i ], [ %sub18.i, %cond.false15.i ], [ %sub.i, %cond.true11.i ], [ %call.i, %cond.false13.i ]
   %idxprom23.i = sext i32 %cond22.i to i64
-  %arrayidx24.i = getelementptr inbounds i16, ptr %6, i64 %idxprom23.i
-  %12 = load i16, ptr %arrayidx24.i, align 2
+  %arrayidx24.i = getelementptr inbounds i16, ptr %14, i64 %idxprom23.i
+  %15 = load i16, ptr %arrayidx24.i, align 2
   br label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit
 
-_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit:    ; preds = %lor.rhs, %cond.end21.i
-  %cond26.i = phi i16 [ %12, %cond.end21.i ], [ 1, %lor.rhs ]
+_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit:    ; preds = %lor.rhs.thread, %lor.rhs, %cond.end21.i
+  %cond26.i = phi i16 [ %15, %cond.end21.i ], [ 1, %lor.rhs ], [ 1, %lor.rhs.thread ]
   %minNoNoCompNoMaybeCC.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 8
-  %13 = load i16, ptr %minNoNoCompNoMaybeCC.i, align 2
-  %cmp.i10 = icmp ugt i16 %13, %cond26.i
+  %16 = load i16, ptr %minNoNoCompNoMaybeCC.i, align 2
+  %cmp.i10 = icmp ugt i16 %16, %cond26.i
   br i1 %cmp.i10, label %_ZNK6icu_7515Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit
   %limitNoNo.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 10
-  %14 = load i16, ptr %limitNoNo.i, align 2
-  %cmp5.not.i = icmp ugt i16 %14, %cond26.i
+  %17 = load i16, ptr %limitNoNo.i, align 2
+  %cmp5.not.i = icmp ugt i16 %17, %cond26.i
   br i1 %cmp5.not.i, label %if.end12.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
   %cmp8.i = icmp ult i16 %cond26.i, -1023
   %cmp10.i = icmp eq i16 %cond26.i, -512
-  %15 = or i1 %cmp8.i, %cmp10.i
+  %18 = or i1 %cmp8.i, %cmp10.i
   br label %_ZNK6icu_7515Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit
 
 if.end12.i:                                       ; preds = %if.end.i
   %extraData.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 15
-  %16 = load ptr, ptr %extraData.i.i, align 8
-  %17 = lshr i16 %cond26.i, 1
-  %idx.ext.i.i = zext nneg i16 %17 to i64
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %16, i64 %idx.ext.i.i
-  %18 = load i16, ptr %add.ptr.i.i, align 2
-  %19 = and i16 %18, 128
-  %cmp14.i = icmp eq i16 %19, 0
+  %19 = load ptr, ptr %extraData.i.i, align 8
+  %20 = lshr i16 %cond26.i, 1
+  %idx.ext.i.i = zext nneg i16 %20 to i64
+  %add.ptr.i.i = getelementptr inbounds i16, ptr %19, i64 %idx.ext.i.i
+  %21 = load i16, ptr %add.ptr.i.i, align 2
+  %22 = and i16 %21, 128
+  %cmp14.i = icmp eq i16 %22, 0
   br i1 %cmp14.i, label %_ZNK6icu_7515Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit, label %lor.rhs15.i
 
 lor.rhs15.i:                                      ; preds = %if.end12.i
   %add.ptr.i = getelementptr inbounds i16, ptr %add.ptr.i.i, i64 -1
-  %20 = load i16, ptr %add.ptr.i, align 2
-  %cmp18.i = icmp ult i16 %20, 256
+  %23 = load i16, ptr %add.ptr.i, align 2
+  %cmp18.i = icmp ult i16 %23, 256
   br label %_ZNK6icu_7515Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit
 
 _ZNK6icu_7515Normalizer2Impl29norm16HasDecompBoundaryBeforeEt.exit: ; preds = %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, %if.then6.i, %if.end12.i, %lor.rhs15.i
-  %retval.0.shrunk.i = phi i1 [ %15, %if.then6.i ], [ true, %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit ], [ true, %if.end12.i ], [ %cmp18.i, %lor.rhs15.i ]
+  %retval.0.shrunk.i = phi i1 [ %18, %if.then6.i ], [ true, %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit ], [ true, %if.end12.i ], [ %cmp18.i, %lor.rhs15.i ]
   %retval.0.i11 = zext i1 %retval.0.shrunk.i to i8
   br label %lor.end
 
@@ -4982,14 +4988,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp slt i32 %c, 65536
-  br i1 %cmp2, label %land.lhs.true, label %if.end4
+  %cmp2 = icmp ult i32 %c, 65536
+  br i1 %cmp2, label %land.lhs.true, label %if.end4.thread
 
 land.lhs.true:                                    ; preds = %if.end
   %smallFCD.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 16
   %1 = load ptr, ptr %smallFCD.i, align 8
-  %shr.i = ashr i32 %c, 8
-  %idxprom.i = sext i32 %shr.i to i64
+  %shr.i = lshr i32 %c, 8
+  %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %2, 0
@@ -5002,20 +5008,21 @@ land.lhs.true:                                    ; preds = %if.end
   %tobool.not = select i1 %cmp.i, i1 true, i1 %tobool.not11
   br i1 %tobool.not, label %return, label %if.end4
 
-if.end4:                                          ; preds = %land.lhs.true, %if.end
-  %and.i4 = and i32 %c, -1024
+if.end4:                                          ; preds = %land.lhs.true
+  %and.i4 = and i32 %c, 64512
   %cmp.i5 = icmp eq i32 %and.i4, 55296
-  br i1 %cmp.i5, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.false.i
+  br i1 %cmp.i5, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.true3.i
 
-cond.false.i:                                     ; preds = %if.end4
+if.end4.thread:                                   ; preds = %if.end
+  %and.i413 = and i32 %c, -1024
+  %cmp.i514 = icmp eq i32 %and.i413, 55296
+  br i1 %cmp.i514, label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, label %cond.false6.i
+
+cond.true3.i:                                     ; preds = %if.end4
   %normTrie.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 13
   %5 = load ptr, ptr %normTrie.i, align 8
   %data.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 1
   %6 = load ptr, ptr %data.i, align 8
-  %cmp2.i = icmp ult i32 %c, 65536
-  br i1 %cmp2.i, label %cond.true3.i, label %cond.false6.i
-
-cond.true3.i:                                     ; preds = %cond.false.i
   %7 = load ptr, ptr %5, align 8
   %shr.i6 = lshr i32 %c, 6
   %idxprom.i7 = zext nneg i32 %shr.i6 to i64
@@ -5026,101 +5033,106 @@ cond.true3.i:                                     ; preds = %cond.false.i
   %add.i = add nuw nsw i32 %and5.i, %conv.i9
   br label %cond.end21.i
 
-cond.false6.i:                                    ; preds = %cond.false.i
+cond.false6.i:                                    ; preds = %if.end4.thread
+  %normTrie.i15 = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 13
+  %9 = load ptr, ptr %normTrie.i15, align 8
+  %data.i16 = getelementptr inbounds %struct.UCPTrie, ptr %9, i64 0, i32 1
+  %10 = load ptr, ptr %data.i16, align 8
   %cmp7.i = icmp ult i32 %c, 1114112
   br i1 %cmp7.i, label %cond.true8.i, label %cond.false15.i
 
 cond.true8.i:                                     ; preds = %cond.false6.i
-  %highStart.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 4
-  %9 = load i32, ptr %highStart.i, align 8
-  %cmp10.not.i = icmp sgt i32 %9, %c
+  %highStart.i = getelementptr inbounds %struct.UCPTrie, ptr %9, i64 0, i32 4
+  %11 = load i32, ptr %highStart.i, align 8
+  %cmp10.not.i = icmp sgt i32 %11, %c
   br i1 %cmp10.not.i, label %cond.false13.i, label %cond.true11.i
 
 cond.true11.i:                                    ; preds = %cond.true8.i
-  %dataLength.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 3
-  %10 = load i32, ptr %dataLength.i, align 4
-  %sub.i = add nsw i32 %10, -2
+  %dataLength.i = getelementptr inbounds %struct.UCPTrie, ptr %9, i64 0, i32 3
+  %12 = load i32, ptr %dataLength.i, align 4
+  %sub.i = add nsw i32 %12, -2
   br label %cond.end21.i
 
 cond.false13.i:                                   ; preds = %cond.true8.i
-  %call.i = tail call i32 @ucptrie_internalSmallIndex_75(ptr noundef nonnull %5, i32 noundef %c)
+  %call.i = tail call i32 @ucptrie_internalSmallIndex_75(ptr noundef nonnull %9, i32 noundef %c)
   br label %cond.end21.i
 
 cond.false15.i:                                   ; preds = %cond.false6.i
-  %dataLength17.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 3
-  %11 = load i32, ptr %dataLength17.i, align 4
-  %sub18.i = add nsw i32 %11, -1
+  %dataLength17.i = getelementptr inbounds %struct.UCPTrie, ptr %9, i64 0, i32 3
+  %13 = load i32, ptr %dataLength17.i, align 4
+  %sub18.i = add nsw i32 %13, -1
   br label %cond.end21.i
 
 cond.end21.i:                                     ; preds = %cond.false15.i, %cond.false13.i, %cond.true11.i, %cond.true3.i
+  %14 = phi ptr [ %6, %cond.true3.i ], [ %10, %cond.false15.i ], [ %10, %cond.true11.i ], [ %10, %cond.false13.i ]
   %cond22.i = phi i32 [ %add.i, %cond.true3.i ], [ %sub18.i, %cond.false15.i ], [ %sub.i, %cond.true11.i ], [ %call.i, %cond.false13.i ]
   %idxprom23.i = sext i32 %cond22.i to i64
-  %arrayidx24.i = getelementptr inbounds i16, ptr %6, i64 %idxprom23.i
-  %12 = load i16, ptr %arrayidx24.i, align 2
+  %arrayidx24.i = getelementptr inbounds i16, ptr %14, i64 %idxprom23.i
+  %15 = load i16, ptr %arrayidx24.i, align 2
   br label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit
 
-_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit:    ; preds = %if.end4, %cond.end21.i
-  %cond26.i = phi i16 [ %12, %cond.end21.i ], [ 1, %if.end4 ]
+_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit:    ; preds = %if.end4.thread, %if.end4, %cond.end21.i
+  %cond26.i = phi i16 [ %15, %cond.end21.i ], [ 1, %if.end4 ], [ 1, %if.end4.thread ]
   %minYesNo.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 4
-  %13 = load i16, ptr %minYesNo.i, align 2
-  %cmp.not.i = icmp ult i16 %13, %cond26.i
+  %16 = load i16, ptr %minYesNo.i, align 2
+  %cmp.not.i = icmp ult i16 %16, %cond26.i
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %_ZNK6icu_7515Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit
 
 lor.lhs.false.i:                                  ; preds = %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit
   %minYesNoMappingsOnly.i.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 5
-  %14 = load i16, ptr %minYesNoMappingsOnly.i.i.i, align 8
-  %15 = or i16 %14, 1
-  %cmp.i.not.i = icmp eq i16 %15, %cond26.i
+  %17 = load i16, ptr %minYesNoMappingsOnly.i.i.i, align 8
+  %18 = or i16 %17, 1
+  %cmp.i.not.i = icmp eq i16 %18, %cond26.i
   br i1 %cmp.i.not.i, label %_ZNK6icu_7515Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %limitNoNo.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 10
-  %16 = load i16, ptr %limitNoNo.i, align 2
-  %cmp5.not.i = icmp ugt i16 %16, %cond26.i
+  %19 = load i16, ptr %limitNoNo.i, align 2
+  %cmp5.not.i = icmp ugt i16 %19, %cond26.i
   br i1 %cmp5.not.i, label %if.end19.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
   %minMaybeYes.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 12
-  %17 = load i16, ptr %minMaybeYes.i.i, align 2
-  %cmp.i11.not.i = icmp ugt i16 %17, %cond26.i
+  %20 = load i16, ptr %minMaybeYes.i.i, align 2
+  %cmp.i11.not.i = icmp ugt i16 %20, %cond26.i
   br i1 %cmp.i11.not.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then6.i
   %cmp11.i = icmp ult i16 %cond26.i, -1023
   %cmp13.i = icmp eq i16 %cond26.i, -512
-  %18 = or i1 %cmp11.i, %cmp13.i
+  %21 = or i1 %cmp11.i, %cmp13.i
   br label %_ZNK6icu_7515Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit
 
 if.end15.i:                                       ; preds = %if.then6.i
-  %19 = and i16 %cond26.i, 6
-  %cmp17.i = icmp ult i16 %19, 3
+  %22 = and i16 %cond26.i, 6
+  %cmp17.i = icmp ult i16 %22, 3
   br label %_ZNK6icu_7515Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit
 
 if.end19.i:                                       ; preds = %if.end.i
   %extraData.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 15
-  %20 = load ptr, ptr %extraData.i.i, align 8
-  %21 = lshr i16 %cond26.i, 1
-  %idx.ext.i.i = zext nneg i16 %21 to i64
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %20, i64 %idx.ext.i.i
-  %22 = load i16, ptr %add.ptr.i.i, align 2
-  %cmp22.i = icmp ugt i16 %22, 511
+  %23 = load ptr, ptr %extraData.i.i, align 8
+  %24 = lshr i16 %cond26.i, 1
+  %idx.ext.i.i = zext nneg i16 %24 to i64
+  %add.ptr.i.i = getelementptr inbounds i16, ptr %23, i64 %idx.ext.i.i
+  %25 = load i16, ptr %add.ptr.i.i, align 2
+  %cmp22.i = icmp ugt i16 %25, 511
   br i1 %cmp22.i, label %_ZNK6icu_7515Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end19.i
-  %cmp26.i = icmp ult i16 %22, 256
-  %23 = and i16 %22, 128
-  %cmp31.i = icmp eq i16 %23, 0
+  %cmp26.i = icmp ult i16 %25, 256
+  %26 = and i16 %25, 128
+  %cmp31.i = icmp eq i16 %26, 0
   %or.cond.i = or i1 %cmp26.i, %cmp31.i
   br i1 %or.cond.i, label %_ZNK6icu_7515Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit, label %lor.rhs32.i
 
 lor.rhs32.i:                                      ; preds = %if.end24.i
   %add.ptr.i = getelementptr inbounds i16, ptr %add.ptr.i.i, i64 -1
-  %24 = load i16, ptr %add.ptr.i, align 2
-  %cmp35.i = icmp ult i16 %24, 256
+  %27 = load i16, ptr %add.ptr.i, align 2
+  %cmp35.i = icmp ult i16 %27, 256
   br label %_ZNK6icu_7515Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit
 
 _ZNK6icu_7515Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit: ; preds = %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit, %lor.lhs.false.i, %if.then9.i, %if.end15.i, %if.end19.i, %if.end24.i, %lor.rhs32.i
-  %retval.0.shrunk.i = phi i1 [ %18, %if.then9.i ], [ %cmp17.i, %if.end15.i ], [ true, %lor.lhs.false.i ], [ true, %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit ], [ false, %if.end19.i ], [ true, %if.end24.i ], [ %cmp35.i, %lor.rhs32.i ]
+  %retval.0.shrunk.i = phi i1 [ %21, %if.then9.i ], [ %cmp17.i, %if.end15.i ], [ true, %lor.lhs.false.i ], [ true, %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit ], [ false, %if.end19.i ], [ true, %if.end24.i ], [ %cmp35.i, %lor.rhs32.i ]
   %retval.0.i10 = zext i1 %retval.0.shrunk.i to i8
   br label %return
 
@@ -9346,13 +9358,13 @@ do.end.i356:                                      ; preds = %if.then4.i355, %if.
   br i1 %cmp.i.i358, label %invoke.cont288.thread, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.end.i356
-  %cmp2.i.i = icmp slt i32 %c.0.i, 65536
+  %cmp2.i.i = icmp ult i32 %c.0.i, 65536
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
   %99 = load ptr, ptr %smallFCD.i.i.i, align 8
-  %shr.i.i.i = ashr i32 %c.0.i, 8
-  %idxprom.i.i.i = sext i32 %shr.i.i.i to i64
+  %shr.i.i.i = lshr i32 %c.0.i, 8
+  %idxprom.i.i.i = zext nneg i32 %shr.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %99, i64 %idxprom.i.i.i
   %100 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i.i.i = icmp eq i8 %100, 0
@@ -10090,14 +10102,14 @@ do.end:                                           ; preds = %if.end, %if.then4
   br i1 %cmp.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end
-  %cmp2.i = icmp slt i32 %c.0, 65536
+  %cmp2.i = icmp ult i32 %c.0, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
   %smallFCD.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this, i64 0, i32 16
   %2 = load ptr, ptr %smallFCD.i.i, align 8
-  %shr.i.i = ashr i32 %c.0, 8
-  %idxprom.i.i = sext i32 %shr.i.i to i64
+  %shr.i.i = lshr i32 %c.0, 8
+  %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 %idxprom.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i = icmp eq i8 %3, 0

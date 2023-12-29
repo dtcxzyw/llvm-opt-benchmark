@@ -6070,7 +6070,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.011.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call1.i
-  br i1 %exitcond.not.i, label %check_hosts.exit, label %for.body.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !27
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.011.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -6081,11 +6081,11 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %cmp10.i = icmp sgt i32 %call9.i, 0
   br i1 %cmp10.i, label %if.end4, label %for.cond.i
 
-check_hosts.exit:                                 ; preds = %for.cond.i, %if.end.i
+check_hosts.exit:                                 ; preds = %if.end.i
   %cmp13.i.not = icmp eq i32 %call1.i, 0
   br i1 %cmp13.i.not, label %if.end4, label %if.then
 
-if.then:                                          ; preds = %check_hosts.exit
+if.then:                                          ; preds = %for.cond.i, %check_hosts.exit
   %6 = load ptr, ptr %cert, align 8
   %error_depth.i.i = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
   store i32 0, ptr %error_depth.i.i, align 4

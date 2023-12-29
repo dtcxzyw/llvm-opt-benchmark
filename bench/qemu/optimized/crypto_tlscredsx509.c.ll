@@ -692,7 +692,7 @@ for.body.i:                                       ; preds = %if.end21.i, %for.co
   br i1 %cmp25.i, label %cleanup.i, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i
-  br i1 %tobool15.not.i, label %if.end40.i, label %land.lhs.true31.i
+  br i1 %tobool15.not.i, label %for.body43.i.preheader, label %land.lhs.true31.i
 
 land.lhs.true31.i:                                ; preds = %for.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cert.addr.i.i)
@@ -751,19 +751,24 @@ if.then39.i:                                      ; preds = %cleanup.i, %qcrypto
   call void @gnutls_x509_crt_deinit(ptr noundef nonnull %cert.0.i) #9
   br label %if.end40.i
 
-if.end40.i:                                       ; preds = %for.end.i, %if.then39.i, %cleanup.i
-  %ret.084.i = phi i32 [ %ret.083.i, %if.then39.i ], [ %ret.0.i, %cleanup.i ], [ 0, %for.end.i ]
-  %ncacerts.281.i = phi i64 [ %ncacerts.280.i, %if.then39.i ], [ %ncacerts.2.i, %cleanup.i ], [ %ncacerts.1.i, %for.end.i ]
+if.end40.i:                                       ; preds = %if.then39.i, %cleanup.i
+  %ret.084.i = phi i32 [ %ret.083.i, %if.then39.i ], [ %ret.0.i, %cleanup.i ]
+  %ncacerts.281.i = phi i64 [ %ncacerts.280.i, %if.then39.i ], [ %ncacerts.2.i, %cleanup.i ]
   %cmp4293.not.i = icmp eq i64 %ncacerts.281.i, 0
-  br i1 %cmp4293.not.i, label %qcrypto_tls_creds_x509_sanity_check.exit, label %for.body43.i
+  br i1 %cmp4293.not.i, label %qcrypto_tls_creds_x509_sanity_check.exit, label %for.body43.i.preheader
 
-for.body43.i:                                     ; preds = %if.end40.i, %for.body43.i
-  %i.194.i = phi i64 [ %inc46.i, %for.body43.i ], [ 0, %if.end40.i ]
+for.body43.i.preheader:                           ; preds = %for.end.i, %if.end40.i
+  %ncacerts.281.i64 = phi i64 [ %ncacerts.281.i, %if.end40.i ], [ %ncacerts.1.i, %for.end.i ]
+  %ret.084.i62 = phi i32 [ %ret.084.i, %if.end40.i ], [ 0, %for.end.i ]
+  br label %for.body43.i
+
+for.body43.i:                                     ; preds = %for.body43.i.preheader, %for.body43.i
+  %i.194.i = phi i64 [ %inc46.i, %for.body43.i ], [ 0, %for.body43.i.preheader ]
   %arrayidx44.i = getelementptr [16 x ptr], ptr %cacerts.i, i64 0, i64 %i.194.i
   %49 = load ptr, ptr %arrayidx44.i, align 8
   call void @gnutls_x509_crt_deinit(ptr noundef %49) #9
   %inc46.i = add nuw nsw i64 %i.194.i, 1
-  %exitcond95.not.i = icmp eq i64 %inc46.i, %ncacerts.281.i
+  %exitcond95.not.i = icmp eq i64 %inc46.i, %ncacerts.281.i64
   br i1 %exitcond95.not.i, label %qcrypto_tls_creds_x509_sanity_check.exit, label %for.body43.i, !llvm.loop !8
 
 qcrypto_tls_creds_x509_sanity_check.exit.thread:  ; preds = %qcrypto_tls_creds_load_cert.exit.i, %qcrypto_tls_creds_load_cert.exit.thread.i
@@ -771,8 +776,9 @@ qcrypto_tls_creds_x509_sanity_check.exit.thread:  ; preds = %qcrypto_tls_creds_l
   br label %cleanup
 
 qcrypto_tls_creds_x509_sanity_check.exit:         ; preds = %for.body43.i, %if.end40.i
+  %ret.084.i63 = phi i32 [ %ret.084.i, %if.end40.i ], [ %ret.084.i62, %for.body43.i ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cacerts.i)
-  %cmp41 = icmp slt i32 %ret.084.i, 0
+  %cmp41 = icmp slt i32 %ret.084.i63, 0
   br i1 %cmp41, label %cleanup, label %if.end43
 
 if.end43:                                         ; preds = %qcrypto_tls_creds_x509_sanity_check.exit, %if.end35

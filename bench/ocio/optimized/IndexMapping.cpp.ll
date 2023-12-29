@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 
-$_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm = comdat any
+$_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm = comdat any
 
 @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE = hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev12IndexMappingE, ptr @_ZN19OpenColorIO_v2_4dev12IndexMappingD2Ev, ptr @_ZN19OpenColorIO_v2_4dev12IndexMappingD0Ev] }, align 8
 @.str = private unnamed_addr constant [21 x i8] c"IndexMapping: Index \00", align 1
@@ -45,17 +45,13 @@ entry:
   store i64 %dimension, ptr %m_dimension, align 8
   %scevgep = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep, i8 0, i64 72, i1 false)
-  %cmp.i.i.not = icmp eq i64 %dimension, 0
-  br i1 %cmp.i.i.not, label %invoke.cont, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  invoke void @_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 noundef %dimension)
+  invoke void @_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 noundef %dimension)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %entry, %if.then.i.i
+invoke.cont:                                      ; preds = %entry
   ret void
 
-lpad:                                             ; preds = %if.then.i.i
+lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   br label %arraydestroy.body
@@ -65,8 +61,8 @@ arraydestroy.body:                                ; preds = %_ZNSt6vectorISt4pai
   %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -24
   %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast.add
   %1 = load ptr, ptr %arraydestroy.element.ptr, align 8
-  %tobool.not.i.i.i1 = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit, label %if.then.i.i.i
+  %tobool.not.i.i.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %arraydestroy.body
   tail call void @_ZdlPv(ptr noundef nonnull %1) #14
@@ -81,40 +77,12 @@ eh.resume:                                        ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMapping6resizeEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %dimension) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMapping6resizeEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %dimension) local_unnamed_addr #0 align 2 {
 entry:
   %m_dimension = getelementptr inbounds %"class.OpenColorIO_v2_4dev::IndexMapping", ptr %this, i64 0, i32 1
   store i64 %dimension, ptr %m_dimension, align 8
   %m_indices = getelementptr inbounds %"class.OpenColorIO_v2_4dev::IndexMapping", ptr %this, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::IndexMapping", ptr %this, i64 0, i32 2, i64 0, i32 0, i32 0, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %1 = load ptr, ptr %m_indices, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %dimension
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %dimension, %sub.ptr.div.i.i
-  tail call void @_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_indices, i64 noundef %sub.i)
-  br label %_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %dimension
-  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm.exit
-
-if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %dimension
-  %tobool.not.i.i = icmp eq ptr %0, %add.ptr.i
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm.exit, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  br label %_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm.exit
-
-_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm.exit:   ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
+  tail call void @_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_indices, i64 noundef %dimension)
   ret void
 }
 
@@ -175,6 +143,106 @@ _ZN19OpenColorIO_v2_4dev12IndexMappingD2Ev.exit:  ; preds = %_ZNSt6vectorISt4pai
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<float, float>, std::allocator<std::pair<float, float>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %0 = load ptr, ptr %_M_finish.i, align 8
+  %1 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
+  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<float, float>, std::allocator<std::pair<float, float>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %2 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
+  %sub.ptr.div.i11 = ashr exact i64 %sub.ptr.sub.i10, 3
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
+  tail call void @llvm.assume(i1 %cmp4.i)
+  %sub.i = xor i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp6.i = icmp ule i64 %sub.ptr.div.i11, %sub.i
+  tail call void @llvm.assume(i1 %cmp6.i)
+  %cmp8.not.i = icmp ult i64 %sub.ptr.div.i11, %sub
+  br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPSt4pairIffEmS1_ET_S3_T0_RSaIT1_E.exit.i
+
+_ZSt27__uninitialized_default_n_aIPSt4pairIffEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %if.then
+  %3 = shl nuw i64 %sub, 3
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %3, i1 false)
+  %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %3
+  store ptr %scevgep.i.i.i.i, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.else.i:                                        ; preds = %if.then
+  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i
+
+if.then.i.i:                                      ; preds = %if.else.i
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #15
+  unreachable
+
+_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub)
+  %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
+  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 3
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #16
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  %4 = shl nuw nsw i64 %sub, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.i, i8 0, i64 %4, i1 false)
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %1, %0
+  br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i.i
+
+for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i.i
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  %5 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 4, !alias.scope !7, !noalias !4
+  store i64 %5, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !4, !noalias !7
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !9
+
+_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i
+  %tobool.not.i26.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i26.i, label %_ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit28.i, label %if.then.i27.i
+
+if.then.i27.i:                                    ; preds = %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #14
+  br label %_ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit28.i
+
+_ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit28.i: ; preds = %if.then.i27.i, %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+  store ptr %call5.i.i.i.i, ptr %this, align 8
+  %add.ptr37.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i, i64 %sub
+  store ptr %add.ptr37.i, ptr %_M_finish.i, align 8
+  %add.ptr40.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i, i64 %cond.i.i
+  store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8
+  br label %if.end6
+
+if.else:                                          ; preds = %entry
+  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  br i1 %cmp4, label %if.then5, label %if.end6
+
+if.then5:                                         ; preds = %if.else
+  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %__new_size
+  %tobool.not.i = icmp eq ptr %0, %add.ptr
+  br i1 %tobool.not.i, label %if.end6, label %invoke.cont.i
+
+invoke.cont.i:                                    ; preds = %if.then5
+  store ptr %add.ptr, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.end6:                                          ; preds = %invoke.cont.i, %if.then5, %_ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit28.i, %_ZSt27__uninitialized_default_n_aIPSt4pairIffEmS1_ET_S3_T0_RSaIT1_E.exit.i, %if.else
+  ret void
+}
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev12IndexMapping12getDimensionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 {
@@ -241,23 +309,23 @@ invoke.cont10:                                    ; preds = %invoke.cont5
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #15
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(112) %oss)
           to label %invoke.cont15 unwind label %ehcleanup.thread
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  %call16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
+  %call16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call16)
           to label %invoke.cont18 unwind label %ehcleanup.thread12
 
 ehcleanup.thread12:                               ; preds = %invoke.cont15
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   br label %cleanup.action
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %invoke.cont10, %invoke.cont5, %invoke.cont3, %invoke.cont, %if.then
@@ -273,17 +341,17 @@ ehcleanup.thread:                                 ; preds = %invoke.cont12
 ehcleanup:                                        ; preds = %invoke.cont18
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   br label %ehcleanup19
 
 cleanup.action:                                   ; preds = %ehcleanup.thread12, %ehcleanup.thread
   %.pn11 = phi { ptr, i32 } [ %6, %ehcleanup.thread ], [ %4, %ehcleanup.thread12 ]
-  call void @__cxa_free_exception(ptr %exception) #15
+  call void @__cxa_free_exception(ptr %exception) #17
   br label %ehcleanup19
 
 ehcleanup19:                                      ; preds = %ehcleanup, %cleanup.action, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn11, %cleanup.action ], [ %7, %ehcleanup ], [ %5, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #15
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #17
   resume { ptr, i32 } %.pn.pn
 
 if.end:                                           ; preds = %entry
@@ -368,7 +436,7 @@ for.cond:                                         ; preds = %for.body
   %conv = zext i32 %inc to i64
   %1 = load i64, ptr %m_dimension, align 8
   %cmp = icmp ugt i64 %1, %conv
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %conv9 = phi i64 [ 1, %for.body.lr.ph ], [ %conv, %for.cond ]
@@ -393,18 +461,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %for.cond, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #15
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
   unreachable
 
 lpad:                                             ; preds = %if.then
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #15
+  tail call void @__cxa_free_exception(ptr %exception) #17
   resume { ptr, i32 } %8
 
 for.end:                                          ; preds = %for.cond, %entry
@@ -466,113 +534,16 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first1.addr.05.i.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first2.addr.06.i.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.inc, label %for.body.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.inc, label %for.body.i.i.i.i.i.i, !llvm.loop !12
 
 for.inc:                                          ; preds = %for.inc.i.i.i.i.i.i, %land.rhs.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !13
 
 return:                                           ; preds = %for.body, %for.inc, %for.body.i.i.i.i.i.i, %if.end, %entry
   %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %for.body.i.i.i.i.i.i ], [ false, %for.body ], [ %cmp.i.i, %for.inc ]
   ret i1 %retval.0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp.not = icmp eq i64 %__n, 0
-  br i1 %cmp.not, label %if.end44, label %if.then
-
-if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<float, float>, std::allocator<std::pair<float, float>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::pair<float, float>, std::allocator<std::pair<float, float>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %2 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp4 = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
-  tail call void @llvm.assume(i1 %cmp4)
-  %sub = xor i64 %sub.ptr.div.i, 1152921504606846975
-  %cmp6 = icmp ule i64 %sub.ptr.div, %sub
-  tail call void @llvm.assume(i1 %cmp6)
-  %cmp8.not = icmp ult i64 %sub.ptr.div, %__n
-  br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPSt4pairIffEmS1_ET_S3_T0_RSaIT1_E.exit
-
-_ZSt27__uninitialized_default_n_aIPSt4pairIffEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = shl nuw i64 %__n, 3
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %3, i1 false)
-  %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
-  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8
-  br label %if.end44
-
-if.else:                                          ; preds = %if.then
-  %cmp.i = icmp ult i64 %sub, %__n
-  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit
-
-if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #16
-  unreachable
-
-_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %try.cont, label %_ZNSt16allocator_traitsISaISt4pairIffEEE8allocateERS2_m.exit.i
-
-_ZNSt16allocator_traitsISaISt4pairIffEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
-  br label %try.cont
-
-try.cont:                                         ; preds = %_ZNSt16allocator_traitsISaISt4pairIffEEE8allocateERS2_m.exit.i, %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIffEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %cond.i19, i64 %sub.ptr.div.i
-  %4 = shl nuw i64 %__n, 3
-  tail call void @llvm.memset.p0.i64(ptr align 4 %add.ptr, i8 0, i64 %4, i1 false)
-  %cmp.not5.i.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %try.cont, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i19, %try.cont ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %try.cont ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 4, !alias.scope !11, !noalias !8
-  store i64 %5, ptr %__cur.07.i.i.i.i, align 4, !alias.scope !8, !noalias !11
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i.i, !llvm.loop !13
-
-_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i.i, %try.cont
-  %tobool.not.i26 = icmp eq ptr %1, null
-  br i1 %tobool.not.i26, label %_ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit28, label %if.then.i27
-
-if.then.i27:                                      ; preds = %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #14
-  br label %_ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit28
-
-_ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit28: ; preds = %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i27
-  store ptr %cond.i19, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds %"struct.std::pair", ptr %add.ptr, i64 %__n
-  store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.std::pair", ptr %cond.i19, i64 %cond.i
-  store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
-  br label %if.end44
-
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPSt4pairIffEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit28, %entry
-  ret void
 }
 
 ; Function Attrs: noreturn
@@ -593,6 +564,9 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -608,9 +582,9 @@ attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn }
-attributes #17 = { builtin allocsize(0) }
+attributes #15 = { noreturn }
+attributes #16 = { builtin allocsize(0) }
+attributes #17 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -618,13 +592,13 @@ attributes #17 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!10 = distinct !{!10, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_"}
-!11 = !{!12}
-!12 = distinct !{!12, !10, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!13 = distinct !{!13, !5}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!6 = distinct !{!6, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_"}
+!7 = !{!8}
+!8 = distinct !{!8, !6, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}

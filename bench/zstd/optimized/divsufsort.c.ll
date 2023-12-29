@@ -310,7 +310,7 @@ land.rhs:                                         ; preds = %do.body
   %arrayidx22 = getelementptr inbounds i8, ptr %T, i64 %3
   %4 = load i8, ptr %arrayidx22, align 1
   %conv23 = zext i8 %4 to i32
-  %cmp24.not = icmp ugt i32 %c0.1, %conv23
+  %cmp24.not = icmp sgt i32 %c0.1, %conv23
   br i1 %cmp24.not, label %if.then, label %do.body, !llvm.loop !8
 
 if.then:                                          ; preds = %land.rhs
@@ -4137,7 +4137,7 @@ land.rhs248:                                      ; preds = %for.cond245
   %arrayidx250 = getelementptr inbounds i8, ptr %T, i64 %389
   %390 = load i8, ptr %arrayidx250, align 1
   %conv251 = zext i8 %390 to i32
-  %cmp252.not = icmp ugt i32 %c1.3, %conv251
+  %cmp252.not = icmp sgt i32 %c1.3, %conv251
   br i1 %cmp252.not, label %if.then261, label %for.cond245, !llvm.loop !57
 
 if.then261:                                       ; preds = %land.rhs248

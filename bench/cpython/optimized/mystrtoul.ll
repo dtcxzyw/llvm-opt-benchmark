@@ -307,7 +307,7 @@ if.end249:                                        ; preds = %if.end240, %if.then
   %arrayidx220 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom219
   %30 = load i8, ptr %arrayidx220, align 1
   %conv221 = zext i8 %30 to i32
-  %cmp222 = icmp sgt i32 %base.addr.0114, %conv221
+  %cmp222 = icmp ugt i32 %base.addr.0114, %conv221
   br i1 %cmp222, label %while.body224, label %while.end251, !llvm.loop !10
 
 while.end251:                                     ; preds = %if.end249, %while.end212
@@ -331,7 +331,7 @@ while.cond257:                                    ; preds = %overflowed, %while.
   %arrayidx262 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom261
   %32 = load i8, ptr %arrayidx262, align 1
   %conv263 = zext i8 %32 to i32
-  %cmp264 = icmp sgt i32 %base.addr.0114, %conv263
+  %cmp264 = icmp ugt i32 %base.addr.0114, %conv263
   %incdec.ptr267 = getelementptr i8, ptr %str.addr.6, i64 1
   br i1 %cmp264, label %while.cond257, label %while.end268, !llvm.loop !11
 

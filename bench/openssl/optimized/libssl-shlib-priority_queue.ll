@@ -124,11 +124,10 @@ if.end3.i:                                        ; preds = %while.body.i
   %div.i.i = udiv i64 %2, 5
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %div.i.i, i64 1152921504606846975)
   %cmp.i = icmp ult i64 %spec.store.select.i, %add4
-  br i1 %cmp.i, label %while.body.i, label %compute_pqueue_growth.exit, !llvm.loop !7
+  br i1 %cmp.i, label %while.body.i, label %if.end7, !llvm.loop !7
 
-compute_pqueue_growth.exit:                       ; preds = %if.end3.i, %if.end3
-  %retval.0.i = phi i64 [ %0, %if.end3 ], [ %spec.store.select.i, %if.end3.i ]
-  %cmp5 = icmp eq i64 %retval.0.i, 0
+compute_pqueue_growth.exit:                       ; preds = %if.end3
+  %cmp5 = icmp eq i64 %0, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %while.body.i, %compute_pqueue_growth.exit
@@ -137,9 +136,10 @@ if.then6:                                         ; preds = %while.body.i, %comp
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #7
   br label %return
 
-if.end7:                                          ; preds = %compute_pqueue_growth.exit
+if.end7:                                          ; preds = %if.end3.i, %compute_pqueue_growth.exit
+  %retval.0.i24 = phi i64 [ %0, %compute_pqueue_growth.exit ], [ %spec.store.select.i, %if.end3.i ]
   %3 = load ptr, ptr %pq, align 8
-  %mul = shl i64 %retval.0.i, 4
+  %mul = shl i64 %retval.0.i24, 4
   %call8 = tail call ptr @CRYPTO_realloc(ptr noundef %3, i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 314) #7
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %return, label %if.end11
@@ -148,14 +148,14 @@ if.end11:                                         ; preds = %if.end7
   store ptr %call8, ptr %pq, align 8
   %elements = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 1
   %4 = load ptr, ptr %elements, align 8
-  %mul13 = shl i64 %retval.0.i, 3
+  %mul13 = shl i64 %retval.0.i24, 3
   %call14 = tail call ptr @CRYPTO_realloc(ptr noundef %4, i64 noundef %mul13, ptr noundef nonnull @.str, i32 noundef 319) #7
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end11
   store ptr %call14, ptr %elements, align 8
-  store i64 %retval.0.i, ptr %hmax, align 8
+  store i64 %retval.0.i24, ptr %hmax, align 8
   %freelist.i = getelementptr inbounds %struct.ossl_pqueue_st, ptr %pq, i64 0, i32 5
   %5 = load i64, ptr %freelist.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.pq_elem_st, ptr %call14, i64 %0

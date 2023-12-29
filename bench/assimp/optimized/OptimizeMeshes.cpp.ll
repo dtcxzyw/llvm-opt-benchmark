@@ -396,7 +396,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i69
 _ZNKSt6vectorIP6aiMeshSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i69
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
@@ -796,7 +796,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIP6aiMeshSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
@@ -918,7 +918,7 @@ if.then.i.i.i71:                                  ; preds = %if.else.i42
 _ZNKSt6vectorIP6aiMeshSaIS1_EE12_M_check_lenEmPKc.exit.i.i47: ; preds = %if.else.i42
   %sub.ptr.div.i.i.i.i48 = ashr exact i64 %sub.ptr.sub.i.i.i.i45, 3
   %.sroa.speculated.i.i.i49 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i48, i64 1)
-  %add.i.i.i50 = add i64 %.sroa.speculated.i.i.i49, %sub.ptr.div.i.i.i.i48
+  %add.i.i.i50 = add nsw i64 %.sroa.speculated.i.i.i49, %sub.ptr.div.i.i.i.i48
   %cmp7.i.i.i51 = icmp ult i64 %add.i.i.i50, %sub.ptr.div.i.i.i.i48
   %cmp9.i.i.i52 = icmp ugt i64 %add.i.i.i50, 1152921504606846975
   %or.cond.i.i.i53 = or i1 %cmp7.i.i.i51, %cmp9.i.i.i52
@@ -992,7 +992,7 @@ if.then.i.i.i109:                                 ; preds = %if.else.i80
 _ZNKSt6vectorIP6aiMeshSaIS1_EE12_M_check_lenEmPKc.exit.i.i85: ; preds = %if.else.i80
   %sub.ptr.div.i.i.i.i86 = ashr exact i64 %sub.ptr.sub.i.i.i.i83, 3
   %.sroa.speculated.i.i.i87 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i86, i64 1)
-  %add.i.i.i88 = add i64 %.sroa.speculated.i.i.i87, %sub.ptr.div.i.i.i.i86
+  %add.i.i.i88 = add nsw i64 %.sroa.speculated.i.i.i87, %sub.ptr.div.i.i.i.i86
   %cmp7.i.i.i89 = icmp ult i64 %add.i.i.i88, %sub.ptr.div.i.i.i.i86
   %cmp9.i.i.i90 = icmp ugt i64 %add.i.i.i88, 1152921504606846975
   %or.cond.i.i.i91 = or i1 %cmp7.i.i.i89, %cmp9.i.i.i90
@@ -1063,7 +1063,7 @@ if.then.i.i.i146:                                 ; preds = %if.else.i117
 _ZNKSt6vectorIP6aiMeshSaIS1_EE12_M_check_lenEmPKc.exit.i.i122: ; preds = %if.else.i117
   %sub.ptr.div.i.i.i.i123 = ashr exact i64 %sub.ptr.sub.i.i.i.i120, 3
   %.sroa.speculated.i.i.i124 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i123, i64 1)
-  %add.i.i.i125 = add i64 %.sroa.speculated.i.i.i124, %sub.ptr.div.i.i.i.i123
+  %add.i.i.i125 = add nsw i64 %.sroa.speculated.i.i.i124, %sub.ptr.div.i.i.i.i123
   %cmp7.i.i.i126 = icmp ult i64 %add.i.i.i125, %sub.ptr.div.i.i.i.i123
   %cmp9.i.i.i127 = icmp ugt i64 %add.i.i.i125, 1152921504606846975
   %or.cond.i.i.i128 = or i1 %cmp7.i.i.i126, %cmp9.i.i.i127
@@ -1547,27 +1547,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 768614336404564650
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 768614336404564650, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN6Assimp21OptimizeMeshesProcess8MeshInfoEEE8allocateERS3_m.exit.i
-
-_ZNSt16allocator_traitsISaIN6Assimp21OptimizeMeshesProcess8MeshInfoEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 768614336404564650)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 12
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
-  br label %_ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN6Assimp21OptimizeMeshesProcess8MeshInfoEEE8allocateERS3_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6Assimp21OptimizeMeshesProcess8MeshInfoEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   br label %for.body.i.i.i21
 
-for.body.i.i.i21:                                 ; preds = %_ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_M_allocateEm.exit, %for.body.i.i.i21
-  %__cur.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i27, %for.body.i.i.i21 ], [ %add.ptr, %_ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
-  %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i26, %for.body.i.i.i21 ], [ %__n, %_ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
+for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i21
+  %__cur.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i27, %for.body.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i26, %for.body.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   store i32 0, ptr %__cur.06.i.i.i22, align 4
   %vertex_format.i.i.i.i.i24 = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__cur.06.i.i.i22, i64 0, i32 1
   store i32 0, ptr %vertex_format.i.i.i.i.i24, align 4
@@ -1583,7 +1572,7 @@ try.cont:                                         ; preds = %for.body.i.i.i21
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i32
 
 for.body.i.i.i32:                                 ; preds = %try.cont, %for.body.i.i.i32
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i32 ], [ %cond.i19, %try.cont ]
+  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i32 ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i33, %for.body.i.i.i32 ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i, i64 12, i1 false), !alias.scope !12
   %incdec.ptr.i.i.i33 = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__first.addr.06.i.i.i, i64 1
@@ -1600,10 +1589,10 @@ if.then.i37:                                      ; preds = %_ZNSt6vectorIN6Assi
   br label %_ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit38
 
 _ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i37
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -1770,6 +1759,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14

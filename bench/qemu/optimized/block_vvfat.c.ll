@@ -2602,7 +2602,7 @@ declare ptr @bdrv_get_device_or_node_name(ptr noundef) local_unnamed_addr #1
 
 declare i32 @migrate_add_blocker_normal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @init_mbr(ptr nocapture noundef %s, i32 noundef %cyls, i32 noundef %heads, i32 noundef %secs) unnamed_addr #8 {
 entry:
   %first_sectors = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 2
@@ -3100,7 +3100,7 @@ if.else:                                          ; preds = %if.then31
   %11 = load i32, ptr %sectors_per_fat, align 8
   %add41 = add i32 %11, %10
   %conv42 = zext i32 %add41 to i64
-  %cmp43 = icmp slt i64 %sector_num.addr.064, %conv42
+  %cmp43 = icmp ult i64 %sector_num.addr.064, %conv42
   %mul46 = shl i32 %i.062, 9
   %idx.ext47 = sext i32 %mul46 to i64
   %add.ptr48 = getelementptr i8, ptr %buf, i64 %idx.ext47
@@ -3117,7 +3117,7 @@ if.then45:                                        ; preds = %if.else
 if.then59:                                        ; preds = %if.else
   %conv69 = zext i32 %11 to i64
   %13 = add nuw nsw i64 %conv32, %conv69
-  %sub70 = sub i64 %sector_num.addr.064, %13
+  %sub70 = sub nsw i64 %sector_num.addr.064, %13
   %mul71 = shl nsw i64 %sub70, 9
   %arrayidx72 = getelementptr i8, ptr %12, i64 %mul71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %add.ptr48, ptr noundef nonnull align 1 dereferenceable(512) %arrayidx72, i64 512, i1 false)
@@ -3616,7 +3616,7 @@ if.end27:                                         ; preds = %if.end22
   %12 = getelementptr i8, ptr %0, i64 32956
   %.val71 = load i32, ptr %12, align 4
   %conv.i = zext i32 %.val71 to i64
-  %sub.i = sub i64 %sector_num, %conv.i
+  %sub.i = sub nsw i64 %sector_num, %conv.i
   %conv1.i = zext i32 %.val70 to i64
   %div.i = sdiv i64 %sub.i, %conv1.i
   %conv2.i = trunc i64 %div.i to i32
@@ -9034,7 +9034,7 @@ attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -904,10 +904,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %1 = load ptr, ptr %pkeys, align 8
   br label %for.body
 
-for.cond5.preheader:                              ; preds = %for.inc
-  br i1 %cmp119.not, label %return, label %for.body8.lr.ph
-
-for.body8.lr.ph:                                  ; preds = %for.cond5.preheader
+for.body8.lr.ph:                                  ; preds = %for.inc
   %pkeys10 = getelementptr inbounds %struct.cert_st, ptr %c, i64 0, i32 5
   br label %for.body8
 
@@ -927,7 +924,7 @@ land.lhs.true:                                    ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %inc = add nuw i64 %i.020, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.cond5.preheader, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.body8.lr.ph, label %for.body, !llvm.loop !9
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %for.inc23
   %4 = phi i64 [ %0, %for.body8.lr.ph ], [ %8, %for.inc23 ]
@@ -964,8 +961,8 @@ return.sink.split:                                ; preds = %land.lhs.true, %lan
   store ptr %add.ptr11.lcssa.sink, ptr %c, align 8
   br label %return
 
-return:                                           ; preds = %for.inc23, %return.sink.split, %for.cond.preheader, %for.cond5.preheader, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %for.cond5.preheader ], [ 0, %for.cond.preheader ], [ 1, %return.sink.split ], [ 0, %for.inc23 ]
+return:                                           ; preds = %for.inc23, %return.sink.split, %for.cond.preheader, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %for.cond.preheader ], [ 1, %return.sink.split ], [ 0, %for.inc23 ]
   ret i32 %retval.0
 }
 

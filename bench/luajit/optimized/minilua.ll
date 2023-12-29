@@ -5407,8 +5407,8 @@ sw.bb608.i:                                       ; preds = %for.cond.i
   %shr613.i = lshr i32 %14, 14
   %and614.i = and i32 %shr613.i, 511
   store ptr %incdec.ptr.i, ptr %savedpc.i, align 8
-  %reass.sub911 = sub nsw i32 %and614.i, %shr610.i
-  %add617.i = add nsw i32 %reass.sub911, 1
+  %reass.sub904 = sub nsw i32 %and614.i, %shr610.i
+  %add617.i = add nsw i32 %reass.sub904, 1
   tail call fastcc void @luaV_concat(ptr noundef %L, i32 noundef %add617.i, i32 noundef %and614.i)
   %112 = load ptr, ptr %l_G.i467, align 8
   %totalbytes619.i = getelementptr inbounds %struct.global_State, ptr %112, i64 0, i32 14
@@ -5708,10 +5708,9 @@ if.end34.i:                                       ; preds = %luaH_getstr.exit.i3
 
 if.else.i.i747:                                   ; preds = %if.end34.i
   switch i32 %156, label %sw.default.i.i [
-    i32 0, label %get_compTM.exit
+    i32 2, label %sw.bb11.i.i
     i32 3, label %luaO_rawequalObj.exit.i
     i32 1, label %sw.bb6.i.i
-    i32 2, label %sw.bb11.i.i
   ]
 
 sw.bb6.i.i:                                       ; preds = %if.else.i.i747
@@ -5742,11 +5741,7 @@ luaO_rawequalObj.exit.i:                          ; preds = %if.else.i.i747
   %cond.fr.i = freeze i1 %cmp5.i.i749
   br i1 %cond.fr.i, label %if.end40.i, label %land.end690.i
 
-get_compTM.exit:                                  ; preds = %if.else.i.i747
-  %cmp37.i = icmp eq ptr %retval.0.i.i.i743, null
-  br i1 %cmp37.i, label %land.end690.i, label %if.end40.i
-
-if.end40.i:                                       ; preds = %luaO_rawequalObj.exit.i, %sw.default.i.i, %sw.bb11.i.i, %sw.bb6.i.i, %if.end.i744, %get_compTM.exit
+if.end40.i:                                       ; preds = %sw.bb6.i.i, %sw.bb11.i.i, %sw.default.i.i, %luaO_rawequalObj.exit.i, %if.end.i744
   %175 = load ptr, ptr %top1267.i, align 8
   %176 = load ptr, ptr %stack.i763, align 8
   %177 = load i64, ptr %retval.0.i.i.i743, align 8
@@ -5783,11 +5778,11 @@ if.then.i761:                                     ; preds = %if.end40.i
   %mul.i.i = shl nuw nsw i32 %187, 1
   %add.i.sink.i = select i1 %cmp.not.i.i762, i32 %add.i.i, i32 %mul.i.i
   tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %add.i.sink.i)
-  %.pre990 = load ptr, ptr %top1267.i, align 8
+  %.pre983 = load ptr, ptr %top1267.i, align 8
   br label %callTMres.exit
 
 callTMres.exit:                                   ; preds = %if.end40.i, %if.then.i761
-  %188 = phi ptr [ %186, %if.end40.i ], [ %.pre990, %if.then.i761 ]
+  %188 = phi ptr [ %186, %if.end40.i ], [ %.pre983, %if.then.i761 ]
   %sub.ptr.lhs.cast.i757 = ptrtoint ptr %175 to i64
   %sub.ptr.rhs.cast.i758 = ptrtoint ptr %176 to i64
   %sub.ptr.sub.i759 = sub i64 %sub.ptr.lhs.cast.i757, %sub.ptr.rhs.cast.i758
@@ -5821,8 +5816,8 @@ land.rhs.i117:                                    ; preds = %callTMres.exit
 lor.end.fold.split.i119:                          ; preds = %callTMres.exit
   br label %land.end690.i
 
-land.end690.i:                                    ; preds = %if.end34.i, %sw.bb6.i.i, %sw.bb11.i.i, %sw.default.i.i, %luaO_rawequalObj.exit.i, %if.then.i37.i, %cond.false14.i, %if.end10.i, %if.then.i.i750, %cond.false.i735, %sw.epilog.i115, %lor.end.fold.split.i119, %land.rhs.i117, %callTMres.exit, %get_compTM.exit, %sw.default.i125, %sw.bb21.i, %sw.bb13.i, %sw.bb8.i, %sw.bb3.i, %sw.bb1.i, %land.rhs687.i, %sw.bb645.i
-  %196 = phi i1 [ false, %sw.bb645.i ], [ %cmp35.i, %sw.default.i125 ], [ %cmp11.i, %sw.bb8.i ], [ %cmp6.i, %sw.bb3.i ], [ %cmp.i123, %sw.bb1.i ], [ true, %land.rhs687.i ], [ true, %sw.bb13.i ], [ true, %sw.bb21.i ], [ false, %get_compTM.exit ], [ false, %callTMres.exit ], [ %cmp51.i, %land.rhs.i117 ], [ true, %lor.end.fold.split.i119 ], [ false, %sw.epilog.i115 ], [ false, %cond.false.i735 ], [ false, %if.then.i.i750 ], [ false, %if.end10.i ], [ false, %cond.false14.i ], [ false, %if.then.i37.i ], [ false, %luaO_rawequalObj.exit.i ], [ false, %sw.default.i.i ], [ false, %sw.bb11.i.i ], [ false, %sw.bb6.i.i ], [ false, %if.end34.i ]
+land.end690.i:                                    ; preds = %if.end34.i, %sw.bb6.i.i, %sw.bb11.i.i, %sw.default.i.i, %luaO_rawequalObj.exit.i, %if.then.i37.i, %cond.false14.i, %if.end10.i, %if.then.i.i750, %cond.false.i735, %sw.epilog.i115, %lor.end.fold.split.i119, %land.rhs.i117, %callTMres.exit, %sw.default.i125, %sw.bb21.i, %sw.bb13.i, %sw.bb8.i, %sw.bb3.i, %sw.bb1.i, %land.rhs687.i, %sw.bb645.i
+  %196 = phi i1 [ false, %sw.bb645.i ], [ %cmp35.i, %sw.default.i125 ], [ %cmp11.i, %sw.bb8.i ], [ %cmp6.i, %sw.bb3.i ], [ %cmp.i123, %sw.bb1.i ], [ true, %land.rhs687.i ], [ true, %sw.bb13.i ], [ true, %sw.bb21.i ], [ false, %callTMres.exit ], [ %cmp51.i, %land.rhs.i117 ], [ true, %lor.end.fold.split.i119 ], [ false, %sw.epilog.i115 ], [ false, %cond.false.i735 ], [ false, %if.then.i.i750 ], [ false, %if.end10.i ], [ false, %cond.false14.i ], [ false, %if.then.i37.i ], [ false, %luaO_rawequalObj.exit.i ], [ false, %sw.default.i.i ], [ false, %sw.bb11.i.i ], [ false, %sw.bb6.i.i ], [ false, %if.end34.i ]
   %land.ext.i = zext i1 %196 to i32
   %cmp693.i = icmp eq i32 %and.i, %land.ext.i
   br i1 %cmp693.i, label %if.then695.i, label %if.end701.i
@@ -6196,11 +6191,11 @@ if.then.i787:                                     ; preds = %if.end4.i.i
   %mul.i.i791 = shl nuw nsw i32 %267, 1
   %add.i.sink.i792 = select i1 %cmp.not.i.i789, i32 %add.i.i790, i32 %mul.i.i791
   tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %add.i.sink.i792)
-  %.pre988 = load ptr, ptr %top1267.i, align 8
+  %.pre981 = load ptr, ptr %top1267.i, align 8
   br label %callTMres.exit793
 
 callTMres.exit793:                                ; preds = %if.end4.i.i, %if.then.i787
-  %268 = phi ptr [ %266, %if.end4.i.i ], [ %.pre988, %if.then.i787 ]
+  %268 = phi ptr [ %266, %if.end4.i.i ], [ %.pre981, %if.then.i787 ]
   %sub.ptr.lhs.cast.i779 = ptrtoint ptr %255 to i64
   %sub.ptr.rhs.cast.i780 = ptrtoint ptr %256 to i64
   %sub.ptr.sub.i781 = sub i64 %sub.ptr.lhs.cast.i779, %sub.ptr.rhs.cast.i780
@@ -6450,11 +6445,11 @@ if.then.i818:                                     ; preds = %if.end4.i31.i
   %mul.i.i822 = shl nuw nsw i32 %325, 1
   %add.i.sink.i823 = select i1 %cmp.not.i.i820, i32 %add.i.i821, i32 %mul.i.i822
   tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %add.i.sink.i823)
-  %.pre989 = load ptr, ptr %top1267.i, align 8
+  %.pre982 = load ptr, ptr %top1267.i, align 8
   br label %callTMres.exit824
 
 callTMres.exit824:                                ; preds = %if.end4.i31.i, %if.then.i818
-  %326 = phi ptr [ %324, %if.end4.i31.i ], [ %.pre989, %if.then.i818 ]
+  %326 = phi ptr [ %324, %if.end4.i31.i ], [ %.pre982, %if.then.i818 ]
   %sub.ptr.lhs.cast.i810 = ptrtoint ptr %313 to i64
   %sub.ptr.rhs.cast.i811 = ptrtoint ptr %314 to i64
   %sub.ptr.sub.i812 = sub i64 %sub.ptr.lhs.cast.i810, %sub.ptr.rhs.cast.i811
@@ -6824,11 +6819,11 @@ reentry.i.outer.backedge:                         ; preds = %if.else978.i, %if.t
   br label %reentry.i.outer
 
 if.else978.i.if.then980.i_crit_edge:              ; preds = %if.else978.i
-  %.pre987 = load ptr, ptr %ci.i, align 8
+  %.pre980 = load ptr, ptr %ci.i, align 8
   br label %if.then980.i
 
 if.then980.i:                                     ; preds = %if.else978.i.if.then980.i_crit_edge, %luaD_poscall.exit.thread
-  %380 = phi ptr [ %.pre987, %if.else978.i.if.then980.i_crit_edge ], [ %incdec.ptr.i137, %luaD_poscall.exit.thread ]
+  %380 = phi ptr [ %.pre980, %if.else978.i.if.then980.i_crit_edge ], [ %incdec.ptr.i137, %luaD_poscall.exit.thread ]
   %dec.i683686 = phi i32 [ %dec.i, %if.else978.i.if.then980.i_crit_edge ], [ %dec.i681, %luaD_poscall.exit.thread ]
   %top982.i = getelementptr inbounds %struct.CallInfo, ptr %380, i64 0, i32 2
   %381 = load ptr, ptr %top982.i, align 8
@@ -7031,7 +7026,7 @@ if.else1035.i:                                    ; preds = %if.else1025.i, %if.
   ]
 
 if.else1035.i.if.end1047.i_crit_edge:             ; preds = %if.else1035.i
-  %.pre986 = load double, ptr %add.ptr1016.i, align 8
+  %.pre979 = load double, ptr %add.ptr1016.i, align 8
   br label %if.end1047.i
 
 land.lhs.true.i197:                               ; preds = %if.else1035.i
@@ -7103,7 +7098,7 @@ if.then1044.i:                                    ; preds = %luaO_str2d.exit.i21
   unreachable
 
 if.end1047.i:                                     ; preds = %if.else1035.i.if.end1047.i_crit_edge, %if.then3.i223
-  %414 = phi double [ %.pre986, %if.else1035.i.if.end1047.i_crit_edge ], [ %num.0.i208, %if.then3.i223 ]
+  %414 = phi double [ %.pre979, %if.else1035.i.if.end1047.i_crit_edge ], [ %num.0.i208, %if.then3.i223 ]
   %415 = load double, ptr %add.ptr.i, align 8
   %sub1051.i = fsub double %415, %414
   store double %sub1051.i, ptr %add.ptr.i, align 8
@@ -8059,7 +8054,7 @@ if.then12:                                        ; preds = %if.then2
   %38 = load i32, ptr %stacksize.i, align 8
   %cmp.not.i = icmp slt i32 %38, %add
   %add.i = add nsw i32 %38, %add
-  %mul.i = shl nsw i32 %38, 1
+  %mul.i = shl nuw nsw i32 %38, 1
   %add.i.sink = select i1 %cmp.not.i, i32 %add.i, i32 %mul.i
   tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %add.i.sink)
   br label %if.end18
@@ -10485,7 +10480,7 @@ for.inc.i.i:                                      ; preds = %for.body.i19.i
   %indvars.iv.next.i24.i = add nuw i64 %indvars.iv.i20.i, 1
   %mul.i25.i = shl nsw i32 %twotoi.016.i.i, 1
   %div12.i.i = and i32 %twotoi.016.i.i, 2147483647
-  %cmp.i26.i = icmp slt i32 %div12.i.i, %add5.i
+  %cmp.i26.i = icmp ult i32 %div12.i.i, %add5.i
   br i1 %cmp.i26.i, label %for.body.i19.i, label %rehash.exit, !llvm.loop !56
 
 rehash.exit:                                      ; preds = %for.body.i19.i, %for.inc.i.i, %countint.exit.i
@@ -21529,7 +21524,7 @@ if.else.i14.i:                                    ; preds = %sw.bb.i205
   br i1 %cmp.i.i604.not, label %luaK_reserveregs.exit, label %if.then.i.i605
 
 if.then.i.i605:                                   ; preds = %if.else.i14.i
-  %cmp2.i.i = icmp sgt i32 %151, 248
+  %cmp2.i.i = icmp ugt i32 %add.i.i603, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i605
@@ -21723,7 +21718,7 @@ freeexp.exit.i.i527:                              ; preds = %if.then.i.i.i.i553,
   br i1 %cmp.i.i.not.i.i532, label %luaK_exp2nextreg.exit.i539, label %if.then.i.i9.i.i533
 
 if.then.i.i9.i.i533:                              ; preds = %freeexp.exit.i.i527
-  %cmp2.i.i.i.i534 = icmp sgt i32 %182, 248
+  %cmp2.i.i.i.i534 = icmp ugt i32 %add.i.i.i.i529, 249
   br i1 %cmp2.i.i.i.i534, label %if.then4.i.i.i.i543, label %if.end.i.i.i.i535
 
 if.then4.i.i.i.i543:                              ; preds = %if.then.i.i9.i.i533
@@ -21766,7 +21761,7 @@ explist1.exit:                                    ; preds = %luaK_exp2nextreg.ex
   br i1 %cmp.i513, label %if.then.i514, label %luaK_checkstack.exit
 
 if.then.i514:                                     ; preds = %explist1.exit
-  %cmp2.i = icmp sgt i32 %188, 246
+  %cmp2.i = icmp ugt i32 %add.i, 249
   br i1 %cmp2.i, label %if.then4.i, label %if.end.i515
 
 if.then4.i:                                       ; preds = %if.then.i514
@@ -22323,7 +22318,7 @@ str_checkname.exit.i77:                           ; preds = %if.else.i.i.i103, %
   br i1 %cmp.i.i.i80.not, label %luaK_reserveregs.exit.i, label %if.then.i.i12.i
 
 if.then.i.i12.i:                                  ; preds = %str_checkname.exit.i77
-  %cmp2.i.i.i = icmp sgt i32 %262, 248
+  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i12.i
@@ -22541,7 +22536,7 @@ freeexp.exit.i445:                                ; preds = %if.then.i.i.i471, %
   br i1 %cmp.i.i.not.i450, label %luaK_exp2nextreg.exit474, label %if.then.i.i9.i451
 
 if.then.i.i9.i451:                                ; preds = %freeexp.exit.i445
-  %cmp2.i.i.i452 = icmp sgt i32 %299, 248
+  %cmp2.i.i.i452 = icmp ugt i32 %add.i.i.i447, 249
   br i1 %cmp2.i.i.i452, label %if.then4.i.i.i460, label %if.end.i.i.i453
 
 if.then4.i.i.i460:                                ; preds = %if.then.i.i9.i451
@@ -22703,7 +22698,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i427, %
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i411 = icmp sgt i32 %322, 248
+  %cmp2.i.i.i411 = icmp ugt i32 %add.i.i.i409, 249
   br i1 %cmp2.i.i.i411, label %if.then4.i.i.i419, label %if.end.i.i.i412
 
 if.then4.i.i.i419:                                ; preds = %if.then.i.i9.i
@@ -22797,7 +22792,7 @@ if.then10.i.i:                                    ; preds = %if.then9.i
   br i1 %cmp.i.i.not.i.i, label %luaK_reserveregs.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then10.i.i
-  %cmp2.i.i.i.i = icmp sgt i32 %346, 248
+  %cmp2.i.i.i.i = icmp ugt i32 %add.i.i.i.i, 249
   br i1 %cmp2.i.i.i.i, label %if.then4.i.i.i.i, label %if.end.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -22887,7 +22882,7 @@ freeexp.exit.i.i:                                 ; preds = %if.then.i.i.i31.i, 
   br i1 %cmp.i.i.not.i19.i, label %luaK_exp2nextreg.exit.i, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %freeexp.exit.i.i
-  %cmp2.i.i.i20.i = icmp sgt i32 %361, 248
+  %cmp2.i.i.i20.i = icmp ugt i32 %add.i.i.i17.i, 249
   br i1 %cmp2.i.i.i20.i, label %if.then4.i.i.i27.i, label %if.end.i.i.i21.i
 
 if.then4.i.i.i27.i:                               ; preds = %if.then.i.i9.i.i
@@ -27281,7 +27276,7 @@ if.then.i.i.i:                                    ; preds = %sw.bb2.i23
   br i1 %cmp.i.i.not.i.i.i, label %discharge2anyreg.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %cmp2.i.i.i.i.i = icmp sgt i32 %17, 248
+  %cmp2.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i, 249
   br i1 %cmp2.i.i.i.i.i, label %if.then4.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
@@ -27964,7 +27959,7 @@ freeexp.exit.i.i67:                               ; preds = %if.then.i.i.i15.i, 
   br i1 %cmp.i.i.not.i.i, label %luaK_infix.exit.thread213, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %freeexp.exit.i.i67
-  %cmp2.i.i.i.i = icmp sgt i32 %88, 248
+  %cmp2.i.i.i.i = icmp ugt i32 %add.i.i.i11.i, 249
   br i1 %cmp2.i.i.i.i, label %if.then4.i.i.i.i, label %if.end.i.i.i.i68
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i.i9.i.i
@@ -28281,7 +28276,7 @@ freeexp.exit.i.i112:                              ; preds = %if.then.i.i.i.i137,
   br i1 %cmp.i.i.not.i.i117, label %luaK_exp2nextreg.exit.i124, label %if.then.i.i9.i.i118
 
 if.then.i.i9.i.i118:                              ; preds = %freeexp.exit.i.i112
-  %cmp2.i.i.i.i119 = icmp sgt i32 %134, 248
+  %cmp2.i.i.i.i119 = icmp ugt i32 %add.i.i.i.i114, 249
   br i1 %cmp2.i.i.i.i119, label %if.then4.i.i.i.i127, label %if.end.i.i.i.i120
 
 if.then4.i.i.i.i127:                              ; preds = %if.then.i.i9.i.i118
@@ -28762,7 +28757,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i, %lan
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i = icmp sgt i32 %9, 248
+  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i9.i
@@ -29594,8 +29589,8 @@ if.else:                                          ; preds = %entry
 
 if.end6:                                          ; preds = %if.then, %if.else
   %newsize.0 = phi i32 [ %spec.store.select, %if.else ], [ %limit, %if.then ]
-  %add = add nsw i32 %newsize.0, 1
-  %conv = sext i32 %add to i64
+  %add = add nuw nsw i32 %newsize.0, 1
+  %conv = zext nneg i32 %add to i64
   %div7 = udiv i64 -3, %size_elems
   %cmp8.not = icmp ult i64 %div7, %conv
   br i1 %cmp8.not, label %cond.false, label %cond.true
@@ -29603,7 +29598,7 @@ if.end6:                                          ; preds = %if.then, %if.else
 cond.true:                                        ; preds = %if.end6
   %conv10 = sext i32 %0 to i64
   %mul11 = mul nsw i64 %conv10, %size_elems
-  %conv12 = sext i32 %newsize.0 to i64
+  %conv12 = zext nneg i32 %newsize.0 to i64
   %mul13 = mul nsw i64 %conv12, %size_elems
   %l_G.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
   %1 = load ptr, ptr %l_G.i, align 8
@@ -29613,9 +29608,7 @@ cond.true:                                        ; preds = %if.end6
   %3 = load ptr, ptr %ud.i, align 8
   %call.i = tail call ptr %2(ptr noundef %3, ptr noundef %block, i64 noundef %mul11, i64 noundef %mul13) #35
   %cmp.i = icmp eq ptr %call.i, null
-  %cmp1.i = icmp ne i32 %newsize.0, 0
-  %or.cond.i = and i1 %cmp1.i, %cmp.i
-  br i1 %or.cond.i, label %if.then.i, label %luaM_realloc_.exit
+  br i1 %cmp.i, label %if.then.i, label %luaM_realloc_.exit
 
 if.then.i:                                        ; preds = %cond.true
   %errorJmp.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 26
@@ -29841,7 +29834,7 @@ if.then10.i:                                      ; preds = %if.else.i
   br i1 %or.cond.i, label %if.end33.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.then10.i
-  %cmp22.i = icmp slt i32 %shr13.i, %reg
+  %cmp22.i = icmp ult i32 %shr13.i, %reg
   br i1 %cmp22.i, label %if.then24.i, label %sw.epilog
 
 if.then24.i:                                      ; preds = %if.then19.i
@@ -30289,7 +30282,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i, %lan
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i = icmp sgt i32 %9, 248
+  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i9.i
@@ -30337,19 +30330,19 @@ if.end.i:                                         ; preds = %if.end
   call fastcc void @luaK_dischargevars(ptr noundef %0, ptr noundef nonnull %cc)
   %17 = load i32, ptr %cc, align 8
   %cmp.i.i.i = icmp eq i32 %17, 12
-  br i1 %cmp.i.i.i, label %if.then.i.i.i34, label %freeexp.exit.i.ithread-pre-split
+  br i1 %cmp.i.i.i, label %if.then.i.i.i34, label %freeexp.exit.i.i
 
 if.then.i.i.i34:                                  ; preds = %if.end.i
   %18 = load i32, ptr %u.i29, align 8
   %and.i.i.i.i = and i32 %18, 256
   %tobool.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i, label %land.lhs.true.i.i.i.i, label %freeexp.exit.i.ithread-pre-split
+  br i1 %tobool.not.i.i.i.i, label %land.lhs.true.i.i.i.i, label %freeexp.exit.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then.i.i.i34
   %19 = load i8, ptr %nactvar.i.i.i.i, align 2
   %conv.i.i.i.i = zext i8 %19 to i32
   %cmp.not.i.i.i.i = icmp slt i32 %18, %conv.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %freeexp.exit.i.ithread-pre-split, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %freeexp.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
   %20 = load i32, ptr %freereg.i.i.i.i, align 4
@@ -30357,12 +30350,8 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   store i32 %dec.i.i.i.i, ptr %freereg.i.i.i.i, align 4
   br label %freeexp.exit.i.i
 
-freeexp.exit.i.ithread-pre-split:                 ; preds = %if.end.i, %if.then.i.i.i34, %land.lhs.true.i.i.i.i
-  %.pr166 = load i32, ptr %freereg.i.i.i.i, align 4
-  br label %freeexp.exit.i.i
-
-freeexp.exit.i.i:                                 ; preds = %freeexp.exit.i.ithread-pre-split, %if.then.i.i.i.i
-  %21 = phi i32 [ %.pr166, %freeexp.exit.i.ithread-pre-split ], [ %dec.i.i.i.i, %if.then.i.i.i.i ]
+freeexp.exit.i.i:                                 ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i34, %if.end.i
+  %21 = load i32, ptr %freereg.i.i.i.i, align 4
   %add.i.i.i.i = add nsw i32 %21, 1
   %22 = load ptr, ptr %0, align 8
   %maxstacksize.i.i.i.i = getelementptr inbounds %struct.Proto, ptr %22, i64 0, i32 22
@@ -30372,7 +30361,7 @@ freeexp.exit.i.i:                                 ; preds = %freeexp.exit.i.ithr
   br i1 %cmp.i.i.not.i.i, label %luaK_exp2nextreg.exit.i, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %freeexp.exit.i.i
-  %cmp2.i.i.i.i = icmp sgt i32 %21, 248
+  %cmp2.i.i.i.i = icmp ugt i32 %add.i.i.i.i, 249
   br i1 %cmp2.i.i.i.i, label %if.then4.i.i.i.i, label %if.end.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i.i9.i.i
@@ -30561,11 +30550,11 @@ if.else.i.i54:                                    ; preds = %if.then.i51
 do.body.backedgethread-pre-split:                 ; preds = %if.then.i51, %if.then.i58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t4, ptr noundef nonnull align 8 dereferenceable(16) %lookahead.i, i64 16, i1 false)
   store i32 287, ptr %lookahead.i, align 8
-  %.pr167 = load i32, ptr %t4, align 8
+  %.pr166 = load i32, ptr %t4, align 8
   br label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %do.body.backedgethread-pre-split, %if.else.i.i64, %if.else.i.i54
-  %53 = phi i32 [ %.pr167, %do.body.backedgethread-pre-split ], [ %call.i.i66, %if.else.i.i64 ], [ %call.i.i, %if.else.i.i54 ]
+  %53 = phi i32 [ %.pr166, %do.body.backedgethread-pre-split ], [ %call.i.i66, %if.else.i.i64 ], [ %call.i.i, %if.else.i.i54 ]
   %cmp = icmp eq i32 %53, 125
   br i1 %cmp, label %do.end, label %if.end, !llvm.loop !116
 
@@ -30641,7 +30630,7 @@ if.then10.i.i:                                    ; preds = %if.end.i70
   br i1 %cmp.i.i.not.i.i74, label %luaK_reserveregs.exit.i.i, label %if.then.i.i.i.i75
 
 if.then.i.i.i.i75:                                ; preds = %if.then10.i.i
-  %cmp2.i.i.i.i76 = icmp sgt i32 %71, 248
+  %cmp2.i.i.i.i76 = icmp ugt i32 %add.i.i.i.i71, 249
   br i1 %cmp2.i.i.i.i76, label %if.then4.i.i.i.i104, label %if.end.i.i.i.i77
 
 if.then4.i.i.i.i104:                              ; preds = %if.then.i.i.i.i75
@@ -30741,7 +30730,7 @@ freeexp.exit.i.i111:                              ; preds = %if.then.i.i.i32.i, 
   br i1 %cmp.i.i.not.i19.i, label %luaK_exp2nextreg.exit.i115, label %if.then.i.i9.i.i114
 
 if.then.i.i9.i.i114:                              ; preds = %freeexp.exit.i.i111
-  %cmp2.i.i.i20.i = icmp sgt i32 %88, 248
+  %cmp2.i.i.i20.i = icmp ugt i32 %add.i.i.i17.i, 249
   br i1 %cmp2.i.i.i20.i, label %if.then4.i.i.i28.i, label %if.end.i.i.i21.i
 
 if.then4.i.i.i28.i:                               ; preds = %if.then.i.i9.i.i114
@@ -31071,19 +31060,19 @@ checkname.exit:                                   ; preds = %if.then.i4.i.i, %if
   %call.i22 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef %v)
   %19 = load i32, ptr %v, align 8
   %cmp.i.i = icmp eq i32 %19, 12
-  br i1 %cmp.i.i, label %if.then.i.i, label %freeexp.exit.ithread-pre-split
+  br i1 %cmp.i.i, label %if.then.i.i, label %freeexp.exit.i
 
 if.then.i.i:                                      ; preds = %checkname.exit
   %20 = load i32, ptr %u9.i.i, align 8
   %and.i.i.i = and i32 %20, 256
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i, label %freeexp.exit.ithread-pre-split
+  br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i, label %freeexp.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
   %21 = load i8, ptr %nactvar.i.i, align 2
   %conv.i.i.i = zext i8 %21 to i32
   %cmp.not.i.i.i23 = icmp slt i32 %20, %conv.i.i.i
-  br i1 %cmp.not.i.i.i23, label %freeexp.exit.ithread-pre-split, label %if.then.i.i.i24
+  br i1 %cmp.not.i.i.i23, label %freeexp.exit.i, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %land.lhs.true.i.i.i
   %22 = load i32, ptr %freereg.i.i, align 4
@@ -31091,12 +31080,8 @@ if.then.i.i.i24:                                  ; preds = %land.lhs.true.i.i.i
   store i32 %dec.i.i.i, ptr %freereg.i.i, align 4
   br label %freeexp.exit.i
 
-freeexp.exit.ithread-pre-split:                   ; preds = %checkname.exit, %if.then.i.i, %land.lhs.true.i.i.i
-  %.pr95 = load i32, ptr %freereg.i.i, align 4
-  br label %freeexp.exit.i
-
-freeexp.exit.i:                                   ; preds = %freeexp.exit.ithread-pre-split, %if.then.i.i.i24
-  %23 = phi i32 [ %.pr95, %freeexp.exit.ithread-pre-split ], [ %dec.i.i.i, %if.then.i.i.i24 ]
+freeexp.exit.i:                                   ; preds = %if.then.i.i.i24, %land.lhs.true.i.i.i, %if.then.i.i, %checkname.exit
+  %23 = load i32, ptr %freereg.i.i, align 4
   %add.i.i.i = add nsw i32 %23, 2
   %24 = load ptr, ptr %0, align 8
   %maxstacksize.i.i.i = getelementptr inbounds %struct.Proto, ptr %24, i64 0, i32 22
@@ -31106,7 +31091,7 @@ freeexp.exit.i:                                   ; preds = %freeexp.exit.ithrea
   br i1 %cmp.i.i.i, label %if.then.i.i15.i, label %luaK_reserveregs.exit.i
 
 if.then.i.i15.i:                                  ; preds = %freeexp.exit.i
-  %cmp2.i.i.i = icmp sgt i32 %23, 247
+  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i15.i
@@ -31168,7 +31153,7 @@ luaK_self.exit:                                   ; preds = %luaK_reserveregs.ex
 
 sw.bb5:                                           ; preds = %for.cond, %for.cond, %for.cond
   %35 = load i32, ptr %v, align 8
-  switch i32 %35, label %freeexp.exit.i26thread-pre-split [
+  switch i32 %35, label %freeexp.exit.i26 [
     i32 6, label %luaK_dischargevars.exit.thread93
     i32 7, label %sw.bb2.i
     i32 8, label %sw.bb6.i
@@ -31191,7 +31176,8 @@ sw.bb2.i:                                         ; preds = %sw.bb5
   %38 = load i32, ptr %lastline.i.i88, align 8
   %call.i.i89 = call fastcc i32 @luaK_code(ptr noundef %0, i32 noundef %or3.i.i86, i32 noundef %38)
   store i32 %call.i.i89, ptr %u9.i.i, align 8
-  br label %freeexp.exit.i26thread-pre-split.sink.split
+  store i32 11, ptr %v, align 8
+  br label %freeexp.exit.i26
 
 sw.bb6.i:                                         ; preds = %sw.bb5
   %39 = load i32, ptr %u9.i.i, align 8
@@ -31202,7 +31188,8 @@ sw.bb6.i:                                         ; preds = %sw.bb5
   %41 = load i32, ptr %lastline.i23.i, align 8
   %call.i24.i = call fastcc i32 @luaK_code(ptr noundef %0, i32 noundef %or3.i21.i, i32 noundef %41)
   store i32 %call.i24.i, ptr %u9.i.i, align 8
-  br label %freeexp.exit.i26thread-pre-split.sink.split
+  store i32 11, ptr %v, align 8
+  br label %freeexp.exit.i26
 
 sw.bb13.i:                                        ; preds = %sw.bb5
   %42 = load i32, ptr %aux.i80, align 4
@@ -31253,7 +31240,8 @@ freereg.exit34.i:                                 ; preds = %if.then.i31.i, %lan
   %51 = load i32, ptr %lastline.i38.i, align 8
   %call.i39.i = call fastcc i32 @luaK_code(ptr noundef %0, i32 noundef %or5.i.i82, i32 noundef %51)
   store i32 %call.i39.i, ptr %u9.i.i, align 8
-  br label %freeexp.exit.i26thread-pre-split.sink.split
+  store i32 11, ptr %v, align 8
+  br label %freeexp.exit.i26
 
 luaK_dischargevars.exit.thread:                   ; preds = %sw.bb5
   store i32 12, ptr %v, align 8
@@ -31280,19 +31268,20 @@ if.then6.i.i:                                     ; preds = %sw.bb5
   %and13.i.i = and i32 %59, 8388607
   %or.i.i78 = or disjoint i32 %and13.i.i, 16777216
   store i32 %or.i.i78, ptr %arrayidx12.i.i, align 4
-  br label %freeexp.exit.i26thread-pre-split.sink.split
+  store i32 11, ptr %v, align 8
+  br label %freeexp.exit.i26
 
 if.then.i.i39:                                    ; preds = %sw.bb5, %luaK_dischargevars.exit.thread, %luaK_dischargevars.exit.thread93
   %60 = load i32, ptr %u9.i.i, align 8
   %and.i.i.i41 = and i32 %60, 256
   %tobool.not.i.i.i42 = icmp eq i32 %and.i.i.i41, 0
-  br i1 %tobool.not.i.i.i42, label %land.lhs.true.i.i.i43, label %freeexp.exit.i26thread-pre-split
+  br i1 %tobool.not.i.i.i42, label %land.lhs.true.i.i.i43, label %freeexp.exit.i26
 
 land.lhs.true.i.i.i43:                            ; preds = %if.then.i.i39
   %61 = load i8, ptr %nactvar.i.i, align 2
   %conv.i.i.i45 = zext i8 %61 to i32
   %cmp.not.i.i.i46 = icmp slt i32 %60, %conv.i.i.i45
-  br i1 %cmp.not.i.i.i46, label %freeexp.exit.i26thread-pre-split, label %if.then.i.i.i47
+  br i1 %cmp.not.i.i.i46, label %freeexp.exit.i26, label %if.then.i.i.i47
 
 if.then.i.i.i47:                                  ; preds = %land.lhs.true.i.i.i43
   %62 = load i32, ptr %freereg.i.i, align 4
@@ -31300,16 +31289,8 @@ if.then.i.i.i47:                                  ; preds = %land.lhs.true.i.i.i
   store i32 %dec.i.i.i49, ptr %freereg.i.i, align 4
   br label %freeexp.exit.i26
 
-freeexp.exit.i26thread-pre-split.sink.split:      ; preds = %if.then6.i.i, %freereg.exit34.i, %sw.bb6.i, %sw.bb2.i
-  store i32 11, ptr %v, align 8
-  br label %freeexp.exit.i26thread-pre-split
-
-freeexp.exit.i26thread-pre-split:                 ; preds = %freeexp.exit.i26thread-pre-split.sink.split, %sw.bb5, %if.then.i.i39, %land.lhs.true.i.i.i43
-  %.pr97 = load i32, ptr %freereg.i.i, align 4
-  br label %freeexp.exit.i26
-
-freeexp.exit.i26:                                 ; preds = %freeexp.exit.i26thread-pre-split, %if.then.i.i.i47
-  %63 = phi i32 [ %.pr97, %freeexp.exit.i26thread-pre-split ], [ %dec.i.i.i49, %if.then.i.i.i47 ]
+freeexp.exit.i26:                                 ; preds = %sw.bb5, %if.then6.i.i, %freereg.exit34.i, %sw.bb6.i, %sw.bb2.i, %if.then.i.i.i47, %land.lhs.true.i.i.i43, %if.then.i.i39
+  %63 = load i32, ptr %freereg.i.i, align 4
   %add.i.i.i27 = add nsw i32 %63, 1
   %64 = load ptr, ptr %0, align 8
   %maxstacksize.i.i.i28 = getelementptr inbounds %struct.Proto, ptr %64, i64 0, i32 22
@@ -31319,7 +31300,7 @@ freeexp.exit.i26:                                 ; preds = %freeexp.exit.i26thr
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i26
-  %cmp2.i.i.i29 = icmp sgt i32 %63, 248
+  %cmp2.i.i.i29 = icmp ugt i32 %add.i.i.i27, 249
   br i1 %cmp2.i.i.i29, label %if.then4.i.i.i36, label %if.end.i.i.i30
 
 if.then4.i.i.i36:                                 ; preds = %if.then.i.i9.i
@@ -31804,7 +31785,7 @@ adjustlocalvars.exit:                             ; preds = %for.body.i, %entry,
   br i1 %cmp.i.i, label %if.then.i.i27, label %luaK_reserveregs.exit
 
 if.then.i.i27:                                    ; preds = %adjustlocalvars.exit
-  %cmp2.i.i = icmp sgt i32 %add.i.i, 249
+  %cmp2.i.i = icmp ugt i32 %add.i.i, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i27
@@ -32170,7 +32151,7 @@ freeexp.exit.i62:                                 ; preds = %if.then.i.i.i88, %l
   br i1 %cmp.i.i.not.i67, label %luaK_exp2nextreg.exit91, label %if.then.i.i9.i68
 
 if.then.i.i9.i68:                                 ; preds = %freeexp.exit.i62
-  %cmp2.i.i.i69 = icmp sgt i32 %14, 248
+  %cmp2.i.i.i69 = icmp ugt i32 %add.i.i.i64, 249
   br i1 %cmp2.i.i.i69, label %if.then4.i.i.i77, label %if.end.i.i.i70
 
 if.then4.i.i.i77:                                 ; preds = %if.then.i.i9.i68
@@ -32253,7 +32234,7 @@ if.then10.i:                                      ; preds = %explist1.exit
   br i1 %cmp.i.i.not.i, label %luaK_reserveregs.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then10.i
-  %cmp2.i.i.i = icmp sgt i32 %34, 248
+  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -32373,7 +32354,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i54, %l
   br i1 %cmp.i.i.not.i41, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i42 = icmp sgt i32 %49, 248
+  %cmp2.i.i.i42 = icmp ugt i32 %add.i.i.i39, 249
   br i1 %cmp2.i.i.i42, label %if.then4.i.i.i49, label %if.end.i.i.i43
 
 if.then4.i.i.i49:                                 ; preds = %if.then.i.i9.i
@@ -32804,7 +32785,7 @@ if.then.i:                                        ; preds = %entry.if.then.i_cri
   br i1 %cmp.i.i.not.i, label %discharge2anyreg.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %cmp2.i.i.i = icmp sgt i32 %7, 248
+  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -33113,7 +33094,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i, %lan
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i = icmp sgt i32 %5, 248
+  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i9.i
@@ -33339,7 +33320,7 @@ adjustlocalvars.exit43:                           ; preds = %for.body.i32, %cond
   br i1 %cmp.i.i44, label %if.then.i.i45, label %luaK_reserveregs.exit
 
 if.then.i.i45:                                    ; preds = %adjustlocalvars.exit43
-  %cmp2.i.i = icmp sgt i32 %add.i.i, 249
+  %cmp2.i.i = icmp ugt i32 %add.i.i, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i45
@@ -33681,7 +33662,7 @@ if.then10.i:                                      ; preds = %if.then
   br i1 %cmp.i.i.not.i, label %luaK_reserveregs.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then10.i
-  %cmp2.i.i.i = icmp sgt i32 %15, 248
+  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -33720,7 +33701,7 @@ if.then7:                                         ; preds = %luaK_setreturns.exi
   br i1 %cmp.i.i, label %if.then.i.i, label %luaK_reserveregs.exit
 
 if.then.i.i:                                      ; preds = %if.then7
-  %cmp2.i.i = icmp sgt i32 %add.i.i, 249
+  %cmp2.i.i = icmp ugt i32 %add.i.i, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
@@ -33782,7 +33763,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i33, %l
   br i1 %cmp.i.i.not.i20, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i21 = icmp sgt i32 %29, 248
+  %cmp2.i.i.i21 = icmp ugt i32 %add.i.i.i18, 249
   br i1 %cmp2.i.i.i21, label %if.then4.i.i.i28, label %if.end.i.i.i22
 
 if.then4.i.i.i28:                                 ; preds = %if.then.i.i9.i
@@ -33823,7 +33804,7 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp.i.i38, label %if.then.i.i40, label %luaK_reserveregs.exit49
 
 if.then.i.i40:                                    ; preds = %if.then15
-  %cmp2.i.i41 = icmp sgt i32 %add.i.i35, 249
+  %cmp2.i.i41 = icmp ugt i32 %add.i.i35, 249
   br i1 %cmp2.i.i41, label %if.then4.i.i46, label %if.end.i.i42
 
 if.then4.i.i46:                                   ; preds = %if.then.i.i40
@@ -33891,7 +33872,7 @@ if.then19.i:                                      ; preds = %if.then10.i55
 
 if.then24.i:                                      ; preds = %if.then19.i
   %and25.i = and i32 %46, 8388547
-  %shl.i57 = shl i32 %sub21.i, 23
+  %shl.i57 = shl nuw nsw i32 %sub21.i, 23
   %or.i58 = or disjoint i32 %and25.i, %shl.i57
   store i32 %or.i58, ptr %arrayidx.i53, align 4
   br label %if.end17
@@ -34161,7 +34142,7 @@ if.then23.i:                                      ; preds = %for.inc.thread.i, %
   br i1 %cmp.i.i.not.i, label %luaK_reserveregs.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then23.i
-  %cmp2.i.i.i = icmp sgt i32 %20, 248
+  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -34297,7 +34278,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i57, %l
   br i1 %cmp.i.i.not.i45, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i46 = icmp sgt i32 %40, 248
+  %cmp2.i.i.i46 = icmp ugt i32 %add.i.i.i43, 249
   br i1 %cmp2.i.i.i46, label %if.then4.i.i.i53, label %if.end.i.i.i47
 
 if.then4.i.i.i53:                                 ; preds = %if.then.i.i9.i
@@ -44392,8 +44373,8 @@ luaL_optinteger.exit.thread:                      ; preds = %luaL_checkinteger.e
 if.then9:                                         ; preds = %luaL_optinteger.exit.thread
   %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 %spec.store.select
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %reass.sub = sub i64 %spec.select, %spec.store.select
-  %add = add i64 %reass.sub, 1
+  %reass.sub = sub nsw i64 %spec.select, %spec.store.select
+  %add = add nsw i64 %reass.sub, 1
   %l_G.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
   %30 = load ptr, ptr %l_G.i, align 8
   %totalbytes.i = getelementptr inbounds %struct.global_State, ptr %30, i64 0, i32 14

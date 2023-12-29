@@ -695,7 +695,7 @@ land.lhs.true50:                                  ; preds = %if.end45
   br i1 %cmp51, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %land.lhs.true50
-  %cmp54 = icmp sgt i32 %rem.056, %add
+  %cmp54 = icmp ugt i32 %rem.056, %add
   br i1 %cmp54, label %if.then56, label %if.end59
 
 if.then56:                                        ; preds = %if.then53

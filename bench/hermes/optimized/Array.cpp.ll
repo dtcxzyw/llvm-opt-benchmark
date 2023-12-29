@@ -9499,24 +9499,24 @@ _ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit: ; preds = %if.
 for.inc:                                          ; preds = %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit
   %inc = add nuw i32 %numProps.0259, 1
   %cmp.not = icmp eq i32 %inc, %retval.0.i
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !133
+  br i1 %cmp.not, label %if.end41, label %for.body, !llvm.loop !133
 
-for.end:                                          ; preds = %for.inc, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit
-  %numProps.0.lcssa = phi i32 [ %retval.0.i, %for.inc ], [ %numProps.0259, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ], [ %numProps.0259, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit ]
-  %cmp35 = icmp eq i32 %numProps.0.lcssa, 0
+for.end:                                          ; preds = %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit
+  %cmp35 = icmp eq i32 %numProps.0259, 0
   br i1 %cmp35, label %if.then36, label %if.end41
 
 if.then36:                                        ; preds = %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE4sizeERNS0_11PointerBaseE.exit, %for.end
   %retval.sroa.0.0.copyload.i54 = load i64, ptr %O.coerce, align 8
   br label %cleanup179
 
-if.end41:                                         ; preds = %for.end
-  %call42 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %numProps.0.lcssa, i32 noundef %numProps.0.lcssa) #8
+if.end41:                                         ; preds = %for.inc, %for.end
+  %numProps.0.lcssa271 = phi i32 [ %numProps.0259, %for.end ], [ %retval.0.i, %for.inc ]
+  %call42 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %numProps.0.lcssa271, i32 noundef %numProps.0.lcssa271) #8
   %cmp.i.i56.not = icmp eq ptr %call42, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i56.not, label %cleanup179, label %if.end48
 
 if.end48:                                         ; preds = %if.end41
-  %call53 = call noundef i32 @_ZN6hermes2vm9ArrayImpl18setStorageEndIndexENS0_6HandleIS1_EERNS0_7RuntimeEj(ptr %call42, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %numProps.0.lcssa) #8
+  %call53 = call noundef i32 @_ZN6hermes2vm9ArrayImpl18setStorageEndIndexENS0_6HandleIS1_EERNS0_7RuntimeEj(ptr %call42, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %numProps.0.lcssa271) #8
   %cmp54 = icmp eq i32 %call53, 0
   br i1 %cmp54, label %cleanup179, label %if.end56
 
@@ -9861,7 +9861,7 @@ _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13Her
 for.inc119:                                       ; preds = %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit, %if.end85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond = icmp eq i32 %numProps.0.lcssa, %lftr.wideiv
+  %exitcond = icmp eq i32 %numProps.0.lcssa271, %lftr.wideiv
   br i1 %exitcond, label %for.end121, label %for.body67, !llvm.loop !134
 
 for.end121:                                       ; preds = %for.inc119
@@ -9873,7 +9873,7 @@ for.end121:                                       ; preds = %for.inc119
   store ptr %add.ptr.i.i146, ptr %curChunkEnd_.i, align 8
   store ptr %27, ptr %next_.i, align 8
   call fastcc void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS5_INS0_8CallableEEE(ptr noundef nonnull align 8 dereferenceable(328) %sm, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call42, ptr %compareFn.coerce)
-  %call128 = call noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef nonnull %sm, i32 noundef 0, i32 noundef %numProps.0.lcssa) #8
+  %call128 = call noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef nonnull %sm, i32 noundef 0, i32 noundef %numProps.0.lcssa271) #8
   %cmp129.not = icmp eq i32 %call128, 0
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 0, inrange i32 0, i64 2), ptr %sm, align 8
   %gcScope_.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::StandardSortModel", ptr %sm, i64 0, i32 2
@@ -9883,7 +9883,7 @@ for.end121:                                       ; preds = %for.inc119
 
 for.cond134:                                      ; preds = %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit216
   %inc172 = add i32 %i133.0263, 1
-  %cmp135.not = icmp eq i32 %inc172, %numProps.0.lcssa
+  %cmp135.not = icmp eq i32 %inc172, %numProps.0.lcssa271
   br i1 %cmp135.not, label %for.end173, label %for.body136, !llvm.loop !135
 
 for.body136:                                      ; preds = %for.end121, %for.cond134

@@ -628,7 +628,7 @@ morebytes:                                        ; preds = %cond.true, %if.else
   br i1 %cmp3086, label %while.body31.lr.ph, label %while.end
 
 while.body31.lr.ph:                               ; preds = %morebytes
-  %cmp.i79 = icmp slt i32 %inBytes.0.fr, 3
+  %cmp.i79 = icmp ult i32 %inBytes.0.fr, 3
   br i1 %cmp.i79, label %while.body31.lr.ph.split.us, label %while.body31.lr.ph.split
 
 while.body31.lr.ph.split.us:                      ; preds = %while.body31.lr.ph
@@ -1047,7 +1047,7 @@ morebytes:                                        ; preds = %cond.true, %if.else
   br i1 %cmp3197, label %while.body32.lr.ph, label %while.end
 
 while.body32.lr.ph:                               ; preds = %morebytes
-  %cmp.i90 = icmp slt i32 %inBytes.0.fr, 3
+  %cmp.i90 = icmp ult i32 %inBytes.0.fr, 3
   br i1 %cmp.i90, label %while.body32.lr.ph.split.us, label %while.body32.lr.ph.split
 
 while.body32.lr.ph.split.us:                      ; preds = %while.body32.lr.ph
@@ -1685,8 +1685,8 @@ return:                                           ; preds = %for.end, %if.then10
 
 declare void @ucnv_getNonSurrogateUnicodeSet_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pFromUArgs, ptr nocapture noundef %pToUArgs, ptr nocapture noundef %pErrorCode) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pFromUArgs, ptr nocapture noundef %pToUArgs, ptr nocapture noundef %pErrorCode) #0 {
 entry:
   %converter = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pToUArgs, i64 0, i32 2
   %0 = load ptr, ptr %converter, align 8
@@ -1956,7 +1956,7 @@ moreBytes:                                        ; preds = %if.else154, %cond.t
   br i1 %cmp189249, label %while.body190.lr.ph, label %while.end224
 
 while.body190.lr.ph:                              ; preds = %moreBytes
-  %cmp.i = icmp slt i8 %toULimit.1.fr, 3
+  %cmp.i = icmp ult i8 %toULimit.1.fr, 3
   %cmp4.i = icmp eq i8 %toULimit.1.fr, 3
   br i1 %cmp.i, label %while.body190.us, label %while.body190
 
@@ -2308,12 +2308,11 @@ return:                                           ; preds = %if.end347, %while.e
 declare void @ucnv_getCompleteUnicodeSet_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
+declare i32 @llvm.smin.i32(i32, i32) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

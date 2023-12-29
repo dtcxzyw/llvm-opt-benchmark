@@ -988,7 +988,6 @@ if.end44:                                         ; preds = %for.inc.i119
 if.then51:                                        ; preds = %if.end44
   %cond57 = call i64 @llvm.umin.i64(i64 %n1.0, i64 %cond42)
   %sub = add nsw i64 %cond57, -1
-  %umax = call i64 @llvm.umax.i64(i64 %cond57, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %if.then51, %for.inc
@@ -1020,7 +1019,7 @@ if.then76:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then76
   %p.2 = phi ptr [ %incdec.ptr77, %if.then76 ], [ %p.1, %for.body ]
   %inc = add nuw nsw i64 %i.0145, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %cond57
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
@@ -1310,9 +1309,6 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

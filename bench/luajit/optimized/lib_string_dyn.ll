@@ -1936,7 +1936,7 @@ if.then20.i:                                      ; preds = %land.lhs.true.i
 land.lhs.true26.i:                                ; preds = %if.then20.i
   %13 = load i8, ptr %add.ptr17.i, align 1
   %conv27.i = zext i8 %13 to i32
-  %cmp28.not.i = icmp slt i32 %conv27.i, %c
+  %cmp28.not.i = icmp ult i32 %conv27.i, %c
   br i1 %cmp28.not.i, label %if.end39.i, label %matchbracketclass.exit
 
 if.else32.i:                                      ; preds = %land.lhs.true.i, %if.else.i

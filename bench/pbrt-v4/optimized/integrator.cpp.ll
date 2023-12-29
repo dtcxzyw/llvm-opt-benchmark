@@ -2763,11 +2763,12 @@ while.body.preheader:                             ; preds = %do.body.i.i
   %sub.ptr.div.i22 = sdiv exact i64 %sub.ptr.sub.i21, 24
   store i32 1, ptr %va, align 4
   store i64 %sub.ptr.div.i22, ptr %vb, align 8
-  %cmp77 = icmp ugt i64 %sub.ptr.div.i22, 1
-  br i1 %cmp77, label %do.end.lr.ph, label %if.then
+  %cmp79 = icmp ugt i64 %sub.ptr.div.i22, 1
+  br i1 %cmp79, label %do.end.lr.ph, label %if.then
 
 do.end.lr.ph:                                     ; preds = %while.body.preheader
   %agg.tmp18.sroa.0.0.copyload = load i64, ptr %tid, align 8
+  %rem89.rhs.trunc = trunc i64 %sub.ptr.div.i22 to i32
   br label %do.end
 
 if.then.i.i:                                      ; preds = %do.body.i.i
@@ -2780,9 +2781,9 @@ if.then:                                          ; preds = %if.end91, %while.bo
 
 do.end:                                           ; preds = %do.end.lr.ph, %if.end91
   %indvars.iv = phi i64 [ 1, %do.end.lr.ph ], [ %indvars.iv.next, %if.end91 ]
-  %hash.079 = phi i32 [ %conv5, %do.end.lr.ph ], [ %hash.4, %if.end91 ]
-  %indvars91 = trunc i64 %indvars.iv to i32
-  %conv10 = zext i32 %hash.079 to i64
+  %hash.081 = phi i32 [ %conv5, %do.end.lr.ph ], [ %hash.4, %if.end91 ]
+  %indvars92 = trunc i64 %indvars.iv to i32
+  %conv10 = zext i32 %hash.081 to i64
   %set.i = getelementptr inbounds %"class.pstd::optional.278", ptr %5, i64 %conv10, i32 1
   %6 = load i8, ptr %set.i, align 8
   %7 = and i8 %6, 1
@@ -2833,11 +2834,12 @@ while.body43.preheader:                           ; preds = %_ZNKSt8functionIFN4
   %sub.ptr.rhs.cast.i41 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i42 = sub i64 %sub.ptr.lhs.cast.i40, %sub.ptr.rhs.cast.i41
   %sub.ptr.div.i43 = sdiv exact i64 %sub.ptr.sub.i42, 24
+  %rem53.rhs.trunc = trunc i64 %sub.ptr.div.i43 to i32
   br label %while.body43
 
 while.body43:                                     ; preds = %while.body43.preheader, %if.end55
-  %step.1 = phi i32 [ %inc44, %if.end55 ], [ %indvars91, %while.body43.preheader ]
-  %hash.1 = phi i32 [ %hash.2, %if.end55 ], [ %hash.079, %while.body43.preheader ]
+  %step.1 = phi i32 [ %inc44, %if.end55 ], [ %indvars92, %while.body43.preheader ]
+  %hash.1 = phi i32 [ %hash.2, %if.end55 ], [ %hash.081, %while.body43.preheader ]
   %add = add i32 %hash.1, %step.1
   %inc44 = add nuw nsw i32 %step.1, 1
   %conv45 = zext i32 %add to i64
@@ -2845,13 +2847,13 @@ while.body43:                                     ; preds = %while.body43.prehea
   br i1 %cmp48.not, label %if.end55, label %if.then49
 
 if.then49:                                        ; preds = %while.body43
-  %rem53 = urem i64 %conv45, %sub.ptr.div.i43
-  %conv54 = trunc i64 %rem53 to i32
+  %rem5372 = urem i32 %add, %rem53.rhs.trunc
+  %.pre = zext i32 %rem5372 to i64
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then49, %while.body43
-  %conv57.pre-phi = phi i64 [ %rem53, %if.then49 ], [ %conv45, %while.body43 ]
-  %hash.2 = phi i32 [ %conv54, %if.then49 ], [ %add, %while.body43 ]
+  %conv57.pre-phi = phi i64 [ %.pre, %if.then49 ], [ %conv45, %while.body43 ]
+  %hash.2 = phi i32 [ %rem5372, %if.then49 ], [ %add, %while.body43 ]
   %set.i50 = getelementptr inbounds %"class.pstd::optional.278", ptr %10, i64 %conv57.pre-phi, i32 1
   %14 = load i8, ptr %set.i50, align 8
   %15 = and i8 %14, 1
@@ -2883,19 +2885,18 @@ _ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5
   br label %return
 
 if.end78:                                         ; preds = %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS_3pmr21polymorphic_allocatorISt4byteEEE5EntryEEptEv.exit
-  %add79 = add i32 %hash.079, %indvars91
+  %add79 = add i32 %hash.081, %indvars92
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %conv81 = zext i32 %add79 to i64
   %cmp84.not = icmp ugt i64 %sub.ptr.div.i22, %conv81
   br i1 %cmp84.not, label %if.end91, label %if.then85
 
 if.then85:                                        ; preds = %if.end78
-  %rem89 = urem i64 %conv81, %sub.ptr.div.i22
-  %conv90 = trunc i64 %rem89 to i32
+  %rem8971 = urem i32 %add79, %rem89.rhs.trunc
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then85, %if.end78
-  %hash.4 = phi i32 [ %conv90, %if.then85 ], [ %add79, %if.end78 ]
+  %hash.4 = phi i32 [ %rem8971, %if.then85 ], [ %add79, %if.end78 ]
   %20 = trunc i64 %indvars.iv.next to i32
   store i32 %20, ptr %va, align 4
   store i64 %sub.ptr.div.i22, ptr %vb, align 8

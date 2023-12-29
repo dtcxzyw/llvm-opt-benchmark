@@ -7988,7 +7988,7 @@ if.then.i.i.i77:                                  ; preds = %if.else.i
 _ZNKSt6vectorIP18grpc_chttp2_streamSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i74 = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i74 = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i74, %sub.ptr.div.i.i.i.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i74, 1152921504606846975
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
@@ -13102,7 +13102,7 @@ if.then.i.i.i249:                                 ; preds = %if.else.i
 _ZNKSt6vectorIP18grpc_chttp2_streamSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i246 = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i246 = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i246, %sub.ptr.div.i.i.i.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i246, 1152921504606846975
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
@@ -22255,17 +22255,14 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !336
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !336
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #35
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -24255,7 +24252,7 @@ if.then10:                                        ; preds = %if.else
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -24485,7 +24482,7 @@ if.then10:                                        ; preds = %if.else
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18

@@ -1749,7 +1749,7 @@ cond.true.i:                                      ; preds = %if.else
   br i1 %cmp.i.not.i4.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cond.true.i
-  %sub.i.i = sub i64 %conv21, %25
+  %sub.i.i = sub nsw i64 %conv21, %25
   %26 = load i64, ptr %key_size_.i.i, align 8
   %mul.i.i = mul i64 %26, %sub.i.i
   %call2.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i.i, i64 noundef %mul.i.i) #22
@@ -1772,7 +1772,7 @@ cond.false.i:                                     ; preds = %if.else
   br i1 %cmp.i.not.i4.i, label %if.end.i16.i, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %cond.false.i
-  %sub.i7.i = sub i64 %conv21, %25
+  %sub.i7.i = sub nsw i64 %conv21, %25
   %29 = load i64, ptr %key_size_.i.i, align 8
   %mul.i9.i = mul i64 %29, %sub.i7.i
   %call2.i10.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i.i, i64 noundef %mul.i9.i) #22
@@ -1865,7 +1865,7 @@ if.then.i.i.i.i33.cont:                           ; preds = %if.then.i.i.i.i33.i
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -2042,7 +2042,7 @@ if.else.i.i70:                                    ; preds = %if.else.i62
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i75: ; preds = %if.else.i.i70
   %sub.ptr.div.i.i.i.i.i76 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i73, 3
   %.sroa.speculated.i.i.i.i77 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i76, i64 1)
-  %add.i.i.i.i78 = add i64 %.sroa.speculated.i.i.i.i77, %sub.ptr.div.i.i.i.i.i76
+  %add.i.i.i.i78 = add nsw i64 %.sroa.speculated.i.i.i.i77, %sub.ptr.div.i.i.i.i.i76
   %cmp7.i.i.i.i79 = icmp ult i64 %add.i.i.i.i78, %sub.ptr.div.i.i.i.i.i76
   %cmp9.i.i.i.i80 = icmp ugt i64 %add.i.i.i.i78, 1152921504606846975
   %or.cond.i.i.i.i81 = or i1 %cmp7.i.i.i.i79, %cmp9.i.i.i.i80
@@ -2433,7 +2433,7 @@ cond.true.i:                                      ; preds = %for.body22
   br i1 %cmp.i.not.i4.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cond.true.i
-  %sub.i.i = sub i64 %conv24, %17
+  %sub.i.i = sub nsw i64 %conv24, %17
   %18 = load i64, ptr %key_size_.i.i, align 8
   %mul.i.i = mul i64 %18, %sub.i.i
   %call2.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i.i, i64 noundef %mul.i.i) #22
@@ -2456,7 +2456,7 @@ cond.false.i:                                     ; preds = %for.body22
   br i1 %cmp.i.not.i4.i, label %if.end.i16.i, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %cond.false.i
-  %sub.i7.i = sub i64 %conv24, %17
+  %sub.i7.i = sub nsw i64 %conv24, %17
   %21 = load i64, ptr %key_size_.i.i, align 8
   %mul.i9.i = mul i64 %21, %sub.i7.i
   %call2.i10.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i.i, i64 noundef %mul.i9.i) #22
@@ -3129,7 +3129,7 @@ if.else101:                                       ; preds = %for.body
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i66
 
 if.then.i66:                                      ; preds = %if.else101
-  %sub.i = sub i64 %conv107, %48
+  %sub.i = sub nsw i64 %conv107, %48
   %49 = load i64, ptr %key_size_, align 8
   %mul.i = mul i64 %49, %sub.i
   %call2.i67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i, i64 noundef %mul.i) #22
@@ -5655,27 +5655,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN7rocksdb18CuckooTableBuilder12CuckooBucketEEE8allocateERS3_m.exit.i
-
-_ZNSt16allocator_traitsISaIN7rocksdb18CuckooTableBuilder12CuckooBucketEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #26
-  br label %_ZNSt12_Vector_baseIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN7rocksdb18CuckooTableBuilder12CuckooBucketEEE8allocateERS3_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN7rocksdb18CuckooTableBuilder12CuckooBucketEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"struct.rocksdb::CuckooTableBuilder::CuckooBucket", ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   br label %for.inc.i.i.i21
 
-for.inc.i.i.i21:                                  ; preds = %_ZNSt12_Vector_baseIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE11_M_allocateEm.exit, %for.inc.i.i.i21
-  %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i26, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNSt12_Vector_baseIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE11_M_allocateEm.exit ]
-  %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i25, %for.inc.i.i.i21 ], [ %__n, %_ZNSt12_Vector_baseIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE11_M_allocateEm.exit ]
+for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i21
+  %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i26, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i25, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE12_M_check_lenEmPKc.exit ]
   store i32 2147483647, ptr %__cur.08.i.i.i22, align 4
   %make_space_for_key_call_id.i.i.i.i.i24 = getelementptr inbounds %"struct.rocksdb::CuckooTableBuilder::CuckooBucket", ptr %__cur.08.i.i.i22, i64 0, i32 1
   store i32 0, ptr %make_space_for_key_call_id.i.i.i.i.i24, align 4
@@ -5689,7 +5678,7 @@ try.cont:                                         ; preds = %for.inc.i.i.i21
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %try.cont, %for.body.i.i.i
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i19, %try.cont ]
+  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i31, %for.body.i.i.i ], [ %1, %try.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
@@ -5709,10 +5698,10 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIN7rock
   br label %_ZNSt12_Vector_baseIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE13_M_deallocateEPS2_m.exit36
 
 _ZNSt12_Vector_baseIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i35
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.rocksdb::CuckooTableBuilder::CuckooBucket", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.rocksdb::CuckooTableBuilder::CuckooBucket", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"struct.rocksdb::CuckooTableBuilder::CuckooBucket", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 

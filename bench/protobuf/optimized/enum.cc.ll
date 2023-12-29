@@ -4726,7 +4726,7 @@ if.else.i.i:                                      ; preds = %invoke.cont39
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 2305843009213693951
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -7670,17 +7670,14 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !111
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !111
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #26
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -7861,7 +7858,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESaISE_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -8732,17 +8729,14 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !141
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !141
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #26
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -10114,17 +10108,14 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !195
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !195
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #26
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer9ValueImplILb1EEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SF_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer9ValueImplILb1EEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SF_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -10878,17 +10869,14 @@ _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashM
 for.inc:                                          ; preds = %for.body, %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer16AnnotationRecordEEEvE8transferISaISt4pairIKS9_SE_EEEEvPT_PNS1_13map_slot_typeIS9_SE_EESQ_.exit
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !204
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !204
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #26
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer16AnnotationRecordEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer16AnnotationRecordEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -10968,7 +10956,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESaISE_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -11934,7 +11922,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt8functionIFSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEESt17basic_string_viewIcSt11char_traitsIcEEEESaISD_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -12861,8 +12849,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %pos.1 = phi i64 [ %conv14, %while.end ], [ %pos.1.be, %do.body.backedge ]
   %parent.1 = phi ptr [ %6, %while.end ], [ %parent.1.be, %do.body.backedge ]
   %add.ptr.i.i.i48 = getelementptr inbounds i8, ptr %parent.1, i64 256
-  %idxprom.i = and i64 %pos.1, 255
-  %arrayidx.i49 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i48, i64 %idxprom.i
+  %arrayidx.i49 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i48, i64 %pos.1
   %7 = load ptr, ptr %arrayidx.i49, align 8
   %arrayidx.i.i50 = getelementptr i8, ptr %7, i64 11
   %8 = load i8, ptr %arrayidx.i.i50, align 1
@@ -14295,7 +14282,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
   br i1 %cmp19.i.i.i.i, label %if.then20.i.i.i.i, label %if.end33.i.i.i.i
 
 if.then20.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %add21.i.i.i.i = shl i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
+  %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub24.i.i.i.i = or disjoint i64 %add21.i.i.i.i, 1
   %add.ptr.i20.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub24.i.i.i.i
   %6 = load i32, ptr %add.ptr.i20.i.i.i.i, align 4
@@ -15298,7 +15285,7 @@ if.then95:                                        ; preds = %if.then68
 
 if.then100:                                       ; preds = %if.then95
   %19 = xor i32 %conv98, -1
-  %sub104 = add i32 %16, %19
+  %sub104 = add nsw i32 %16, %19
   br label %if.end152.sink.split
 
 if.end108:                                        ; preds = %if.then68, %if.then59, %if.end53
@@ -15390,7 +15377,7 @@ if.end143:                                        ; preds = %if.then124, %if.the
 
 if.then147:                                       ; preds = %if.end143
   %32 = xor i32 %conv145, -1
-  %sub151 = add i32 %29, %32
+  %sub151 = add nsw i32 %29, %32
   br label %if.end152.sink.split
 
 if.end152.sink.split:                             ; preds = %if.then147, %if.then46, %if.then100
@@ -16180,17 +16167,14 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !297
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !297
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not20, label %if.end23, label %if.then18
-
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr21) #26
   br label %if.end23
 
-if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE16initialize_slotsEv.exit, %if.then18, %for.end
+if.end23:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE16initialize_slotsEv.exit, %if.then18
   ret void
 }
 
@@ -16389,7 +16373,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i12.i
   br i1 %cmp19.i.i.i34.i, label %if.then20.i.i.i35.i, label %if.end33.i.i.i15.i
 
 if.then20.i.i.i35.i:                              ; preds = %land.lhs.true.i.i.i.i
-  %add21.i.i.i.i = shl i64 %__holeIndex.addr.0.lcssa.i.i.i13.i, 1
+  %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i13.i, 1
   %sub24.i.i.i36.i = or disjoint i64 %add21.i.i.i.i, 1
   %add.ptr.i25.i.i.i37.i = getelementptr inbounds %struct.Offset, ptr %__first.coerce, i64 %sub24.i.i.i36.i
   %add.ptr.i26.i.i.i38.i = getelementptr inbounds %struct.Offset, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i13.i
@@ -16724,7 +16708,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i11.i
   br i1 %cmp19.i.i.i32.i, label %if.then20.i.i.i33.i, label %if.end33.i.i.i14.i
 
 if.then20.i.i.i33.i:                              ; preds = %land.lhs.true.i.i.i.i
-  %add21.i.i.i.i = shl i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 1
+  %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 1
   %sub24.i.i.i34.i = or disjoint i64 %add21.i.i.i.i, 1
   %add.ptr.i25.i.i.i35.i = getelementptr inbounds %struct.Offset, ptr %__first.coerce.fr, i64 %sub24.i.i.i34.i
   %add.ptr.i26.i.i.i36.i = getelementptr inbounds %struct.Offset, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i12.i

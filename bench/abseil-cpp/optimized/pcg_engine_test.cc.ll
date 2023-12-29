@@ -1563,7 +1563,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 2305843009213693951
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -4450,7 +4450,7 @@ if.else.i.i:                                      ; preds = %invoke.cont6
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 2305843009213693951
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -4635,7 +4635,7 @@ if.else.i.i:                                      ; preds = %invoke.cont6
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 2305843009213693951
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -6513,7 +6513,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -6690,21 +6690,18 @@ for.body11:                                       ; preds = %for.cond9.preheader
   %.narrow.i.i.i18 = add i64 %.tr.i.i.i17, 6364136223846793005
   %inc14 = add nuw nsw i64 %i8.098, 1
   %exitcond109.not = icmp eq i64 %inc14, %storemerge4106
-  br i1 %exitcond109.not, label %for.end15, label %for.body11, !llvm.loop !154
+  br i1 %exitcond109.not, label %while.body.i.i, label %for.body11, !llvm.loop !154
 
-for.end15:                                        ; preds = %for.body11
-  br i1 %cmp1095.not, label %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit, label %while.body.i.i
-
-while.body.i.i:                                   ; preds = %for.end15, %if.end.i.i
-  %n.addr.094.i.i = phi i64 [ %shr.i.i, %if.end.i.i ], [ %storemerge4106, %for.end15 ]
-  %inc.sroa.4.093.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i37.i.i, %if.end.i.i ], [ 6364136223846793005, %for.end15 ]
-  %inc.sroa.0.092.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i35.i.i, %if.end.i.i ], [ 1442695040888963407, %for.end15 ]
-  %i.sroa.0.091.i.i = phi i64 [ %i.sroa.0.1.i.i, %if.end.i.i ], [ 0, %for.end15 ]
-  %i.sroa.4.090.i.i = phi i64 [ %i.sroa.4.1.i.i, %if.end.i.i ], [ 0, %for.end15 ]
-  %mult.sroa.7.089.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i54.i.i, %if.end.i.i ], [ 2549297995355413924, %for.end15 ]
-  %mult.sroa.0.088.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i.i52.i.i, %if.end.i.i ], [ 4865540595714422341, %for.end15 ]
-  %m.sroa.0.087.i.i = phi i64 [ %m.sroa.0.1.i.i, %if.end.i.i ], [ 1, %for.end15 ]
-  %m.sroa.4.086.i.i = phi i64 [ %m.sroa.4.1.i.i, %if.end.i.i ], [ 0, %for.end15 ]
+while.body.i.i:                                   ; preds = %for.body11, %if.end.i.i
+  %n.addr.094.i.i = phi i64 [ %shr.i.i, %if.end.i.i ], [ %storemerge4106, %for.body11 ]
+  %inc.sroa.4.093.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i37.i.i, %if.end.i.i ], [ 6364136223846793005, %for.body11 ]
+  %inc.sroa.0.092.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i35.i.i, %if.end.i.i ], [ 1442695040888963407, %for.body11 ]
+  %i.sroa.0.091.i.i = phi i64 [ %i.sroa.0.1.i.i, %if.end.i.i ], [ 0, %for.body11 ]
+  %i.sroa.4.090.i.i = phi i64 [ %i.sroa.4.1.i.i, %if.end.i.i ], [ 0, %for.body11 ]
+  %mult.sroa.7.089.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i54.i.i, %if.end.i.i ], [ 2549297995355413924, %for.body11 ]
+  %mult.sroa.0.088.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i.i52.i.i, %if.end.i.i ], [ 4865540595714422341, %for.body11 ]
+  %m.sroa.0.087.i.i = phi i64 [ %m.sroa.0.1.i.i, %if.end.i.i ], [ 1, %for.body11 ]
+  %m.sroa.4.086.i.i = phi i64 [ %m.sroa.4.1.i.i, %if.end.i.i ], [ 0, %for.body11 ]
   %and.i.i = and i64 %n.addr.094.i.i, 1
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %while.body.if.end_crit_edge.i.i, label %if.then.i.i
@@ -6766,13 +6763,13 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %cmp.not.i.i = icmp ult i64 %n.addr.094.i.i, 2
   br i1 %cmp.not.i.i, label %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit, label %while.body.i.i, !llvm.loop !155
 
-_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit: ; preds = %if.end.i.i, %for.cond9.preheader, %for.end15
-  %engine1.sroa.0.0.lcssa116 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i16, %for.end15 ], [ %engine_used.sroa.0.0.lcssa, %for.cond9.preheader ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i16, %if.end.i.i ]
-  %engine1.sroa.5.0.lcssa115 = phi i64 [ %.narrow.i.i.i18, %for.end15 ], [ %engine_used.sroa.5.0.lcssa, %for.cond9.preheader ], [ %.narrow.i.i.i18, %if.end.i.i ]
-  %m.sroa.4.0.lcssa.i.i = phi i64 [ 0, %for.end15 ], [ 0, %for.cond9.preheader ], [ %m.sroa.4.1.i.i, %if.end.i.i ]
-  %m.sroa.0.0.lcssa.i.i = phi i64 [ 1, %for.end15 ], [ 1, %for.cond9.preheader ], [ %m.sroa.0.1.i.i, %if.end.i.i ]
-  %i.sroa.4.0.lcssa.i.i = phi i64 [ 0, %for.end15 ], [ 0, %for.cond9.preheader ], [ %i.sroa.4.1.i.i, %if.end.i.i ]
-  %i.sroa.0.0.lcssa.i.i = phi i64 [ 0, %for.end15 ], [ 0, %for.cond9.preheader ], [ %i.sroa.0.1.i.i, %if.end.i.i ]
+_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit: ; preds = %if.end.i.i, %for.cond9.preheader
+  %engine1.sroa.0.0.lcssa116 = phi i64 [ %engine_used.sroa.0.0.lcssa, %for.cond9.preheader ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i16, %if.end.i.i ]
+  %engine1.sroa.5.0.lcssa115 = phi i64 [ %engine_used.sroa.5.0.lcssa, %for.cond9.preheader ], [ %.narrow.i.i.i18, %if.end.i.i ]
+  %m.sroa.4.0.lcssa.i.i = phi i64 [ 0, %for.cond9.preheader ], [ %m.sroa.4.1.i.i, %if.end.i.i ]
+  %m.sroa.0.0.lcssa.i.i = phi i64 [ 1, %for.cond9.preheader ], [ %m.sroa.0.1.i.i, %if.end.i.i ]
+  %i.sroa.4.0.lcssa.i.i = phi i64 [ 0, %for.cond9.preheader ], [ %i.sroa.4.1.i.i, %if.end.i.i ]
+  %i.sroa.0.0.lcssa.i.i = phi i64 [ 0, %for.cond9.preheader ], [ %i.sroa.0.1.i.i, %if.end.i.i ]
   %coerce.sroa.2.0.insert.ext.i55.i.i = zext i64 %m.sroa.4.0.lcssa.i.i to i128
   %coerce.sroa.2.0.insert.shift.i56.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i55.i.i, 64
   %coerce.sroa.0.0.insert.ext.i57.i.i = zext i64 %m.sroa.0.0.lcssa.i.i to i128
@@ -7061,17 +7058,14 @@ for.body11:                                       ; preds = %for.cond9.preheader
   %add.i.i8 = add i64 %mul.i.i7, 1442695040888963407
   %inc14 = add nuw nsw i64 %i8.060, 1
   %exitcond68.not = icmp eq i64 %inc14, %storemerge465
-  br i1 %exitcond68.not, label %for.end15, label %for.body11, !llvm.loop !160
+  br i1 %exitcond68.not, label %while.body.i.i, label %for.body11, !llvm.loop !160
 
-for.end15:                                        ; preds = %for.body11
-  br i1 %cmp1058.not, label %_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit, label %while.body.i.i
-
-while.body.i.i:                                   ; preds = %for.end15, %if.end.i.i
-  %i.015.i.i = phi i64 [ %i.1.i.i, %if.end.i.i ], [ 0, %for.end15 ]
-  %m.014.i.i = phi i64 [ %m.1.i.i, %if.end.i.i ], [ 1, %for.end15 ]
-  %inc.013.i.i = phi i64 [ %mul5.i.i, %if.end.i.i ], [ 1442695040888963407, %for.end15 ]
-  %mult.012.i.i = phi i64 [ %mul6.i.i, %if.end.i.i ], [ 6364136223846793005, %for.end15 ]
-  %n.addr.011.i.i = phi i64 [ %shr.i.i, %if.end.i.i ], [ %storemerge465, %for.end15 ]
+while.body.i.i:                                   ; preds = %for.body11, %if.end.i.i
+  %i.015.i.i = phi i64 [ %i.1.i.i, %if.end.i.i ], [ 0, %for.body11 ]
+  %m.014.i.i = phi i64 [ %m.1.i.i, %if.end.i.i ], [ 1, %for.body11 ]
+  %inc.013.i.i = phi i64 [ %mul5.i.i, %if.end.i.i ], [ 1442695040888963407, %for.body11 ]
+  %mult.012.i.i = phi i64 [ %mul6.i.i, %if.end.i.i ], [ 6364136223846793005, %for.body11 ]
+  %n.addr.011.i.i = phi i64 [ %shr.i.i, %if.end.i.i ], [ %storemerge465, %for.body11 ]
   %and.i.i = and i64 %n.addr.011.i.i, 1
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -7092,10 +7086,10 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %cmp.not.i.i = icmp ult i64 %n.addr.011.i.i, 2
   br i1 %cmp.not.i.i, label %_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit, label %while.body.i.i, !llvm.loop !161
 
-_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit: ; preds = %if.end.i.i, %for.cond9.preheader, %for.end15
-  %engine1.sroa.0.0.lcssa73 = phi i64 [ %add.i.i8, %for.end15 ], [ %engine_used.sroa.0.0.lcssa, %for.cond9.preheader ], [ %add.i.i8, %if.end.i.i ]
-  %m.0.lcssa.i.i = phi i64 [ 1, %for.end15 ], [ 1, %for.cond9.preheader ], [ %m.1.i.i, %if.end.i.i ]
-  %i.0.lcssa.i.i = phi i64 [ 0, %for.end15 ], [ 0, %for.cond9.preheader ], [ %i.1.i.i, %if.end.i.i ]
+_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit: ; preds = %if.end.i.i, %for.cond9.preheader
+  %engine1.sroa.0.0.lcssa73 = phi i64 [ %engine_used.sroa.0.0.lcssa, %for.cond9.preheader ], [ %add.i.i8, %if.end.i.i ]
+  %m.0.lcssa.i.i = phi i64 [ 1, %for.cond9.preheader ], [ %m.1.i.i, %if.end.i.i ]
+  %i.0.lcssa.i.i = phi i64 [ 0, %for.cond9.preheader ], [ %i.1.i.i, %if.end.i.i ]
   %mul7.i.i = mul i64 %m.0.lcssa.i.i, %engine_used.sroa.0.0.lcssa
   %add8.i.i = add i64 %mul7.i.i, %i.0.lcssa.i.i
   br label %for.body19

@@ -3969,7 +3969,7 @@ entry:
   ret ptr %call.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
 define hidden noundef ptr @_ZN8datatype10param_size6sparam5substER7obj_mapI4sortPNS0_4sizeEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %S) unnamed_addr #9 align 2 {
 entry:
   %m_param = getelementptr inbounds %"struct.datatype::param_size::sparam", ptr %this, i64 0, i32 1
@@ -10997,7 +10997,6 @@ call6.i.noexc95:                                  ; preds = %if.else5.i84
 
 _ZlsRSo6symbol.exit99:                            ; preds = %if.then.i87, %call6.i.noexc95
   %sub = sub i32 %inc, %22
-  %umax = call i32 @llvm.umax.i32(i32 %22, i32 1)
   br label %for.body55
 
 for.body55:                                       ; preds = %_ZlsRSo6symbol.exit99, %for.inc66
@@ -11039,7 +11038,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
 
 for.inc66:                                        ; preds = %invoke.cont62
   %inc67 = add nuw i32 %i52.0459, 1
-  %exitcond469.not = icmp eq i32 %inc67, %umax
+  %exitcond469.not = icmp eq i32 %inc67, %22
   br i1 %exitcond469.not, label %for.end68, label %for.body55, !llvm.loop !38
 
 for.end68:                                        ; preds = %for.inc66
@@ -29254,7 +29253,7 @@ attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind memory(read) }
-attributes #9 = { mustprogress nofree nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nosync nounwind memory(none) }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

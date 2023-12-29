@@ -21123,18 +21123,19 @@ for.body:                                         ; preds = %entry, %for.body
   %call2 = tail call ptr @hi_sdscat(ptr noundef %spaces.033, ptr noundef nonnull @.str.136) #33
   %inc = add nuw nsw i32 %i.032, 1
   %exitcond.not = icmp eq i32 %inc, %indent
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !204
+  br i1 %exitcond.not, label %if.then, label %for.body, !llvm.loop !204
 
-for.end:                                          ; preds = %for.body, %entry
-  %spaces.0.lcssa = phi ptr [ %call1, %entry ], [ %call2, %for.body ]
+for.end:                                          ; preds = %entry
   %tobool.not = icmp eq i32 %indent, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %for.end
-  %call3 = tail call ptr @hi_sdscat(ptr noundef %call, ptr noundef %spaces.0.lcssa) #33
+if.then:                                          ; preds = %for.body, %for.end
+  %spaces.0.lcssa36 = phi ptr [ %call1, %for.end ], [ %call2, %for.body ]
+  %call3 = tail call ptr @hi_sdscat(ptr noundef %call, ptr noundef %spaces.0.lcssa36) #33
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end
+  %spaces.0.lcssa37 = phi ptr [ %spaces.0.lcssa36, %if.then ], [ %call1, %for.end ]
   %info.0 = phi ptr [ %call3, %if.then ], [ %call, %for.end ]
   %flags = getelementptr inbounds %struct.clusterManagerNode, ptr %node, i64 0, i32 8
   %0 = load i32, ptr %flags, align 8
@@ -21215,7 +21216,7 @@ clusterManagerNodeFlagString.exit:                ; preds = %while.cond.i, %if.e
   %10 = load i32, ptr %port15, align 8
   %slots_count = getelementptr inbounds %struct.clusterManagerNode, ptr %node, i64 0, i32 13
   %11 = load i32, ptr %slots_count, align 4
-  %call16 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.0, ptr noundef nonnull @.str.217, ptr noundef nonnull %cond, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %spaces.0.lcssa, ptr noundef %call10, i32 noundef %11, ptr noundef %retval.0.i) #33
+  %call16 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.0, ptr noundef nonnull @.str.217, ptr noundef nonnull %cond, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %spaces.0.lcssa37, ptr noundef %call10, i32 noundef %11, ptr noundef %retval.0.i) #33
   call void @hi_sdsfree(ptr noundef %call10) #33
   call void @hi_sdsfree(ptr noundef %retval.0.i) #33
   br label %if.end17
@@ -21228,7 +21229,7 @@ if.end17:                                         ; preds = %clusterManagerNodeF
   br i1 %cmp19.not, label %if.else23, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %call22 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.1, ptr noundef nonnull @.str.218, ptr noundef %spaces.0.lcssa, ptr noundef nonnull %12) #33
+  %call22 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.1, ptr noundef nonnull @.str.218, ptr noundef %spaces.0.lcssa37, ptr noundef nonnull %12) #33
   br label %if.end29
 
 if.else23:                                        ; preds = %if.end17
@@ -21238,12 +21239,12 @@ if.else23:                                        ; preds = %if.end17
   br i1 %tobool24.not, label %if.end29, label %if.then25
 
 if.then25:                                        ; preds = %if.else23
-  %call27 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.1, ptr noundef nonnull @.str.219, ptr noundef %spaces.0.lcssa, i32 noundef %13) #33
+  %call27 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.1, ptr noundef nonnull @.str.219, ptr noundef %spaces.0.lcssa37, i32 noundef %13) #33
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else23, %if.then25, %if.then20
   %info.2 = phi ptr [ %call22, %if.then20 ], [ %call27, %if.then25 ], [ %info.1, %if.else23 ]
-  call void @hi_sdsfree(ptr noundef %spaces.0.lcssa) #33
+  call void @hi_sdsfree(ptr noundef %spaces.0.lcssa37) #33
   ret ptr %info.2
 }
 

@@ -236,7 +236,7 @@ for.body:                                         ; preds = %_ZN17meshopt_Alloca
   store i32 %conv, ptr %arrayidx, align 4
   %inc = add nuw i64 %i.088, 1
   %exitcond.not = icmp eq i64 %inc, %vertex_count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.body.i43, label %for.body, !llvm.loop !11
 
 lpad:                                             ; preds = %_ZN7meshoptL16computeHistogramERA1024_A3_jPKjm.exit, %entry
   %44 = landingpad { ptr, i32 }
@@ -244,11 +244,8 @@ lpad:                                             ; preds = %_ZN7meshoptL16compu
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %allocator) #10
   resume { ptr, i32 } %44
 
-for.end:                                          ; preds = %for.body
-  br i1 %cmp55.not.i, label %for.cond.i.preheader, label %for.body.i43
-
-for.body.i43:                                     ; preds = %for.end, %for.body.i43
-  %i.07.i = phi i64 [ %inc9.i, %for.body.i43 ], [ 0, %for.end ]
+for.body.i43:                                     ; preds = %for.body, %for.body.i43
+  %i.07.i = phi i64 [ %inc9.i, %for.body.i43 ], [ 0, %for.body ]
   %arrayidx.i44 = getelementptr inbounds i32, ptr %destination, i64 %i.07.i
   %45 = load i32, ptr %arrayidx.i44, align 4
   %idxprom.i45 = zext i32 %45 to i64
@@ -307,13 +304,10 @@ for.body.i68:                                     ; preds = %for.body.i52, %for.
   store i32 %51, ptr %arrayidx8.i79, align 4
   %inc9.i80 = add nuw i64 %i.07.i69, 1
   %exitcond.not.i81 = icmp eq i64 %inc9.i80, %vertex_count
-  br i1 %exitcond.not.i81, label %_ZN7meshoptL9radixPassEPjPKjS2_mRA1024_A3_ji.exit82, label %for.body.i68, !llvm.loop !12
+  br i1 %exitcond.not.i81, label %for.body11, label %for.body.i68, !llvm.loop !12
 
-_ZN7meshoptL9radixPassEPjPKjS2_mRA1024_A3_ji.exit82: ; preds = %for.body.i68
-  br i1 %cmp55.not.i, label %for.cond.i.preheader, label %for.body11
-
-for.body11:                                       ; preds = %_ZN7meshoptL9radixPassEPjPKjS2_mRA1024_A3_ji.exit82, %for.body11
-  %i8.090 = phi i64 [ %inc16, %for.body11 ], [ 0, %_ZN7meshoptL9radixPassEPjPKjS2_mRA1024_A3_ji.exit82 ]
+for.body11:                                       ; preds = %for.body.i68, %for.body11
+  %i8.090 = phi i64 [ %inc16, %for.body11 ], [ 0, %for.body.i68 ]
   %conv12 = trunc i64 %i8.090 to i32
   %arrayidx13 = getelementptr inbounds i32, ptr %call.i41, i64 %i8.090
   %54 = load i32, ptr %arrayidx13, align 4
@@ -324,7 +318,7 @@ for.body11:                                       ; preds = %_ZN7meshoptL9radixP
   %exitcond91.not = icmp eq i64 %inc16, %vertex_count
   br i1 %exitcond91.not, label %for.cond.i.preheader, label %for.body11, !llvm.loop !13
 
-for.cond.i.preheader:                             ; preds = %for.body11, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit42, %for.end, %_ZN7meshoptL9radixPassEPjPKjS2_mRA1024_A3_ji.exit82
+for.cond.i.preheader:                             ; preds = %for.body11, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit42
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i84

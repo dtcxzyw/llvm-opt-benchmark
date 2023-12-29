@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7524ForwardCharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
   ret void
 }
 
@@ -32,7 +32,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN6icu_7524ForwardCharacterIteratorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @llvm.trap() #10
+  tail call void @llvm.trap() #9
   unreachable
 }
 
@@ -56,8 +56,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7517CharacterIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @_ZN6icu_7517CharacterIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this, i64 0, i32 1
@@ -166,7 +166,7 @@ if.end15:                                         ; preds = %if.end15.sink.split
   br i1 %cmp18, label %if.end30.sink.split, label %if.else22
 
 if.else22:                                        ; preds = %if.end15
-  %cmp25 = icmp slt i32 %0, %textEnd
+  %cmp25 = icmp ult i32 %0, %textEnd
   br i1 %cmp25, label %if.end30.sink.split, label %if.end30
 
 if.end30.sink.split:                              ; preds = %if.else22, %if.end15
@@ -180,7 +180,7 @@ if.end30:                                         ; preds = %if.end30.sink.split
   br i1 %cmp33, label %if.end45.sink.split, label %if.else37
 
 if.else37:                                        ; preds = %if.end30
-  %cmp40 = icmp slt i32 %2, %position
+  %cmp40 = icmp ult i32 %2, %position
   br i1 %cmp40, label %if.end45.sink.split, label %if.end45
 
 if.end45.sink.split:                              ; preds = %if.else37, %if.end30
@@ -195,19 +195,19 @@ if.end45:                                         ; preds = %if.end45.sink.split
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7517CharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN6icu_7517CharacterIteratorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @llvm.trap() #10
+  tail call void @llvm.trap() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7517CharacterIteratorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %that) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7517CharacterIteratorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %that) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this, i64 0, i32 1
@@ -230,7 +230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7517CharacterIteratoraSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %that) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7517CharacterIteratoraSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %that) local_unnamed_addr #6 align 2 {
 entry:
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %that, i64 0, i32 1
   %0 = load i32, ptr %textLength, align 8
@@ -252,7 +252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZN6icu_7517CharacterIterator12firstPostIncEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 {
+define noundef zeroext i16 @_ZN6icu_7517CharacterIterator12firstPostIncEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 24
@@ -266,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7517CharacterIterator14first32PostIncEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 {
+define noundef i32 @_ZN6icu_7517CharacterIterator14first32PostIncEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 24
@@ -287,11 +287,10 @@ attributes #2 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) 
 attributes #3 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -2573,9 +2573,9 @@ if.end:                                           ; preds = %entry
   %add = or disjoint i64 %shl, %conv4
   %add5 = add nuw nsw i64 %add, 2
   %cmp6.not = icmp eq i64 %add5, %1
-  br i1 %cmp6.not, label %if.end9, label %return
+  br i1 %cmp6.not, label %lor.lhs.false12, label %return
 
-if.end9:                                          ; preds = %if.end
+lor.lhs.false12:                                  ; preds = %if.end
   store i64 %add, ptr %remaining, align 8
   %incdec.ptr13 = getelementptr inbounds i8, ptr %2, i64 3
   store ptr %incdec.ptr13, ptr %p, align 8
@@ -2583,10 +2583,10 @@ if.end9:                                          ; preds = %if.end
   %cmp15.not = icmp eq i8 %5, 0
   br i1 %cmp15.not, label %if.end18, label %return
 
-if.end18:                                         ; preds = %if.end9
+if.end18:                                         ; preds = %lor.lhs.false12
   %dec = add nsw i64 %add, -1
   store i64 %dec, ptr %remaining, align 8
-  %cmp19 = icmp ult i64 %add, 4
+  %cmp19 = icmp ult i64 %dec, 3
   br i1 %cmp19, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
@@ -2638,8 +2638,8 @@ return.sink.split:                                ; preds = %if.else54, %land.lh
   store i32 %.sink, ptr %servername57, align 4
   br label %return
 
-return:                                           ; preds = %land.lhs.true48, %return.sink.split, %if.else54, %if.end22, %if.end18, %if.end9, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end9 ], [ 0, %if.end18 ], [ 0, %if.end22 ], [ 0, %if.else54 ], [ 1, %return.sink.split ], [ 0, %land.lhs.true48 ]
+return:                                           ; preds = %land.lhs.true48, %return.sink.split, %if.else54, %if.end22, %if.end18, %lor.lhs.false12, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %lor.lhs.false12 ], [ 0, %if.end18 ], [ 0, %if.end22 ], [ 0, %if.else54 ], [ 1, %return.sink.split ], [ 0, %land.lhs.true48 ]
   ret i32 %retval.0
 }
 

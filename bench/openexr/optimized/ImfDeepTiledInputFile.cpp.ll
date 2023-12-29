@@ -256,9 +256,9 @@ invoke.cont2:                                     ; preds = %entry
   %tileOffsets = getelementptr inbounds %"struct.Imf_3_2::DeepTiledInputFile::Data", ptr %this, i64 0, i32 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numXTiles, i8 0, i64 16, i1 false)
   invoke void @_ZN7Imf_3_211TileOffsetsC1ENS_9LevelModeEiiPKiS3_(ptr noundef nonnull align 8 dereferenceable(40) %tileOffsets, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
-          to label %_ZNSt16allocator_traitsISaIPN7Imf_3_212_GLOBAL__N_110TileBufferEEE8allocateERS4_m.exit.i.i.i unwind label %lpad3
+          to label %_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i unwind label %lpad3
 
-_ZNSt16allocator_traitsISaIPN7Imf_3_212_GLOBAL__N_110TileBufferEEE8allocateERS4_m.exit.i.i.i: ; preds = %invoke.cont2
+_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %invoke.cont2
   %slices = getelementptr inbounds %"struct.Imf_3_2::DeepTiledInputFile::Data", ptr %this, i64 0, i32 19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slices, i8 0, i64 24, i1 false)
   %partNumber = getelementptr inbounds %"struct.Imf_3_2::DeepTiledInputFile::Data", ptr %this, i64 0, i32 20
@@ -280,42 +280,41 @@ _ZNSt16allocator_traitsISaIPN7Imf_3_212_GLOBAL__N_110TileBufferEEE8allocateERS4_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %tileBuffers, i8 0, i64 25, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sampleCountTableBuffer, i8 0, i64 24, i1 false)
   %call5.i.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
-          to label %if.then.i.i.i25.i.i unwind label %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_112TInSliceInfoESaIS3_EED2Ev.exit
+          to label %call5.i.i.i.i.i.noexc unwind label %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_112TInSliceInfoESaIS3_EED2Ev.exit
 
-if.then.i.i.i25.i.i:                              ; preds = %_ZNSt16allocator_traitsISaIPN7Imf_3_212_GLOBAL__N_110TileBufferEEE8allocateERS4_m.exit.i.i.i
+call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   store ptr null, ptr %call5.i.i.i.i.i7, align 8
   %cmp.i.i.i.i.i27.i.i = icmp eq i32 %.sroa.speculated, 1
   br i1 %cmp.i.i.i.i.i27.i.i, label %invoke.cont13, label %if.end.i.i.i.i.i28.i.i
 
-if.end.i.i.i.i.i28.i.i:                           ; preds = %if.then.i.i.i25.i.i
+if.end.i.i.i.i.i28.i.i:                           ; preds = %call5.i.i.i.i.i.noexc
   %incdec.ptr.i.i.i26.i.i = getelementptr ptr, ptr %call5.i.i.i.i.i7, i64 1
-  %2 = shl nuw nsw i64 %conv, 3
-  %3 = add nsw i64 %2, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i26.i.i, i8 0, i64 %3, i1 false)
+  %2 = add nsw i64 %mul.i.i.i.i.i, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i26.i.i, i8 0, i64 %2, i1 false)
   br label %invoke.cont13
 
-invoke.cont13:                                    ; preds = %if.then.i.i.i25.i.i, %if.end.i.i.i.i.i28.i.i
+invoke.cont13:                                    ; preds = %call5.i.i.i.i.i.noexc, %if.end.i.i.i.i.i28.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.Imf_3_2::DeepTiledInputFile::Data", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 0, i32 2
-  %4 = getelementptr inbounds %"struct.Imf_3_2::DeepTiledInputFile::Data", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 0, i32 1
+  %3 = getelementptr inbounds %"struct.Imf_3_2::DeepTiledInputFile::Data", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 0, i32 1
   store ptr %call5.i.i.i.i.i7, ptr %tileBuffers, align 8
   %add.ptr37.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i7, i64 %conv
-  store ptr %add.ptr37.i.i, ptr %4, align 8
+  store ptr %add.ptr37.i.i, ptr %3, align 8
   store ptr %add.ptr37.i.i, ptr %_M_end_of_storage.i.i, align 8
   ret void
 
 lpad3:                                            ; preds = %invoke.cont2
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16
 
-_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_112TInSliceInfoESaIS3_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaIPN7Imf_3_212_GLOBAL__N_110TileBufferEEE8allocateERS4_m.exit.i.i.i
-  %6 = landingpad { ptr, i32 }
+_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_112TInSliceInfoESaIS3_EED2Ev.exit: ; preds = %_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7Imf_3_211TileOffsetsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %tileOffsets) #20
   br label %ehcleanup16
 
 ehcleanup16:                                      ; preds = %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_112TInSliceInfoESaIS3_EED2Ev.exit, %lpad3
-  %.pn = phi { ptr, i32 } [ %6, %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_112TInSliceInfoESaIS3_EED2Ev.exit ], [ %5, %lpad3 ]
+  %.pn = phi { ptr, i32 } [ %5, %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_112TInSliceInfoESaIS3_EED2Ev.exit ], [ %4, %lpad3 ]
   call void @_ZN7Imf_3_215DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer) #20
   br label %ehcleanup17
 

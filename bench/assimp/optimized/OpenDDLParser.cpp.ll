@@ -54,6 +54,8 @@ $__clang_call_terminate = comdat any
 
 $_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKSB_ = comdat any
 
+$_ZNSt6vectorIcSaIcEE6resizeEm = comdat any
+
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
 $_ZNSt6vectorIcSaIcEEaSERKS1_ = comdat any
@@ -65,8 +67,6 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 $_ZNSt17_Function_handlerIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt5_BindIFPFvP8_IO_FILES1_S9_ESD_St12_PlaceholderILi1EESG_ILi2EEEEE9_M_invokeERKSt9_Any_dataOS1_S9_ = comdat any
 
 $_ZNSt17_Function_handlerIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt5_BindIFPFvP8_IO_FILES1_S9_ESD_St12_PlaceholderILi1EESG_ILi2EEEEE10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation = comdat any
-
-$_ZNSt6vectorIcSaIcEE17_M_default_appendEm = comdat any
 
 $_ZTSSt5_BindIFPFvP8_IO_FILEN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES1_St12_PlaceholderILi1EESE_ILi2EEEE = comdat any
 
@@ -183,119 +183,98 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 56, i1 false)
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_buffer) #25
   %m_stack = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
+  %m_context = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
   %cmp.not = icmp eq i64 %len, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_buffer, i8 0, i64 56, i1 false)
-  br i1 %cmp.not, label %if.end, label %if.then.i.i
+  br i1 %cmp.not, label %if.end, label %if.then
 
-if.then.i.i:                                      ; preds = %entry
-  invoke void @_ZNSt6vectorIcSaIcEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer, i64 noundef %len)
+if.then:                                          ; preds = %entry
+  invoke void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer, i64 noundef 0)
+          to label %.noexc unwind label %lpad
+
+.noexc:                                           ; preds = %if.then
+  %0 = load ptr, ptr %m_context, align 8
+  %isnull.i.i = icmp eq ptr %0, null
+  br i1 %isnull.i.i, label %if.end.i, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %.noexc
+  tail call void @_ZN10ODDLParser7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %.noexc, %delete.notnull.i.i
+  store ptr null, ptr %m_context, align 8
+  invoke void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer, i64 noundef %len)
           to label %_ZN10ODDLParser13OpenDDLParser9setBufferEPKcm.exit unwind label %lpad
 
-_ZN10ODDLParser13OpenDDLParser9setBufferEPKcm.exit: ; preds = %if.then.i.i
-  %.pre.i = load ptr, ptr %m_buffer, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre.i, ptr align 1 %buffer, i64 %len, i1 false)
+_ZN10ODDLParser13OpenDDLParser9setBufferEPKcm.exit: ; preds = %if.end.i
+  %1 = load ptr, ptr %m_buffer, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %buffer, i64 %len, i1 false)
   br label %if.end
 
-lpad:                                             ; preds = %if.then.i.i
-  %0 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %if.end.i, %if.then
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %1 = load ptr, ptr %m_stack, align 8
-  %tobool.not.i.i.i2 = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i2, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, label %if.then.i.i.i
+  %3 = load ptr, ptr %m_stack, align 8
+  %tobool.not.i.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #26
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
   tail call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer) #25
   %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
-  %2 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %if.then.i.i3
+  %4 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %4, null
+  br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %if.then.i.i
 
-if.then.i.i3:                                     ; preds = %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+if.then.i.i:                                      ; preds = %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
           to label %_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
-terminate.lpad.i.i:                               ; preds = %if.then.i.i3
-  %3 = landingpad { ptr, i32 }
+terminate.lpad.i.i:                               ; preds = %if.then.i.i
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #27
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #27
   unreachable
 
-_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, %if.then.i.i3
-  resume { ptr, i32 } %0
+_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, %if.then.i.i
+  resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %_ZN10ODDLParser13OpenDDLParser9setBufferEPKcm.exit, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser13OpenDDLParser9setBufferEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %buffer, i64 noundef %len) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ODDLParser13OpenDDLParser9setBufferEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %buffer, i64 noundef %len) local_unnamed_addr #6 align 2 {
 entry:
   %m_buffer.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %1 = load ptr, ptr %m_buffer.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %0, %1
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i, label %invoke.cont.i.i.i
-
-invoke.cont.i.i.i:                                ; preds = %entry
-  store ptr %1, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
-
-_ZNSt6vectorIcSaIcEE6resizeEm.exit.i:             ; preds = %invoke.cont.i.i.i, %entry
+  tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer.i, i64 noundef 0)
   %m_context.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
-  %2 = load ptr, ptr %m_context.i, align 8
-  %isnull.i = icmp eq ptr %2, null
+  %0 = load ptr, ptr %m_context.i, align 8
+  %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN10ODDLParser13OpenDDLParser5clearEv.exit, label %delete.notnull.i
 
-delete.notnull.i:                                 ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
-  tail call void @_ZN10ODDLParser7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+delete.notnull.i:                                 ; preds = %entry
+  tail call void @_ZN10ODDLParser7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %_ZN10ODDLParser13OpenDDLParser5clearEv.exit
 
-_ZN10ODDLParser13OpenDDLParser5clearEv.exit:      ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i, %delete.notnull.i
+_ZN10ODDLParser13OpenDDLParser5clearEv.exit:      ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %m_context.i, align 8
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN10ODDLParser13OpenDDLParser5clearEv.exit
-  %3 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %4 = load ptr, ptr %m_buffer.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %len
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.end
-  %sub.i = sub i64 %len, %sub.ptr.sub.i.i
-  tail call void @_ZNSt6vectorIcSaIcEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer.i, i64 noundef %sub.i)
-  %.pre = load ptr, ptr %m_buffer.i, align 8
-  br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
-
-if.else.i:                                        ; preds = %if.end
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %len
-  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
-
-if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %len
-  %tobool.not.i.i = icmp eq ptr %3, %add.ptr.i
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
-
-_ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %5 = phi ptr [ %.pre, %if.then.i ], [ %4, %if.else.i ], [ %4, %if.then5.i ], [ %4, %invoke.cont.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %buffer, i64 %len, i1 false)
+  tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer.i, i64 noundef %len)
+  %1 = load ptr, ptr %m_buffer.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %buffer, i64 %len, i1 false)
   br label %return
 
-return:                                           ; preds = %_ZN10ODDLParser13OpenDDLParser5clearEv.exit, %_ZNSt6vectorIcSaIcEE6resizeEm.exit
+return:                                           ; preds = %_ZN10ODDLParser13OpenDDLParser5clearEv.exit, %if.end
   ret void
 }
 
@@ -321,95 +300,85 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.th
 define hidden void @_ZN10ODDLParser13OpenDDLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_buffer.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %1 = load ptr, ptr %m_buffer.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %0, %1
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i, label %invoke.cont.i.i.i
+  invoke void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer.i, i64 noundef 0)
+          to label %.noexc unwind label %terminate.lpad
 
-invoke.cont.i.i.i:                                ; preds = %entry
-  store ptr %1, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
-
-_ZNSt6vectorIcSaIcEE6resizeEm.exit.i:             ; preds = %invoke.cont.i.i.i, %entry
+.noexc:                                           ; preds = %entry
   %m_context.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
-  %2 = load ptr, ptr %m_context.i, align 8
-  %isnull.i = icmp eq ptr %2, null
+  %0 = load ptr, ptr %m_context.i, align 8
+  %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %invoke.cont, label %delete.notnull.i
 
-delete.notnull.i:                                 ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
-  tail call void @_ZN10ODDLParser7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+delete.notnull.i:                                 ; preds = %.noexc
+  tail call void @_ZN10ODDLParser7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %delete.notnull.i, %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
+invoke.cont:                                      ; preds = %delete.notnull.i, %.noexc
   store ptr null, ptr %m_context.i, align 8
   %m_stack = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
-  %3 = load ptr, ptr %m_stack, align 8
-  %tobool.not.i.i.i1 = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, label %if.then.i.i.i
+  %1 = load ptr, ptr %m_stack, align 8
+  %tobool.not.i.i.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #26
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i
-  %4 = load ptr, ptr %m_buffer.i, align 8
-  %tobool.not.i.i.i2 = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i2, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i3
+  %2 = load ptr, ptr %m_buffer.i, align 8
+  %tobool.not.i.i.i1 = icmp eq ptr %2, null
+  br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i2
 
-if.then.i.i.i3:                                   ; preds = %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #26
+if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, %if.then.i.i.i3
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, %if.then.i.i.i2
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_buffer.i) #25
   %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
-  %5 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %5, null
+  %3 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit
-  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
           to label %_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
+  %4 = landingpad { ptr, i32 }
+          catch ptr null
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #27
+  unreachable
+
+_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %if.then.i.i
+  ret void
+
+terminate.lpad:                                   ; preds = %entry
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   tail call void @__clang_call_terminate(ptr %7) #27
   unreachable
-
-_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit: ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %if.then.i.i
-  ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ODDLParser13OpenDDLParser5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN10ODDLParser13OpenDDLParser5clearEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_buffer = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %1 = load ptr, ptr %m_buffer, align 8
-  %tobool.not.i.i = icmp eq ptr %0, %1
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %entry
-  store ptr %1, ptr %_M_finish.i.i, align 8
-  br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
-
-_ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %entry, %invoke.cont.i.i
+  tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer, i64 noundef 0)
   %m_context = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
-  %2 = load ptr, ptr %m_context, align 8
-  %isnull = icmp eq ptr %2, null
+  %0 = load ptr, ptr %m_context, align 8
+  %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
-delete.notnull:                                   ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit
-  tail call void @_ZN10ODDLParser7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+delete.notnull:                                   ; preds = %entry
+  tail call void @_ZN10ODDLParser7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %delete.end
 
-delete.end:                                       ; preds = %delete.notnull, %_ZNSt6vectorIcSaIcEE6resizeEm.exit
+delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %m_context, align 8
   ret void
 }
@@ -645,86 +614,155 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 }
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %0 = load ptr, ptr %_M_finish.i, align 8
+  %1 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %2 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i
+  %cmp4.i = icmp sgt i64 %sub.ptr.sub.i, -1
+  tail call void @llvm.assume(i1 %cmp4.i)
+  %sub.i = xor i64 %sub.ptr.sub.i, 9223372036854775807
+  %cmp6.i = icmp ule i64 %sub.ptr.sub.i9, %sub.i
+  tail call void @llvm.assume(i1 %cmp6.i)
+  %cmp8.not.i = icmp ult i64 %sub.ptr.sub.i9, %sub
+  br i1 %cmp8.not.i, label %if.else.i, label %if.then.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %if.then
+  store i8 0, ptr %0, align 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 1
+  %sub.i.i.i.i = add i64 %sub, -1
+  %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
+  br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
+
+_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i
+  %__first.addr.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ]
+  store ptr %__first.addr.0.i.i.i.i, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.else.i:                                        ; preds = %if.then
+  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
+
+if.then.i.i:                                      ; preds = %if.else.i
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #29
+  unreachable
+
+_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 %sub)
+  %add.i.i = add nuw i64 %.sroa.speculated.i.i, %sub.ptr.sub.i
+  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9223372036854775807)
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i.i) #28
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  store i8 0, ptr %add.ptr.i, align 1
+  %sub.i.i.i23.i = add nsw i64 %sub, -1
+  %cmp.i.i.i.i.i24.i = icmp eq i64 %sub.i.i.i23.i, 0
+  br i1 %cmp.i.i.i.i.i24.i, label %try.cont.i, label %if.then.i.i.i.i.i.i.i25.i
+
+if.then.i.i.i.i.i.i.i25.i:                        ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
+  %incdec.ptr.i.i.i22.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i, i8 0, i64 %sub.i.i.i23.i, i1 false)
+  br label %try.cont.i
+
+try.cont.i:                                       ; preds = %if.then.i.i.i.i.i.i.i25.i, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
+  %cmp.i.i.i30.not.i = icmp eq ptr %0, %1
+  br i1 %cmp.i.i.i30.not.i, label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i, label %if.then.i.i.i31.i
+
+if.then.i.i.i31.i:                                ; preds = %try.cont.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i, ptr align 1 %1, i64 %sub.ptr.sub.i, i1 false)
+  br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i
+
+_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i: ; preds = %if.then.i.i.i31.i, %try.cont.i
+  %tobool.not.i32.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i32.i, label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i, label %if.then.i33.i
+
+if.then.i33.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #26
+  br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i
+
+_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i: ; preds = %if.then.i33.i, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i
+  store ptr %call5.i.i.i.i, ptr %this, align 8
+  %add.ptr36.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %__new_size
+  store ptr %add.ptr36.i, ptr %_M_finish.i, align 8
+  %add.ptr39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %cond.i.i
+  store ptr %add.ptr39.i, ptr %_M_end_of_storage.i, align 8
+  br label %if.end6
+
+if.else:                                          ; preds = %entry
+  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  br i1 %cmp4, label %if.then5, label %if.end6
+
+if.then5:                                         ; preds = %if.else
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %__new_size
+  %tobool.not.i = icmp eq ptr %0, %add.ptr
+  br i1 %tobool.not.i, label %if.end6, label %invoke.cont.i
+
+invoke.cont.i:                                    ; preds = %if.then5
+  store ptr %add.ptr, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.end6:                                          ; preds = %invoke.cont.i, %if.then5, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i, %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, %if.else
+  ret void
+}
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser13OpenDDLParser9setBufferERKSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffer) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ODDLParser13OpenDDLParser9setBufferERKSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffer) local_unnamed_addr #6 align 2 {
 entry:
   %m_buffer.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %1 = load ptr, ptr %m_buffer.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %0, %1
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i, label %invoke.cont.i.i.i
-
-invoke.cont.i.i.i:                                ; preds = %entry
-  store ptr %1, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
-
-_ZNSt6vectorIcSaIcEE6resizeEm.exit.i:             ; preds = %invoke.cont.i.i.i, %entry
-  %2 = phi ptr [ %1, %invoke.cont.i.i.i ], [ %0, %entry ]
+  tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer.i, i64 noundef 0)
   %m_context.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
-  %3 = load ptr, ptr %m_context.i, align 8
-  %isnull.i = icmp eq ptr %3, null
+  %0 = load ptr, ptr %m_context.i, align 8
+  %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN10ODDLParser13OpenDDLParser5clearEv.exit, label %delete.notnull.i
 
-delete.notnull.i:                                 ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
-  tail call void @_ZN10ODDLParser7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #26
-  %.pre = load ptr, ptr %_M_finish.i.i.i, align 8
-  %.pre4 = load ptr, ptr %m_buffer.i, align 8
+delete.notnull.i:                                 ; preds = %entry
+  tail call void @_ZN10ODDLParser7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %_ZN10ODDLParser13OpenDDLParser5clearEv.exit
 
-_ZN10ODDLParser13OpenDDLParser5clearEv.exit:      ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i, %delete.notnull.i
-  %4 = phi ptr [ %1, %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i ], [ %.pre4, %delete.notnull.i ]
-  %5 = phi ptr [ %2, %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i ], [ %.pre, %delete.notnull.i ]
+_ZN10ODDLParser13OpenDDLParser5clearEv.exit:      ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %m_context.i, align 8
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
-  %6 = load ptr, ptr %_M_finish.i, align 8
-  %7 = load ptr, ptr %buffer, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
+  %1 = load ptr, ptr %_M_finish.i, align 8
+  %2 = load ptr, ptr %buffer, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %_ZN10ODDLParser13OpenDDLParser5clearEv.exit
-  %sub.i = sub i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i
-  tail call void @_ZNSt6vectorIcSaIcEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer.i, i64 noundef %sub.i)
-  br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
-
-if.else.i:                                        ; preds = %_ZN10ODDLParser13OpenDDLParser5clearEv.exit
-  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
-  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
-
-if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i
-  %tobool.not.i.i = icmp eq ptr %5, %add.ptr.i
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then5.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
-
-_ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %8 = load ptr, ptr %buffer, align 8
-  %9 = load ptr, ptr %_M_finish.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %9, %8
+  tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer.i, i64 noundef %sub.ptr.sub.i)
+  %3 = load ptr, ptr %buffer, align 8
+  %4 = load ptr, ptr %_M_finish.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %4, %3
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T_SB_SA_.exit, label %if.then.i.i.i.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %8 to i64
+if.then.i.i.i.i.i:                                ; preds = %_ZN10ODDLParser13OpenDDLParser5clearEv.exit
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %10 = load ptr, ptr %m_buffer.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %10, ptr align 1 %8, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  %5 = load ptr, ptr %m_buffer.i, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %5, ptr align 1 %3, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T_SB_SA_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T_SB_SA_.exit: ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit, %if.then.i.i.i.i.i
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T_SB_SA_.exit: ; preds = %_ZN10ODDLParser13OpenDDLParser5clearEv.exit, %if.then.i.i.i.i.i
   ret void
 }
 
@@ -926,7 +964,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -1240,7 +1278,7 @@ invoke.cont20:                                    ; preds = %if.then6.i, %land.l
 
 while.cond24:                                     ; preds = %invoke.cont20, %land.rhs26
   %readIdx.2.in = phi i64 [ %readIdx.084, %invoke.cont20 ], [ %readIdx.2, %land.rhs26 ]
-  %readIdx.2 = add i64 %readIdx.2.in, 1
+  %readIdx.2 = add nuw i64 %readIdx.2.in, 1
   %cmp25 = icmp ult i64 %readIdx.2, %sub.ptr.sub.i
   br i1 %cmp25, label %land.rhs26, label %for.inc
 
@@ -1362,7 +1400,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
@@ -1673,7 +1711,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -4581,7 +4619,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIPN10ODDLParser4NameESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
@@ -4769,7 +4807,7 @@ if.then.i.i.i81:                                  ; preds = %if.else.i52
 _ZNKSt6vectorIPN10ODDLParser4NameESaIS2_EE12_M_check_lenEmPKc.exit.i.i57: ; preds = %if.else.i52
   %sub.ptr.div.i.i.i.i58 = ashr exact i64 %sub.ptr.sub.i.i.i.i55, 3
   %.sroa.speculated.i.i.i59 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i58, i64 1)
-  %add.i.i.i60 = add i64 %.sroa.speculated.i.i.i59, %sub.ptr.div.i.i.i.i58
+  %add.i.i.i60 = add nsw i64 %.sroa.speculated.i.i.i59, %sub.ptr.div.i.i.i.i58
   %cmp7.i.i.i61 = icmp ult i64 %add.i.i.i60, %sub.ptr.div.i.i.i.i58
   %cmp9.i.i.i62 = icmp ugt i64 %add.i.i.i60, 1152921504606846975
   %or.cond.i.i.i63 = or i1 %cmp7.i.i.i61, %cmp9.i.i.i62
@@ -5680,111 +5718,6 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
   ret i1 false
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIcSaIcEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp.not = icmp eq i64 %__n, 0
-  br i1 %cmp.not, label %if.end43, label %if.then
-
-if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %2 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
-  %cmp4 = icmp sgt i64 %sub.ptr.sub.i, -1
-  tail call void @llvm.assume(i1 %cmp4)
-  %sub = xor i64 %sub.ptr.sub.i, 9223372036854775807
-  %cmp6 = icmp ule i64 %sub.ptr.sub, %sub
-  tail call void @llvm.assume(i1 %cmp6)
-  %cmp8.not = icmp ult i64 %sub.ptr.sub, %__n
-  br i1 %cmp8.not, label %if.else, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then
-  store i8 0, ptr %0, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 1
-  %sub.i.i.i = add i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %__n
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i, i8 0, i64 %sub.i.i.i, i1 false)
-  br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit
-
-_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.then.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
-  store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
-  br label %if.end43
-
-if.else:                                          ; preds = %if.then
-  %cmp.i = icmp ult i64 %sub, %__n
-  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
-
-if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #29
-  unreachable
-
-_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.sub.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.sub.i
-  %cmp9.i = icmp slt i64 %add.i, 0
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i21, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i
-
-_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i) #28
-  br label %if.then.i.i.i21
-
-if.then.i.i.i21:                                  ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds i8, ptr %cond.i19, i64 %sub.ptr.sub.i
-  store i8 0, ptr %add.ptr, align 1
-  %sub.i.i.i23 = add i64 %__n, -1
-  %cmp.i.i.i.i.i24 = icmp eq i64 %sub.i.i.i23, 0
-  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.then.i.i.i.i.i.i.i25
-
-if.then.i.i.i.i.i.i.i25:                          ; preds = %if.then.i.i.i21
-  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %add.ptr, i64 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22, i8 0, i64 %sub.i.i.i23, i1 false)
-  br label %try.cont
-
-try.cont:                                         ; preds = %if.then.i.i.i.i.i.i.i25, %if.then.i.i.i21
-  %cmp.i.i.i30.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i30.not, label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit, label %if.then.i.i.i31
-
-if.then.i.i.i31:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %cond.i19, ptr align 1 %1, i64 %sub.ptr.sub.i, i1 false)
-  br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit
-
-_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i31
-  %tobool.not.i32 = icmp eq ptr %1, null
-  br i1 %tobool.not.i32, label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34, label %if.then.i33
-
-if.then.i33:                                      ; preds = %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #26
-  br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34
-
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34: ; preds = %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit, %if.then.i33
-  store ptr %cond.i19, ptr %this, align 8
-  %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr, i64 %__n
-  store ptr %add.ptr36, ptr %_M_finish.i, align 8
-  %add.ptr39 = getelementptr inbounds i8, ptr %cond.i19, i64 %cond.i
-  store ptr %add.ptr39, ptr %_M_end_of_storage, align 8
-  br label %if.end43
-
-if.end43:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34, %entry
-  ret void
-}
-
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
 
@@ -5807,6 +5740,9 @@ declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24

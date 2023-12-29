@@ -3959,8 +3959,8 @@ entry:
 if.end:                                           ; preds = %entry
   %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
   %1 = load ptr, ptr %nic, align 8
-  %div.i = sdiv i32 %queue_index, 2
-  %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i) #19
+  %div.i1011 = lshr i32 %queue_index, 1
+  %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i1011) #19
   %peer = getelementptr inbounds %struct.NetClientState, ptr %call3, i64 0, i32 3
   %2 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -4023,8 +4023,8 @@ entry:
 if.end:                                           ; preds = %entry
   %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
   %1 = load ptr, ptr %nic, align 8
-  %div.i = sdiv i32 %queue_index, 2
-  %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i) #19
+  %div.i1011 = lshr i32 %queue_index, 1
+  %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i1011) #19
   %peer = getelementptr inbounds %struct.NetClientState, ptr %call3, i64 0, i32 3
   %2 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %2, null

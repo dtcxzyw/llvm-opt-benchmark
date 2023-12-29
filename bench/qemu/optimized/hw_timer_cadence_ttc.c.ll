@@ -627,7 +627,7 @@ for.body:                                         ; preds = %cond.end, %is_betwe
 
 if.then.i:                                        ; preds = %for.body
   %cmp1.i = icmp ugt i64 %shl17, %conv18
-  %cmp2.i = icmp sle i64 %shl17, %next_value.021
+  %cmp2.i = icmp ule i64 %shl17, %next_value.021
   %6 = and i1 %cmp1.i, %cmp2.i
   br label %is_between.exit
 

@@ -1381,17 +1381,17 @@ for.body:                                         ; preds = %entry, %for.body
   %spec.select = add i64 %newline_count.021, %inc
   %inc3 = add nuw i64 %i.022, 1
   %exitcond.not = icmp eq i64 %inc3, %call
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %while.body.preheader, label %for.body, !llvm.loop !14
 
-for.end:                                          ; preds = %for.body
+while.body.preheader:                             ; preds = %for.body
   %add = add i64 %call, 1
   %add4 = add i64 %add, %spec.select
   %call5 = tail call ptr @app_malloc(i64 noundef %add4, ptr noundef nonnull %file) #6
-  br i1 %cmp20.not, label %while.end, label %while.body
+  br label %while.body
 
-while.body:                                       ; preds = %for.end, %if.end19
-  %i.125 = phi i64 [ %i.2, %if.end19 ], [ 0, %for.end ]
-  %e.024 = phi i64 [ %inc20, %if.end19 ], [ 0, %for.end ]
+while.body:                                       ; preds = %while.body.preheader, %if.end19
+  %i.125 = phi i64 [ %i.2, %if.end19 ], [ 0, %while.body.preheader ]
+  %e.024 = phi i64 [ %inc20, %if.end19 ], [ 0, %while.body.preheader ]
   %arrayidx8 = getelementptr inbounds i8, ptr %file, i64 %e.024
   %1 = load i8, ptr %arrayidx8, align 1
   %cmp10 = icmp eq i8 %1, 10
@@ -1418,9 +1418,9 @@ if.end19:                                         ; preds = %if.else, %if.then12
   %exitcond27.not = icmp eq i64 %inc20, %call
   br i1 %exitcond27.not, label %while.end, label %while.body, !llvm.loop !15
 
-while.end:                                        ; preds = %if.end19, %for.end.thread, %for.end
-  %call532 = phi ptr [ %call5, %for.end ], [ %call531, %for.end.thread ], [ %call5, %if.end19 ]
-  %i.1.lcssa = phi i64 [ 0, %for.end ], [ 0, %for.end.thread ], [ %i.2, %if.end19 ]
+while.end:                                        ; preds = %if.end19, %for.end.thread
+  %call532 = phi ptr [ %call531, %for.end.thread ], [ %call5, %if.end19 ]
+  %i.1.lcssa = phi i64 [ 0, %for.end.thread ], [ %i.2, %if.end19 ]
   %arrayidx21 = getelementptr inbounds i8, ptr %call532, i64 %i.1.lcssa
   store i8 0, ptr %arrayidx21, align 1
   ret ptr %call532

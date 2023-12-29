@@ -119,7 +119,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory2eq17EqClassesIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -240,35 +240,32 @@ entry:
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory2eq17EqClassesIteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_it = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassesIterator", ptr %this, i64 0, i32 1
-  %storemerge.in1 = load i64, ptr %d_it, align 8
-  %storemerge2 = add i64 %storemerge.in1, 1
-  store i64 %storemerge2, ptr %d_it, align 8
+  %storemerge.in6 = load i64, ptr %d_it, align 8
+  %storemerge7 = add i64 %storemerge.in6, 1
+  store i64 %storemerge7, ptr %d_it, align 8
   %0 = load ptr, ptr %this, align 8
-  %d_data.i.i3 = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %0, i64 0, i32 15, i32 1
-  %1 = load i32, ptr %d_data.i.i3, align 4
-  %conv4 = zext i32 %1 to i64
-  %cmp5 = icmp ult i64 %storemerge2, %conv4
-  br i1 %cmp5, label %land.rhs, label %while.end
+  %d_data.i.i8 = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %0, i64 0, i32 15, i32 1
+  %1 = load i32, ptr %d_data.i.i8, align 4
+  %conv9 = zext i32 %1 to i64
+  %cmp10 = icmp ult i64 %storemerge7, %conv9
+  br i1 %cmp10, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %entry, %while.body
   %2 = phi ptr [ %7, %while.body ], [ %0, %entry ]
-  %storemerge6 = phi i64 [ %storemerge, %while.body ], [ %storemerge2, %entry ]
+  %storemerge11 = phi i64 [ %storemerge, %while.body ], [ %storemerge7, %entry ]
   %d_isInternal = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %2, i64 0, i32 33
   %3 = load ptr, ptr %d_isInternal, align 8
-  %div.i.i.i.i.i = sdiv i64 %storemerge6, 64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %3, i64 %div.i.i.i.i.i
-  %rem.i.i.i.i.i = srem i64 %storemerge6, 64
-  %rem.lobit.i.i.i.i.i = ashr i64 %rem.i.i.i.i.i, 63
-  %storemerge.i.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i, i64 %rem.lobit.i.i.i.i.i
-  %conv4.i.i.i.i.i = and i64 %rem.i.i.i.i.i, 63
-  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
-  %4 = load i64, ptr %storemerge.i.i.i.i.i, align 8
+  %div.i.i.i.i.i125 = lshr i64 %storemerge11, 6
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %3, i64 %div.i.i.i.i.i125
+  %rem.i.i.i.i.i34 = and i64 %storemerge11, 63
+  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i34
+  %4 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %4, %shl.i.i.i
   %tobool.i.i.i.i.not = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.i.i.i.i.not, label %lor.rhs, label %while.body
 
 lor.rhs:                                          ; preds = %land.rhs
-  %conv8 = trunc i64 %storemerge6 to i32
+  %conv8 = trunc i64 %storemerge11 to i32
   %call9 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %2, i32 noundef %conv8)
   %d_findId.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityNode", ptr %call9, i64 0, i32 1
   %5 = load i32, ptr %d_findId.i, align 4
@@ -283,7 +280,7 @@ lor.rhs.while.body_crit_edge:                     ; preds = %lor.rhs
 
 while.body:                                       ; preds = %lor.rhs.while.body_crit_edge, %land.rhs
   %7 = phi ptr [ %2, %land.rhs ], [ %.pre, %lor.rhs.while.body_crit_edge ]
-  %storemerge.in = phi i64 [ %storemerge6, %land.rhs ], [ %6, %lor.rhs.while.body_crit_edge ]
+  %storemerge.in = phi i64 [ %storemerge11, %land.rhs ], [ %6, %lor.rhs.while.body_crit_edge ]
   %storemerge = add i64 %storemerge.in, 1
   store i64 %storemerge, ptr %d_it, align 8
   %d_data.i.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %7, i64 0, i32 15, i32 1
@@ -302,33 +299,30 @@ entry:
   %retval.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %retval.sroa.2.0.this.addr.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
-  %storemerge2.i = add i64 %retval.sroa.2.0.copyload, 1
-  store i64 %storemerge2.i, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
-  %d_data.i.i3.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %retval.sroa.0.0.copyload, i64 0, i32 15, i32 1
-  %1 = load i32, ptr %d_data.i.i3.i, align 4
-  %conv4.i = zext i32 %1 to i64
-  %cmp5.i = icmp ult i64 %storemerge2.i, %conv4.i
-  br i1 %cmp5.i, label %land.rhs.i, label %_ZN4cvc58internal6theory2eq17EqClassesIteratorppEv.exit
+  %storemerge7.i = add i64 %retval.sroa.2.0.copyload, 1
+  store i64 %storemerge7.i, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
+  %d_data.i.i8.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %retval.sroa.0.0.copyload, i64 0, i32 15, i32 1
+  %1 = load i32, ptr %d_data.i.i8.i, align 4
+  %conv9.i = zext i32 %1 to i64
+  %cmp10.i = icmp ult i64 %storemerge7.i, %conv9.i
+  br i1 %cmp10.i, label %land.rhs.i, label %_ZN4cvc58internal6theory2eq17EqClassesIteratorppEv.exit
 
 land.rhs.i:                                       ; preds = %entry, %while.body.i
   %2 = phi ptr [ %7, %while.body.i ], [ %retval.sroa.0.0.copyload, %entry ]
-  %storemerge6.i = phi i64 [ %storemerge.i, %while.body.i ], [ %storemerge2.i, %entry ]
+  %storemerge11.i = phi i64 [ %storemerge.i, %while.body.i ], [ %storemerge7.i, %entry ]
   %d_isInternal.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %2, i64 0, i32 33
   %3 = load ptr, ptr %d_isInternal.i, align 8
-  %div.i.i.i.i.i.i = sdiv i64 %storemerge6.i, 64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %3, i64 %div.i.i.i.i.i.i
-  %rem.i.i.i.i.i.i = srem i64 %storemerge6.i, 64
-  %rem.lobit.i.i.i.i.i.i = ashr i64 %rem.i.i.i.i.i.i, 63
-  %storemerge.i.i.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i, i64 %rem.lobit.i.i.i.i.i.i
-  %conv4.i.i.i.i.i.i = and i64 %rem.i.i.i.i.i.i, 63
-  %shl.i.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i
-  %4 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i = and i64 %shl.i.i.i.i, %4
+  %div.i.i.i.i.i125.i = lshr i64 %storemerge11.i, 6
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %3, i64 %div.i.i.i.i.i125.i
+  %rem.i.i.i.i.i34.i = and i64 %storemerge11.i, 63
+  %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i34.i
+  %4 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i = and i64 %4, %shl.i.i.i.i
   %tobool.i.i.i.i.not.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.i.i.i.i.not.i, label %lor.rhs.i, label %while.body.i
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
-  %conv8.i = trunc i64 %storemerge6.i to i32
+  %conv8.i = trunc i64 %storemerge11.i to i32
   %call9.i = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %2, i32 noundef %conv8.i)
   %d_findId.i.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityNode", ptr %call9.i, i64 0, i32 1
   %5 = load i32, ptr %d_findId.i.i, align 4
@@ -343,7 +337,7 @@ lor.rhs.while.body_crit_edge.i:                   ; preds = %lor.rhs.i
 
 while.body.i:                                     ; preds = %lor.rhs.while.body_crit_edge.i, %land.rhs.i
   %7 = phi ptr [ %2, %land.rhs.i ], [ %.pre.i, %lor.rhs.while.body_crit_edge.i ]
-  %storemerge.in.i = phi i64 [ %storemerge6.i, %land.rhs.i ], [ %6, %lor.rhs.while.body_crit_edge.i ]
+  %storemerge.in.i = phi i64 [ %storemerge11.i, %land.rhs.i ], [ %6, %lor.rhs.while.body_crit_edge.i ]
   %storemerge.i = add i64 %storemerge.in.i, 1
   store i64 %storemerge.i, ptr %retval.sroa.2.0.this.addr.0.this1.sroa_idx, align 8
   %d_data.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqualityEngine", ptr %7, i64 0, i32 15, i32 1
@@ -372,7 +366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory2eq15EqClassIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory2eq15EqClassIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %d_start = getelementptr inbounds %"class.cvc5::internal::theory::eq::EqClassIterator", ptr %this, i64 0, i32 1
@@ -574,27 +568,26 @@ entry:
 declare void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_equality_engine_iterator.cpp() #8 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_equality_engine_iterator.cpp() #7 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
+attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

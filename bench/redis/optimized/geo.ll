@@ -1885,15 +1885,12 @@ cond.end461:                                      ; preds = %sdslen.exit
   store ptr null, ptr %member442, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %cond352
-  br i1 %exitcond.not, label %for.end465, label %for.body426, !llvm.loop !18
+  br i1 %exitcond.not, label %if.then467, label %for.body426, !llvm.loop !18
 
-for.end465:                                       ; preds = %cond.end461
-  br i1 %tobool417.not, label %if.else475, label %if.then467
-
-if.then467:                                       ; preds = %if.end421, %for.end465
-  %totelelen.0.lcssa355 = phi i64 [ %add448, %for.end465 ], [ 0, %if.end421 ]
-  %maxelelen.0.lcssa354 = phi i64 [ %spec.select236, %for.end465 ], [ 0, %if.end421 ]
-  call void @zsetConvertToListpackIfNeeded(ptr noundef %call419, i64 noundef %maxelelen.0.lcssa354, i64 noundef %totelelen.0.lcssa355) #14
+if.then467:                                       ; preds = %cond.end461, %if.end421
+  %maxelelen.0.lcssa.ph = phi i64 [ 0, %if.end421 ], [ %spec.select236, %cond.end461 ]
+  %totelelen.0.lcssa.ph = phi i64 [ 0, %if.end421 ], [ %add448, %cond.end461 ]
+  call void @zsetConvertToListpackIfNeeded(ptr noundef %call419, i64 noundef %maxelelen.0.lcssa.ph, i64 noundef %totelelen.0.lcssa.ph) #14
   %72 = load ptr, ptr %db, align 8
   call void @setKey(ptr noundef %c, ptr noundef %72, ptr noundef nonnull %storekey.3, ptr noundef %call419, i32 noundef 0) #14
   call void @decrRefCount(ptr noundef %call419) #14
@@ -1904,7 +1901,7 @@ if.then467:                                       ; preds = %if.end421, %for.end
   call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %cond471, ptr noundef nonnull %storekey.3, i32 noundef %74) #14
   br label %if.end485.sink.split
 
-if.else475:                                       ; preds = %if.else414, %for.end465
+if.else475:                                       ; preds = %if.else414
   %75 = load ptr, ptr %db, align 8
   %call477 = call i32 @dbDelete(ptr noundef %75, ptr noundef nonnull %storekey.3) #14
   %tobool478.not = icmp eq i32 %call477, 0
@@ -1920,9 +1917,9 @@ if.then479:                                       ; preds = %if.else475
   br label %if.end485.sink.split
 
 if.end485.sink.split:                             ; preds = %if.then467, %if.then479
-  %.sink357 = phi i64 [ 1, %if.then479 ], [ %cond352, %if.then467 ]
+  %.sink353 = phi i64 [ 1, %if.then479 ], [ %cond352, %if.then467 ]
   %79 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %inc483 = add nsw i64 %79, %.sink357
+  %inc483 = add nsw i64 %79, %.sink353
   store i64 %inc483, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
   br label %if.end485
 

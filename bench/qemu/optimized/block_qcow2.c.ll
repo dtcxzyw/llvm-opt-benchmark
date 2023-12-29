@@ -2123,7 +2123,7 @@ if.then196:                                       ; preds = %if.end192
   br label %out
 
 if.end197:                                        ; preds = %if.end192
-  %mul = shl i64 %cluster_size.0, 1
+  %mul = shl nuw nsw i64 %cluster_size.0, 1
   %call198 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #26
   %47 = tail call i64 @llvm.bswap.i64(i64 %mul)
   store i64 %47, ptr %call198, align 8
@@ -2158,7 +2158,7 @@ if.end213:                                        ; preds = %if.then210, %if.end
 if.end218:                                        ; preds = %if.end213
   tail call void @bdrv_graph_co_rdlock() #22
   %call219 = tail call ptr @blk_bs(ptr noundef nonnull %call214) #22
-  %mul220 = mul i64 %cluster_size.0, 3
+  %mul220 = mul nuw nsw i64 %cluster_size.0, 3
   %call221 = tail call i64 @qcow2_alloc_clusters(ptr noundef %call219, i64 noundef %mul220) #22
   %conv222 = trunc i64 %call221 to i32
   %cmp223 = icmp slt i32 %conv222, 0
@@ -3645,7 +3645,7 @@ cache_clean_timer_init.exit:                      ; preds = %entry, %if.then.i
 
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @qcow2_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #10 {
 entry:
   %cmp = icmp ugt i32 %buf_size, 111
@@ -5645,9 +5645,9 @@ if.end32:                                         ; preds = %if.then25
 
 glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83: ; preds = %if.end32
   %9 = load i64, ptr %headerlen, align 8
-  %add = add i64 %2, -1
+  %add = add nsw i64 %2, -1
   %sub = add i64 %add, %9
-  %sub36 = sub i64 0, %2
+  %sub36 = sub nsw i64 0, %2
   %and = and i64 %sub, %sub36
   call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef nonnull %call27) #22
   br label %if.end37
@@ -5663,9 +5663,9 @@ if.end37.critedge:                                ; preds = %if.end15
 if.end37:                                         ; preds = %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83, %if.end37.critedge, %land.rhs
   %luks_payload_size.1 = phi i64 [ 0, %land.rhs ], [ 0, %if.end37.critedge ], [ %and, %glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit.thread83 ]
   %call38 = call i64 @qemu_opt_get_size_del(ptr noundef %opts, ptr noundef nonnull @.str.40, i64 noundef 0) #22
-  %add39 = add i64 %2, -1
+  %add39 = add nsw i64 %2, -1
   %sub40 = add i64 %add39, %call38
-  %sub41 = sub i64 0, %2
+  %sub41 = sub nsw i64 0, %2
   %and42 = and i64 %sub40, %sub41
   %div = udiv i64 %and42, %2
   %10 = select i1 %call, i64 4, i64 3
@@ -7250,7 +7250,7 @@ if.end83:                                         ; preds = %if.end78
   br i1 %cmp85, label %if.then87, label %if.end102
 
 if.then87:                                        ; preds = %if.end83
-  %conv = zext i32 %40 to i64
+  %conv = zext nneg i32 %40 to i64
   %sub90 = add nsw i64 %conv, -112
   %unknown_header_fields_size = getelementptr inbounds %struct.BDRVQcow2State, ptr %0, i64 0, i32 56
   store i64 %sub90, ptr %unknown_header_fields_size, align 8
@@ -7536,8 +7536,8 @@ if.then292:                                       ; preds = %if.end285
   br label %fail
 
 if.end293:                                        ; preds = %if.end285
-  %cmp295 = icmp sgt i32 %75, 0
-  br i1 %cmp295, label %if.then297, label %if.end328
+  %cmp295.not = icmp eq i32 %75, 0
+  br i1 %cmp295.not, label %if.end328, label %if.then297
 
 if.then297:                                       ; preds = %if.end293
   %78 = load ptr, ptr %file, align 8
@@ -11355,7 +11355,7 @@ attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #7 = { nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

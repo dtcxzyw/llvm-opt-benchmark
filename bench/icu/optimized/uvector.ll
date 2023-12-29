@@ -585,7 +585,7 @@ if.end:                                           ; preds = %if.end21.i, %if.end
   br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
 
 for.cond7.preheader:                              ; preds = %if.end
-  %cmp8.not.not14 = icmp sgt i32 %4, %newSize
+  %cmp8.not.not14 = icmp ugt i32 %4, %newSize
   br i1 %cmp8.not.not14, label %for.body9.lr.ph, label %if.end12
 
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
@@ -621,7 +621,7 @@ if.then.i.i:                                      ; preds = %for.body9
   %arrayidx.i.i = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %sub7.i.i = add nsw i32 %7, -1
-  %cmp48.i.i = icmp sgt i32 %7, %i5.0.in15
+  %cmp48.i.i = icmp ugt i32 %sub7.i.i, %i5.0
   br i1 %cmp48.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i
@@ -1090,7 +1090,7 @@ for.cond.preheader:                               ; preds = %if.then
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %6 = sext i32 %5 to i64
+  %6 = zext nneg i32 %5 to i64
   %7 = zext nneg i32 %index to i64
   br label %for.body
 
@@ -1211,7 +1211,7 @@ for.cond.preheader:                               ; preds = %if.then
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %6 = sext i32 %5 to i64
+  %6 = zext nneg i32 %5 to i64
   %7 = zext nneg i32 %index to i64
   br label %for.body
 
@@ -1749,7 +1749,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i.i = getelementptr inbounds %union.UElement, ptr %13, i64 %idxprom.i.i
   %14 = load ptr, ptr %arrayidx.i.i, align 8
   %sub7.i.i = add nsw i32 %12, -1
-  %cmp48.i.i = icmp sgt i32 %sub7.i.i, %retval.0.i
+  %cmp48.i.i = icmp ugt i32 %sub7.i.i, %retval.0.i
   br i1 %cmp48.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i
@@ -1813,7 +1813,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx.i = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %sub7.i = add nsw i32 %0, -1
-  %cmp48.i = icmp sgt i32 %sub7.i, %index
+  %cmp48.i = icmp ugt i32 %sub7.i, %index
   br i1 %cmp48.i, label %for.body.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
@@ -1941,21 +1941,22 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i.i = getelementptr inbounds %union.UElement, ptr %16, i64 %indvars.iv.next
   %17 = load ptr, ptr %arrayidx.i.i, align 8
   %sub7.i.i = add nsw i32 %14, -1
-  %cmp48.i.i = icmp slt i64 %indvars.iv, %15
+  %18 = zext i32 %sub7.i.i to i64
+  %cmp48.i.i = icmp ult i64 %indvars.iv.next, %18
   br i1 %cmp48.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ %indvars.iv.next, %if.then.i.i ]
-  %18 = load ptr, ptr %elements, align 8
+  %19 = load ptr, ptr %elements, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx7.i.i = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv.next.i.i
-  %arrayidx10.i.i = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv.i.i
-  %19 = load i64, ptr %arrayidx7.i.i, align 8
-  store i64 %19, ptr %arrayidx10.i.i, align 8
-  %20 = load i32, ptr %count.i, align 8
-  %sub.i.i = add nsw i32 %20, -1
-  %21 = trunc i64 %indvars.iv.next.i.i to i32
-  %cmp4.i.i = icmp sgt i32 %sub.i.i, %21
+  %arrayidx7.i.i = getelementptr inbounds %union.UElement, ptr %19, i64 %indvars.iv.next.i.i
+  %arrayidx10.i.i = getelementptr inbounds %union.UElement, ptr %19, i64 %indvars.iv.i.i
+  %20 = load i64, ptr %arrayidx7.i.i, align 8
+  store i64 %20, ptr %arrayidx10.i.i, align 8
+  %21 = load i32, ptr %count.i, align 8
+  %sub.i.i = add nsw i32 %21, -1
+  %22 = trunc i64 %indvars.iv.next.i.i to i32
+  %cmp4.i.i = icmp sgt i32 %sub.i.i, %22
   br i1 %cmp4.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i, !llvm.loop !8
 
 _ZN6icu_757UVector15orphanElementAtEi.exit.i:     ; preds = %for.body.i.i, %if.then.i.i
@@ -1965,12 +1966,12 @@ _ZN6icu_757UVector15orphanElementAtEi.exit.i:     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.not.i5, label %for.inc, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZN6icu_757UVector15orphanElementAtEi.exit.i
-  %22 = load ptr, ptr %deleter.i, align 8
-  %cmp2.not.i = icmp eq ptr %22, null
+  %23 = load ptr, ptr %deleter.i, align 8
+  %cmp2.not.i = icmp eq ptr %23, null
   br i1 %cmp2.not.i, label %for.inc, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void %22(ptr noundef nonnull %17)
+  tail call void %23(ptr noundef nonnull %17)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i, %land.lhs.true.i, %_ZN6icu_757UVector15orphanElementAtEi.exit.i, %land.lhs.true.i.i, %_ZNK6icu_757UVector7indexOfE8UElementia.exit
@@ -2002,7 +2003,7 @@ if.then:                                          ; preds = %land.lhs.true
   %arrayidx = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %sub7 = add nsw i32 %0, -1
-  %cmp48 = icmp sgt i32 %sub7, %index
+  %cmp48 = icmp ugt i32 %sub7, %index
   br i1 %cmp48, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.then, %for.body
@@ -2103,7 +2104,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i.i4 = getelementptr inbounds %union.UElement, ptr %9, i64 %idxprom.i.i
   %10 = load ptr, ptr %arrayidx.i.i4, align 8
   %sub7.i.i = add nsw i32 %8, -1
-  %cmp48.i.i = icmp sgt i32 %sub7.i.i, %retval.0.i.i
+  %cmp48.i.i = icmp ugt i32 %sub7.i.i, %retval.0.i.i
   br i1 %cmp48.i.i, label %for.body.i.i5, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 
 for.body.i.i5:                                    ; preds = %if.then.i.i, %for.body.i.i5

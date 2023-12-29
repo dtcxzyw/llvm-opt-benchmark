@@ -12008,7 +12008,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
   br i1 %cmp8.i.i.i.i, label %if.then9.i.i.i.i, label %if.end16.i.i.i.i
 
 if.then9.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i
-  %add10.i.i.i.i = shl i64 %__secondChild.0.lcssa.i.i.i.i, 1
+  %add10.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
   %add.ptr13.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i.i.i.i
   %6 = load i32, ptr %add.ptr13.i.i.i.i, align 4
@@ -12195,7 +12195,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i
   %5 = load i32, ptr %add.ptr13.i, align 4
@@ -12858,16 +12858,13 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
 for.inc:                                          ; preds = %for.body, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
   %inc = add nuw i64 %i.026, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !115
+  br i1 %cmp.not, label %if.then14, label %for.body, !llvm.loop !115
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not25, label %if.end19, label %if.then14
-
-if.then14:                                        ; preds = %for.end
+if.then14:                                        ; preds = %for.inc
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %if.end19
 
-if.end19:                                         ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEENS5_9StateHashENS5_10StateEqualESaIS7_EE16initialize_slotsEv.exit, %if.then14, %for.end
+if.end19:                                         ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN3re23DFA5StateEEENS5_9StateHashENS5_10StateEqualESaIS7_EE16initialize_slotsEv.exit, %if.then14
   ret void
 }
 
@@ -13317,16 +13314,13 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
 for.inc:                                          ; preds = %for.body, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
   %inc = add nuw i64 %i.026, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !117
+  br i1 %cmp.not, label %if.then14, label %for.body, !llvm.loop !117
 
-for.end:                                          ; preds = %for.inc
-  br i1 %cmp.not25, label %if.end19, label %if.then14
-
-if.then14:                                        ; preds = %for.end
+if.then14:                                        ; preds = %for.inc
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %if.end19
 
-if.end19:                                         ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE16initialize_slotsEv.exit, %if.then14, %for.end
+if.end19:                                         ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE16initialize_slotsEv.exit, %if.then14
   ret void
 }
 

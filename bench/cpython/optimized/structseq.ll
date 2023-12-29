@@ -2238,7 +2238,7 @@ if.then1.i152.i:                                  ; preds = %if.end.i149.i
   br label %structseq_new_impl.exit
 
 if.end30.i:                                       ; preds = %if.then25.i
-  %cmp31.i = icmp sgt i64 %cond.i, %call4.i93.i
+  %cmp31.i = icmp ugt i64 %cond.i, %call4.i93.i
   br i1 %cmp31.i, label %if.then32.i, label %if.end41.i
 
 if.then32.i:                                      ; preds = %if.end30.i
@@ -2291,8 +2291,8 @@ if.end41.i:                                       ; preds = %if.else.i, %if.end3
   br i1 %cmp43.i, label %if.then44.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end41.i
-  %cmp46138.i = icmp sgt i64 %cond.i, 0
-  br i1 %cmp46138.i, label %for.body.lr.ph.i, label %for.end.i
+  %cmp46138.not.i = icmp eq i64 %cond.i, 0
+  br i1 %cmp46138.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %ob_item.i = getelementptr inbounds %struct.PyListObject, ptr %call9.i, i64 0, i32 1

@@ -650,59 +650,54 @@ if.then:                                          ; preds = %entry
   %2 = load i64, ptr %cfpos, align 8
   %conv = zext nneg i32 %1 to i64
   %cmp3 = icmp slt i64 %2, %conv
-  br i1 %cmp3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.then
   %spanIndices = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 4
   %3 = load ptr, ptr %spanIndices, align 8
+  br i1 %cmp3, label %if.end, label %if.then7
+
+if.end:                                           ; preds = %if.then
   %start = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %3, i64 %2, i32 2
   %4 = load i32, ptr %start, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then4, %if.then
-  %nextSpanStart.0 = phi i32 [ %4, %if.then4 ], [ -1, %if.then ]
   %cmp6 = icmp sgt i64 %2, 0
   br i1 %cmp6, label %if.then7, label %if.end18
 
-if.then7:                                         ; preds = %if.end
+if.then7:                                         ; preds = %if.then, %if.end
+  %nextSpanStart.0192 = phi i32 [ %4, %if.end ], [ -1, %if.then ]
   %fCategory.i = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %cfpos, i64 0, i32 4
   %5 = load i32, ptr %fCategory.i, align 4
-  %spanIndices9 = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 4
-  %6 = load ptr, ptr %spanIndices9, align 8
-  %7 = getelementptr %"struct.icu_75::SpanInfo", ptr %6, i64 %2
-  %arrayidx.i89 = getelementptr %"struct.icu_75::SpanInfo", ptr %7, i64 -1
-  %8 = load i32, ptr %arrayidx.i89, align 4
-  %cmp11 = icmp eq i32 %5, %8
+  %6 = getelementptr %"struct.icu_75::SpanInfo", ptr %3, i64 %2
+  %arrayidx.i89 = getelementptr %"struct.icu_75::SpanInfo", ptr %6, i64 -1
+  %7 = load i32, ptr %arrayidx.i89, align 4
+  %cmp11 = icmp eq i32 %5, %7
   br i1 %cmp11, label %land.rhs, label %if.end18
 
 land.rhs:                                         ; preds = %if.then7
   %fField.i = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %cfpos, i64 0, i32 1
-  %9 = load i32, ptr %fField.i, align 8
-  %spanValue = getelementptr %"struct.icu_75::SpanInfo", ptr %7, i64 -1, i32 1
-  %10 = load i32, ptr %spanValue, align 4
-  %cmp16 = icmp eq i32 %9, %10
-  %11 = zext i1 %cmp16 to i8
+  %8 = load i32, ptr %fField.i, align 8
+  %spanValue = getelementptr %"struct.icu_75::SpanInfo", ptr %6, i64 -1, i32 1
+  %9 = load i32, ptr %spanValue, align 4
+  %cmp16 = icmp eq i32 %8, %9
+  %10 = zext i1 %cmp16 to i8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then7, %land.rhs, %if.end, %entry
-  %nextSpanStart.1 = phi i32 [ %nextSpanStart.0, %if.end ], [ -1, %entry ], [ %nextSpanStart.0, %land.rhs ], [ %nextSpanStart.0, %if.then7 ]
-  %prevIsSpan.0 = phi i8 [ 0, %if.end ], [ 0, %entry ], [ %11, %land.rhs ], [ 0, %if.then7 ]
+  %nextSpanStart.1 = phi i32 [ %4, %if.end ], [ -1, %entry ], [ %nextSpanStart.0192, %land.rhs ], [ %nextSpanStart.0192, %if.then7 ]
+  %prevIsSpan.0 = phi i8 [ 0, %if.end ], [ 0, %entry ], [ %10, %land.rhs ], [ 0, %if.then7 ]
   %cmp.i.not = icmp eq i8 %numericField.coerce, 0
   %fCategory.i93.phi.trans.insert = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %cfpos, i64 0, i32 4
-  %.pre303.pre = load i32, ptr %fCategory.i93.phi.trans.insert, align 4
+  %.pre307.pre = load i32, ptr %fCategory.i93.phi.trans.insert, align 4
   br i1 %cmp.i.not, label %if.end30, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %12 = lshr i8 %numericField.coerce, 4
-  %shr.i = zext nneg i8 %12 to i32
-  %cmp23 = icmp eq i32 %.pre303.pre, %shr.i
+  %11 = lshr i8 %numericField.coerce, 4
+  %shr.i = zext nneg i8 %11 to i32
+  %cmp23 = icmp eq i32 %.pre307.pre, %shr.i
   %fField.i92 = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %cfpos, i64 0, i32 1
-  %13 = load i32, ptr %fField.i92, align 8
-  %14 = and i8 %numericField.coerce, 15
-  %and.i = zext nneg i8 %14 to i32
-  %cmp27 = icmp eq i32 %13, %and.i
-  %15 = select i1 %cmp23, i1 %cmp27, i1 false
-  %frombool29 = zext i1 %15 to i8
+  %12 = load i32, ptr %fField.i92, align 8
+  %13 = and i8 %numericField.coerce, 15
+  %and.i = zext nneg i8 %13 to i32
+  %cmp27 = icmp eq i32 %12, %and.i
+  %14 = select i1 %cmp23, i1 %cmp27, i1 false
+  %frombool29 = zext i1 %14 to i8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end18, %if.then20
@@ -711,145 +706,145 @@ if.end30:                                         ; preds = %if.end18, %if.then2
   %fString = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 1
   %fZero = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 1, i32 3
   %fLimit.i = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %cfpos, i64 0, i32 3
-  %16 = load i32, ptr %fLimit.i, align 8
+  %15 = load i32, ptr %fLimit.i, align 8
   %fLength = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 1, i32 4
-  %17 = load i32, ptr %fLength, align 4
-  %cmp43.not246 = icmp sgt i32 %16, %17
-  br i1 %cmp43.not246, label %for.end304, label %for.body.lr.ph
+  %16 = load i32, ptr %fLength, align 4
+  %cmp43.not249 = icmp sgt i32 %15, %16
+  br i1 %cmp43.not249, label %for.end304, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end30
-  %18 = load i32, ptr %fZero, align 8
-  %add42245 = add nsw i32 %17, %18
-  %add = add nsw i32 %16, %18
-  %cmp32 = icmp eq i32 %.pre303.pre, 2
+  %17 = load i32, ptr %fZero, align 8
+  %add42248 = add nsw i32 %16, %17
+  %add = add nsw i32 %15, %17
+  %cmp32 = icmp eq i32 %.pre307.pre, 2
   %fField.i94 = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %cfpos, i64 0, i32 1
-  %19 = load i32, ptr %fField.i94, align 8
-  %cmp35 = icmp eq i32 %19, 0
-  %20 = select i1 %cmp32, i1 %cmp35, i1 false
-  %frombool37 = zext i1 %20 to i8
+  %18 = load i32, ptr %fField.i94, align 8
+  %cmp35 = icmp eq i32 %18, 0
+  %19 = select i1 %cmp32, i1 %cmp35, i1 false
+  %frombool37 = zext i1 %19 to i8
   %fFields.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 1, i32 2
   %fChars.i.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 1, i32 1
   %spanIndices88 = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %this, i64 0, i32 4
-  %21 = lshr i8 %numericField.coerce, 4
-  %shr.i132 = zext nneg i8 %21 to i32
-  %22 = and i8 %numericField.coerce, 15
-  %and.i133 = zext nneg i8 %22 to i32
+  %20 = lshr i8 %numericField.coerce, 4
+  %shr.i132 = zext nneg i8 %20 to i32
+  %21 = and i8 %numericField.coerce, 15
+  %and.i133 = zext nneg i8 %21 to i32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc303
-  %add42254 = phi i32 [ %add42245, %for.body.lr.ph ], [ %add42, %for.inc303 ]
-  %23 = phi i32 [ %18, %for.body.lr.ph ], [ %92, %for.inc303 ]
-  %fieldStart.0253 = phi i32 [ -1, %for.body.lr.ph ], [ %fieldStart.2, %for.inc303 ]
-  %prevIsSpan.1252 = phi i8 [ %prevIsSpan.0, %for.body.lr.ph ], [ %prevIsSpan.3, %for.inc303 ]
-  %nextSpanStart.2251 = phi i32 [ %nextSpanStart.1, %for.body.lr.ph ], [ %nextSpanStart.5, %for.inc303 ]
-  %prevIsNumeric.1250 = phi i8 [ %prevIsNumeric.0, %for.body.lr.ph ], [ %prevIsNumeric.2, %for.inc303 ]
-  %prevIsInteger.0249 = phi i8 [ %frombool37, %for.body.lr.ph ], [ %prevIsInteger.1, %for.inc303 ]
-  %i.0248 = phi i32 [ %add, %for.body.lr.ph ], [ %inc, %for.inc303 ]
-  %currField.sroa.0.0247 = phi i8 [ 0, %for.body.lr.ph ], [ %currField.sroa.0.1, %for.inc303 ]
-  %cmp49 = icmp slt i32 %i.0248, %add42254
+  %add42257 = phi i32 [ %add42248, %for.body.lr.ph ], [ %add42, %for.inc303 ]
+  %22 = phi i32 [ %17, %for.body.lr.ph ], [ %91, %for.inc303 ]
+  %fieldStart.0256 = phi i32 [ -1, %for.body.lr.ph ], [ %fieldStart.2, %for.inc303 ]
+  %prevIsSpan.1255 = phi i8 [ %prevIsSpan.0, %for.body.lr.ph ], [ %prevIsSpan.3, %for.inc303 ]
+  %nextSpanStart.2254 = phi i32 [ %nextSpanStart.1, %for.body.lr.ph ], [ %nextSpanStart.5, %for.inc303 ]
+  %prevIsNumeric.1253 = phi i8 [ %prevIsNumeric.0, %for.body.lr.ph ], [ %prevIsNumeric.2, %for.inc303 ]
+  %prevIsInteger.0252 = phi i8 [ %frombool37, %for.body.lr.ph ], [ %prevIsInteger.1, %for.inc303 ]
+  %i.0251 = phi i32 [ %add, %for.body.lr.ph ], [ %inc, %for.inc303 ]
+  %currField.sroa.0.0250 = phi i8 [ 0, %for.body.lr.ph ], [ %currField.sroa.0.1, %for.inc303 ]
+  %cmp49 = icmp slt i32 %i.0251, %add42257
   br i1 %cmp49, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body
-  %24 = load i8, ptr %fString, align 8
-  %25 = and i8 %24, 1
-  %tobool.not.i = icmp eq i8 %25, 0
-  %26 = load ptr, ptr %fFields.i, align 8
-  %cond.i = select i1 %tobool.not.i, ptr %fFields.i, ptr %26
-  %idxprom = sext i32 %i.0248 to i64
+  %23 = load i8, ptr %fString, align 8
+  %24 = and i8 %23, 1
+  %tobool.not.i = icmp eq i8 %24, 0
+  %25 = load ptr, ptr %fFields.i, align 8
+  %cond.i = select i1 %tobool.not.i, ptr %fFields.i, ptr %25
+  %idxprom = sext i32 %i.0251 to i64
   %arrayidx = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i, i64 %idxprom
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
   %cond-lvalue = phi ptr [ %arrayidx, %cond.true ], [ @_ZN6icu_75L9kEndFieldE, %for.body ]
-  %27 = load i8, ptr %cond-lvalue, align 1
-  %cmp.i95.not = icmp eq i8 %currField.sroa.0.0247, 0
+  %26 = load i8, ptr %cond-lvalue, align 1
+  %cmp.i95.not = icmp eq i8 %currField.sroa.0.0250, 0
   br i1 %cmp.i95.not, label %if.end80, label %if.then53
 
 if.then53:                                        ; preds = %cond.end
-  %cmp.i96.not = icmp eq i8 %currField.sroa.0.0247, %27
+  %cmp.i96.not = icmp eq i8 %currField.sroa.0.0250, %26
   br i1 %cmp.i96.not, label %for.inc303, label %if.then55
 
 if.then55:                                        ; preds = %if.then53
-  %sub58 = sub nsw i32 %i.0248, %23
-  %cmp.i.i = icmp ne i8 %currField.sroa.0.0247, 38
-  %.mask.i = and i8 %currField.sroa.0.0247, -16
+  %sub58 = sub nsw i32 %i.0251, %22
+  %cmp.i.i = icmp ne i8 %currField.sroa.0.0250, 38
+  %.mask.i = and i8 %currField.sroa.0.0250, -16
   %cmp.i97 = icmp ne i8 %.mask.i, 48
-  %28 = and i1 %cmp.i.i, %cmp.i97
-  br i1 %28, label %if.end66, label %if.end66.thread
+  %27 = and i1 %cmp.i.i, %cmp.i97
+  br i1 %27, label %if.end66, label %if.end66.thread
 
 if.end66:                                         ; preds = %if.then55
   %call.i = tail call noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef 1)
-  %29 = load i8, ptr %fString, align 8
-  %30 = and i8 %29, 1
-  %tobool.not.i.i = icmp eq i8 %30, 0
-  %31 = load ptr, ptr %fChars.i.i, align 8
-  %cond.i.i = select i1 %tobool.not.i.i, ptr %fChars.i.i, ptr %31
-  %32 = load i32, ptr %fZero, align 8
-  %idx.ext.i = sext i32 %32 to i64
+  %28 = load i8, ptr %fString, align 8
+  %29 = and i8 %28, 1
+  %tobool.not.i.i = icmp eq i8 %29, 0
+  %30 = load ptr, ptr %fChars.i.i, align 8
+  %cond.i.i = select i1 %tobool.not.i.i, ptr %fChars.i.i, ptr %30
+  %31 = load i32, ptr %fZero, align 8
+  %idx.ext.i = sext i32 %31 to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %cond.i.i, i64 %idx.ext.i
   %call4.i = tail call noundef i32 @_ZNK6icu_7510UnicodeSet8spanBackEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef %add.ptr.i, i32 noundef %sub58, i32 noundef 1)
-  %cmp67.not = icmp sgt i32 %call4.i, %fieldStart.0253
+  %cmp67.not = icmp sgt i32 %call4.i, %fieldStart.0256
   br i1 %cmp67.not, label %if.then74, label %if.then68
 
 if.end66.thread:                                  ; preds = %if.then55
-  %cmp67.not191 = icmp sgt i32 %sub58, %fieldStart.0253
-  br i1 %cmp67.not191, label %if.end76, label %if.then68
+  %cmp67.not194 = icmp sgt i32 %sub58, %fieldStart.0256
+  br i1 %cmp67.not194, label %if.end76, label %if.then68
 
 if.then68:                                        ; preds = %if.end66.thread, %if.end66
-  %dec = add nsw i32 %i.0248, -1
+  %dec = add nsw i32 %i.0251, -1
   br label %for.inc303
 
 if.then74:                                        ; preds = %if.end66
   %call.i101 = tail call noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef 1)
-  %33 = load i8, ptr %fString, align 8
-  %34 = and i8 %33, 1
-  %tobool.not.i.i103 = icmp eq i8 %34, 0
-  %35 = load ptr, ptr %fChars.i.i, align 8
-  %cond.i.i105 = select i1 %tobool.not.i.i103, ptr %fChars.i.i, ptr %35
-  %36 = load i32, ptr %fZero, align 8
-  %idx.ext.i107 = sext i32 %36 to i64
+  %32 = load i8, ptr %fString, align 8
+  %33 = and i8 %32, 1
+  %tobool.not.i.i103 = icmp eq i8 %33, 0
+  %34 = load ptr, ptr %fChars.i.i, align 8
+  %cond.i.i105 = select i1 %tobool.not.i.i103, ptr %fChars.i.i, ptr %34
+  %35 = load i32, ptr %fZero, align 8
+  %idx.ext.i107 = sext i32 %35 to i64
   %add.ptr.i108 = getelementptr inbounds i16, ptr %cond.i.i105, i64 %idx.ext.i107
-  %idx.ext4.i = sext i32 %fieldStart.0253 to i64
+  %idx.ext4.i = sext i32 %fieldStart.0256 to i64
   %add.ptr5.i = getelementptr inbounds i16, ptr %add.ptr.i108, i64 %idx.ext4.i
-  %37 = load i32, ptr %fLength, align 4
-  %sub.i = sub nsw i32 %37, %fieldStart.0253
+  %36 = load i32, ptr %fLength, align 4
+  %sub.i = sub nsw i32 %36, %fieldStart.0256
   %call7.i = tail call noundef i32 @_ZNK6icu_7510UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %call.i101, ptr noundef %add.ptr5.i, i32 noundef %sub.i, i32 noundef 1)
-  %add.i = add nsw i32 %call7.i, %fieldStart.0253
+  %add.i = add nsw i32 %call7.i, %fieldStart.0256
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end66.thread, %if.then74
-  %end.0192194 = phi i32 [ %call4.i, %if.then74 ], [ %sub58, %if.end66.thread ]
-  %start70.0 = phi i32 [ %add.i, %if.then74 ], [ %fieldStart.0253, %if.end66.thread ]
-  %38 = lshr i8 %currField.sroa.0.0247, 4
-  %shr.i109 = zext nneg i8 %38 to i32
-  %39 = and i8 %currField.sroa.0.0247, 15
-  %and.i110 = zext nneg i8 %39 to i32
-  tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %shr.i109, i32 noundef %and.i110, i32 noundef %start70.0, i32 noundef %end.0192194)
+  %end.0195197 = phi i32 [ %call4.i, %if.then74 ], [ %sub58, %if.end66.thread ]
+  %start70.0 = phi i32 [ %add.i, %if.then74 ], [ %fieldStart.0256, %if.end66.thread ]
+  %37 = lshr i8 %currField.sroa.0.0250, 4
+  %shr.i109 = zext nneg i8 %37 to i32
+  %38 = and i8 %currField.sroa.0.0250, 15
+  %and.i110 = zext nneg i8 %38 to i32
+  tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %shr.i109, i32 noundef %and.i110, i32 noundef %start70.0, i32 noundef %end.0195197)
   br label %return
 
 if.end80:                                         ; preds = %cond.end
-  %cmp83 = icmp sle i32 %i.0248, %23
-  %40 = and i8 %prevIsSpan.1252, 1
-  %tobool.not = icmp eq i8 %40, 0
+  %cmp83 = icmp sle i32 %i.0251, %22
+  %39 = and i8 %prevIsSpan.1255, 1
+  %tobool.not = icmp eq i8 %39, 0
   %or.cond = select i1 %cmp83, i1 true, i1 %tobool.not
   br i1 %or.cond, label %if.end115, label %if.then84
 
 if.then84:                                        ; preds = %if.end80
-  %41 = load i64, ptr %cfpos, align 8
-  %sub87 = add nsw i64 %41, -1
-  %42 = load ptr, ptr %spanIndices88, align 8
-  %length = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %42, i64 %sub87, i32 3
-  %43 = load i32, ptr %length, align 4
-  %sub90 = sub nsw i32 %i.0248, %43
-  %44 = load i8, ptr %fString, align 8
-  %45 = and i8 %44, 1
-  %tobool.not.i112 = icmp eq i8 %45, 0
-  %46 = load ptr, ptr %fFields.i, align 8
-  %cond.i114 = select i1 %tobool.not.i112, ptr %fFields.i, ptr %46
+  %40 = load i64, ptr %cfpos, align 8
+  %sub87 = add nsw i64 %40, -1
+  %41 = load ptr, ptr %spanIndices88, align 8
+  %length = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %41, i64 %sub87, i32 3
+  %42 = load i32, ptr %length, align 4
+  %sub90 = sub nsw i32 %i.0251, %42
+  %43 = load i8, ptr %fString, align 8
+  %44 = and i8 %43, 1
+  %tobool.not.i112 = icmp eq i8 %44, 0
+  %45 = load ptr, ptr %fFields.i, align 8
+  %cond.i114 = select i1 %tobool.not.i112, ptr %fFields.i, ptr %45
   %idxprom93 = sext i32 %sub90 to i64
   %arrayidx94 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i114, i64 %idxprom93
-  %47 = load i8, ptr %arrayidx94, align 1
-  %cmp.i115 = icmp eq i8 %47, 49
+  %46 = load i8, ptr %arrayidx94, align 1
+  %cmp.i115 = icmp eq i8 %46, 49
   br i1 %cmp.i115, label %if.then96, label %if.end115
 
 if.then96:                                        ; preds = %if.then84
@@ -858,43 +853,43 @@ if.then96:                                        ; preds = %if.then84
   br i1 %tobool98.not, label %if.end115, label %if.then99
 
 if.then99:                                        ; preds = %if.then96
-  %48 = load i32, ptr %fZero, align 8
-  %49 = load ptr, ptr %spanIndices88, align 8
-  %length105 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %49, i64 %sub87, i32 3
-  %50 = load i32, ptr %length105, align 4
-  %51 = add i32 %48, %50
-  %sub106 = sub i32 %i.0248, %51
-  %add111 = add nsw i32 %sub106, %50
+  %47 = load i32, ptr %fZero, align 8
+  %48 = load ptr, ptr %spanIndices88, align 8
+  %length105 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %48, i64 %sub87, i32 3
+  %49 = load i32, ptr %length105, align 4
+  %50 = add i32 %47, %49
+  %sub106 = sub i32 %i.0251, %50
+  %add111 = add nsw i32 %sub106, %49
   tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef 3, i32 noundef 1, i32 noundef %sub106, i32 noundef %add111)
   br label %return
 
 if.end115:                                        ; preds = %if.then84, %if.then96, %if.end80
-  %_field.sroa.0.0 = phi i8 [ %27, %if.end80 ], [ %27, %if.then96 ], [ %47, %if.then84 ]
-  %i.1 = phi i32 [ %i.0248, %if.end80 ], [ %i.0248, %if.then96 ], [ %sub90, %if.then84 ]
-  %prevIsSpan.2 = phi i8 [ %prevIsSpan.1252, %if.end80 ], [ 0, %if.then96 ], [ %prevIsSpan.1252, %if.then84 ]
+  %_field.sroa.0.0 = phi i8 [ %26, %if.end80 ], [ %26, %if.then96 ], [ %46, %if.then84 ]
+  %i.1 = phi i32 [ %i.0251, %if.end80 ], [ %i.0251, %if.then96 ], [ %sub90, %if.then84 ]
+  %prevIsSpan.2 = phi i8 [ %prevIsSpan.1255, %if.end80 ], [ 0, %if.then96 ], [ %prevIsSpan.1255, %if.then84 ]
   %_field.sroa.0.0.fr = freeze i8 %_field.sroa.0.0
   %call116 = tail call noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef 2, i32 noundef 0)
   %tobool117.not = icmp ne i8 %call116, 0
-  %52 = load i32, ptr %fZero, align 8
-  %cmp121 = icmp sgt i32 %i.1, %52
+  %51 = load i32, ptr %fZero, align 8
+  %cmp121 = icmp sgt i32 %i.1, %51
   %or.cond84 = select i1 %tobool117.not, i1 %cmp121, i1 false
-  %53 = and i8 %prevIsInteger.0249, 1
-  %tobool123.not = icmp eq i8 %53, 0
+  %52 = and i8 %prevIsInteger.0252, 1
+  %tobool123.not = icmp eq i8 %52, 0
   %or.cond85 = select i1 %or.cond84, i1 %tobool123.not, i1 false
-  %54 = and i8 %prevIsNumeric.1250, 1
-  %tobool125.not = icmp eq i8 %54, 0
+  %53 = and i8 %prevIsNumeric.1253, 1
+  %tobool125.not = icmp eq i8 %53, 0
   %or.cond86 = select i1 %or.cond85, i1 %tobool125.not, i1 false
   br i1 %or.cond86, label %land.lhs.true126, label %if.end163
 
 land.lhs.true126:                                 ; preds = %if.end115
-  %55 = load i8, ptr %fString, align 8
-  %56 = and i8 %55, 1
-  %tobool.not.i118 = icmp eq i8 %56, 0
-  %57 = load ptr, ptr %fFields.i, align 8
-  %cond.i120 = select i1 %tobool.not.i118, ptr %fFields.i, ptr %57
-  %58 = sext i32 %i.1 to i64
-  %59 = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i120, i64 %58
-  %arrayidx132 = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %59, i64 -1
+  %54 = load i8, ptr %fString, align 8
+  %55 = and i8 %54, 1
+  %tobool.not.i118 = icmp eq i8 %55, 0
+  %56 = load ptr, ptr %fFields.i, align 8
+  %cond.i120 = select i1 %tobool.not.i118, ptr %fFields.i, ptr %56
+  %57 = sext i32 %i.1 to i64
+  %58 = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i120, i64 %57
+  %arrayidx132 = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %58, i64 -1
   %agg.tmp127.sroa.0.0.copyload = load i8, ptr %arrayidx132, align 1
   switch i8 %agg.tmp127.sroa.0.0.copyload, label %if.end163 [
     i8 38, label %land.lhs.true135
@@ -908,34 +903,34 @@ land.lhs.true135:                                 ; preds = %land.lhs.true126, %
   ]
 
 land.rhs145.preheader:                            ; preds = %land.lhs.true135
-  %60 = sext i32 %i.1 to i64
-  %61 = sext i32 %52 to i64
-  %62 = add i32 %52, -1
+  %59 = sext i32 %i.1 to i64
+  %60 = sext i32 %51 to i64
+  %61 = add i32 %51, -1
   br label %land.rhs145
 
 land.rhs145:                                      ; preds = %land.rhs145.preheader, %for.inc
-  %indvars.iv.in = phi i64 [ %60, %land.rhs145.preheader ], [ %indvars.iv, %for.inc ]
+  %indvars.iv.in = phi i64 [ %59, %land.rhs145.preheader ], [ %indvars.iv, %for.inc ]
   %indvars.iv = add nsw i64 %indvars.iv.in, -1
   %arrayidx150 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i120, i64 %indvars.iv
   %agg.tmp146.sroa.0.0.copyload = load i8, ptr %arrayidx150, align 1
-  switch i8 %agg.tmp146.sroa.0.0.copyload, label %for.end.split.loop.exit349 [
+  switch i8 %agg.tmp146.sroa.0.0.copyload, label %for.end.split.loop.exit353 [
     i8 38, label %for.inc
     i8 32, label %for.inc
   ]
 
 for.inc:                                          ; preds = %land.rhs145, %land.rhs145
-  %cmp144.not.not = icmp sgt i64 %indvars.iv, %61
+  %cmp144.not.not = icmp sgt i64 %indvars.iv, %60
   br i1 %cmp144.not.not, label %land.rhs145, label %for.end, !llvm.loop !4
 
-for.end.split.loop.exit349:                       ; preds = %land.rhs145
-  %63 = trunc i64 %indvars.iv to i32
+for.end.split.loop.exit353:                       ; preds = %land.rhs145
+  %62 = trunc i64 %indvars.iv to i32
   br label %for.end
 
-for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit349
-  %j.0.lcssa.ph = phi i32 [ %63, %for.end.split.loop.exit349 ], [ %62, %for.inc ]
-  %reass.sub = sub i32 %j.0.lcssa.ph, %52
+for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit353
+  %j.0.lcssa.ph = phi i32 [ %62, %for.end.split.loop.exit353 ], [ %61, %for.inc ]
+  %reass.sub = sub i32 %j.0.lcssa.ph, %51
   %add159 = add i32 %reass.sub, 1
-  %sub162 = sub nsw i32 %i.1, %52
+  %sub162 = sub nsw i32 %i.1, %51
   tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef 2, i32 noundef 0, i32 noundef %add159, i32 noundef %sub162)
   br label %return
 
@@ -945,25 +940,25 @@ if.end163:                                        ; preds = %land.lhs.true135, %
 land.lhs.true165:                                 ; preds = %if.end163
   %call168 = tail call noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %shr.i132, i32 noundef %and.i133)
   %tobool169.not = icmp ne i8 %call168, 0
-  %64 = load i32, ptr %fZero, align 8
-  %cmp173 = icmp sgt i32 %i.1, %64
+  %63 = load i32, ptr %fZero, align 8
+  %cmp173 = icmp sgt i32 %i.1, %63
   %or.cond87 = select i1 %tobool169.not, i1 %cmp173, i1 false
   %or.cond88 = select i1 %or.cond87, i1 %tobool125.not, i1 false
   br i1 %or.cond88, label %land.lhs.true176, label %if.end212
 
 land.lhs.true176:                                 ; preds = %land.lhs.true165
-  %65 = load i8, ptr %fString, align 8
-  %66 = and i8 %65, 1
-  %tobool.not.i134 = icmp eq i8 %66, 0
-  %67 = load ptr, ptr %fFields.i, align 8
-  %cond.i136 = select i1 %tobool.not.i134, ptr %fFields.i, ptr %67
-  %68 = sext i32 %i.1 to i64
-  %69 = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i136, i64 %68
-  %arrayidx181 = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %69, i64 -1
-  %70 = load i8, ptr %arrayidx181, align 1
-  %.mask.i137 = and i8 %70, -16
+  %64 = load i8, ptr %fString, align 8
+  %65 = and i8 %64, 1
+  %tobool.not.i134 = icmp eq i8 %65, 0
+  %66 = load ptr, ptr %fFields.i, align 8
+  %cond.i136 = select i1 %tobool.not.i134, ptr %fFields.i, ptr %66
+  %67 = sext i32 %i.1 to i64
+  %68 = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i136, i64 %67
+  %arrayidx181 = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %68, i64 -1
+  %69 = load i8, ptr %arrayidx181, align 1
+  %.mask.i137 = and i8 %69, -16
   %cmp.i138 = icmp eq i8 %.mask.i137, 32
-  %cmp.i.i139 = icmp eq i8 %70, 1
+  %cmp.i.i139 = icmp eq i8 %69, 1
   %spec.select.i140 = or i1 %cmp.i.i139, %cmp.i138
   br i1 %spec.select.i140, label %land.lhs.true183, label %if.end212
 
@@ -975,86 +970,86 @@ land.lhs.true183:                                 ; preds = %land.lhs.true176
   br i1 %spec.select.i144, label %if.end212, label %land.rhs192.preheader
 
 land.rhs192.preheader:                            ; preds = %land.lhs.true183
-  %71 = sext i32 %i.1 to i64
-  %72 = sext i32 %64 to i64
-  %73 = add i32 %64, -1
+  %70 = sext i32 %i.1 to i64
+  %71 = sext i32 %63 to i64
+  %72 = add i32 %63, -1
   br label %land.rhs192
 
 land.rhs192:                                      ; preds = %land.rhs192.preheader, %for.inc200
-  %indvars.iv300.in = phi i64 [ %71, %land.rhs192.preheader ], [ %indvars.iv300, %for.inc200 ]
-  %indvars.iv300 = add nsw i64 %indvars.iv300.in, -1
-  %arrayidx196 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i136, i64 %indvars.iv300
-  %74 = load i8, ptr %arrayidx196, align 1
-  %.mask.i148 = and i8 %74, -16
+  %indvars.iv303.in = phi i64 [ %70, %land.rhs192.preheader ], [ %indvars.iv303, %for.inc200 ]
+  %indvars.iv303 = add nsw i64 %indvars.iv303.in, -1
+  %arrayidx196 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i136, i64 %indvars.iv303
+  %73 = load i8, ptr %arrayidx196, align 1
+  %.mask.i148 = and i8 %73, -16
   %cmp.i149 = icmp eq i8 %.mask.i148, 32
-  %cmp.i.i150 = icmp eq i8 %74, 1
+  %cmp.i.i150 = icmp eq i8 %73, 1
   %spec.select.i151 = or i1 %cmp.i.i150, %cmp.i149
   br i1 %spec.select.i151, label %for.inc200, label %for.end202.split.loop.exit
 
 for.inc200:                                       ; preds = %land.rhs192
-  %cmp191.not.not = icmp sgt i64 %indvars.iv300, %72
+  %cmp191.not.not = icmp sgt i64 %indvars.iv303, %71
   br i1 %cmp191.not.not, label %land.rhs192, label %for.end202, !llvm.loop !6
 
 for.end202.split.loop.exit:                       ; preds = %land.rhs192
-  %75 = trunc i64 %indvars.iv300 to i32
+  %74 = trunc i64 %indvars.iv303 to i32
   br label %for.end202
 
 for.end202:                                       ; preds = %for.inc200, %for.end202.split.loop.exit
-  %j186.0.lcssa.ph = phi i32 [ %75, %for.end202.split.loop.exit ], [ %73, %for.inc200 ]
-  %reass.sub262 = sub i32 %j186.0.lcssa.ph, %64
-  %add208 = add i32 %reass.sub262, 1
-  %sub211 = sub nsw i32 %i.1, %64
+  %j186.0.lcssa.ph = phi i32 [ %74, %for.end202.split.loop.exit ], [ %72, %for.inc200 ]
+  %reass.sub265 = sub i32 %j186.0.lcssa.ph, %63
+  %add208 = add i32 %reass.sub265, 1
+  %sub211 = sub nsw i32 %i.1, %63
   tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %shr.i132, i32 noundef %and.i133, i32 noundef %add208, i32 noundef %sub211)
   br label %return
 
 if.end212:                                        ; preds = %land.lhs.true183, %land.lhs.true176, %land.lhs.true165, %if.end163
-  %76 = phi i32 [ %64, %land.lhs.true183 ], [ %64, %land.lhs.true176 ], [ %64, %land.lhs.true165 ], [ %52, %if.end163 ]
-  %77 = and i8 %prevIsSpan.2, 1
-  %tobool213.not = icmp eq i8 %77, 0
+  %75 = phi i32 [ %63, %land.lhs.true183 ], [ %63, %land.lhs.true176 ], [ %63, %land.lhs.true165 ], [ %51, %if.end163 ]
+  %76 = and i8 %prevIsSpan.2, 1
+  %tobool213.not = icmp eq i8 %76, 0
   br i1 %tobool213.not, label %land.rhs214, label %if.else282
 
 land.rhs214:                                      ; preds = %if.end212
   %cmp.i154 = icmp eq i8 %_field.sroa.0.0.fr, 49
-  %sub219 = sub nsw i32 %i.1, %76
-  %cmp220 = icmp eq i32 %sub219, %nextSpanStart.2251
-  %or.cond353 = select i1 %cmp.i154, i1 true, i1 %cmp220
-  br i1 %or.cond353, label %if.then222, label %if.else282
+  %sub219 = sub nsw i32 %i.1, %75
+  %cmp220 = icmp eq i32 %sub219, %nextSpanStart.2254
+  %or.cond357 = select i1 %cmp.i154, i1 true, i1 %cmp220
+  br i1 %or.cond357, label %if.then222, label %if.else282
 
 if.then222:                                       ; preds = %land.rhs214
-  %78 = load i64, ptr %cfpos, align 8
-  %79 = load i32, ptr %spanIndicesCount, align 8
-  %conv226 = sext i32 %79 to i64
-  %cmp227.not = icmp slt i64 %78, %conv226
+  %77 = load i64, ptr %cfpos, align 8
+  %78 = load i32, ptr %spanIndicesCount, align 8
+  %conv226 = sext i32 %78 to i64
+  %cmp227.not = icmp slt i64 %77, %conv226
   br i1 %cmp227.not, label %if.end229, label %if.then222.for.end304.loopexit_crit_edge
 
 if.then222.for.end304.loopexit_crit_edge:         ; preds = %if.then222
-  %.pre304.pre = load i32, ptr %fLength, align 4
+  %.pre308.pre = load i32, ptr %fLength, align 4
   br label %for.end304.loopexit
 
 if.end229:                                        ; preds = %if.then222
-  %80 = load ptr, ptr %spanIndices88, align 8
-  %arrayidx.i155 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %80, i64 %78
-  %81 = load i32, ptr %arrayidx.i155, align 4
-  %spanValue236 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %80, i64 %78, i32 1
-  %82 = load i32, ptr %spanValue236, align 4
-  %length240 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %80, i64 %78, i32 3
-  %83 = load i32, ptr %length240, align 4
-  %add241 = add nsw i64 %78, 1
+  %79 = load ptr, ptr %spanIndices88, align 8
+  %arrayidx.i155 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %79, i64 %77
+  %80 = load i32, ptr %arrayidx.i155, align 4
+  %spanValue236 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %79, i64 %77, i32 1
+  %81 = load i32, ptr %spanValue236, align 4
+  %length240 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %79, i64 %77, i32 3
+  %82 = load i32, ptr %length240, align 4
+  %add241 = add nsw i64 %77, 1
   tail call void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i64 noundef %add241)
-  %84 = load i32, ptr %spanIndicesCount, align 8
-  %conv244 = sext i32 %84 to i64
+  %83 = load i32, ptr %spanIndicesCount, align 8
+  %conv244 = sext i32 %83 to i64
   %cmp245 = icmp slt i64 %add241, %conv244
   br i1 %cmp245, label %if.then246, label %if.end251
 
 if.then246:                                       ; preds = %if.end229
-  %85 = load ptr, ptr %spanIndices88, align 8
-  %start250 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %85, i64 %add241, i32 2
-  %86 = load i32, ptr %start250, align 4
+  %84 = load ptr, ptr %spanIndices88, align 8
+  %start250 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %84, i64 %add241, i32 2
+  %85 = load i32, ptr %start250, align 4
   br label %if.end251
 
 if.end251:                                        ; preds = %if.then246, %if.end229
-  %nextSpanStart.3 = phi i32 [ %86, %if.then246 ], [ %nextSpanStart.2251, %if.end229 ]
-  %cmp252 = icmp eq i32 %83, 0
+  %nextSpanStart.3 = phi i32 [ %85, %if.then246 ], [ %nextSpanStart.2254, %if.end229 ]
+  %cmp252 = icmp eq i32 %82, 0
   br i1 %cmp252, label %if.then253, label %if.end255
 
 if.then253:                                       ; preds = %if.end251
@@ -1062,15 +1057,15 @@ if.then253:                                       ; preds = %if.end251
   br label %for.inc303
 
 if.end255:                                        ; preds = %if.end251
-  %call256 = tail call noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %81, i32 noundef %82)
+  %call256 = tail call noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %80, i32 noundef %81)
   %tobool257.not = icmp eq i8 %call256, 0
   br i1 %tobool257.not, label %if.else264, label %if.then258
 
 if.then258:                                       ; preds = %if.end255
-  %87 = load i32, ptr %fZero, align 8
-  %sub261 = sub nsw i32 %i.1, %87
-  %add263 = add nsw i32 %sub261, %83
-  tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %81, i32 noundef %82, i32 noundef %sub261, i32 noundef %add263)
+  %86 = load i32, ptr %fZero, align 8
+  %sub261 = sub nsw i32 %i.1, %86
+  %add263 = add nsw i32 %sub261, %82
+  tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %80, i32 noundef %81, i32 noundef %sub261, i32 noundef %add263)
   br label %return
 
 if.else264:                                       ; preds = %if.end255
@@ -1082,15 +1077,15 @@ if.then267:                                       ; preds = %if.else264
   br i1 %tobool269.not, label %if.else276, label %if.then270
 
 if.then270:                                       ; preds = %if.then267
-  %88 = load i32, ptr %fZero, align 8
-  %sub273 = sub nsw i32 %i.1, %88
-  %add275 = add nsw i32 %sub273, %83
+  %87 = load i32, ptr %fZero, align 8
+  %sub273 = sub nsw i32 %i.1, %87
+  %add275 = add nsw i32 %sub273, %82
   tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef 3, i32 noundef 1, i32 noundef %sub273, i32 noundef %add275)
   br label %return
 
 if.else276:                                       ; preds = %if.then267
   %sub277 = add i32 %i.1, -1
-  %add278 = add i32 %sub277, %83
+  %add278 = add i32 %sub277, %82
   br label %for.inc303
 
 if.else282:                                       ; preds = %land.rhs214, %if.end212
@@ -1104,45 +1099,45 @@ switch.early.test:                                ; preds = %if.else282
   ]
 
 if.else290:                                       ; preds = %switch.early.test
-  %89 = lshr i8 %_field.sroa.0.0.fr, 4
-  %shr.i163 = zext nneg i8 %89 to i32
-  %90 = and i8 %_field.sroa.0.0.fr, 15
-  %and.i164 = zext nneg i8 %90 to i32
+  %88 = lshr i8 %_field.sroa.0.0.fr, 4
+  %shr.i163 = zext nneg i8 %88 to i32
+  %89 = and i8 %_field.sroa.0.0.fr, 15
+  %and.i164 = zext nneg i8 %89 to i32
   %call293 = tail call noundef signext i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %shr.i163, i32 noundef %and.i164)
   %tobool294.not = icmp eq i8 %call293, 0
   br i1 %tobool294.not, label %for.inc303, label %if.then295
 
 if.then295:                                       ; preds = %if.else290
-  %91 = load i32, ptr %fZero, align 8
-  %sub298 = sub nsw i32 %i.1, %91
+  %90 = load i32, ptr %fZero, align 8
+  %sub298 = sub nsw i32 %i.1, %90
   br label %for.inc303
 
 for.inc303:                                       ; preds = %switch.early.test, %switch.early.test, %if.else282, %if.else264, %if.else276, %if.then295, %if.else290, %if.then53, %if.then253, %if.then68
-  %currField.sroa.0.1 = phi i8 [ 0, %if.then68 ], [ %currField.sroa.0.0247, %if.then53 ], [ 0, %if.then253 ], [ 0, %if.else276 ], [ 0, %if.else264 ], [ 0, %if.else290 ], [ %_field.sroa.0.0.fr, %if.then295 ], [ 0, %switch.early.test ], [ 0, %if.else282 ], [ 0, %switch.early.test ]
-  %i.3 = phi i32 [ %dec, %if.then68 ], [ %i.0248, %if.then53 ], [ %dec254, %if.then253 ], [ %add278, %if.else276 ], [ %i.1, %if.else264 ], [ %i.1, %if.else290 ], [ %i.1, %if.then295 ], [ %i.1, %switch.early.test ], [ %i.1, %if.else282 ], [ %i.1, %switch.early.test ]
-  %prevIsInteger.1 = phi i8 [ %prevIsInteger.0249, %if.then68 ], [ %prevIsInteger.0249, %if.then53 ], [ %prevIsInteger.0249, %if.then253 ], [ 0, %if.else276 ], [ 0, %if.else264 ], [ 0, %if.else290 ], [ 0, %if.then295 ], [ 0, %switch.early.test ], [ 0, %if.else282 ], [ 0, %switch.early.test ]
-  %prevIsNumeric.2 = phi i8 [ %prevIsNumeric.1250, %if.then68 ], [ %prevIsNumeric.1250, %if.then53 ], [ %prevIsNumeric.1250, %if.then253 ], [ 0, %if.else276 ], [ 0, %if.else264 ], [ 0, %if.else290 ], [ 0, %if.then295 ], [ 0, %switch.early.test ], [ 0, %if.else282 ], [ 0, %switch.early.test ]
-  %nextSpanStart.5 = phi i32 [ %nextSpanStart.2251, %if.then68 ], [ %nextSpanStart.2251, %if.then53 ], [ %nextSpanStart.3, %if.then253 ], [ %nextSpanStart.3, %if.else276 ], [ %nextSpanStart.3, %if.else264 ], [ %nextSpanStart.2251, %if.else290 ], [ %nextSpanStart.2251, %if.then295 ], [ %nextSpanStart.2251, %switch.early.test ], [ %nextSpanStart.2251, %if.else282 ], [ %nextSpanStart.2251, %switch.early.test ]
-  %prevIsSpan.3 = phi i8 [ %prevIsSpan.1252, %if.then68 ], [ %prevIsSpan.1252, %if.then53 ], [ %prevIsSpan.2, %if.then253 ], [ 0, %if.else276 ], [ 0, %if.else264 ], [ 0, %if.else290 ], [ 0, %if.then295 ], [ 0, %switch.early.test ], [ 0, %if.else282 ], [ 0, %switch.early.test ]
-  %fieldStart.2 = phi i32 [ -1, %if.then68 ], [ %fieldStart.0253, %if.then53 ], [ %fieldStart.0253, %if.then253 ], [ %fieldStart.0253, %if.else276 ], [ %fieldStart.0253, %if.else264 ], [ %fieldStart.0253, %if.else290 ], [ %sub298, %if.then295 ], [ %fieldStart.0253, %switch.early.test ], [ %fieldStart.0253, %if.else282 ], [ %fieldStart.0253, %switch.early.test ]
+  %currField.sroa.0.1 = phi i8 [ 0, %if.then68 ], [ %currField.sroa.0.0250, %if.then53 ], [ 0, %if.then253 ], [ 0, %if.else276 ], [ 0, %if.else264 ], [ 0, %if.else290 ], [ %_field.sroa.0.0.fr, %if.then295 ], [ 0, %switch.early.test ], [ 0, %if.else282 ], [ 0, %switch.early.test ]
+  %i.3 = phi i32 [ %dec, %if.then68 ], [ %i.0251, %if.then53 ], [ %dec254, %if.then253 ], [ %add278, %if.else276 ], [ %i.1, %if.else264 ], [ %i.1, %if.else290 ], [ %i.1, %if.then295 ], [ %i.1, %switch.early.test ], [ %i.1, %if.else282 ], [ %i.1, %switch.early.test ]
+  %prevIsInteger.1 = phi i8 [ %prevIsInteger.0252, %if.then68 ], [ %prevIsInteger.0252, %if.then53 ], [ %prevIsInteger.0252, %if.then253 ], [ 0, %if.else276 ], [ 0, %if.else264 ], [ 0, %if.else290 ], [ 0, %if.then295 ], [ 0, %switch.early.test ], [ 0, %if.else282 ], [ 0, %switch.early.test ]
+  %prevIsNumeric.2 = phi i8 [ %prevIsNumeric.1253, %if.then68 ], [ %prevIsNumeric.1253, %if.then53 ], [ %prevIsNumeric.1253, %if.then253 ], [ 0, %if.else276 ], [ 0, %if.else264 ], [ 0, %if.else290 ], [ 0, %if.then295 ], [ 0, %switch.early.test ], [ 0, %if.else282 ], [ 0, %switch.early.test ]
+  %nextSpanStart.5 = phi i32 [ %nextSpanStart.2254, %if.then68 ], [ %nextSpanStart.2254, %if.then53 ], [ %nextSpanStart.3, %if.then253 ], [ %nextSpanStart.3, %if.else276 ], [ %nextSpanStart.3, %if.else264 ], [ %nextSpanStart.2254, %if.else290 ], [ %nextSpanStart.2254, %if.then295 ], [ %nextSpanStart.2254, %switch.early.test ], [ %nextSpanStart.2254, %if.else282 ], [ %nextSpanStart.2254, %switch.early.test ]
+  %prevIsSpan.3 = phi i8 [ %prevIsSpan.1255, %if.then68 ], [ %prevIsSpan.1255, %if.then53 ], [ %prevIsSpan.2, %if.then253 ], [ 0, %if.else276 ], [ 0, %if.else264 ], [ 0, %if.else290 ], [ 0, %if.then295 ], [ 0, %switch.early.test ], [ 0, %if.else282 ], [ 0, %switch.early.test ]
+  %fieldStart.2 = phi i32 [ -1, %if.then68 ], [ %fieldStart.0256, %if.then53 ], [ %fieldStart.0256, %if.then253 ], [ %fieldStart.0256, %if.else276 ], [ %fieldStart.0256, %if.else264 ], [ %fieldStart.0256, %if.else290 ], [ %sub298, %if.then295 ], [ %fieldStart.0256, %switch.early.test ], [ %fieldStart.0256, %if.else282 ], [ %fieldStart.0256, %switch.early.test ]
   %inc = add nsw i32 %i.3, 1
-  %92 = load i32, ptr %fZero, align 8
-  %93 = load i32, ptr %fLength, align 4
-  %add42 = add nsw i32 %93, %92
+  %91 = load i32, ptr %fZero, align 8
+  %92 = load i32, ptr %fLength, align 4
+  %add42 = add nsw i32 %92, %91
   %cmp43.not.not = icmp slt i32 %i.3, %add42
   br i1 %cmp43.not.not, label %for.body, label %for.end304.loopexit, !llvm.loop !7
 
 for.end304.loopexit:                              ; preds = %for.inc303, %if.then222.for.end304.loopexit_crit_edge
-  %.pre304 = phi i32 [ %.pre304.pre, %if.then222.for.end304.loopexit_crit_edge ], [ %93, %for.inc303 ]
-  %.pre = load i32, ptr %fCategory.i93, align 4
+  %.pre308 = phi i32 [ %.pre308.pre, %if.then222.for.end304.loopexit_crit_edge ], [ %92, %for.inc303 ]
+  %.pre306 = load i32, ptr %fCategory.i93, align 4
   br label %for.end304
 
 for.end304:                                       ; preds = %for.end304.loopexit, %if.end30
-  %94 = phi i32 [ %.pre304, %for.end304.loopexit ], [ %17, %if.end30 ]
-  %95 = phi i32 [ %.pre, %for.end304.loopexit ], [ %.pre303.pre, %if.end30 ]
+  %93 = phi i32 [ %.pre308, %for.end304.loopexit ], [ %16, %if.end30 ]
+  %94 = phi i32 [ %.pre306, %for.end304.loopexit ], [ %.pre307.pre, %if.end30 ]
   %fField.i166 = getelementptr inbounds %"class.icu_75::ConstrainedFieldPosition", ptr %cfpos, i64 0, i32 1
-  %96 = load i32, ptr %fField.i166, align 8
-  tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %95, i32 noundef %96, i32 noundef %94, i32 noundef %94)
+  %95 = load i32, ptr %fField.i166, align 8
+  tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %94, i32 noundef %95, i32 noundef %93, i32 noundef %93)
   br label %return
 
 return:                                           ; preds = %for.end304, %if.then270, %if.then258, %for.end202, %for.end, %if.then99, %if.end76

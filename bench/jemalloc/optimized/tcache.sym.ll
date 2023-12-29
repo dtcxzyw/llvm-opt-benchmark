@@ -1605,7 +1605,7 @@ do.end13:                                         ; preds = %entry, %tcache_bin_
 
 declare void @san_check_stashed_ptrs(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @tcache_bin_ncached_max_read(ptr nocapture noundef readonly %tsd, i64 noundef %bin_size, ptr nocapture noundef writeonly %ncached_max) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ugt i64 %bin_size, 8388608
@@ -3757,9 +3757,6 @@ for.body.i.lr.ph:                                 ; preds = %entry
   %leaf31.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 29, i32 1, i64 0, i32 1
   br label %for.body.i
 
-for.cond6.i.preheader:                            ; preds = %rtree_leaf_elm_lookup.exit.i
-  br i1 %cmp1.i87.not, label %emap_edata_lookup_batch.exit, label %for.body8.i
-
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %rtree_leaf_elm_lookup.exit.i
   %i.i.088 = phi i64 [ 0, %for.body.i.lr.ph ], [ %inc.i, %rtree_leaf_elm_lookup.exit.i ]
   %arr.val = load ptr, ptr %0, align 8
@@ -3844,10 +3841,10 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %for.end.i.i, %if.th
   store ptr %retval.i.i.0, ptr %arrayidx.i, align 8
   %inc.i = add nuw i64 %i.i.088, 1
   %exitcond95.not = icmp eq i64 %inc.i, %nflush
-  br i1 %exitcond95.not, label %for.cond6.i.preheader, label %for.body.i, !llvm.loop !22
+  br i1 %exitcond95.not, label %for.body8.i, label %for.body.i, !llvm.loop !22
 
-for.body8.i:                                      ; preds = %for.cond6.i.preheader, %for.body8.i
-  %i5.i.090 = phi i64 [ %inc19.i, %for.body8.i ], [ 0, %for.cond6.i.preheader ]
+for.body8.i:                                      ; preds = %rtree_leaf_elm_lookup.exit.i, %for.body8.i
+  %i5.i.090 = phi i64 [ %inc19.i, %for.body8.i ], [ 0, %rtree_leaf_elm_lookup.exit.i ]
   %arrayidx9.i = getelementptr inbounds %union.emap_batch_lookup_result_u, ptr %edatas, i64 %i5.i.090
   %13 = load ptr, ptr %arrayidx9.i, align 8
   %14 = load atomic i64, ptr %13 monotonic, align 8, !noalias !23
@@ -3863,7 +3860,7 @@ for.body8.i:                                      ; preds = %for.cond6.i.prehead
   %exitcond96.not = icmp eq i64 %inc19.i, %nflush
   br i1 %exitcond96.not, label %emap_edata_lookup_batch.exit, label %for.body8.i, !llvm.loop !26
 
-emap_edata_lookup_batch.exit:                     ; preds = %for.body8.i, %entry, %for.cond6.i.preheader
+emap_edata_lookup_batch.exit:                     ; preds = %for.body8.i, %entry
   ret void
 }
 
@@ -4063,7 +4060,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }

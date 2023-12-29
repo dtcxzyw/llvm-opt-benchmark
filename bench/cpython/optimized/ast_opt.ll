@@ -5950,8 +5950,8 @@ define internal fastcc ptr @safe_multiply(ptr noundef %v, ptr noundef %w) unname
 entry:
   %.phi.trans.insert = getelementptr i8, ptr %v, i64 8
   %v.val43.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert106 = getelementptr i8, ptr %v.val43.pre, i64 168
-  %call.val.pre = load i64, ptr %.phi.trans.insert106, align 8
+  %.phi.trans.insert107 = getelementptr i8, ptr %v.val43.pre, i64 168
+  %call.val.pre = load i64, ptr %.phi.trans.insert107, align 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.else71, %entry
@@ -5960,10 +5960,10 @@ tailrecurse:                                      ; preds = %if.else71, %entry
   %w.tr = phi ptr [ %w, %entry ], [ %v.tr, %if.else71 ]
   %0 = and i64 %call.val, 16777216
   %tobool.not = icmp eq i64 %0, 0
-  %.phi.trans.insert108 = getelementptr i8, ptr %w.tr, i64 8
-  %w.val.pre = load ptr, ptr %.phi.trans.insert108, align 8
-  %.phi.trans.insert110 = getelementptr i8, ptr %w.val.pre, i64 168
-  %call72.val.pre = load i64, ptr %.phi.trans.insert110, align 8
+  %.phi.trans.insert109 = getelementptr i8, ptr %w.tr, i64 8
+  %w.val.pre = load ptr, ptr %.phi.trans.insert109, align 8
+  %.phi.trans.insert111 = getelementptr i8, ptr %w.val.pre, i64 168
+  %call72.val.pre = load i64, ptr %.phi.trans.insert111, align 8
   %.pre = and i64 %call72.val.pre, 16777216
   br i1 %tobool.not, label %if.else71, label %land.lhs.true
 
@@ -6022,15 +6022,17 @@ if.end32:                                         ; preds = %lor.lhs.false29
   br i1 %tobool33.not, label %if.end92, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end32
-  %div35 = udiv i64 1024, %call27
-  %call36 = tail call fastcc i64 @check_complexity(ptr noundef nonnull %w.tr, i64 noundef %div35)
+  %div35.rhs.trunc = trunc i64 %call27 to i16
+  %div3586 = udiv i16 1024, %div35.rhs.trunc
+  %div35.zext = zext nneg i16 %div3586 to i64
+  %call36 = tail call fastcc i64 @check_complexity(ptr noundef nonnull %w.tr, i64 noundef %div35.zext)
   %cmp37 = icmp slt i64 %call36, 0
   br i1 %cmp37, label %return, label %if.end92
 
 land.lhs.true45:                                  ; preds = %land.lhs.true19
   %5 = and i64 %call72.val.pre, 402653184
-  %or.cond88 = icmp eq i64 %5, 0
-  br i1 %or.cond88, label %if.else71, label %cond.end
+  %or.cond89 = icmp eq i64 %5, 0
+  br i1 %or.cond89, label %if.else71, label %cond.end
 
 cond.end:                                         ; preds = %land.lhs.true45
   %cond.in = getelementptr i8, ptr %w.tr, i64 16
@@ -6051,9 +6053,9 @@ lor.lhs.false65:                                  ; preds = %if.then61
 if.else71:                                        ; preds = %tailrecurse, %land.lhs.true45
   %tobool74.not = icmp eq i64 %.pre, 0
   %6 = and i64 %call.val, 469762048
-  %or.cond87 = icmp eq i64 %6, 0
-  %or.cond120 = or i1 %tobool74.not, %or.cond87
-  br i1 %or.cond120, label %if.end92, label %tailrecurse
+  %or.cond88 = icmp eq i64 %6, 0
+  %or.cond121 = or i1 %tobool74.not, %or.cond88
+  br i1 %or.cond121, label %if.end92, label %tailrecurse
 
 if.end92:                                         ; preds = %if.else71, %if.then, %if.end32, %land.lhs.true34, %if.then23, %cond.end, %lor.lhs.false65
   %call93 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %v.tr, ptr noundef nonnull %w.tr) #7

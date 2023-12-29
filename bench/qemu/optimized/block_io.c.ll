@@ -3654,7 +3654,9 @@ if.then59:                                        ; preds = %if.else56
   br label %if.end108
 
 if.else61:                                        ; preds = %if.else56
-  %cmp63.not = icmp slt i64 %mul, %bytes
+  %sext = shl i64 %mul, 32
+  %conv62 = ashr exact i64 %sext, 32
+  %cmp63.not = icmp slt i64 %conv62, %bytes
   tail call void @bdrv_co_debug_event(ptr noundef nonnull %0, i32 noundef 39) #14
   br i1 %cmp63.not, label %if.else67, label %if.then65
 
@@ -3679,7 +3681,7 @@ while.body.lr.ph:                                 ; preds = %if.else67
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end81.us
   %bytes_remaining.0.neg93.us = phi i64 [ %bytes_remaining.0.neg.us, %if.end81.us ], [ %bytes_remaining.0.neg90, %while.body.lr.ph ]
   %bytes_remaining.092.us = phi i64 [ %sub104.us, %if.end81.us ], [ %bytes, %while.body.lr.ph ]
-  %cond76.us = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092.us, i64 %mul)
+  %cond76.us = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092.us, i64 %conv62)
   %10 = and i64 %cond76.us, 4294967295
   %tobool78.not.us = icmp eq i64 %10, 0
   br i1 %tobool78.not.us, label %if.else80, label %if.end81.us
@@ -3700,7 +3702,7 @@ if.end81.us:                                      ; preds = %while.body.us
 while.body:                                       ; preds = %while.body.lr.ph, %if.end93
   %bytes_remaining.0.neg93 = phi i64 [ %bytes_remaining.0.neg, %if.end93 ], [ %bytes_remaining.0.neg90, %while.body.lr.ph ]
   %bytes_remaining.092 = phi i64 [ %sub104, %if.end93 ], [ %bytes, %while.body.lr.ph ]
-  %cond76 = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092, i64 %mul)
+  %cond76 = tail call i64 @llvm.smin.i64(i64 %bytes_remaining.092, i64 %conv62)
   %11 = and i64 %cond76, 4294967295
   %tobool78.not = icmp eq i64 %11, 0
   br i1 %tobool78.not, label %if.else80, label %if.end81
@@ -6711,7 +6713,7 @@ return:                                           ; preds = %if.end, %entry, %if
 
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @bdrv_refresh_limits_abort(ptr nocapture noundef readonly %opaque) #9 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
@@ -8159,7 +8161,7 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

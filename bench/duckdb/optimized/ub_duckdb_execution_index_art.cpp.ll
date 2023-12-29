@@ -16139,8 +16139,6 @@ if.then.i:                                        ; preds = %_ZN6duckdb4Node3Ref
   %29 = load ptr, ptr %_M_end_of_storage.i12, align 8, !tbaa !265
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.lhs.cast.i.i
-  %cmp4.i = icmp sgt i64 %sub.ptr.sub.i.i, -1
-  tail call void @llvm.assume(i1 %cmp4.i)
   %sub.i15 = xor i64 %sub.ptr.sub.i.i, 9223372036854775807
   %cmp6.i16 = icmp ule i64 %sub.ptr.sub.i14, %sub.i15
   tail call void @llvm.assume(i1 %cmp6.i16)

@@ -2008,7 +2008,7 @@ if.then18:                                        ; preds = %_ZN7rocksdb8SkipLis
 for.body23.lr.ph:                                 ; preds = %if.then18
   %head_24 = getelementptr inbounds %"class.rocksdb::SkipList", ptr %this, i64 0, i32 5
   %42 = sext i32 %41 to i64
-  %wide.trip.count = sext i32 %height.0.lcssa.i to i64
+  %wide.trip.count = zext nneg i32 %height.0.lcssa.i to i64
   %.pre = load ptr, ptr %head_24, align 8
   br label %for.body23
 

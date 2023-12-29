@@ -2428,7 +2428,7 @@ PyUnicode_DATA.exit28.i.i:                        ; preds = %if.end.i26.i.i, %if
 PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit28.i.i, %PyUnicode_DATA.exit17.i.i, %PyUnicode_DATA.exit.i.i
   %retval.0.i.i = phi i32 [ %conv.i.i, %PyUnicode_DATA.exit.i.i ], [ %conv6.i.i, %PyUnicode_DATA.exit17.i.i ], [ %136, %PyUnicode_DATA.exit28.i.i ]
   %add.i = add nuw nsw i64 %call12.i, 1
-  %cmp22.i = icmp slt i64 %add.i, %call.val.i
+  %cmp22.i = icmp ult i64 %add.i, %call.val.i
   br i1 %cmp22.i, label %do.body.i, label %if.end41.i
 
 do.body.i:                                        ; preds = %PyUnicode_READ_CHAR.exit.i

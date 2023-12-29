@@ -11277,16 +11277,15 @@ if.end23:                                         ; preds = %cond.end
   br i1 %cmp25, label %if.end52.thread70, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end23
-  %cmp2875 = icmp sgt i64 %nargs.0, 0
-  br i1 %cmp2875, label %for.body, label %for.cond34.preheader
+  %cmp2875.not = icmp eq i64 %nargs.0, 0
+  br i1 %cmp2875.not, label %for.cond34.preheader, label %for.body
 
 if.end52.thread70:                                ; preds = %if.end23
   call void @PyMem_Free(ptr noundef nonnull %call19) #8
   br label %return
 
 for.cond34.preheader:                             ; preds = %if.end32, %for.cond.preheader
-  %i.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %nargs.0, %if.end32 ]
-  %cmp3577 = icmp slt i64 %i.0.lcssa, %mul
+  %cmp3577 = icmp slt i64 %nargs.0, %mul
   br i1 %cmp3577, label %for.body36, label %for.end43
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end32
@@ -11307,7 +11306,7 @@ if.end32:                                         ; preds = %for.body
   br i1 %exitcond.not, label %for.cond34.preheader, label %for.body, !llvm.loop !38
 
 for.body36:                                       ; preds = %for.cond34.preheader, %Py_INCREF.exit
-  %i.178 = phi i64 [ %inc42, %Py_INCREF.exit ], [ %i.0.lcssa, %for.cond34.preheader ]
+  %i.178 = phi i64 [ %inc42, %Py_INCREF.exit ], [ %nargs.0, %for.cond34.preheader ]
   %sub = sub i64 %i.178, %nargs.0
   %arrayidx39 = getelementptr %struct.PyTupleObject, ptr %call24, i64 0, i32 1, i64 %sub
   %9 = load ptr, ptr %arrayidx39, align 8

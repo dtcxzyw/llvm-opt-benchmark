@@ -396,20 +396,20 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #23
+  call void @__clang_call_terminate(ptr %26) #21
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #23
+  call void @__clang_call_terminate(ptr %28) #21
   unreachable
 
 lpad:                                             ; preds = %if.then2.i.i, %_ZNK8ImVectorI18ImGuiTableTempDataE14_grow_capacityEi.exit.i
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %ref.tmp30) #24
+  call void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %ref.tmp30) #22
   resume { ptr, i32 } %29
 
 if.end31:                                         ; preds = %if.then.i.i.i, %invoke.cont.i.i, %if.end22
@@ -1571,14 +1571,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #23
+  tail call void @__clang_call_terminate(ptr %2) #21
   unreachable
 
 terminate.lpad.i:                                 ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #23
+  tail call void @__clang_call_terminate(ptr %4) #21
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %invoke.cont.i, %if.then.i.i
@@ -1984,8 +1984,8 @@ for.end92:                                        ; preds = %for.inc.i, %for.bod
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui23TableBeginApplyRequestsEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5ImGui23TableBeginApplyRequestsEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #6 {
 entry:
   %InstanceCurrent = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 16
   %0 = load i16, ptr %InstanceCurrent, align 8
@@ -2188,10 +2188,10 @@ if.end99:                                         ; preds = %for.end96, %if.end8
 declare noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui19TableSetColumnWidthEif(i32 noundef %column_n, float noundef %width) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5ImGui19TableSetColumnWidthEif(i32 noundef %column_n, float noundef %width) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -4159,7 +4159,7 @@ if.end947:                                        ; preds = %if.else941, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr nocapture noundef %table, ptr noundef %column, i32 noundef %flags_in) unnamed_addr #9 {
+define internal fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr nocapture noundef %table, ptr noundef %column, i32 noundef %flags_in) unnamed_addr #8 {
 entry:
   %and = and i32 %flags_in, 24
   %cmp = icmp eq i32 %and, 0
@@ -4314,7 +4314,7 @@ if.end105:                                        ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn(ptr nocapture noundef readonly %table, ptr nocapture noundef readonly %column) local_unnamed_addr #10 {
+define noundef float @_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn(ptr nocapture noundef readonly %table, ptr nocapture noundef readonly %column) local_unnamed_addr #9 {
 entry:
   %ContentMaxXFrozen = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 13
   %0 = load float, ptr %ContentMaxXFrozen, align 4
@@ -4373,12 +4373,12 @@ if.end17:                                         ; preds = %if.then7, %if.then1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #11
+declare float @llvm.fmuladd.f32(float, float, float) #10
 
 declare noundef zeroext i1 @_ZN5ImGui13ItemHoverableERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei(ptr nocapture noundef readonly %table, i32 noundef %column_n) local_unnamed_addr #12 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef float @_ZN5ImGui22TableGetMaxColumnWidthEPK10ImGuiTablei(ptr nocapture noundef readonly %table, i32 noundef %column_n) local_unnamed_addr #11 {
 entry:
   %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
   %0 = load ptr, ptr %Columns, align 8
@@ -5333,7 +5333,7 @@ declare void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noun
 declare void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(196), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui22TableGetColumnResizeIDEP10ImGuiTableii(ptr nocapture noundef readonly %table, i32 noundef %column_n, i32 noundef %instance_no) local_unnamed_addr #13 {
+define noundef i32 @_ZN5ImGui22TableGetColumnResizeIDEP10ImGuiTableii(ptr nocapture noundef readonly %table, i32 noundef %column_n, i32 noundef %instance_no) local_unnamed_addr #11 {
 entry:
   %cmp.i.i = icmp eq i32 %instance_no, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -5365,7 +5365,7 @@ declare noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr nound
 declare noundef zeroext i1 @_ZN5ImGui20IsMouseDoubleClickedEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui29TableSetColumnWidthAutoSingleEP10ImGuiTablei(ptr nocapture noundef %table, i32 noundef %column_n) local_unnamed_addr #14 {
+define void @_ZN5ImGui29TableSetColumnWidthAutoSingleEP10ImGuiTablei(ptr nocapture noundef %table, i32 noundef %column_n) local_unnamed_addr #12 {
 entry:
   %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
   %0 = load ptr, ptr %Columns, align 8
@@ -8309,7 +8309,7 @@ if.then78:                                        ; preds = %land.lhs.true75
   %spec.select.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %16, i32 1)
   %conv80 = trunc i32 %spec.select.i to i16
   store i16 %conv80, ptr %NameOffset, align 4
-  %call83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %label) #25
+  %call83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %label) #23
   %add.ptr = getelementptr inbounds i8, ptr %label, i64 %call83
   %add.ptr84 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   tail call void @_ZN15ImGuiTextBuffer6appendEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %ColumnsNames, ptr noundef nonnull %label, ptr noundef nonnull %add.ptr84)
@@ -8322,10 +8322,10 @@ if.end85:                                         ; preds = %entry, %if.then78, 
 declare void @_ZN15ImGuiTextBuffer6appendEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui22TableSetupScrollFreezeEii(i32 noundef %columns, i32 noundef %rows) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5ImGui22TableSetupScrollFreezeEii(i32 noundef %columns, i32 noundef %rows) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -8426,7 +8426,7 @@ for.end:                                          ; preds = %for.inc, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui19TableGetColumnCountEv() local_unnamed_addr #13 {
+define noundef i32 @_ZN5ImGui19TableGetColumnCountEv() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -8445,7 +8445,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN5ImGui18TableGetColumnNameEi(i32 noundef %column_n) local_unnamed_addr #13 {
+define noundef ptr @_ZN5ImGui18TableGetColumnNameEi(i32 noundef %column_n) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -8499,7 +8499,7 @@ return:                                           ; preds = %if.end6.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei(ptr nocapture noundef readonly %table, i32 noundef %column_n) local_unnamed_addr #13 {
+define noundef ptr @_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei(ptr nocapture noundef readonly %table, i32 noundef %column_n) local_unnamed_addr #11 {
 entry:
   %IsLayoutLocked = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 92
   %0 = load i8, ptr %IsLayoutLocked, align 2
@@ -8536,7 +8536,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui21TableSetColumnEnabledEib(i32 noundef %column_n, i1 noundef zeroext %enabled) local_unnamed_addr #14 {
+define void @_ZN5ImGui21TableSetColumnEnabledEib(i32 noundef %column_n, i1 noundef zeroext %enabled) local_unnamed_addr #12 {
 entry:
   %frombool = zext i1 %enabled to i8
   %0 = load ptr, ptr @GImGui, align 8
@@ -8568,7 +8568,7 @@ return:                                           ; preds = %entry, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui19TableGetColumnFlagsEi(i32 noundef %column_n) local_unnamed_addr #13 {
+define noundef i32 @_ZN5ImGui19TableGetColumnFlagsEi(i32 noundef %column_n) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -8614,7 +8614,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @_ZN5ImGui18TableGetCellBgRectEPK10ImGuiTablei(ptr nocapture noundef readonly %table, i32 noundef %column_n) local_unnamed_addr #13 {
+define { <2 x float>, <2 x float> } @_ZN5ImGui18TableGetCellBgRectEPK10ImGuiTablei(ptr nocapture noundef readonly %table, i32 noundef %column_n) local_unnamed_addr #11 {
 entry:
   %Columns = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
   %0 = load ptr, ptr %Columns, align 8
@@ -8645,7 +8645,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui21TableGetHoveredColumnEv() local_unnamed_addr #13 {
+define noundef i32 @_ZN5ImGui21TableGetHoveredColumnEv() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -8665,7 +8665,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui18TableGetHoveredRowEv() local_unnamed_addr #13 {
+define noundef i32 @_ZN5ImGui18TableGetHoveredRowEv() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -8703,7 +8703,7 @@ return:                                           ; preds = %entry, %_ZN5ImGui20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui15TableSetBgColorEiji(i32 noundef %target, i32 noundef %color, i32 noundef %column_n) local_unnamed_addr #14 {
+define void @_ZN5ImGui15TableSetBgColorEiji(i32 noundef %target, i32 noundef %color, i32 noundef %column_n) local_unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -8798,7 +8798,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb25, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui16TableGetRowIndexEv() local_unnamed_addr #13 {
+define noundef i32 @_ZN5ImGui16TableGetRowIndexEv() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -9074,8 +9074,8 @@ declare void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull
 
 declare void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, float noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui33SetWindowClipRectBeforeSetChannelEP11ImGuiWindowRK6ImRect(ptr nocapture noundef %window, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %clip_rect) local_unnamed_addr #16 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5ImGui33SetWindowClipRectBeforeSetChannelEP11ImGuiWindowRK6ImRect(ptr nocapture noundef %window, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %clip_rect) local_unnamed_addr #14 {
 entry:
   %0 = load <4 x float>, ptr %clip_rect, align 4
   %retval.sroa.3.8.vec.insert.i = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
@@ -9105,7 +9105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui19TableGetColumnIndexEv() local_unnamed_addr #13 {
+define noundef i32 @_ZN5ImGui19TableGetColumnIndexEv() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -9850,7 +9850,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn(ptr nocapture noundef writeonly %table, ptr nocapture noundef %column) local_unnamed_addr #9 {
+define void @_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn(ptr nocapture noundef writeonly %table, ptr nocapture noundef %column) local_unnamed_addr #8 {
 entry:
   %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 22
   %0 = load i16, ptr %SortOrder, align 2
@@ -9885,7 +9885,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5ImGui31TableGetColumnNextSortDirectionEP16ImGuiTableColumn(ptr nocapture noundef readonly %column) local_unnamed_addr #10 {
+define noundef i32 @_ZN5ImGui31TableGetColumnNextSortDirectionEP16ImGuiTableColumn(ptr nocapture noundef readonly %column) local_unnamed_addr #9 {
 entry:
   %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %column, i64 0, i32 22
   %0 = load i16, ptr %SortOrder, align 2
@@ -9939,8 +9939,8 @@ return:                                           ; preds = %for.inc, %if.then5,
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui27TableSetColumnSortDirectionEiib(i32 noundef %column_n, i32 noundef %sort_direction, i1 noundef zeroext %append_to_sort_specs) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5ImGui27TableSetColumnSortDirectionEiib(i32 noundef %column_n, i32 noundef %sort_direction, i1 noundef zeroext %append_to_sort_specs) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 164
@@ -10305,7 +10305,7 @@ for.end55:                                        ; preds = %for.inc53, %for.con
   %or58 = or i64 %shl57, %fixed_mask.073
   %inc81 = add nuw nsw i32 %sort_n.074, 1
   %exitcond85.not = icmp eq i32 %inc81, %sort_order_count.1
-  br i1 %exitcond85.not, label %if.end83, label %for.cond24.preheader, !llvm.loop !48
+  br i1 %exitcond85.not, label %if.end112, label %for.cond24.preheader, !llvm.loop !48
 
 for.body69:                                       ; preds = %for.body69.preheader, %for.inc76
   %23 = phi i32 [ %12, %for.body69.preheader ], [ %25, %for.inc76 ]
@@ -10327,7 +10327,7 @@ for.inc76:                                        ; preds = %for.body69, %if.the
   %cmp68 = icmp slt i64 %indvars.iv.next97, %26
   br i1 %cmp68, label %for.body69, label %if.end112, !llvm.loop !49
 
-if.end83:                                         ; preds = %for.end55, %land.end.thread115
+if.end83:                                         ; preds = %land.end.thread115
   %cmp84 = icmp eq i32 %sort_order_count.1, 0
   br i1 %cmp84, label %land.lhs.true85, label %if.end112
 
@@ -10382,8 +10382,8 @@ for.inc109:                                       ; preds = %for.body94, %land.l
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
   br i1 %exitcond90.not, label %if.end112, label %for.body94, !llvm.loop !50
 
-if.end112:                                        ; preds = %for.inc109, %for.inc76, %land.end, %for.cond91.preheader, %for.end55.us, %if.then104, %land.lhs.true85, %if.end83
-  %sort_order_count.3 = phi i32 [ 0, %land.lhs.true85 ], [ 1, %if.then104 ], [ %sort_order_count.1, %if.end83 ], [ 1, %for.end55.us ], [ 0, %for.cond91.preheader ], [ %sort_order_count.1, %land.end ], [ 1, %for.inc76 ], [ 0, %for.inc109 ]
+if.end112:                                        ; preds = %for.inc109, %for.end55, %for.inc76, %land.end, %for.cond91.preheader, %for.end55.us, %if.then104, %land.lhs.true85, %if.end83
+  %sort_order_count.3 = phi i32 [ 0, %land.lhs.true85 ], [ 1, %if.then104 ], [ %sort_order_count.1, %if.end83 ], [ 1, %for.end55.us ], [ 0, %for.cond91.preheader ], [ %sort_order_count.1, %land.end ], [ 1, %for.inc76 ], [ %sort_order_count.1, %for.end55 ], [ 0, %for.inc109 ]
   %conv113 = trunc i32 %sort_order_count.3 to i16
   %SortSpecsCount = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 65
   store i16 %conv113, ptr %SortSpecsCount, align 8
@@ -11701,14 +11701,14 @@ if.end:                                           ; preds = %_ZN5ImGui33TableGet
   %max_label_width.addr.0 = phi float [ %20, %_ZN5ImGui33TableGetHeaderAngledMaxLabelWidthEv.exit ], [ %max_label_width, %entry ]
   %cmp1 = fcmp olt float %angle, 0.000000e+00
   %sub = fadd float %angle, 0xBFF921FB60000000
-  %call2 = tail call float @cosf(float noundef %sub) #24
-  %call3 = tail call float @sinf(float noundef %sub) #24
+  %call2 = tail call float @cosf(float noundef %sub) #22
+  %call3 = tail call float @sinf(float noundef %sub) #22
   br i1 %cmp1, label %cond.true6, label %cond.end10
 
 cond.true6:                                       ; preds = %if.end
   %add = fadd float %sub, 0x400921FB60000000
-  %call4 = tail call float @cosf(float noundef %add) #24
-  %call8 = tail call float @sinf(float noundef %add) #24
+  %call4 = tail call float @cosf(float noundef %add) #22
+  %call8 = tail call float @sinf(float noundef %add) #22
   br label %cond.end10
 
 cond.end10:                                       ; preds = %if.end, %cond.true6
@@ -12218,13 +12218,13 @@ for.end195:                                       ; preds = %for.inc193, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #17
+declare float @cosf(float noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #17
+declare float @sinf(float noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #11
+declare float @llvm.fabs.f32(float) #10
 
 declare void @_ZN5ImGui12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #1
 
@@ -12355,7 +12355,7 @@ _ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit: ; preds = %for.body.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN5ImGui21TableSettingsFindByIDEj(i32 noundef %id) local_unnamed_addr #13 {
+define noundef ptr @_ZN5ImGui21TableSettingsFindByIDEj(i32 noundef %id) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %SettingsTables = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 218
@@ -12388,7 +12388,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN5ImGui21TableGetBoundSettingsEP10ImGuiTable(ptr nocapture noundef readonly %table) local_unnamed_addr #14 {
+define noundef ptr @_ZN5ImGui21TableGetBoundSettingsEP10ImGuiTable(ptr nocapture noundef readonly %table) local_unnamed_addr #12 {
 entry:
   %SettingsOffset = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 11
   %0 = load i32, ptr %SettingsOffset, align 4
@@ -12509,7 +12509,7 @@ entry:
   %columns_count = alloca i32, align 4
   store i32 0, ptr %id, align 4
   store i32 0, ptr %columns_count, align 4
-  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %name, ptr noundef nonnull @.str.38, ptr noundef nonnull %id, ptr noundef nonnull %columns_count) #24
+  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %name, ptr noundef nonnull @.str.38, ptr noundef nonnull %id, ptr noundef nonnull %columns_count) #22
   %cmp = icmp slt i32 %call, 2
   br i1 %cmp, label %return, label %if.end
 
@@ -12617,7 +12617,7 @@ entry:
   store i32 0, ptr %column_n, align 4
   store i32 0, ptr %r, align 4
   store i32 0, ptr %n, align 4
-  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line, ptr noundef nonnull @.str.39, ptr noundef nonnull %f) #24
+  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line, ptr noundef nonnull @.str.39, ptr noundef nonnull %f) #22
   %cmp = icmp eq i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -12628,7 +12628,7 @@ if.then:                                          ; preds = %entry
   br label %if.end84
 
 if.end:                                           ; preds = %entry
-  %call3 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line, ptr noundef nonnull @.str.40, ptr noundef nonnull %column_n, ptr noundef nonnull %r) #24
+  %call3 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line, ptr noundef nonnull @.str.40, ptr noundef nonnull %column_n, ptr noundef nonnull %r) #22
   %cmp4 = icmp ne i32 %call3, 1
   %3 = load i32, ptr %column_n, align 4
   %cmp6 = icmp slt i32 %3, 0
@@ -12655,7 +12655,7 @@ if.end9:                                          ; preds = %lor.lhs.false
   %conv14 = trunc i32 %6 to i16
   %Index = getelementptr inbounds %struct.ImGuiTableColumnSettings, ptr %add.ptr.i, i64 %idx.ext12, i32 2
   store i16 %conv14, ptr %Index, align 4
-  %call15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call10, ptr noundef nonnull @.str.41, ptr noundef nonnull %n, ptr noundef nonnull %r) #24
+  %call15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call10, ptr noundef nonnull @.str.41, ptr noundef nonnull %n, ptr noundef nonnull %r) #22
   %cmp16 = icmp eq i32 %call15, 1
   br i1 %cmp16, label %if.then17, label %if.end21
 
@@ -12671,7 +12671,7 @@ if.then17:                                        ; preds = %if.end9
 
 if.end21:                                         ; preds = %if.then17, %if.end9
   %line.addr.0 = phi ptr [ %call20, %if.then17 ], [ %call10, %if.end9 ]
-  %call22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.0, ptr noundef nonnull @.str.42, ptr noundef nonnull %n, ptr noundef nonnull %r) #24
+  %call22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.0, ptr noundef nonnull @.str.42, ptr noundef nonnull %n, ptr noundef nonnull %r) #22
   %cmp23 = icmp eq i32 %call22, 1
   br i1 %cmp23, label %if.then24, label %if.end29
 
@@ -12695,7 +12695,7 @@ if.then24:                                        ; preds = %if.end21
 
 if.end29:                                         ; preds = %if.then24, %if.end21
   %line.addr.1 = phi ptr [ %call27, %if.then24 ], [ %line.addr.0, %if.end21 ]
-  %call30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.1, ptr noundef nonnull @.str.43, ptr noundef nonnull %f, ptr noundef nonnull %r) #24
+  %call30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.1, ptr noundef nonnull @.str.43, ptr noundef nonnull %f, ptr noundef nonnull %r) #22
   %cmp31 = icmp eq i32 %call30, 1
   br i1 %cmp31, label %if.then32, label %if.end43
 
@@ -12718,7 +12718,7 @@ if.then32:                                        ; preds = %if.end29
 
 if.end43:                                         ; preds = %if.then32, %if.end29
   %line.addr.2 = phi ptr [ %call35, %if.then32 ], [ %line.addr.1, %if.end29 ]
-  %call44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.2, ptr noundef nonnull @.str.44, ptr noundef nonnull %n, ptr noundef nonnull %r) #24
+  %call44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.2, ptr noundef nonnull @.str.44, ptr noundef nonnull %n, ptr noundef nonnull %r) #22
   %cmp45 = icmp eq i32 %call44, 1
   br i1 %cmp45, label %if.then46, label %if.end56
 
@@ -12744,7 +12744,7 @@ if.then46:                                        ; preds = %if.end43
 
 if.end56:                                         ; preds = %if.then46, %if.end43
   %line.addr.3 = phi ptr [ %call49, %if.then46 ], [ %line.addr.2, %if.end43 ]
-  %call57 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.3, ptr noundef nonnull @.str.45, ptr noundef nonnull %n, ptr noundef nonnull %r) #24
+  %call57 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.3, ptr noundef nonnull @.str.45, ptr noundef nonnull %n, ptr noundef nonnull %r) #22
   %cmp58 = icmp eq i32 %call57, 1
   br i1 %cmp58, label %if.then59, label %if.end66
 
@@ -12765,7 +12765,7 @@ if.then59:                                        ; preds = %if.end56
 
 if.end66:                                         ; preds = %if.then59, %if.end56
   %line.addr.4 = phi ptr [ %call62, %if.then59 ], [ %line.addr.3, %if.end56 ]
-  %call67 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.4, ptr noundef nonnull @.str.46, ptr noundef nonnull %n, ptr noundef nonnull %c, ptr noundef nonnull %r) #24
+  %call67 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.4, ptr noundef nonnull @.str.46, ptr noundef nonnull %n, ptr noundef nonnull %c, ptr noundef nonnull %r) #22
   %cmp68 = icmp eq i32 %call67, 2
   br i1 %cmp68, label %if.then69, label %if.end84
 
@@ -13091,7 +13091,7 @@ entry:
   %sext.i = shl i64 %sub.ptr.div.i, 32
   %idxprom.i.i.i = ashr exact i64 %sext.i, 32
   %arrayidx.i.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 %idxprom.i.i.i
-  tail call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(586) %arrayidx.i.i.i) #24
+  tail call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(586) %arrayidx.i.i.i) #22
   %FreeIdx.i.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 167, i32 2
   %3 = load i32, ptr %FreeIdx.i.i, align 8
   %4 = load ptr, ptr %Data.i, align 8
@@ -13374,7 +13374,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.end.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit56, %lpad.loopexit ], [ %lpad.loopexit.split-lp57, %lpad.loopexit.split-lp ]
-  call void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_chunk_stream) #24
+  call void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_chunk_stream) #22
   resume { ptr, i32 } %lpad.phi
 
 for.inc32:                                        ; preds = %for.body17, %invoke.cont25
@@ -13420,7 +13420,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i49
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #23
+  tail call void @__clang_call_terminate(ptr %31) #21
   unreachable
 
 return:                                           ; preds = %for.end.thread, %if.then.i.i49, %invoke.cont38, %for.end
@@ -13443,7 +13443,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #23
+  tail call void @__clang_call_terminate(ptr %2) #21
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %entry, %if.then.i
@@ -14010,7 +14010,7 @@ return:                                           ; preds = %entry, %for.end
 declare void @_ZN5ImGui7TreePopEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui14GetColumnIndexEv() local_unnamed_addr #13 {
+define noundef i32 @_ZN5ImGui14GetColumnIndexEv() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
@@ -14031,7 +14031,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui15GetColumnsCountEv() local_unnamed_addr #13 {
+define noundef i32 @_ZN5ImGui15GetColumnsCountEv() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
@@ -14052,7 +14052,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN5ImGui23GetColumnOffsetFromNormEPK15ImGuiOldColumnsf(ptr nocapture noundef readonly %columns, float noundef %offset_norm) local_unnamed_addr #10 {
+define noundef float @_ZN5ImGui23GetColumnOffsetFromNormEPK15ImGuiOldColumnsf(ptr nocapture noundef readonly %columns, float noundef %offset_norm) local_unnamed_addr #9 {
 entry:
   %OffMaxX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %columns, i64 0, i32 7
   %0 = load float, ptr %OffMaxX, align 8
@@ -14064,7 +14064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN5ImGui23GetColumnNormFromOffsetEPK15ImGuiOldColumnsf(ptr nocapture noundef readonly %columns, float noundef %offset) local_unnamed_addr #10 {
+define noundef float @_ZN5ImGui23GetColumnNormFromOffsetEPK15ImGuiOldColumnsf(ptr nocapture noundef readonly %columns, float noundef %offset) local_unnamed_addr #9 {
 entry:
   %OffMaxX = getelementptr inbounds %struct.ImGuiOldColumns, ptr %columns, i64 0, i32 7
   %0 = load float, ptr %OffMaxX, align 8
@@ -14075,8 +14075,8 @@ entry:
   ret float %div
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZN5ImGui15GetColumnOffsetEi(i32 noundef %column_index) local_unnamed_addr #12 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef float @_ZN5ImGui15GetColumnOffsetEi(i32 noundef %column_index) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
@@ -14163,8 +14163,8 @@ return:                                           ; preds = %if.end3, %if.then
   ret float %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui15SetColumnOffsetEif(i32 noundef %column_index, float noundef %offset) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5ImGui15SetColumnOffsetEif(i32 noundef %column_index, float noundef %offset) local_unnamed_addr #6 {
 entry:
   br label %tailrecurse
 
@@ -14283,8 +14283,8 @@ if.end21:                                         ; preds = %if.end11
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui14SetColumnWidthEif(i32 noundef %column_index, float noundef %width) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5ImGui14SetColumnWidthEif(i32 noundef %column_index, float noundef %width) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentWindow.i = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 29
@@ -14568,14 +14568,14 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #23
+  call void @__clang_call_terminate(ptr %12) #21
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #23
+  call void @__clang_call_terminate(ptr %14) #21
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit.i:               ; preds = %if.then.i.i.i, %invoke.cont.i.i
@@ -14592,7 +14592,7 @@ terminate.lpad.i1.i:                              ; preds = %if.then.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #21
   unreachable
 
 _ZN15ImGuiOldColumnsD2Ev.exit:                    ; preds = %_ZN18ImDrawListSplitterD2Ev.exit.i, %if.then.i.i
@@ -14607,7 +14607,7 @@ _ZN15ImGuiOldColumnsD2Ev.exit:                    ; preds = %_ZN18ImDrawListSpli
 lpad:                                             ; preds = %if.then2.i.i, %if.end.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp) #24
+  call void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp) #22
   resume { ptr, i32 } %22
 
 return:                                           ; preds = %for.body, %_ZN15ImGuiOldColumnsD2Ev.exit
@@ -14636,14 +14636,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #23
+  tail call void @__clang_call_terminate(ptr %2) #21
   unreachable
 
 terminate.lpad.i:                                 ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #23
+  tail call void @__clang_call_terminate(ptr %4) #21
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %invoke.cont.i, %if.then.i.i
@@ -14660,7 +14660,7 @@ terminate.lpad.i1:                                ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #23
+  tail call void @__clang_call_terminate(ptr %7) #21
   unreachable
 
 _ZN8ImVectorI18ImGuiOldColumnDataED2Ev.exit:      ; preds = %_ZN18ImDrawListSplitterD2Ev.exit, %if.then.i
@@ -15777,9 +15777,9 @@ if.end9:                                          ; preds = %land.lhs.true2, %if
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #18 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #23
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
@@ -15788,7 +15788,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
 
 declare noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef) local_unnamed_addr #1
 
@@ -15820,7 +15820,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
+  tail call void @__clang_call_terminate(ptr %3) #21
   unreachable
 
 _ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit: ; preds = %invoke.cont, %if.then.i
@@ -15837,7 +15837,7 @@ terminate.lpad.i4:                                ; preds = %if.then.i3
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #23
+  tail call void @__clang_call_terminate(ptr %6) #21
   unreachable
 
 _ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit:  ; preds = %_ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit, %if.then.i3
@@ -15854,7 +15854,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  tail call void @__clang_call_terminate(ptr %9) #21
   unreachable
 
 _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit, %if.then.i.i
@@ -15864,32 +15864,32 @@ terminate.lpad:                                   ; preds = %entry
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #23
+  tail call void @__clang_call_terminate(ptr %11) #21
   unreachable
 }
 
 declare void @_ZN12ImGuiStorage6SetIntEji(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #21
+declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #21
+declare i16 @llvm.smax.i16(i16, i16) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #21
+declare i32 @llvm.usub.sat.i32(i32, i32) #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15898,25 +15898,23 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind }
-attributes #25 = { nounwind willreturn memory(read) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

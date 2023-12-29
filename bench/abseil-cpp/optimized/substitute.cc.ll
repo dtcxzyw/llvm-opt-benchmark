@@ -76,19 +76,19 @@ if.end36:                                         ; preds = %for.end
 if.then.i:                                        ; preds = %if.end36
   %sub.i = sub i64 %add38, %call.i
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %sub.i, i8 noundef signext 0)
-  br label %for.body44.preheader
+  br label %_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit
 
 if.else.i:                                        ; preds = %if.end36
   %call1.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %add38, i64 noundef -1)
-  br label %for.body44.preheader
+  br label %_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit
 
-for.body44.preheader:                             ; preds = %if.else.i, %if.then.i
+_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit: ; preds = %if.then.i, %if.else.i
   %call39 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %call37)
-  br label %for.body44
+  br i1 %cmp60.not, label %for.end78, label %for.body44
 
-for.body44:                                       ; preds = %for.body44.preheader, %for.inc76
-  %i40.065 = phi i64 [ %inc77, %for.inc76 ], [ 0, %for.body44.preheader ]
-  %target.064 = phi ptr [ %target.1, %for.inc76 ], [ %call39, %for.body44.preheader ]
+for.body44:                                       ; preds = %_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit, %for.inc76
+  %i40.065 = phi i64 [ %inc77, %for.inc76 ], [ 0, %_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit ]
+  %target.064 = phi ptr [ %target.1, %for.inc76 ], [ %call39, %_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit ]
   %add.ptr.i35 = getelementptr inbounds i8, ptr %format.coerce1, i64 %i40.065
   %5 = load i8, ptr %add.ptr.i35, align 1
   %cmp47 = icmp eq i8 %5, 36
@@ -141,7 +141,7 @@ for.inc76:                                        ; preds = %if.else72, %if.else
   %cmp43 = icmp ult i64 %inc77, %format.coerce0
   br i1 %cmp43, label %for.body44, label %for.end78, !llvm.loop !7
 
-for.end78:                                        ; preds = %if.else18, %if.then9, %if.then, %for.inc76, %entry, %for.end
+for.end78:                                        ; preds = %if.else18, %if.then9, %if.then, %for.inc76, %entry, %_ZN4absl16strings_internal37STLStringResizeUninitializedAmortizedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_m.exit, %for.end
   ret void
 }
 
@@ -150,7 +150,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl19substitute_internal3ArgC2EPKv(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -193,7 +193,7 @@ if.end:                                           ; preds = %entry, %do.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3HexE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %hex.coerce0, i64 %hex.coerce1) unnamed_addr #3 align 2 {
 entry:
   %hex.sroa.4.8.extract.shift = lshr i64 %hex.coerce1, 8
@@ -243,7 +243,7 @@ if.end:                                           ; preds = %if.then.i.i.i.i, %i
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3DecE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %dec.coerce0, i64 %dec.coerce1) unnamed_addr #3 align 2 {
 entry:
   %dec.sroa.4.8.extract.shift = lshr i64 %dec.coerce1, 8
@@ -332,7 +332,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

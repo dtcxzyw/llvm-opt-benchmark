@@ -8981,37 +8981,36 @@ dynamic_cast.bad_cast.i.i:                        ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.026 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %conv.i = and i64 %i.026, 4294967295
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %5 = load ptr, ptr %names_.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 5
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %conv.i
+  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %i.026
   br i1 %cmp.not.i.i.i, label %_ZNK8facebook5velox7RowType6nameOfB5cxx11Ej.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.75, i64 noundef %conv.i, i64 noundef %sub.ptr.div.i.i.i.i) #39
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.75, i64 noundef %i.026, i64 noundef %sub.ptr.div.i.i.i.i) #39
   unreachable
 
 _ZNK8facebook5velox7RowType6nameOfB5cxx11Ej.exit: ; preds = %for.body
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %conv.i
+  %add.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %i.026
   %6 = load ptr, ptr %_M_finish.i.i.i.i7, align 8
   %7 = load ptr, ptr %names_.i5, align 8
   %sub.ptr.lhs.cast.i.i.i.i8 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i.i9 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i.i10 = sub i64 %sub.ptr.lhs.cast.i.i.i.i8, %sub.ptr.rhs.cast.i.i.i.i9
   %sub.ptr.div.i.i.i.i11 = ashr exact i64 %sub.ptr.sub.i.i.i.i10, 5
-  %cmp.not.i.i.i12 = icmp ugt i64 %sub.ptr.div.i.i.i.i11, %conv.i
+  %cmp.not.i.i.i12 = icmp ugt i64 %sub.ptr.div.i.i.i.i11, %i.026
   br i1 %cmp.not.i.i.i12, label %_ZNK8facebook5velox7RowType6nameOfB5cxx11Ej.exit15, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %_ZNK8facebook5velox7RowType6nameOfB5cxx11Ej.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.75, i64 noundef %conv.i, i64 noundef %sub.ptr.div.i.i.i.i11) #39
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.75, i64 noundef %i.026, i64 noundef %sub.ptr.div.i.i.i.i11) #39
   unreachable
 
 _ZNK8facebook5velox7RowType6nameOfB5cxx11Ej.exit15: ; preds = %_ZNK8facebook5velox7RowType6nameOfB5cxx11Ej.exit
-  %add.ptr.i.i.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 %conv.i
+  %add.ptr.i.i.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 %i.026
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #37
   %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i14) #37
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
@@ -18606,7 +18605,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 576460752303423487
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -22560,7 +22559,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN5folly7dynamicESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -22826,7 +22825,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN8facebook5velox13TypeParameterESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -32529,7 +32528,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 576460752303423487
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -33822,7 +33821,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -36187,7 +36186,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
   %or.cond.i = or i1 %cmp7.i, %cmp9.i

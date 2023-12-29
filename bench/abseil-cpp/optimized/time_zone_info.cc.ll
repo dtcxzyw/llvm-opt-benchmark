@@ -801,7 +801,7 @@ if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invok
 _ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i95
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 48
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 192153584101141162
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
@@ -871,7 +871,7 @@ if.else.i104:                                     ; preds = %if.end86
 _ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit.i.i109: ; preds = %if.else.i104
   %sub.ptr.div.i.i.i.i110 = sdiv exact i64 %sub.ptr.sub.i.i.i.i107, 48
   %.sroa.speculated.i.i.i111 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i110, i64 1)
-  %add.i.i.i112 = add i64 %.sroa.speculated.i.i.i111, %sub.ptr.div.i.i.i.i110
+  %add.i.i.i112 = add nsw i64 %.sroa.speculated.i.i.i111, %sub.ptr.div.i.i.i.i110
   %cmp7.i.i.i113 = icmp ult i64 %add.i.i.i112, %sub.ptr.div.i.i.i.i110
   %cmp9.i.i.i114 = icmp ugt i64 %add.i.i.i112, 192153584101141162
   %or.cond.i.i.i115 = or i1 %cmp7.i.i.i113, %cmp9.i.i.i114
@@ -1783,10 +1783,7 @@ for.cond.preheader:                               ; preds = %invoke.cont70
   %cmp75.not176 = icmp eq i64 %15, 0
   br i1 %cmp75.not176, label %for.end121, label %for.body
 
-for.cond96.preheader:                             ; preds = %for.inc
-  br i1 %cmp75.not176, label %for.end121, label %for.body99.preheader
-
-for.body99.preheader:                             ; preds = %for.cond96.preheader
+for.body99.preheader:                             ; preds = %for.inc
   %.pre = load ptr, ptr %transitions_, align 8
   br label %for.body99
 
@@ -1848,7 +1845,7 @@ if.then84:                                        ; preds = %cond.end
 for.inc:                                          ; preds = %cond.end, %if.then84
   %inc = add nuw i64 %i.0177, 1
   %cmp75.not = icmp eq i64 %inc, %15
-  br i1 %cmp75.not, label %for.cond96.preheader, label %for.body, !llvm.loop !32
+  br i1 %cmp75.not, label %for.body99.preheader, label %for.body, !llvm.loop !32
 
 for.body99:                                       ; preds = %for.body99.preheader, %if.end111
   %26 = phi ptr [ %27, %if.end111 ], [ %.pre, %for.body99.preheader ]
@@ -1873,9 +1870,9 @@ if.end111:                                        ; preds = %for.body99
   %cmp98.not = icmp eq i64 %inc120, %15
   br i1 %cmp98.not, label %for.end121, label %for.body99, !llvm.loop !33
 
-for.end121:                                       ; preds = %if.end111, %for.cond.preheader, %for.cond96.preheader
-  %seen_type_0.0.lcssa = phi i8 [ 0, %for.cond96.preheader ], [ 0, %for.cond.preheader ], [ %spec.select, %if.end111 ]
-  %bp.1.lcssa = phi ptr [ %add.ptr, %for.cond96.preheader ], [ %20, %for.cond.preheader ], [ %incdec.ptr, %if.end111 ]
+for.end121:                                       ; preds = %if.end111, %for.cond.preheader
+  %seen_type_0.0.lcssa = phi i8 [ 0, %for.cond.preheader ], [ %spec.select, %if.end111 ]
+  %bp.1.lcssa = phi ptr [ %20, %for.cond.preheader ], [ %incdec.ptr, %if.end111 ]
   %transition_types_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this, i64 0, i32 2
   %add123 = add i64 %11, 2
   invoke void @_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %transition_types_, i64 noundef %add123)
@@ -5383,7 +5380,7 @@ if.end31:                                         ; preds = %if.then25, %if.end3
   %d.addr.195 = phi i64 [ %sub33, %if.end31 ], [ %d.addr.0, %if.then25 ]
   %ey.294 = phi i64 [ %add34, %if.end31 ], [ %ey.1, %if.then25 ]
   %yi.093 = phi i32 [ %spec.select, %if.end31 ], [ %cond.i, %if.then25 ]
-  %sub33 = sub nsw i64 %d.addr.195, %conv2896
+  %sub33 = sub nuw nsw i64 %d.addr.195, %conv2896
   %add34 = add nsw i64 %ey.294, 100
   %cmp36 = icmp sgt i32 %yi.093, 299
   %spec.select.v = select i1 %cmp36, i32 -300, i32 100
@@ -5392,7 +5389,7 @@ if.end31:                                         ; preds = %if.then25, %if.end3
   %cmp1.i = icmp sgt i32 %spec.select, 300
   %3 = or i1 %cmp.i61, %cmp1.i
   %conv28 = select i1 %3, i64 36525, i64 36524
-  %cmp29.not = icmp sgt i64 %sub33, %conv28
+  %cmp29.not = icmp ugt i64 %sub33, %conv28
   br i1 %cmp29.not, label %if.end31, label %for.cond40.preheader, !llvm.loop !85
 
 for.cond40.preheader:                             ; preds = %if.end31, %if.then25
@@ -5419,11 +5416,11 @@ lor.rhs.i:                                        ; preds = %for.cond40
 
 _ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit: ; preds = %for.cond40, %lor.rhs.i
   %conv.i = phi i64 [ 1461, %for.cond40 ], [ %4, %lor.rhs.i ]
-  %cmp44.not = icmp sgt i64 %d.addr.2, %conv.i
+  %cmp44.not = icmp ugt i64 %d.addr.2, %conv.i
   br i1 %cmp44.not, label %if.end46, label %for.cond56
 
 if.end46:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit
-  %sub48 = sub nsw i64 %d.addr.2, %conv.i
+  %sub48 = sub nuw nsw i64 %d.addr.2, %conv.i
   %add49 = add nsw i64 %ey.3, 4
   %cmp51 = icmp sgt i32 %yi.2, 395
   %spec.select55.v = select i1 %cmp51, i32 -396, i32 4
@@ -5449,18 +5446,18 @@ land.rhs.i.i71:                                   ; preds = %for.cond56
 
 _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78: ; preds = %for.cond56, %land.rhs.i.i71
   %conv59 = phi i64 [ 365, %for.cond56 ], [ %spec.select.i77, %land.rhs.i.i71 ]
-  %cmp60.not = icmp sgt i64 %d.addr.3, %conv59
+  %cmp60.not = icmp ugt i64 %d.addr.3, %conv59
   br i1 %cmp60.not, label %if.end62, label %if.end66
 
 if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
-  %sub64 = sub nsw i64 %d.addr.3, %conv59
+  %sub64 = sub nuw nsw i64 %d.addr.3, %conv59
   %inc = add nsw i64 %ey.4, 1
   br label %for.cond56, !llvm.loop !87
 
 if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78, %if.end23
   %ey.5 = phi i64 [ %ey.1, %if.end23 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
   %d.addr.4 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.3, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
-  %cmp67 = icmp sgt i64 %d.addr.4, 28
+  %cmp67 = icmp ugt i64 %d.addr.4, 28
   br i1 %cmp67, label %for.cond69, label %if.end85
 
 for.cond69:                                       ; preds = %if.end66, %if.end75
@@ -5656,7 +5653,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -5795,27 +5792,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4absl13time_internal4cctz14TransitionTypeEEE8allocateERS4_m.exit.i
-
-_ZNSt16allocator_traitsISaIN4absl13time_internal4cctz14TransitionTypeEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
-  br label %_ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4absl13time_internal4cctz14TransitionTypeEEE8allocateERS4_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4absl13time_internal4cctz14TransitionTypeEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr %"struct.absl::time_internal::cctz::TransitionType", ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   br label %for.body.i.i.i21
 
-for.body.i.i.i21:                                 ; preds = %_ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_M_allocateEm.exit, %for.body.i.i.i21
-  %__cur.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i31, %for.body.i.i.i21 ], [ %add.ptr, %_ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_M_allocateEm.exit ]
-  %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i30, %for.body.i.i.i21 ], [ %__n, %_ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_M_allocateEm.exit ]
+for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i21
+  %__cur.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i31, %for.body.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i30, %for.body.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.06.i.i.i22, i8 0, i64 48, i1 false)
   %civil_max.i.i.i.i.i24 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %__cur.06.i.i.i22, i64 0, i32 2
   store i64 1970, ptr %civil_max.i.i.i.i.i24, align 8
@@ -5839,7 +5825,7 @@ try.cont:                                         ; preds = %for.body.i.i.i21
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i36
 
 for.body.i.i.i36:                                 ; preds = %try.cont, %for.body.i.i.i36
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i36 ], [ %cond.i19, %try.cont ]
+  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i36 ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i37, %for.body.i.i.i36 ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i, i64 48, i1 false), !alias.scope !98
   %incdec.ptr.i.i.i37 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %__first.addr.06.i.i.i, i64 1
@@ -5856,10 +5842,10 @@ if.then.i41:                                      ; preds = %_ZNSt6vectorIN4absl
   br label %_ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE13_M_deallocateEPS3_m.exit42
 
 _ZNSt12_Vector_baseIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE13_M_deallocateEPS3_m.exit42: ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz14TransitionTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %if.then.i41
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"struct.absl::time_internal::cctz::TransitionType", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -5888,7 +5874,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -6103,27 +6089,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4absl13time_internal4cctz10TransitionEEE8allocateERS4_m.exit.i
-
-_ZNSt16allocator_traitsISaIN4absl13time_internal4cctz10TransitionEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
-  br label %_ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4absl13time_internal4cctz10TransitionEEE8allocateERS4_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4absl13time_internal4cctz10TransitionEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr %"struct.absl::time_internal::cctz::Transition", ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   br label %for.body.i.i.i21
 
-for.body.i.i.i21:                                 ; preds = %_ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE11_M_allocateEm.exit, %for.body.i.i.i21
-  %__cur.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i31, %for.body.i.i.i21 ], [ %add.ptr, %_ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE11_M_allocateEm.exit ]
-  %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i30, %for.body.i.i.i21 ], [ %__n, %_ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE11_M_allocateEm.exit ]
+for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i21
+  %__cur.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i31, %for.body.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i30, %for.body.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.06.i.i.i22, i8 0, i64 48, i1 false)
   %civil_sec.i.i.i.i.i24 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__cur.06.i.i.i22, i64 0, i32 3
   store i64 1970, ptr %civil_sec.i.i.i.i.i24, align 8
@@ -6147,7 +6122,7 @@ try.cont:                                         ; preds = %for.body.i.i.i21
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i36
 
 for.body.i.i.i36:                                 ; preds = %try.cont, %for.body.i.i.i36
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i36 ], [ %cond.i19, %try.cont ]
+  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i36 ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i37, %for.body.i.i.i36 ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i, i64 48, i1 false), !alias.scope !111
   %incdec.ptr.i.i.i37 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__first.addr.06.i.i.i, i64 1
@@ -6164,10 +6139,10 @@ if.then.i41:                                      ; preds = %_ZNSt6vectorIN4absl
   br label %_ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE13_M_deallocateEPS3_m.exit42
 
 _ZNSt12_Vector_baseIN4absl13time_internal4cctz10TransitionESaIS3_EE13_M_deallocateEPS3_m.exit42: ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %if.then.i41
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -7194,14 +7169,14 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

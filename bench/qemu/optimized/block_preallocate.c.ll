@@ -840,7 +840,7 @@ if.then42:                                        ; preds = %if.end38
 
 if.end52:                                         ; preds = %if.then42, %if.end38
   %14 = phi i64 [ %call45, %if.then42 ], [ %11, %if.end38 ]
-  %cmp54.not = icmp sgt i64 %add, %14
+  %cmp54.not = icmp ugt i64 %add, %14
   br i1 %cmp54.not, label %if.end62, label %if.then56
 
 if.then56:                                        ; preds = %if.end52

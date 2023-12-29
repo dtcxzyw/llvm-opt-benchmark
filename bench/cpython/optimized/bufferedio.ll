@@ -4389,7 +4389,7 @@ cond.end.thread.i.i:                              ; preds = %land.lhs.true48.i
 
 cond.end.i.i65.i:                                 ; preds = %cond.end.thread.i.i, %cond.end.thread178.i.i, %cond.end.i106.i
   %cond.i.i.i = phi i64 [ 0, %cond.end.thread.i.i ], [ 0, %cond.end.i106.i ], [ %sub.i62.i, %cond.end.thread178.i.i ]
-  %cmp5.not.i.i.i = icmp slt i64 %cond.i.i.i, %6
+  %cmp5.not.i.i.i = icmp ult i64 %cond.i.i.i, %6
   br i1 %cmp5.not.i.i.i, label %_bufferedreader_read_generic.exit.i, label %if.then.i.i66.i
 
 if.then.i.i66.i:                                  ; preds = %cond.end.i.i65.i

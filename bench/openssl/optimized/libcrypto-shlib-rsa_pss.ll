@@ -92,8 +92,8 @@ if.then25:                                        ; preds = %if.end18
 
 if.end26:                                         ; preds = %if.end18
   %cmp27 = icmp eq i32 %sLen.addr.0, -3
-  %reass.sub69 = sub i32 %emLen.0, %call4
-  %sub31 = add i32 %reass.sub69, -2
+  %reass.sub69 = sub nsw i32 %emLen.0, %call4
+  %sub31 = add nsw i32 %reass.sub69, -2
   br i1 %cmp27, label %if.end39, label %if.else32
 
 if.else32:                                        ; preds = %if.end26
@@ -108,7 +108,7 @@ if.then37:                                        ; preds = %if.else32
 
 if.end39:                                         ; preds = %if.end26, %if.else32
   %sLen.addr.1 = phi i32 [ %sLen.addr.0, %if.else32 ], [ %sub31, %if.end26 ]
-  %2 = sext i32 %emLen.0 to i64
+  %2 = zext nneg i32 %emLen.0 to i64
   %3 = getelementptr i8, ptr %EM.addr.0, i64 %2
   %arrayidx41 = getelementptr i8, ptr %3, i64 -1
   %4 = load i8, ptr %arrayidx41, align 1
@@ -123,7 +123,7 @@ if.then45:                                        ; preds = %if.end39
 
 if.end46:                                         ; preds = %if.end39
   %5 = xor i32 %call4, -1
-  %sub48 = add i32 %emLen.0, %5
+  %sub48 = add nsw i32 %emLen.0, %5
   %idx.ext = sext i32 %sub48 to i64
   %add.ptr = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idx.ext
   %call50 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %idx.ext, ptr noundef nonnull @.str, i32 noundef 100) #8
@@ -363,14 +363,14 @@ if.then25:                                        ; preds = %if.end23
 
 if.end26:                                         ; preds = %if.end23
   %cmp27 = icmp eq i32 %sLen.addr.0, -3
-  %sub29 = sub i32 %emLen.0, %call
-  %sub30 = add i32 %sub29, -2
+  %sub29 = sub nsw i32 %emLen.0, %call
+  %sub30 = add nsw i32 %sub29, -2
   br i1 %cmp27, label %if.then28, label %if.else35
 
 if.then28:                                        ; preds = %if.end26
   %cmp31 = icmp sgt i32 %sLenMax.0, -1
   %cmp32 = icmp sgt i32 %sub30, %sLenMax.0
-  %or.cond = and i1 %cmp31, %cmp32
+  %or.cond = select i1 %cmp31, i1 %cmp32, i1 false
   %spec.select63 = select i1 %or.cond, i32 %sLenMax.0, i32 %sub30
   br label %if.end41
 
@@ -405,7 +405,7 @@ if.end48:                                         ; preds = %if.then43
 if.end55:                                         ; preds = %if.end48, %if.end41
   %salt.0 = phi ptr [ %call44, %if.end48 ], [ null, %if.end41 ]
   %2 = xor i32 %call, -1
-  %sub57 = add i32 %emLen.0, %2
+  %sub57 = add nsw i32 %emLen.0, %2
   %idx.ext = sext i32 %sub57 to i64
   %add.ptr = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idx.ext
   %call58 = tail call ptr @EVP_MD_CTX_new() #8
@@ -449,7 +449,7 @@ if.end83:                                         ; preds = %if.end79
   br i1 %tobool87.not, label %if.end89, label %err
 
 if.end89:                                         ; preds = %if.end83
-  %3 = add i32 %emLen.0, -2
+  %3 = add nsw i32 %emLen.0, -2
   %4 = add i32 %call, %sLen.addr.1
   %sub92 = sub i32 %3, %4
   %idx.ext93 = sext i32 %sub92 to i64
@@ -510,7 +510,7 @@ declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) l
 
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef writeonly %rsa_pss_params) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %rsa_pss_params, null
@@ -545,7 +545,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   ret i32 %lor.ext
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_rsa_pss_params_30_copy(ptr nocapture noundef writeonly %to, ptr nocapture noundef readonly %from) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %to, ptr noundef nonnull align 4 dereferenceable(20) %from, i64 20, i1 false)
@@ -699,7 +699,7 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

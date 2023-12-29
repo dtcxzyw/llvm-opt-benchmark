@@ -1981,14 +1981,14 @@ do.end:                                           ; preds = %if.then4, %cond.tru
   br i1 %cmp.i45, label %invoke.cont, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end
-  %cmp2.i = icmp slt i32 %c.2, 65536
+  %cmp2.i = icmp ult i32 %c.2, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
   %smallFCD.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %15, i64 0, i32 16
   %17 = load ptr, ptr %smallFCD.i.i, align 8
-  %shr.i.i = ashr i32 %c.2, 8
-  %idxprom.i.i = sext i32 %shr.i.i to i64
+  %shr.i.i = lshr i32 %c.2, 8
+  %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %idxprom.i.i
   %18 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i = icmp eq i8 %18, 0
@@ -2193,14 +2193,14 @@ do.end219:                                        ; preds = %if.then124, %cond.t
   br i1 %cmp.i51, label %if.then225, label %if.else.i52
 
 if.else.i52:                                      ; preds = %do.end219
-  %cmp2.i53 = icmp slt i32 %c.5, 65536
+  %cmp2.i53 = icmp ult i32 %c.5, 65536
   br i1 %cmp2.i53, label %if.then3.i56, label %if.end6.i54
 
 if.then3.i56:                                     ; preds = %if.else.i52
   %smallFCD.i.i57 = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %36, i64 0, i32 16
   %38 = load ptr, ptr %smallFCD.i.i57, align 8
-  %shr.i.i58 = ashr i32 %c.5, 8
-  %idxprom.i.i59 = sext i32 %shr.i.i58 to i64
+  %shr.i.i58 = lshr i32 %c.5, 8
+  %idxprom.i.i59 = zext nneg i32 %shr.i.i58 to i64
   %arrayidx.i.i60 = getelementptr inbounds i8, ptr %38, i64 %idxprom.i.i59
   %39 = load i8, ptr %arrayidx.i.i60, align 1
   %cmp.i.i61 = icmp eq i8 %39, 0
@@ -3156,14 +3156,14 @@ do.end:                                           ; preds = %if.then4, %for.cond
   br i1 %cmp.i25, label %invoke.cont9, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end
-  %cmp2.i = icmp slt i32 %c.0, 65536
+  %cmp2.i = icmp ult i32 %c.0, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
   %smallFCD.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %5, i64 0, i32 16
   %7 = load ptr, ptr %smallFCD.i.i, align 8
-  %shr.i.i = ashr i32 %c.0, 8
-  %idxprom.i.i = sext i32 %shr.i.i to i64
+  %shr.i.i = lshr i32 %c.0, 8
+  %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i
   %8 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i = icmp eq i8 %8, 0
@@ -3251,14 +3251,14 @@ do.end54:                                         ; preds = %if.then47, %while.b
   br i1 %cmp.i31, label %if.then60, label %if.else.i32
 
 if.else.i32:                                      ; preds = %do.end54
-  %cmp2.i33 = icmp slt i32 %c.1, 65536
+  %cmp2.i33 = icmp ult i32 %c.1, 65536
   br i1 %cmp2.i33, label %if.then3.i36, label %if.end6.i34
 
 if.then3.i36:                                     ; preds = %if.else.i32
   %smallFCD.i.i37 = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %15, i64 0, i32 16
   %17 = load ptr, ptr %smallFCD.i.i37, align 8
-  %shr.i.i38 = ashr i32 %c.1, 8
-  %idxprom.i.i39 = sext i32 %shr.i.i38 to i64
+  %shr.i.i38 = lshr i32 %c.1, 8
+  %idxprom.i.i39 = zext nneg i32 %shr.i.i38 to i64
   %arrayidx.i.i40 = getelementptr inbounds i8, ptr %17, i64 %idxprom.i.i39
   %18 = load i8, ptr %arrayidx.i.i40, align 1
   %cmp.i.i41 = icmp eq i8 %18, 0

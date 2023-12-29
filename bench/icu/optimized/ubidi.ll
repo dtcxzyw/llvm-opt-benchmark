@@ -5801,7 +5801,7 @@ if.else56.i:                                      ; preds = %if.end29.i
   store i32 %sub57.i, ptr %match12, align 4
   %30 = load i16, ptr %start, align 4
   %conv6152.i = zext i16 %30 to i32
-  %cmp62.not.not53.i = icmp sgt i32 %14, %conv6152.i
+  %cmp62.not.not53.i = icmp ugt i32 %14, %conv6152.i
   br i1 %cmp62.not.not53.i, label %land.rhs63.i, label %while.end77.i
 
 land.rhs63.i:                                     ; preds = %if.else56.i, %while.body71.i
@@ -5820,7 +5820,7 @@ while.body71.i:                                   ; preds = %land.rhs63.i
   store i32 0, ptr %match76.i, align 4
   %34 = load i16, ptr %start, align 4
   %conv61.i = zext i16 %34 to i32
-  %cmp62.not.not.i = icmp sgt i32 %k.054.i, %conv61.i
+  %cmp62.not.not.i = icmp ugt i32 %k.054.i, %conv61.i
   br i1 %cmp62.not.not.i, label %land.rhs63.i, label %while.end77.i, !llvm.loop !39
 
 while.end77.i:                                    ; preds = %while.body71.i, %land.rhs63.i, %if.else56.i

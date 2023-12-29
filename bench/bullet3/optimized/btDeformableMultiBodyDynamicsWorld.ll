@@ -7606,7 +7606,7 @@ if.then.i:                                        ; preds = %if.then20
   %idxprom.i.i = and i64 %indvars.iv, 4294967295
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i.i
   %17 = load ptr, ptr %arrayidx.i.i, align 8
-  %idxprom3.i.i = sext i32 %sub.i to i64
+  %idxprom3.i.i = zext nneg i32 %sub.i to i64
   %arrayidx4.i.i = getelementptr inbounds ptr, ptr %10, i64 %idxprom3.i.i
   %18 = load ptr, ptr %arrayidx4.i.i, align 8
   store ptr %18, ptr %arrayidx.i.i, align 8

@@ -6494,7 +6494,7 @@ _ZN2dd3pddD2Ev.exit143:                           ; preds = %cleanup67, %if.then
 for.inc71:                                        ; preds = %for.cond.i, %for.body, %_ZN2dd3pddD2Ev.exit143, %invoke.cont18
   %inc = add nuw i32 %_v.0561, 1
   %exitcond.not = icmp eq i32 %inc, %retval.0.i.i
-  br i1 %exitcond.not, label %for.end72, label %for.body, !llvm.loop !55
+  br i1 %exitcond.not, label %for.body78.lr.ph, label %for.body, !llvm.loop !55
 
 ehcleanup70:                                      ; preds = %if.then.i.i126, %ehcleanup
   %62 = load ptr, ptr %m.i132, align 8
@@ -6515,14 +6515,11 @@ if.then.i.i150:                                   ; preds = %ehcleanup70
   store i32 %bf.set.i.i154, ptr %arrayidx.i.i.i146, align 4
   br label %ehcleanup199
 
-for.end72:                                        ; preds = %for.inc71
+for.body78.lr.ph:                                 ; preds = %for.inc71
   %mul.i156 = mul i32 %add.i, 214013
   %add.i157 = add i32 %mul.i156, 2531011
   %shr.i158 = lshr i32 %add.i157, 16
   %and.i159 = and i32 %shr.i158, 32767
-  br i1 %cmp15560.not, label %end_of_new_eqs, label %for.body78.lr.ph
-
-for.body78.lr.ph:                                 ; preds = %for.end72
   %m_index.i.i = getelementptr inbounds %"class.uint_set::iterator", ptr %retval.i, i64 0, i32 1
   %m_last.i.i = getelementptr inbounds %"class.uint_set::iterator", ptr %retval.i, i64 0, i32 2
   %m_index.i.i180 = getelementptr inbounds %"class.uint_set::iterator", ptr %retval.i177, i64 0, i32 1
@@ -7420,8 +7417,8 @@ if.then.i.i444:                                   ; preds = %ehcleanup189
   store i32 %bf.set.i.i448, ptr %arrayidx.i.i.i440, align 4
   br label %ehcleanup199
 
-end_of_new_eqs:                                   ; preds = %_ZN2dd3pddD2Ev.exit143, %for.inc190, %_ZN2dd3pddD2Ev.exit437, %for.end72.thread, %for.end72
-  %rand.sroa.0.0 = phi i32 [ %add.i157, %for.end72 ], [ %add.i157609, %for.end72.thread ], [ %add.i157, %_ZN2dd3pddD2Ev.exit437 ], [ %add.i157, %for.inc190 ], [ %add.i, %_ZN2dd3pddD2Ev.exit143 ]
+end_of_new_eqs:                                   ; preds = %_ZN2dd3pddD2Ev.exit143, %for.inc190, %_ZN2dd3pddD2Ev.exit437, %for.end72.thread
+  %rand.sroa.0.0 = phi i32 [ %add.i157609, %for.end72.thread ], [ %add.i157, %_ZN2dd3pddD2Ev.exit437 ], [ %add.i157, %for.inc190 ], [ %add.i, %_ZN2dd3pddD2Ev.exit143 ]
   %mul.i450 = mul i32 %rand.sroa.0.0, 214013
   %add.i451 = add i32 %mul.i450, 2531011
   %shr.i452 = lshr i32 %add.i451, 16

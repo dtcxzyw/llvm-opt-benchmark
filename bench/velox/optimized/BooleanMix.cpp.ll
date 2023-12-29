@@ -1405,7 +1405,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end9.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %div.i.i = ashr i32 %3, 6
+  %div.i.i = lshr i32 %3, 6
   %sub.i.i = and i32 %3, 63
   %sh_prom.i.i.i = zext nneg i32 %sub.i.i to i64
   %notmask.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i
@@ -1418,7 +1418,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %sh_prom.i24.i.i = zext nneg i32 %sub.i23.i.i to i64
   %shl.i.i.i = shl i64 %sub.i.i.i.i, %sh_prom.i24.i.i
   %and7.i.i = and i64 %shl.i.i.i, %sub.i22.i.i
-  %idxprom.i.i.i = sext i32 %div.i.i to i64
+  %idxprom.i.i.i = zext nneg i32 %div.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %bits, i64 %idxprom.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i, align 8
   br label %_ZN8facebook5velox4bits8isAllSetEPKmiib.exit
@@ -1428,7 +1428,7 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp10.not.i.i, label %for.cond.i.i.preheader, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
-  %div12.i.i14 = lshr i32 %call2, 6
+  %div12.i.i1415 = lshr i32 %call2, 6
   %sub13.i.i = sub nsw i32 %mul.i.i.i, %call2
   %sh_prom.i.i25.i.i = zext nneg i32 %sub13.i.i to i64
   %notmask.i.i26.i.i = shl nsw i64 -1, %sh_prom.i.i25.i.i
@@ -1436,7 +1436,7 @@ if.then11.i.i:                                    ; preds = %if.end9.i.i
   %sub.i28.i.i = sub nsw i32 64, %sub13.i.i
   %sh_prom.i29.i.i = zext nneg i32 %sub.i28.i.i to i64
   %shl.i30.i.i = shl i64 %sub.i.i27.i.i, %sh_prom.i29.i.i
-  %idxprom.i31.i.i = zext nneg i32 %div12.i.i14 to i64
+  %idxprom.i31.i.i = zext nneg i32 %div12.i.i1415 to i64
   %arrayidx.i32.i.i = getelementptr inbounds i64, ptr %bits, i64 %idxprom.i31.i.i
   %7 = load i64, ptr %arrayidx.i32.i.i, align 8
   %8 = xor i64 %7, -1

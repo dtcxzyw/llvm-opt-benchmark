@@ -1004,9 +1004,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %add30 = add nuw nsw i64 %div, 1
   br label %for.body
 
-for.cond42.preheader:                             ; preds = %for.body
-  br i1 %cmp40, label %for.body46, label %return
-
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %conv1142 = phi i32 [ 0, %for.body.lr.ph ], [ %conv11, %for.body ]
   %i.041 = phi i8 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
@@ -1064,17 +1061,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @socket_send_channel_create(ptr noundef nonnull @multifd_new_send_channel_async, ptr noundef nonnull %arrayidx15) #15
   %inc = add i8 %i.041, 1
   %conv11 = zext i8 %inc to i32
-  %cmp = icmp sgt i32 %call2, %conv11
-  br i1 %cmp, label %for.body, label %for.cond42.preheader, !llvm.loop !11
+  %cmp = icmp ugt i32 %call2, %conv11
+  br i1 %cmp, label %for.body, label %for.body46, !llvm.loop !11
 
 for.cond42:                                       ; preds = %for.body46
   %inc56 = add i8 %i.144, 1
   %conv43 = zext i8 %inc56 to i32
-  %cmp44 = icmp sgt i32 %call2, %conv43
+  %cmp44 = icmp ugt i32 %call2, %conv43
   br i1 %cmp44, label %for.body46, label %return, !llvm.loop !12
 
-for.body46:                                       ; preds = %for.cond42.preheader, %for.cond42
-  %i.144 = phi i8 [ %inc56, %for.cond42 ], [ 0, %for.cond42.preheader ]
+for.body46:                                       ; preds = %for.body, %for.cond42
+  %i.144 = phi i8 [ %inc56, %for.cond42 ], [ 0, %for.body ]
   %10 = load ptr, ptr @multifd_send_state, align 8
   %11 = load ptr, ptr %10, align 8
   %idxprom49 = zext i8 %i.144 to i64
@@ -1092,8 +1089,8 @@ if.then53:                                        ; preds = %for.body46
   call void @error_propagate(ptr noundef %errp, ptr noundef %14) #15
   br label %return
 
-return:                                           ; preds = %for.cond42, %if.end, %for.cond42.preheader, %entry, %if.then53
-  %retval.0 = phi i32 [ %call52, %if.then53 ], [ 0, %entry ], [ 0, %for.cond42.preheader ], [ 0, %if.end ], [ 0, %for.cond42 ]
+return:                                           ; preds = %for.cond42, %if.end, %entry, %if.then53
+  %retval.0 = phi i32 [ %call52, %if.then53 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %for.cond42 ]
   ret i32 %retval.0
 }
 
@@ -1564,9 +1561,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %conv18 = zext nneg i32 %conv16 to i64
   br label %for.body
 
-for.cond29.preheader:                             ; preds = %for.body
-  br i1 %cmp25, label %for.body33, label %return
-
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %conv927 = phi i32 [ 0, %for.body.lr.ph ], [ %conv9, %for.body ]
   %i.026 = phi i8 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
@@ -1603,17 +1597,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %conv28, ptr %page_size, align 4
   %inc = add i8 %i.026, 1
   %conv9 = zext i8 %inc to i32
-  %cmp = icmp sgt i32 %call2, %conv9
-  br i1 %cmp, label %for.body, label %for.cond29.preheader, !llvm.loop !18
+  %cmp = icmp ugt i32 %call2, %conv9
+  br i1 %cmp, label %for.body, label %for.body33, !llvm.loop !18
 
 for.cond29:                                       ; preds = %for.body33
   %inc44 = add i8 %i.129, 1
   %conv30 = zext i8 %inc44 to i32
-  %cmp31 = icmp sgt i32 %call2, %conv30
+  %cmp31 = icmp ugt i32 %call2, %conv30
   br i1 %cmp31, label %for.body33, label %return, !llvm.loop !19
 
-for.body33:                                       ; preds = %for.cond29.preheader, %for.cond29
-  %i.129 = phi i8 [ %inc44, %for.cond29 ], [ 0, %for.cond29.preheader ]
+for.body33:                                       ; preds = %for.body, %for.cond29
+  %i.129 = phi i8 [ %inc44, %for.cond29 ], [ 0, %for.body ]
   %8 = load ptr, ptr @multifd_recv_state, align 8
   %9 = load ptr, ptr %8, align 8
   %idxprom36 = zext i8 %i.129 to i64
@@ -1632,8 +1626,8 @@ if.then41:                                        ; preds = %for.body33
   call void @error_propagate(ptr noundef %errp, ptr noundef %12) #15
   br label %return
 
-return:                                           ; preds = %for.cond29, %if.end, %for.cond29.preheader, %entry, %lor.lhs.false, %if.then41
-  %retval.0 = phi i32 [ %call39, %if.then41 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %for.cond29.preheader ], [ 0, %if.end ], [ 0, %for.cond29 ]
+return:                                           ; preds = %for.cond29, %if.end, %entry, %lor.lhs.false, %if.then41
+  %retval.0 = phi i32 [ %call39, %if.then41 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ], [ 0, %for.cond29 ]
   ret i32 %retval.0
 }
 

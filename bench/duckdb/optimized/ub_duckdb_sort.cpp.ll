@@ -9055,23 +9055,32 @@ for.body.i750:                                    ; preds = %land.lhs.true.i739
   %add.ptr26.i764 = getelementptr inbounds i8, ptr %r_ptr.5, i64 %mul25.i763
   %inc.i765 = add nuw i64 %i.052.i740, 1
   %exitcond.not.i766 = icmp eq i64 %inc.i765, %cond.i.i737
-  br i1 %exitcond.not.i766, label %invoke.cont220, label %land.lhs.true.i739, !llvm.loop !227
+  br i1 %exitcond.not.i766, label %invoke.cont220.thread, label %land.lhs.true.i739, !llvm.loop !227
 
-invoke.cont220:                                   ; preds = %for.body.i750, %land.lhs.true.i739
-  %r_ptr.6 = phi ptr [ %add.ptr26.i764, %for.body.i750 ], [ %r_ptr.5, %land.lhs.true.i739 ]
-  %l_ptr.6 = phi ptr [ %add.ptr22.i762, %for.body.i750 ], [ %l_ptr.5, %land.lhs.true.i739 ]
-  %i.0.lcssa.ph.i743 = phi i64 [ %cond.i.i737, %for.body.i750 ], [ %i.052.i740, %land.lhs.true.i739 ]
+invoke.cont220.thread:                            ; preds = %for.body.i750
+  %.pre.i74437 = load i64, ptr %count11, align 8, !tbaa !191
+  %add28.i74638 = add i64 %.pre.i74437, %cond.i.i737
+  store i64 %add28.i74638, ptr %count11, align 8, !tbaa !191
+  br label %for.body.preheader
+
+invoke.cont220:                                   ; preds = %land.lhs.true.i739
   %.pre.i744 = load i64, ptr %count11, align 8, !tbaa !191
-  %add28.i746 = add i64 %.pre.i744, %i.0.lcssa.ph.i743
+  %add28.i746 = add i64 %.pre.i744, %i.052.i740
   store i64 %add28.i746, ptr %count11, align 8, !tbaa !191
-  %cmp221930.not = icmp eq i64 %i.0.lcssa.ph.i743, 0
-  br i1 %cmp221930.not, label %for.cond.cleanup, label %for.body
+  %cmp221930.not = icmp eq i64 %i.052.i740, 0
+  br i1 %cmp221930.not, label %for.cond.cleanup, label %for.body.preheader
+
+for.body.preheader:                               ; preds = %invoke.cont220.thread, %invoke.cont220
+  %i.0.lcssa.ph.i74342 = phi i64 [ %cond.i.i737, %invoke.cont220.thread ], [ %i.052.i740, %invoke.cont220 ]
+  %l_ptr.641 = phi ptr [ %add.ptr22.i762, %invoke.cont220.thread ], [ %l_ptr.5, %invoke.cont220 ]
+  %r_ptr.640 = phi ptr [ %add.ptr26.i764, %invoke.cont220.thread ], [ %r_ptr.5, %invoke.cont220 ]
+  br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %invoke.cont220, %if.then216
   %cmp221930.not977 = phi i1 [ true, %invoke.cont220 ], [ true, %if.then216 ], [ false, %for.body ]
-  %i.0.lcssa.i745976 = phi i64 [ 0, %invoke.cont220 ], [ 0, %if.then216 ], [ %i.0.lcssa.ph.i743, %for.body ]
-  %l_ptr.7975 = phi ptr [ %l_ptr.6, %invoke.cont220 ], [ %l_ptr.1, %if.then216 ], [ %l_ptr.6, %for.body ]
-  %r_ptr.7974 = phi ptr [ %r_ptr.6, %invoke.cont220 ], [ %r_ptr.1, %if.then216 ], [ %r_ptr.6, %for.body ]
+  %i.0.lcssa.i745976 = phi i64 [ 0, %invoke.cont220 ], [ 0, %if.then216 ], [ %i.0.lcssa.ph.i74342, %for.body ]
+  %l_ptr.7975 = phi ptr [ %l_ptr.5, %invoke.cont220 ], [ %l_ptr.1, %if.then216 ], [ %l_ptr.641, %for.body ]
+  %r_ptr.7974 = phi ptr [ %r_ptr.5, %invoke.cont220 ], [ %r_ptr.1, %if.then216 ], [ %r_ptr.640, %for.body ]
   %result_data_ptr.4.lcssa = phi ptr [ %result_data_ptr.0947, %invoke.cont220 ], [ %result_data_ptr.0947, %if.then216 ], [ %add.ptr227, %for.body ]
   %copy_bytes.0.lcssa = phi i64 [ 0, %invoke.cont220 ], [ 0, %if.then216 ], [ %add253, %for.body ]
   %167 = load i64, ptr %byte_offset223, align 8, !tbaa !231
@@ -9080,12 +9089,12 @@ for.cond.cleanup:                                 ; preds = %for.body, %invoke.c
   %cmp257 = icmp ugt i64 %add256, %168
   br i1 %cmp257, label %if.then258, label %if.end273
 
-for.body:                                         ; preds = %invoke.cont220, %for.body
-  %copy_bytes.0935 = phi i64 [ %add253, %for.body ], [ 0, %invoke.cont220 ]
-  %l_heap_ptr_copy.0934 = phi ptr [ %add.ptr248, %for.body ], [ %add.ptr202, %invoke.cont220 ]
-  %r_heap_ptr_copy.0933 = phi ptr [ %add.ptr252, %for.body ], [ %add.ptr211966, %invoke.cont220 ]
-  %i.0932 = phi i64 [ %inc254, %for.body ], [ 0, %invoke.cont220 ]
-  %result_data_ptr.4931 = phi ptr [ %add.ptr227, %for.body ], [ %result_data_ptr.0947, %invoke.cont220 ]
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %copy_bytes.0935 = phi i64 [ %add253, %for.body ], [ 0, %for.body.preheader ]
+  %l_heap_ptr_copy.0934 = phi ptr [ %add.ptr248, %for.body ], [ %add.ptr202, %for.body.preheader ]
+  %r_heap_ptr_copy.0933 = phi ptr [ %add.ptr252, %for.body ], [ %add.ptr211966, %for.body.preheader ]
+  %i.0932 = phi i64 [ %inc254, %for.body ], [ 0, %for.body.preheader ]
+  %result_data_ptr.4931 = phi ptr [ %add.ptr227, %for.body ], [ %result_data_ptr.0947, %for.body.preheader ]
   %169 = load i64, ptr %byte_offset223, align 8, !tbaa !231
   %add = add i64 %169, %copy_bytes.0935
   %add.ptr224 = getelementptr inbounds i8, ptr %result_data_ptr.4931, i64 %3
@@ -9113,7 +9122,7 @@ for.body:                                         ; preds = %invoke.cont220, %fo
   %add.ptr252 = getelementptr inbounds i8, ptr %r_heap_ptr_copy.0933, i64 %mul251
   %add253 = add i64 %copy_bytes.0935, %conv244
   %inc254 = add nuw i64 %i.0932, 1
-  %exitcond.not = icmp eq i64 %inc254, %i.0.lcssa.ph.i743
+  %exitcond.not = icmp eq i64 %inc254, %i.0.lcssa.ph.i74342
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !232
 
 if.then258:                                       ; preds = %for.cond.cleanup

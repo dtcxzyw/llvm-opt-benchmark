@@ -4469,7 +4469,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp9.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i.i.i = or i1 %cmp7.i.i.i.i.i.i, %cmp9.i.i.i.i.i.i
@@ -4539,7 +4539,7 @@ if.then.i.i.i.i.i.i40:                            ; preds = %if.else.i.i.i.i11
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i16: ; preds = %if.else.i.i.i.i11
   %sub.ptr.div.i.i.i.i.i.i.i17 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i14, 3
   %.sroa.speculated.i.i.i.i.i.i18 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i17, i64 1)
-  %add.i.i.i.i.i.i19 = add i64 %.sroa.speculated.i.i.i.i.i.i18, %sub.ptr.div.i.i.i.i.i.i.i17
+  %add.i.i.i.i.i.i19 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i18, %sub.ptr.div.i.i.i.i.i.i.i17
   %cmp7.i.i.i.i.i.i20 = icmp ult i64 %add.i.i.i.i.i.i19, %sub.ptr.div.i.i.i.i.i.i.i17
   %cmp9.i.i.i.i.i.i21 = icmp ugt i64 %add.i.i.i.i.i.i19, 1152921504606846975
   %or.cond.i.i.i.i.i.i22 = or i1 %cmp7.i.i.i.i.i.i20, %cmp9.i.i.i.i.i.i21
@@ -4609,7 +4609,7 @@ if.then.i.i.i.i.i.i77:                            ; preds = %if.else.i.i.i.i48
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i53: ; preds = %if.else.i.i.i.i48
   %sub.ptr.div.i.i.i.i.i.i.i54 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i51, 3
   %.sroa.speculated.i.i.i.i.i.i55 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i54, i64 1)
-  %add.i.i.i.i.i.i56 = add i64 %.sroa.speculated.i.i.i.i.i.i55, %sub.ptr.div.i.i.i.i.i.i.i54
+  %add.i.i.i.i.i.i56 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i55, %sub.ptr.div.i.i.i.i.i.i.i54
   %cmp7.i.i.i.i.i.i57 = icmp ult i64 %add.i.i.i.i.i.i56, %sub.ptr.div.i.i.i.i.i.i.i54
   %cmp9.i.i.i.i.i.i58 = icmp ugt i64 %add.i.i.i.i.i.i56, 1152921504606846975
   %or.cond.i.i.i.i.i.i59 = or i1 %cmp7.i.i.i.i.i.i57, %cmp9.i.i.i.i.i.i58
@@ -4679,7 +4679,7 @@ if.then.i.i.i.i.i.i114:                           ; preds = %if.else.i.i.i.i85
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i90: ; preds = %if.else.i.i.i.i85
   %sub.ptr.div.i.i.i.i.i.i.i91 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i88, 3
   %.sroa.speculated.i.i.i.i.i.i92 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i91, i64 1)
-  %add.i.i.i.i.i.i93 = add i64 %.sroa.speculated.i.i.i.i.i.i92, %sub.ptr.div.i.i.i.i.i.i.i91
+  %add.i.i.i.i.i.i93 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i92, %sub.ptr.div.i.i.i.i.i.i.i91
   %cmp7.i.i.i.i.i.i94 = icmp ult i64 %add.i.i.i.i.i.i93, %sub.ptr.div.i.i.i.i.i.i.i91
   %cmp9.i.i.i.i.i.i95 = icmp ugt i64 %add.i.i.i.i.i.i93, 1152921504606846975
   %or.cond.i.i.i.i.i.i96 = or i1 %cmp7.i.i.i.i.i.i94, %cmp9.i.i.i.i.i.i95
@@ -4748,7 +4748,7 @@ if.then.i.i.i.i.i.i151:                           ; preds = %if.else.i.i.i.i122
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i127: ; preds = %if.else.i.i.i.i122
   %sub.ptr.div.i.i.i.i.i.i.i128 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i125, 3
   %.sroa.speculated.i.i.i.i.i.i129 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i128, i64 1)
-  %add.i.i.i.i.i.i130 = add i64 %.sroa.speculated.i.i.i.i.i.i129, %sub.ptr.div.i.i.i.i.i.i.i128
+  %add.i.i.i.i.i.i130 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i129, %sub.ptr.div.i.i.i.i.i.i.i128
   %cmp7.i.i.i.i.i.i131 = icmp ult i64 %add.i.i.i.i.i.i130, %sub.ptr.div.i.i.i.i.i.i.i128
   %cmp9.i.i.i.i.i.i132 = icmp ugt i64 %add.i.i.i.i.i.i130, 1152921504606846975
   %or.cond.i.i.i.i.i.i133 = or i1 %cmp7.i.i.i.i.i.i131, %cmp9.i.i.i.i.i.i132
@@ -8878,27 +8878,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorI11uv_dirent_sSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 576460752303423487
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 576460752303423487, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i20, label %_ZNSt16allocator_traitsISaI11uv_dirent_sEE8allocateERS1_m.exit.i
-
-_ZNSt16allocator_traitsISaI11uv_dirent_sEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI11uv_dirent_sSaIS0_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 4
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
-  br label %if.then.i.i.i20
-
-if.then.i.i.i20:                                  ; preds = %_ZNSt16allocator_traitsISaI11uv_dirent_sEE8allocateERS1_m.exit.i, %_ZNKSt6vectorI11uv_dirent_sSaIS0_EE12_M_check_lenEmPKc.exit
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI11uv_dirent_sEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI11uv_dirent_sSaIS0_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %struct.uv_dirent_s, ptr %cond.i17, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i8 0, i64 16, i1 false)
   %cmp.i.i.i.i.i22 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i22, label %_ZSt27__uninitialized_default_n_aIP11uv_dirent_smS0_ET_S2_T0_RSaIT1_E.exit30, label %if.end.i.i.i.i.i23
 
-if.end.i.i.i.i.i23:                               ; preds = %if.then.i.i.i20
+if.end.i.i.i.i.i23:                               ; preds = %_ZNKSt6vectorI11uv_dirent_sSaIS0_EE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i21 = getelementptr inbounds %struct.uv_dirent_s, ptr %add.ptr, i64 1
   %add.ptr.i.i.i.i.i24 = getelementptr inbounds %struct.uv_dirent_s, ptr %add.ptr, i64 %__n
   br label %for.body.i.i.i.i.i.i.i25
@@ -8910,12 +8899,12 @@ for.body.i.i.i.i.i.i.i25:                         ; preds = %for.body.i.i.i.i.i.
   %cmp.not.i.i.i.i.i.i.i28 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i27, %add.ptr.i.i.i.i.i24
   br i1 %cmp.not.i.i.i.i.i.i.i28, label %_ZSt27__uninitialized_default_n_aIP11uv_dirent_smS0_ET_S2_T0_RSaIT1_E.exit30, label %for.body.i.i.i.i.i.i.i25, !llvm.loop !59
 
-_ZSt27__uninitialized_default_n_aIP11uv_dirent_smS0_ET_S2_T0_RSaIT1_E.exit30: ; preds = %for.body.i.i.i.i.i.i.i25, %if.then.i.i.i20
+_ZSt27__uninitialized_default_n_aIP11uv_dirent_smS0_ET_S2_T0_RSaIT1_E.exit30: ; preds = %for.body.i.i.i.i.i.i.i25, %_ZNKSt6vectorI11uv_dirent_sSaIS0_EE12_M_check_lenEmPKc.exit
   %cmp.i.i.i31 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i31, label %if.then.i.i.i32, label %_ZNSt6vectorI11uv_dirent_sSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
 if.then.i.i.i32:                                  ; preds = %_ZSt27__uninitialized_default_n_aIP11uv_dirent_smS0_ET_S2_T0_RSaIT1_E.exit30
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i17, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorI11uv_dirent_sSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
 _ZNSt6vectorI11uv_dirent_sSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIP11uv_dirent_smS0_ET_S2_T0_RSaIT1_E.exit30, %if.then.i.i.i32
@@ -8927,10 +8916,10 @@ if.then.i33:                                      ; preds = %_ZNSt6vectorI11uv_d
   br label %_ZNSt12_Vector_baseI11uv_dirent_sSaIS0_EE13_M_deallocateEPS0_m.exit
 
 _ZNSt12_Vector_baseI11uv_dirent_sSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI11uv_dirent_sSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %if.then.i33
-  store ptr %cond.i17, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr34 = getelementptr inbounds %struct.uv_dirent_s, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8
-  %add.ptr37 = getelementptr inbounds %struct.uv_dirent_s, ptr %cond.i17, i64 %cond.i
+  %add.ptr37 = getelementptr inbounds %struct.uv_dirent_s, ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8
   br label %if.end41
 
@@ -8957,6 +8946,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

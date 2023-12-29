@@ -3820,7 +3820,7 @@ if.then95:                                        ; preds = %if.then68
 
 if.then100:                                       ; preds = %if.then95
   %19 = xor i32 %conv98, -1
-  %sub104 = add i32 %16, %19
+  %sub104 = add nsw i32 %16, %19
   br label %if.end152.sink.split
 
 if.end108:                                        ; preds = %if.then68, %if.then59, %if.end53
@@ -3912,7 +3912,7 @@ if.end143:                                        ; preds = %if.then124, %if.the
 
 if.then147:                                       ; preds = %if.end143
   %32 = xor i32 %conv145, -1
-  %sub151 = add i32 %29, %32
+  %sub151 = add nsw i32 %29, %32
   br label %if.end152.sink.split
 
 if.end152.sink.split:                             ; preds = %if.then147, %if.then46, %if.then100
@@ -5506,7 +5506,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp20, label %if.then21, label %if.end35
 
 if.then21:                                        ; preds = %land.lhs.true
-  %add22 = shl i64 %__holeIndex.addr.0.lcssa, 1
+  %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
   %add.ptr.i20 = getelementptr inbounds %"class.google::protobuf::FieldOptions_EditionDefault", ptr %__first.coerce, i64 %sub25
   %add.ptr.i21 = getelementptr inbounds %"class.google::protobuf::FieldOptions_EditionDefault", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
@@ -6332,8 +6332,7 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   %pos.1.i = phi i64 [ %conv14.i, %while.end.i ], [ %pos.1.i.be, %do.body.i.backedge ]
   %parent.1.i = phi ptr [ %8, %while.end.i ], [ %parent.1.i.be, %do.body.i.backedge ]
   %add.ptr.i.i.i47.i = getelementptr inbounds i8, ptr %parent.1.i, i64 256
-  %idxprom.i.i = and i64 %pos.1.i, 255
-  %arrayidx.i48.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i47.i, i64 %idxprom.i.i
+  %arrayidx.i48.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i47.i, i64 %pos.1.i
   %9 = load ptr, ptr %arrayidx.i48.i, align 8
   %arrayidx.i.i49.i = getelementptr i8, ptr %9, i64 11
   %10 = load i8, ptr %arrayidx.i.i49.i, align 1

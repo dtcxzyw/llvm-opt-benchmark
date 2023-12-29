@@ -297,7 +297,7 @@ if.end8:                                          ; preds = %if.end5
 new.ctorloop:                                     ; preds = %if.end8
   %6 = add nsw i64 %5, -12
   %7 = urem i64 %6, 12
-  %8 = sub nsw i64 %6, %7
+  %8 = sub nuw nsw i64 %6, %7
   %9 = add nsw i64 %8, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call10, i8 0, i64 %9, i1 false)
   br label %arrayctor.cont
@@ -536,7 +536,7 @@ invoke.cont95:                                    ; preds = %if.end91
 new.ctorloop98:                                   ; preds = %invoke.cont95
   %77 = add nsw i64 %76, -12
   %78 = urem i64 %77, 12
-  %79 = sub nsw i64 %77, %78
+  %79 = sub nuw nsw i64 %77, %78
   %80 = add nsw i64 %79, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call96, i8 0, i64 %80, i1 false)
   %configMaxAngle = getelementptr inbounds %"class.Assimp::GenVertexNormalsProcess", ptr %this, i64 0, i32 1
@@ -573,8 +573,7 @@ invoke.cont121.lr.ph:                             ; preds = %if.then.i.i
 invoke.cont121:                                   ; preds = %invoke.cont121.lr.ph, %for.inc170
   %indvars.iv271 = phi i64 [ 0, %invoke.cont121.lr.ph ], [ %indvars.iv.next272, %for.inc170 ]
   %div.i.i.i.i.i95221222230 = lshr i64 %indvars.iv271, 6
-  %div.i.i.i.i.i95221.zext = and i64 %div.i.i.i.i.i95221222230, 67108863
-  %add.ptr.i.i.i.i.i96 = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i, i64 %div.i.i.i.i.i95221.zext
+  %add.ptr.i.i.i.i.i96 = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i, i64 %div.i.i.i.i.i95221222230
   %rem.i.i.i.i.i97223224 = and i64 %indvars.iv271, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i97223224
   %86 = load i64, ptr %add.ptr.i.i.i.i.i96, align 8

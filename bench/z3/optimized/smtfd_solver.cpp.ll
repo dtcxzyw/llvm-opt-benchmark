@@ -27563,12 +27563,9 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store i32 %inc.i.i.us.i, ptr %arrayidx10.i.i.us.i, align 4
   %inc.us.i = add nuw i32 %i.024.us.i, 1
   %exitcond26.not.i = icmp eq i32 %inc.us.i, %9
-  br i1 %exitcond26.not.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEjPS0_.exit, label %for.body.us.ithread-pre-split, !llvm.loop !215
+  br i1 %exitcond26.not.i, label %invoke.cont9.lr.ph, label %for.body.us.ithread-pre-split, !llvm.loop !215
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEjPS0_.exit: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.us.i
-  br i1 %cmp1323.i.not, label %for.end, label %invoke.cont9.lr.ph
-
-invoke.cont9.lr.ph:                               ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEjPS0_.exit
+invoke.cont9.lr.ph:                               ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.us.i
   %m_patterns_decls.i.i.i = getelementptr inbounds %class.quantifier, ptr %q, i64 0, i32 13
   %wide.trip.count = zext i32 %9 to i64
   br label %invoke.cont9
@@ -27641,7 +27638,7 @@ lpad4.loopexit.split-lp.loopexit.split-lp:        ; preds = %for.end
           cleanup
   br label %ehcleanup44
 
-for.end:                                          ; preds = %for.inc, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit17.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6resizeEjPS0_.exit
+for.end:                                          ; preds = %for.inc, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit17.i
   %25 = load ptr, ptr %this, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12beta_reducer, i64 0, inrange i32 0, i64 2), ptr %subst, align 8
   %m_cfg.i.i = getelementptr inbounds %class.beta_reducer, ptr %subst, i64 0, i32 1

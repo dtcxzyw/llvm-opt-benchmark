@@ -246,7 +246,7 @@ return:                                           ; preds = %entry, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @usb_desc_config(ptr nocapture noundef readonly %conf, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %len, 9
@@ -411,7 +411,7 @@ return:                                           ; preds = %for.body, %usb_desc
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @usb_desc_iface_group(ptr nocapture noundef readonly %iad, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %len, 8
@@ -475,7 +475,7 @@ return:                                           ; preds = %for.body, %if.end18
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @usb_desc_iface(ptr nocapture noundef readonly %iface, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %len, 9
@@ -697,7 +697,7 @@ return:                                           ; preds = %cond.end.i, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @usb_desc_other(ptr nocapture noundef readonly %desc, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %desc, align 8
@@ -728,7 +728,7 @@ return:                                           ; preds = %cond.end, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @usb_desc_endpoint(ptr nocapture noundef readonly %ep, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %is_audio = getelementptr inbounds %struct.USBDescEndpoint, ptr %ep, i64 0, i32 6
@@ -2825,7 +2825,7 @@ for.inc49.i:                                      ; preds = %land.lhs.true42.i, 
 
 if.end:                                           ; preds = %land.lhs.true.i, %land.lhs.true42.i
   %retval.0.i = phi ptr [ %arrayidx37.i, %land.lhs.true42.i ], [ %arrayidx15.i, %land.lhs.true.i ]
-  %idxprom = sext i32 %index to i64
+  %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr %struct.USBDevice, ptr %dev, i64 0, i32 29, i64 %idxprom
   %11 = load i32, ptr %arrayidx, align 4
   store i32 %value, ptr %arrayidx, align 4
@@ -2936,8 +2936,8 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -305,8 +305,8 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %for.body.lr.ph.i24, label %for.cond.i
 
-for.body.lr.ph.i24:                               ; preds = %for.body.i, %for.cond.i
-  %retval.0.i = phi ptr [ null, %for.cond.i ], [ %arrayidx.i, %for.body.i ]
+for.body.lr.ph.i24:                               ; preds = %for.cond.i, %for.body.i
+  %retval.0.i40 = phi ptr [ %arrayidx.i, %for.body.i ], [ null, %for.cond.i ]
   br label %for.body.i25
 
 for.cond.i31:                                     ; preds = %for.body.i25
@@ -324,12 +324,12 @@ for.body.i25:                                     ; preds = %for.cond.i31, %for.
   br i1 %tobool.not.i30, label %bios_linker_find_file.exit35, label %for.cond.i31
 
 bios_linker_find_file.exit35:                     ; preds = %for.body.i25
-  %tobool.not = icmp eq ptr %retval.0.i, null
+  %tobool.not = icmp eq ptr %retval.0.i40, null
   br i1 %tobool.not, label %if.else, label %if.end6
 
 bios_linker_find_file.exit35.thread:              ; preds = %for.cond.i31
-  %tobool.not42 = icmp eq ptr %retval.0.i, null
-  br i1 %tobool.not42, label %if.else, label %if.else5
+  %tobool.not46 = icmp eq ptr %retval.0.i40, null
+  br i1 %tobool.not46, label %if.else, label %if.else5
 
 if.else:                                          ; preds = %bios_linker_find_file.exit35.thread, %entry, %bios_linker_find_file.exit35
   tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 285, ptr noundef nonnull @__PRETTY_FUNCTION__.bios_linker_loader_add_pointer) #11
@@ -340,7 +340,7 @@ if.else5:                                         ; preds = %bios_linker_find_fi
   unreachable
 
 if.end6:                                          ; preds = %bios_linker_find_file.exit35
-  %blob = getelementptr inbounds %struct.BiosLinkerFileEntry, ptr %retval.0.i, i64 0, i32 1
+  %blob = getelementptr inbounds %struct.BiosLinkerFileEntry, ptr %retval.0.i40, i64 0, i32 1
   %5 = load ptr, ptr %blob, align 8
   %len = getelementptr inbounds %struct._GArray, ptr %5, i64 0, i32 1
   %6 = load i32, ptr %len, align 8

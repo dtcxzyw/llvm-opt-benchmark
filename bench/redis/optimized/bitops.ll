@@ -2180,7 +2180,7 @@ if.then76:                                        ; preds = %29
   %sub86 = xor i8 %notmask49, -1
   %shr = lshr i64 %24, 3
   store i64 %shr, ptr %start, align 8
-  %shr88 = ashr i64 %26, 3
+  %shr88 = lshr i64 %26, 3
   store i64 %shr88, ptr %end, align 8
   %34 = and i16 %notmask, 254
   %35 = zext nneg i16 %34 to i32
@@ -2306,8 +2306,8 @@ if.then115:                                       ; preds = %if.end112
   br label %if.end154
 
 if.else116:                                       ; preds = %if.end112
-  %reass.sub = sub i64 %49, %50
-  %add118 = add i64 %reass.sub, 1
+  %reass.sub = sub nsw i64 %49, %50
+  %add118 = add nsw i64 %reass.sub, 1
   %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 %50
   %call119 = call i64 @redisPopcount(ptr noundef %add.ptr, i64 noundef %add118)
   %cmp121 = icmp ne i32 %first_byte_neg_mask.0, 0
@@ -2550,7 +2550,7 @@ if.then96:                                        ; preds = %27
   %sub106 = xor i8 %notmask80, -1
   %shr = lshr i64 %22, 3
   store i64 %shr, ptr %start, align 8
-  %shr108 = ashr i64 %24, 3
+  %shr108 = lshr i64 %24, 3
   store i64 %shr108, ptr %end, align 8
   %32 = zext nneg i8 %sub106 to i32
   br label %if.end128
@@ -2672,7 +2672,7 @@ if.end189:                                        ; preds = %if.end188, %if.else
   %bytes.0 = phi i64 [ %sub139, %if.end188 ], [ %add140, %if.else138 ]
   %tobool191.not = icmp ne i32 %last_byte_neg_mask.0, 0
   %conv193.neg = sext i1 %tobool191.not to i64
-  %sub194 = add i64 %bytes.0, %conv193.neg
+  %sub194 = add nsw i64 %bytes.0, %conv193.neg
   %cmp195 = icmp sgt i64 %sub194, 0
   br i1 %cmp195, label %if.then197, label %if.end213
 

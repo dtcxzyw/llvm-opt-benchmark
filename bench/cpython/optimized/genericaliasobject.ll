@@ -2618,9 +2618,9 @@ if.else:                                          ; preds = %if.end19
 for.inc:                                          ; preds = %ga_repr_items_list.exit, %if.else
   %inc = add nuw nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %.val
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %if.end39, label %for.body, !llvm.loop !15
 
-for.end:                                          ; preds = %for.inc, %for.cond.preheader
+for.end:                                          ; preds = %for.cond.preheader
   %cmp33 = icmp eq i64 %.val, 0
   br i1 %cmp33, label %if.then34, label %if.end39
 
@@ -2629,7 +2629,7 @@ if.then34:                                        ; preds = %for.end
   %cmp36 = icmp slt i32 %call35, 0
   br i1 %cmp36, label %error, label %if.end39
 
-if.end39:                                         ; preds = %if.then34, %for.end
+if.end39:                                         ; preds = %for.inc, %if.then34, %for.end
   %call40 = call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef nonnull %writer, ptr noundef nonnull @.str.15, i64 noundef 1) #5
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %error, label %if.end43

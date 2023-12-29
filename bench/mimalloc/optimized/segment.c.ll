@@ -2010,11 +2010,10 @@ mi_segment_slice_split.exit.i:                    ; preds = %if.then20.i.i.i, %i
   store i32 0, ptr %16, align 4
   %conv5.i.i = trunc i64 %spec.store.select49.i to i32
   store i32 %conv5.i.i, ptr %slice.036.i, align 8
-  %.pre44.i = and i64 %spec.store.select49.i, 4294967295
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %mi_span_queue_delete.exit.i, %mi_segment_slice_split.exit.i
-  %conv18.pre-phi.i = phi i64 [ %.pre44.i, %mi_segment_slice_split.exit.i ], [ %conv11.i, %mi_span_queue_delete.exit.i ]
+  %conv18.pre-phi.i = phi i64 [ %spec.store.select49.i, %mi_segment_slice_split.exit.i ], [ %conv11.i, %mi_span_queue_delete.exit.i ]
   %slices.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %slices.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %3, %sub.ptr.rhs.cast.i.i

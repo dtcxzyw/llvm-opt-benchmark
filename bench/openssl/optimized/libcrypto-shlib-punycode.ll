@@ -7,22 +7,22 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [5 x i8] c"xn--\00", align 1
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @ossl_punycode_decode(ptr nocapture noundef readonly %pEncoded, i64 noundef %enc_len, ptr nocapture noundef %pDecoded, ptr nocapture noundef %pout_length) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pout_length, align 4
-  %cmp73.not = icmp eq i64 %enc_len, 0
-  br i1 %cmp73.not, label %if.end33, label %for.body
+  %cmp74.not = icmp eq i64 %enc_len, 0
+  br i1 %cmp74.not, label %if.end33, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %conv76 = phi i64 [ %conv, %for.body ], [ 0, %entry ]
-  %loop.075 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
-  %basic_count.074 = phi i32 [ %spec.select, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds i8, ptr %pEncoded, i64 %conv76
+  %conv77 = phi i64 [ %conv, %for.body ], [ 0, %entry ]
+  %loop.076 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
+  %basic_count.075 = phi i32 [ %spec.select, %for.body ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds i8, ptr %pEncoded, i64 %conv77
   %1 = load i8, ptr %arrayidx, align 1
   %cmp3 = icmp eq i8 %1, 45
-  %spec.select = select i1 %cmp3, i32 %loop.075, i32 %basic_count.074
-  %inc = add i32 %loop.075, 1
+  %spec.select = select i1 %cmp3, i32 %loop.076, i32 %basic_count.075
+  %inc = add i32 %loop.076, 1
   %conv = zext i32 %inc to i64
   %cmp = icmp ult i64 %conv, %enc_len
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
@@ -40,17 +40,17 @@ for.body15.preheader:                             ; preds = %if.then7
   br label %for.body15
 
 for.body15:                                       ; preds = %for.body15.preheader, %if.end22
-  %written_out.077 = phi i64 [ %inc28, %if.end22 ], [ 0, %for.body15.preheader ]
-  %arrayidx17 = getelementptr inbounds i8, ptr %pEncoded, i64 %written_out.077
+  %written_out.078 = phi i64 [ %inc28, %if.end22 ], [ 0, %for.body15.preheader ]
+  %arrayidx17 = getelementptr inbounds i8, ptr %pEncoded, i64 %written_out.078
   %2 = load i8, ptr %arrayidx17, align 1
   %cmp.i = icmp slt i8 %2, 0
   br i1 %cmp.i, label %return, label %if.end22
 
 if.end22:                                         ; preds = %for.body15
   %conv18 = zext nneg i8 %2 to i32
-  %arrayidx27 = getelementptr inbounds i32, ptr %pDecoded, i64 %written_out.077
+  %arrayidx27 = getelementptr inbounds i32, ptr %pDecoded, i64 %written_out.078
   store i32 %conv18, ptr %arrayidx27, align 4
-  %inc28 = add nuw nsw i64 %written_out.077, 1
+  %inc28 = add nuw nsw i64 %written_out.078, 1
   %exitcond.not = icmp eq i64 %inc28, %wide.trip.count
   br i1 %exitcond.not, label %for.end31, label %for.body15, !llvm.loop !6
 
@@ -61,9 +61,9 @@ for.end31:                                        ; preds = %if.end22
 if.end33:                                         ; preds = %entry, %for.end31, %for.end
   %processed_in.0 = phi i32 [ %add, %for.end31 ], [ 0, %for.end ], [ 0, %entry ]
   %written_out.1 = phi i64 [ %wide.trip.count, %for.end31 ], [ 0, %for.end ], [ 0, %entry ]
-  %conv3686 = zext i32 %processed_in.0 to i64
-  %cmp3787 = icmp ult i64 %conv3686, %enc_len
-  br i1 %cmp3787, label %for.cond40.preheader.lr.ph, label %if.end33.for.end123_crit_edge
+  %conv3687 = zext i32 %processed_in.0 to i64
+  %cmp3788 = icmp ult i64 %conv3687, %enc_len
+  br i1 %cmp3788, label %for.cond40.preheader.lr.ph, label %if.end33.for.end123_crit_edge
 
 if.end33.for.end123_crit_edge:                    ; preds = %if.end33
   %.pre = trunc i64 %written_out.1 to i32
@@ -74,26 +74,26 @@ for.cond40.preheader.lr.ph:                       ; preds = %if.end33
   br label %for.cond40.preheader
 
 for.cond40.preheader:                             ; preds = %for.cond40.preheader.lr.ph, %if.end112
-  %n.092 = phi i32 [ 128, %for.cond40.preheader.lr.ph ], [ %conv104, %if.end112 ]
-  %i.091 = phi i32 [ 0, %for.cond40.preheader.lr.ph ], [ %inc121, %if.end112 ]
-  %loop.290 = phi i32 [ %processed_in.0, %for.cond40.preheader.lr.ph ], [ %inc49, %if.end112 ]
-  %bias.089 = phi i32 [ 72, %for.cond40.preheader.lr.ph ], [ %add7.i, %if.end112 ]
-  %written_out.288 = phi i64 [ %written_out.1, %for.cond40.preheader.lr.ph ], [ %add85, %if.end112 ]
-  %conv4179 = zext i32 %loop.290 to i64
-  %cmp42.not80 = icmp ult i64 %conv4179, %enc_len
-  br i1 %cmp42.not80, label %if.end45.lr.ph, label %return
+  %n.093 = phi i32 [ 128, %for.cond40.preheader.lr.ph ], [ %conv104, %if.end112 ]
+  %i.092 = phi i32 [ 0, %for.cond40.preheader.lr.ph ], [ %inc121, %if.end112 ]
+  %loop.291 = phi i32 [ %processed_in.0, %for.cond40.preheader.lr.ph ], [ %inc49, %if.end112 ]
+  %bias.090 = phi i32 [ 72, %for.cond40.preheader.lr.ph ], [ %add7.i, %if.end112 ]
+  %written_out.289 = phi i64 [ %written_out.1, %for.cond40.preheader.lr.ph ], [ %add85, %if.end112 ]
+  %conv4180 = zext i32 %loop.291 to i64
+  %cmp42.not81 = icmp ult i64 %conv4180, %enc_len
+  br i1 %cmp42.not81, label %if.end45.lr.ph, label %return
 
 if.end45.lr.ph:                                   ; preds = %for.cond40.preheader
-  %add61 = add i32 %bias.089, 26
+  %add61 = add i32 %bias.090, 26
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end45.lr.ph, %if.end78
-  %conv4185 = phi i64 [ %conv4179, %if.end45.lr.ph ], [ %conv41, %if.end78 ]
-  %k.084 = phi i32 [ 36, %if.end45.lr.ph ], [ %add82, %if.end78 ]
-  %w.083 = phi i32 [ 1, %if.end45.lr.ph ], [ %mul80, %if.end78 ]
-  %i.182 = phi i32 [ %i.091, %if.end45.lr.ph ], [ %add58, %if.end78 ]
-  %loop.381 = phi i32 [ %loop.290, %if.end45.lr.ph ], [ %inc49, %if.end78 ]
-  %arrayidx47 = getelementptr inbounds i8, ptr %pEncoded, i64 %conv4185
+  %conv4186 = phi i64 [ %conv4180, %if.end45.lr.ph ], [ %conv41, %if.end78 ]
+  %k.085 = phi i32 [ 36, %if.end45.lr.ph ], [ %add82, %if.end78 ]
+  %w.084 = phi i32 [ 1, %if.end45.lr.ph ], [ %mul80, %if.end78 ]
+  %i.183 = phi i32 [ %i.092, %if.end45.lr.ph ], [ %add58, %if.end78 ]
+  %loop.382 = phi i32 [ %loop.291, %if.end45.lr.ph ], [ %inc49, %if.end78 ]
+  %arrayidx47 = getelementptr inbounds i8, ptr %pEncoded, i64 %conv4186
   %3 = load i8, ptr %arrayidx47, align 1
   %conv.i = zext i8 %3 to i32
   %4 = add i8 %3, -65
@@ -121,22 +121,22 @@ if.end16.i:                                       ; preds = %if.end.i
 
 digit_decoded.exit:                               ; preds = %if.end16.i, %if.then.i, %if.then13.i
   %retval.0.i = phi i32 [ %sub.i, %if.then.i ], [ %sub15.i, %if.then13.i ], [ %add.i, %if.end16.i ]
-  %inc49 = add i32 %loop.381, 1
+  %inc49 = add i32 %loop.382, 1
   %cmp50 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp50, label %return, label %if.end53
 
 if.end53:                                         ; preds = %digit_decoded.exit
-  %sub = xor i32 %i.182, -1
-  %div = udiv i32 %sub, %w.083
+  %sub = xor i32 %i.183, -1
+  %div = udiv i32 %sub, %w.084
   %cmp54 = icmp ugt i32 %retval.0.i, %div
   br i1 %cmp54, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.end53
-  %mul = mul i32 %retval.0.i, %w.083
-  %add58 = add i32 %mul, %i.182
-  %cmp59.not = icmp ugt i32 %k.084, %bias.089
-  %cmp62.not = icmp ult i32 %k.084, %add61
-  %sub66 = sub i32 %k.084, %bias.089
+  %mul = mul i32 %retval.0.i, %w.084
+  %add58 = add i32 %mul, %i.183
+  %cmp59.not = icmp ugt i32 %k.085, %bias.090
+  %cmp62.not = icmp ult i32 %k.085, %add61
+  %sub66 = sub i32 %k.085, %bias.090
   %cond = select i1 %cmp62.not, i32 %sub66, i32 26
   %cond68 = select i1 %cmp59.not, i32 %cond, i32 1
   %cmp69 = icmp ult i32 %retval.0.i, %cond68
@@ -144,21 +144,21 @@ if.end57:                                         ; preds = %if.end53
 
 if.end72:                                         ; preds = %if.end57
   %sub73 = sub nsw i32 36, %cond68
-  %mul61 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %sub73, i32 %w.083)
+  %mul61 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %sub73, i32 %w.084)
   %mul.ov = extractvalue { i32, i1 } %mul61, 1
   br i1 %mul.ov, label %return, label %if.end78
 
 if.end78:                                         ; preds = %if.end72
-  %mul80 = mul i32 %sub73, %w.083
-  %add82 = add i32 %k.084, 36
+  %mul80 = mul i32 %sub73, %w.084
+  %add82 = add i32 %k.085, 36
   %conv41 = zext i32 %inc49 to i64
   %cmp42.not = icmp ult i64 %conv41, %enc_len
   br i1 %cmp42.not, label %if.end45, label %return
 
 for.end83:                                        ; preds = %if.end57
-  %add85 = add nuw nsw i64 %written_out.288, 1
+  %add85 = add nuw nsw i64 %written_out.289, 1
   %conv86 = trunc i64 %add85 to i32
-  %cmp87.not = icmp eq i32 %i.091, 0
+  %cmp87.not = icmp eq i32 %i.092, 0
   br i1 %cmp87.not, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %for.end83
@@ -166,7 +166,7 @@ cond.true.i:                                      ; preds = %for.end83
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %for.end83
-  %sub84 = sub i32 %add58, %i.091
+  %sub84 = sub i32 %add58, %i.092
   %div19.i = lshr i32 %sub84, 1
   br label %cond.end.i
 
@@ -190,11 +190,10 @@ adapt.exit:                                       ; preds = %while.body.i, %cond
   %k.0.lcssa.i = phi i32 [ 0, %cond.end.i ], [ %add4.i, %while.body.i ]
   %conv90 = zext i32 %add58 to i64
   %div92 = udiv i64 %conv90, %add85
-  %rem = urem i64 %conv90, %add85
-  %sub93 = xor i32 %n.092, -1
+  %sub93 = xor i32 %n.093, -1
   %conv94 = zext i32 %sub93 to i64
   %cmp95 = icmp ule i64 %div92, %conv94
-  %cmp109.not = icmp ult i64 %written_out.288, %conv108
+  %cmp109.not = icmp ult i64 %written_out.289, %conv108
   %or.cond = select i1 %cmp95, i1 %cmp109.not, i1 false
   br i1 %or.cond, label %if.end112, label %return
 
@@ -205,16 +204,17 @@ if.end112:                                        ; preds = %adapt.exit
   %div610.i = udiv i16 %div6.lhs.trunc.i, %div6.rhs.trunc.i
   %div6.zext.i = zext nneg i16 %div610.i to i32
   %add7.i = add i32 %k.0.lcssa.i, %div6.zext.i
-  %conv107 = trunc i64 %rem to i32
+  %rem68 = urem i32 %add58, %conv86
+  %rem.zext = zext i32 %rem68 to i64
   %8 = trunc i64 %div92 to i32
-  %conv104 = add i32 %n.092, %8
-  %add.ptr = getelementptr inbounds i32, ptr %pDecoded, i64 %rem
+  %conv104 = add i32 %n.093, %8
+  %add.ptr = getelementptr inbounds i32, ptr %pDecoded, i64 %rem.zext
   %add.ptr113 = getelementptr inbounds i32, ptr %add.ptr, i64 1
-  %sub117 = sub nsw i64 %written_out.288, %rem
+  %sub117 = sub nsw i64 %written_out.289, %rem.zext
   %mul118 = shl nsw i64 %sub117, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr113, ptr align 4 %add.ptr, i64 %mul118, i1 false)
   store i32 %conv104, ptr %add.ptr, align 4
-  %inc121 = add i32 %conv107, 1
+  %inc121 = add nuw i32 %rem68, 1
   %conv36 = zext i32 %inc49 to i64
   %cmp37 = icmp ult i64 %conv36, %enc_len
   br i1 %cmp37, label %for.cond40.preheader, label %for.end123, !llvm.loop !8
@@ -434,7 +434,7 @@ declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #5
 
-attributes #0 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

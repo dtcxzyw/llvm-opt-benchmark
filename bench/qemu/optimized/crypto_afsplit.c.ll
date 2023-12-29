@@ -66,22 +66,25 @@ qcrypto_afsplit_xor.exit.loopexit:                ; preds = %for.body.i
 for.inc:                                          ; preds = %qcrypto_afsplit_xor.exit.loopexit
   %inc = add nuw nsw i64 %i.030, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.body.i16.preheader, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
-  %mul12 = mul i64 %conv, %blocklen
-  %add.ptr13 = getelementptr i8, ptr %out, i64 %mul12
+for.end:                                          ; preds = %for.inc.us, %entry
   %cmp6.not.i15 = icmp eq i64 %blocklen, 0
-  br i1 %cmp6.not.i15, label %cleanup, label %for.body.i16
+  br i1 %cmp6.not.i15, label %cleanup, label %for.body.i16.preheader
 
-for.body.i16:                                     ; preds = %for.end, %for.body.i16
-  %i.07.i17 = phi i64 [ %inc.i22, %for.body.i16 ], [ 0, %for.end ]
+for.body.i16.preheader:                           ; preds = %for.inc, %for.end
+  %mul1236.pn = mul i64 %conv, %blocklen
+  %add.ptr1339 = getelementptr i8, ptr %out, i64 %mul1236.pn
+  br label %for.body.i16
+
+for.body.i16:                                     ; preds = %for.body.i16.preheader, %for.body.i16
+  %i.07.i17 = phi i64 [ %inc.i22, %for.body.i16 ], [ 0, %for.body.i16.preheader ]
   %arrayidx.i18 = getelementptr i8, ptr %in, i64 %i.07.i17
   %2 = load i8, ptr %arrayidx.i18, align 1
   %arrayidx1.i19 = getelementptr i8, ptr %call, i64 %i.07.i17
   %3 = load i8, ptr %arrayidx1.i19, align 1
   %xor5.i20 = xor i8 %3, %2
-  %arrayidx4.i21 = getelementptr i8, ptr %add.ptr13, i64 %i.07.i17
+  %arrayidx4.i21 = getelementptr i8, ptr %add.ptr1339, i64 %i.07.i17
   store i8 %xor5.i20, ptr %arrayidx4.i21, align 1
   %inc.i22 = add nuw i64 %i.07.i17, 1
   %exitcond.not.i23 = icmp eq i64 %inc.i22, %blocklen
@@ -250,17 +253,20 @@ qcrypto_afsplit_xor.exit.loopexit:                ; preds = %for.body.i
 for.inc:                                          ; preds = %qcrypto_afsplit_xor.exit.loopexit
   %inc = add nuw nsw i64 %i.025, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.body.i11.preheader, label %for.body, !llvm.loop !9
 
-for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
-  %mul5 = mul i64 %conv, %blocklen
-  %add.ptr6 = getelementptr i8, ptr %in, i64 %mul5
+for.end:                                          ; preds = %for.inc.us, %entry
   %cmp6.not.i10 = icmp eq i64 %blocklen, 0
-  br i1 %cmp6.not.i10, label %cleanup, label %for.body.i11
+  br i1 %cmp6.not.i10, label %cleanup, label %for.body.i11.preheader
 
-for.body.i11:                                     ; preds = %for.end, %for.body.i11
-  %i.07.i12 = phi i64 [ %inc.i17, %for.body.i11 ], [ 0, %for.end ]
-  %arrayidx.i13 = getelementptr i8, ptr %add.ptr6, i64 %i.07.i12
+for.body.i11.preheader:                           ; preds = %for.inc, %for.end
+  %mul531.pn = mul i64 %conv, %blocklen
+  %add.ptr634 = getelementptr i8, ptr %in, i64 %mul531.pn
+  br label %for.body.i11
+
+for.body.i11:                                     ; preds = %for.body.i11.preheader, %for.body.i11
+  %i.07.i12 = phi i64 [ %inc.i17, %for.body.i11 ], [ 0, %for.body.i11.preheader ]
+  %arrayidx.i13 = getelementptr i8, ptr %add.ptr634, i64 %i.07.i12
   %2 = load i8, ptr %arrayidx.i13, align 1
   %arrayidx1.i14 = getelementptr i8, ptr %call, i64 %i.07.i12
   %3 = load i8, ptr %arrayidx1.i14, align 1

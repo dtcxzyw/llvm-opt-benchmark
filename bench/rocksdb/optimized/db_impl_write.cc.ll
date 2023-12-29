@@ -15997,7 +15997,7 @@ if.then.i.i.i.i53:                                ; preds = %if.else.i.i
 _ZNKSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -16186,8 +16186,8 @@ invoke.cont96:                                    ; preds = %_ZN7rocksdb6StatusD
   %cmp.i69 = icmp ne i8 %55, 0
   %inc.i71 = add nuw i64 %__begin1.sroa.2.0255, 1
   %cmp.i.i.not = icmp eq i64 %inc.i71, %add.i.i
-  %or.cond273 = select i1 %cmp.i69, i1 true, i1 %cmp.i.i.not
-  br i1 %or.cond273, label %cleanup, label %invoke.cont88
+  %or.cond277 = select i1 %cmp.i69, i1 true, i1 %cmp.i.i.not
+  br i1 %or.cond277, label %cleanup, label %invoke.cont88
 
 cleanup:                                          ; preds = %invoke.cont96, %invoke.cont79
   %56 = load i8, ptr %two_write_queues_, align 8
@@ -16209,18 +16209,7 @@ if.then113:                                       ; preds = %invoke.cont111
   %59 = load i8, ptr %atomic_flush, align 1
   %60 = and i8 %59, 1
   %tobool116.not = icmp eq i8 %60, 0
-  br i1 %tobool116.not, label %if.then113.invoke.cont122_crit_edge, label %if.then117
-
-if.then113.invoke.cont122_crit_edge:              ; preds = %if.then113
-  %.pre262 = load i64, ptr %cfds, align 8, !noalias !96
-  %.pre263 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !96
-  %.pre264 = load ptr, ptr %vect_.i, align 8, !noalias !96
-  %.pre265 = ptrtoint ptr %.pre263 to i64
-  %.pre266 = ptrtoint ptr %.pre264 to i64
-  %.pre267 = sub i64 %.pre265, %.pre266
-  %.pre268 = ashr exact i64 %.pre267, 3
-  %.pre269 = add i64 %.pre268, %.pre262
-  br label %invoke.cont122
+  br i1 %tobool116.not, label %invoke.cont122, label %if.then117
 
 if.then117:                                       ; preds = %if.then113
   %versions_.i = getelementptr inbounds %"class.rocksdb::DBImpl", ptr %this, i64 0, i32 4
@@ -16268,19 +16257,27 @@ if.then.i.i75:                                    ; preds = %for.body.i.i
   store i64 %62, ptr %atomic_flush_seqno_.i.i, align 8
   %it.sroa.0.0.i.i = load ptr, ptr %it.sroa.0.07.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %it.sroa.0.0.i.i, %68
-  br i1 %cmp.i.not.i.i, label %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, label %for.body.i.i, !llvm.loop !99
+  br i1 %cmp.i.not.i.i, label %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, label %for.body.i.i, !llvm.loop !96
 
 _ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i: ; preds = %if.then.i.i75, %for.body.i.i, %invoke.cont6.i
   %inc.i.i = add nuw i64 %__begin1.sroa.2.011.i, 1
   %cmp.i.i.not.i = icmp eq i64 %inc.i.i, %add.i.i.i
-  br i1 %cmp.i.i.not.i, label %invoke.cont122, label %invoke.cont6.i
+  br i1 %cmp.i.i.not.i, label %invoke.cont133.lr.ph, label %invoke.cont6.i
 
-invoke.cont122:                                   ; preds = %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, %if.then113.invoke.cont122_crit_edge
-  %add.i.i83.pre-phi = phi i64 [ %.pre269, %if.then113.invoke.cont122_crit_edge ], [ %add.i.i.i, %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i ]
-  %cmp.i.i87.not256 = icmp eq i64 %add.i.i83.pre-phi, 0
+invoke.cont122:                                   ; preds = %if.then113
+  %.pre262 = load i64, ptr %cfds, align 8, !noalias !97
+  %.pre263 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !97
+  %.pre264 = load ptr, ptr %vect_.i, align 8, !noalias !97
+  %.pre265 = ptrtoint ptr %.pre263 to i64
+  %.pre266 = ptrtoint ptr %.pre264 to i64
+  %.pre267 = sub i64 %.pre265, %.pre266
+  %.pre268 = ashr exact i64 %.pre267, 3
+  %.pre269 = add i64 %.pre268, %.pre262
+  %cmp.i.i87.not256 = icmp eq i64 %.pre269, 0
   br i1 %cmp.i.i87.not256, label %for.cond.cleanup130, label %invoke.cont133.lr.ph
 
-invoke.cont133.lr.ph:                             ; preds = %invoke.cont122
+invoke.cont133.lr.ph:                             ; preds = %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, %invoke.cont122
+  %add.i.i83.pre-phi276 = phi i64 [ %.pre269, %invoke.cont122 ], [ %add.i.i.i, %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i ]
   %cfd_to_max_mem_id_to_persist.i = getelementptr inbounds %"struct.rocksdb::DBImpl::FlushRequest", ptr %flush_req, i64 0, i32 1
   %_M_single_bucket.i.i.i = getelementptr inbounds %"struct.rocksdb::DBImpl::FlushRequest", ptr %flush_req, i64 0, i32 1, i32 0, i32 5
   %_M_bucket_count.i.i.i = getelementptr inbounds %"struct.rocksdb::DBImpl::FlushRequest", ptr %flush_req, i64 0, i32 1, i32 0, i32 1
@@ -16438,7 +16435,7 @@ ehcleanup150:                                     ; preds = %if.then.i.i.i.i129,
 
 for.inc152:                                       ; preds = %if.end.i.i.i.i.i, %_ZNSt10_HashtableIPN7rocksdb16ColumnFamilyDataESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %_ZN7rocksdb12MemTableList14FlushRequestedEv.exit
   %inc.i133 = add nuw i64 %__begin2121.sroa.2.0257, 1
-  %cmp.i.i87.not = icmp eq i64 %inc.i133, %add.i.i83.pre-phi
+  %cmp.i.i87.not = icmp eq i64 %inc.i133, %add.i.i83.pre-phi276
   br i1 %cmp.i.i87.not, label %for.cond.cleanup130, label %invoke.cont133
 
 if.then163:                                       ; preds = %for.cond.cleanup130
@@ -16823,7 +16820,7 @@ if.then.i.i.i.i42:                                ; preds = %if.else.i.i
 _ZNKSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -17069,18 +17066,7 @@ if.then105:                                       ; preds = %invoke.cont103
   %58 = load i8, ptr %atomic_flush, align 1
   %59 = and i8 %58, 1
   %tobool108.not = icmp eq i8 %59, 0
-  br i1 %tobool108.not, label %if.then105.invoke.cont114_crit_edge, label %if.then109
-
-if.then105.invoke.cont114_crit_edge:              ; preds = %if.then105
-  %.pre264 = load i64, ptr %cfds, align 8, !noalias !101
-  %.pre265 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !101
-  %.pre266 = load ptr, ptr %vect_.i, align 8, !noalias !101
-  %.pre267 = ptrtoint ptr %.pre265 to i64
-  %.pre268 = ptrtoint ptr %.pre266 to i64
-  %.pre269 = sub i64 %.pre267, %.pre268
-  %.pre270 = ashr exact i64 %.pre269, 3
-  %.pre271 = add i64 %.pre270, %.pre264
-  br label %invoke.cont114
+  br i1 %tobool108.not, label %invoke.cont114, label %if.then109
 
 if.then109:                                       ; preds = %if.then105
   %versions_.i = getelementptr inbounds %"class.rocksdb::DBImpl", ptr %this, i64 0, i32 4
@@ -17128,19 +17114,27 @@ if.then.i.i72:                                    ; preds = %for.body.i.i
   store i64 %61, ptr %atomic_flush_seqno_.i.i, align 8
   %it.sroa.0.0.i.i = load ptr, ptr %it.sroa.0.07.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %it.sroa.0.0.i.i, %67
-  br i1 %cmp.i.not.i.i, label %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, label %for.body.i.i, !llvm.loop !99
+  br i1 %cmp.i.not.i.i, label %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, label %for.body.i.i, !llvm.loop !96
 
 _ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i: ; preds = %if.then.i.i72, %for.body.i.i, %invoke.cont6.i
   %inc.i.i = add nuw i64 %__begin1.sroa.2.011.i, 1
   %cmp.i.i.not.i = icmp eq i64 %inc.i.i, %add.i.i.i
-  br i1 %cmp.i.i.not.i, label %invoke.cont114, label %invoke.cont6.i
+  br i1 %cmp.i.i.not.i, label %invoke.cont125.lr.ph, label %invoke.cont6.i
 
-invoke.cont114:                                   ; preds = %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, %if.then105.invoke.cont114_crit_edge
-  %add.i.i80.pre-phi = phi i64 [ %.pre271, %if.then105.invoke.cont114_crit_edge ], [ %add.i.i.i, %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i ]
-  %cmp.i.i84.not257 = icmp eq i64 %add.i.i80.pre-phi, 0
+invoke.cont114:                                   ; preds = %if.then105
+  %.pre264 = load i64, ptr %cfds, align 8, !noalias !101
+  %.pre265 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !101
+  %.pre266 = load ptr, ptr %vect_.i, align 8, !noalias !101
+  %.pre267 = ptrtoint ptr %.pre265 to i64
+  %.pre268 = ptrtoint ptr %.pre266 to i64
+  %.pre269 = sub i64 %.pre267, %.pre268
+  %.pre270 = ashr exact i64 %.pre269, 3
+  %.pre271 = add i64 %.pre270, %.pre264
+  %cmp.i.i84.not257 = icmp eq i64 %.pre271, 0
   br i1 %cmp.i.i84.not257, label %for.cond.cleanup122, label %invoke.cont125.lr.ph
 
-invoke.cont125.lr.ph:                             ; preds = %invoke.cont114
+invoke.cont125.lr.ph:                             ; preds = %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, %invoke.cont114
+  %add.i.i80.pre-phi280 = phi i64 [ %.pre271, %invoke.cont114 ], [ %add.i.i.i, %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i ]
   %cfd_to_max_mem_id_to_persist.i = getelementptr inbounds %"struct.rocksdb::DBImpl::FlushRequest", ptr %flush_req, i64 0, i32 1
   %_M_single_bucket.i.i.i = getelementptr inbounds %"struct.rocksdb::DBImpl::FlushRequest", ptr %flush_req, i64 0, i32 1, i32 0, i32 5
   %_M_bucket_count.i.i.i = getelementptr inbounds %"struct.rocksdb::DBImpl::FlushRequest", ptr %flush_req, i64 0, i32 1, i32 0, i32 1
@@ -17298,7 +17292,7 @@ ehcleanup142:                                     ; preds = %if.then.i.i.i.i126,
 
 for.inc144:                                       ; preds = %if.end.i.i.i.i.i, %_ZNSt10_HashtableIPN7rocksdb16ColumnFamilyDataESt4pairIKS2_mESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %_ZN7rocksdb12MemTableList14FlushRequestedEv.exit
   %inc.i130 = add nuw i64 %__begin2113.sroa.2.0258, 1
-  %cmp.i.i84.not = icmp eq i64 %inc.i130, %add.i.i80.pre-phi
+  %cmp.i.i84.not = icmp eq i64 %inc.i130, %add.i.i80.pre-phi280
   br i1 %cmp.i.i84.not, label %for.cond.cleanup122, label %invoke.cont125
 
 if.then155:                                       ; preds = %for.cond.cleanup122
@@ -17543,7 +17537,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -18010,7 +18004,7 @@ if.then.i.i.i.i42:                                ; preds = %if.else.i.i
 _ZNKSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -18286,7 +18280,7 @@ if.then.i.i76:                                    ; preds = %for.body.i.i
   store i64 %55, ptr %atomic_flush_seqno_.i.i, align 8
   %it.sroa.0.0.i.i = load ptr, ptr %it.sroa.0.07.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %it.sroa.0.0.i.i, %61
-  br i1 %cmp.i.not.i.i, label %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, label %for.body.i.i, !llvm.loop !99
+  br i1 %cmp.i.not.i.i, label %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i, label %for.body.i.i, !llvm.loop !96
 
 _ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit.i: ; preds = %if.then.i.i76, %for.body.i.i, %invoke.cont6.i
   %inc.i.i = add nuw i64 %__begin1.sroa.2.011.i, 1
@@ -19492,7 +19486,7 @@ if.then.i.i.i.i.cont:                             ; preds = %if.then.i.i.i.i.inv
 _ZNKSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -19837,7 +19831,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
   %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
@@ -19943,7 +19937,7 @@ if.then.i:                                        ; preds = %for.body.i
   store i64 %1, ptr %atomic_flush_seqno_.i, align 8
   %it.sroa.0.0.i = load ptr, ptr %it.sroa.0.07.i, align 8
   %cmp.i.not.i = icmp eq ptr %it.sroa.0.0.i, %9
-  br i1 %cmp.i.not.i, label %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit, label %for.body.i, !llvm.loop !99
+  br i1 %cmp.i.not.i, label %_ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit, label %for.body.i, !llvm.loop !96
 
 _ZN7rocksdb12MemTableList20AssignAtomicFlushSeqERKm.exit: ; preds = %for.body.i, %if.then.i, %invoke.cont6
   %inc.i = add nuw i64 %__begin1.sroa.2.011, 1
@@ -21029,7 +21023,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i185
 _ZNKSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i185
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -23851,7 +23845,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN7rocksdb10autovectorIPNS0_11VersionEditELm8EEESaIS4_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 88686269585142075
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -24719,10 +24713,10 @@ attributes #23 = { builtin allocsize(0) }
 !93 = !{!94}
 !94 = distinct !{!94, !95, !"_ZNSt5dequeIN7rocksdb6DBImpl17LogFileNumberSizeESaIS2_EE5beginEv: %agg.result"}
 !95 = distinct !{!95, !"_ZNSt5dequeIN7rocksdb6DBImpl17LogFileNumberSizeESaIS2_EE5beginEv"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN7rocksdb10autovectorIPNS_16ColumnFamilyDataELm8EE3endEv: %agg.result"}
-!98 = distinct !{!98, !"_ZN7rocksdb10autovectorIPNS_16ColumnFamilyDataELm8EE3endEv"}
-!99 = distinct !{!99, !20}
+!96 = distinct !{!96, !20}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZN7rocksdb10autovectorIPNS_16ColumnFamilyDataELm8EE3endEv: %agg.result"}
+!99 = distinct !{!99, !"_ZN7rocksdb10autovectorIPNS_16ColumnFamilyDataELm8EE3endEv"}
 !100 = distinct !{!100, !20}
 !101 = !{!102}
 !102 = distinct !{!102, !103, !"_ZN7rocksdb10autovectorIPNS_16ColumnFamilyDataELm8EE3endEv: %agg.result"}

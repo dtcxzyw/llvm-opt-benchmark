@@ -22401,9 +22401,7 @@ for.end:                                          ; preds = %call4.i.i.i.i.i.noe
           to label %invoke.cont148 unwind label %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont148:                                   ; preds = %for.end
-  %cmp151 = icmp ne i32 %187, 0
-  %or.cond = select i1 %call149, i1 %cmp151, i1 false
-  br i1 %or.cond, label %land.lhs.true152, label %if.end161
+  br i1 %call149, label %land.lhs.true152, label %if.end161
 
 land.lhs.true152:                                 ; preds = %invoke.cont148
   %188 = load ptr, ptr %m_nodes.i94, align 8
@@ -22561,9 +22559,7 @@ for.end204:                                       ; preds = %call4.i.i.i.i.i.noe
           to label %invoke.cont205 unwind label %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont205:                                   ; preds = %for.end204
-  %cmp208 = icmp ne i32 %210, 0
-  %or.cond1 = select i1 %call206, i1 %cmp208, i1 false
-  br i1 %or.cond1, label %land.lhs.true209, label %if.end218
+  br i1 %call206, label %land.lhs.true209, label %if.end218
 
 land.lhs.true209:                                 ; preds = %invoke.cont205
   %211 = load ptr, ptr %m_nodes.i, align 8

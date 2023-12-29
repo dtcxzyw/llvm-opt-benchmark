@@ -561,7 +561,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %cmp3 = icmp sgt i32 %add, 254
+  %cmp3 = icmp ugt i32 %add, 254
   br i1 %cmp3, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
@@ -594,7 +594,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %luaK_checkstack.exit
 
 if.then.i:                                        ; preds = %entry
-  %cmp3.i = icmp sgt i32 %add.i, 254
+  %cmp3.i = icmp ugt i32 %add.i, 254
   br i1 %cmp3.i, label %if.then5.i, label %if.end.i
 
 if.then5.i:                                       ; preds = %if.then.i
@@ -4374,11 +4374,11 @@ if.then13.i:                                      ; preds = %lor.lhs.false.i, %i
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %and2.i, i32 %reg)
   %l.0.i = tail call i32 @llvm.smax.i32(i32 %add5.i, i32 %reg)
   %and19.i = and i32 %7, -16744440
-  %shl.i = shl i32 %spec.select.i, 7
+  %shl.i = shl nsw i32 %spec.select.i, 7
   %and20.i = and i32 %shl.i, 32640
   %or.i = or disjoint i32 %and20.i, %and19.i
-  %sub22.i = sub i32 %l.0.i, %spec.select.i
-  %shl23.i = shl i32 %sub22.i, 16
+  %sub22.i = sub nsw i32 %l.0.i, %spec.select.i
+  %shl23.i = shl nsw i32 %sub22.i, 16
   %and24.i = and i32 %shl23.i, 16711680
   %or25.i = or disjoint i32 %or.i, %and24.i
   store i32 %or25.i, ptr %retval.0.i.i, align 4

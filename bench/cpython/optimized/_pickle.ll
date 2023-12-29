@@ -14098,7 +14098,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %arrayidx.i.i.i = getelementptr i8, ptr %s.1.i, i64 %i.09.i.i.i
   %30 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv2.i.i.i = zext i8 %30 to i64
-  %mul.i.i.i166 = shl i64 %i.09.i.i.i, 3
+  %mul.i.i.i166 = shl nuw nsw i64 %i.09.i.i.i, 3
   %shl.i.i.i = shl i64 %conv2.i.i.i, %mul.i.i.i166
   %or.i.i.i = or i64 %shl.i.i.i, %x.010.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
@@ -14329,7 +14329,7 @@ for.body.i.i.i251:                                ; preds = %for.body.i.i.i251, 
   %arrayidx.i.i.i254 = getelementptr i8, ptr %s.1.i250, i64 %i.09.i.i.i253
   %52 = load i8, ptr %arrayidx.i.i.i254, align 1
   %conv2.i.i.i255 = zext i8 %52 to i64
-  %mul.i.i.i256 = shl i64 %i.09.i.i.i253, 3
+  %mul.i.i.i256 = shl nuw nsw i64 %i.09.i.i.i253, 3
   %shl.i.i.i257 = shl i64 %conv2.i.i.i255, %mul.i.i.i256
   %or.i.i.i258 = or i64 %shl.i.i.i257, %x.010.i.i.i252
   %inc.i.i.i259 = add nuw nsw i64 %i.09.i.i.i253, 1
@@ -16091,7 +16091,7 @@ if.else.i905:                                     ; preds = %lor.lhs.false14.i
   br i1 %cmp26.i, label %while.end, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.else.i905
-  %cmp2960.i = icmp slt i64 %249, %.val37.i
+  %cmp2960.i = icmp ult i64 %249, %.val37.i
   br i1 %cmp2960.i, label %for.body.i907, label %for.end.i906
 
 for.body.i907:                                    ; preds = %for.cond.preheader.i, %for.inc.i
@@ -19795,7 +19795,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %arrayidx.i = getelementptr i8, ptr %nbytes.1, i64 %i.09.i
   %10 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %10 to i64
-  %mul.i = shl i64 %i.09.i, 3
+  %mul.i = shl nuw nsw i64 %i.09.i, 3
   %shl.i = shl i64 %conv2.i, %mul.i
   %or.i = or i64 %shl.i, %x.010.i
   %inc.i = add nuw nsw i64 %i.09.i, 1
@@ -21130,7 +21130,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %arrayidx.i = getelementptr i8, ptr %codebytes.1, i64 %i.09.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %8 to i64
-  %mul.i = shl i64 %i.09.i, 3
+  %mul.i = shl nuw nsw i64 %i.09.i, 3
   %shl.i = shl i64 %conv2.i, %mul.i
   %or.i = or i64 %shl.i, %x.010.i
   %inc.i = add nuw nsw i64 %i.09.i, 1

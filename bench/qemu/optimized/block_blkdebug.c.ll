@@ -1148,7 +1148,7 @@ if.end41:                                         ; preds = %if.end32
 
 land.lhs.true:                                    ; preds = %if.end41
   %conv42 = zext i32 %0 to i64
-  %cmp43.not = icmp sgt i64 %conv42, %bytes
+  %cmp43.not = icmp ugt i64 %conv42, %bytes
   br i1 %cmp43.not, label %if.end60, label %if.then45
 
 if.then45:                                        ; preds = %land.lhs.true

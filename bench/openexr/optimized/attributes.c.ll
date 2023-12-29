@@ -1625,18 +1625,16 @@ if.end31:                                         ; preds = %if.then25
   br label %return
 
 if.end34:                                         ; preds = %if.end19
-  %conv20 = trunc i64 %call11 to i32
   %sub = add nsw i32 %type, -1
   %idxprom = zext nneg i32 %sub to i64
   %exp_size = getelementptr inbounds [28 x %struct._internal_exr_attr_map], ptr @the_predefined_attr_typenames, i64 0, i64 %idxprom, i32 3
   %8 = load i64, ptr %exp_size, align 8
-  %cmp.i = icmp sgt i32 %conv20, 0
-  %narrow.i = add i64 %call11, 33
-  %9 = and i64 %narrow.i, 4294967295
-  %attrblocksz.0.i = select i1 %cmp.i, i64 %9, i64 32
-  %10 = lshr i64 2800, %idxprom
-  %11 = and i64 %10, 1
-  %cmp9.not.i.not = icmp eq i64 %11, 0
+  %cmp.i.not = icmp eq i64 %call11, 0
+  %narrow.i = add nuw nsw i64 %call11, 33
+  %attrblocksz.0.i = select i1 %cmp.i.not, i64 32, i64 %narrow.i
+  %9 = lshr i64 2800, %idxprom
+  %10 = and i64 %9, 1
+  %cmp9.not.i.not = icmp eq i64 %10, 0
   br i1 %cmp9.not.i.not, label %if.then11.i, label %if.end18.i
 
 if.then11.i:                                      ; preds = %if.end34
@@ -1668,25 +1666,24 @@ if.end32.i:                                       ; preds = %if.then21.i, %if.en
   %alignpad2.0.i = phi i64 [ %spec.store.select1.i, %if.then21.i ], [ 0, %if.end18.i ]
   %attrblocksz.3.i = phi i64 [ %add30.i, %if.then21.i ], [ %attrblocksz.2.i, %if.end18.i ]
   %alloc_fn.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 16
-  %12 = load ptr, ptr %alloc_fn.i, align 8
-  %call.i = tail call ptr %12(i64 noundef %attrblocksz.3.i) #8
+  %11 = load ptr, ptr %alloc_fn.i, align 8
+  %call.i = tail call ptr %11(i64 noundef %attrblocksz.3.i) #8
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %create_attr_block.exit, label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.end32.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i, i8 0, i64 32, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  br i1 %cmp.i, label %if.then38.i, label %if.end45.i
+  br i1 %cmp.i.not, label %if.end45.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.end35.i
-  %add39.i = add i64 %call11, 1
-  %conv40.i = and i64 %add39.i, 4294967295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %name, i64 %conv40.i, i1 false)
+  %add39.i = add nuw nsw i64 %call11, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %name, i64 %add39.i, i1 false)
   store ptr %add.ptr.i, ptr %call.i, align 8
   %conv42.i = trunc i64 %call11 to i8
   %name_length.i = getelementptr inbounds %struct.exr_attribute_t, ptr %call.i, i64 0, i32 2
   store i8 %conv42.i, ptr %name_length.i, align 8
-  %add.ptr44.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %conv40.i
+  %add.ptr44.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add39.i
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then38.i, %if.end35.i
@@ -1695,8 +1692,8 @@ if.end45.i:                                       ; preds = %if.then38.i, %if.en
   br i1 %cmp9.not.i.not, label %if.then59.i, label %if.end61.i
 
 if.then59.i:                                      ; preds = %if.end45.i
-  %13 = getelementptr inbounds %struct.exr_attribute_t, ptr %call.i, i64 0, i32 6
-  store ptr %add.ptr56.i, ptr %13, align 8
+  %12 = getelementptr inbounds %struct.exr_attribute_t, ptr %call.i, i64 0, i32 6
+  store ptr %add.ptr56.i, ptr %12, align 8
   %add.ptr60.i = getelementptr inbounds i8, ptr %add.ptr56.i, i64 %8
   br label %if.end61.i
 
@@ -1713,25 +1710,25 @@ if.then63.i:                                      ; preds = %if.end61.i
 
 create_attr_block.exit:                           ; preds = %if.end32.i
   %standard_error.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 12
-  %14 = load ptr, ptr %standard_error.i, align 8
-  %call34.i = tail call i32 %14(ptr noundef nonnull %ctxt, i32 noundef 1) #8
+  %13 = load ptr, ptr %standard_error.i, align 8
+  %call34.i = tail call i32 %13(ptr noundef nonnull %ctxt, i32 noundef 1) #8
   %cmp36 = icmp eq i32 %call34.i, 0
   br i1 %cmp36, label %if.end45, label %if.else
 
 if.end45:                                         ; preds = %if.then63.i, %if.end61.i, %create_attr_block.exit
   %arrayidx = getelementptr inbounds [28 x %struct._internal_exr_attr_map], ptr @the_predefined_attr_typenames, i64 0, i64 %idxprom
-  %15 = load ptr, ptr %arrayidx, align 8
+  %14 = load ptr, ptr %arrayidx, align 8
   %type_name40 = getelementptr inbounds %struct.exr_attribute_t, ptr %call.i, i64 0, i32 1
-  store ptr %15, ptr %type_name40, align 8
+  store ptr %14, ptr %type_name40, align 8
   %name_len = getelementptr inbounds [28 x %struct._internal_exr_attr_map], ptr @the_predefined_attr_typenames, i64 0, i64 %idxprom, i32 1
-  %16 = load i32, ptr %name_len, align 8
-  %conv41 = trunc i32 %16 to i8
+  %15 = load i32, ptr %name_len, align 8
+  %conv41 = trunc i32 %15 to i8
   %type_name_length = getelementptr inbounds %struct.exr_attribute_t, ptr %call.i, i64 0, i32 3
   store i8 %conv41, ptr %type_name_length, align 1
   %type42 = getelementptr inbounds [28 x %struct._internal_exr_attr_map], ptr @the_predefined_attr_typenames, i64 0, i64 %idxprom, i32 2
-  %17 = load i32, ptr %type42, align 4
+  %16 = load i32, ptr %type42, align 4
   %type43 = getelementptr inbounds %struct.exr_attribute_t, ptr %call.i, i64 0, i32 5
-  store i32 %17, ptr %type43, align 4
+  store i32 %16, ptr %type43, align 4
   %call44 = tail call fastcc i32 @add_to_list(ptr noundef nonnull %ctxt, ptr noundef %list, ptr noundef %call.i)
   %cmp46 = icmp eq i32 %call44, 0
   br i1 %cmp46, label %if.then48, label %if.else

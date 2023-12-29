@@ -1621,15 +1621,12 @@ _ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit:      ; preds = %lor.lhs.false.i, %i
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %inc = add nuw i32 %i.047, 1
   %exitcond.not = icmp eq i32 %inc, %6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %for.body15.lr.ph, label %for.body, !llvm.loop !4
 
-for.end:                                          ; preds = %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit
+for.body15.lr.ph:                                 ; preds = %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit
   %27 = load ptr, ptr %ctx, align 8
   %28 = load ptr, ptr %m_bits_expr, align 8
   call void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(11616) %27, ptr noundef %28, i32 noundef %6, i1 noundef zeroext true)
-  br i1 %cmp46.not, label %for.end27, label %for.body15.lr.ph
-
-for.body15.lr.ph:                                 ; preds = %for.end
   %wide.trip.count56 = zext i32 %6 to i64
   br i1 %11, label %for.body15.us, label %for.body15
 
@@ -1766,7 +1763,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit: ; preds = %lor.lhs.false.i2
   %exitcond52.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
   br i1 %exitcond52.not, label %for.end27, label %for.body15, !llvm.loop !6
 
-for.end27:                                        ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit, %for.inc25.us, %for.end.thread, %for.end
+for.end27:                                        ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit, %for.inc25.us, %for.end.thread
   ret void
 }
 

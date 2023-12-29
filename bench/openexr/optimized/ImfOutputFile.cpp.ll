@@ -182,7 +182,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7Imf_3_210OutputFile4DataC2Ei(ptr noundef nonnull align 8 dereferenceable(321) %this, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt16allocator_traitsISaIPN7Imf_3_212_GLOBAL__N_110LineBufferEEE8allocateERS4_m.exit.i.i.i:
+_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i:
   %ref.tmp = alloca %"class.Imath_3_2::Vec2", align 8
   store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %this, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
@@ -211,37 +211,36 @@ _ZNSt16allocator_traitsISaIPN7Imf_3_212_GLOBAL__N_110LineBufferEEE8allocateERS4_
   %conv = zext nneg i32 %.sroa.speculated to i64
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv, 3
   %call5.i.i.i.i.i4 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
-          to label %_ZNSt12_Vector_baseIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EE11_M_allocateEm.exit.i.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit15
+          to label %call5.i.i.i.i.i.noexc unwind label %_ZNSt6vectorImSaImEED2Ev.exit15
 
-_ZNSt12_Vector_baseIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN7Imf_3_212_GLOBAL__N_110LineBufferEEE8allocateERS4_m.exit.i.i.i
+call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   store ptr null, ptr %call5.i.i.i.i.i4, align 8
   %cmp.i.i.i.i.i24.i.i = icmp eq i32 %.sroa.speculated, 1
   br i1 %cmp.i.i.i.i.i24.i.i, label %invoke.cont5, label %if.end.i.i.i.i.i25.i.i
 
-if.end.i.i.i.i.i25.i.i:                           ; preds = %_ZNSt12_Vector_baseIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EE11_M_allocateEm.exit.i.i
+if.end.i.i.i.i.i25.i.i:                           ; preds = %call5.i.i.i.i.i.noexc
   %incdec.ptr.i.i.i23.i.i = getelementptr ptr, ptr %call5.i.i.i.i.i4, i64 1
-  %1 = shl nuw nsw i64 %conv, 3
-  %2 = add nsw i64 %1, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23.i.i, i8 0, i64 %2, i1 false)
+  %1 = add nsw i64 %mul.i.i.i.i.i, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23.i.i, i8 0, i64 %1, i1 false)
   br label %invoke.cont5
 
-invoke.cont5:                                     ; preds = %_ZNSt12_Vector_baseIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EE11_M_allocateEm.exit.i.i, %if.end.i.i.i.i.i25.i.i
+invoke.cont5:                                     ; preds = %call5.i.i.i.i.i.noexc, %if.end.i.i.i.i.i25.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 2
-  %3 = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 1
+  %2 = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 1
   %lineBuffers = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %this, i64 0, i32 21
   store ptr %call5.i.i.i.i.i4, ptr %lineBuffers, align 8
   %add.ptr37.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i4, i64 %conv
-  store ptr %add.ptr37.i.i, ptr %3, align 8
+  store ptr %add.ptr37.i.i, ptr %2, align 8
   store ptr %add.ptr37.i.i, ptr %_M_end_of_storage.i.i, align 8
   ret void
 
-_ZNSt6vectorImSaImEED2Ev.exit15:                  ; preds = %_ZNSt16allocator_traitsISaIPN7Imf_3_212_GLOBAL__N_110LineBufferEEE8allocateERS4_m.exit.i.i.i
-  %4 = landingpad { ptr, i32 }
+_ZNSt6vectorImSaImEED2Ev.exit15:                  ; preds = %_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %3 = landingpad { ptr, i32 }
           cleanup
   %frameBuffer = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %this, i64 0, i32 5
   call void @_ZN7Imf_3_211FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer) #21
   call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) #21
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 }
 
 declare void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49), i32 noundef, i32 noundef, float noundef, ptr noundef nonnull align 4 dereferenceable(8), float noundef, i32 noundef, i32 noundef) unnamed_addr #0
@@ -5602,39 +5601,28 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i22, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i
-
-_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #20
-  br label %if.then.i.i.i22
-
-if.then.i.i.i22:                                  ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i ], [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds i64, ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i64 0, ptr %add.ptr, align 8
   %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i22
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i23 = getelementptr i64, ptr %add.ptr, i64 1
-  %5 = shl i64 %__n, 3
-  %6 = add i64 %5, -8
+  %5 = shl nuw nsw i64 %__n, 3
+  %6 = add nsw i64 %5, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23, i8 0, i64 %6, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %if.then.i.i.i22
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i30 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i30, label %if.then.i.i.i31, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
 
 if.then.i.i.i31:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i19, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
 
 _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i31
@@ -5646,10 +5634,10 @@ if.then.i33:                                      ; preds = %_ZNSt6vectorImSaImE
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit34
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit34: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %if.then.i33
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds i64, ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds i64, ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -5899,6 +5887,9 @@ declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17

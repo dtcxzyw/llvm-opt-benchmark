@@ -2869,7 +2869,7 @@ do.body.preheader.lr.ph.i.i.i:                    ; preds = %if.end27.i.i.i
   %154 = load i32, ptr %index3NullOffset10.i.i.i, align 4
   %155 = zext nneg i32 %cond.i.i.i to i64
   %156 = or disjoint i64 %155, 32
-  %157 = sext i32 %shr31.i.i.i to i64
+  %157 = zext nneg i32 %shr31.i.i.i to i64
   br label %do.body.preheader.i.i.i
 
 do.body.preheader.i.i.i:                          ; preds = %if.end86.i.i.i, %do.body.preheader.lr.ph.i.i.i
@@ -2946,7 +2946,7 @@ if.end86.i.i.i:                                   ; preds = %if.else80.i.i.i, %i
   %hasLongI3Blocks.2.i.i.i = phi i8 [ %hasLongI3Blocks.1.i.i.i, %if.then52.i.i.i ], [ %hasLongI3Blocks.0329.i.i.i, %if.then48.i162.i.i ], [ %hasLongI3Blocks.0329.i.i.i, %if.then67.i.i.i ], [ %hasLongI3Blocks.0329.i.i.i, %if.else74.i.i.i ], [ 1, %if.else80.i.i.i ]
   %index3Capacity.2.i.i.i = phi i32 [ %index3Capacity.1.i.i.i, %if.then52.i.i.i ], [ %index3Capacity.0330.i.i.i, %if.then48.i162.i.i ], [ %index3Capacity.0330.i.i.i, %if.then67.i.i.i ], [ %add78.i165.i.i, %if.else74.i.i.i ], [ %add84.i.i.i, %if.else80.i.i.i ]
   %i3FirstNull.3.i.i.i = phi i32 [ 0, %if.then52.i.i.i ], [ %i3FirstNull.2331.i.i.i, %if.then48.i162.i.i ], [ %i3FirstNull.2331.i.i.i, %if.then67.i.i.i ], [ %i3FirstNull.2331.i.i.i, %if.else74.i.i.i ], [ %i3FirstNull.2331.i.i.i, %if.else80.i.i.i ]
-  %cmp34.i.i.i = icmp slt i64 %indvars.iv.next307.i.i, %157
+  %cmp34.i.i.i = icmp ult i64 %indvars.iv.next307.i.i, %157
   %indvars.iv.next305.i.i = add nuw nsw i64 %indvars.iv304.i.i, 32
   br i1 %cmp34.i.i.i, label %do.body.preheader.i.i.i, label %for.end87.i.i.i, !llvm.loop !43
 

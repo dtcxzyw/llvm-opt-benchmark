@@ -257,8 +257,6 @@ $_ZNK4node10permission10Permission16is_scope_grantedENS0_15PermissionScopeERKSt1
 
 $_ZN4node7ReallocIN2v85LocalINS1_5ValueEEEEEPT_S6_m = comdat any
 
-$_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm = comdat any
-
 $_ZZNK4node20SyncProcessStdioPipe7uv_pipeEvE4args = comdat any
 
 $_ZZN4node20SyncProcessStdioPipe8SetErrorEiE4args = comdat any
@@ -1089,7 +1087,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp9.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i.i.i = or i1 %cmp7.i.i.i.i.i.i, %cmp9.i.i.i.i.i.i
@@ -3254,11 +3252,7 @@ if.end:                                           ; preds = %entry
   %conv = zext i32 %add to i64
   %mul = shl nuw nsw i64 %conv, 3
   %cmp41.not = icmp eq i32 %call30, 0
-  br i1 %cmp41.not, label %for.end.thread, label %for.body
-
-for.end.thread:                                   ; preds = %if.end
-  %call9951 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul) #28
-  br label %for.end132
+  br i1 %cmp41.not, label %for.end.for.end132_crit_edge, label %for.body
 
 for.body:                                         ; preds = %if.end, %_ZNKR2v85MaybeImE8FromJustEv.exit
   %data_size.043 = phi i64 [ %cond.i, %_ZNKR2v85MaybeImE8FromJustEv.exit ], [ 0, %if.end ]
@@ -3320,14 +3314,15 @@ _ZNKR2v85MaybeImE8FromJustEv.exit:                ; preds = %if.end84
   %cond.i = and i64 %add96.biased, -8
   %inc = add nuw i32 %i.042, 1
   %exitcond.not = icmp eq i32 %inc, %call30
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.body103.preheader, label %for.body, !llvm.loop !12
 
-for.end:                                          ; preds = %_ZNKR2v85MaybeImE8FromJustEv.exit
+for.end.for.end132_crit_edge:                     ; preds = %if.end
+  %call9951 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul) #28
+  br label %for.end132
+
+for.body103.preheader:                            ; preds = %_ZNKR2v85MaybeImE8FromJustEv.exit
   %add98 = add i64 %cond.i, %mul
   %call99 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add98) #28
-  br i1 %cmp41.not, label %for.end132, label %for.body103.preheader
-
-for.body103.preheader:                            ; preds = %for.end
   %wide.trip.count = zext i32 %call30 to i64
   br label %for.body103
 
@@ -3361,9 +3356,9 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i151, 
   %exitcond48.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond48.not, label %for.end132, label %for.body103, !llvm.loop !13
 
-for.end132:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %for.end, %for.end.thread
-  %call9952 = phi ptr [ %call9951, %for.end.thread ], [ %call99, %for.end ], [ %call99, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
-  %idxprom133.pre-phi = phi i64 [ 0, %for.end.thread ], [ 0, %for.end ], [ %wide.trip.count, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
+for.end132:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %for.end.for.end132_crit_edge
+  %call9952 = phi ptr [ %call9951, %for.end.for.end132_crit_edge ], [ %call99, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
+  %idxprom133.pre-phi = phi i64 [ 0, %for.end.for.end132_crit_edge ], [ %wide.trip.count, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
   %arrayidx134 = getelementptr inbounds ptr, ptr %call9952, i64 %idxprom133.pre-phi
   store ptr null, ptr %arrayidx134, align 8
   store ptr %call9952, ptr %target, align 8
@@ -3582,7 +3577,73 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.div.i
-  tail call void @_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
+  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<node::SyncProcessStdioPipe>, std::allocator<std::unique_ptr<node::SyncProcessStdioPipe>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %2 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
+  %sub.ptr.div.i11 = ashr exact i64 %sub.ptr.sub.i10, 3
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
+  tail call void @llvm.assume(i1 %cmp4.i)
+  %sub.i = xor i64 %sub.ptr.div.i, 1152921504606846975
+  %cmp6.i = icmp ule i64 %sub.ptr.div.i11, %sub.i
+  tail call void @llvm.assume(i1 %cmp6.i)
+  %cmp8.not.i = icmp ult i64 %sub.ptr.div.i11, %sub
+  br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit.i
+
+_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit.i: ; preds = %if.then
+  %3 = shl nuw i64 %sub, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
+  %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %3
+  store ptr %scevgep.i.i.i.i, ptr %_M_finish.i, align 8
+  br label %if.end6
+
+if.else.i:                                        ; preds = %if.then
+  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
+
+if.then.i.i:                                      ; preds = %if.else.i
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.99) #26
+  unreachable
+
+_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub)
+  %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
+  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 3
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #28
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  %4 = shl nuw nsw i64 %sub, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i, i8 0, i64 %4, i1 false)
+  %cmp.not5.i.i.i.i = icmp eq ptr %1, %0
+  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %for.body.i.i.i.i
+
+for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
+  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !18, !noalias !15
+  store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !15, !noalias !18
+  store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !18, !noalias !15
+  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %__first.addr.06.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %__cur.07.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %for.body.i.i.i.i, !llvm.loop !20
+
+_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
+  %tobool.not.i.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit.i, label %if.then.i24.i
+
+if.then.i24.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #27
+  br label %_ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit.i
+
+_ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %if.then.i24.i, %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
+  store ptr %call5.i.i.i.i, ptr %this, align 8
+  %add.ptr34.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %add.ptr.i, i64 %sub
+  store ptr %add.ptr34.i, ptr %_M_finish.i, align 8
+  %add.ptr37.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %call5.i.i.i.i, i64 %cond.i.i
+  store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 
 if.else:                                          ; preds = %entry
@@ -3592,19 +3653,19 @@ if.else:                                          ; preds = %entry
 if.then5:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.std::unique_ptr.274", ptr %1, i64 %__new_size
   %tobool.not.i = icmp eq ptr %0, %add.ptr
-  br i1 %tobool.not.i, label %if.end6, label %for.body.i.i.i.i
+  br i1 %tobool.not.i, label %if.end6, label %for.body.i.i.i.i18
 
-for.body.i.i.i.i:                                 ; preds = %if.then5, %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i ], [ %add.ptr, %if.then5 ]
-  %2 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
+for.body.i.i.i.i18:                               ; preds = %if.then5, %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i19, %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i ], [ %add.ptr, %if.then5 ]
+  %6 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
-delete.notnull.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i
-  %lifecycle_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::SyncProcessStdioPipe", ptr %2, i64 0, i32 10
-  %3 = load i32, ptr %lifecycle_.i.i.i.i.i.i.i.i, align 8
-  %4 = and i32 %3, -5
-  %spec.select.not.i.i.i.i.i.i.i.i = icmp eq i32 %4, 0
+delete.notnull.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i18
+  %lifecycle_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::SyncProcessStdioPipe", ptr %6, i64 0, i32 10
+  %7 = load i32, ptr %lifecycle_.i.i.i.i.i.i.i.i, align 8
+  %8 = and i32 %7, -5
+  %spec.select.not.i.i.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %spec.select.not.i.i.i.i.i.i.i.i, label %do.end7.i.i.i.i.i.i.i.i, label %do.body6.i.i.i.i.i.i.i.i
 
 do.body6.i.i.i.i.i.i.i.i:                         ; preds = %delete.notnull.i.i.i.i.i.i.i
@@ -3613,34 +3674,34 @@ do.body6.i.i.i.i.i.i.i.i:                         ; preds = %delete.notnull.i.i.
   unreachable
 
 do.end7.i.i.i.i.i.i.i.i:                          ; preds = %delete.notnull.i.i.i.i.i.i.i
-  %first_output_buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::SyncProcessStdioPipe", ptr %2, i64 0, i32 5
-  %5 = load ptr, ptr %first_output_buffer_.i.i.i.i.i.i.i.i, align 8
-  %cmp8.not3.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %first_output_buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::SyncProcessStdioPipe", ptr %6, i64 0, i32 5
+  %9 = load ptr, ptr %first_output_buffer_.i.i.i.i.i.i.i.i, align 8
+  %cmp8.not3.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp8.not3.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %do.end7.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
-  %buf.04.i.i.i.i.i.i.i.i = phi ptr [ %6, %for.body.i.i.i.i.i.i.i.i ], [ %5, %do.end7.i.i.i.i.i.i.i.i ]
+  %buf.04.i.i.i.i.i.i.i.i = phi ptr [ %10, %for.body.i.i.i.i.i.i.i.i ], [ %9, %do.end7.i.i.i.i.i.i.i.i ]
   %next_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::SyncProcessOutputBuffer", ptr %buf.04.i.i.i.i.i.i.i.i, i64 0, i32 2
-  %6 = load ptr, ptr %next_.i.i.i.i.i.i.i.i.i, align 8
+  %10 = load ptr, ptr %next_.i.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %buf.04.i.i.i.i.i.i.i.i) #27
-  %cmp8.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %cmp8.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp8.not.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %do.end7.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %2) #27
+  tail call void @_ZdlPv(ptr noundef %6) #27
   br label %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i.i.i, %for.body.i.i.i.i
+_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i.i.i, %for.body.i.i.i.i18
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %__first.addr.04.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %for.body.i.i.i.i, !llvm.loop !9
+  %incdec.ptr.i.i.i.i19 = getelementptr inbounds %"class.std::unique_ptr.274", ptr %__first.addr.04.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i20 = icmp eq ptr %incdec.ptr.i.i.i.i19, %0
+  br i1 %cmp.not.i.i.i.i20, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %for.body.i.i.i.i18, !llvm.loop !9
 
 _ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
   store ptr %add.ptr, ptr %_M_finish.i, align 8
   br label %if.end6
 
-if.end6:                                          ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, %if.then5, %if.else, %if.then
+if.end6:                                          ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, %if.then5, %_ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit.i, %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit.i, %if.else
   ret void
 }
 
@@ -4138,7 +4199,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i.i, i64 1)
-  %add.i.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i.i
   %cmp9.i.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i.i, 1152921504606846975
   %or.cond.i.i.i.i.i.i.i = or i1 %cmp7.i.i.i.i.i.i.i, %cmp9.i.i.i.i.i.i.i
@@ -4215,7 +4276,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %1, %permission
-  br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !15
+  br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !21
 
 if.end15.i.i:                                     ; preds = %entry
   %conv.i.i.i.i.i = sext i32 %permission to i64
@@ -4237,7 +4298,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %8, %permission
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !16
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !22
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
   %__p.010.i.i.i.i = phi ptr [ %7, %for.cond.i.i.i.i ], [ %5, %if.end.i.i.i.i ]
@@ -4251,7 +4312,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i = sext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i, %2
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %return, !llvm.loop !16
+  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %return, !llvm.loop !22
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
@@ -4326,104 +4387,6 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 
 declare void @_ZN4node21LowMemoryNotificationEv() local_unnamed_addr #0
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %cmp.not = icmp eq i64 %__n, 0
-  br i1 %cmp.not, label %if.end41, label %if.then
-
-if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<node::SyncProcessStdioPipe>, std::allocator<std::unique_ptr<node::SyncProcessStdioPipe>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<node::SyncProcessStdioPipe>, std::allocator<std::unique_ptr<node::SyncProcessStdioPipe>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %2 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp4 = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
-  tail call void @llvm.assume(i1 %cmp4)
-  %sub = xor i64 %sub.ptr.div.i, 1152921504606846975
-  %cmp6 = icmp ule i64 %sub.ptr.div, %sub
-  tail call void @llvm.assume(i1 %cmp6)
-  %cmp8.not = icmp ult i64 %sub.ptr.div, %__n
-  br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit
-
-_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = shl nuw i64 %__n, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
-  %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
-  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8
-  br label %if.end41
-
-if.else:                                          ; preds = %if.then
-  %cmp.i = icmp ult i64 %sub, %__n
-  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
-
-if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.99) #26
-  unreachable
-
-_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit22, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEE8allocateERS6_m.exit.i
-
-_ZNSt16allocator_traitsISaISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #28
-  br label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit22
-
-_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit22: ; preds = %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEE8allocateERS6_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"class.std::unique_ptr.274", ptr %cond.i17, i64 %sub.ptr.div.i
-  %4 = shl nuw i64 %__n, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %4, i1 false)
-  %cmp.not5.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit22, %for.body.i.i.i
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i17, %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit22 ]
-  %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit22 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %5 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !20, !noalias !17
-  store i64 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !17, !noalias !20
-  store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !20, !noalias !17
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::unique_ptr.274", ptr %__cur.07.i.i.i, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !22
-
-_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit22
-  %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit, label %if.then.i24
-
-if.then.i24:                                      ; preds = %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #27
-  br label %_ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit
-
-_ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %if.then.i24
-  store ptr %cond.i17, ptr %this, align 8
-  %add.ptr34 = getelementptr inbounds %"class.std::unique_ptr.274", ptr %add.ptr, i64 %__n
-  store ptr %add.ptr34, ptr %_M_finish.i, align 8
-  %add.ptr37 = getelementptr inbounds %"class.std::unique_ptr.274", ptr %cond.i17, i64 %cond.i
-  store ptr %add.ptr37, ptr %_M_end_of_storage, align 8
-  br label %if.end41
-
-if.end41:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit, %entry
-  ret void
-}
-
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_spawn_sync.cc() #21 section ".text.startup" {
 entry:
@@ -4440,6 +4403,9 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4490,11 +4456,11 @@ attributes #30 = { nounwind allocsize(1) }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
-!19 = distinct !{!19, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!20 = !{!21}
-!21 = distinct !{!21, !19, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
+!17 = distinct !{!17, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!18 = !{!19}
+!19 = distinct !{!19, !17, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}

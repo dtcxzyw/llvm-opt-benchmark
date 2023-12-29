@@ -1651,7 +1651,7 @@ if.end7.i:                                        ; preds = %if.end4.i
   br i1 %cmp10.i, label %find_allocation.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end7.i
-  %cmp18.i = icmp sgt i64 %call9.i, %offset
+  %cmp18.i = icmp ugt i64 %call9.i, %offset
   br i1 %cmp18.i, label %if.then19, label %return.sink.split.sink.split
 
 find_allocation.exit:                             ; preds = %if.end7.i, %if.end7

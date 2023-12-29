@@ -2640,8 +2640,7 @@ invoke.cont59:                                    ; preds = %lor.lhs.false.i.i, 
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %66 = load ptr, ptr %m_data.i.i109, align 8
   %div1.i.i = lshr i64 %indvars.iv, 5
-  %idxprom.i.i = and i64 %div1.i.i, 134217727
-  %arrayidx.i.i110 = getelementptr inbounds i32, ptr %66, i64 %idxprom.i.i
+  %arrayidx.i.i110 = getelementptr inbounds i32, ptr %66, i64 %div1.i.i
   %67 = load i32, ptr %arrayidx.i.i110, align 4
   %rem.i.i = and i32 %58, 31
   %shl.i.i = shl nuw i32 1, %rem.i.i
@@ -2821,8 +2820,7 @@ invoke.cont93:                                    ; preds = %if.else, %for.inc10
   %93 = load ptr, ptr %m_data.i.i155, align 8
   %94 = trunc i64 %indvars.iv512 to i32
   %div1.i.i156 = lshr i64 %indvars.iv512, 5
-  %idxprom.i.i157 = and i64 %div1.i.i156, 134217727
-  %arrayidx.i.i158 = getelementptr inbounds i32, ptr %93, i64 %idxprom.i.i157
+  %arrayidx.i.i158 = getelementptr inbounds i32, ptr %93, i64 %div1.i.i156
   %95 = load i32, ptr %arrayidx.i.i158, align 4
   %rem.i.i159 = and i32 %94, 31
   %shl.i.i160 = shl nuw i32 1, %rem.i.i159
@@ -15036,7 +15034,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.else6.i:                                       ; preds = %if.else.i
   %25 = xor i32 %21, -1
-  %sub9.i = add i32 %bf.lshr12, %25
+  %sub9.i = add nsw i32 %bf.lshr12, %25
   %26 = load i32, ptr %m_num_decls.i, align 4
   %idx.ext.i.i.i7.i = zext i32 %26 to i64
   %add.ptr.i.i.i8.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i.i, i64 %idx.ext.i.i.i7.i
@@ -19011,7 +19009,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.else6.i:                                       ; preds = %if.else.i
   %25 = xor i32 %21, -1
-  %sub9.i = add i32 %bf.lshr12, %25
+  %sub9.i = add nsw i32 %bf.lshr12, %25
   %26 = load i32, ptr %m_num_decls.i, align 4
   %idx.ext.i.i.i7.i = zext i32 %26 to i64
   %add.ptr.i.i.i8.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i.i, i64 %idx.ext.i.i.i7.i

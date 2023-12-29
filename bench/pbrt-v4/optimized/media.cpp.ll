@@ -2542,9 +2542,9 @@ for.cond72.preheader.lr.ph.i:                     ; preds = %_ZNK4pbrt11SampledG
 
 for.cond72.preheader.preheader.i:                 ; preds = %for.cond72.preheader.lr.ph.i
   %118 = extractelement <2 x i32> %103, i64 0
-  %119 = add i32 %118, 1
+  %119 = add nuw i32 %118, 1
   %120 = extractelement <2 x i32> %103, i64 1
-  %121 = add i32 %120, 1
+  %121 = add nuw i32 %120, 1
   %122 = extractelement <2 x i32> %98, i64 0
   %123 = zext nneg i32 %122 to i64
   %124 = extractelement <2 x i32> %104, i64 0
@@ -2559,7 +2559,7 @@ for.cond72.preheader.preheader.i:                 ; preds = %for.cond72.preheade
   %133 = zext nneg i32 %.sroa.speculated.i13.i.i.i to i64
   %134 = extractelement <2 x i32> %90, i64 1
   %135 = sext i32 %134 to i64
-  %136 = add i32 %.sroa.speculated.i51.i, 1
+  %136 = add nuw i32 %.sroa.speculated.i51.i, 1
   %wide.trip.count148.i = zext i32 %136 to i64
   %wide.trip.count142.i = zext i32 %121 to i64
   %wide.trip.count.i = zext i32 %119 to i64
@@ -5272,17 +5272,17 @@ for.cond72.preheader.preheader:                   ; preds = %for.cond72.preheade
   %28 = extractelement <2 x i32> %6, i64 0
   %.sroa.speculated10.i11.i.i = tail call i32 @llvm.smax.i32(i32 %28, i32 0)
   %29 = extractelement <2 x i32> %22, i64 0
-  %30 = add i32 %29, 1
+  %30 = add nuw i32 %29, 1
   %31 = extractelement <2 x i32> %22, i64 1
-  %32 = add i32 %31, 1
+  %32 = add nuw i32 %31, 1
   %33 = zext nneg i32 %.sroa.speculated10.i11.i.i to i64
   %34 = zext nneg i32 %.sroa.speculated7.i12.i.i to i64
   %35 = sext i32 %28 to i64
   %36 = zext nneg i32 %.sroa.speculated.i to i64
   %37 = zext nneg i32 %.sroa.speculated.i13.i.i to i64
   %38 = sext i32 %27 to i64
-  %39 = add nsw i32 %.sroa.speculated.i51, 1
-  %wide.trip.count112 = zext i32 %39 to i64
+  %39 = add nuw nsw i32 %.sroa.speculated.i51, 1
+  %wide.trip.count112 = zext nneg i32 %39 to i64
   %wide.trip.count106 = zext i32 %32 to i64
   %wide.trip.count = zext i32 %30 to i64
   br label %for.cond72.preheader
@@ -6000,7 +6000,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 _ZNKSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
-  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 576460752303423487
   %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
@@ -6192,7 +6192,7 @@ if.then.i.i.i.i199:                               ; preds = %if.else.i.i166
 _ZNKSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i171: ; preds = %if.else.i.i166
   %sub.ptr.div.i.i.i.i.i172 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i169, 4
   %.sroa.speculated.i.i.i.i173 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i172, i64 1)
-  %add.i.i.i.i174 = add i64 %.sroa.speculated.i.i.i.i173, %sub.ptr.div.i.i.i.i.i172
+  %add.i.i.i.i174 = add nsw i64 %.sroa.speculated.i.i.i.i173, %sub.ptr.div.i.i.i.i.i172
   %cmp7.i.i.i.i175 = icmp ult i64 %add.i.i.i.i174, %sub.ptr.div.i.i.i.i.i172
   %cmp9.i.i.i.i176 = icmp ugt i64 %add.i.i.i.i174, 576460752303423487
   %or.cond.i.i.i.i177 = or i1 %cmp7.i.i.i.i175, %cmp9.i.i.i.i176
@@ -6378,7 +6378,7 @@ if.then.i.i.i.i279:                               ; preds = %if.else.i.i259
 _ZNKSt6vectorIN4pbrt21RGBIlluminantSpectrumESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i259
   %sub.ptr.div.i.i.i.i.i264 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i262, 24
   %.sroa.speculated.i.i.i.i265 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i264, i64 1)
-  %add.i.i.i.i266 = add i64 %.sroa.speculated.i.i.i.i265, %sub.ptr.div.i.i.i.i.i264
+  %add.i.i.i.i266 = add nsw i64 %.sroa.speculated.i.i.i.i265, %sub.ptr.div.i.i.i.i.i264
   %cmp7.i.i.i.i267 = icmp ult i64 %add.i.i.i.i266, %sub.ptr.div.i.i.i.i.i264
   %cmp9.i.i.i.i268 = icmp ugt i64 %add.i.i.i.i266, 384307168202282325
   %or.cond.i.i.i.i269 = or i1 %cmp7.i.i.i.i267, %cmp9.i.i.i.i268
@@ -27011,27 +27011,16 @@ if.then.i:                                        ; preds = %if.else
 
 _ZNKSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 44343134792571037
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 44343134792571037, i64 %add.i
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN7nanovdb2io12GridMetaDataESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN7nanovdb2io12GridMetaDataEEE8allocateERS3_m.exit.i
-
-_ZNSt16allocator_traitsISaIN7nanovdb2io12GridMetaDataEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE12_M_check_lenEmPKc.exit
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 44343134792571037)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 208
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
-  br label %_ZNSt12_Vector_baseIN7nanovdb2io12GridMetaDataESaIS2_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN7nanovdb2io12GridMetaDataESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN7nanovdb2io12GridMetaDataEEE8allocateERS3_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN7nanovdb2io12GridMetaDataEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"struct.nanovdb::io::GridMetaData", ptr %cond.i19, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   br label %for.inc.i.i.i21
 
-for.inc.i.i.i21:                                  ; preds = %_ZNSt12_Vector_baseIN7nanovdb2io12GridMetaDataESaIS2_EE11_M_allocateEm.exit, %for.inc.i.i.i21
-  %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i37, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNSt12_Vector_baseIN7nanovdb2io12GridMetaDataESaIS2_EE11_M_allocateEm.exit ]
-  %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i36, %for.inc.i.i.i21 ], [ %__n, %_ZNSt12_Vector_baseIN7nanovdb2io12GridMetaDataESaIS2_EE11_M_allocateEm.exit ]
+for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i21
+  %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i37, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i36, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE12_M_check_lenEmPKc.exit ]
   %worldBBox.i.i.i.i.i.i24 = getelementptr inbounds %"struct.nanovdb::io::MetaData", ptr %__cur.08.i.i.i22, i64 0, i32 6
   store <4 x double> <double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, ptr %worldBBox.i.i.i.i.i.i24, align 8
   %ref.tmp2.sroa.2.0.arrayinit.element.i3.sroa_idx.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.nanovdb::io::MetaData", ptr %__cur.08.i.i.i22, i64 0, i32 6, i32 0, i32 0, i64 1, i32 0, i64 1
@@ -27058,7 +27047,7 @@ try.cont:                                         ; preds = %for.inc.i.i.i21
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %try.cont, %for.body.i.i.i
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i19, %try.cont ]
+  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i42, %for.body.i.i.i ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(176) %__first.addr.06.i.i.i, i64 176, i1 false), !alias.scope !73
   %gridName.i.i.i.i.i.i.i = getelementptr inbounds %"struct.nanovdb::io::GridMetaData", ptr %__cur.07.i.i.i, i64 0, i32 1
@@ -27079,10 +27068,10 @@ if.then.i46:                                      ; preds = %_ZNSt6vectorIN7nano
   br label %_ZNSt12_Vector_baseIN7nanovdb2io12GridMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit47
 
 _ZNSt12_Vector_baseIN7nanovdb2io12GridMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit47: ; preds = %_ZNSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i46
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.nanovdb::io::GridMetaData", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.nanovdb::io::GridMetaData", ptr %cond.i19, i64 %cond.i
+  %add.ptr40 = getelementptr inbounds %"struct.nanovdb::io::GridMetaData", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -27902,6 +27891,9 @@ declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26

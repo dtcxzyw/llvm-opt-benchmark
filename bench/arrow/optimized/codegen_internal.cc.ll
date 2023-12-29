@@ -2757,9 +2757,6 @@ entry:
   %cmp230.not = icmp eq i64 %count, 0
   br i1 %cmp230.not, label %while.end90, label %for.body
 
-for.cond14.preheader:                             ; preds = %for.inc
-  br i1 %cmp230.not, label %while.end90, label %for.body16
-
 for.body:                                         ; preds = %entry, %for.inc
   %i.0231 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %add.ptr = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %begin, i64 %i.0231
@@ -2790,18 +2787,15 @@ if.then11:                                        ; preds = %if.end
 for.inc:                                          ; preds = %land.lhs.true, %if.end
   %inc = add nuw i64 %i.0231, 1
   %exitcond.not = icmp eq i64 %inc, %count
-  br i1 %exitcond.not, label %for.cond14.preheader, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.body16, label %for.body, !llvm.loop !12
 
 for.cond14:                                       ; preds = %for.body16
   %inc25 = add nuw i64 %i13.0233, 1
   %exitcond241.not = icmp eq i64 %inc25, %count
-  br i1 %exitcond241.not, label %for.cond28.preheader, label %for.body16, !llvm.loop !13
+  br i1 %exitcond241.not, label %for.body30, label %for.body16, !llvm.loop !13
 
-for.cond28.preheader:                             ; preds = %for.cond14
-  br i1 %cmp230.not, label %while.end90, label %for.body30
-
-for.body16:                                       ; preds = %for.cond14.preheader, %for.cond14
-  %i13.0233 = phi i64 [ %inc25, %for.cond14 ], [ 0, %for.cond14.preheader ]
+for.body16:                                       ; preds = %for.inc, %for.cond14
+  %i13.0233 = phi i64 [ %inc25, %for.cond14 ], [ 0, %for.inc ]
   %add.ptr18 = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %begin, i64 %i13.0233
   %2 = load ptr, ptr %add.ptr18, align 8
   %id_.i.i25 = getelementptr inbounds %"class.arrow::DataType", ptr %2, i64 0, i32 2
@@ -2844,13 +2838,10 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %if.else.i.i.i.i.i, 
 for.cond28:                                       ; preds = %for.body30
   %inc42 = add nuw i64 %i27.0235, 1
   %exitcond242.not = icmp eq i64 %inc42, %count
-  br i1 %exitcond242.not, label %for.cond45.preheader, label %for.body30, !llvm.loop !14
+  br i1 %exitcond242.not, label %for.body47, label %for.body30, !llvm.loop !14
 
-for.cond45.preheader:                             ; preds = %for.cond28
-  br i1 %cmp230.not, label %while.end90, label %for.body47
-
-for.body30:                                       ; preds = %for.cond28.preheader, %for.cond28
-  %i27.0235 = phi i64 [ %inc42, %for.cond28 ], [ 0, %for.cond28.preheader ]
+for.body30:                                       ; preds = %for.cond14, %for.cond28
+  %i27.0235 = phi i64 [ %inc42, %for.cond28 ], [ 0, %for.cond14 ]
   %add.ptr32 = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %begin, i64 %i27.0235
   %9 = load ptr, ptr %add.ptr32, align 8
   %id_.i.i33 = getelementptr inbounds %"class.arrow::DataType", ptr %9, i64 0, i32 2
@@ -2890,10 +2881,10 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit78:  ; preds = %if.else.i.i.i.i.i42
   store ptr %12, ptr %_M_refcount.i.i.i45, align 8
   br label %return
 
-for.body47:                                       ; preds = %for.cond45.preheader, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
-  %i44.0239 = phi i64 [ %inc57, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ], [ 0, %for.cond45.preheader ]
-  %max_width_unsigned.0238 = phi i32 [ %spec.select229, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ], [ 0, %for.cond45.preheader ]
-  %max_width_signed.0237 = phi i32 [ %spec.select, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ], [ 0, %for.cond45.preheader ]
+for.body47:                                       ; preds = %for.cond28, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
+  %i44.0239 = phi i64 [ %inc57, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ], [ 0, %for.cond28 ]
+  %max_width_unsigned.0238 = phi i32 [ %spec.select229, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ], [ 0, %for.cond28 ]
+  %max_width_signed.0237 = phi i32 [ %spec.select, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ], [ 0, %for.cond28 ]
   %add.ptr49 = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %begin, i64 %i44.0239
   %16 = load ptr, ptr %add.ptr49, align 8
   %id_.i.i79 = getelementptr inbounds %"class.arrow::DataType", ptr %16, i64 0, i32 2
@@ -3061,7 +3052,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit115: ; preds = %if.then76, %if.
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp77) #19
   br label %return
 
-while.end90:                                      ; preds = %entry, %for.cond14.preheader, %for.cond28.preheader, %for.cond45.preheader, %if.end67
+while.end90:                                      ; preds = %entry, %if.end67
   %call92 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5uint8Ev()
   %42 = load ptr, ptr %call92, align 8
   store ptr %42, ptr %agg.tmp91, align 8

@@ -780,9 +780,6 @@ for.body.preheader:                               ; preds = %entry
   %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr5, i64 %and
   br label %for.body
 
-for.cond20.preheader:                             ; preds = %for.body
-  br i1 %cmp31.not, label %nrvo.skipdtor, label %for.body22
-
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.033 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %user_data.032 = phi ptr [ %add.ptr18, %for.body ], [ %add.ptr6, %for.body.preheader ]
@@ -803,11 +800,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr18 = getelementptr inbounds i8, ptr %user_data.032, i64 %and17
   %inc = add nuw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.cond20.preheader, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.body22, label %for.body, !llvm.loop !16
 
-for.body22:                                       ; preds = %for.cond20.preheader, %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %7 = phi i64 [ %15, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ 0, %for.cond20.preheader ]
-  %i19.035 = phi i64 [ %inc35, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ 0, %for.cond20.preheader ]
+for.body22:                                       ; preds = %for.body, %_ZN4absl12lts_202308026StatusD2Ev.exit
+  %7 = phi i64 [ %15, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ 0, %for.body ]
+  %i19.035 = phi i64 [ %inc35, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ 0, %for.body ]
   %arrayidx23 = getelementptr inbounds %struct.grpc_call_element, ptr %add.ptr5, i64 %i19.035
   %8 = load ptr, ptr %arrayidx23, align 8
   %init_call_elem = getelementptr inbounds %struct.grpc_channel_filter, ptr %8, i64 0, i32 5
@@ -862,7 +859,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %if.end33, %if.then.
   %exitcond36.not = icmp eq i64 %inc35, %0
   br i1 %exitcond36.not, label %nrvo.skipdtor, label %for.body22, !llvm.loop !17
 
-nrvo.skipdtor:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %entry, %for.cond20.preheader
+nrvo.skipdtor:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %entry
   ret void
 
 ehcleanup:                                        ; preds = %for.body22

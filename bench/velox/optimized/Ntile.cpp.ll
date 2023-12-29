@@ -1921,7 +1921,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 96
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
@@ -3692,8 +3692,8 @@ _ZNRSt8optionalIjE5valueEv.exit.i:                ; preds = %if.then
   %14 = load ptr, ptr %result, align 8
   %15 = tail call noundef ptr @__dynamic_cast(ptr nonnull %14, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIlEE, i64 0) #20
   %call6.i = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIlE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(216) %15)
-  %cmp26.i = icmp sgt i32 %conv, 0
-  br i1 %cmp26.i, label %for.body.lr.ph.i, label %if.end
+  %cmp28.i = icmp sgt i32 %conv, 0
+  br i1 %cmp28.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %_ZNRSt8optionalIjE5valueEv.exit.i
   %bucketFlatVector_.i = getelementptr inbounds %"class.facebook::velox::window::prestosql::(anonymous namespace)::NtileFunction", ptr %this, i64 0, i32 9
@@ -3778,15 +3778,15 @@ if.end.i:                                         ; preds = %if.else.i
 if.then18.i:                                      ; preds = %if.end.i
   %add19.i = add nsw i32 %conv11.i, 1
   %conv20.i = sext i32 %add19.i to i64
-  %gep33.i = getelementptr i64, ptr %invariant.gep.i, i64 %indvars.iv.i
-  store i64 %conv20.i, ptr %gep33.i, align 8
+  %gep35.i = getelementptr i64, ptr %invariant.gep.i, i64 %indvars.iv.i
+  store i64 %conv20.i, ptr %gep35.i, align 8
   br label %for.inc.i
 
 if.else22.i:                                      ; preds = %if.end.i
-  %div.i.i = sdiv i64 %33, %32
-  %rem.i.i = srem i64 %33, %32
-  %add.i.i = add nsw i64 %div.i.i, 1
-  %mul.i.i = mul nsw i64 %add.i.i, %rem.i.i
+  %div.i26.i = udiv i64 %33, %32
+  %rem.i27.i = urem i64 %33, %32
+  %add.i.i = add nuw nsw i64 %div.i26.i, 1
+  %mul.i.i = mul nsw i64 %add.i.i, %rem.i27.i
   %conv.i.i = sext i32 %conv11.i to i64
   %cmp.i19.i = icmp sgt i64 %mul.i.i, %conv.i.i
   br i1 %cmp.i19.i, label %if.then.i21.i, label %if.end.i20.i
@@ -3796,8 +3796,8 @@ if.then.i21.i:                                    ; preds = %if.else22.i
   br label %_ZNK8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunction13BucketMetrics18computeBucketValueEi.exit.i
 
 if.end.i20.i:                                     ; preds = %if.else22.i
-  %sub.i.i = sub nsw i64 %conv.i.i, %rem.i.i
-  %div6.i.i = sdiv i64 %sub.i.i, %div.i.i
+  %sub.i.i = sub nsw i64 %conv.i.i, %rem.i27.i
+  %div6.i.i = sdiv i64 %sub.i.i, %div.i26.i
   br label %_ZNK8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunction13BucketMetrics18computeBucketValueEi.exit.i
 
 _ZNK8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunction13BucketMetrics18computeBucketValueEi.exit.i: ; preds = %if.end.i20.i, %if.then.i21.i
@@ -3832,8 +3832,8 @@ if.then.i7:                                       ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then.i7
   %idx.ext.i = sext i32 %resultOffset to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %call4.i, i64 %idx.ext.i
-  %sext16 = shl i64 %div5, 32
-  %idx.ext8.i = ashr exact i64 %sext16, 32
+  %sext15 = shl i64 %div5, 32
+  %idx.ext8.i = ashr exact i64 %sext15, 32
   %add.ptr9.i = getelementptr inbounds i64, ptr %add.ptr.i, i64 %idx.ext8.i
   %cmp.not4.i.i = icmp eq i32 %conv, 0
   br i1 %cmp.not4.i.i, label %if.end, label %for.body.i.preheader.i
@@ -3856,8 +3856,8 @@ if.else.i9:                                       ; preds = %if.then.i7
   %fixedBucketMetrics_.i = getelementptr inbounds %"class.facebook::velox::window::prestosql::(anonymous namespace)::NtileFunction", ptr %this, i64 0, i32 4
   %partitionOffset_10.i = getelementptr inbounds %"class.facebook::velox::window::prestosql::(anonymous namespace)::NtileFunction", ptr %this, i64 0, i32 7
   %40 = load i64, ptr %partitionOffset_10.i, align 8
-  %sext17 = shl i64 %div5, 32
-  %conv.i.i10 = ashr exact i64 %sext17, 32
+  %sext16 = shl i64 %div5, 32
+  %conv.i.i10 = ashr exact i64 %sext16, 32
   %extraBucketsBoundary.i.i = getelementptr inbounds %"class.facebook::velox::window::prestosql::(anonymous namespace)::NtileFunction", ptr %this, i64 0, i32 4, i32 2
   %cmp13.i.i = icmp sgt i32 %conv, 0
   %41 = load i64, ptr %extraBucketsBoundary.i.i, align 8
@@ -3886,8 +3886,8 @@ for.body.i10.i:                                   ; preds = %for.body.i10.i, %fo
   %i.016.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i11.i, %for.body.i10.i ]
   %42 = load i64, ptr %fixedBucketMetrics_.i, align 8
   %add.i.i12 = add nsw i64 %42, 1
-  %div.i.i13 = sdiv i64 %j.017.i.i, %add.i.i12
-  %add3.i.i = add nsw i64 %div.i.i13, 1
+  %div.i.i = sdiv i64 %j.017.i.i, %add.i.i12
+  %add3.i.i = add nsw i64 %div.i.i, 1
   %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %i.016.i.i
   store i64 %add3.i.i, ptr %gep.i.i, align 8
   %inc.i11.i = add nuw nsw i64 %i.016.i.i, 1
@@ -3916,13 +3916,13 @@ if.else11.i:                                      ; preds = %if.else
   %length_.i.i.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %36, i64 0, i32 8
   %46 = load i32, ptr %length_.i.i.i, align 8
   tail call void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %36, i32 noundef %46, i1 noundef zeroext true)
-  %rawNulls_.i.i14 = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %36, i64 0, i32 6
-  %47 = load ptr, ptr %rawNulls_.i.i14, align 8
+  %rawNulls_.i.i13 = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %36, i64 0, i32 6
+  %47 = load ptr, ptr %rawNulls_.i.i13, align 8
   %add15.i = add nsw i32 %conv, %resultOffset
   %cmp.not.i12.i = icmp sgt i32 %conv, 0
-  br i1 %cmp.not.i12.i, label %if.end.i.i15, label %if.end
+  br i1 %cmp.not.i12.i, label %if.end.i.i14, label %if.end
 
-if.end.i.i15:                                     ; preds = %if.else11.i
+if.end.i.i14:                                     ; preds = %if.else11.i
   %add.i.i.i = add i32 %resultOffset, 63
   %48 = srem i32 %add.i.i.i, 64
   %mul.i.i.i = sub nsw i32 %add.i.i.i, %48
@@ -3930,7 +3930,7 @@ if.end.i.i15:                                     ; preds = %if.else11.i
   %cmp2.i13.i = icmp slt i32 %49, %mul.i.i.i
   br i1 %cmp2.i13.i, label %if.then3.i.i, label %if.end8.i.i
 
-if.then3.i.i:                                     ; preds = %if.end.i.i15
+if.then3.i.i:                                     ; preds = %if.end.i.i14
   %sub.i18.i = and i32 %add15.i, 63
   %sh_prom.i.i.i = zext nneg i32 %sub.i18.i to i64
   %notmask.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i
@@ -3945,7 +3945,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i15
   %not.i.i.i = or i64 %notmask.i.i.i, %shl.i.i.not.i
   br label %if.end16.sink.split.i
 
-if.end8.i.i:                                      ; preds = %if.end.i.i15
+if.end8.i.i:                                      ; preds = %if.end.i.i14
   %cmp9.not.i.i = icmp eq i32 %mul.i.i.i, %resultOffset
   br i1 %cmp9.not.i.i, label %if.end14.i.i, label %if.then10.i.i
 

@@ -167,92 +167,92 @@ entry:
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %entry, %for.inc25
-  %indvars.iv85 = phi i64 [ 0, %entry ], [ %indvars.iv.next86, %for.inc25 ]
-  %0 = shl nuw nsw i64 %indvars.iv85, 22
+  %indvars.iv82 = phi i64 [ 0, %entry ], [ %indvars.iv.next83, %for.inc25 ]
+  %0 = shl nuw nsw i64 %indvars.iv82, 22
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc22
-  %indvars.iv81 = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next82, %for.inc22 ]
-  %num_edge_clumps = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv85, i64 %indvars.iv81, i32 1
+  %indvars.iv78 = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next79, %for.inc22 ]
+  %num_edge_clumps = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv82, i64 %indvars.iv78, i32 1
   %1 = load i8, ptr %num_edge_clumps, align 2
   %cmp855.not = icmp eq i8 %1, 0
   br i1 %cmp855.not, label %for.inc22, label %for.body10.lr.ph
 
 for.body10.lr.ph:                                 ; preds = %for.body3
-  %2 = shl nuw nsw i64 %indvars.iv81, 12
-  %3 = zext i8 %1 to i64
+  %2 = shl nuw nsw i64 %indvars.iv78, 12
+  %3 = add nuw nsw i64 %2, %0
+  %4 = zext i8 %1 to i64
   br label %for.body10
 
 for.body10:                                       ; preds = %for.body10.lr.ph, %for.body10
   %indvars.iv = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next, %for.body10 ]
-  %4 = or disjoint i64 %indvars.iv, %2
-  %5 = add nuw nsw i64 %4, %0
-  %arrayidx21 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv85, i64 %indvars.iv81, i32 3, i64 %indvars.iv
-  %6 = trunc i64 %5 to i32
-  store i32 %6, ptr %arrayidx21, align 4
+  %bf.set19111 = or i64 %indvars.iv, %3
+  %bf.set19 = trunc i64 %bf.set19111 to i32
+  %arrayidx21 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv82, i64 %indvars.iv78, i32 3, i64 %indvars.iv
+  store i32 %bf.set19, ptr %arrayidx21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp8 = icmp ult i64 %indvars.iv.next, %3
+  %cmp8 = icmp ult i64 %indvars.iv.next, %4
   br i1 %cmp8, label %for.body10, label %for.inc22, !llvm.loop !4
 
 for.inc22:                                        ; preds = %for.body10, %for.body3
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next82, 32
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next79, 32
   br i1 %exitcond.not, label %for.inc25, label %for.body3, !llvm.loop !6
 
 for.inc25:                                        ; preds = %for.inc22
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond89.not = icmp eq i64 %indvars.iv.next86, 32
-  br i1 %exitcond89.not, label %for.cond32.preheader, label %for.cond1.preheader, !llvm.loop !7
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %exitcond86.not = icmp eq i64 %indvars.iv.next83, 32
+  br i1 %exitcond86.not, label %for.cond32.preheader, label %for.cond1.preheader, !llvm.loop !7
 
 for.cond32.preheader:                             ; preds = %for.inc25, %for.inc86
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %for.inc86 ], [ 0, %for.inc25 ]
+  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %for.inc86 ], [ 0, %for.inc25 ]
   br label %for.body35
 
 for.body35:                                       ; preds = %for.cond32.preheader, %for.inc83
-  %indvars.iv96 = phi i64 [ 0, %for.cond32.preheader ], [ %indvars.iv.next97, %for.inc83 ]
-  %num_edge_clumps43 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv100, i64 %indvars.iv96, i32 1
-  %7 = load i8, ptr %num_edge_clumps43, align 2
-  %cmp4565.not = icmp eq i8 %7, 0
+  %indvars.iv93 = phi i64 [ 0, %for.cond32.preheader ], [ %indvars.iv.next94, %for.inc83 ]
+  %num_edge_clumps43 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv97, i64 %indvars.iv93, i32 1
+  %5 = load i8, ptr %num_edge_clumps43, align 2
+  %cmp4565.not = icmp eq i8 %5, 0
   br i1 %cmp4565.not, label %for.inc83, label %for.body47
 
 for.body47:                                       ; preds = %for.body35, %for.inc80
-  %8 = phi i8 [ %15, %for.inc80 ], [ %7, %for.body35 ]
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %for.inc80 ], [ 0, %for.body35 ]
-  %adjacent_clump_list_index = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv100, i64 %indvars.iv96, i32 3, i64 %indvars.iv93, i32 3
-  %9 = load i8, ptr %adjacent_clump_list_index, align 2
-  %idxprom53 = zext i8 %9 to i64
-  %arrayidx54 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv100, i64 %indvars.iv96, i32 4, i64 %idxprom53
-  %num_adjacent = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv100, i64 %indvars.iv96, i32 3, i64 %indvars.iv93, i32 1
-  %10 = load i8, ptr %num_adjacent, align 4
-  %cmp5762.not = icmp eq i8 %10, 0
+  %6 = phi i8 [ %13, %for.inc80 ], [ %5, %for.body35 ]
+  %indvars.iv90 = phi i64 [ %indvars.iv.next91, %for.inc80 ], [ 0, %for.body35 ]
+  %adjacent_clump_list_index = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv97, i64 %indvars.iv93, i32 3, i64 %indvars.iv90, i32 3
+  %7 = load i8, ptr %adjacent_clump_list_index, align 2
+  %idxprom53 = zext i8 %7 to i64
+  %arrayidx54 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv97, i64 %indvars.iv93, i32 4, i64 %idxprom53
+  %num_adjacent = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv97, i64 %indvars.iv93, i32 3, i64 %indvars.iv90, i32 1
+  %8 = load i8, ptr %num_adjacent, align 4
+  %cmp5762.not = icmp eq i8 %8, 0
   br i1 %cmp5762.not, label %for.inc80, label %for.body59.lr.ph
 
 for.body59.lr.ph:                                 ; preds = %for.body47
-  %arrayidx4.i = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv100, i64 %indvars.iv96, i32 3, i64 %indvars.iv93
+  %arrayidx4.i = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv97, i64 %indvars.iv93, i32 3, i64 %indvars.iv90
   br label %for.body59
 
 for.body59:                                       ; preds = %for.body59.lr.ph, %stbcc__clump_union.exit
-  %indvars.iv90 = phi i64 [ 0, %for.body59.lr.ph ], [ %indvars.iv.next91, %stbcc__clump_union.exit ]
-  %arrayidx62 = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx54, i64 %indvars.iv90
+  %indvars.iv87 = phi i64 [ 0, %for.body59.lr.ph ], [ %indvars.iv.next88, %stbcc__clump_union.exit ]
+  %arrayidx62 = getelementptr inbounds %struct.stbcc__relative_clumpid, ptr %arrayidx54, i64 %indvars.iv87
   %bf.load63 = load i16, ptr %arrayidx62, align 2
   %bf.clear64 = and i16 %bf.load63, 4095
   %bf.shl69 = shl i16 %bf.load63, 2
   %bf.ashr = ashr i16 %bf.shl69, 14
   %conv70 = sext i16 %bf.ashr to i64
-  %add = add i64 %indvars.iv96, %conv70
+  %add = add i64 %indvars.iv93, %conv70
   %bf.ashr74 = ashr i16 %bf.load63, 14
   %conv75 = sext i16 %bf.ashr74 to i64
-  %add76 = add i64 %indvars.iv100, %conv75
+  %add76 = add i64 %indvars.iv97, %conv75
   %sext = shl i64 %add76, 32
   %idxprom6.i = ashr exact i64 %sext, 32
-  %sext114 = shl i64 %add, 32
-  %idxprom8.i = ashr exact i64 %sext114, 32
+  %sext112 = shl i64 %add, 32
+  %idxprom8.i = ashr exact i64 %sext112, 32
   %idxprom11.i = zext nneg i16 %bf.clear64 to i64
   %arrayidx12.i = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %idxprom6.i, i64 %idxprom8.i, i32 3, i64 %idxprom11.i
-  %11 = load i32, ptr %arrayidx4.i, align 4
-  %call.i = tail call i32 @stbcc__clump_find(ptr noundef nonnull %g, i32 %11)
-  %12 = load i32, ptr %arrayidx12.i, align 4
-  %call19.i = tail call i32 @stbcc__clump_find(ptr noundef nonnull %g, i32 %12)
+  %9 = load i32, ptr %arrayidx4.i, align 4
+  %call.i = tail call i32 @stbcc__clump_find(ptr noundef nonnull %g, i32 %9)
+  %10 = load i32, ptr %arrayidx12.i, align 4
+  %call19.i = tail call i32 @stbcc__clump_find(ptr noundef nonnull %g, i32 %10)
   %cmp.i = icmp eq i32 %call.i, %call19.i
   br i1 %cmp.i, label %stbcc__clump_union.exit, label %if.end.i
 
@@ -269,10 +269,10 @@ if.end.i:                                         ; preds = %for.body59
   br label %stbcc__clump_union.exit
 
 stbcc__clump_union.exit:                          ; preds = %for.body59, %if.end.i
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %13 = load i8, ptr %num_adjacent, align 4
-  %14 = zext i8 %13 to i64
-  %cmp57 = icmp ult i64 %indvars.iv.next91, %14
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %11 = load i8, ptr %num_adjacent, align 4
+  %12 = zext i8 %11 to i64
+  %cmp57 = icmp ult i64 %indvars.iv.next88, %12
   br i1 %cmp57, label %for.body59, label %for.inc80.loopexit, !llvm.loop !8
 
 for.inc80.loopexit:                               ; preds = %stbcc__clump_union.exit
@@ -280,44 +280,43 @@ for.inc80.loopexit:                               ; preds = %stbcc__clump_union.
   br label %for.inc80
 
 for.inc80:                                        ; preds = %for.inc80.loopexit, %for.body47
-  %15 = phi i8 [ %.pre, %for.inc80.loopexit ], [ %8, %for.body47 ]
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %16 = zext i8 %15 to i64
-  %cmp45 = icmp ult i64 %indvars.iv.next94, %16
+  %13 = phi i8 [ %.pre, %for.inc80.loopexit ], [ %6, %for.body47 ]
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %14 = zext i8 %13 to i64
+  %cmp45 = icmp ult i64 %indvars.iv.next91, %14
   br i1 %cmp45, label %for.body47, label %for.inc83, !llvm.loop !9
 
 for.inc83:                                        ; preds = %for.inc80, %for.body35
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next97, 32
-  br i1 %exitcond99.not, label %for.inc86, label %for.body35, !llvm.loop !10
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 32
+  br i1 %exitcond96.not, label %for.inc86, label %for.body35, !llvm.loop !10
 
 for.inc86:                                        ; preds = %for.inc83
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond103.not = icmp eq i64 %indvars.iv.next101, 32
-  br i1 %exitcond103.not, label %for.cond93.preheader, label %for.cond32.preheader, !llvm.loop !11
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 32
+  br i1 %exitcond100.not, label %for.cond93.preheader, label %for.cond32.preheader, !llvm.loop !11
 
 for.cond93.preheader:                             ; preds = %for.inc86, %for.inc133
-  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %for.inc133 ], [ 0, %for.inc86 ]
-  %indvars.iv109.tr = trunc i64 %indvars.iv109 to i32
-  %17 = shl i32 %indvars.iv109.tr, 22
+  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %for.inc133 ], [ 0, %for.inc86 ]
+  %15 = shl nuw nsw i64 %indvars.iv106, 22
   br label %for.body96
 
 for.body96:                                       ; preds = %for.cond93.preheader, %for.inc130
-  %indvars.iv104 = phi i64 [ 0, %for.cond93.preheader ], [ %indvars.iv.next105, %for.inc130 ]
-  %num_edge_clumps104 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv109, i64 %indvars.iv104, i32 1
-  %18 = load i8, ptr %num_edge_clumps104, align 2
-  %cmp10670.not = icmp eq i8 %18, 0
+  %indvars.iv101 = phi i64 [ 0, %for.cond93.preheader ], [ %indvars.iv.next102, %for.inc130 ]
+  %num_edge_clumps104 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 7, i64 %indvars.iv106, i64 %indvars.iv101, i32 1
+  %16 = load i8, ptr %num_edge_clumps104, align 2
+  %cmp10670.not = icmp eq i8 %16, 0
   br i1 %cmp10670.not, label %for.inc130, label %for.body108.lr.ph
 
 for.body108.lr.ph:                                ; preds = %for.body96
-  %indvars.iv104.tr = trunc i64 %indvars.iv104 to i32
-  %19 = shl i32 %indvars.iv104.tr, 12
+  %17 = shl nuw nsw i64 %indvars.iv101, 12
+  %18 = add nuw nsw i64 %17, %15
+  %19 = trunc i64 %18 to i32
   br label %for.body108
 
 for.body108:                                      ; preds = %for.body108.lr.ph, %for.body108
   %k.271 = phi i32 [ 0, %for.body108.lr.ph ], [ %inc128, %for.body108 ]
-  %bf.set118 = or disjoint i32 %k.271, %19
-  %bf.set123 = add nuw nsw i32 %bf.set118, %17
+  %bf.set123 = or i32 %k.271, %19
   %call = tail call i32 @stbcc__clump_find(ptr noundef nonnull %g, i32 %bf.set123)
   %inc128 = add nuw nsw i32 %k.271, 1
   %20 = load i8, ptr %num_edge_clumps104, align 2
@@ -326,21 +325,21 @@ for.body108:                                      ; preds = %for.body108.lr.ph, 
   br i1 %cmp106, label %for.body108, label %for.inc130, !llvm.loop !12
 
 for.inc130:                                       ; preds = %for.body108, %for.body96
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next105, 32
-  br i1 %exitcond108.not, label %for.inc133, label %for.body96, !llvm.loop !13
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond105.not = icmp eq i64 %indvars.iv.next102, 32
+  br i1 %exitcond105.not, label %for.inc133, label %for.body96, !llvm.loop !13
 
 for.inc133:                                       ; preds = %for.inc130
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next110, 32
-  br i1 %exitcond113.not, label %for.end135, label %for.cond93.preheader, !llvm.loop !14
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, 32
+  br i1 %exitcond110.not, label %for.end135, label %for.cond93.preheader, !llvm.loop !14
 
 for.end135:                                       ; preds = %for.inc133
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__build_all_connections_for_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @stbcc__build_all_connections_for_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #3 {
 entry:
   %connected = alloca [64 x [8 x i8]], align 16
   %num_adj = alloca [512 x i8], align 16
@@ -571,10 +570,10 @@ for.end154:                                       ; preds = %for.body132, %if.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__add_connections_to_adjacent_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @stbcc__add_connections_to_adjacent_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
 entry:
   %connected = alloca [64 x [8 x i8]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %connected, i8 0, i64 512, i1 false)
@@ -756,8 +755,8 @@ for.end:                                          ; preds = %stbcc__add_clump_co
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__add_connections_to_adjacent_cluster_with_rebuild(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @stbcc__add_connections_to_adjacent_cluster_with_rebuild(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
 entry:
   %cmp = icmp sgt i32 %cx, -1
   br i1 %cmp, label %land.lhs.true, label %if.end9
@@ -972,8 +971,8 @@ if.end55:                                         ; preds = %if.else, %if.then, 
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__remove_connections_to_adjacent_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @stbcc__remove_connections_to_adjacent_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
 entry:
   %disconnected = alloca [64 x [8 x i8]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %disconnected, i8 0, i64 512, i1 false)
@@ -1772,7 +1771,7 @@ for.end597:                                       ; preds = %for.body582, %for.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbcc_update_batch_begin(ptr nocapture noundef writeonly %g) local_unnamed_addr #4 {
+define void @stbcc_update_batch_begin(ptr nocapture noundef writeonly %g) local_unnamed_addr #5 {
 entry:
   %in_batched_update = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 4
   store i32 1, ptr %in_batched_update, align 4
@@ -1789,7 +1788,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @stbcc_grid_sizeof() local_unnamed_addr #5 {
+define i64 @stbcc_grid_sizeof() local_unnamed_addr #6 {
 entry:
   ret i64 6688788
 }
@@ -1930,7 +1929,7 @@ for.end58:                                        ; preds = %for.inc56, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbcc__add_clump_connection(ptr nocapture noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #6 {
+define void @stbcc__add_clump_connection(ptr nocapture noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #7 {
 entry:
   %shr = ashr i32 %x1, 5
   %shr1 = ashr i32 %y1, 5
@@ -1984,7 +1983,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__remove_clump_connection(ptr nocapture noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #7 {
+define void @stbcc__remove_clump_connection(ptr nocapture noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #3 {
 entry:
   %shr = ashr i32 %x1, 5
   %shr1 = ashr i32 %y1, 5
@@ -2125,7 +2124,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbcc__switch_root(ptr nocapture noundef writeonly %cbi, i32 noundef %x, i32 noundef %y, i16 %p.coerce) local_unnamed_addr #4 {
+define void @stbcc__switch_root(ptr nocapture noundef writeonly %cbi, i32 noundef %x, i32 noundef %y, i16 %p.coerce) local_unnamed_addr #5 {
 entry:
   %p.sroa.3.0.extract.shift = lshr i16 %p.coerce, 8
   %p.sroa.3.0.extract.trunc = zext nneg i16 %p.sroa.3.0.extract.shift to i64
@@ -2152,11 +2151,11 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

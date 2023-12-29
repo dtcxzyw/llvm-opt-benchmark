@@ -60,122 +60,85 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not45.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then2
-  %conv.i = trunc i32 %3 to i8
   %contents12.i.i = getelementptr inbounds %struct.intset, ptr %call.i.i, i64 0, i32 2
   %7 = sext i32 %4 to i64
-  switch i8 %conv.i, label %while.body.i [
-    i8 8, label %while.body.us.i
-    i8 4, label %while.body.us48.i
-  ]
-
-while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %_intsetSet.exit.us.i
-  %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %_intsetSet.exit.us.i ], [ %7, %while.body.lr.ph.i ]
-  %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, -1
-  %8 = add nsw i64 %indvars.iv.next73.i, %value.lobit.i
-  %add.ptr.i.us.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %indvars.iv.next73.i
-  %v64.0.copyload.i.us.i = load i64, ptr %add.ptr.i.us.i, align 8
-  %9 = load i32, ptr %call.i.i, align 4
-  switch i32 %9, label %if.else12.i.us.i [
-    i32 8, label %if.then.i20.us.i
-    i32 4, label %if.then6.i.us.i
-  ]
-
-if.then6.i.us.i:                                  ; preds = %while.body.us.i
-  %conv7.i.us.i = trunc i64 %v64.0.copyload.i.us.i to i32
-  %arrayidx11.i.us.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %8
-  store i32 %conv7.i.us.i, ptr %arrayidx11.i.us.i, align 4
-  br label %_intsetSet.exit.us.i
-
-if.then.i20.us.i:                                 ; preds = %while.body.us.i
-  %arrayidx.i.us.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %8
-  store i64 %v64.0.copyload.i.us.i, ptr %arrayidx.i.us.i, align 4
-  br label %_intsetSet.exit.us.i
-
-if.else12.i.us.i:                                 ; preds = %while.body.us.i
-  %conv13.i.us.i = trunc i64 %v64.0.copyload.i.us.i to i16
-  %arrayidx17.i.us.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %8
-  store i16 %conv13.i.us.i, ptr %arrayidx17.i.us.i, align 2
-  br label %_intsetSet.exit.us.i
-
-_intsetSet.exit.us.i:                             ; preds = %if.else12.i.us.i, %if.then.i20.us.i, %if.then6.i.us.i
-  %10 = and i64 %indvars.iv.next73.i, 4294967295
-  %tobool.not.us.i = icmp eq i64 %10, 0
-  br i1 %tobool.not.us.i, label %while.end.i, label %while.body.us.i, !llvm.loop !5
+  %cond = icmp eq i32 %3, 4
+  br i1 %cond, label %while.body.us48.i, label %while.body.i
 
 while.body.us48.i:                                ; preds = %while.body.lr.ph.i, %_intsetSet.exit.us66.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_intsetSet.exit.us66.i ], [ %7, %while.body.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %11 = add nsw i64 %indvars.iv.next.i, %value.lobit.i
+  %8 = add nsw i64 %indvars.iv.next.i, %value.lobit.i
   %add.ptr9.i.us.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %indvars.iv.next.i
   %v32.0.copyload.i.us.i = load i32, ptr %add.ptr9.i.us.i, align 4
-  %12 = load i32, ptr %call.i.i, align 4
-  switch i32 %12, label %if.else12.i.us62.i [
+  %9 = load i32, ptr %call.i.i, align 4
+  switch i32 %9, label %if.else12.i.us62.i [
     i32 8, label %if.then.i20.us59.i
     i32 4, label %if.then6.i.us55.i
   ]
 
 if.then6.i.us55.i:                                ; preds = %while.body.us48.i
-  %arrayidx11.i.us58.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %11
+  %arrayidx11.i.us58.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %8
   store i32 %v32.0.copyload.i.us.i, ptr %arrayidx11.i.us58.i, align 4
   br label %_intsetSet.exit.us66.i
 
 if.then.i20.us59.i:                               ; preds = %while.body.us48.i
   %conv10.i.us.i = sext i32 %v32.0.copyload.i.us.i to i64
-  %arrayidx.i.us61.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %11
+  %arrayidx.i.us61.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %8
   store i64 %conv10.i.us.i, ptr %arrayidx.i.us61.i, align 4
   br label %_intsetSet.exit.us66.i
 
 if.else12.i.us62.i:                               ; preds = %while.body.us48.i
   %conv13.i.us63.i = trunc i32 %v32.0.copyload.i.us.i to i16
-  %arrayidx17.i.us65.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %11
+  %arrayidx17.i.us65.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %8
   store i16 %conv13.i.us63.i, ptr %arrayidx17.i.us65.i, align 2
   br label %_intsetSet.exit.us66.i
 
 _intsetSet.exit.us66.i:                           ; preds = %if.else12.i.us62.i, %if.then.i20.us59.i, %if.then6.i.us55.i
-  %13 = and i64 %indvars.iv.next.i, 4294967295
-  %tobool.not.us67.i = icmp eq i64 %13, 0
+  %10 = and i64 %indvars.iv.next.i, 4294967295
+  %tobool.not.us67.i = icmp eq i64 %10, 0
   br i1 %tobool.not.us67.i, label %while.end.i, label %while.body.us48.i, !llvm.loop !5
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %_intsetSet.exit.i
   %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %_intsetSet.exit.i ], [ %7, %while.body.lr.ph.i ]
   %indvars.iv.next77.i = add nsw i64 %indvars.iv76.i, -1
-  %14 = add nsw i64 %indvars.iv.next77.i, %value.lobit.i
+  %11 = add nsw i64 %indvars.iv.next77.i, %value.lobit.i
   %add.ptr15.i.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %indvars.iv.next77.i
   %v16.0.copyload.i.i = load i16, ptr %add.ptr15.i.i, align 2
-  %15 = load i32, ptr %call.i.i, align 4
-  switch i32 %15, label %if.else12.i.i [
+  %12 = load i32, ptr %call.i.i, align 4
+  switch i32 %12, label %if.else12.i.i [
     i32 8, label %if.then.i20.i
     i32 4, label %if.then6.i.i
   ]
 
 if.then.i20.i:                                    ; preds = %while.body.i
   %conv16.i.i = sext i16 %v16.0.copyload.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %14
+  %arrayidx.i.i = getelementptr inbounds i64, ptr %contents12.i.i, i64 %11
   store i64 %conv16.i.i, ptr %arrayidx.i.i, align 4
   br label %_intsetSet.exit.i
 
 if.then6.i.i:                                     ; preds = %while.body.i
   %conv7.i.i = sext i16 %v16.0.copyload.i.i to i32
-  %arrayidx11.i.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %14
+  %arrayidx11.i.i = getelementptr inbounds i32, ptr %contents12.i.i, i64 %11
   store i32 %conv7.i.i, ptr %arrayidx11.i.i, align 4
   br label %_intsetSet.exit.i
 
 if.else12.i.i:                                    ; preds = %while.body.i
-  %arrayidx17.i.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %14
+  %arrayidx17.i.i = getelementptr inbounds i16, ptr %contents12.i.i, i64 %11
   store i16 %v16.0.copyload.i.i, ptr %arrayidx17.i.i, align 2
   br label %_intsetSet.exit.i
 
 _intsetSet.exit.i:                                ; preds = %if.else12.i.i, %if.then6.i.i, %if.then.i20.i
-  %16 = and i64 %indvars.iv.next77.i, 4294967295
-  %tobool.not.i = icmp eq i64 %16, 0
+  %13 = and i64 %indvars.iv.next77.i, 4294967295
+  %tobool.not.i = icmp eq i64 %13, 0
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
-while.end.i:                                      ; preds = %_intsetSet.exit.us66.i, %_intsetSet.exit.us.i, %_intsetSet.exit.i, %if.then2
+while.end.i:                                      ; preds = %_intsetSet.exit.i, %_intsetSet.exit.us66.i, %if.then2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end.i
-  %17 = load i32, ptr %call.i.i, align 4
-  switch i32 %17, label %if.else12.i26.i [
+  %14 = load i32, ptr %call.i.i, align 4
+  switch i32 %14, label %if.else12.i26.i [
     i32 8, label %if.then.i24.i
     i32 4, label %if.then6.i21.i
   ]
@@ -199,16 +162,16 @@ if.else12.i26.i:                                  ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %while.end.i
   %length10.i = getelementptr inbounds %struct.intset, ptr %call.i.i, i64 0, i32 1
-  %18 = load i32, ptr %length10.i, align 4
-  %19 = load i32, ptr %call.i.i, align 4
-  switch i32 %19, label %if.else12.i39.i [
+  %15 = load i32, ptr %length10.i, align 4
+  %16 = load i32, ptr %call.i.i, align 4
+  switch i32 %16, label %if.else12.i39.i [
     i32 8, label %if.then.i35.i
     i32 4, label %if.then6.i30.i
   ]
 
 if.then.i35.i:                                    ; preds = %if.else.i
   %contents.i36.i = getelementptr inbounds %struct.intset, ptr %call.i.i, i64 0, i32 2
-  %idxprom.i37.i = sext i32 %18 to i64
+  %idxprom.i37.i = sext i32 %15 to i64
   %arrayidx.i38.i = getelementptr inbounds i64, ptr %contents.i36.i, i64 %idxprom.i37.i
   store i64 %value, ptr %arrayidx.i38.i, align 4
   br label %intsetUpgradeAndAdd.exit
@@ -216,7 +179,7 @@ if.then.i35.i:                                    ; preds = %if.else.i
 if.then6.i30.i:                                   ; preds = %if.else.i
   %conv7.i31.i = trunc i64 %value to i32
   %contents8.i32.i = getelementptr inbounds %struct.intset, ptr %call.i.i, i64 0, i32 2
-  %idxprom10.i33.i = sext i32 %18 to i64
+  %idxprom10.i33.i = sext i32 %15 to i64
   %arrayidx11.i34.i = getelementptr inbounds i32, ptr %contents8.i32.i, i64 %idxprom10.i33.i
   store i32 %conv7.i31.i, ptr %arrayidx11.i34.i, align 4
   br label %intsetUpgradeAndAdd.exit
@@ -224,15 +187,15 @@ if.then6.i30.i:                                   ; preds = %if.else.i
 if.else12.i39.i:                                  ; preds = %if.else.i
   %conv13.i40.i = trunc i64 %value to i16
   %contents14.i41.i = getelementptr inbounds %struct.intset, ptr %call.i.i, i64 0, i32 2
-  %idxprom16.i42.i = sext i32 %18 to i64
+  %idxprom16.i42.i = sext i32 %15 to i64
   %arrayidx17.i43.i = getelementptr inbounds i16, ptr %contents14.i41.i, i64 %idxprom16.i42.i
   store i16 %conv13.i40.i, ptr %arrayidx17.i43.i, align 2
   br label %intsetUpgradeAndAdd.exit
 
 intsetUpgradeAndAdd.exit:                         ; preds = %if.then.i24.i, %if.then6.i21.i, %if.else12.i26.i, %if.then.i35.i, %if.then6.i30.i, %if.else12.i39.i
   %length11.i = getelementptr inbounds %struct.intset, ptr %call.i.i, i64 0, i32 1
-  %20 = load i32, ptr %length11.i, align 4
-  %add12.i = add i32 %20, 1
+  %17 = load i32, ptr %length11.i, align 4
+  %add12.i = add i32 %17, 1
   store i32 %add12.i, ptr %length11.i, align 4
   br label %return
 
@@ -250,26 +213,26 @@ if.then8:                                         ; preds = %if.then6
 
 if.end10:                                         ; preds = %if.else
   %length = getelementptr inbounds %struct.intset, ptr %is, i64 0, i32 1
-  %21 = load i32, ptr %length, align 4
-  %add = add i32 %21, 1
+  %18 = load i32, ptr %length, align 4
+  %add = add i32 %18, 1
   %conv.i18 = zext i32 %add to i64
   %conv1.i = zext i32 %3 to i64
   %mul.i = mul nuw i64 %conv.i18, %conv1.i
   %add.i19 = add nuw i64 %mul.i, 8
   %call.i = call ptr @zrealloc(ptr noundef nonnull %is, i64 noundef %add.i19) #13
-  %22 = load i32, ptr %pos, align 4
+  %19 = load i32, ptr %pos, align 4
   %length12 = getelementptr inbounds %struct.intset, ptr %call.i, i64 0, i32 1
-  %23 = load i32, ptr %length12, align 4
-  %cmp13 = icmp ult i32 %22, %23
+  %20 = load i32, ptr %length12, align 4
+  %cmp13 = icmp ult i32 %19, %20
   br i1 %cmp13, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %if.end10
-  %add16 = add nuw i32 %22, 1
-  %24 = load i32, ptr %call.i, align 4
+  %add16 = add nuw i32 %19, 1
+  %21 = load i32, ptr %call.i, align 4
   %contents25.i = getelementptr inbounds %struct.intset, ptr %call.i, i64 0, i32 2
-  %idx.ext27.i = zext i32 %22 to i64
+  %idx.ext27.i = zext i32 %19 to i64
   %idx.ext31.i = zext i32 %add16 to i64
-  switch i32 %24, label %if.else24.i [
+  switch i32 %21, label %if.else24.i [
     i32 8, label %if.then.i20
     i32 4, label %if.then12.i
   ]
@@ -293,7 +256,7 @@ intsetMoveTail.exit:                              ; preds = %if.then.i20, %if.th
   %.sink.i = phi i32 [ 2, %if.then12.i ], [ 1, %if.else24.i ], [ 3, %if.then.i20 ]
   %dst.0.i = phi ptr [ %add.ptr20.i, %if.then12.i ], [ %add.ptr32.i, %if.else24.i ], [ %add.ptr6.i, %if.then.i20 ]
   %src.0.i = phi ptr [ %add.ptr16.i, %if.then12.i ], [ %add.ptr28.i, %if.else24.i ], [ %add.ptr.i, %if.then.i20 ]
-  %sub.i = sub i32 %23, %22
+  %sub.i = sub i32 %20, %19
   %mul22.i = shl i32 %sub.i, %.sink.i
   %conv37.i = zext i32 %mul22.i to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %dst.0.i, ptr nonnull align 1 %src.0.i, i64 %conv37.i, i1 false)
@@ -301,16 +264,16 @@ intsetMoveTail.exit:                              ; preds = %if.then.i20, %if.th
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end10, %intsetMoveTail.exit
-  %25 = phi i32 [ %22, %if.end10 ], [ %.pre, %intsetMoveTail.exit ]
-  %26 = load i32, ptr %call.i, align 4
-  switch i32 %26, label %if.else12.i [
+  %22 = phi i32 [ %19, %if.end10 ], [ %.pre, %intsetMoveTail.exit ]
+  %23 = load i32, ptr %call.i, align 4
+  switch i32 %23, label %if.else12.i [
     i32 8, label %if.then.i21
     i32 4, label %if.then6.i
   ]
 
 if.then.i21:                                      ; preds = %if.end18
   %contents.i = getelementptr inbounds %struct.intset, ptr %call.i, i64 0, i32 2
-  %idxprom.i = sext i32 %25 to i64
+  %idxprom.i = sext i32 %22 to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %contents.i, i64 %idxprom.i
   store i64 %value, ptr %arrayidx.i, align 4
   br label %_intsetSet.exit
@@ -318,7 +281,7 @@ if.then.i21:                                      ; preds = %if.end18
 if.then6.i:                                       ; preds = %if.end18
   %conv7.i = trunc i64 %value to i32
   %contents8.i = getelementptr inbounds %struct.intset, ptr %call.i, i64 0, i32 2
-  %idxprom10.i = sext i32 %25 to i64
+  %idxprom10.i = sext i32 %22 to i64
   %arrayidx11.i = getelementptr inbounds i32, ptr %contents8.i, i64 %idxprom10.i
   store i32 %conv7.i, ptr %arrayidx11.i, align 4
   br label %_intsetSet.exit
@@ -326,14 +289,14 @@ if.then6.i:                                       ; preds = %if.end18
 if.else12.i:                                      ; preds = %if.end18
   %conv13.i = trunc i64 %value to i16
   %contents14.i = getelementptr inbounds %struct.intset, ptr %call.i, i64 0, i32 2
-  %idxprom16.i = sext i32 %25 to i64
+  %idxprom16.i = sext i32 %22 to i64
   %arrayidx17.i = getelementptr inbounds i16, ptr %contents14.i, i64 %idxprom16.i
   store i16 %conv13.i, ptr %arrayidx17.i, align 2
   br label %_intsetSet.exit
 
 _intsetSet.exit:                                  ; preds = %if.then.i21, %if.then6.i, %if.else12.i
-  %27 = load i32, ptr %length12, align 4
-  %add20 = add i32 %27, 1
+  %24 = load i32, ptr %length12, align 4
+  %add20 = add i32 %24, 1
   store i32 %add20, ptr %length12, align 4
   br label %return
 

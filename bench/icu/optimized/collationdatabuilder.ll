@@ -108,7 +108,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: nounwind
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7528DataBuilderCollationIteratorC2ERNS_20CollationDataBuilderE(ptr noundef nonnull align 8 dereferenceable(828) %this, ptr noundef nonnull align 8 dereferenceable(640) %b) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builderData = getelementptr inbounds %"class.icu_75::DataBuilderCollationIterator", ptr %this, i64 0, i32 3
@@ -1073,14 +1073,14 @@ invoke.cont63:                                    ; preds = %invoke.cont61
   br i1 %cmp.i122, label %invoke.cont65.thread, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont63
-  %cmp2.i = icmp slt i32 %call64, 65536
+  %cmp2.i = icmp ult i32 %call64, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
   %smallFCD.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %47, i64 0, i32 16
   %49 = load ptr, ptr %smallFCD.i.i, align 8
-  %shr.i.i123 = ashr i32 %call64, 8
-  %idxprom.i.i = sext i32 %shr.i.i123 to i64
+  %shr.i.i123 = lshr i32 %call64, 8
+  %idxprom.i.i = zext nneg i32 %shr.i.i123 to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %49, i64 %idxprom.i.i
   %50 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i124 = icmp eq i8 %50, 0
@@ -1143,14 +1143,14 @@ invoke.cont73:                                    ; preds = %invoke.cont71
   br i1 %cmp.i133, label %invoke.cont75.thread, label %if.else.i134
 
 if.else.i134:                                     ; preds = %invoke.cont73
-  %cmp2.i135 = icmp slt i32 %call74, 65536
+  %cmp2.i135 = icmp ult i32 %call74, 65536
   br i1 %cmp2.i135, label %if.then3.i138, label %if.end6.i136
 
 if.then3.i138:                                    ; preds = %if.else.i134
   %smallFCD.i.i139 = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %54, i64 0, i32 16
   %59 = load ptr, ptr %smallFCD.i.i139, align 8
-  %shr.i.i140 = ashr i32 %call74, 8
-  %idxprom.i.i141 = sext i32 %shr.i.i140 to i64
+  %shr.i.i140 = lshr i32 %call74, 8
+  %idxprom.i.i141 = zext nneg i32 %shr.i.i140 to i64
   %arrayidx.i.i142 = getelementptr inbounds i8, ptr %59, i64 %idxprom.i.i141
   %60 = load i8, ptr %arrayidx.i.i142, align 1
   %cmp.i.i143 = icmp eq i8 %60, 0
@@ -6683,7 +6683,7 @@ attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

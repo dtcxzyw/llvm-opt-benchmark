@@ -951,8 +951,8 @@ if.end54:                                         ; preds = %do.body.i, %if.end4
   ret i32 %s.4
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %data, ptr nocapture noundef nonnull align 8 dereferenceable(52) %M) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %data, ptr nocapture noundef nonnull align 8 dereferenceable(52) %M) local_unnamed_addr #0 align 2 {
 entry:
   %base = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
   %0 = load i32, ptr %base, align 8
@@ -1148,8 +1148,8 @@ if.end32:                                         ; preds = %_ZN5o3dgc19Adaptive
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i1 noundef zeroext %from_encoder) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i1 noundef zeroext %from_encoder) local_unnamed_addr #0 align 2 {
 entry:
   %update_cycle = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 4
   %0 = load i32, ptr %update_cycle, align 4
@@ -1331,8 +1331,8 @@ if.end64:                                         ; preds = %while.body56, %for.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Data_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull align 8 dereferenceable(52) %M) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Data_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull align 8 dereferenceable(52) %M) local_unnamed_addr #0 align 2 {
 entry:
   %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
   %0 = load i32, ptr %length, align 8
@@ -1486,8 +1486,8 @@ if.end59:                                         ; preds = %if.then58, %if.end5
   ret i32 %s.4
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_CodecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this) unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define hidden void @_ZN5o3dgc16Arithmetic_CodecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this) unnamed_addr #3 align 2 {
 entry:
   %buffer_size = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 6
   store i32 0, ptr %buffer_size, align 4
@@ -1498,7 +1498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_CodecC2EjPh(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %max_code_bytes, ptr noundef %user_buffer) unnamed_addr #5 align 2 {
+define hidden void @_ZN5o3dgc16Arithmetic_CodecC2EjPh(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %max_code_bytes, ptr noundef %user_buffer) unnamed_addr #4 align 2 {
 entry:
   %buffer_size = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 6
   store i32 0, ptr %buffer_size, align 4
@@ -1510,13 +1510,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %max_code_bytes, ptr noundef %user_buffer) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %max_code_bytes, ptr noundef %user_buffer) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq i32 %max_code_bytes, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1526,7 +1526,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.1) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.1) #13
   unreachable
 
 if.end3:                                          ; preds = %if.end
@@ -1543,7 +1543,7 @@ if.then5:                                         ; preds = %if.end3
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then5
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then5
@@ -1563,7 +1563,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %isnull14, label %delete.end16, label %delete.notnull15
 
 delete.notnull15:                                 ; preds = %if.end11
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
   %.pre = load i32, ptr %buffer_size8, align 4
   br label %delete.end16
 
@@ -1571,7 +1571,7 @@ delete.end16:                                     ; preds = %delete.notnull15, %
   %4 = phi i32 [ %.pre, %delete.notnull15 ], [ %max_code_bytes, %if.end11 ]
   %add = add i32 %4, 16
   %conv = zext i32 %add to i64
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #17
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #15
   store ptr %call, ptr %new_buffer13, align 8
   store ptr %call, ptr %this, align 8
   br label %return
@@ -1581,7 +1581,7 @@ return:                                           ; preds = %if.end7, %delete.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_CodecD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN5o3dgc16Arithmetic_CodecD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) unnamed_addr #5 align 2 {
 entry:
   %new_buffer = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %new_buffer, align 8
@@ -1589,7 +1589,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -1597,27 +1597,27 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr nocapture noundef readonly %msg) unnamed_addr #8 {
+define internal fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr nocapture noundef readonly %msg) unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 31, i64 1, ptr %0) #18
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 31, i64 1, ptr %0) #16
   %2 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 @fputs(ptr noundef %msg, ptr noundef %2) #18
+  %call1 = tail call i32 @fputs(ptr noundef %msg, ptr noundef %2) #16
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 24, i64 1, ptr %3) #18
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 24, i64 1, ptr %3) #16
   %call3 = tail call i32 @getchar()
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_Codec13start_encoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5o3dgc16Arithmetic_Codec13start_encoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #5 align 2 {
 entry:
   %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
   %0 = load i32, ptr %mode, align 8
@@ -1625,7 +1625,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.2) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.2) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1635,7 +1635,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.3) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.3) #13
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -1651,7 +1651,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_Codec13start_decoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5o3dgc16Arithmetic_Codec13start_decoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #5 align 2 {
 entry:
   %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
   %0 = load i32, ptr %mode, align 8
@@ -1659,7 +1659,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.4) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.4) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1669,7 +1669,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.3) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.3) #13
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -1702,7 +1702,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_Codec14read_from_fileEP8_IO_FILE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef %code_file) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5o3dgc16Arithmetic_Codec14read_from_fileEP8_IO_FILE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef %code_file) local_unnamed_addr #5 align 2 {
 entry:
   br label %do.body
 
@@ -1714,7 +1714,7 @@ do.body:                                          ; preds = %if.end, %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.5) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.5) #13
   unreachable
 
 if.end:                                           ; preds = %do.body
@@ -1733,7 +1733,7 @@ do.end:                                           ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %do.end
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.6) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.6) #13
   unreachable
 
 if.end5:                                          ; preds = %do.end
@@ -1744,7 +1744,7 @@ if.end5:                                          ; preds = %do.end
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end5
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.5) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.5) #13
   unreachable
 
 if.end10:                                         ; preds = %if.end5
@@ -1754,7 +1754,7 @@ if.end10:                                         ; preds = %if.end5
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end10
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.4) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.4) #13
   unreachable
 
 if.end.i:                                         ; preds = %if.end10
@@ -1763,7 +1763,7 @@ if.end.i:                                         ; preds = %if.end10
   br i1 %cmp2.i, label %if.then3.i, label %_ZN5o3dgc16Arithmetic_Codec13start_decoderEv.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.3) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.3) #13
   unreachable
 
 _ZN5o3dgc16Arithmetic_Codec13start_decoderEv.exit: ; preds = %if.end.i
@@ -1796,13 +1796,13 @@ _ZN5o3dgc16Arithmetic_Codec13start_decoderEv.exit: ; preds = %if.end.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec12stop_encoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec12stop_encoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #5 align 2 {
 entry:
   %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
   %0 = load i32, ptr %mode, align 8
@@ -1810,7 +1810,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.7) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.7) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1887,7 +1887,7 @@ _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %do.body.i
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.6) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.6) #13
   unreachable
 
 if.end17:                                         ; preds = %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit
@@ -1895,7 +1895,7 @@ if.end17:                                         ; preds = %_ZN5o3dgc16Arithmet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec13write_to_fileEP8_IO_FILE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef %code_file) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec13write_to_fileEP8_IO_FILE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef %code_file) local_unnamed_addr #5 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN5o3dgc16Arithmetic_Codec12stop_encoderEv(ptr noundef nonnull align 8 dereferenceable(44) %this)
   br label %do.body
@@ -1912,7 +1912,7 @@ do.body:                                          ; preds = %if.end5, %entry
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %do.body
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.8) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.8) #13
   unreachable
 
 if.end5:                                          ; preds = %do.body
@@ -1928,7 +1928,7 @@ do.end:                                           ; preds = %if.end5
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %do.end
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.8) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.8) #13
   unreachable
 
 if.end10:                                         ; preds = %do.end
@@ -1937,13 +1937,13 @@ if.end10:                                         ; preds = %do.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_Codec12stop_decoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5o3dgc16Arithmetic_Codec12stop_decoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #5 align 2 {
 entry:
   %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
   %0 = load i32, ptr %mode, align 8
@@ -1951,7 +1951,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.9) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.9) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1960,14 +1960,14 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc16Static_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this) unnamed_addr #11 align 2 {
+define hidden void @_ZN5o3dgc16Static_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 4096, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc16Static_Bit_Model17set_probability_0Ed(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, double noundef %p0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5o3dgc16Static_Bit_Model17set_probability_0Ed(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, double noundef %p0) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = fcmp olt double %p0, 1.000000e-04
   %cmp2 = fcmp ogt double %p0, 9.999000e-01
@@ -1975,7 +1975,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.10) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.10) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1986,7 +1986,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc18Adaptive_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) unnamed_addr #11 align 2 {
+define hidden void @_ZN5o3dgc18Adaptive_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) unnamed_addr #3 align 2 {
 entry:
   %bit_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %this, i64 0, i32 4
   store i32 2, ptr %bit_count.i, align 4
@@ -1995,7 +1995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc18Adaptive_Bit_Model5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN5o3dgc18Adaptive_Bit_Model5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) local_unnamed_addr #3 align 2 {
 entry:
   %bit_count = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %this, i64 0, i32 4
   store i32 2, ptr %bit_count, align 4
@@ -2004,7 +2004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc17Static_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #11 align 2 {
+define hidden void @_ZN5o3dgc17Static_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   %data_symbols = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 2
   store i32 0, ptr %data_symbols, align 8
@@ -2013,14 +2013,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc17Static_Data_ModelD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN5o3dgc17Static_Data_ModelD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -2028,14 +2028,14 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %number_of_symbols, ptr noundef readonly %probability) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %number_of_symbols, ptr noundef readonly %probability) local_unnamed_addr #4 align 2 {
 entry:
   %0 = add i32 %number_of_symbols, -2049
   %or.cond = icmp ult i32 %0, -2047
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.11) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.11) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2054,7 +2054,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then4
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #14
   %.pre = load i32, ptr %data_symbols, align 8
   br label %delete.end
 
@@ -2082,7 +2082,7 @@ while.end:                                        ; preds = %while.cond
   %add17 = add i32 %add16, %shl12
   %conv = zext i32 %add17 to i64
   %4 = shl nuw nsw i64 %conv, 2
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #17
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #15
   store ptr %call, ptr %this, align 8
   %idx.ext = zext i32 %3 to i64
   %add.ptr = getelementptr inbounds i32, ptr %call, i64 %idx.ext
@@ -2099,7 +2099,7 @@ if.end29:                                         ; preds = %delete.end
   store i32 0, ptr %table_size23, align 8
   %5 = shl nuw nsw i32 %3, 2
   %6 = zext nneg i32 %5 to i64
-  %call26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #17
+  %call26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #15
   store ptr %call26, ptr %this, align 8
   %cmp3327.not = icmp eq i32 %3, 0
   br i1 %cmp3327.not, label %for.end, label %for.body.lr.ph
@@ -2179,7 +2179,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond1, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %for.body, %for.body.lr.ph.split.us
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.12) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.12) #13
   unreachable
 
 if.end40:                                         ; preds = %for.body
@@ -2262,7 +2262,7 @@ if.end80:                                         ; preds = %while.body72, %if.t
   br i1 %or.cond2, label %if.then84, label %if.end85
 
 if.then84:                                        ; preds = %if.end80
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.13) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.13) #13
   unreachable
 
 if.end85:                                         ; preds = %if.end80
@@ -2270,7 +2270,7 @@ if.end85:                                         ; preds = %if.end80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this) unnamed_addr #11 align 2 {
+define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this) unnamed_addr #3 align 2 {
 entry:
   %data_symbols = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
   store i32 0, ptr %data_symbols, align 4
@@ -2279,7 +2279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %number_of_symbols) unnamed_addr #5 align 2 {
+define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %number_of_symbols) unnamed_addr #4 align 2 {
 entry:
   %data_symbols = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
   store i32 0, ptr %data_symbols, align 4
@@ -2289,14 +2289,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %number_of_symbols) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %number_of_symbols) local_unnamed_addr #4 align 2 {
 entry:
   %0 = add i32 %number_of_symbols, -2049
   %or.cond = icmp ult i32 %0, -2047
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.11) #15
+  tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.11) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2315,7 +2315,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then4
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #14
   %.pre = load i32, ptr %data_symbols, align 4
   br label %delete.end
 
@@ -2330,9 +2330,9 @@ while.cond:                                       ; preds = %delete.end, %while.
   %shl = shl nuw i32 1, %add
   %cmp11 = icmp ugt i32 %.pr, %shl
   %inc = add i32 %table_bits.0, 1
-  br i1 %cmp11, label %while.cond, label %if.end35.thread8, !llvm.loop !23
+  br i1 %cmp11, label %while.cond, label %if.end35.thread, !llvm.loop !23
 
-if.end35.thread8:                                 ; preds = %while.cond
+if.end35.thread:                                  ; preds = %while.cond
   %shl12 = shl nuw i32 1, %table_bits.0
   %table_size = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 8
   store i32 %shl12, ptr %table_size, align 4
@@ -2344,16 +2344,16 @@ if.end35.thread8:                                 ; preds = %while.cond
   %add17 = add i32 %add16, %shl12
   %conv = zext i32 %add17 to i64
   %3 = shl nuw nsw i64 %conv, 2
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #17
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #15
   store ptr %call, ptr %this, align 8
   %idx.ext = zext i32 %mul to i64
   %add.ptr = getelementptr inbounds i32, ptr %call, i64 %idx.ext
   %decoder_table = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 2
   store ptr %add.ptr, ptr %decoder_table, align 8
-  %idx.ext339 = zext i32 %.pr to i64
-  %add.ptr3410 = getelementptr inbounds i32, ptr %call, i64 %idx.ext339
-  %symbol_count11 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 1
-  store ptr %add.ptr3410, ptr %symbol_count11, align 8
+  %idx.ext338 = zext i32 %.pr to i64
+  %add.ptr349 = getelementptr inbounds i32, ptr %call, i64 %idx.ext338
+  %symbol_count10 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 1
+  store ptr %add.ptr349, ptr %symbol_count10, align 8
   br label %for.body.lr.ph.i
 
 if.end35:                                         ; preds = %delete.end
@@ -2365,7 +2365,7 @@ if.end35:                                         ; preds = %delete.end
   store i32 0, ptr %table_size24, align 4
   %mul26 = shl nuw nsw i32 %.pr, 3
   %4 = zext nneg i32 %mul26 to i64
-  %call28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #17
+  %call28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #15
   store ptr %call28, ptr %this, align 8
   %idx.ext33 = zext nneg i32 %.pr to i64
   %add.ptr34 = getelementptr inbounds i32, ptr %call28, i64 %idx.ext33
@@ -2374,8 +2374,8 @@ if.end35:                                         ; preds = %delete.end
   %cmp.i = icmp eq i32 %.pr, 0
   br i1 %cmp.i, label %_ZN5o3dgc19Adaptive_Data_Model5resetEv.exit, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %if.end, %if.end35.thread8, %if.end35
-  %5 = phi i32 [ %.pr, %if.end35 ], [ %.pr, %if.end35.thread8 ], [ %number_of_symbols, %if.end ]
+for.body.lr.ph.i:                                 ; preds = %if.end35.thread, %if.end, %if.end35
+  %5 = phi i32 [ %.pr, %if.end35 ], [ %number_of_symbols, %if.end ], [ %.pr, %if.end35.thread ]
   %total_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 3
   store i32 0, ptr %total_count.i, align 8
   %update_cycle.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 4
@@ -2409,22 +2409,22 @@ _ZN5o3dgc19Adaptive_Data_Model5resetEv.exit:      ; preds = %if.end35, %for.end.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc19Adaptive_Data_ModelD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN5o3dgc19Adaptive_Data_ModelD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5o3dgc19Adaptive_Data_Model5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN5o3dgc19Adaptive_Data_Model5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
 entry:
   %data_symbols = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
   %0 = load i32, ptr %data_symbols, align 4
@@ -2465,40 +2465,38 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getchar() local_unnamed_addr #10
+declare noundef i32 @getchar() local_unnamed_addr #9
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #12
+declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { noreturn }
-attributes #16 = { builtin nounwind }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { cold }
-attributes #19 = { noreturn nounwind }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noreturn }
+attributes #14 = { builtin nounwind }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { cold }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

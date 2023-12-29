@@ -7681,7 +7681,7 @@ while.body965:                                    ; preds = %land.rhs, %lor.rhs
   store i64 %dec, ptr %ctx.7, align 8
   %195 = load i32, ptr %arrayidx955, align 4
   %conv956 = zext i32 %195 to i64
-  %cmp957.not.not = icmp sgt i64 %192, %conv956
+  %cmp957.not.not = icmp ugt i64 %192, %conv956
   br i1 %cmp957.not.not, label %land.rhs, label %for.end1086, !llvm.loop !22
 
 if.end975:                                        ; preds = %lor.rhs
@@ -8506,7 +8506,7 @@ if.end1787:                                       ; preds = %if.end1707
   %arrayidx1791 = getelementptr i32, ptr %293, i64 2
   %307 = load i32, ptr %arrayidx1791, align 4
   %conv1792 = zext i32 %307 to i64
-  %cmp1793 = icmp slt i64 %add1711, %conv1792
+  %cmp1793 = icmp ult i64 %add1711, %conv1792
   %cmp1799 = icmp eq i32 %307, -1
   %or.cond1407 = or i1 %cmp1799, %cmp1793
   br i1 %or.cond1407, label %land.lhs.true1801, label %if.end2012
@@ -12119,7 +12119,7 @@ while.body966:                                    ; preds = %land.rhs, %lor.rhs
   store i64 %dec, ptr %ctx.7, align 8
   %195 = load i32, ptr %arrayidx956, align 4
   %conv957 = zext i32 %195 to i64
-  %cmp958.not.not = icmp sgt i64 %192, %conv957
+  %cmp958.not.not = icmp ugt i64 %192, %conv957
   br i1 %cmp958.not.not, label %land.rhs, label %for.end1087, !llvm.loop !34
 
 if.end976:                                        ; preds = %lor.rhs
@@ -12945,7 +12945,7 @@ if.end1789:                                       ; preds = %if.end1709
   %arrayidx1793 = getelementptr i32, ptr %293, i64 2
   %307 = load i32, ptr %arrayidx1793, align 4
   %conv1794 = zext i32 %307 to i64
-  %cmp1795 = icmp slt i64 %add1713, %conv1794
+  %cmp1795 = icmp ult i64 %add1713, %conv1794
   %cmp1801 = icmp eq i32 %307, -1
   %or.cond1406 = or i1 %cmp1801, %cmp1795
   br i1 %or.cond1406, label %land.lhs.true1803, label %if.end2014
@@ -16459,7 +16459,7 @@ while.body949:                                    ; preds = %land.rhs, %lor.rhs
   store i64 %dec, ptr %ctx.7, align 8
   %199 = load i32, ptr %arrayidx940, align 4
   %conv941 = zext i32 %199 to i64
-  %cmp942.not.not = icmp sgt i64 %196, %conv941
+  %cmp942.not.not = icmp ugt i64 %196, %conv941
   br i1 %cmp942.not.not, label %land.rhs, label %for.end1070, !llvm.loop !46
 
 if.end959:                                        ; preds = %lor.rhs
@@ -17285,7 +17285,7 @@ if.end1772:                                       ; preds = %if.end1692
   %arrayidx1776 = getelementptr i32, ptr %297, i64 2
   %311 = load i32, ptr %arrayidx1776, align 4
   %conv1777 = zext i32 %311 to i64
-  %cmp1778 = icmp slt i64 %add1696, %conv1777
+  %cmp1778 = icmp ult i64 %add1696, %conv1777
   %cmp1784 = icmp eq i32 %311, -1
   %or.cond1406 = or i1 %cmp1784, %cmp1778
   br i1 %or.cond1406, label %land.lhs.true1786, label %if.end1997

@@ -4495,12 +4495,9 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP4expr
   store i32 %inc.i.i, ptr %m_pos.i.i, align 8
   %inc.i = add nuw i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %4
-  br i1 %exitcond.not.i, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %for.body.preheader, label %for.body.i, !llvm.loop !20
 
-_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit:   ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i
-  br i1 %cmp.i18.not, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit
+for.body.preheader:                               ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i
   %wide.trip.count = zext i32 %4 to i64
   br label %for.body
 
@@ -4549,7 +4546,7 @@ if.end29:                                         ; preds = %for.body
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
-for.end:                                          ; preds = %if.end29, %if.then11, %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit
+for.end:                                          ; preds = %if.end29, %if.then11
   %18 = load ptr, ptr %this, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12beta_reducer, i64 0, inrange i32 0, i64 2), ptr %s, align 8
   %m_cfg.i.i = getelementptr inbounds %class.beta_reducer, ptr %s, i64 0, i32 1

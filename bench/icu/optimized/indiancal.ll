@@ -360,8 +360,8 @@ land.rhs.i.i25:                                   ; preds = %if.else
   %cmp1.not.i.i27 = icmp ne i32 %rem.i.i26, 0
   %rem2.i.i29 = srem i32 %1, 400
   %cmp3.i.i30.not = icmp eq i32 %rem2.i.i29, 0
-  %or.cond62 = or i1 %cmp1.not.i.i27, %cmp3.i.i30.not
-  br i1 %or.cond62, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread59, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
+  %or.cond64 = or i1 %cmp1.not.i.i27, %cmp3.i.i30.not
+  br i1 %or.cond64, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread59, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
 
 _ZN6icu_75L15isGregorianLeapEi.exit31.thread:     ; preds = %land.rhs.i.i25, %if.else
   br label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread59
@@ -384,12 +384,14 @@ if.else19:                                        ; preds = %if.end
   br i1 %cmp21, label %if.then22, label %if.else28
 
 if.then22:                                        ; preds = %if.else19
-  %div = sdiv i32 %sub20, 31
-  %conv23 = sitofp i32 %div to double
+  %div.lhs.trunc = trunc i32 %sub20 to i16
+  %div62 = sdiv i16 %div.lhs.trunc, 31
+  %conv23 = sitofp i16 %div62 to double
   %call24 = call double @uprv_floor_75(double noundef %conv23)
   %conv25 = fptosi double %call24 to i32
   %add26 = add nsw i32 %conv25, 1
-  %rem = srem i32 %sub20, 31
+  %rem63 = srem i16 %div.lhs.trunc, 31
+  %rem.sext = sext i16 %rem63 to i32
   br label %if.end38
 
 if.else28:                                        ; preds = %if.else19
@@ -404,7 +406,7 @@ if.else28:                                        ; preds = %if.else19
 
 if.end38:                                         ; preds = %if.end, %if.then22, %if.else28
   %IndianMonth.0 = phi i32 [ %add26, %if.then22 ], [ %add34, %if.else28 ], [ 0, %if.end ]
-  %IndianDayOfMonth.0.in = phi i32 [ %rem, %if.then22 ], [ %rem35, %if.else28 ], [ %yday.0, %if.end ]
+  %IndianDayOfMonth.0.in = phi i32 [ %rem.sext, %if.then22 ], [ %rem35, %if.else28 ], [ %yday.0, %if.end ]
   %IndianDayOfMonth.0 = add nsw i32 %IndianDayOfMonth.0.in, 1
   %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
   store i32 0, ptr %arrayidx.i, align 4

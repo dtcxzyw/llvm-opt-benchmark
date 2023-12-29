@@ -3355,16 +3355,20 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp2, label %if.else.i, label %if.end5
 
 if.else.i:                                        ; preds = %if.end
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %a.val, i64 %i)
   %add = add nuw nsw i64 %i, 1
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %a.val, i64 %i)
+  %cmp8.i = icmp ult i64 %add, %spec.select.i
+  br i1 %cmp8.i, label %if.end42.i, label %if.else10.i
+
+if.else10.i:                                      ; preds = %if.else.i
   %spec.select49.i = tail call i64 @llvm.smin.i64(i64 %add, i64 %a.val)
   %ob_item.i = getelementptr inbounds %struct.arrayobject, ptr %a, i64 0, i32 1
   %2 = load ptr, ptr %ob_item.i, align 8
-  %sub.i = sub i64 %spec.select49.i, %spec.select.i
+  %sub.i = sub nsw i64 %spec.select49.i, %spec.select.i
   %cmp17.not.i = icmp eq i64 %spec.select49.i, %spec.select.i
   br i1 %cmp17.not.i, label %if.end20.i, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %if.else.i
+land.lhs.true.i:                                  ; preds = %if.else10.i
   %ob_exports.i = getelementptr inbounds %struct.arrayobject, ptr %a, i64 0, i32 5
   %3 = load i64, ptr %ob_exports.i, align 8
   %cmp18.i = icmp sgt i64 %3, 0
@@ -3375,7 +3379,7 @@ if.then19.i:                                      ; preds = %land.lhs.true.i
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.53) #11
   br label %return
 
-if.end20.i:                                       ; preds = %land.lhs.true.i, %if.else.i
+if.end20.i:                                       ; preds = %land.lhs.true.i, %if.else10.i
   %cmp21.i = icmp sgt i64 %sub.i, 0
   br i1 %cmp21.i, label %if.then22.i, label %if.end42.i
 
@@ -3389,7 +3393,7 @@ if.then22.i:                                      ; preds = %if.end20.i
   %add.ptr.i = getelementptr i8, ptr %2, i64 %mul.i
   %mul27.i = mul i64 %spec.select49.i, %conv.i
   %add.ptr28.i = getelementptr i8, ptr %2, i64 %mul27.i
-  %sub30.i = sub i64 %a.val, %spec.select49.i
+  %sub30.i = sub nsw i64 %a.val, %spec.select49.i
   %mul34.i = mul i64 %sub30.i, %conv.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr28.i, i64 %mul34.i, i1 false)
   %a.val.i = load i64, ptr %0, align 8
@@ -3398,7 +3402,7 @@ if.then22.i:                                      ; preds = %if.end20.i
   %cmp38.i = icmp eq i32 %call37.i, -1
   br i1 %cmp38.i, label %return, label %if.end42.i
 
-if.end42.i:                                       ; preds = %if.then22.i, %if.end20.i
+if.end42.i:                                       ; preds = %if.then22.i, %if.end20.i, %if.else.i
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -6957,7 +6961,7 @@ return:                                           ; preds = %if.else, %for.body,
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal nonnull ptr @array_array_reverse(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #8 {
 entry:
   %tmp.i = alloca [256 x i8], align 16
@@ -7754,7 +7758,7 @@ attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }

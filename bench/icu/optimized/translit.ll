@@ -1070,8 +1070,8 @@ if.then5.i:                                       ; preds = %lor.lhs.false6.i.i,
   br label %_ZNK6icu_7514Transliterator14_transliterateERNS_11ReplaceableER14UTransPositionPKNS_13UnicodeStringER10UErrorCode.exit
 
 if.end6.i:                                        ; preds = %lor.lhs.false6.i.i
-  %cmp15.i = icmp sgt i32 %4, 0
-  br i1 %cmp15.i, label %land.lhs.true.i, label %if.end20.i
+  %cmp15.i.not = icmp eq i32 %4, 0
+  br i1 %cmp15.i.not, label %if.end20.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6.i
   %sub.i = add nsw i32 %4, -1

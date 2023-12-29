@@ -448,22 +448,22 @@ lpad4:                                            ; preds = %invoke.cont
 if.end:                                           ; preds = %entry, %invoke.cont5
   %full_chunk.sroa.0.0 = phi i64 [ %5, %invoke.cont5 ], [ %chunk.coerce0, %entry ]
   %full_chunk.sroa.8.0 = phi ptr [ %6, %invoke.cont5 ], [ %chunk.coerce1, %entry ]
-  %cmp20.not.i58 = icmp eq i64 %full_chunk.sroa.0.0, 0
-  br i1 %cmp20.not.i58, label %if.then24, label %for.body.i.preheader.lr.ph
+  %cmp20.not.i65 = icmp eq i64 %full_chunk.sroa.0.0, 0
+  br i1 %cmp20.not.i65, label %if.then24, label %for.body.i.preheader.lr.ph
 
 for.body.i.preheader.lr.ph:                       ; preds = %if.end
   %line_ = getelementptr inbounds %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::Parser", ptr %this, i64 0, i32 1
   br label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body.i.preheader.lr.ph, %if.end22
-  %full_chunk.sroa.8.160 = phi ptr [ %full_chunk.sroa.8.0, %for.body.i.preheader.lr.ph ], [ %add.ptr.i, %if.end22 ]
-  %full_chunk.sroa.0.159 = phi i64 [ %full_chunk.sroa.0.0, %for.body.i.preheader.lr.ph ], [ %sub.i, %if.end22 ]
+  %full_chunk.sroa.8.167 = phi ptr [ %full_chunk.sroa.8.0, %for.body.i.preheader.lr.ph ], [ %add.ptr.i, %if.end22 ]
+  %full_chunk.sroa.0.166 = phi i64 [ %full_chunk.sroa.0.0, %for.body.i.preheader.lr.ph ], [ %sub.i, %if.end22 ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %cmp23.i = phi i1 [ %cmp.i, %for.inc.i ], [ true, %for.body.i.preheader ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %full_chunk.sroa.8.160, i64 %indvars.iv.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %full_chunk.sroa.8.167, i64 %indvars.iv.i
   %9 = load i8, ptr %add.ptr.i.i, align 1
   switch i8 %9, label %for.inc.i [
     i8 13, label %if.then.i
@@ -473,15 +473,15 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 if.then.i:                                        ; preds = %for.body.i, %for.body.i
   %inc.i = add i64 %indvars.iv.i, 1
   %idx.ext.i = and i64 %inc.i, 4294967295
-  %add.ptr.i = getelementptr inbounds i8, ptr %full_chunk.sroa.8.160, i64 %idx.ext.i
-  %sub.i = sub i64 %full_chunk.sroa.0.159, %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %full_chunk.sroa.8.167, i64 %idx.ext.i
+  %sub.i = sub i64 %full_chunk.sroa.0.166, %idx.ext.i
   br i1 %cmp23.i, label %while.body, label %while.end
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ugt i64 %full_chunk.sroa.0.159, %indvars.iv.next.i
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %full_chunk.sroa.0.159
-  br i1 %exitcond.not.i, label %while.end, label %for.body.i, !llvm.loop !13
+  %cmp.i = icmp ugt i64 %full_chunk.sroa.0.166, %indvars.iv.next.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %full_chunk.sroa.0.166
+  br i1 %exitcond.not.i, label %if.else26, label %for.body.i, !llvm.loop !13
 
 while.body:                                       ; preds = %if.then.i
   %10 = load i32, ptr %line_, align 8
@@ -491,13 +491,13 @@ while.body:                                       ; preds = %if.then.i
   br i1 %cmp.i.not.i, label %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_113RemoveCommentEPSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
-  %call.i.i.i = call ptr @memchr(ptr noundef nonnull %full_chunk.sroa.8.160, i32 noundef 35, i64 noundef %indvars.iv.i) #11
+  %call.i.i.i = call ptr @memchr(ptr noundef nonnull %full_chunk.sroa.8.167, i32 noundef 35, i64 noundef %indvars.iv.i) #11
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i, label %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_113RemoveCommentEPSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %if.then.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %full_chunk.sroa.8.160 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %full_chunk.sroa.8.167 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sext.i = shl i64 %sub.ptr.sub.i.i, 32
   %cmp.not.i = icmp eq i64 %sext.i, -4294967296
@@ -507,7 +507,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %if.the
 
 _ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_113RemoveCommentEPSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i, %while.body, %if.then.i.i
   %line.sroa.0.2 = phi i64 [ 0, %while.body ], [ %indvars.iv.i, %if.then.i.i ], [ %spec.select, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i ]
-  %call.i8 = call { i64, ptr } @_ZN4absl12lts_2023080227StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %line.sroa.0.2, ptr nonnull %full_chunk.sroa.8.160)
+  %call.i8 = call { i64, ptr } @_ZN4absl12lts_2023080227StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %line.sroa.0.2, ptr nonnull %full_chunk.sroa.8.167)
   %11 = extractvalue { i64, ptr } %call.i8, 0
   %12 = extractvalue { i64, ptr } %call.i8, 1
   %call2.i = call { i64, ptr } @_ZN4absl12lts_2023080228StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %11, ptr %12)
@@ -540,20 +540,20 @@ if.end22:                                         ; preds = %land.lhs.true, %_ZN
   %cmp20.not.i = icmp eq i64 %sub.i, 0
   br i1 %cmp20.not.i, label %if.then24, label %for.body.i.preheader, !llvm.loop !14
 
-while.end:                                        ; preds = %if.then.i, %for.inc.i
-  %full_chunk.sroa.8.234 = phi ptr [ %full_chunk.sroa.8.160, %for.inc.i ], [ %add.ptr.i, %if.then.i ]
-  %full_chunk.sroa.0.233 = phi i64 [ %full_chunk.sroa.0.159, %for.inc.i ], [ %sub.i, %if.then.i ]
-  %cmp.i10 = icmp eq i64 %full_chunk.sroa.0.233, 0
+while.end:                                        ; preds = %if.then.i
+  %cmp.i10 = icmp eq i64 %sub.i, 0
   br i1 %cmp.i10, label %if.then24, label %if.else26
 
 if.then24:                                        ; preds = %if.end22, %if.end, %while.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %leftover_) #11
   br label %return
 
-if.else26:                                        ; preds = %while.end
+if.else26:                                        ; preds = %for.inc.i, %while.end
+  %full_chunk.sroa.0.23354 = phi i64 [ %sub.i, %while.end ], [ %full_chunk.sroa.0.166, %for.inc.i ]
+  %full_chunk.sroa.8.23453 = phi ptr [ %add.ptr.i, %while.end ], [ %full_chunk.sroa.8.167, %for.inc.i ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i11)
-  %call.i15 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %full_chunk.sroa.0.233, ptr %full_chunk.sroa.8.234) #11
+  %call.i15 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %full_chunk.sroa.0.23354, ptr %full_chunk.sroa.8.23453) #11
   %17 = extractvalue { i64, ptr } %call.i15, 0
   %18 = extractvalue { i64, ptr } %call.i15, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i11, i64 %17, ptr %18) #11

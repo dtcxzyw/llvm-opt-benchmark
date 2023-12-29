@@ -163,7 +163,7 @@ if.end:                                           ; preds = %entry
   %target = getelementptr inbounds %struct.NumaHmatLBOptions, ptr %node, i64 0, i32 1
   %5 = load i16, ptr %target, align 2
   %conv8 = zext i16 %5 to i32
-  %cmp10 = icmp slt i32 %4, %conv8
+  %cmp10 = icmp ult i32 %4, %conv8
   br i1 %cmp10, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end
@@ -283,8 +283,8 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp81, label %if.then83, label %for.inc
 
 if.then83:                                        ; preds = %land.lhs.true
-  %conv72.le = zext i16 %14 to i32
-  %conv78 = zext i16 %15 to i32
+  %conv72.le = zext nneg i16 %14 to i32
+  %conv78 = zext nneg i16 %15 to i32
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 274, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.10, i32 noundef %conv72.le, i32 noundef %conv78) #11
   br label %return
 
@@ -405,8 +405,8 @@ land.lhs.true172:                                 ; preds = %for.body161
   br i1 %cmp177, label %if.then179, label %for.inc185
 
 if.then179:                                       ; preds = %land.lhs.true172
-  %conv167.le = zext i16 %14 to i32
-  %conv174 = zext i16 %15 to i32
+  %conv167.le = zext nneg i16 %14 to i32
+  %conv174 = zext nneg i16 %15 to i32
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 343, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.15, i32 noundef %conv167.le, i32 noundef %conv174) #11
   br label %return
 
