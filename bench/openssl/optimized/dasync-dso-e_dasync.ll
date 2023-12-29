@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ERR_DASYNC_error = private unnamed_addr constant [17 x i8] c"ERR_DASYNC_error\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
+define noundef i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.inv = icmp ult i64 %v, 196608
   %. = select i1 %cmp.inv, i64 0, i64 196608
@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define noundef i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #8
   %0 = load ptr, ptr %fns, align 8
@@ -79,8 +79,7 @@ land.lhs.true.i:                                  ; preds = %skip_cbs
 
 bind_helper.exit:                                 ; preds = %skip_cbs, %land.lhs.true.i
   %call1.i = tail call fastcc i32 @bind_dasync(ptr noundef %e), !range !4
-  %call1.i.fr = freeze i32 %call1.i
-  %tobool.not = icmp eq i32 %call1.i.fr, 0
+  %tobool.not = icmp eq i32 %call1.i, 0
   br i1 %tobool.not, label %bind_helper.exit.thread, label %4
 
 bind_helper.exit.thread:                          ; preds = %land.lhs.true.i, %bind_helper.exit
@@ -136,7 +135,7 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bind_dasync(ptr noundef %e) unnamed_addr #1 {
+define internal fastcc noundef i32 @bind_dasync(ptr noundef %e) unnamed_addr #1 {
 entry:
   %call = tail call ptr @EVP_PKEY_meth_find(i32 noundef 6) #8
   store ptr %call, ptr @dasync_rsa_orig, align 8
@@ -751,7 +750,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_pkey_meths(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal i32 @dasync_pkey(ptr nocapture readnone %e, ptr noundef writeonly %pmeth, ptr nocapture noundef writeonly %pnids, i32 noundef %nid) #4 {
+define internal noundef i32 @dasync_pkey(ptr nocapture readnone %e, ptr noundef writeonly %pmeth, ptr nocapture noundef writeonly %pnids, i32 noundef %nid) #4 {
 entry:
   %cmp = icmp eq ptr %pmeth, null
   br i1 %cmp, label %if.then, label %if.end
@@ -842,7 +841,7 @@ return:                                           ; preds = %if.end, %dasync_dig
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal i32 @dasync_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #4 {
+define internal noundef i32 @dasync_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #4 {
 entry:
   %cmp = icmp eq ptr %cipher, null
   br i1 %cmp, label %if.then, label %if.end
@@ -885,7 +884,7 @@ return:                                           ; preds = %sw.bb, %sw.bb1, %sw
 declare i32 @ENGINE_set_destroy_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dasync_destroy(ptr nocapture readnone %e) #1 {
+define internal noundef i32 @dasync_destroy(ptr nocapture readnone %e) #1 {
 entry:
   %0 = load ptr, ptr @_hidden_sha1_md, align 8
   tail call void @EVP_MD_meth_free(ptr noundef %0) #8
@@ -917,7 +916,7 @@ ERR_unload_DASYNC_strings.exit:                   ; preds = %entry, %if.then.i
 declare i32 @ENGINE_set_init_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @dasync_init(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @dasync_init(ptr nocapture readnone %e) #0 {
 entry:
   ret i32 1
 }
@@ -925,7 +924,7 @@ entry:
 declare i32 @ENGINE_set_finish_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @dasync_finish(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @dasync_finish(ptr nocapture readnone %e) #0 {
 entry:
   ret i32 1
 }
@@ -1007,7 +1006,7 @@ entry:
 declare i32 @EVP_CIPHER_meth_set_cleanup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dasync_aes128_cbc_cleanup(ptr noundef %ctx) #1 {
+define internal noundef i32 @dasync_aes128_cbc_cleanup(ptr noundef %ctx) #1 {
 entry:
   %call = tail call ptr @EVP_aes_128_cbc() #8
   %call.i = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
@@ -1049,7 +1048,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dasync_aes256_ctr_cleanup(ptr noundef %ctx) #1 {
+define internal noundef i32 @dasync_aes256_ctr_cleanup(ptr noundef %ctx) #1 {
 entry:
   %call = tail call ptr @EVP_aes_256_ctr() #8
   %call.i = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
@@ -1085,7 +1084,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dasync_aes128_cbc_hmac_sha1_cleanup(ptr noundef %ctx) #1 {
+define internal noundef i32 @dasync_aes128_cbc_hmac_sha1_cleanup(ptr noundef %ctx) #1 {
 entry:
   %call = tail call ptr @EVP_aes_128_cbc_hmac_sha1() #8
   %call.i = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8

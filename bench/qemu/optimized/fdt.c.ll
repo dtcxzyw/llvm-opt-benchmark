@@ -131,7 +131,7 @@ return:                                           ; preds = %if.end4, %if.end29,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @fdt_header_size_(i32 noundef %version) local_unnamed_addr #1 {
+define dso_local noundef i64 @fdt_header_size_(i32 noundef %version) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i32 %version, 2
   br i1 %cmp, label %return, label %if.else
@@ -197,7 +197,7 @@ fdt_header_size_.exit:                            ; preds = %entry, %if.else.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @fdt_check_header(ptr noundef %fdt) local_unnamed_addr #0 {
+define dso_local noundef i32 @fdt_check_header(ptr noundef %fdt) local_unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %fdt to i64
   %and = and i64 %0, 7
@@ -575,8 +575,8 @@ return:                                           ; preds = %if.then17, %lor.lhs
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @fdt_next_tag(ptr noundef readonly %fdt, i32 noundef %startoffset, ptr nocapture noundef writeonly %nextoffset) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @fdt_next_tag(ptr noundef readonly %fdt, i32 noundef %startoffset, ptr nocapture noundef writeonly %nextoffset) local_unnamed_addr #2 {
 entry:
   store i32 -8, ptr %nextoffset, align 4
   %call = tail call ptr @fdt_offset_ptr(ptr noundef %fdt, i32 noundef %startoffset, i32 noundef 4)
@@ -585,7 +585,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %call, align 4
-  %rev.i = tail call i32 @llvm.bswap.i32(i32 %0)
+  %rev.i = tail call noundef i32 @llvm.bswap.i32(i32 %0)
   %add = add i32 %startoffset, 4
   store i32 -11, ptr %nextoffset, align 4
   switch i32 %rev.i, label %return [
@@ -615,7 +615,7 @@ sw.bb13:                                          ; preds = %if.end
 
 if.end19:                                         ; preds = %sw.bb13
   %2 = load i32, ptr %call14, align 4
-  %rev.i26 = tail call i32 @llvm.bswap.i32(i32 %2)
+  %rev.i26 = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   %add22 = add i32 %startoffset, 12
   %add24 = add i32 %add22, %rev.i26
   %version = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
@@ -638,7 +638,7 @@ if.end19:                                         ; preds = %sw.bb13
   %or10.i = or disjoint i32 %or7.i, %conv9.i
   %cmp29 = icmp ult i32 %or10.i, 16
   %cmp33 = icmp ugt i32 %rev.i26, 7
-  %or.cond = select i1 %cmp29, i1 %cmp33, i1 false
+  %or.cond = and i1 %cmp33, %cmp29
   br i1 %or.cond, label %land.lhs.true35, label %sw.epilog
 
 land.lhs.true35:                                  ; preds = %if.end19
@@ -666,7 +666,7 @@ return:                                           ; preds = %do.body, %sw.epilog
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @fdt_check_node_offset_(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
 entry:
   %offset.addr = alloca i32, align 4
@@ -687,7 +687,7 @@ return:                                           ; preds = %if.end, %entry
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @fdt_check_prop_offset_(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
 entry:
   %offset.addr = alloca i32, align 4
@@ -708,7 +708,7 @@ return:                                           ; preds = %if.end, %entry
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset, ptr noundef %depth) local_unnamed_addr #2 {
 entry:
   %offset.addr.i = alloca i32, align 4
@@ -804,7 +804,7 @@ return:                                           ; preds = %sw.bb5, %if.then6, 
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @fdt_first_subnode(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
 entry:
   %offset.addr.i.i = alloca i32, align 4
@@ -873,7 +873,7 @@ fdt_next_node.exit:                               ; preds = %do.body.i, %sw.bb13
   ret i32 %.call
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @fdt_next_subnode(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
 entry:
   %offset.addr.i.i = alloca i32, align 4
@@ -1026,7 +1026,7 @@ fdt_offset_ptr.exit114:                           ; preds = %if.end12.i64, %lor.
 
 if.end.i:                                         ; preds = %fdt_offset_ptr.exit114
   %20 = load i32, ptr %add.ptr2.i.i93, align 4
-  %rev.i.i = tail call i32 @llvm.bswap.i32(i32 %20)
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %20)
   %add.i = add nuw i32 %11, 4
   switch i32 %rev.i.i, label %return [
     i32 1, label %do.body.i5.preheader
@@ -1091,12 +1091,12 @@ sw.bb13.i4:                                       ; preds = %if.end.i
 
 if.end19.i:                                       ; preds = %sw.bb13.i4
   %29 = load i32, ptr %call14.i, align 4
-  %rev.i26.i = tail call i32 @llvm.bswap.i32(i32 %29)
+  %rev.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %29)
   %add22.i = add nuw i32 %11, 12
   %add24.i = add i32 %rev.i26.i, %add22.i
   %cmp29.i = icmp ult i32 %or10.i42.i78, 16
   %cmp33.i = icmp ugt i32 %rev.i26.i, 7
-  %or.cond.i = select i1 %cmp29.i, i1 %cmp33.i, i1 false
+  %or.cond.i = and i1 %cmp33.i, %cmp29.i
   br i1 %or.cond.i, label %land.lhs.true35.i, label %sw.epilog.i
 
 land.lhs.true35.i:                                ; preds = %if.end19.i
@@ -1188,7 +1188,7 @@ return:                                           ; preds = %for.body, %for.inc,
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @fdt_move(ptr noundef readonly %fdt, ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #5 {
 entry:
   %cmp = icmp slt i32 %bufsize, 0
@@ -1251,10 +1251,10 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nofree nounwind willreturn memory(argmem: read) }

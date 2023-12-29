@@ -1192,7 +1192,7 @@ return:                                           ; preds = %if.then41, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sre_clear(ptr nocapture noundef readonly %module) #0 {
+define internal noundef i32 @sre_clear(ptr nocapture noundef readonly %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -2102,7 +2102,7 @@ declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_validate_inner(ptr noundef %code, ptr noundef %end, i64 noundef %groups) unnamed_addr #2 {
+define internal fastcc noundef i32 @_validate_inner(ptr noundef %code, ptr noundef %end, i64 noundef %groups) unnamed_addr #2 {
 entry:
   %cmp = icmp ugt ptr %code, %end
   br i1 %cmp, label %return, label %while.cond.preheader
@@ -2683,7 +2683,7 @@ return:                                           ; preds = %do.end21, %if.end28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_validate_charset(ptr noundef %code, ptr noundef %end) unnamed_addr #3 {
+define internal fastcc noundef i32 @_validate_charset(ptr noundef %code, ptr noundef %end) unnamed_addr #3 {
 entry:
   %cmp40 = icmp ult ptr %code, %end
   br i1 %cmp40, label %if.end.lr.ph, label %return
@@ -2805,7 +2805,7 @@ declare i32 @_PyUnicode_ToLowercase(i32 noundef) local_unnamed_addr #1
 declare i32 @_PyUnicode_ToUppercase(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sre_exec(ptr noundef %m) #0 {
+define internal noundef i32 @sre_exec(ptr noundef %m) #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
@@ -3298,7 +3298,7 @@ return:                                           ; preds = %if.then30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pattern_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @pattern_clear(ptr nocapture noundef %self) #0 {
 entry:
   %groupindex = getelementptr inbounds %struct.PatternObject, ptr %self, i64 0, i32 2
   %0 = load ptr, ptr %groupindex, align 8
@@ -5672,7 +5672,7 @@ exit:                                             ; preds = %_Py_NewRef.exit.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @_sre_SRE_Pattern___copy__(ptr noundef returned %self, ptr nocapture readnone %_unused_ignored) #4 {
+define internal noundef ptr @_sre_SRE_Pattern___copy__(ptr noundef returned %self, ptr nocapture readnone %_unused_ignored) #4 {
 entry:
   %0 = load i32, ptr %self, align 8
   %add.i.i.i = add i32 %0, 1
@@ -5688,7 +5688,7 @@ _sre_SRE_Pattern___copy___impl.exit:              ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @_sre_SRE_Pattern___deepcopy__(ptr noundef returned %self, ptr nocapture readnone %memo) #4 {
+define internal noundef ptr @_sre_SRE_Pattern___deepcopy__(ptr noundef returned %self, ptr nocapture readnone %memo) #4 {
 entry:
   %0 = load i32, ptr %self, align 8
   %add.i.i = add i32 %0, 1
@@ -5706,7 +5706,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @state_init(ptr noundef %state, ptr nocapture noundef readonly %pattern, ptr noundef %string, i64 noundef %start, i64 noundef %end) unnamed_addr #0 {
+define internal fastcc noundef ptr @state_init(ptr noundef %state, ptr nocapture noundef readonly %pattern, ptr noundef %string, i64 noundef %start, i64 noundef %end) unnamed_addr #0 {
 entry:
   %length = alloca i64, align 8
   %isbytes = alloca i32, align 4
@@ -19127,7 +19127,7 @@ indirectgoto:                                     ; preds = %indirectgoto.backed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @data_stack_grow(ptr nocapture noundef %state, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc noundef i32 @data_stack_grow(ptr nocapture noundef %state, i64 noundef %size) unnamed_addr #0 {
 entry:
   %data_stack_base = getelementptr inbounds %struct.SRE_STATE, ptr %state, i64 0, i32 18
   %0 = load i64, ptr %data_stack_base, align 8
@@ -24073,7 +24073,7 @@ return:                                           ; preds = %if.then30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @match_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @match_clear(ptr nocapture noundef %self) #0 {
 entry:
   %string = getelementptr inbounds %struct.MatchObject, ptr %self, i64 0, i32 1
   %0 = load ptr, ptr %string, align 8
@@ -24731,7 +24731,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @_sre_SRE_Match___copy__(ptr noundef returned %self, ptr nocapture readnone %_unused_ignored) #4 {
+define internal noundef ptr @_sre_SRE_Match___copy__(ptr noundef returned %self, ptr nocapture readnone %_unused_ignored) #4 {
 entry:
   %0 = load i32, ptr %self, align 8
   %add.i.i.i = add i32 %0, 1
@@ -24747,7 +24747,7 @@ _sre_SRE_Match___copy___impl.exit:                ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @_sre_SRE_Match___deepcopy__(ptr noundef returned %self, ptr nocapture readnone %memo) #4 {
+define internal noundef ptr @_sre_SRE_Match___deepcopy__(ptr noundef returned %self, ptr nocapture readnone %memo) #4 {
 entry:
   %0 = load i32, ptr %self, align 8
   %add.i.i = add i32 %0, 1
@@ -24859,7 +24859,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @match_lastgroup_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #10 {
+define internal noundef ptr @match_lastgroup_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #10 {
 entry:
   %pattern = getelementptr inbounds %struct.MatchObject, ptr %self, i64 0, i32 3
   %0 = load ptr, ptr %pattern, align 8
@@ -25145,7 +25145,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @scanner_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @scanner_clear(ptr nocapture noundef %self) #0 {
 entry:
   %pattern = getelementptr inbounds %struct.ScannerObject, ptr %self, i64 0, i32 1
   %0 = load ptr, ptr %pattern, align 8
@@ -25528,7 +25528,7 @@ return:                                           ; preds = %if.then21, %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @template_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @template_clear(ptr nocapture noundef %self) #0 {
 entry:
   %literal = getelementptr inbounds %struct.TemplateObject, ptr %self, i64 0, i32 2
   %0 = load ptr, ptr %literal, align 8

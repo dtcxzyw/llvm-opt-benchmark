@@ -1029,7 +1029,7 @@ return:                                           ; preds = %if.then, %do.end
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @setiter_iternext(ptr nocapture noundef %si) #0 {
+define internal noundef ptr @setiter_iternext(ptr nocapture noundef %si) #0 {
 entry:
   %si_set = getelementptr inbounds %struct.setiterobject, ptr %si, i64 0, i32 1
   %0 = load ptr, ptr %si_set, align 8
@@ -1391,7 +1391,7 @@ return:                                           ; preds = %if.then, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_clear_internal(ptr noundef %so) #0 {
+define internal noundef i32 @set_clear_internal(ptr noundef %so) #0 {
 entry:
   %small_copy = alloca [8 x %struct.setentry], align 16
   %table2 = getelementptr inbounds %struct.PySetObject, ptr %so, i64 0, i32 4
@@ -2246,7 +2246,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PySet_Clear(ptr noundef %set) local_unnamed_addr #0 {
+define dso_local noundef i32 @PySet_Clear(ptr noundef %set) local_unnamed_addr #0 {
 entry:
   %small_copy.i = alloca [8 x %struct.setentry], align 16
   %0 = getelementptr i8, ptr %set, i64 8
@@ -2414,7 +2414,7 @@ return:                                           ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PySet_Discard(ptr nocapture noundef %set, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local noundef i32 @PySet_Discard(ptr nocapture noundef %set, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %set, i64 8
   %set.val3 = load ptr, ptr %0, align 8
@@ -2487,7 +2487,7 @@ return:                                           ; preds = %if.then1.i.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PySet_Add(ptr noundef %anyset, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local noundef i32 @PySet_Add(ptr noundef %anyset, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %anyset, i64 8
   %anyset.val8 = load ptr, ptr %0, align 8
@@ -2546,7 +2546,7 @@ return:                                           ; preds = %if.end5.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PySet_NextEntry(ptr nocapture noundef readonly %set, ptr nocapture noundef %pos, ptr nocapture noundef writeonly %key, ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
+define dso_local noundef i32 @_PySet_NextEntry(ptr nocapture noundef readonly %set, ptr nocapture noundef %pos, ptr nocapture noundef writeonly %key, ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %set, i64 8
   %set.val7 = load ptr, ptr %0, align 8
@@ -3591,7 +3591,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_isub(ptr noundef %so, ptr noundef %other) #0 {
+define internal noundef ptr @set_isub(ptr noundef %so, ptr noundef %other) #0 {
 entry:
   %0 = getelementptr i8, ptr %other, i64 8
   %other.val8 = load ptr, ptr %0, align 8
@@ -3632,7 +3632,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_iand(ptr noundef %so, ptr noundef %other) #0 {
+define internal noundef ptr @set_iand(ptr noundef %so, ptr noundef %other) #0 {
 entry:
   %tab.i.i = alloca [8 x %struct.setentry], align 16
   %0 = getelementptr i8, ptr %other, i64 8
@@ -3781,7 +3781,7 @@ return:                                           ; preds = %if.end.i.i18, %Py_D
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_ixor(ptr noundef %so, ptr noundef %other) #0 {
+define internal noundef ptr @set_ixor(ptr noundef %so, ptr noundef %other) #0 {
 entry:
   %0 = getelementptr i8, ptr %other, i64 8
   %other.val11 = load ptr, ptr %0, align 8
@@ -3838,7 +3838,7 @@ return:                                           ; preds = %if.end.i.i, %Py_DEC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_ior(ptr noundef %so, ptr noundef %other) #0 {
+define internal noundef ptr @set_ior(ptr noundef %so, ptr noundef %other) #0 {
 entry:
   %0 = getelementptr i8, ptr %other, i64 8
   %other.val8 = load ptr, ptr %0, align 8
@@ -4399,7 +4399,7 @@ make_new_set.exit:                                ; preds = %if.end3, %if.end.i,
 declare i32 @_PyDict_Contains_KnownHash(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_add_entry(ptr noundef %so, ptr noundef %key, i64 noundef %hash) unnamed_addr #0 {
+define internal fastcc noundef i32 @set_add_entry(ptr noundef %so, ptr noundef %key, i64 noundef %hash) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 8
   %add.i107 = add i32 %0, 1
@@ -4693,7 +4693,7 @@ make_new_set_basetype.exit:                       ; preds = %if.end3.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_difference_update_internal(ptr noundef %so, ptr noundef %other) unnamed_addr #0 {
+define internal fastcc noundef i32 @set_difference_update_internal(ptr noundef %so, ptr noundef %other) unnamed_addr #0 {
 entry:
   %small_copy.i = alloca [8 x %struct.setentry], align 16
   %cmp = icmp eq ptr %so, %other
@@ -5572,7 +5572,7 @@ declare ptr @PyIter_Next(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_table_resize(ptr noundef %so, i64 noundef %minused) unnamed_addr #0 {
+define internal fastcc noundef i32 @set_table_resize(ptr noundef %so, i64 noundef %minused) unnamed_addr #0 {
 entry:
   %small_copy = alloca [8 x %struct.setentry], align 16
   %mask = getelementptr inbounds %struct.PySetObject, ptr %so, i64 0, i32 3
@@ -6036,7 +6036,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_symmetric_difference_update(ptr noundef %so, ptr noundef %other) #0 {
+define internal noundef ptr @set_symmetric_difference_update(ptr noundef %so, ptr noundef %other) #0 {
 entry:
   %small_copy.i.i = alloca [8 x %struct.setentry], align 16
   %key = alloca ptr, align 8
@@ -6481,7 +6481,7 @@ return:                                           ; preds = %Py_DECREF.exit109, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @set_clear(ptr noundef %so, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @set_clear(ptr noundef %so, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %small_copy.i = alloca [8 x %struct.setentry], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %small_copy.i)
@@ -7025,7 +7025,7 @@ declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_add(ptr noundef %so, ptr noundef %key) #0 {
+define internal noundef ptr @set_add(ptr noundef %so, ptr noundef %key) #0 {
 entry:
   %0 = getelementptr i8, ptr %key, i64 8
   %key.val.i = load ptr, ptr %0, align 8
@@ -7046,8 +7046,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
 set_add_key.exit:                                 ; preds = %lor.lhs.false.i, %if.then.i
   %hash.0.i = phi i64 [ %call2.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
   %call6.i = tail call fastcc i32 @set_add_entry(ptr noundef %so, ptr noundef nonnull %key, i64 noundef %hash.0.i), !range !11
-  %call6.i.fr = freeze i32 %call6.i
-  %tobool.not = icmp eq i32 %call6.i.fr, 0
+  %tobool.not = icmp eq i32 %call6.i, 0
   %spec.select = select i1 %tobool.not, ptr @_Py_NoneStruct, ptr null
   br label %set_add_key.exit.thread
 
@@ -7074,7 +7073,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_discard(ptr nocapture noundef %so, ptr noundef %key) #0 {
+define internal noundef ptr @set_discard(ptr nocapture noundef %so, ptr noundef %key) #0 {
 entry:
   %0 = getelementptr i8, ptr %key, i64 8
   %key.val.i = load ptr, ptr %0, align 8
@@ -7371,7 +7370,7 @@ return:                                           ; preds = %for.cond, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_difference_update(ptr noundef %so, ptr nocapture noundef readonly %args) #0 {
+define internal noundef ptr @set_difference_update(ptr noundef %so, ptr nocapture noundef readonly %args) #0 {
 entry:
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val4 = load i64, ptr %0, align 8
@@ -7524,7 +7523,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_intersection_update_multi(ptr noundef %so, ptr nocapture noundef readonly %args) #0 {
+define internal noundef ptr @set_intersection_update_multi(ptr noundef %so, ptr nocapture noundef readonly %args) #0 {
 entry:
   %tab.i = alloca [8 x %struct.setentry], align 16
   %call = tail call ptr @set_intersection_multi(ptr noundef %so, ptr noundef %args)
@@ -7941,7 +7940,7 @@ Py_XDECREF.exit24:                                ; preds = %entry, %Py_XDECREF.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_remove(ptr nocapture noundef %so, ptr noundef %key) #0 {
+define internal noundef ptr @set_remove(ptr nocapture noundef %so, ptr noundef %key) #0 {
 entry:
   %0 = getelementptr i8, ptr %key, i64 8
   %key.val.i = load ptr, ptr %0, align 8
@@ -8265,7 +8264,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_update(ptr noundef %so, ptr nocapture noundef readonly %args) #0 {
+define internal noundef ptr @set_update(ptr noundef %so, ptr nocapture noundef readonly %args) #0 {
 entry:
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val4 = load i64, ptr %0, align 8

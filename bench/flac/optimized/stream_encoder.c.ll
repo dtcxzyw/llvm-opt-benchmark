@@ -138,33 +138,33 @@ target triple = "x86_64-unknown-linux-gnu"
 @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN = external local_unnamed_addr constant i32, align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define noalias ptr @FLAC__stream_encoder_new() local_unnamed_addr #0 {
+define noalias noundef ptr @FLAC__stream_encoder_new() local_unnamed_addr #0 {
 entry:
-  %call2.i = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #24
+  %call2.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #23
   %cmp = icmp eq ptr %call2.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2.i79 = tail call noalias dereferenceable_or_null(1120) ptr @calloc(i64 noundef 1, i64 noundef 1120) #24
+  %call2.i79 = tail call noalias noundef dereferenceable_or_null(1120) ptr @calloc(i64 noundef 1, i64 noundef 1120) #23
   store ptr %call2.i79, ptr %call2.i, align 8
   %cmp3 = icmp eq ptr %call2.i79, null
   br i1 %cmp3, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call2.i80 = tail call noalias dereferenceable_or_null(3136) ptr @calloc(i64 noundef 1, i64 noundef 3136) #24
+  %call2.i80 = tail call noalias noundef dereferenceable_or_null(3136) ptr @calloc(i64 noundef 1, i64 noundef 3136) #23
   %private_ = getelementptr inbounds %struct.FLAC__StreamEncoder, ptr %call2.i, i64 0, i32 1
   store ptr %call2.i80, ptr %private_, align 8
   %cmp8 = icmp eq ptr %call2.i80, null
   br i1 %cmp8, label %return.sink.split.sink.split, label %if.end11
 
 if.end11:                                         ; preds = %if.end5
-  %call2.i81 = tail call noalias dereferenceable_or_null(15048) ptr @calloc(i64 noundef 1, i64 noundef 15048) #24
+  %call2.i81 = tail call noalias noundef dereferenceable_or_null(15048) ptr @calloc(i64 noundef 1, i64 noundef 15048) #23
   store ptr %call2.i81, ptr %call2.i80, align 8
   %cmp17 = icmp eq ptr %call2.i81, null
   br i1 %cmp17, label %return.sink.split.sink.split.sink.split, label %if.end21
 
 if.end21:                                         ; preds = %if.end11
-  %call22 = tail call ptr @FLAC__bitwriter_new() #25
+  %call22 = tail call ptr @FLAC__bitwriter_new() #24
   %0 = load ptr, ptr %call2.i80, align 8
   %frame = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %0, i64 0, i32 22
   store ptr %call22, ptr %frame, align 8
@@ -175,7 +175,7 @@ if.end21:                                         ; preds = %if.end11
   br i1 %cmp30, label %if.then31, label %if.end37
 
 if.then31:                                        ; preds = %if.end21
-  tail call void @free(ptr noundef nonnull %1) #25
+  tail call void @free(ptr noundef nonnull %1) #24
   br label %return.sink.split.sink.split.sink.split
 
 if.end37:                                         ; preds = %if.end21
@@ -257,10 +257,10 @@ for.body165:                                      ; preds = %for.body133, %for.b
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %for.body165 ], [ 0, %for.body133 ]
   %15 = load ptr, ptr %call2.i80, align 8
   %arrayidx171 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %15, i64 0, i32 12, i64 %indvars.iv100
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx171) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx171) #24
   %16 = load ptr, ptr %call2.i80, align 8
   %arrayidx179 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %16, i64 0, i32 12, i64 %indvars.iv100, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx179) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx179) #24
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 8
   br i1 %exitcond103.not, label %for.body185, label %for.body165, !llvm.loop !7
@@ -268,34 +268,34 @@ for.body165:                                      ; preds = %for.body133, %for.b
 for.body185:                                      ; preds = %for.body165
   %17 = load ptr, ptr %call2.i80, align 8
   %arrayidx191 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %17, i64 0, i32 13, i64 0
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx191) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx191) #24
   %18 = load ptr, ptr %call2.i80, align 8
   %arrayidx199 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %18, i64 0, i32 13, i64 0, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx199) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx199) #24
   %19 = load ptr, ptr %call2.i80, align 8
   %arrayidx191.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %19, i64 0, i32 13, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx191.c) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx191.c) #24
   %20 = load ptr, ptr %call2.i80, align 8
   %arrayidx199.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %20, i64 0, i32 13, i64 1, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx199.c) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx199.c) #24
   %21 = load ptr, ptr %call2.i80, align 8
   %arrayidx210 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %21, i64 0, i32 33, i64 0
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx210) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx210) #24
   %22 = load ptr, ptr %call2.i80, align 8
   %arrayidx210.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %22, i64 0, i32 33, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx210.c) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx210.c) #24
   br label %return
 
 return.sink.split.sink.split.sink.split:          ; preds = %if.end11, %if.then31
-  tail call void @free(ptr noundef nonnull %call2.i80) #25
+  tail call void @free(ptr noundef nonnull %call2.i80) #24
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %return.sink.split.sink.split.sink.split, %if.end5
-  tail call void @free(ptr noundef nonnull %call2.i79) #25
+  tail call void @free(ptr noundef nonnull %call2.i79) #24
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end
-  tail call void @free(ptr noundef nonnull %call2.i) #25
+  tail call void @free(ptr noundef nonnull %call2.i) #24
   br label %return
 
 return:                                           ; preds = %for.body185, %return.sink.split, %entry
@@ -473,7 +473,7 @@ entry:
   store i32 0, ptr %finish_work_threads, align 4
   %53 = load ptr, ptr %encoder, align 8
   %ogg_encoder_aspect = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %53, i64 0, i32 28
-  tail call void @FLAC__ogg_encoder_aspect_set_defaults(ptr noundef nonnull %ogg_encoder_aspect) #25
+  tail call void @FLAC__ogg_encoder_aspect_set_defaults(ptr noundef nonnull %ogg_encoder_aspect) #24
   %call = tail call i32 @FLAC__stream_encoder_set_compression_level(ptr noundef nonnull %encoder, i32 noundef 5), !range !8
   ret void
 }
@@ -499,7 +499,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %for.body.preheader, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void @FLAC__stream_decoder_delete(ptr noundef nonnull %2) #25
+  tail call void @FLAC__stream_decoder_delete(ptr noundef nonnull %2) #24
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then3, %if.end
@@ -510,11 +510,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = load ptr, ptr %private_, align 8
   %4 = load ptr, ptr %3, align 8
   %arrayidx10 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %4, i64 0, i32 12, i64 %indvars.iv
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx10) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx10) #24
   %5 = load ptr, ptr %private_, align 8
   %6 = load ptr, ptr %5, align 8
   %arrayidx18 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %6, i64 0, i32 12, i64 %indvars.iv, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx18) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx18) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.body21, label %for.body, !llvm.loop !9
@@ -523,40 +523,40 @@ for.body21:                                       ; preds = %for.body
   %7 = load ptr, ptr %private_, align 8
   %8 = load ptr, ptr %7, align 8
   %arrayidx26 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %8, i64 0, i32 13, i64 0
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx26) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx26) #24
   %9 = load ptr, ptr %private_, align 8
   %10 = load ptr, ptr %9, align 8
   %arrayidx34 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %10, i64 0, i32 13, i64 0, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx34) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx34) #24
   %11 = load ptr, ptr %private_, align 8
   %12 = load ptr, ptr %11, align 8
   %arrayidx26.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %12, i64 0, i32 13, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx26.c) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx26.c) #24
   %13 = load ptr, ptr %private_, align 8
   %14 = load ptr, ptr %13, align 8
   %arrayidx34.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %14, i64 0, i32 13, i64 1, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx34.c) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx34.c) #24
   %15 = load ptr, ptr %private_, align 8
   %16 = load ptr, ptr %15, align 8
   %arrayidx45 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %16, i64 0, i32 33, i64 0
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx45) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx45) #24
   %17 = load ptr, ptr %private_, align 8
   %18 = load ptr, ptr %17, align 8
   %arrayidx45.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %18, i64 0, i32 33, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx45.c) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx45.c) #24
   %19 = load ptr, ptr %private_, align 8
   %20 = load ptr, ptr %19, align 8
   %frame = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %20, i64 0, i32 22
   %21 = load ptr, ptr %frame, align 8
-  tail call void @FLAC__bitwriter_delete(ptr noundef %21) #25
+  tail call void @FLAC__bitwriter_delete(ptr noundef %21) #24
   %22 = load ptr, ptr %private_, align 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #25
+  tail call void @free(ptr noundef %23) #24
   %24 = load ptr, ptr %private_, align 8
-  tail call void @free(ptr noundef %24) #25
+  tail call void @free(ptr noundef %24) #24
   %25 = load ptr, ptr %encoder, align 8
-  tail call void @free(ptr noundef %25) #25
-  tail call void @free(ptr noundef nonnull %encoder) #25
+  tail call void @free(ptr noundef %25) #24
+  tail call void @free(ptr noundef nonnull %encoder) #24
   br label %return
 
 return:                                           ; preds = %entry, %for.body21
@@ -564,7 +564,7 @@ return:                                           ; preds = %entry, %for.body21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_finish(ptr noundef %encoder) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_finish(ptr noundef %encoder) local_unnamed_addr #0 {
 entry:
   %page.i = alloca %struct.ogg_page, align 8
   %cmp = icmp eq ptr %encoder, null
@@ -585,7 +585,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not, label %if.end10, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  tail call void @free(ptr noundef nonnull %2) #25
+  tail call void @free(ptr noundef nonnull %2) #24
   %3 = load ptr, ptr %encoder, align 8
   %metadata8 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %3, i64 0, i32 22
   store ptr null, ptr %metadata8, align 8
@@ -667,7 +667,7 @@ for.body:                                         ; preds = %if.end44, %for.inc
   %arrayidx = getelementptr inbounds [130 x ptr], ptr %15, i64 0, i64 %idxprom
   %17 = load ptr, ptr %arrayidx, align 8
   %sem_work_done = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %17, i64 0, i32 36
-  %call52 = tail call i32 @sem_wait(ptr noundef nonnull %sem_work_done) #25
+  %call52 = tail call i32 @sem_wait(ptr noundef nonnull %sem_work_done) #24
   %18 = load ptr, ptr %private_27, align 8
   %arrayidx56 = getelementptr inbounds [130 x ptr], ptr %18, i64 0, i64 %idxprom
   %19 = load ptr, ptr %arrayidx56, align 8
@@ -675,7 +675,7 @@ for.body:                                         ; preds = %if.end44, %for.inc
   %20 = load i32, ptr %returnvalue, align 8
   %tobool57.not = icmp eq i32 %20, 0
   %tobool60.not105 = icmp eq i32 %ok.0111, 0
-  %tobool60.not = select i1 %tobool57.not, i1 true, i1 %tobool60.not105
+  %tobool60.not = or i1 %tobool60.not105, %tobool57.not
   br i1 %tobool60.not, label %for.inc, label %land.lhs.true61
 
 land.lhs.true61:                                  ; preds = %for.body
@@ -699,7 +699,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %23 = phi ptr [ %9, %if.end44 ], [ %.pre, %for.end.loopexit ]
   %ok.0.lcssa = phi i32 [ 1, %if.end44 ], [ %ok.2, %for.end.loopexit ]
   %mutex_work_queue = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %23, i64 0, i32 56
-  %call72 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue) #25
+  %call72 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue) #24
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %for.end
@@ -718,12 +718,12 @@ lor.rhs:                                          ; preds = %while.cond
 while.body:                                       ; preds = %while.cond, %lor.rhs
   %cond_md5_emptied = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %24, i64 0, i32 57
   %mutex_work_queue79 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %24, i64 0, i32 56
-  %call80 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond_md5_emptied, ptr noundef nonnull %mutex_work_queue79) #25
+  %call80 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond_md5_emptied, ptr noundef nonnull %mutex_work_queue79) #24
   br label %while.cond, !llvm.loop !11
 
 if.end84:                                         ; preds = %lor.rhs
   %mutex_work_queue82 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %24, i64 0, i32 56
-  %call83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue82) #25
+  %call83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue82) #24
   %tobool85.not = icmp eq i32 %ok.0.lcssa, 0
   br i1 %tobool85.not, label %if.end105, label %if.end84.land.lhs.true86_crit_edge
 
@@ -766,7 +766,7 @@ if.then109:                                       ; preds = %if.end105
   %private_111 = getelementptr inbounds %struct.FLAC__StreamEncoder, ptr %encoder, i64 0, i32 1
   %34 = load ptr, ptr %private_111, align 8
   %mutex_work_queue112 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %34, i64 0, i32 56
-  %call113 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue112) #25
+  %call113 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue112) #24
   %35 = load ptr, ptr %private_111, align 8
   %num_created_threads113 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %35, i64 0, i32 49
   %36 = load i32, ptr %num_created_threads113, align 8
@@ -788,13 +788,13 @@ for.body117:                                      ; preds = %if.then109, %for.bo
 for.end121:                                       ; preds = %for.body117, %if.then109
   %.lcssa108 = phi ptr [ %35, %if.then109 ], [ %38, %for.body117 ]
   %cond_wake_up_thread = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %.lcssa108, i64 0, i32 59
-  %call123 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %cond_wake_up_thread) #25
+  %call123 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %cond_wake_up_thread) #24
   %40 = load ptr, ptr %private_111, align 8
   %cond_work_available = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %40, i64 0, i32 58
-  %call125 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %cond_work_available) #25
+  %call125 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %cond_work_available) #24
   %41 = load ptr, ptr %private_111, align 8
   %mutex_work_queue127 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %41, i64 0, i32 56
-  %call128 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue127) #25
+  %call128 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue127) #24
   %42 = load ptr, ptr %private_111, align 8
   %num_created_threads131117 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %42, i64 0, i32 49
   %43 = load i32, ptr %num_created_threads131117, align 8
@@ -806,7 +806,7 @@ for.body133:                                      ; preds = %for.end121, %for.bo
   %44 = phi ptr [ %46, %for.body133 ], [ %42, %for.end121 ]
   %arrayidx136 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %44, i64 0, i32 1, i64 %indvars.iv
   %45 = load i64, ptr %arrayidx136, align 8
-  %call137 = tail call i32 @pthread_join(i64 noundef %45, ptr noundef null) #25
+  %call137 = tail call i32 @pthread_join(i64 noundef %45, ptr noundef null) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load ptr, ptr %private_111, align 8
   %num_created_threads131 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %46, i64 0, i32 49
@@ -827,7 +827,7 @@ if.then144:                                       ; preds = %if.end141
   %51 = load ptr, ptr %private_145, align 8
   %md5sum = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %51, i64 0, i32 8, i32 3, i32 0, i32 0, i64 40
   %md5context = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %51, i64 0, i32 12
-  tail call void @FLAC__MD5Final(ptr noundef nonnull %md5sum, ptr noundef nonnull %md5context) #25
+  tail call void @FLAC__MD5Final(ptr noundef nonnull %md5sum, ptr noundef nonnull %md5context) #24
   br label %if.end147
 
 if.end147:                                        ; preds = %if.then144, %if.end141
@@ -866,12 +866,12 @@ if.then161:                                       ; preds = %if.then158
   %60 = load i32, ptr %max_framesize4.i, align 4
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %52, i64 0, i32 39
   %61 = load ptr, ptr %client_data.i, align 8
-  %call.i = tail call i32 %56(ptr noundef nonnull %encoder, i64 noundef 0, ptr noundef %61) #25
+  %call.i = tail call i32 %56(ptr noundef nonnull %encoder, i64 noundef 0, ptr noundef %61) #24
   %cmp.i = icmp eq i32 %call.i, 2
   br i1 %cmp.i, label %update_ogg_metadata_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then161
-  call void @simple_ogg_page__init(ptr noundef nonnull %page.i) #25
+  call void @simple_ogg_page__init(ptr noundef nonnull %page.i) #24
   %62 = load ptr, ptr %encoder, align 8
   %streaminfo_offset.i = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %62, i64 0, i32 25
   %63 = load i64, ptr %streaminfo_offset.i, align 8
@@ -882,7 +882,7 @@ if.end.i:                                         ; preds = %if.then161
   %66 = load ptr, ptr %read_callback.i, align 8
   %client_data11.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %64, i64 0, i32 39
   %67 = load ptr, ptr %client_data11.i, align 8
-  %call12.i = call i32 @simple_ogg_page__get_at(ptr noundef nonnull %encoder, i64 noundef %63, ptr noundef nonnull %page.i, ptr noundef %65, ptr noundef %66, ptr noundef %67) #25
+  %call12.i = call i32 @simple_ogg_page__get_at(ptr noundef nonnull %encoder, i64 noundef %63, ptr noundef nonnull %page.i, ptr noundef %65, ptr noundef %66, ptr noundef %67) #24
   %tobool.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool.not.i, label %return.sink.split.i, label %if.end14.i
 
@@ -1011,11 +1011,11 @@ if.end86.i:                                       ; preds = %if.end45.i
   %98 = load ptr, ptr %write_callback.i, align 8
   %client_data119.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %96, i64 0, i32 39
   %99 = load ptr, ptr %client_data119.i, align 8
-  %call120.i = call i32 @simple_ogg_page__set_at(ptr noundef nonnull %encoder, i64 noundef %95, ptr noundef nonnull %page.i, ptr noundef %97, ptr noundef %98, ptr noundef %99) #25
+  %call120.i = call i32 @simple_ogg_page__set_at(ptr noundef nonnull %encoder, i64 noundef %95, ptr noundef nonnull %page.i, ptr noundef %97, ptr noundef %98, ptr noundef %99) #24
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end86.i, %if.then83.i, %if.then42.i, %if.then25.i, %if.end.i
-  call void @simple_ogg_page__clear(ptr noundef nonnull %page.i) #25
+  call void @simple_ogg_page__clear(ptr noundef nonnull %page.i) #24
   br label %update_ogg_metadata_.exit
 
 update_ogg_metadata_.exit:                        ; preds = %if.then161, %return.sink.split.i
@@ -1047,7 +1047,7 @@ if.then172:                                       ; preds = %if.end169
   %streaminfo176 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %103, i64 0, i32 8
   %client_data = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %103, i64 0, i32 39
   %105 = load ptr, ptr %client_data, align 8
-  call void %104(ptr noundef nonnull %encoder, ptr noundef nonnull %streaminfo176, ptr noundef %105) #25
+  call void %104(ptr noundef nonnull %encoder, ptr noundef nonnull %streaminfo176, ptr noundef %105) #24
   %.pre128 = load ptr, ptr %encoder, align 8
   br label %if.end179
 
@@ -1067,7 +1067,7 @@ land.lhs.true182:                                 ; preds = %if.end179
   br i1 %cmp185.not, label %if.end199, label %land.lhs.true186
 
 land.lhs.true186:                                 ; preds = %land.lhs.true182
-  %call190 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %109) #25
+  %call190 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %109) #24
   %tobool191.not = icmp eq i32 %call190, 0
   br i1 %tobool191.not, label %if.then192, label %if.end199
 
@@ -1115,7 +1115,7 @@ if.end214:                                        ; preds = %if.end211, %if.end1
 
 if.then218:                                       ; preds = %if.end214
   %ogg_encoder_aspect = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %.pre132, i64 0, i32 28
-  call void @FLAC__ogg_encoder_aspect_finish(ptr noundef nonnull %ogg_encoder_aspect) #25
+  call void @FLAC__ogg_encoder_aspect_finish(ptr noundef nonnull %ogg_encoder_aspect) #24
   %.pre131 = load ptr, ptr %encoder, align 8
   br label %if.end220
 
@@ -1127,7 +1127,7 @@ if.end220:                                        ; preds = %if.then218, %if.end
   br i1 %tobool.not.i96, label %if.end.i97, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end220
-  call void @free(ptr noundef nonnull %118) #25
+  call void @free(ptr noundef nonnull %118) #24
   %119 = load ptr, ptr %encoder, align 8
   %metadata4.i = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %119, i64 0, i32 22
   store ptr null, ptr %metadata4.i, align 8
@@ -1162,7 +1162,7 @@ for.body.i:                                       ; preds = %if.end.i97, %for.in
   br i1 %cmp7.not.i, label %for.inc.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %for.body.i
-  call void @free(ptr noundef nonnull %128) #25
+  call void @free(ptr noundef nonnull %128) #24
   %129 = load ptr, ptr %private_148, align 8
   %arrayidx16.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %129, i64 0, i32 4, i64 %indvars.iv.i
   store ptr null, ptr %arrayidx16.i, align 8
@@ -1205,7 +1205,7 @@ for.body31.i:                                     ; preds = %for.cond28.preheade
   br i1 %cmp38.not.i, label %for.inc55.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %for.body31.i
-  call void @free(ptr noundef nonnull %140) #25
+  call void @free(ptr noundef nonnull %140) #24
   %141 = load ptr, ptr %private_148, align 8
   %arrayidx50.i = getelementptr inbounds [130 x ptr], ptr %141, i64 0, i64 %indvars.iv220.i
   %142 = load ptr, ptr %arrayidx50.i, align 8
@@ -1238,7 +1238,7 @@ for.body60.i:                                     ; preds = %for.body60.i.prehea
   br i1 %cmp67.not.i, label %for.inc84.i, label %if.then68.i
 
 if.then68.i:                                      ; preds = %for.body60.i
-  call void @free(ptr noundef nonnull %148) #25
+  call void @free(ptr noundef nonnull %148) #24
   %149 = load ptr, ptr %private_148, align 8
   %arrayidx79.i = getelementptr inbounds [130 x ptr], ptr %149, i64 0, i64 %indvars.iv220.i
   %150 = load ptr, ptr %arrayidx79.i, align 8
@@ -1259,7 +1259,7 @@ for.end86.i:                                      ; preds = %for.inc84.i
   br i1 %cmp91.not.i, label %if.end103.i, label %if.then92.i
 
 if.then92.i:                                      ; preds = %for.end86.i
-  call void @free(ptr noundef nonnull %153) #25
+  call void @free(ptr noundef nonnull %153) #24
   %154 = load ptr, ptr %private_148, align 8
   %arrayidx101.i = getelementptr inbounds [130 x ptr], ptr %154, i64 0, i64 %indvars.iv220.i
   %155 = load ptr, ptr %arrayidx101.i, align 8
@@ -1278,7 +1278,7 @@ if.end103.i:                                      ; preds = %if.then92.i, %for.e
   br i1 %cmp108.not.i, label %if.end120.i, label %if.then109.i
 
 if.then109.i:                                     ; preds = %if.end103.i
-  call void @free(ptr noundef nonnull %157) #25
+  call void @free(ptr noundef nonnull %157) #24
   %158 = load ptr, ptr %private_148, align 8
   %arrayidx118.i = getelementptr inbounds [130 x ptr], ptr %158, i64 0, i64 %indvars.iv220.i
   %159 = load ptr, ptr %arrayidx118.i, align 8
@@ -1309,7 +1309,7 @@ for.body128.i:                                    ; preds = %for.inc158.i, %for.
   br i1 %cmp137.not.i, label %for.inc158.i, label %if.then138.i
 
 if.then138.i:                                     ; preds = %for.body128.i
-  call void @free(ptr noundef nonnull %164) #25
+  call void @free(ptr noundef nonnull %164) #24
   %165 = load ptr, ptr %private_148, align 8
   %arrayidx151.i = getelementptr inbounds [130 x ptr], ptr %165, i64 0, i64 %indvars.iv220.i
   %166 = load ptr, ptr %arrayidx151.i, align 8
@@ -1349,7 +1349,7 @@ for.body169.i:                                    ; preds = %for.inc199.i, %for.
   br i1 %cmp178.not.i, label %for.inc199.i, label %if.then179.i
 
 if.then179.i:                                     ; preds = %for.body169.i
-  call void @free(ptr noundef nonnull %172) #25
+  call void @free(ptr noundef nonnull %172) #24
   %173 = load ptr, ptr %private_148, align 8
   %arrayidx192.i = getelementptr inbounds [130 x ptr], ptr %173, i64 0, i64 %indvars.iv220.i
   %174 = load ptr, ptr %arrayidx192.i, align 8
@@ -1373,7 +1373,7 @@ for.end204.i:                                     ; preds = %for.inc202.i
   br i1 %cmp209.not.i, label %if.end221.i, label %if.then210.i
 
 if.then210.i:                                     ; preds = %for.end204.i
-  call void @free(ptr noundef nonnull %177) #25
+  call void @free(ptr noundef nonnull %177) #24
   %178 = load ptr, ptr %private_148, align 8
   %arrayidx219.i = getelementptr inbounds [130 x ptr], ptr %178, i64 0, i64 %indvars.iv220.i
   %179 = load ptr, ptr %arrayidx219.i, align 8
@@ -1392,7 +1392,7 @@ if.end221.i:                                      ; preds = %if.then210.i, %for.
   br i1 %cmp226.not.i, label %for.body241.i.preheader, label %if.then227.i
 
 if.then227.i:                                     ; preds = %if.end221.i
-  call void @free(ptr noundef nonnull %181) #25
+  call void @free(ptr noundef nonnull %181) #24
   %182 = load ptr, ptr %private_148, align 8
   %arrayidx236.i = getelementptr inbounds [130 x ptr], ptr %182, i64 0, i64 %indvars.iv220.i
   %183 = load ptr, ptr %arrayidx236.i, align 8
@@ -1409,12 +1409,12 @@ for.body241.i:                                    ; preds = %for.body241.i.prehe
   %arrayidx245.i = getelementptr inbounds [130 x ptr], ptr %184, i64 0, i64 %indvars.iv220.i
   %185 = load ptr, ptr %arrayidx245.i, align 8
   %arrayidx247.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %185, i64 0, i32 12, i64 %indvars.iv211.i
-  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx247.i) #25
+  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx247.i) #24
   %186 = load ptr, ptr %private_148, align 8
   %arrayidx252.i = getelementptr inbounds [130 x ptr], ptr %186, i64 0, i64 %indvars.iv220.i
   %187 = load ptr, ptr %arrayidx252.i, align 8
   %arrayidx256.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %187, i64 0, i32 12, i64 %indvars.iv211.i, i64 1
-  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx256.i) #25
+  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx256.i) #24
   %indvars.iv.next212.i = add nuw nsw i64 %indvars.iv211.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next212.i, 8
   br i1 %exitcond.not.i, label %for.body262.i, label %for.body241.i, !llvm.loop !21
@@ -1424,32 +1424,32 @@ for.body262.i:                                    ; preds = %for.body241.i
   %arrayidx266.i = getelementptr inbounds [130 x ptr], ptr %188, i64 0, i64 %indvars.iv220.i
   %189 = load ptr, ptr %arrayidx266.i, align 8
   %arrayidx268.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %189, i64 0, i32 13, i64 0
-  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx268.i) #25
+  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx268.i) #24
   %190 = load ptr, ptr %private_148, align 8
   %arrayidx273.i = getelementptr inbounds [130 x ptr], ptr %190, i64 0, i64 %indvars.iv220.i
   %191 = load ptr, ptr %arrayidx273.i, align 8
   %arrayidx277.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %191, i64 0, i32 13, i64 0, i64 1
-  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx277.i) #25
+  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx277.i) #24
   %192 = load ptr, ptr %private_148, align 8
   %arrayidx266.i.c = getelementptr inbounds [130 x ptr], ptr %192, i64 0, i64 %indvars.iv220.i
   %193 = load ptr, ptr %arrayidx266.i.c, align 8
   %arrayidx268.i.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %193, i64 0, i32 13, i64 1
-  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx268.i.c) #25
+  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx268.i.c) #24
   %194 = load ptr, ptr %private_148, align 8
   %arrayidx273.i.c = getelementptr inbounds [130 x ptr], ptr %194, i64 0, i64 %indvars.iv220.i
   %195 = load ptr, ptr %arrayidx273.i.c, align 8
   %arrayidx277.i.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %195, i64 0, i32 13, i64 1, i64 1
-  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx277.i.c) #25
+  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx277.i.c) #24
   %196 = load ptr, ptr %private_148, align 8
   %arrayidx287.i = getelementptr inbounds [130 x ptr], ptr %196, i64 0, i64 %indvars.iv220.i
   %197 = load ptr, ptr %arrayidx287.i, align 8
   %arrayidx289.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %197, i64 0, i32 33, i64 0
-  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx289.i) #25
+  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx289.i) #24
   %198 = load ptr, ptr %private_148, align 8
   %arrayidx287.i.c = getelementptr inbounds [130 x ptr], ptr %198, i64 0, i64 %indvars.iv220.i
   %199 = load ptr, ptr %arrayidx287.i.c, align 8
   %arrayidx289.i.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %199, i64 0, i32 33, i64 1
-  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx289.i.c) #25
+  call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef nonnull %arrayidx289.i.c) #24
   %cmp293.not.i = icmp eq i64 %indvars.iv220.i, 0
   %.pre236.i = load ptr, ptr %private_148, align 8
   br i1 %cmp293.not.i, label %for.inc317.i, label %if.then294.i
@@ -1459,21 +1459,21 @@ if.then294.i:                                     ; preds = %for.body262.i
   %200 = load ptr, ptr %arrayidx298.i, align 8
   %frame.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %200, i64 0, i32 22
   %201 = load ptr, ptr %frame.i, align 8
-  call void @FLAC__bitwriter_delete(ptr noundef %201) #25
+  call void @FLAC__bitwriter_delete(ptr noundef %201) #24
   %202 = load ptr, ptr %private_148, align 8
   %arrayidx302.i = getelementptr inbounds [130 x ptr], ptr %202, i64 0, i64 %indvars.iv220.i
   %203 = load ptr, ptr %arrayidx302.i, align 8
   %sem_work_available.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %203, i64 0, i32 35
-  %call.i101 = call i32 @sem_destroy(ptr noundef nonnull %sem_work_available.i) #25
+  %call.i101 = call i32 @sem_destroy(ptr noundef nonnull %sem_work_available.i) #24
   %204 = load ptr, ptr %private_148, align 8
   %arrayidx306.i = getelementptr inbounds [130 x ptr], ptr %204, i64 0, i64 %indvars.iv220.i
   %205 = load ptr, ptr %arrayidx306.i, align 8
   %sem_work_done.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %205, i64 0, i32 36
-  %call307.i = call i32 @sem_destroy(ptr noundef nonnull %sem_work_done.i) #25
+  %call307.i = call i32 @sem_destroy(ptr noundef nonnull %sem_work_done.i) #24
   %206 = load ptr, ptr %private_148, align 8
   %arrayidx311.i = getelementptr inbounds [130 x ptr], ptr %206, i64 0, i64 %indvars.iv220.i
   %207 = load ptr, ptr %arrayidx311.i, align 8
-  call void @free(ptr noundef %207) #25
+  call void @free(ptr noundef %207) #24
   %208 = load ptr, ptr %private_148, align 8
   %arrayidx315.i = getelementptr inbounds [130 x ptr], ptr %208, i64 0, i64 %indvars.iv220.i
   store ptr null, ptr %arrayidx315.i, align 8
@@ -1503,19 +1503,19 @@ for.end319.i:                                     ; preds = %for.end319.loopexit
 
 if.then322.i:                                     ; preds = %for.end319.i
   %mutex_md5_fifo.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %.lcssa.i, i64 0, i32 55
-  %call324.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo.i) #25
+  %call324.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo.i) #24
   %214 = load ptr, ptr %private_148, align 8
   %mutex_work_queue.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %214, i64 0, i32 56
-  %call326.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue.i) #25
+  %call326.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue.i) #24
   %215 = load ptr, ptr %private_148, align 8
   %cond_md5_emptied.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %215, i64 0, i32 57
-  %call328.i = call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_md5_emptied.i) #25
+  %call328.i = call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_md5_emptied.i) #24
   %216 = load ptr, ptr %private_148, align 8
   %cond_work_available.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %216, i64 0, i32 58
-  %call330.i = call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_work_available.i) #25
+  %call330.i = call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_work_available.i) #24
   %217 = load ptr, ptr %private_148, align 8
   %cond_wake_up_thread.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %217, i64 0, i32 59
-  %call332.i = call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_wake_up_thread.i) #25
+  %call332.i = call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_wake_up_thread.i) #24
   %218 = load ptr, ptr %encoder, align 8
   %do_md5.i = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %218, i64 0, i32 3
   %219 = load i32, ptr %do_md5.i, align 4
@@ -1539,7 +1539,7 @@ for.body340.i:                                    ; preds = %for.cond336.prehead
   br i1 %cmp344.not.i, label %for.inc357.i, label %if.then345.i
 
 if.then345.i:                                     ; preds = %for.body340.i
-  call void @free(ptr noundef nonnull %223) #25
+  call void @free(ptr noundef nonnull %223) #24
   %224 = load ptr, ptr %private_148, align 8
   %md5_fifo352.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %224, i64 0, i32 63
   %arrayidx355.i = getelementptr inbounds [8 x ptr], ptr %md5_fifo352.i, i64 0, i64 %indvars.iv223.i
@@ -1580,7 +1580,7 @@ for.body369.i:                                    ; preds = %for.cond365.prehead
   br i1 %cmp375.not.i, label %for.inc390.i, label %if.then376.i
 
 if.then376.i:                                     ; preds = %for.body369.i
-  call void @free(ptr noundef nonnull %233) #25
+  call void @free(ptr noundef nonnull %233) #24
   %234 = load ptr, ptr %private_148, align 8
   %input_fifo385.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %234, i64 0, i32 46, i32 3
   %arrayidx388.i = getelementptr inbounds [8 x ptr], ptr %input_fifo385.i, i64 0, i64 %indvars.iv226.i
@@ -1623,14 +1623,14 @@ declare void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear
 declare void @FLAC__bitwriter_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_init_stream(ptr noundef %encoder, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_init_stream(ptr noundef %encoder, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @init_stream_internal_(ptr noundef %encoder, ptr noundef null, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data, i32 noundef 0), !range !25
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @init_stream_internal_(ptr noundef %encoder, ptr noundef %read_callback, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data, i32 noundef %is_ogg) unnamed_addr #0 {
+define internal fastcc noundef i32 @init_stream_internal_(ptr noundef %encoder, ptr noundef %read_callback, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data, i32 noundef %is_ogg) unnamed_addr #0 {
 entry:
   %vorbis_comment = alloca %struct.FLAC__StreamMetadata, align 8
   %0 = load ptr, ptr %encoder, align 8
@@ -1705,7 +1705,7 @@ if.end36:                                         ; preds = %if.then33, %land.lh
 if.end44:                                         ; preds = %if.end36
   %sample_rate = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %9, i64 0, i32 8
   %12 = load i32, ptr %sample_rate, align 8
-  %call = tail call i32 @FLAC__format_sample_rate_is_valid(i32 noundef %12) #25
+  %call = tail call i32 @FLAC__format_sample_rate_is_valid(i32 noundef %12) #24
   %tobool46.not = icmp eq i32 %call, 0
   br i1 %tobool46.not, label %return, label %if.end48
 
@@ -1826,7 +1826,7 @@ if.then188:                                       ; preds = %if.end185
   %25 = load i32, ptr %blocksize190, align 4
   %sample_rate192 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %23, i64 0, i32 8
   %26 = load i32, ptr %sample_rate192, align 8
-  %call193 = tail call i32 @FLAC__format_blocksize_is_subset(i32 noundef %25, i32 noundef %26) #25
+  %call193 = tail call i32 @FLAC__format_blocksize_is_subset(i32 noundef %25, i32 noundef %26) #24
   %tobool194.not = icmp eq i32 %call193, 0
   br i1 %tobool194.not, label %return, label %if.end196
 
@@ -1834,7 +1834,7 @@ if.end196:                                        ; preds = %if.then188
   %27 = load ptr, ptr %encoder, align 8
   %sample_rate198 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %27, i64 0, i32 8
   %28 = load i32, ptr %sample_rate198, align 8
-  %call199 = tail call i32 @FLAC__format_sample_rate_is_subset(i32 noundef %28) #25
+  %call199 = tail call i32 @FLAC__format_sample_rate_is_subset(i32 noundef %28) #24
   %tobool200.not = icmp eq i32 %call199, 0
   br i1 %tobool200.not, label %return, label %if.end202
 
@@ -2113,7 +2113,7 @@ if.then421:                                       ; preds = %for.body410
 
 if.end424:                                        ; preds = %if.then421
   %data425 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %77, i64 0, i32 3
-  %call426 = tail call i32 @FLAC__format_seektable_is_legal(ptr noundef nonnull %data425) #25
+  %call426 = tail call i32 @FLAC__format_seektable_is_legal(ptr noundef nonnull %data425) #24
   %tobool427.not = icmp eq i32 %call426, 0
   br i1 %tobool427.not, label %return, label %for.inc498
 
@@ -2125,13 +2125,13 @@ if.then440:                                       ; preds = %for.body410
   %data441 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %77, i64 0, i32 3
   %is_cd = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %77, i64 0, i32 3, i32 0, i32 2
   %79 = load i32, ptr %is_cd, align 8
-  %call443 = tail call i32 @FLAC__format_cuesheet_is_legal(ptr noundef nonnull %data441, i32 noundef %79, ptr noundef null) #25
+  %call443 = tail call i32 @FLAC__format_cuesheet_is_legal(ptr noundef nonnull %data441, i32 noundef %79, ptr noundef null) #24
   %tobool444.not = icmp eq i32 %call443, 0
   br i1 %tobool444.not, label %return, label %for.inc498
 
 if.then450:                                       ; preds = %for.body410
   %data451 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %77, i64 0, i32 3
-  %call452 = tail call i32 @FLAC__format_picture_is_legal(ptr noundef nonnull %data451, ptr noundef null) #25
+  %call452 = tail call i32 @FLAC__format_picture_is_legal(ptr noundef nonnull %data451, ptr noundef null) #24
   %tobool453.not = icmp eq i32 %call452, 0
   br i1 %tobool453.not, label %return, label %if.end455
 
@@ -2149,12 +2149,12 @@ if.then459:                                       ; preds = %if.end455
 land.lhs.true466:                                 ; preds = %if.then459
   %mime_type = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %77, i64 0, i32 3, i32 0, i32 0, i64 8
   %81 = load ptr, ptr %mime_type, align 8
-  %call468 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(10) @.str.53) #26
+  %call468 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(10) @.str.53) #25
   %tobool469.not = icmp eq i32 %call468, 0
   br i1 %tobool469.not, label %lor.lhs.false475, label %land.lhs.true470
 
 land.lhs.true470:                                 ; preds = %land.lhs.true466
-  %call473 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(4) @.str.54) #26
+  %call473 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(4) @.str.54) #25
   %tobool474.not = icmp eq i32 %call473, 0
   br i1 %tobool474.not, label %lor.lhs.false475, label %return
 
@@ -2230,7 +2230,7 @@ if.end518:                                        ; preds = %if.then515, %for.en
   store i32 0, ptr %current_frame_number, align 4
   %97 = load ptr, ptr %private_501, align 8
   %cpuinfo = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %97, i64 0, i32 13
-  tail call void @FLAC__cpu_info(ptr noundef nonnull %cpuinfo) #25
+  tail call void @FLAC__cpu_info(ptr noundef nonnull %cpuinfo) #24
   %98 = load ptr, ptr %private_501, align 8
   %disable_mmx = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %98, i64 0, i32 22
   %99 = load i32, ptr %disable_mmx, align 8
@@ -2556,7 +2556,7 @@ if.end744:                                        ; preds = %if.end734, %if.then
 land.lhs.true750:                                 ; preds = %if.end744
   %154 = load ptr, ptr %encoder, align 8
   %ogg_encoder_aspect = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %154, i64 0, i32 28
-  %call752 = tail call i32 @FLAC__ogg_encoder_aspect_init(ptr noundef nonnull %ogg_encoder_aspect) #25
+  %call752 = tail call i32 @FLAC__ogg_encoder_aspect_init(ptr noundef nonnull %ogg_encoder_aspect) #24
   %tobool753.not = icmp eq i32 %call752, 0
   br i1 %tobool753.not, label %if.then754, label %if.end757
 
@@ -2598,7 +2598,7 @@ if.then774:                                       ; preds = %if.end757
   store i32 %add778, ptr %num_threadtasks, align 4
   %165 = load ptr, ptr %private_501, align 8
   %mutex_md5_fifo = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %165, i64 0, i32 55
-  %call781 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mutex_md5_fifo, ptr noundef null) #25
+  %call781 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mutex_md5_fifo, ptr noundef null) #24
   %tobool782.not = icmp eq i32 %call781, 0
   br i1 %tobool782.not, label %if.end786, label %if.then783
 
@@ -2610,74 +2610,74 @@ if.then783:                                       ; preds = %if.then774
 if.end786:                                        ; preds = %if.then774
   %167 = load ptr, ptr %private_501, align 8
   %mutex_work_queue = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %167, i64 0, i32 56
-  %call788 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mutex_work_queue, ptr noundef null) #25
+  %call788 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mutex_work_queue, ptr noundef null) #24
   %tobool789.not = icmp eq i32 %call788, 0
   %168 = load ptr, ptr %private_501, align 8
   br i1 %tobool789.not, label %if.end796, label %if.then790
 
 if.then790:                                       ; preds = %if.end786
   %mutex_md5_fifo792 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %168, i64 0, i32 55
-  %call793 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo792) #25
+  %call793 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo792) #24
   %169 = load ptr, ptr %encoder, align 8
   store i32 8, ptr %169, align 8
   br label %return
 
 if.end796:                                        ; preds = %if.end786
   %cond_md5_emptied = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %168, i64 0, i32 57
-  %call798 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond_md5_emptied, ptr noundef null) #25
+  %call798 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond_md5_emptied, ptr noundef null) #24
   %tobool799.not = icmp eq i32 %call798, 0
   %170 = load ptr, ptr %private_501, align 8
   br i1 %tobool799.not, label %if.end809, label %if.then800
 
 if.then800:                                       ; preds = %if.end796
   %mutex_md5_fifo802 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %170, i64 0, i32 55
-  %call803 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo802) #25
+  %call803 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo802) #24
   %171 = load ptr, ptr %private_501, align 8
   %mutex_work_queue805 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %171, i64 0, i32 56
-  %call806 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue805) #25
+  %call806 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue805) #24
   %172 = load ptr, ptr %encoder, align 8
   store i32 8, ptr %172, align 8
   br label %return
 
 if.end809:                                        ; preds = %if.end796
   %cond_work_available = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %170, i64 0, i32 58
-  %call811 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond_work_available, ptr noundef null) #25
+  %call811 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond_work_available, ptr noundef null) #24
   %tobool812.not = icmp eq i32 %call811, 0
   %173 = load ptr, ptr %private_501, align 8
   br i1 %tobool812.not, label %if.end825, label %if.then813
 
 if.then813:                                       ; preds = %if.end809
   %mutex_md5_fifo815 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %173, i64 0, i32 55
-  %call816 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo815) #25
+  %call816 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo815) #24
   %174 = load ptr, ptr %private_501, align 8
   %mutex_work_queue818 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %174, i64 0, i32 56
-  %call819 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue818) #25
+  %call819 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue818) #24
   %175 = load ptr, ptr %private_501, align 8
   %cond_md5_emptied821 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %175, i64 0, i32 57
-  %call822 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_md5_emptied821) #25
+  %call822 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_md5_emptied821) #24
   %176 = load ptr, ptr %encoder, align 8
   store i32 8, ptr %176, align 8
   br label %return
 
 if.end825:                                        ; preds = %if.end809
   %cond_wake_up_thread = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %173, i64 0, i32 59
-  %call827 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond_wake_up_thread, ptr noundef null) #25
+  %call827 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond_wake_up_thread, ptr noundef null) #24
   %tobool828.not = icmp eq i32 %call827, 0
   br i1 %tobool828.not, label %if.end844, label %if.then829
 
 if.then829:                                       ; preds = %if.end825
   %177 = load ptr, ptr %private_501, align 8
   %mutex_md5_fifo831 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %177, i64 0, i32 55
-  %call832 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo831) #25
+  %call832 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo831) #24
   %178 = load ptr, ptr %private_501, align 8
   %mutex_work_queue834 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %178, i64 0, i32 56
-  %call835 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue834) #25
+  %call835 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue834) #24
   %179 = load ptr, ptr %private_501, align 8
   %cond_md5_emptied837 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %179, i64 0, i32 57
-  %call838 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_md5_emptied837) #25
+  %call838 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_md5_emptied837) #24
   %180 = load ptr, ptr %private_501, align 8
   %cond_work_available840 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %180, i64 0, i32 58
-  %call841 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_work_available840) #25
+  %call841 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_work_available840) #24
   %181 = load ptr, ptr %encoder, align 8
   store i32 8, ptr %181, align 8
   br label %return
@@ -2721,7 +2721,7 @@ for.body861:                                      ; preds = %if.then847, %for.co
   %size864 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %192, i64 0, i32 63, i32 1
   %193 = load i32, ptr %size864, align 8
   %conv865 = zext i32 %193 to i64
-  %call866 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef 4, i64 noundef %conv865) #25
+  %call866 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef 4, i64 noundef %conv865) #24
   %194 = load ptr, ptr %private_501, align 8
   %md5_fifo868 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %194, i64 0, i32 63
   %arrayidx871 = getelementptr inbounds [8 x ptr], ptr %md5_fifo868, i64 0, i64 %indvars.iv688
@@ -2732,19 +2732,19 @@ for.body861:                                      ; preds = %if.then847, %for.co
 if.then874:                                       ; preds = %for.body861
   %195 = load ptr, ptr %private_501, align 8
   %mutex_md5_fifo876 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %195, i64 0, i32 55
-  %call877 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo876) #25
+  %call877 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_md5_fifo876) #24
   %196 = load ptr, ptr %private_501, align 8
   %mutex_work_queue879 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %196, i64 0, i32 56
-  %call880 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue879) #25
+  %call880 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_work_queue879) #24
   %197 = load ptr, ptr %private_501, align 8
   %cond_md5_emptied882 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %197, i64 0, i32 57
-  %call883 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_md5_emptied882) #25
+  %call883 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_md5_emptied882) #24
   %198 = load ptr, ptr %private_501, align 8
   %cond_work_available885 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %198, i64 0, i32 58
-  %call886 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_work_available885) #25
+  %call886 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_work_available885) #24
   %199 = load ptr, ptr %private_501, align 8
   %cond_wake_up_thread888 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %199, i64 0, i32 59
-  %call889 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_wake_up_thread888) #25
+  %call889 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond_wake_up_thread888) #24
   %200 = load ptr, ptr %encoder, align 8
   store i32 8, ptr %200, align 8
   br label %return
@@ -2762,7 +2762,7 @@ if.end896:                                        ; preds = %for.cond856, %if.th
 for.body904:                                      ; preds = %if.end896, %for.body1169
   %204 = phi ptr [ %263, %for.body1169 ], [ %202, %if.end896 ]
   %t.0620 = phi i32 [ %inc1203, %for.body1169 ], [ 1, %if.end896 ]
-  %call2.i = tail call noalias dereferenceable_or_null(15048) ptr @calloc(i64 noundef 1, i64 noundef 15048) #24
+  %call2.i = tail call noalias noundef dereferenceable_or_null(15048) ptr @calloc(i64 noundef 1, i64 noundef 15048) #23
   %idxprom907 = zext i32 %t.0620 to i64
   %arrayidx908 = getelementptr inbounds [130 x ptr], ptr %204, i64 0, i64 %idxprom907
   store ptr %call2.i, ptr %arrayidx908, align 8
@@ -2778,7 +2778,7 @@ if.then915:                                       ; preds = %for.body904
   br label %return
 
 if.end918:                                        ; preds = %for.body904
-  %call919 = tail call ptr @FLAC__bitwriter_new() #25
+  %call919 = tail call ptr @FLAC__bitwriter_new() #24
   %208 = load ptr, ptr %private_501, align 8
   %arrayidx923 = getelementptr inbounds [130 x ptr], ptr %208, i64 0, i64 %idxprom907
   %209 = load ptr, ptr %arrayidx923, align 8
@@ -2793,7 +2793,7 @@ if.end918:                                        ; preds = %for.body904
   br i1 %cmp929, label %if.then931, label %if.end942
 
 if.then931:                                       ; preds = %if.end918
-  tail call void @free(ptr noundef nonnull %211) #25
+  tail call void @free(ptr noundef nonnull %211) #24
   %213 = load ptr, ptr %private_501, align 8
   %arrayidx939 = getelementptr inbounds [130 x ptr], ptr %213, i64 0, i64 %idxprom907
   store ptr null, ptr %arrayidx939, align 8
@@ -2803,7 +2803,7 @@ if.then931:                                       ; preds = %if.end918
 
 if.end942:                                        ; preds = %if.end918
   %sem_work_available = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %211, i64 0, i32 35
-  %call947 = tail call i32 @sem_init(ptr noundef nonnull %sem_work_available, i32 noundef 0, i32 noundef 0) #25
+  %call947 = tail call i32 @sem_init(ptr noundef nonnull %sem_work_available, i32 noundef 0, i32 noundef 0) #24
   %tobool948.not = icmp eq i32 %call947, 0
   %215 = load ptr, ptr %private_501, align 8
   %arrayidx969 = getelementptr inbounds [130 x ptr], ptr %215, i64 0, i64 %idxprom907
@@ -2813,11 +2813,11 @@ if.end942:                                        ; preds = %if.end918
 if.then949:                                       ; preds = %if.end942
   %frame954 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %216, i64 0, i32 22
   %217 = load ptr, ptr %frame954, align 8
-  tail call void @FLAC__bitwriter_delete(ptr noundef %217) #25
+  tail call void @FLAC__bitwriter_delete(ptr noundef %217) #24
   %218 = load ptr, ptr %private_501, align 8
   %arrayidx958 = getelementptr inbounds [130 x ptr], ptr %218, i64 0, i64 %idxprom907
   %219 = load ptr, ptr %arrayidx958, align 8
-  tail call void @free(ptr noundef %219) #25
+  tail call void @free(ptr noundef %219) #24
   %220 = load ptr, ptr %private_501, align 8
   %arrayidx962 = getelementptr inbounds [130 x ptr], ptr %220, i64 0, i64 %idxprom907
   store ptr null, ptr %arrayidx962, align 8
@@ -2827,7 +2827,7 @@ if.then949:                                       ; preds = %if.end942
 
 if.end965:                                        ; preds = %if.end942
   %sem_work_done = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %216, i64 0, i32 36
-  %call970 = tail call i32 @sem_init(ptr noundef nonnull %sem_work_done, i32 noundef 0, i32 noundef 0) #25
+  %call970 = tail call i32 @sem_init(ptr noundef nonnull %sem_work_done, i32 noundef 0, i32 noundef 0) #24
   %tobool971.not = icmp eq i32 %call970, 0
   br i1 %tobool971.not, label %for.body998, label %if.then972
 
@@ -2836,17 +2836,17 @@ if.then972:                                       ; preds = %if.end965
   %arrayidx976 = getelementptr inbounds [130 x ptr], ptr %222, i64 0, i64 %idxprom907
   %223 = load ptr, ptr %arrayidx976, align 8
   %sem_work_available977 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %223, i64 0, i32 35
-  %call978 = tail call i32 @sem_destroy(ptr noundef nonnull %sem_work_available977) #25
+  %call978 = tail call i32 @sem_destroy(ptr noundef nonnull %sem_work_available977) #24
   %224 = load ptr, ptr %private_501, align 8
   %arrayidx982 = getelementptr inbounds [130 x ptr], ptr %224, i64 0, i64 %idxprom907
   %225 = load ptr, ptr %arrayidx982, align 8
   %frame983 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %225, i64 0, i32 22
   %226 = load ptr, ptr %frame983, align 8
-  tail call void @FLAC__bitwriter_delete(ptr noundef %226) #25
+  tail call void @FLAC__bitwriter_delete(ptr noundef %226) #24
   %227 = load ptr, ptr %private_501, align 8
   %arrayidx987 = getelementptr inbounds [130 x ptr], ptr %227, i64 0, i64 %idxprom907
   %228 = load ptr, ptr %arrayidx987, align 8
-  tail call void @free(ptr noundef %228) #25
+  tail call void @free(ptr noundef %228) #24
   %229 = load ptr, ptr %private_501, align 8
   %arrayidx991 = getelementptr inbounds [130 x ptr], ptr %229, i64 0, i64 %idxprom907
   store ptr null, ptr %arrayidx991, align 8
@@ -2930,12 +2930,12 @@ for.body1146:                                     ; preds = %for.body1109, %for.
   %arrayidx1150 = getelementptr inbounds [130 x ptr], ptr %247, i64 0, i64 %idxprom907
   %248 = load ptr, ptr %arrayidx1150, align 8
   %arrayidx1153 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %248, i64 0, i32 12, i64 %indvars.iv705
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1153) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1153) #24
   %249 = load ptr, ptr %private_501, align 8
   %arrayidx1158 = getelementptr inbounds [130 x ptr], ptr %249, i64 0, i64 %idxprom907
   %250 = load ptr, ptr %arrayidx1158, align 8
   %arrayidx1162 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %250, i64 0, i32 12, i64 %indvars.iv705, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1162) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1162) #24
   %indvars.iv.next706 = add nuw nsw i64 %indvars.iv705, 1
   %exitcond708.not = icmp eq i64 %indvars.iv.next706, 8
   br i1 %exitcond708.not, label %for.body1169, label %for.body1146, !llvm.loop !37
@@ -2945,32 +2945,32 @@ for.body1169:                                     ; preds = %for.body1146
   %arrayidx1173 = getelementptr inbounds [130 x ptr], ptr %251, i64 0, i64 %idxprom907
   %252 = load ptr, ptr %arrayidx1173, align 8
   %arrayidx1176 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %252, i64 0, i32 13, i64 0
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1176) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1176) #24
   %253 = load ptr, ptr %private_501, align 8
   %arrayidx1181 = getelementptr inbounds [130 x ptr], ptr %253, i64 0, i64 %idxprom907
   %254 = load ptr, ptr %arrayidx1181, align 8
   %arrayidx1185 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %254, i64 0, i32 13, i64 0, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1185) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1185) #24
   %255 = load ptr, ptr %private_501, align 8
   %arrayidx1173.c = getelementptr inbounds [130 x ptr], ptr %255, i64 0, i64 %idxprom907
   %256 = load ptr, ptr %arrayidx1173.c, align 8
   %arrayidx1176.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %256, i64 0, i32 13, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1176.c) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1176.c) #24
   %257 = load ptr, ptr %private_501, align 8
   %arrayidx1181.c = getelementptr inbounds [130 x ptr], ptr %257, i64 0, i64 %idxprom907
   %258 = load ptr, ptr %arrayidx1181.c, align 8
   %arrayidx1185.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %258, i64 0, i32 13, i64 1, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1185.c) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1185.c) #24
   %259 = load ptr, ptr %private_501, align 8
   %arrayidx1196 = getelementptr inbounds [130 x ptr], ptr %259, i64 0, i64 %idxprom907
   %260 = load ptr, ptr %arrayidx1196, align 8
   %arrayidx1198 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %260, i64 0, i32 33, i64 0
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1198) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1198) #24
   %261 = load ptr, ptr %private_501, align 8
   %arrayidx1196.c = getelementptr inbounds [130 x ptr], ptr %261, i64 0, i64 %idxprom907
   %262 = load ptr, ptr %arrayidx1196.c, align 8
   %arrayidx1198.c = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %262, i64 0, i32 33, i64 1
-  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1198.c) #25
+  tail call void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef nonnull %arrayidx1198.c) #24
   %inc1203 = add nuw i32 %t.0620, 1
   %263 = load ptr, ptr %private_501, align 8
   %num_threadtasks901 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %263, i64 0, i32 48
@@ -3216,7 +3216,7 @@ for.body1400:                                     ; preds = %for.cond1395.prehea
   %344 = load ptr, ptr %arrayidx1404, align 8
   %frame1405 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %344, i64 0, i32 22
   %345 = load ptr, ptr %frame1405, align 8
-  %call1406 = tail call i32 @FLAC__bitwriter_init(ptr noundef %345) #25
+  %call1406 = tail call i32 @FLAC__bitwriter_init(ptr noundef %345) #24
   %tobool1407.not = icmp eq i32 %call1406, 0
   br i1 %tobool1407.not, label %if.then1408, label %for.cond1395
 
@@ -3262,7 +3262,7 @@ for.body1432:                                     ; preds = %if.then1417, %for.c
   %size1436 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %355, i64 0, i32 46, i32 3, i32 1
   %356 = load i32, ptr %size1436, align 8
   %conv1437 = zext i32 %356 to i64
-  %call1438 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef 4, i64 noundef %conv1437) #25
+  %call1438 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef 4, i64 noundef %conv1437) #24
   %357 = load ptr, ptr %private_501, align 8
   %input_fifo1441 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %357, i64 0, i32 46, i32 3
   %arrayidx1444 = getelementptr inbounds [8 x ptr], ptr %input_fifo1441, i64 0, i64 %indvars.iv736
@@ -3286,7 +3286,7 @@ for.end1453:                                      ; preds = %for.cond1427, %if.t
   br i1 %cmp1460, label %if.then1462, label %if.end1476
 
 if.then1462:                                      ; preds = %for.end1453
-  %call1463 = tail call ptr @FLAC__stream_decoder_new() #25
+  %call1463 = tail call ptr @FLAC__stream_decoder_new() #24
   %362 = load ptr, ptr %private_501, align 8
   %verify1465 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %362, i64 0, i32 46
   store ptr %call1463, ptr %verify1465, align 8
@@ -3303,7 +3303,7 @@ if.then1472:                                      ; preds = %if.then1462
 
 if.end1476:                                       ; preds = %if.then1462, %for.end1453
   %366 = phi ptr [ %364, %if.then1462 ], [ %361, %for.end1453 ]
-  %call1480 = tail call i32 @FLAC__stream_decoder_init_stream(ptr noundef nonnull %366, ptr noundef nonnull @verify_read_callback_, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @verify_write_callback_, ptr noundef nonnull @verify_metadata_callback_, ptr noundef nonnull @verify_error_callback_, ptr noundef nonnull %encoder) #25
+  %call1480 = tail call i32 @FLAC__stream_decoder_init_stream(ptr noundef nonnull %366, ptr noundef nonnull @verify_read_callback_, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @verify_write_callback_, ptr noundef nonnull @verify_metadata_callback_, ptr noundef nonnull @verify_error_callback_, ptr noundef nonnull %encoder) #24
   %cmp1481.not = icmp eq i32 %call1480, 0
   br i1 %cmp1481.not, label %if.end1476.if.end1487_crit_edge, label %if.then1483
 
@@ -3369,7 +3369,7 @@ if.end1516:                                       ; preds = %if.then1513, %if.en
   %384 = load ptr, ptr %frame1520, align 8
   %385 = load i32, ptr @FLAC__STREAM_SYNC, align 4
   %386 = load i32, ptr @FLAC__STREAM_SYNC_LEN, align 4
-  %call1521 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %384, i32 noundef %385, i32 noundef %386) #25
+  %call1521 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %384, i32 noundef %385, i32 noundef %386) #24
   %tobool1522.not = icmp eq i32 %call1521, 0
   br i1 %tobool1522.not, label %if.then1523, label %if.end1526
 
@@ -3462,7 +3462,7 @@ if.end1541:                                       ; preds = %if.then1537, %if.en
 if.then1592:                                      ; preds = %if.end1541
   %419 = load ptr, ptr %private_501, align 8
   %md5context = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %419, i64 0, i32 12
-  tail call void @FLAC__MD5Init(ptr noundef nonnull %md5context) #25
+  tail call void @FLAC__MD5Init(ptr noundef nonnull %md5context) #24
   br label %if.end1594
 
 if.end1594:                                       ; preds = %if.then1592, %if.end1541
@@ -3471,7 +3471,7 @@ if.end1594:                                       ; preds = %if.then1592, %if.en
   %421 = load ptr, ptr %420, align 8
   %frame1600 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %421, i64 0, i32 22
   %422 = load ptr, ptr %frame1600, align 8
-  %call1601 = tail call i32 @FLAC__add_metadata_block(ptr noundef nonnull %streaminfo1596, ptr noundef %422, i32 noundef 1) #25
+  %call1601 = tail call i32 @FLAC__add_metadata_block(ptr noundef nonnull %streaminfo1596, ptr noundef %422, i32 noundef 1) #24
   %tobool1602.not = icmp eq i32 %call1601, 0
   br i1 %tobool1602.not, label %if.then1603, label %if.end1606
 
@@ -3523,7 +3523,7 @@ if.then1625:                                      ; preds = %if.end1613
   %432 = load ptr, ptr %431, align 8
   %frame1643 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %432, i64 0, i32 22
   %433 = load ptr, ptr %frame1643, align 8
-  %call1644 = call i32 @FLAC__add_metadata_block(ptr noundef nonnull %vorbis_comment, ptr noundef %433, i32 noundef 1) #25
+  %call1644 = call i32 @FLAC__add_metadata_block(ptr noundef nonnull %vorbis_comment, ptr noundef %433, i32 noundef 1) #24
   %tobool1645.not = icmp eq i32 %call1644, 0
   br i1 %tobool1645.not, label %if.then1646, label %if.end1649
 
@@ -3578,7 +3578,7 @@ for.body1663:                                     ; preds = %if.end1657, %for.co
   %451 = load ptr, ptr %450, align 8
   %frame1681 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %451, i64 0, i32 22
   %452 = load ptr, ptr %frame1681, align 8
-  %call1682 = call i32 @FLAC__add_metadata_block(ptr noundef %449, ptr noundef %452, i32 noundef 1) #25
+  %call1682 = call i32 @FLAC__add_metadata_block(ptr noundef %449, ptr noundef %452, i32 noundef 1) #24
   %tobool1683.not = icmp eq i32 %call1682, 0
   br i1 %tobool1683.not, label %if.then1684, label %if.end1687
 
@@ -3606,7 +3606,7 @@ land.lhs.true1701:                                ; preds = %for.end1697
   %audio_offset1705 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %.lcssa, i64 0, i32 27
   %client_data1707 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %456, i64 0, i32 39
   %458 = load ptr, ptr %client_data1707, align 8
-  %call1708 = call i32 %457(ptr noundef nonnull %encoder, ptr noundef nonnull %audio_offset1705, ptr noundef %458) #25
+  %call1708 = call i32 %457(ptr noundef nonnull %encoder, ptr noundef nonnull %audio_offset1705, ptr noundef %458) #24
   %cmp1709 = icmp eq i32 %call1708, 1
   %.pre769 = load ptr, ptr %encoder, align 8
   br i1 %cmp1709, label %if.then1711, label %if.end1714
@@ -3634,14 +3634,14 @@ return:                                           ; preds = %if.then487, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_init_ogg_stream(ptr noundef %encoder, ptr noundef %read_callback, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_init_ogg_stream(ptr noundef %encoder, ptr noundef %read_callback, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @init_stream_internal_(ptr noundef %encoder, ptr noundef %read_callback, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data, i32 noundef 1), !range !25
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_init_FILE(ptr noundef %encoder, ptr noundef %file, ptr noundef %progress_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_init_FILE(ptr noundef %encoder, ptr noundef %file, ptr noundef %progress_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -3706,7 +3706,7 @@ init_FILE_internal_.exit:                         ; preds = %entry, %if.then2.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_init_ogg_FILE(ptr noundef %encoder, ptr noundef %file, ptr noundef %progress_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_init_ogg_FILE(ptr noundef %encoder, ptr noundef %file, ptr noundef %progress_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -3772,14 +3772,14 @@ init_FILE_internal_.exit:                         ; preds = %entry, %if.then2.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_init_file(ptr noundef %encoder, ptr noundef %filename, ptr noundef %progress_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_init_file(ptr noundef %encoder, ptr noundef %filename, ptr noundef %progress_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @init_file_internal_(ptr noundef %encoder, ptr noundef %filename, ptr noundef %progress_callback, ptr noundef %client_data, i32 noundef 0), !range !25
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @init_file_internal_(ptr noundef %encoder, ptr noundef readonly %filename, ptr noundef %progress_callback, ptr noundef %client_data, i32 noundef %is_ogg) unnamed_addr #0 {
+define internal fastcc noundef i32 @init_file_internal_(ptr noundef %encoder, ptr noundef readonly %filename, ptr noundef %progress_callback, ptr noundef %client_data, i32 noundef %is_ogg) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -3866,7 +3866,7 @@ return:                                           ; preds = %if.end30.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_init_ogg_file(ptr noundef %encoder, ptr noundef %filename, ptr noundef %progress_callback, ptr noundef %client_data) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_init_ogg_file(ptr noundef %encoder, ptr noundef %filename, ptr noundef %progress_callback, ptr noundef %client_data) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @init_file_internal_(ptr noundef %encoder, ptr noundef %filename, ptr noundef %progress_callback, ptr noundef %client_data, i32 noundef 1), !range !25
   ret i32 %call
@@ -3878,14 +3878,14 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 declare i32 @sem_wait(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @write_bitbuffer_(ptr noundef %encoder, ptr nocapture noundef readonly %threadtask, i32 noundef %samples, i32 noundef %is_last_block) unnamed_addr #0 {
+define internal fastcc noundef i32 @write_bitbuffer_(ptr noundef %encoder, ptr nocapture noundef readonly %threadtask, i32 noundef %samples, i32 noundef %is_last_block) unnamed_addr #0 {
 entry:
   %output_position.i = alloca i64, align 8
   %buffer = alloca ptr, align 8
   %bytes = alloca i64, align 8
   %frame = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 22
   %0 = load ptr, ptr %frame, align 8
-  %call = call i32 @FLAC__bitwriter_get_buffer(ptr noundef %0, ptr noundef nonnull %buffer, ptr noundef nonnull %bytes) #25
+  %call = call i32 @FLAC__bitwriter_get_buffer(ptr noundef %0, ptr noundef nonnull %buffer, ptr noundef nonnull %bytes) #24
   %tobool.not = icmp eq i32 %call, 0
   %1 = load ptr, ptr %encoder, align 8
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3925,7 +3925,7 @@ if.then12:                                        ; preds = %if.then3
 if.else:                                          ; preds = %if.then3
   %verify10 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %5, i64 0, i32 46
   %7 = load ptr, ptr %verify10, align 8
-  %call17 = call i32 @FLAC__stream_decoder_process_single(ptr noundef %7) #25
+  %call17 = call i32 @FLAC__stream_decoder_process_single(ptr noundef %7) #24
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.then28, label %lor.lhs.false
 
@@ -3944,7 +3944,7 @@ FLAC__stream_encoder_get_verify_decoder_state.exit: ; preds = %land.lhs.true
   %9 = load ptr, ptr %private_, align 8
   %verify1.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %9, i64 0, i32 46
   %10 = load ptr, ptr %verify1.i, align 8
-  %call.i = call i32 @FLAC__stream_decoder_get_state(ptr noundef %10) #25
+  %call.i = call i32 @FLAC__stream_decoder_get_state(ptr noundef %10) #24
   %cmp21 = icmp eq i32 %call.i, 4
   br i1 %cmp21, label %if.then28, label %FLAC__stream_encoder_get_verify_decoder_state.exit.lor.lhs.false23_crit_edge
 
@@ -3965,9 +3965,9 @@ lor.lhs.false23.if.end41_crit_edge:               ; preds = %lor.lhs.false23
 
 if.then28:                                        ; preds = %lor.lhs.false23, %FLAC__stream_encoder_get_verify_decoder_state.exit, %if.else
   %13 = load ptr, ptr %frame, align 8
-  call void @FLAC__bitwriter_release_buffer(ptr noundef %13) #25
+  call void @FLAC__bitwriter_release_buffer(ptr noundef %13) #24
   %14 = load ptr, ptr %frame, align 8
-  call void @FLAC__bitwriter_clear(ptr noundef %14) #25
+  call void @FLAC__bitwriter_clear(ptr noundef %14) #24
   %15 = load ptr, ptr %encoder, align 8
   %16 = load i32, ptr %15, align 8
   %cmp33.not = icmp eq i32 %16, 4
@@ -3992,7 +3992,7 @@ if.end41:                                         ; preds = %lor.lhs.false23.if.
 land.lhs.true.i:                                  ; preds = %if.end41
   %client_data.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %19, i64 0, i32 39
   %21 = load ptr, ptr %client_data.i, align 8
-  %call.i30 = call i32 %20(ptr noundef nonnull %encoder, ptr noundef nonnull %output_position.i, ptr noundef %21) #25
+  %call.i30 = call i32 %20(ptr noundef nonnull %encoder, ptr noundef nonnull %output_position.i, ptr noundef %21) #24
   %cmp.i = icmp eq i32 %call.i30, 1
   br i1 %cmp.i, label %if.then45, label %if.end.i
 
@@ -4133,7 +4133,7 @@ if.then85.i:                                      ; preds = %if.end82.i
   %61 = load ptr, ptr %write_callback.i, align 8
   %client_data90.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %57, i64 0, i32 39
   %62 = load ptr, ptr %client_data90.i, align 8
-  %call91.i = call i32 @FLAC__ogg_encoder_aspect_write_callback_wrapper(ptr noundef nonnull %ogg_encoder_aspect.i, ptr noundef %18, i64 noundef %17, i32 noundef %samples, i32 noundef %59, i32 noundef %is_last_block, ptr noundef %61, ptr noundef nonnull %encoder, ptr noundef %62) #25
+  %call91.i = call i32 @FLAC__ogg_encoder_aspect_write_callback_wrapper(ptr noundef nonnull %ogg_encoder_aspect.i, ptr noundef %18, i64 noundef %17, i32 noundef %samples, i32 noundef %59, i32 noundef %is_last_block, ptr noundef %61, ptr noundef nonnull %encoder, ptr noundef %62) #24
   br label %if.end100.i
 
 if.else92.i:                                      ; preds = %if.end82.i
@@ -4141,7 +4141,7 @@ if.else92.i:                                      ; preds = %if.end82.i
   %63 = load ptr, ptr %write_callback94.i, align 8
   %client_data98.i = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %57, i64 0, i32 39
   %64 = load ptr, ptr %client_data98.i, align 8
-  %call99.i = call i32 %63(ptr noundef nonnull %encoder, ptr noundef %18, i64 noundef %17, i32 noundef %samples, i32 noundef %59, ptr noundef %64) #25
+  %call99.i = call i32 %63(ptr noundef nonnull %encoder, ptr noundef %18, i64 noundef %17, i32 noundef %samples, i32 noundef %59, ptr noundef %64) #24
   br label %if.end100.i
 
 if.end100.i:                                      ; preds = %if.else92.i, %if.then85.i
@@ -4154,9 +4154,9 @@ if.then45:                                        ; preds = %if.end100.i, %land.
   store i32 5, ptr %65, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %output_position.i)
   %66 = load ptr, ptr %frame, align 8
-  call void @FLAC__bitwriter_release_buffer(ptr noundef %66) #25
+  call void @FLAC__bitwriter_release_buffer(ptr noundef %66) #24
   %67 = load ptr, ptr %frame, align 8
-  call void @FLAC__bitwriter_clear(ptr noundef %67) #25
+  call void @FLAC__bitwriter_clear(ptr noundef %67) #24
   %68 = load ptr, ptr %encoder, align 8
   store i32 5, ptr %68, align 8
   br label %return
@@ -4183,9 +4183,9 @@ if.end50:                                         ; preds = %if.end100.i
   store i32 %.add113.i, ptr %frames_written.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %output_position.i)
   %76 = load ptr, ptr %frame, align 8
-  call void @FLAC__bitwriter_release_buffer(ptr noundef %76) #25
+  call void @FLAC__bitwriter_release_buffer(ptr noundef %76) #24
   %77 = load ptr, ptr %frame, align 8
-  call void @FLAC__bitwriter_clear(ptr noundef %77) #25
+  call void @FLAC__bitwriter_clear(ptr noundef %77) #24
   br i1 %cmp4.i, label %return, label %if.then55
 
 if.then55:                                        ; preds = %if.end50
@@ -4221,7 +4221,7 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @resize_buffers_(ptr nocapture noundef readonly %encoder, i32 noundef %new_blocksize) unnamed_addr #0 {
+define internal fastcc noundef i32 @resize_buffers_(ptr nocapture noundef readonly %encoder, i32 noundef %new_blocksize) unnamed_addr #0 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamEncoder, ptr %encoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -4254,7 +4254,7 @@ land.rhs:                                         ; preds = %for.cond.preheader,
 land.rhs7:                                        ; preds = %land.rhs
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %.pre.pre326, i64 0, i32 4, i64 %indvars.iv
   %arrayidx11 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %.pre.pre326, i64 0, i32 3, i64 %indvars.iv
-  %call = tail call i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %conv, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx11) #25
+  %call = tail call i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %conv, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx11) #24
   %tobool12.not = icmp eq i32 %call, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %tobool12.not, label %land.rhs7.if.end.loopexit_crit_edge, label %land.rhs, !llvm.loop !48
@@ -4299,7 +4299,7 @@ land.rhs29:                                       ; preds = %land.rhs21.preheade
   %12 = load ptr, ptr %arrayidx34, align 8
   %arrayidx36 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %12, i64 0, i32 24, i64 %indvars.iv284365
   %arrayidx42 = getelementptr inbounds [8 x ptr], ptr %12, i64 0, i64 %indvars.iv284365
-  %call43 = tail call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv31, ptr noundef nonnull %arrayidx36, ptr noundef %arrayidx42) #25
+  %call43 = tail call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv31, ptr noundef nonnull %arrayidx36, ptr noundef %arrayidx42) #24
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %for.inc403.sink.split, label %for.inc64
 
@@ -4336,7 +4336,7 @@ land.rhs76:                                       ; preds = %land.rhs76.preheade
   %23 = load ptr, ptr %arrayidx83, align 8
   %arrayidx85 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %23, i64 0, i32 25, i64 %indvars.iv287
   %arrayidx91 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %23, i64 0, i32 1, i64 %indvars.iv287
-  %call92 = tail call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv31, ptr noundef nonnull %arrayidx85, ptr noundef nonnull %arrayidx91) #25
+  %call92 = tail call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv31, ptr noundef nonnull %arrayidx85, ptr noundef nonnull %arrayidx91) #24
   %tobool93 = icmp ne i32 %call92, 0
   br i1 %tobool93, label %for.inc114, label %for.inc403.sink.split
 
@@ -4363,7 +4363,7 @@ land.end132:                                      ; preds = %for.inc114
   %32 = load ptr, ptr %arrayidx125, align 8
   %integer_signal_33bit_side_unaligned = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %32, i64 0, i32 26
   %integer_signal_33bit_side = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %32, i64 0, i32 2
-  %call130 = tail call i32 @FLAC__memory_alloc_aligned_int64_array(i64 noundef %conv31, ptr noundef nonnull %integer_signal_33bit_side_unaligned, ptr noundef nonnull %integer_signal_33bit_side) #25
+  %call130 = tail call i32 @FLAC__memory_alloc_aligned_int64_array(i64 noundef %conv31, ptr noundef nonnull %integer_signal_33bit_side_unaligned, ptr noundef nonnull %integer_signal_33bit_side) #24
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %for.inc403.sink.split, label %land.lhs.true135
 
@@ -4380,7 +4380,7 @@ if.end156:                                        ; preds = %land.lhs.true135
   %36 = load ptr, ptr %arrayidx147, align 8
   %windowed_signal_unaligned = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %36, i64 0, i32 27
   %windowed_signal = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %36, i64 0, i32 3
-  %call152 = tail call i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %conv143, ptr noundef nonnull %windowed_signal_unaligned, ptr noundef nonnull %windowed_signal) #25
+  %call152 = tail call i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %conv143, ptr noundef nonnull %windowed_signal_unaligned, ptr noundef nonnull %windowed_signal) #24
   %tobool153.not = icmp eq i32 %call152, 0
   br i1 %tobool153.not, label %for.inc403.sink.split, label %land.rhs159.preheader
 
@@ -4404,7 +4404,7 @@ land.rhs176:                                      ; preds = %land.rhs159, %land.
   %41 = load ptr, ptr %arrayidx181, align 8
   %arrayidx185 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %41, i64 0, i32 28, i64 %indvars.iv293, i64 %indvars.iv290
   %arrayidx193 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %41, i64 0, i32 6, i64 %indvars.iv293, i64 %indvars.iv290
-  %call194 = tail call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv143, ptr noundef nonnull %arrayidx185, ptr noundef nonnull %arrayidx193) #25
+  %call194 = tail call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv143, ptr noundef nonnull %arrayidx185, ptr noundef nonnull %arrayidx193) #24
   %tobool195 = icmp ne i32 %call194, 0
   %42 = and i1 %tobool195, %cmp170
   br i1 %42, label %land.rhs176, label %for.inc201, !llvm.loop !51
@@ -4432,7 +4432,7 @@ land.rhs223:                                      ; preds = %land.rhs206, %land.
   %48 = load ptr, ptr %encoder, align 8
   %max_residual_partition_order = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %48, i64 0, i32 18
   %49 = load i32, ptr %max_residual_partition_order, align 4
-  %call233 = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef nonnull %arrayidx231, i32 noundef %49) #25
+  %call233 = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef nonnull %arrayidx231, i32 noundef %49) #24
   %tobool234.not = icmp eq i32 %call233, 0
   br i1 %tobool234.not, label %for.inc403.sink.split, label %land.end252
 
@@ -4444,7 +4444,7 @@ land.end252:                                      ; preds = %land.rhs223
   %52 = load ptr, ptr %encoder, align 8
   %max_residual_partition_order249 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %52, i64 0, i32 18
   %53 = load i32, ptr %max_residual_partition_order249, align 4
-  %call250 = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef nonnull %arrayidx247, i32 noundef %53) #25
+  %call250 = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef nonnull %arrayidx247, i32 noundef %53) #24
   %tobool251 = icmp ne i32 %call250, 0
   %54 = and i1 %tobool251, %cmp217
   br i1 %54, label %land.rhs223, label %for.inc257, !llvm.loop !53
@@ -4469,7 +4469,7 @@ land.rhs277:                                      ; preds = %for.cond268.prehead
   %56 = load ptr, ptr %arrayidx282, align 8
   %arrayidx286 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %56, i64 0, i32 29, i64 %indvars.iv305, i64 %indvars.iv302
   %arrayidx294 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %56, i64 0, i32 7, i64 %indvars.iv305, i64 %indvars.iv302
-  %call295 = tail call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv143, ptr noundef nonnull %arrayidx286, ptr noundef nonnull %arrayidx294) #25
+  %call295 = tail call i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %conv143, ptr noundef nonnull %arrayidx286, ptr noundef nonnull %arrayidx294) #24
   %tobool296 = icmp ne i32 %call295, 0
   %57 = and i1 %tobool296, %cmp271
   br i1 %57, label %land.rhs277, label %for.inc302, !llvm.loop !55
@@ -4496,7 +4496,7 @@ land.rhs322:                                      ; preds = %for.cond313.prehead
   %61 = load ptr, ptr %encoder, align 8
   %max_residual_partition_order332 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %61, i64 0, i32 18
   %62 = load i32, ptr %max_residual_partition_order332, align 4
-  %call333 = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef nonnull %arrayidx330, i32 noundef %62) #25
+  %call333 = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef nonnull %arrayidx330, i32 noundef %62) #24
   %tobool334 = icmp ne i32 %call333, 0
   %63 = and i1 %tobool334, %cmp316
   br i1 %63, label %land.rhs322, label %for.inc340, !llvm.loop !57
@@ -4515,7 +4515,7 @@ land.rhs352:                                      ; preds = %for.cond343.prehead
   %67 = load ptr, ptr %encoder, align 8
   %max_residual_partition_order360 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %67, i64 0, i32 18
   %68 = load i32, ptr %max_residual_partition_order360, align 4
-  %call361 = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef nonnull %arrayidx358, i32 noundef %68) #25
+  %call361 = tail call i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef nonnull %arrayidx358, i32 noundef %68) #24
   %tobool362 = icmp ne i32 %call361, 0
   %69 = and i1 %tobool362, %cmp346
   br i1 %69, label %land.rhs352, label %for.end367, !llvm.loop !59
@@ -4529,7 +4529,7 @@ land.end381:                                      ; preds = %for.end367
   %70 = load ptr, ptr %arrayidx374, align 8
   %abs_residual_partition_sums_unaligned = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %70, i64 0, i32 30
   %abs_residual_partition_sums = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %70, i64 0, i32 20
-  %call379 = tail call i32 @FLAC__memory_alloc_aligned_uint64_array(i64 noundef %conv370, ptr noundef nonnull %abs_residual_partition_sums_unaligned, ptr noundef nonnull %abs_residual_partition_sums) #25
+  %call379 = tail call i32 @FLAC__memory_alloc_aligned_uint64_array(i64 noundef %conv370, ptr noundef nonnull %abs_residual_partition_sums_unaligned, ptr noundef nonnull %abs_residual_partition_sums) #24
   %tobool380 = icmp ne i32 %call379, 0
   %71 = load ptr, ptr %encoder, align 8
   %do_escape_coding = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %71, i64 0, i32 16
@@ -4546,7 +4546,7 @@ land.rhs387:                                      ; preds = %land.end381
   %73 = load ptr, ptr %arrayidx393, align 8
   %raw_bits_per_partition_unaligned = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %73, i64 0, i32 31
   %raw_bits_per_partition = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %73, i64 0, i32 21
-  %call398 = tail call i32 @FLAC__memory_alloc_aligned_uint32_array(i64 noundef %conv370, ptr noundef nonnull %raw_bits_per_partition_unaligned, ptr noundef nonnull %raw_bits_per_partition) #25
+  %call398 = tail call i32 @FLAC__memory_alloc_aligned_uint32_array(i64 noundef %conv370, ptr noundef nonnull %raw_bits_per_partition_unaligned, ptr noundef nonnull %raw_bits_per_partition) #24
   %tobool399 = icmp ne i32 %call398, 0
   br label %for.inc403.sink.split
 
@@ -4625,63 +4625,63 @@ for.body426:                                      ; preds = %for.cond421.prehead
   ]
 
 sw.bb:                                            ; preds = %for.body426
-  tail call void @FLAC__window_bartlett(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_bartlett(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb434:                                         ; preds = %for.body426
-  tail call void @FLAC__window_bartlett_hann(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_bartlett_hann(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb439:                                         ; preds = %for.body426
-  tail call void @FLAC__window_blackman(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_blackman(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb444:                                         ; preds = %for.body426
-  tail call void @FLAC__window_blackman_harris_4term_92db_sidelobe(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_blackman_harris_4term_92db_sidelobe(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb449:                                         ; preds = %for.body426
-  tail call void @FLAC__window_connes(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_connes(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb454:                                         ; preds = %for.body426
-  tail call void @FLAC__window_flattop(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_flattop(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb459:                                         ; preds = %for.body426
   %parameters = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %83, i64 0, i32 11, i64 %indvars.iv320, i32 1
   %87 = load float, ptr %parameters, align 4
-  tail call void @FLAC__window_gauss(ptr noundef %86, i32 noundef %new_blocksize, float noundef %87) #25
+  tail call void @FLAC__window_gauss(ptr noundef %86, i32 noundef %new_blocksize, float noundef %87) #24
   br label %for.inc572
 
 sw.bb468:                                         ; preds = %for.body426
-  tail call void @FLAC__window_hamming(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_hamming(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb473:                                         ; preds = %for.body426
-  tail call void @FLAC__window_hann(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_hann(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb478:                                         ; preds = %for.body426
-  tail call void @FLAC__window_kaiser_bessel(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_kaiser_bessel(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb483:                                         ; preds = %for.body426
-  tail call void @FLAC__window_nuttall(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_nuttall(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb488:                                         ; preds = %for.body426
-  tail call void @FLAC__window_rectangle(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_rectangle(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb493:                                         ; preds = %for.body426
-  tail call void @FLAC__window_triangle(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_triangle(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.bb498:                                         ; preds = %for.body426
   %parameters507 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %83, i64 0, i32 11, i64 %indvars.iv320, i32 1
   %88 = load float, ptr %parameters507, align 4
-  tail call void @FLAC__window_tukey(ptr noundef %86, i32 noundef %new_blocksize, float noundef %88) #25
+  tail call void @FLAC__window_tukey(ptr noundef %86, i32 noundef %new_blocksize, float noundef %88) #24
   br label %for.inc572
 
 sw.bb508:                                         ; preds = %for.body426
@@ -4691,7 +4691,7 @@ sw.bb508:                                         ; preds = %for.body426
   %90 = load float, ptr %start, align 4
   %end = getelementptr inbounds %struct.anon.8, ptr %parameters517, i64 0, i32 2
   %91 = load float, ptr %end, align 4
-  tail call void @FLAC__window_partial_tukey(ptr noundef %86, i32 noundef %new_blocksize, float noundef %89, float noundef %90, float noundef %91) #25
+  tail call void @FLAC__window_partial_tukey(ptr noundef %86, i32 noundef %new_blocksize, float noundef %89, float noundef %90, float noundef %91) #24
   br label %for.inc572
 
 sw.bb529:                                         ; preds = %for.body426
@@ -4701,21 +4701,21 @@ sw.bb529:                                         ; preds = %for.body426
   %93 = load float, ptr %start545, align 4
   %end551 = getelementptr inbounds %struct.anon.8, ptr %parameters538, i64 0, i32 2
   %94 = load float, ptr %end551, align 4
-  tail call void @FLAC__window_punchout_tukey(ptr noundef %86, i32 noundef %new_blocksize, float noundef %92, float noundef %93, float noundef %94) #25
+  tail call void @FLAC__window_punchout_tukey(ptr noundef %86, i32 noundef %new_blocksize, float noundef %92, float noundef %93, float noundef %94) #24
   br label %for.inc572
 
 sw.bb552:                                         ; preds = %for.body426
   %parameters561 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %83, i64 0, i32 11, i64 %indvars.iv320, i32 1
   %95 = load float, ptr %parameters561, align 4
-  tail call void @FLAC__window_tukey(ptr noundef %86, i32 noundef %new_blocksize, float noundef %95) #25
+  tail call void @FLAC__window_tukey(ptr noundef %86, i32 noundef %new_blocksize, float noundef %95) #24
   br label %for.inc572
 
 sw.bb563:                                         ; preds = %for.body426
-  tail call void @FLAC__window_welch(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_welch(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 sw.default:                                       ; preds = %for.body426
-  tail call void @FLAC__window_hann(ptr noundef %86, i32 noundef %new_blocksize) #25
+  tail call void @FLAC__window_hann(ptr noundef %86, i32 noundef %new_blocksize) #24
   br label %for.inc572
 
 for.inc572:                                       ; preds = %sw.bb, %sw.bb434, %sw.bb439, %sw.bb444, %sw.bb449, %sw.bb454, %sw.bb459, %sw.bb468, %sw.bb473, %sw.bb478, %sw.bb483, %sw.bb488, %sw.bb493, %sw.bb498, %sw.bb508, %sw.bb529, %sw.bb552, %sw.bb563, %sw.default
@@ -4743,7 +4743,7 @@ return:                                           ; preds = %if.end575, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @process_frame_(ptr noundef %encoder, i32 noundef %is_last_block) unnamed_addr #0 {
+define internal fastcc noundef i32 @process_frame_(ptr noundef %encoder, i32 noundef %is_last_block) unnamed_addr #0 {
 entry:
   %crc.i = alloca i16, align 2
   %crc = alloca i16, align 2
@@ -4774,7 +4774,7 @@ land.lhs.true:                                    ; preds = %if.then
   %7 = load i32, ptr %bits_per_sample, align 4
   %add = add i32 %7, 7
   %div108 = lshr i32 %add, 3
-  %call = tail call i32 @FLAC__MD5Accumulate(ptr noundef nonnull %md5context, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %div108) #25
+  %call = tail call i32 @FLAC__MD5Accumulate(ptr noundef nonnull %md5context, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %div108) #24
   %tobool7.not = icmp eq i32 %call, 0
   br i1 %tobool7.not, label %if.then8, label %if.end
 
@@ -4802,7 +4802,7 @@ if.end21:                                         ; preds = %if.end
   %15 = load ptr, ptr %14, align 8
   %frame = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %15, i64 0, i32 22
   %16 = load ptr, ptr %frame, align 8
-  %call25 = tail call i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr noundef %16) #25
+  %call25 = tail call i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr noundef %16) #24
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.then27, label %if.end30
 
@@ -4816,7 +4816,7 @@ if.end30:                                         ; preds = %if.end21
   %19 = load ptr, ptr %18, align 8
   %frame34 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %19, i64 0, i32 22
   %20 = load ptr, ptr %frame34, align 8
-  %call35 = call i32 @FLAC__bitwriter_get_write_crc16(ptr noundef %20, ptr noundef nonnull %crc) #25
+  %call35 = call i32 @FLAC__bitwriter_get_write_crc16(ptr noundef %20, ptr noundef nonnull %crc) #24
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then44, label %lor.lhs.false37
 
@@ -4828,7 +4828,7 @@ lor.lhs.false37:                                  ; preds = %if.end30
   %24 = load i16, ptr %crc, align 2
   %conv = zext i16 %24 to i32
   %25 = load i32, ptr @FLAC__FRAME_FOOTER_CRC_LEN, align 4
-  %call42 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %23, i32 noundef %conv, i32 noundef %25) #25
+  %call42 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %23, i32 noundef %conv, i32 noundef %25) #24
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %if.end47
 
@@ -4860,7 +4860,7 @@ if.then62:                                        ; preds = %if.else
   %33 = load i32, ptr %next_thread, align 4
   %idxprom = zext i32 %33 to i64
   %arrayidx65 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %31, i64 0, i32 1, i64 %idxprom
-  %call66 = tail call i32 @pthread_create(ptr noundef nonnull %arrayidx65, ptr noundef null, ptr noundef nonnull @process_frame_thread_, ptr noundef nonnull %encoder) #25
+  %call66 = tail call i32 @pthread_create(ptr noundef nonnull %arrayidx65, ptr noundef null, ptr noundef nonnull @process_frame_thread_, ptr noundef nonnull %encoder) #24
   %34 = load ptr, ptr %private_57, align 8
   %num_created_threads68 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %34, i64 0, i32 49
   %35 = load i32, ptr %num_created_threads68, align 8
@@ -4889,7 +4889,7 @@ if.then74:                                        ; preds = %if.else69
   br i1 %tobool76.not, label %while.cond.preheader, label %if.then77
 
 while.cond.preheader:                             ; preds = %if.then74
-  %call93114 = tail call i32 @sem_trywait(ptr noundef nonnull %sem_work_done92113) #25
+  %call93114 = tail call i32 @sem_trywait(ptr noundef nonnull %sem_work_done92113) #24
   %tobool94.not115 = icmp eq i32 %call93114, 0
   br i1 %tobool94.not115, label %if.end140, label %while.body.lr.ph
 
@@ -4898,13 +4898,13 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 if.then77:                                        ; preds = %if.then74
-  %call84 = tail call i32 @sem_wait(ptr noundef nonnull %sem_work_done92113) #25
+  %call84 = tail call i32 @sem_wait(ptr noundef nonnull %sem_work_done92113) #24
   br label %if.end140
 
 while.body:                                       ; preds = %while.body.lr.ph, %process_frame_thread_inner_.exit
   %42 = load ptr, ptr %private_57, align 8
   %mutex_work_queue = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %42, i64 0, i32 56
-  %call96 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue) #25
+  %call96 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue) #24
   %43 = load ptr, ptr %private_57, align 8
   %num_available_threadtasks = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %43, i64 0, i32 52
   %44 = load i32, ptr %num_available_threadtasks, align 4
@@ -4944,7 +4944,7 @@ if.then119:                                       ; preds = %if.then102
 if.end122:                                        ; preds = %if.then119, %if.then102
   %54 = phi ptr [ %.pre, %if.then119 ], [ %51, %if.then102 ]
   %mutex_work_queue124 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %54, i64 0, i32 56
-  %call125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue124) #25
+  %call125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue124) #24
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %crc.i)
   %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull %encoder, ptr noundef %48), !range !8
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -4953,13 +4953,13 @@ if.end122:                                        ; preds = %if.then119, %if.the
 land.lhs.true3.i:                                 ; preds = %if.end122
   %frame.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %48, i64 0, i32 22
   %55 = load ptr, ptr %frame.i, align 8
-  %call4.i = call i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr noundef %55) #25
+  %call4.i = call i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr noundef %55) #24
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end19.sink.split.i, label %land.lhs.true9.critedge.i
 
 land.lhs.true9.critedge.i:                        ; preds = %land.lhs.true3.i
   %56 = load ptr, ptr %frame.i, align 8
-  %call11.i = call i32 @FLAC__bitwriter_get_write_crc16(ptr noundef %56, ptr noundef nonnull %crc.i) #25
+  %call11.i = call i32 @FLAC__bitwriter_get_write_crc16(ptr noundef %56, ptr noundef nonnull %crc.i) #24
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %if.end19.sink.split.i, label %lor.lhs.false.i
 
@@ -4967,7 +4967,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true9.crit
   %57 = load ptr, ptr %frame.i, align 8
   %58 = load i16, ptr %crc.i, align 2
   %conv.i = zext i16 %58 to i32
-  %call14.i = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %57, i32 noundef %conv.i, i32 noundef %41) #25
+  %call14.i = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %57, i32 noundef %conv.i, i32 noundef %41) #24
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %if.end19.sink.split.i, label %process_frame_thread_inner_.exit
 
@@ -4981,7 +4981,7 @@ process_frame_thread_inner_.exit:                 ; preds = %if.end122, %lor.lhs
   %returnvalue.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %48, i64 0, i32 37
   store i32 %ok.2.i, ptr %returnvalue.i, align 8
   %sem_work_done.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %48, i64 0, i32 36
-  %call20.i = call i32 @sem_post(ptr noundef nonnull %sem_work_done.i) #25
+  %call20.i = call i32 @sem_post(ptr noundef nonnull %sem_work_done.i) #24
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %crc.i)
   %60 = load ptr, ptr %private_57, align 8
   %next_thread89 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %60, i64 0, i32 50
@@ -4990,13 +4990,13 @@ process_frame_thread_inner_.exit:                 ; preds = %if.end122, %lor.lhs
   %arrayidx91 = getelementptr inbounds [130 x ptr], ptr %60, i64 0, i64 %idxprom90
   %62 = load ptr, ptr %arrayidx91, align 8
   %sem_work_done92 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %62, i64 0, i32 36
-  %call93 = call i32 @sem_trywait(ptr noundef nonnull %sem_work_done92) #25
+  %call93 = call i32 @sem_trywait(ptr noundef nonnull %sem_work_done92) #24
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %if.end140, label %while.body, !llvm.loop !62
 
 if.else127:                                       ; preds = %while.body
   %mutex_work_queue129 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %43, i64 0, i32 56
-  %call130 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue129) #25
+  %call130 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue129) #24
   %63 = load ptr, ptr %private_57, align 8
   %next_thread134 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %63, i64 0, i32 50
   %64 = load i32, ptr %next_thread134, align 4
@@ -5004,7 +5004,7 @@ if.else127:                                       ; preds = %while.body
   %arrayidx136 = getelementptr inbounds [130 x ptr], ptr %63, i64 0, i64 %idxprom135
   %65 = load ptr, ptr %arrayidx136, align 8
   %sem_work_done137 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %65, i64 0, i32 36
-  %call138 = call i32 @sem_wait(ptr noundef nonnull %sem_work_done137) #25
+  %call138 = call i32 @sem_wait(ptr noundef nonnull %sem_work_done137) #24
   br label %if.end140
 
 if.end140:                                        ; preds = %process_frame_thread_inner_.exit, %while.cond.preheader, %if.else127, %if.then77
@@ -5037,7 +5037,7 @@ if.end163:                                        ; preds = %if.else69, %if.end1
 if.then167:                                       ; preds = %if.end163
   %74 = load ptr, ptr %private_57, align 8
   %mutex_work_queue169 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %74, i64 0, i32 56
-  %call170 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue169) #25
+  %call170 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue169) #24
   %75 = load ptr, ptr %private_57, align 8
   %tail116 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %75, i64 0, i32 63, i32 2
   %76 = load i32, ptr %tail116, align 4
@@ -5054,7 +5054,7 @@ while.body180:                                    ; preds = %if.then167, %while.
   %80 = phi ptr [ %81, %while.body180 ], [ %75, %if.then167 ]
   %cond_md5_emptied = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %80, i64 0, i32 57
   %mutex_work_queue183 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %80, i64 0, i32 56
-  %call184 = call i32 @pthread_cond_wait(ptr noundef nonnull %cond_md5_emptied, ptr noundef nonnull %mutex_work_queue183) #25
+  %call184 = call i32 @pthread_cond_wait(ptr noundef nonnull %cond_md5_emptied, ptr noundef nonnull %mutex_work_queue183) #24
   %81 = load ptr, ptr %private_57, align 8
   %tail = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %81, i64 0, i32 63, i32 2
   %82 = load i32, ptr %tail, align 4
@@ -5070,10 +5070,10 @@ while.body180:                                    ; preds = %if.then167, %while.
 while.end185:                                     ; preds = %while.body180, %if.then167
   %.lcssa = phi ptr [ %75, %if.then167 ], [ %81, %while.body180 ]
   %mutex_work_queue187 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %.lcssa, i64 0, i32 56
-  %call188 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue187) #25
+  %call188 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue187) #24
   %86 = load ptr, ptr %private_57, align 8
   %mutex_md5_fifo = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %86, i64 0, i32 55
-  %call190 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_md5_fifo) #25
+  %call190 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_md5_fifo) #24
   %87 = load ptr, ptr %encoder, align 8
   %channels192121 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %87, i64 0, i32 6
   %88 = load i32, ptr %channels192121, align 8
@@ -5110,7 +5110,7 @@ for.body:                                         ; preds = %while.end185, %for.
 for.end:                                          ; preds = %for.body, %while.end185
   %99 = load ptr, ptr %private_57, align 8
   %mutex_work_queue213 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %99, i64 0, i32 56
-  %call214 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue213) #25
+  %call214 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue213) #24
   %100 = load ptr, ptr %encoder, align 8
   %blocksize216 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %100, i64 0, i32 9
   %101 = load i32, ptr %blocksize216, align 4
@@ -5121,13 +5121,13 @@ for.end:                                          ; preds = %for.body, %while.en
   store i32 %add220, ptr %tail219, align 4
   %104 = load ptr, ptr %private_57, align 8
   %cond_work_available = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %104, i64 0, i32 58
-  %call222 = call i32 @pthread_cond_signal(ptr noundef nonnull %cond_work_available) #25
+  %call222 = call i32 @pthread_cond_signal(ptr noundef nonnull %cond_work_available) #24
   %105 = load ptr, ptr %private_57, align 8
   %mutex_work_queue224 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %105, i64 0, i32 56
-  %call225 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue224) #25
+  %call225 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue224) #24
   %106 = load ptr, ptr %private_57, align 8
   %mutex_md5_fifo227 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %106, i64 0, i32 55
-  %call228 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_md5_fifo227) #25
+  %call228 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_md5_fifo227) #24
   %.pre134 = load ptr, ptr %encoder, align 8
   br label %if.end229
 
@@ -5178,7 +5178,7 @@ for.end257:                                       ; preds = %for.body235, %if.en
   store i32 %121, ptr %current_frame_number266, align 8
   %124 = load ptr, ptr %private_57, align 8
   %mutex_work_queue268 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %124, i64 0, i32 56
-  %call269 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue268) #25
+  %call269 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue268) #24
   %125 = load ptr, ptr %private_57, align 8
   %num_started_threadtasks271 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %125, i64 0, i32 51
   %126 = load i32, ptr %num_started_threadtasks271, align 8
@@ -5201,10 +5201,10 @@ if.end280:                                        ; preds = %if.then276, %for.en
   store i32 %inc283, ptr %num_available_threadtasks282, align 4
   %130 = load ptr, ptr %private_57, align 8
   %cond_work_available285 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %130, i64 0, i32 58
-  %call286 = call i32 @pthread_cond_signal(ptr noundef nonnull %cond_work_available285) #25
+  %call286 = call i32 @pthread_cond_signal(ptr noundef nonnull %cond_work_available285) #24
   %131 = load ptr, ptr %private_57, align 8
   %mutex_work_queue288 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %131, i64 0, i32 56
-  %call289 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue288) #25
+  %call289 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue288) #24
   %132 = load ptr, ptr %private_57, align 8
   %next_thread291 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %132, i64 0, i32 50
   %133 = load i32, ptr %next_thread291, align 4
@@ -5295,7 +5295,7 @@ entry:
   %add14 = add i64 %15, %conv
   %client_data = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %0, i64 0, i32 39
   %16 = load ptr, ptr %client_data, align 8
-  %call = tail call i32 %13(ptr noundef nonnull %encoder, i64 noundef %add14, ptr noundef %16) #25
+  %call = tail call i32 %13(ptr noundef nonnull %encoder, i64 noundef %add14, ptr noundef %16) #24
   switch i32 %call, label %if.end271 [
     i32 0, label %if.end21
     i32 1, label %if.end271.sink.split
@@ -5308,7 +5308,7 @@ if.end21:                                         ; preds = %entry
   %md5sum = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %0, i64 0, i32 8, i32 3, i32 0, i32 0, i64 40
   %client_data25 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %17, i64 0, i32 39
   %19 = load ptr, ptr %client_data25, align 8
-  %call26 = tail call i32 %18(ptr noundef nonnull %encoder, ptr noundef nonnull %md5sum, i64 noundef 16, i32 noundef 0, i32 noundef 0, ptr noundef %19) #25
+  %call26 = tail call i32 %18(ptr noundef nonnull %encoder, ptr noundef nonnull %md5sum, i64 noundef 16, i32 noundef 0, i32 noundef 0, ptr noundef %19) #24
   %cmp27.not = icmp eq i32 %call26, 0
   br i1 %cmp27.not, label %if.end32, label %if.end271.sink.split
 
@@ -5353,7 +5353,7 @@ if.end32:                                         ; preds = %if.end21
   %add72 = add i64 %24, %conv71
   %client_data74 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %21, i64 0, i32 39
   %25 = load ptr, ptr %client_data74, align 8
-  %call75 = tail call i32 %22(ptr noundef nonnull %encoder, i64 noundef %add72, ptr noundef %25) #25
+  %call75 = tail call i32 %22(ptr noundef nonnull %encoder, i64 noundef %add72, ptr noundef %25) #24
   switch i32 %call75, label %if.end271 [
     i32 0, label %if.end85
     i32 1, label %if.end271.sink.split
@@ -5365,7 +5365,7 @@ if.end85:                                         ; preds = %if.end32
   %27 = load ptr, ptr %write_callback87, align 8
   %client_data90 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %26, i64 0, i32 39
   %28 = load ptr, ptr %client_data90, align 8
-  %call91 = call i32 %27(ptr noundef nonnull %encoder, ptr noundef nonnull %b, i64 noundef 5, i32 noundef 0, i32 noundef 0, ptr noundef %28) #25
+  %call91 = call i32 %27(ptr noundef nonnull %encoder, ptr noundef nonnull %b, i64 noundef 5, i32 noundef 0, i32 noundef 0, ptr noundef %28) #24
   %cmp92.not = icmp eq i32 %call91, 0
   br i1 %cmp92.not, label %if.end97, label %if.end271.sink.split
 
@@ -5399,7 +5399,7 @@ if.end97:                                         ; preds = %if.end85
   %add128 = add i64 %32, %conv127
   %client_data130 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %29, i64 0, i32 39
   %33 = load ptr, ptr %client_data130, align 8
-  %call131 = call i32 %30(ptr noundef nonnull %encoder, i64 noundef %add128, ptr noundef %33) #25
+  %call131 = call i32 %30(ptr noundef nonnull %encoder, i64 noundef %add128, ptr noundef %33) #24
   switch i32 %call131, label %if.end271 [
     i32 0, label %if.end141
     i32 1, label %if.end271.sink.split
@@ -5411,7 +5411,7 @@ if.end141:                                        ; preds = %if.end97
   %35 = load ptr, ptr %write_callback143, align 8
   %client_data146 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %34, i64 0, i32 39
   %36 = load ptr, ptr %client_data146, align 8
-  %call147 = call i32 %35(ptr noundef nonnull %encoder, ptr noundef nonnull %b, i64 noundef 6, i32 noundef 0, i32 noundef 0, ptr noundef %36) #25
+  %call147 = call i32 %35(ptr noundef nonnull %encoder, ptr noundef nonnull %b, i64 noundef 6, i32 noundef 0, i32 noundef 0, ptr noundef %36) #24
   %cmp148.not = icmp eq i32 %call147, 0
   br i1 %cmp148.not, label %if.end153, label %if.end271.sink.split
 
@@ -5435,7 +5435,7 @@ land.lhs.true161:                                 ; preds = %land.lhs.true
   br i1 %cmp163.not, label %if.end271, label %if.then165
 
 if.then165:                                       ; preds = %land.lhs.true161
-  %call168 = call i32 @FLAC__format_seektable_sort(ptr noundef nonnull %38) #25
+  %call168 = call i32 @FLAC__format_seektable_sort(ptr noundef nonnull %38) #24
   %42 = load ptr, ptr %private_, align 8
   %seek_callback170 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %42, i64 0, i32 34
   %43 = load ptr, ptr %seek_callback170, align 8
@@ -5445,7 +5445,7 @@ if.then165:                                       ; preds = %land.lhs.true161
   %add173 = add i64 %45, 4
   %client_data175 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %42, i64 0, i32 39
   %46 = load ptr, ptr %client_data175, align 8
-  %call176 = call i32 %43(ptr noundef nonnull %encoder, i64 noundef %add173, ptr noundef %46) #25
+  %call176 = call i32 %43(ptr noundef nonnull %encoder, i64 noundef %add173, ptr noundef %46) #24
   switch i32 %call176, label %if.end271 [
     i32 0, label %for.cond.preheader
     i32 1, label %if.end271.sink.split
@@ -5552,7 +5552,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %61 = load ptr, ptr %write_callback260, align 8
   %client_data263 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %55, i64 0, i32 39
   %62 = load ptr, ptr %client_data263, align 8
-  %call264 = call i32 %61(ptr noundef nonnull %encoder, ptr noundef nonnull %b, i64 noundef 18, i32 noundef 0, i32 noundef 0, ptr noundef %62) #25
+  %call264 = call i32 %61(ptr noundef nonnull %encoder, ptr noundef nonnull %b, i64 noundef 18, i32 noundef 0, i32 noundef 0, ptr noundef %62) #24
   %cmp265.not = icmp eq i32 %call264, 0
   br i1 %cmp265.not, label %for.cond, label %if.end271.sink.split
 
@@ -5570,7 +5570,7 @@ declare i32 @FLAC__stream_decoder_finish(ptr noundef) local_unnamed_addr #2
 declare void @FLAC__ogg_encoder_aspect_finish(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_set_ogg_serial_number(ptr nocapture noundef readonly %encoder, i64 noundef %value) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_set_ogg_serial_number(ptr nocapture noundef readonly %encoder, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5579,7 +5579,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %ogg_encoder_aspect = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %0, i64 0, i32 28
-  tail call void @FLAC__ogg_encoder_aspect_set_serial_number(ptr noundef nonnull %ogg_encoder_aspect, i64 noundef %value) #25
+  tail call void @FLAC__ogg_encoder_aspect_set_serial_number(ptr noundef nonnull %ogg_encoder_aspect, i64 noundef %value) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -5590,7 +5590,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @FLAC__ogg_encoder_aspect_set_serial_number(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_verify(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_verify(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5608,7 +5608,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_streamable_subset(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_streamable_subset(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5626,7 +5626,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_do_md5(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_do_md5(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5644,7 +5644,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_channels(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_channels(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5662,7 +5662,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_bits_per_sample(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_bits_per_sample(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5680,7 +5680,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_sample_rate(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_sample_rate(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5698,7 +5698,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_set_compression_level(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #6 {
+define noundef i32 @FLAC__stream_encoder_set_compression_level(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5795,7 +5795,7 @@ return:                                           ; preds = %FLAC__stream_encode
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_do_mid_side_stereo(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_do_mid_side_stereo(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5813,7 +5813,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_loose_mid_side_stereo(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_loose_mid_side_stereo(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5831,7 +5831,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_set_apodization(ptr nocapture noundef readonly %encoder, ptr noundef %specification) local_unnamed_addr #6 {
+define noundef i32 @FLAC__stream_encoder_set_apodization(ptr nocapture noundef readonly %encoder, ptr noundef %specification) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5845,7 +5845,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end584, %if.end
   %specification.addr.0 = phi ptr [ %specification, %if.end ], [ %add.ptr593, %if.end584 ]
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %specification.addr.0, i32 noundef 59) #26
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %specification.addr.0, i32 noundef 59) #25
   %tobool = icmp ne ptr %call, null
   br i1 %tobool, label %cond.true, label %cond.false
 
@@ -5856,7 +5856,7 @@ cond.true:                                        ; preds = %while.body
   br label %cond.end
 
 cond.false:                                       ; preds = %while.body
-  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %specification.addr.0) #26
+  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %specification.addr.0) #25
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -5865,7 +5865,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp3, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %cond.end
-  %call4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.35, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 8) #26
+  %call4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.35, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 8) #25
   %cmp5 = icmp eq i32 %call4, 0
   br i1 %cmp5, label %if.end584.sink.split, label %land.lhs.true25
 
@@ -5878,27 +5878,27 @@ if.else:                                          ; preds = %cond.end
   ]
 
 land.lhs.true11:                                  ; preds = %if.else
-  %call12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.36, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 13) #26
+  %call12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.36, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 13) #25
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %if.end584.sink.split, label %land.lhs.true81
 
 land.lhs.true25:                                  ; preds = %land.lhs.true
-  %call26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.37, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 8) #26
+  %call26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.37, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 8) #25
   %cmp27 = icmp eq i32 %call26, 0
   br i1 %cmp27, label %if.end584.sink.split, label %land.lhs.true81
 
 land.lhs.true39:                                  ; preds = %if.else
-  %call40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.38, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 26) #26
+  %call40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.38, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 26) #25
   %cmp41 = icmp eq i32 %call40, 0
   br i1 %cmp41, label %if.end584.sink.split, label %land.lhs.true81
 
 land.lhs.true53:                                  ; preds = %if.else
-  %call54 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.39, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 6) #26
+  %call54 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.39, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 6) #25
   %cmp55 = icmp eq i32 %call54, 0
   br i1 %cmp55, label %if.end584.sink.split, label %if.end584
 
 land.lhs.true67:                                  ; preds = %if.else
-  %call68 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.40, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 7) #26
+  %call68 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.40, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 7) #25
   %cmp69 = icmp eq i32 %call68, 0
   br i1 %cmp69, label %if.end584.sink.split, label %land.lhs.true113
 
@@ -5908,13 +5908,13 @@ if.else79:                                        ; preds = %if.else
 
 land.lhs.true81:                                  ; preds = %land.lhs.true39, %land.lhs.true11, %land.lhs.true25, %if.else79
   %cmp10178180182186226 = phi i1 [ false, %if.else79 ], [ false, %land.lhs.true25 ], [ true, %land.lhs.true11 ], [ false, %land.lhs.true39 ]
-  %call82 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.41, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 6) #26
+  %call82 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.41, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 6) #25
   %cmp83 = icmp eq i32 %call82, 0
   br i1 %cmp83, label %if.then84, label %if.else142
 
 if.then84:                                        ; preds = %land.lhs.true81
   %add.ptr = getelementptr inbounds i8, ptr %specification.addr.0, i64 6
-  %call85 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr, ptr noundef null) #25
+  %call85 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr, ptr noundef null) #24
   %conv = fptrunc double %call85 to float
   %cmp87 = fcmp reassoc nsz arcp ule float %conv, 0.000000e+00
   %cmp91 = fcmp reassoc nsz arcp ugt float %conv, 5.000000e-01
@@ -5922,7 +5922,7 @@ if.then84:                                        ; preds = %land.lhs.true81
   br i1 %or.cond175, label %if.end584, label %if.end584.sink.split.sink.split.sink.split
 
 land.lhs.true113:                                 ; preds = %land.lhs.true67
-  %call114 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.42, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 7) #26
+  %call114 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.42, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 7) #25
   %cmp115 = icmp eq i32 %call114, 0
   br i1 %cmp115, label %if.end584.sink.split, label %land.lhs.true161
 
@@ -5933,7 +5933,7 @@ if.else126:                                       ; preds = %if.else79
   ]
 
 land.lhs.true129:                                 ; preds = %if.else126
-  %call130 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.43, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 4) #26
+  %call130 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.43, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 4) #25
   %cmp131 = icmp eq i32 %call130, 0
   br i1 %cmp131, label %if.end584.sink.split, label %if.end584
 
@@ -5941,12 +5941,12 @@ if.else142:                                       ; preds = %land.lhs.true81
   br i1 %cmp10178180182186226, label %land.lhs.true145, label %if.else174
 
 land.lhs.true145:                                 ; preds = %if.else142
-  %call146 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.44, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 13) #26
+  %call146 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.44, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 13) #25
   %cmp147 = icmp eq i32 %call146, 0
   br i1 %cmp147, label %if.end584.sink.split, label %if.else174
 
 land.lhs.true161:                                 ; preds = %land.lhs.true113
-  %call162 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.45, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 7) #26
+  %call162 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.45, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 7) #25
   %cmp163 = icmp eq i32 %call162, 0
   br i1 %cmp163, label %if.end584.sink.split, label %if.end584
 
@@ -5955,7 +5955,7 @@ if.else174:                                       ; preds = %land.lhs.true145, %
   br i1 %cmp175, label %land.lhs.true177, label %if.else190
 
 land.lhs.true177:                                 ; preds = %if.else174
-  %call178 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(10) @.str.46, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 9) #26
+  %call178 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(10) @.str.46, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 9) #25
   %cmp179 = icmp eq i32 %call178, 0
   br i1 %cmp179, label %if.end584.sink.split, label %land.lhs.true209
 
@@ -5963,18 +5963,18 @@ if.else190:                                       ; preds = %if.else174
   br i1 %cmp3, label %land.lhs.true193, label %land.lhs.true209
 
 land.lhs.true193:                                 ; preds = %if.else190
-  %call194 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.47, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 8) #26
+  %call194 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.47, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 8) #25
   %cmp195 = icmp eq i32 %call194, 0
   br i1 %cmp195, label %if.end584.sink.split, label %land.lhs.true209
 
 land.lhs.true209:                                 ; preds = %land.lhs.true177, %land.lhs.true193, %if.else190
-  %call210 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.48, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 6) #26
+  %call210 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.48, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 6) #25
   %cmp211 = icmp eq i32 %call210, 0
   br i1 %cmp211, label %if.then213, label %if.else242
 
 if.then213:                                       ; preds = %land.lhs.true209
   %add.ptr214 = getelementptr inbounds i8, ptr %specification.addr.0, i64 6
-  %call215 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr214, ptr noundef null) #25
+  %call215 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr214, ptr noundef null) #24
   %conv216 = fptrunc double %call215 to float
   %cmp218 = fcmp reassoc nsz arcp ult float %conv216, 0.000000e+00
   %cmp222 = fcmp reassoc nsz arcp ugt float %conv216, 1.000000e+00
@@ -5986,27 +5986,27 @@ if.else242:                                       ; preds = %land.lhs.true209
   br i1 %cmp243, label %land.lhs.true245, label %if.end584
 
 land.lhs.true245:                                 ; preds = %if.else242
-  %call246 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.49, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 14) #26
+  %call246 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.49, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 14) #25
   %cmp247 = icmp eq i32 %call246, 0
   br i1 %cmp247, label %if.then249, label %if.else357
 
 if.then249:                                       ; preds = %land.lhs.true245
   %add.ptr250 = getelementptr inbounds i8, ptr %specification.addr.0, i64 14
-  %call251 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr250, ptr noundef null) #25
+  %call251 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr250, ptr noundef null) #24
   %conv252 = fptosi double %call251 to i32
-  %call253 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %specification.addr.0, i32 noundef 47) #26
+  %call253 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %specification.addr.0, i32 noundef 47) #25
   %tobool254.not = icmp eq ptr %call253, null
   br i1 %tobool254.not, label %cond.end269, label %cond.true255
 
 cond.true255:                                     ; preds = %if.then249
   %add.ptr256 = getelementptr inbounds i8, ptr %call253, i64 1
-  %call257 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr256, ptr noundef null) #25
+  %call257 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr256, ptr noundef null) #24
   %conv258 = fptrunc double %call257 to float
   %cmp259 = fcmp reassoc nsz arcp olt float %conv258, 0x3FEFAE1480000000
   br i1 %cmp259, label %cond.true261, label %cond.end269
 
 cond.true261:                                     ; preds = %cond.true255
-  %call263 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr256, ptr noundef null) #25
+  %call263 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr256, ptr noundef null) #24
   %conv264 = fptrunc double %call263 to float
   br label %cond.end269
 
@@ -6017,13 +6017,13 @@ cond.end269:                                      ; preds = %if.then249, %cond.t
   %sub271 = fadd reassoc nsz arcp float %div, -1.000000e+00
   %add.ptr274 = getelementptr inbounds i8, ptr %call253, i64 1
   %cond277 = select i1 %tobool254.not, ptr %specification.addr.0, ptr %add.ptr274
-  %call278 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond277, i32 noundef 47) #26
+  %call278 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond277, i32 noundef 47) #25
   %tobool279.not = icmp eq ptr %call278, null
   br i1 %tobool279.not, label %cond.end285, label %cond.true280
 
 cond.true280:                                     ; preds = %cond.end269
   %add.ptr281 = getelementptr inbounds i8, ptr %call278, i64 1
-  %call282 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr281, ptr noundef null) #25
+  %call282 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr281, ptr noundef null) #24
   %conv283 = fptrunc double %call282 to float
   br label %cond.end285
 
@@ -6089,27 +6089,27 @@ if.else357:                                       ; preds = %land.lhs.true245
   br i1 %cmp358.not, label %if.end584, label %land.lhs.true360
 
 land.lhs.true360:                                 ; preds = %if.else357
-  %call361 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.50, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 15) #26
+  %call361 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.50, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 15) #25
   %cmp362 = icmp eq i32 %call361, 0
   br i1 %cmp362, label %if.then364, label %if.else488
 
 if.then364:                                       ; preds = %land.lhs.true360
   %add.ptr366 = getelementptr inbounds i8, ptr %specification.addr.0, i64 15
-  %call367 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr366, ptr noundef null) #25
+  %call367 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr366, ptr noundef null) #24
   %conv368 = fptosi double %call367 to i32
-  %call370 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %specification.addr.0, i32 noundef 47) #26
+  %call370 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %specification.addr.0, i32 noundef 47) #25
   %tobool372.not = icmp eq ptr %call370, null
   br i1 %tobool372.not, label %cond.end387, label %cond.true373
 
 cond.true373:                                     ; preds = %if.then364
   %add.ptr374 = getelementptr inbounds i8, ptr %call370, i64 1
-  %call375 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr374, ptr noundef null) #25
+  %call375 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr374, ptr noundef null) #24
   %conv376 = fptrunc double %call375 to float
   %cmp377 = fcmp reassoc nsz arcp olt float %conv376, 0x3FEFAE1480000000
   br i1 %cmp377, label %cond.true379, label %cond.end387
 
 cond.true379:                                     ; preds = %cond.true373
-  %call381 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr374, ptr noundef null) #25
+  %call381 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr374, ptr noundef null) #24
   %conv382 = fptrunc double %call381 to float
   br label %cond.end387
 
@@ -6120,13 +6120,13 @@ cond.end387:                                      ; preds = %if.then364, %cond.t
   %sub392 = fadd reassoc nsz arcp float %div391, -1.000000e+00
   %add.ptr396 = getelementptr inbounds i8, ptr %call370, i64 1
   %cond399 = select i1 %tobool372.not, ptr %specification.addr.0, ptr %add.ptr396
-  %call400 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond399, i32 noundef 47) #26
+  %call400 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond399, i32 noundef 47) #25
   %tobool402.not = icmp eq ptr %call400, null
   br i1 %tobool402.not, label %cond.end408, label %cond.true403
 
 cond.true403:                                     ; preds = %cond.end387
   %add.ptr404 = getelementptr inbounds i8, ptr %call400, i64 1
-  %call405 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr404, ptr noundef null) #25
+  %call405 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr404, ptr noundef null) #24
   %conv406 = fptrunc double %call405 to float
   br label %cond.end408
 
@@ -6192,25 +6192,25 @@ if.else488:                                       ; preds = %land.lhs.true360
   br i1 %cmp489, label %land.lhs.true491, label %if.end584
 
 land.lhs.true491:                                 ; preds = %if.else488
-  %call492 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.51, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 16) #26
+  %call492 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.51, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 16) #25
   %cmp493 = icmp eq i32 %call492, 0
   br i1 %cmp493, label %if.then495, label %if.end584
 
 if.then495:                                       ; preds = %land.lhs.true491
   %add.ptr496 = getelementptr inbounds i8, ptr %specification.addr.0, i64 16
-  %call497 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr496, ptr noundef null) #25
+  %call497 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr496, ptr noundef null) #24
   %conv498 = fptosi double %call497 to i32
   %cmp499 = icmp sgt i32 %conv498, 1
   br i1 %cmp499, label %if.then501, label %if.end584
 
 if.then501:                                       ; preds = %if.then495
-  %call503 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %specification.addr.0, i32 noundef 47) #26
+  %call503 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %specification.addr.0, i32 noundef 47) #25
   %tobool505.not = icmp eq ptr %call503, null
   br i1 %tobool505.not, label %if.end523, label %cond.end512
 
 cond.end512:                                      ; preds = %if.then501
   %add.ptr507 = getelementptr inbounds i8, ptr %call503, i64 1
-  %call508 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr507, ptr noundef null) #25
+  %call508 = tail call reassoc nsz arcp double @strtod(ptr nocapture noundef nonnull %add.ptr507, ptr noundef null) #24
   %conv509 = fptrunc double %call508 to float
   %cmp515 = fcmp reassoc nsz arcp ogt float %conv509, 1.000000e+00
   br i1 %cmp515, label %if.end523, label %if.else518
@@ -6235,7 +6235,7 @@ if.end523:                                        ; preds = %if.then501, %cond.e
   br label %if.end584.sink.split.sink.split.sink.split
 
 land.lhs.true554:                                 ; preds = %if.else126
-  %call555 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.52, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 5) #26
+  %call555 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.52, ptr noundef nonnull dereferenceable(1) %specification.addr.0, i64 noundef 5) #25
   %cmp556 = icmp eq i32 %call555, 0
   br i1 %cmp556, label %if.end584.sink.split, label %if.end584
 
@@ -6299,7 +6299,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_max_lpc_order(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_max_lpc_order(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6317,7 +6317,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_qlp_coeff_precision(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_qlp_coeff_precision(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6335,7 +6335,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_do_qlp_coeff_prec_search(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_do_qlp_coeff_prec_search(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6363,7 +6363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_do_exhaustive_model_search(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_do_exhaustive_model_search(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6381,7 +6381,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_min_residual_partition_order(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_min_residual_partition_order(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6399,7 +6399,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_max_residual_partition_order(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_max_residual_partition_order(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6427,7 +6427,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_blocksize(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_blocksize(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6456,8 +6456,8 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_num_threads(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @FLAC__stream_encoder_set_num_threads(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6479,8 +6479,8 @@ return:                                           ; preds = %if.end3, %if.end, %
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_total_samples_estimate(ptr nocapture noundef readonly %encoder, i64 noundef %value) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @FLAC__stream_encoder_set_total_samples_estimate(ptr nocapture noundef readonly %encoder, i64 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6520,7 +6520,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %2) #25
+  tail call void @free(ptr noundef nonnull %2) #24
   %3 = load ptr, ptr %encoder, align 8
   %metadata13 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %3, i64 0, i32 22
   store ptr null, ptr %metadata13, align 8
@@ -6534,7 +6534,7 @@ if.end15:                                         ; preds = %if.then9, %if.end
 
 if.then17:                                        ; preds = %if.end15
   %conv = zext i32 %spec.select to i64
-  %call = tail call ptr @safe_malloc_mul_2op_p(i64 noundef 8, i64 noundef %conv) #25
+  %call = tail call ptr @safe_malloc_mul_2op_p(i64 noundef 8, i64 noundef %conv) #24
   %cmp18 = icmp eq ptr %call, null
   br i1 %cmp18, label %return, label %if.end21
 
@@ -6552,7 +6552,7 @@ if.end21:                                         ; preds = %if.then17
 if.end27:                                         ; preds = %if.end21, %if.end15
   %7 = load ptr, ptr %encoder, align 8
   %ogg_encoder_aspect = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %7, i64 0, i32 28
-  %call29 = tail call i32 @FLAC__ogg_encoder_aspect_set_num_metadata(ptr noundef nonnull %ogg_encoder_aspect, i32 noundef %spec.select) #25
+  %call29 = tail call i32 @FLAC__ogg_encoder_aspect_set_num_metadata(ptr noundef nonnull %ogg_encoder_aspect, i32 noundef %spec.select) #24
   %tobool30.not = icmp ne i32 %call29, 0
   %. = zext i1 %tobool30.not to i32
   br label %return
@@ -6565,12 +6565,12 @@ return:                                           ; preds = %if.end27, %if.then1
 declare ptr @safe_malloc_mul_2op_p(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 declare i32 @FLAC__ogg_encoder_aspect_set_num_metadata(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_set_limit_min_bitrate(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_set_limit_min_bitrate(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6588,7 +6588,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_disable_instruction_set(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_disable_instruction_set(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6633,7 +6633,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_disable_constant_subframes(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_disable_constant_subframes(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6653,7 +6653,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_disable_fixed_subframes(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_disable_fixed_subframes(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6673,7 +6673,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_encoder_disable_verbatim_subframes(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
+define noundef i32 @FLAC__stream_encoder_disable_verbatim_subframes(ptr nocapture noundef readonly %encoder, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -6714,7 +6714,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %private_, align 8
   %verify1 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %2, i64 0, i32 46
   %3 = load ptr, ptr %verify1, align 8
-  %call = tail call i32 @FLAC__stream_decoder_get_state(ptr noundef %3) #25
+  %call = tail call i32 @FLAC__stream_decoder_get_state(ptr noundef %3) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -6743,7 +6743,7 @@ if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %private_, align 8
   %verify = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %3, i64 0, i32 46
   %4 = load ptr, ptr %verify, align 8
-  %call = tail call ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef %4) #25
+  %call = tail call ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef %4) #24
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -6754,7 +6754,7 @@ return:                                           ; preds = %if.else, %if.then
 declare ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @FLAC__stream_encoder_get_verify_decoder_error_stats(ptr nocapture noundef readonly %encoder, ptr noundef writeonly %absolute_sample, ptr noundef writeonly %frame_number, ptr noundef writeonly %channel, ptr noundef writeonly %sample, ptr noundef writeonly %expected, ptr noundef writeonly %got) local_unnamed_addr #12 {
+define void @FLAC__stream_encoder_get_verify_decoder_error_stats(ptr nocapture noundef readonly %encoder, ptr noundef writeonly %absolute_sample, ptr noundef writeonly %frame_number, ptr noundef writeonly %channel, ptr noundef writeonly %sample, ptr noundef writeonly %expected, ptr noundef writeonly %got) local_unnamed_addr #11 {
 entry:
   %cmp.not = icmp eq ptr %absolute_sample, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7012,7 +7012,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_process(ptr noundef %encoder, ptr nocapture noundef readonly %buffer, i32 noundef %samples) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_process(ptr noundef %encoder, ptr nocapture noundef readonly %buffer, i32 noundef %samples) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %channels1 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %0, i64 0, i32 6
@@ -7195,7 +7195,7 @@ return:                                           ; preds = %do.cond, %if.then71
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__stream_encoder_process_interleaved(ptr noundef %encoder, ptr nocapture noundef readonly %buffer, i32 noundef %samples) local_unnamed_addr #0 {
+define noundef i32 @FLAC__stream_encoder_process_interleaved(ptr noundef %encoder, ptr nocapture noundef readonly %buffer, i32 noundef %samples) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %channels1 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %0, i64 0, i32 6
@@ -7401,13 +7401,13 @@ return:                                           ; preds = %do.cond, %if.then54
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noalias ptr @process_frame_thread_(ptr nocapture noundef readonly %args) #0 {
+define hidden noalias noundef ptr @process_frame_thread_(ptr nocapture noundef readonly %args) #0 {
 entry:
   %crc.i = alloca i16, align 2
   %private_ = getelementptr inbounds %struct.FLAC__StreamEncoder, ptr %args, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
   %mutex_work_queue = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %0, i64 0, i32 56
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue) #25
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue) #24
   %1 = load ptr, ptr %private_, align 8
   %num_running_threads = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %1, i64 0, i32 53
   %2 = load i32, ptr %num_running_threads, align 8
@@ -7415,10 +7415,10 @@ entry:
   store i32 %inc, ptr %num_running_threads, align 8
   %3 = load ptr, ptr %private_, align 8
   %mutex_work_queue3 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %3, i64 0, i32 56
-  %call4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue3) #25
+  %call4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue3) #24
   %4 = load ptr, ptr %private_, align 8
   %mutex_work_queue699 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %4, i64 0, i32 56
-  %call7100 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue699) #25
+  %call7100 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue699) #24
   %5 = load ptr, ptr %private_, align 8
   %finish_work_threads101 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %5, i64 0, i32 61
   %6 = load i32, ptr %finish_work_threads101, align 4
@@ -7432,7 +7432,7 @@ if.end.lr.ph:                                     ; preds = %entry
 if.then:                                          ; preds = %if.end188, %entry
   %.lcssa79 = phi ptr [ %5, %entry ], [ %73, %if.end188 ]
   %mutex_work_queue10 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %.lcssa79, i64 0, i32 56
-  %call11 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue10) #25
+  %call11 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue10) #24
   br label %return
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end188
@@ -7467,7 +7467,7 @@ if.then29:                                        ; preds = %if.end25
   store i32 0, ptr %overcommitted_indicator27, align 8
   %14 = load ptr, ptr %private_, align 8
   %cond_wake_up_thread = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %14, i64 0, i32 59
-  %call33 = call i32 @pthread_cond_signal(ptr noundef nonnull %cond_wake_up_thread) #25
+  %call33 = call i32 @pthread_cond_signal(ptr noundef nonnull %cond_wake_up_thread) #24
   br label %if.end56
 
 if.else34:                                        ; preds = %if.end25
@@ -7490,7 +7490,7 @@ if.then41:                                        ; preds = %land.lhs.true
   %18 = load ptr, ptr %private_, align 8
   %cond_wake_up_thread48 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %18, i64 0, i32 59
   %mutex_work_queue50 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %18, i64 0, i32 56
-  %call51 = call i32 @pthread_cond_wait(ptr noundef nonnull %cond_wake_up_thread48, ptr noundef nonnull %mutex_work_queue50) #25
+  %call51 = call i32 @pthread_cond_wait(ptr noundef nonnull %cond_wake_up_thread48, ptr noundef nonnull %mutex_work_queue50) #24
   %19 = load ptr, ptr %private_, align 8
   %num_running_threads53 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %19, i64 0, i32 53
   %20 = load i32, ptr %num_running_threads53, align 8
@@ -7526,13 +7526,13 @@ while.body65:                                     ; preds = %land.rhs, %lor.rhs
 
 if.then69:                                        ; preds = %while.body65
   %mutex_work_queue71 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %23, i64 0, i32 56
-  %call72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue71) #25
+  %call72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue71) #24
   br label %return
 
 if.end73:                                         ; preds = %while.body65
   %cond_work_available = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %23, i64 0, i32 58
   %mutex_work_queue76 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %23, i64 0, i32 56
-  %call77 = call i32 @pthread_cond_wait(ptr noundef nonnull %cond_work_available, ptr noundef nonnull %mutex_work_queue76) #25
+  %call77 = call i32 @pthread_cond_wait(ptr noundef nonnull %cond_work_available, ptr noundef nonnull %mutex_work_queue76) #24
   %27 = load ptr, ptr %private_, align 8
   %num_available_threadtasks59 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %27, i64 0, i32 52
   %28 = load i32, ptr %num_available_threadtasks59, align 4
@@ -7574,7 +7574,7 @@ while.body96:                                     ; preds = %if.then88, %for.end
   %35 = phi i32 [ %57, %for.end ], [ %34, %if.then88 ]
   %36 = phi ptr [ %56, %for.end ], [ %33, %if.then88 ]
   %mutex_work_queue101 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %36, i64 0, i32 56
-  %call102 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue101) #25
+  %call102 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue101) #24
   %37 = load ptr, ptr %private_, align 8
   %md5context = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %37, i64 0, i32 12
   %md5_fifo105 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %37, i64 0, i32 63
@@ -7585,7 +7585,7 @@ while.body96:                                     ; preds = %if.then88, %for.end
   %40 = load i32, ptr %bits_per_sample, align 4
   %add = add i32 %40, 7
   %div71 = lshr i32 %add, 3
-  %call108 = call i32 @FLAC__MD5Accumulate(ptr noundef nonnull %md5context, ptr noundef nonnull %md5_fifo105, i32 noundef %39, i32 noundef %35, i32 noundef %div71) #25
+  %call108 = call i32 @FLAC__MD5Accumulate(ptr noundef nonnull %md5context, ptr noundef nonnull %md5_fifo105, i32 noundef %39, i32 noundef %35, i32 noundef %div71) #24
   %tobool109.not = icmp eq i32 %call108, 0
   br i1 %tobool109.not, label %if.then110, label %if.end112
 
@@ -7597,7 +7597,7 @@ if.then110:                                       ; preds = %while.body96
 if.end112:                                        ; preds = %while.body96
   %42 = load ptr, ptr %private_, align 8
   %mutex_md5_fifo = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %42, i64 0, i32 55
-  %call114 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_md5_fifo) #25
+  %call114 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_md5_fifo) #24
   %43 = load ptr, ptr %args, align 8
   %channels11693 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %43, i64 0, i32 6
   %44 = load i32, ptr %channels11693, align 8
@@ -7632,7 +7632,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %if.end112
   %51 = load ptr, ptr %private_, align 8
   %mutex_work_queue134 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %51, i64 0, i32 56
-  %call135 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue134) #25
+  %call135 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue134) #24
   %52 = load ptr, ptr %private_, align 8
   %tail138 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %52, i64 0, i32 63, i32 2
   %53 = load i32, ptr %tail138, align 4
@@ -7640,10 +7640,10 @@ for.end:                                          ; preds = %for.body, %if.end11
   store i32 %sub139, ptr %tail138, align 4
   %54 = load ptr, ptr %private_, align 8
   %cond_md5_emptied = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %54, i64 0, i32 57
-  %call141 = call i32 @pthread_cond_signal(ptr noundef nonnull %cond_md5_emptied) #25
+  %call141 = call i32 @pthread_cond_signal(ptr noundef nonnull %cond_md5_emptied) #24
   %55 = load ptr, ptr %private_, align 8
   %mutex_md5_fifo143 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %55, i64 0, i32 55
-  %call144 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_md5_fifo143) #25
+  %call144 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_md5_fifo143) #24
   %56 = load ptr, ptr %private_, align 8
   %tail94 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %56, i64 0, i32 63, i32 2
   %57 = load i32, ptr %tail94, align 4
@@ -7656,7 +7656,7 @@ while.end145:                                     ; preds = %for.end, %if.then88
   store i32 0, ptr %md5_active147, align 8
   %58 = load ptr, ptr %private_, align 8
   %mutex_work_queue149 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %58, i64 0, i32 56
-  %call150 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue149) #25
+  %call150 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue149) #24
   br label %if.end188
 
 if.else151:                                       ; preds = %land.lhs.true83, %land.lhs.true79, %while.end
@@ -7691,7 +7691,7 @@ if.then172:                                       ; preds = %if.then156
 if.end175:                                        ; preds = %if.then172, %if.then156
   %66 = phi ptr [ %.pre, %if.then172 ], [ %63, %if.then156 ]
   %mutex_work_queue177 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %66, i64 0, i32 56
-  %call178 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue177) #25
+  %call178 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue177) #24
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %crc.i)
   %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull %args, ptr noundef %60), !range !8
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -7700,13 +7700,13 @@ if.end175:                                        ; preds = %if.then172, %if.the
 land.lhs.true3.i:                                 ; preds = %if.end175
   %frame.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %60, i64 0, i32 22
   %67 = load ptr, ptr %frame.i, align 8
-  %call4.i = call i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr noundef %67) #25
+  %call4.i = call i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr noundef %67) #24
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end19.sink.split.i, label %land.lhs.true9.critedge.i
 
 land.lhs.true9.critedge.i:                        ; preds = %land.lhs.true3.i
   %68 = load ptr, ptr %frame.i, align 8
-  %call11.i = call i32 @FLAC__bitwriter_get_write_crc16(ptr noundef %68, ptr noundef nonnull %crc.i) #25
+  %call11.i = call i32 @FLAC__bitwriter_get_write_crc16(ptr noundef %68, ptr noundef nonnull %crc.i) #24
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %if.end19.sink.split.i, label %lor.lhs.false.i
 
@@ -7714,7 +7714,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true9.crit
   %69 = load ptr, ptr %frame.i, align 8
   %70 = load i16, ptr %crc.i, align 2
   %conv.i = zext i16 %70 to i32
-  %call14.i = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %69, i32 noundef %conv.i, i32 noundef %7) #25
+  %call14.i = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %69, i32 noundef %conv.i, i32 noundef %7) #24
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %if.end19.sink.split.i, label %process_frame_thread_inner_.exit
 
@@ -7728,19 +7728,19 @@ process_frame_thread_inner_.exit:                 ; preds = %if.end175, %lor.lhs
   %returnvalue.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %60, i64 0, i32 37
   store i32 %ok.2.i, ptr %returnvalue.i, align 8
   %sem_work_done.i = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %60, i64 0, i32 36
-  %call20.i = call i32 @sem_post(ptr noundef nonnull %sem_work_done.i) #25
+  %call20.i = call i32 @sem_post(ptr noundef nonnull %sem_work_done.i) #24
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %crc.i)
   br label %if.end188
 
 if.else183:                                       ; preds = %if.else151
   %mutex_work_queue185 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %.lcssa82, i64 0, i32 56
-  %call186 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue185) #25
+  %call186 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue185) #24
   br label %if.end188
 
 if.end188:                                        ; preds = %process_frame_thread_inner_.exit, %if.else183, %while.end145
   %72 = load ptr, ptr %private_, align 8
   %mutex_work_queue6 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %72, i64 0, i32 56
-  %call7 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue6) #25
+  %call7 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue6) #24
   %73 = load ptr, ptr %private_, align 8
   %finish_work_threads = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %73, i64 0, i32 61
   %74 = load i32, ptr %finish_work_threads, align 4
@@ -7757,10 +7757,10 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #4
 declare i32 @FLAC__MD5Accumulate(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @process_frame_thread_inner_(ptr nocapture noundef readonly %encoder, ptr noundef %task) local_unnamed_addr #0 {
+define hidden noundef i32 @process_frame_thread_inner_(ptr nocapture noundef readonly %encoder, ptr noundef %task) local_unnamed_addr #0 {
 entry:
   %crc = alloca i16, align 2
   %call = tail call fastcc i32 @process_subframes_(ptr noundef %encoder, ptr noundef %task), !range !8
@@ -7770,13 +7770,13 @@ entry:
 land.lhs.true3:                                   ; preds = %entry
   %frame = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %task, i64 0, i32 22
   %0 = load ptr, ptr %frame, align 8
-  %call4 = tail call i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr noundef %0) #25
+  %call4 = tail call i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr noundef %0) #24
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end19.sink.split, label %land.lhs.true9.critedge
 
 land.lhs.true9.critedge:                          ; preds = %land.lhs.true3
   %1 = load ptr, ptr %frame, align 8
-  %call11 = call i32 @FLAC__bitwriter_get_write_crc16(ptr noundef %1, ptr noundef nonnull %crc) #25
+  %call11 = call i32 @FLAC__bitwriter_get_write_crc16(ptr noundef %1, ptr noundef nonnull %crc) #24
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end19.sink.split, label %lor.lhs.false
 
@@ -7785,7 +7785,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true9.crit
   %3 = load i16, ptr %crc, align 2
   %conv = zext i16 %3 to i32
   %4 = load i32, ptr @FLAC__FRAME_FOOTER_CRC_LEN, align 4
-  %call14 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %2, i32 noundef %conv, i32 noundef %4) #25
+  %call14 = call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %2, i32 noundef %conv, i32 noundef %4) #24
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.end19.sink.split, label %if.end19
 
@@ -7799,12 +7799,12 @@ if.end19:                                         ; preds = %if.end19.sink.split
   %returnvalue = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %task, i64 0, i32 37
   store i32 %ok.2, ptr %returnvalue, align 8
   %sem_work_done = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %task, i64 0, i32 36
-  %call20 = call i32 @sem_post(ptr noundef nonnull %sem_work_done) #25
+  %call20 = call i32 @sem_post(ptr noundef nonnull %sem_work_done) #24
   ret i32 1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @process_subframes_(ptr nocapture noundef readonly %encoder, ptr noundef %threadtask) unnamed_addr #0 {
+define internal fastcc noundef i32 @process_subframes_(ptr nocapture noundef readonly %encoder, ptr noundef %threadtask) unnamed_addr #0 {
 entry:
   %frame_header = alloca %struct.FLAC__FrameHeader, align 8
   %bits = alloca [4 x i32], align 16
@@ -7820,7 +7820,7 @@ entry:
   %4 = load ptr, ptr %encoder, align 8
   %blocksize = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %4, i64 0, i32 9
   %5 = load i32, ptr %blocksize, align 4
-  %call = tail call i32 @FLAC__format_get_max_rice_partition_order_from_blocksize(i32 noundef %5) #25
+  %call = tail call i32 @FLAC__format_get_max_rice_partition_order_from_blocksize(i32 noundef %5) #24
   %6 = load ptr, ptr %encoder, align 8
   %max_residual_partition_order = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %6, i64 0, i32 18
   %7 = load i32, ptr %max_residual_partition_order, align 4
@@ -8357,7 +8357,7 @@ if.end370:                                        ; preds = %for.body358, %if.th
   store i32 %channel_assignment309.2, ptr %channel_assignment, align 4
   %frame = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 22
   %106 = load ptr, ptr %frame, align 8
-  %call372 = call i32 @FLAC__frame_add_header(ptr noundef nonnull %frame_header, ptr noundef %106) #25
+  %call372 = call i32 @FLAC__frame_add_header(ptr noundef nonnull %frame_header, ptr noundef %106) #24
   %tobool373.not = icmp eq i32 %call372, 0
   br i1 %tobool373.not, label %if.then374, label %if.end376
 
@@ -8462,7 +8462,7 @@ if.end455.if.end496_crit_edge:                    ; preds = %if.end455
 if.else462:                                       ; preds = %if.end262
   %frame463 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 22
   %121 = load ptr, ptr %frame463, align 8
-  %call464 = call i32 @FLAC__frame_add_header(ptr noundef nonnull %frame_header, ptr noundef %121) #25
+  %call464 = call i32 @FLAC__frame_add_header(ptr noundef nonnull %frame_header, ptr noundef %121) #24
   %tobool465.not = icmp eq i32 %call464, 0
   %122 = load ptr, ptr %encoder, align 8
   br i1 %tobool465.not, label %if.then466, label %for.cond470.preheader
@@ -8548,7 +8548,7 @@ declare i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef, i32 noundef, i32 noun
 declare i32 @sem_post(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 declare i32 @FLAC__format_sample_rate_is_valid(i32 noundef) local_unnamed_addr #2
 
@@ -8569,8 +8569,8 @@ declare void @FLAC__cpu_info(ptr noundef) local_unnamed_addr #2
 
 declare void @FLAC__lpc_compute_autocorrelation(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @precompute_partition_info_sums_(ptr nocapture noundef readonly %residual, ptr nocapture noundef %abs_residual_partition_sums, i32 noundef %residual_samples, i32 noundef %predictor_order, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %bps) #14 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+define internal void @precompute_partition_info_sums_(ptr nocapture noundef readonly %residual, ptr nocapture noundef %abs_residual_partition_sums, i32 noundef %residual_samples, i32 noundef %predictor_order, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %bps) #13 {
 entry:
   %add = add i32 %predictor_order, %residual_samples
   %shr = lshr i32 %add, %max_partition_order
@@ -8779,8 +8779,8 @@ declare ptr @FLAC__stream_decoder_new() local_unnamed_addr #2
 
 declare i32 @FLAC__stream_decoder_init_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @verify_read_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %bytes, ptr nocapture noundef readonly %client_data) #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @verify_read_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %bytes, ptr nocapture noundef readonly %client_data) #5 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamEncoder, ptr %client_data, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -8842,7 +8842,7 @@ return:                                           ; preds = %if.then, %if.end13,
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @verify_write_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %buffer, ptr nocapture noundef readonly %client_data) #15 {
+define internal noundef i32 @verify_write_callback_(ptr nocapture readnone %decoder, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %buffer, ptr nocapture noundef readonly %client_data) #14 {
 entry:
   %channels1 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 2
   %0 = load i32, ptr %channels1, align 8
@@ -8977,13 +8977,13 @@ return:                                           ; preds = %for.body84, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @verify_metadata_callback_(ptr nocapture readnone %decoder, ptr nocapture readnone %metadata, ptr nocapture readnone %client_data) #16 {
+define internal void @verify_metadata_callback_(ptr nocapture readnone %decoder, ptr nocapture readnone %metadata, ptr nocapture readnone %client_data) #15 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @verify_error_callback_(ptr nocapture readnone %decoder, i32 %status, ptr nocapture noundef readonly %client_data) #17 {
+define internal void @verify_error_callback_(ptr nocapture readnone %decoder, i32 %status, ptr nocapture noundef readonly %client_data) #16 {
 entry:
   %0 = load ptr, ptr %client_data, align 8
   store i32 3, ptr %0, align 8
@@ -8991,20 +8991,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 declare void @FLAC__MD5Init(ptr noundef) local_unnamed_addr #2
 
 declare i32 @FLAC__add_metadata_block(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #19
+declare i32 @llvm.abs.i32(i32, i1 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #19
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #18
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @file_read_callback_(ptr nocapture noundef readonly %encoder, ptr nocapture noundef %buffer, ptr nocapture noundef %bytes, ptr nocapture readnone %client_data) #6 {
+define internal noundef i32 @file_read_callback_(ptr nocapture noundef readonly %encoder, ptr nocapture noundef %buffer, ptr nocapture noundef %bytes, ptr nocapture readnone %client_data) #6 {
 entry:
   %0 = load i64, ptr %bytes, align 8
   %private_ = getelementptr inbounds %struct.FLAC__StreamEncoder, ptr %encoder, i64 0, i32 1
@@ -9020,7 +9020,7 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %private_, align 8
   %file2 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %3, i64 0, i32 41
   %4 = load ptr, ptr %file2, align 8
-  %call3 = tail call i32 @feof(ptr noundef %4) #25
+  %call3 = tail call i32 @feof(ptr noundef %4) #24
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.else, label %return
 
@@ -9028,7 +9028,7 @@ if.else:                                          ; preds = %if.then
   %5 = load ptr, ptr %private_, align 8
   %file6 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %5, i64 0, i32 41
   %6 = load ptr, ptr %file6, align 8
-  %call7 = tail call i32 @ferror(ptr noundef %6) #25
+  %call7 = tail call i32 @ferror(ptr noundef %6) #24
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end11, label %return
 
@@ -9041,7 +9041,7 @@ return:                                           ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @file_write_callback_(ptr noundef %encoder, ptr nocapture noundef %buffer, i64 noundef %bytes, i32 noundef %samples, i32 %current_frame, ptr nocapture readnone %client_data) #0 {
+define internal noundef i32 @file_write_callback_(ptr noundef %encoder, ptr nocapture noundef %buffer, i64 noundef %bytes, i32 noundef %samples, i32 %current_frame, ptr nocapture readnone %client_data) #0 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamEncoder, ptr %encoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -9082,7 +9082,7 @@ if.then7:                                         ; preds = %land.rhs
   %9 = load i32, ptr %total_frames_estimate, align 4
   %client_data20 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %2, i64 0, i32 39
   %10 = load ptr, ptr %client_data20, align 8
-  tail call void %3(ptr noundef nonnull %encoder, i64 noundef %add, i64 noundef %add13, i32 noundef %add17, i32 noundef %9, ptr noundef %10) #25
+  tail call void %3(ptr noundef nonnull %encoder, i64 noundef %add, i64 noundef %add13, i32 noundef %add17, i32 noundef %9, ptr noundef %10) #24
   br label %return
 
 return:                                           ; preds = %entry, %land.rhs, %if.then7, %if.then
@@ -9091,7 +9091,7 @@ return:                                           ; preds = %entry, %land.rhs, %
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @file_seek_callback_(ptr nocapture noundef readonly %encoder, i64 noundef %absolute_byte_offset, ptr nocapture readnone %client_data) #6 {
+define internal noundef i32 @file_seek_callback_(ptr nocapture noundef readonly %encoder, i64 noundef %absolute_byte_offset, ptr nocapture readnone %client_data) #6 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamEncoder, ptr %encoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -9103,7 +9103,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @file_tell_callback_(ptr nocapture noundef readonly %encoder, ptr nocapture noundef writeonly %absolute_byte_offset, ptr nocapture readnone %client_data) #6 {
+define internal noundef i32 @file_tell_callback_(ptr nocapture noundef readonly %encoder, ptr nocapture noundef writeonly %absolute_byte_offset, ptr nocapture readnone %client_data) #6 {
 entry:
   %private_ = getelementptr inbounds %struct.FLAC__StreamEncoder, ptr %encoder, i64 0, i32 1
   %0 = load ptr, ptr %private_, align 8
@@ -9129,7 +9129,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
@@ -9292,13 +9292,13 @@ if.then8:                                         ; preds = %if.then6
 if.then12:                                        ; preds = %if.then8
   %local_fixed_compute_best_predictor = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %16, i64 0, i32 15
   %17 = load ptr, ptr %local_fixed_compute_best_predictor, align 8
-  %call16 = call i32 %17(ptr noundef nonnull %add.ptr, i32 noundef %sub15, ptr noundef nonnull %fixed_residual_bits_per_sample) #25
+  %call16 = call i32 %17(ptr noundef nonnull %add.ptr, i32 noundef %sub15, ptr noundef nonnull %fixed_residual_bits_per_sample) #24
   br label %if.end41
 
 if.else17:                                        ; preds = %if.then8
   %local_fixed_compute_best_predictor_wide = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %16, i64 0, i32 16
   %18 = load ptr, ptr %local_fixed_compute_best_predictor_wide, align 8
-  %call23 = call i32 %18(ptr noundef nonnull %add.ptr, i32 noundef %sub15, ptr noundef nonnull %fixed_residual_bits_per_sample) #25
+  %call23 = call i32 %18(ptr noundef nonnull %add.ptr, i32 noundef %sub15, ptr noundef nonnull %fixed_residual_bits_per_sample) #24
   br label %if.end41
 
 if.else25:                                        ; preds = %if.then6
@@ -9311,13 +9311,13 @@ if.then27:                                        ; preds = %if.else25
   %20 = load ptr, ptr %local_fixed_compute_best_predictor_limit_residual, align 8
   %add.ptr29 = getelementptr inbounds i32, ptr %integer_signal, i64 4
   %sub31 = add i32 %13, -4
-  %call33 = call i32 %20(ptr noundef nonnull %add.ptr29, i32 noundef %sub31, ptr noundef nonnull %fixed_residual_bits_per_sample) #25
+  %call33 = call i32 %20(ptr noundef nonnull %add.ptr29, i32 noundef %sub31, ptr noundef nonnull %fixed_residual_bits_per_sample) #24
   br label %if.end41
 
 if.else34:                                        ; preds = %if.else25
   %add.ptr35 = getelementptr inbounds i64, ptr %integer_signal, i64 4
   %sub37 = add i32 %13, -4
-  %call39 = call i32 @FLAC__fixed_compute_best_predictor_limit_residual_33bit(ptr noundef nonnull %add.ptr35, i32 noundef %sub37, ptr noundef nonnull %fixed_residual_bits_per_sample) #25
+  %call39 = call i32 @FLAC__fixed_compute_best_predictor_limit_residual_33bit(ptr noundef nonnull %add.ptr35, i32 noundef %sub37, ptr noundef nonnull %fixed_residual_bits_per_sample) #24
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then27, %if.else34, %if.then12, %if.else17
@@ -9481,7 +9481,7 @@ if.end141:                                        ; preds = %for.body134
 
 if.then.i:                                        ; preds = %if.end141
   %add.ptr.i = getelementptr inbounds i32, ptr %integer_signal, i64 %idxprom135
-  call void @FLAC__fixed_compute_residual(ptr noundef %add.ptr.i, i32 noundef %sub.i, i32 noundef %fixed_order.0232, ptr noundef %44) #25
+  call void @FLAC__fixed_compute_residual(ptr noundef %add.ptr.i, i32 noundef %sub.i, i32 noundef %fixed_order.0232, ptr noundef %44) #24
   br label %if.end8.i
 
 if.else.i:                                        ; preds = %if.end141
@@ -9489,12 +9489,12 @@ if.else.i:                                        ; preds = %if.end141
 
 if.then2.i:                                       ; preds = %if.else.i
   %add.ptr4.i = getelementptr inbounds i32, ptr %integer_signal, i64 %idxprom135
-  call void @FLAC__fixed_compute_residual_wide(ptr noundef %add.ptr4.i, i32 noundef %sub.i, i32 noundef %fixed_order.0232, ptr noundef %44) #25
+  call void @FLAC__fixed_compute_residual_wide(ptr noundef %add.ptr4.i, i32 noundef %sub.i, i32 noundef %fixed_order.0232, ptr noundef %44) #24
   br label %if.end8.i
 
 if.else5.i:                                       ; preds = %if.else.i
   %add.ptr7.i = getelementptr inbounds i64, ptr %integer_signal, i64 %idxprom135
-  call void @FLAC__fixed_compute_residual_wide_33bit(ptr noundef %add.ptr7.i, i32 noundef %sub.i, i32 noundef %fixed_order.0232, ptr noundef %44) #25
+  call void @FLAC__fixed_compute_residual_wide_33bit(ptr noundef %add.ptr7.i, i32 noundef %sub.i, i32 noundef %fixed_order.0232, ptr noundef %44) #24
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else5.i, %if.then2.i, %if.then.i
@@ -9662,11 +9662,11 @@ if.then.i171:                                     ; preds = %while.body
   br i1 %cmp38.i, label %if.then2.i181, label %if.else.i174
 
 if.then2.i181:                                    ; preds = %if.then.i171
-  call void @FLAC__lpc_window_data(ptr noundef %integer_signal, ptr noundef %76, ptr noundef %77, i32 noundef %73) #25
+  call void @FLAC__lpc_window_data(ptr noundef %integer_signal, ptr noundef %76, ptr noundef %77, i32 noundef %73) #24
   br label %if.end.i
 
 if.else.i174:                                     ; preds = %if.then.i171
-  call void @FLAC__lpc_window_data_wide(ptr noundef %integer_signal, ptr noundef %76, ptr noundef %77, i32 noundef %73) #25
+  call void @FLAC__lpc_window_data_wide(ptr noundef %integer_signal, ptr noundef %76, ptr noundef %77, i32 noundef %73) #24
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i174, %if.then2.i181
@@ -9676,7 +9676,7 @@ if.end.i:                                         ; preds = %if.else.i174, %if.t
   %80 = load ptr, ptr %windowed_signal46.i, align 8
   %81 = load i32, ptr %max_lpc_order_this_apodization, align 4
   %add.i175 = add i32 %81, 1
-  call void %79(ptr noundef %80, i32 noundef %73, i32 noundef %add.i175, ptr noundef nonnull %autoc77.i) #25
+  call void %79(ptr noundef %80, i32 noundef %73, i32 noundef %add.i175, ptr noundef nonnull %autoc77.i) #24
   %82 = load ptr, ptr %current_apodization.i, align 8
   %83 = load i32, ptr %82, align 4
   %cmp15.i = icmp eq i32 %83, 16
@@ -9783,11 +9783,11 @@ if.then37.i:                                      ; preds = %if.end35.i
   br i1 %cmp38.i, label %if.then40.i, label %if.else55.i
 
 if.then40.i:                                      ; preds = %if.then37.i
-  call void @FLAC__lpc_window_data_partial(ptr noundef %integer_signal, ptr noundef %92, ptr noundef %93, i32 noundef %73, i32 noundef %div4981.i, i32 noundef %div54.i) #25
+  call void @FLAC__lpc_window_data_partial(ptr noundef %integer_signal, ptr noundef %92, ptr noundef %93, i32 noundef %73, i32 noundef %div4981.i, i32 noundef %div54.i) #24
   br label %if.end70.i
 
 if.else55.i:                                      ; preds = %if.then37.i
-  call void @FLAC__lpc_window_data_partial_wide(ptr noundef %integer_signal, ptr noundef %92, ptr noundef %93, i32 noundef %73, i32 noundef %div4981.i, i32 noundef %div54.i) #25
+  call void @FLAC__lpc_window_data_partial_wide(ptr noundef %integer_signal, ptr noundef %92, ptr noundef %93, i32 noundef %73, i32 noundef %div4981.i, i32 noundef %div54.i) #24
   br label %if.end70.i
 
 if.end70.i:                                       ; preds = %if.else55.i, %if.then40.i
@@ -9799,7 +9799,7 @@ if.end70.i:                                       ; preds = %if.else55.i, %if.th
   %div75.i = udiv i32 %73, %97
   %98 = load i32, ptr %max_lpc_order_this_apodization, align 4
   %add76.i = add i32 %98, 1
-  call void %95(ptr noundef %96, i32 noundef %div75.i, i32 noundef %add76.i, ptr noundef nonnull %autoc77.i) #25
+  call void %95(ptr noundef %96, i32 noundef %div75.i, i32 noundef %add76.i, ptr noundef nonnull %autoc77.i) #24
   %.pre.i = load ptr, ptr %current_apodization.i, align 8
   %.pre107.i = load i32, ptr %b, align 4
   %.pre108.i = load i32, ptr %c, align 8
@@ -9880,7 +9880,7 @@ if.end104.i.apply_apodization_.exit_crit_edge:    ; preds = %if.end104.i
   br label %apply_apodization_.exit
 
 if.end110.i:                                      ; preds = %if.end104.i
-  call void @FLAC__lpc_compute_lp_coefficients(ptr noundef nonnull %autoc77.i, ptr noundef nonnull %max_lpc_order_this_apodization, ptr noundef nonnull %lp_coeff.i, ptr noundef nonnull %lpc_error) #25
+  call void @FLAC__lpc_compute_lp_coefficients(ptr noundef nonnull %autoc77.i, ptr noundef nonnull %max_lpc_order_this_apodization, ptr noundef nonnull %lp_coeff.i, ptr noundef nonnull %lpc_error) #24
   %108 = load i32, ptr %max_lpc_order_this_apodization, align 4
   %109 = load ptr, ptr %encoder, align 8
   %do_qlp_coeff_prec_search.i = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %109, i64 0, i32 14
@@ -9904,7 +9904,7 @@ apply_apodization_.exit:                          ; preds = %if.end104.i.apply_a
 if.end201:                                        ; preds = %if.end110.i, %cond.false.i
   %cond.i = phi i32 [ %111, %cond.false.i ], [ 5, %if.end110.i ]
   %add117.i = add i32 %cond.i, %subframe_bps
-  %call.i170 = call i32 @FLAC__lpc_compute_best_order(ptr noundef nonnull %lpc_error, i32 noundef %108, i32 noundef %73, i32 noundef %add117.i) #25
+  %call.i170 = call i32 @FLAC__lpc_compute_best_order(ptr noundef nonnull %lpc_error, i32 noundef %108, i32 noundef %73, i32 noundef %add117.i) #24
   %115 = load ptr, ptr %encoder, align 8
   %do_exhaustive_model_search203 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %115, i64 0, i32 15
   %116 = load i32, ptr %do_exhaustive_model_search203, align 8
@@ -9934,7 +9934,7 @@ for.body211:                                      ; preds = %for.body211.prehead
   %117 = load double, ptr %arrayidx214, align 8
   %118 = load i32, ptr %frame_header, align 8
   %sub216 = sub i32 %118, %lpc_order.0251
-  %call217 = call reassoc nsz arcp double @FLAC__lpc_compute_expected_bits_per_residual_sample(double noundef %117, i32 noundef %sub216) #25
+  %call217 = call reassoc nsz arcp double @FLAC__lpc_compute_expected_bits_per_residual_sample(double noundef %117, i32 noundef %sub216) #24
   %cmp219 = fcmp reassoc nsz arcp ult double %call217, %conv218
   br i1 %cmp219, label %if.end222, label %for.inc298
 
@@ -9998,13 +9998,13 @@ for.body256:                                      ; preds = %for.body256.lr.ph, 
   %sub.i184 = sub i32 %128, %lpc_order.0251
   %spec.select.i209 = call i32 @llvm.umin.i32(i32 %sub2.i, i32 %qlp_coeff_precision.0243)
   %qlp_coeff_precision.addr.0.i = select i1 %cmp226, i32 %spec.select.i209, i32 %qlp_coeff_precision.0243
-  %call7.i = call i32 @FLAC__lpc_quantize_coefficients(ptr noundef nonnull %arrayidx266, i32 noundef %lpc_order.0251, i32 noundef %qlp_coeff_precision.addr.0.i, ptr noundef nonnull %qlp_coeff.i, ptr noundef nonnull %quantization.i) #25
+  %call7.i = call i32 @FLAC__lpc_quantize_coefficients(ptr noundef nonnull %arrayidx266, i32 noundef %lpc_order.0251, i32 noundef %qlp_coeff_precision.addr.0.i, ptr noundef nonnull %qlp_coeff.i, ptr noundef nonnull %quantization.i) #24
   %cmp8.not.i = icmp eq i32 %call7.i, 0
   br i1 %cmp8.not.i, label %if.end10.i, label %evaluate_lpc_subframe_.exit
 
 if.end10.i:                                       ; preds = %for.body256
   %133 = load i32, ptr %quantization.i, align 4
-  %call12.i = call i32 @FLAC__lpc_max_residual_bps(i32 noundef %subframe_bps, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251, i32 noundef %133) #25
+  %call12.i = call i32 @FLAC__lpc_max_residual_bps(i32 noundef %subframe_bps, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251, i32 noundef %133) #24
   %cmp13.i = icmp ugt i32 %call12.i, 32
   br i1 %cmp13.i, label %if.then14.i, label %if.else29.i
 
@@ -10013,17 +10013,17 @@ if.then14.i:                                      ; preds = %if.end10.i
   br i1 %cmp38.i, label %if.then16.i, label %if.else.i205
 
 if.then16.i:                                      ; preds = %if.then14.i
-  %call18.i = call i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251, i32 noundef %134, ptr noundef %125) #25
+  %call18.i = call i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251, i32 noundef %134, ptr noundef %125) #24
   %tobool.not.i207 = icmp eq i32 %call18.i, 0
   br i1 %tobool.not.i207, label %evaluate_lpc_subframe_.exit, label %if.end52.i
 
 if.else.i205:                                     ; preds = %if.then14.i
-  %call24.i = call i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual_33bit(ptr noundef %add.ptr22.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251, i32 noundef %134, ptr noundef %125) #25
+  %call24.i = call i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual_33bit(ptr noundef %add.ptr22.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251, i32 noundef %134, ptr noundef %125) #24
   %tobool25.not.i = icmp eq i32 %call24.i, 0
   br i1 %tobool25.not.i, label %evaluate_lpc_subframe_.exit, label %if.end52.i
 
 if.else29.i:                                      ; preds = %if.end10.i
-  %call31.i = call i32 @FLAC__lpc_max_prediction_before_shift_bps(i32 noundef %subframe_bps, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251) #25
+  %call31.i = call i32 @FLAC__lpc_max_prediction_before_shift_bps(i32 noundef %subframe_bps, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251) #24
   %cmp32.i = icmp ult i32 %call31.i, 33
   %135 = load i32, ptr %quantization.i, align 4
   br i1 %cmp32.i, label %if.then33.i, label %if.else46.i
@@ -10050,7 +10050,7 @@ if.else46.i:                                      ; preds = %if.else29.i
 if.end52.i.sink.split:                            ; preds = %if.then36.i, %if.else40.i, %if.else46.i
   %local_lpc_compute_residual_from_qlp_coefficients_64bit.i.sink = phi ptr [ %local_lpc_compute_residual_from_qlp_coefficients_64bit.i, %if.else46.i ], [ %local_lpc_compute_residual_from_qlp_coefficients.i, %if.else40.i ], [ %local_lpc_compute_residual_from_qlp_coefficients_16bit.i, %if.then36.i ]
   %138 = load ptr, ptr %local_lpc_compute_residual_from_qlp_coefficients_64bit.i.sink, align 8
-  call void %138(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251, i32 noundef %135, ptr noundef %125) #25
+  call void %138(ptr noundef %add.ptr49.i, i32 noundef %sub.i184, ptr noundef nonnull %qlp_coeff.i, i32 noundef %lpc_order.0251, i32 noundef %135, ptr noundef %125) #24
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.end52.i.sink.split, %if.else.i205, %if.then16.i
@@ -10176,7 +10176,7 @@ if.end312:                                        ; preds = %if.then307, %if.end
 declare i32 @FLAC__frame_add_header(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @add_subframe_(ptr nocapture noundef readonly %encoder, i32 noundef %blocksize, i32 noundef %subframe_bps, ptr noundef %subframe, ptr noundef %frame) unnamed_addr #0 {
+define internal fastcc noundef i32 @add_subframe_(ptr nocapture noundef readonly %encoder, i32 noundef %blocksize, i32 noundef %subframe_bps, ptr noundef %subframe, ptr noundef %frame) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %subframe, align 8
   switch i32 %0, label %return [
@@ -10190,7 +10190,7 @@ sw.bb:                                            ; preds = %entry
   %data = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframe, i64 0, i32 1
   %wasted_bits = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframe, i64 0, i32 2
   %1 = load i32, ptr %wasted_bits, align 8
-  %call = tail call i32 @FLAC__subframe_add_constant(ptr noundef nonnull %data, i32 noundef %subframe_bps, i32 noundef %1, ptr noundef %frame) #25
+  %call = tail call i32 @FLAC__subframe_add_constant(ptr noundef nonnull %data, i32 noundef %subframe_bps, i32 noundef %1, ptr noundef %frame) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return.sink.split, label %return
 
@@ -10201,7 +10201,7 @@ sw.bb1:                                           ; preds = %entry
   %sub = sub i32 %blocksize, %2
   %wasted_bits4 = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframe, i64 0, i32 2
   %3 = load i32, ptr %wasted_bits4, align 8
-  %call5 = tail call i32 @FLAC__subframe_add_fixed(ptr noundef nonnull %data2, i32 noundef %sub, i32 noundef %subframe_bps, i32 noundef %3, ptr noundef %frame) #25
+  %call5 = tail call i32 @FLAC__subframe_add_fixed(ptr noundef nonnull %data2, i32 noundef %sub, i32 noundef %subframe_bps, i32 noundef %3, ptr noundef %frame) #24
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return.sink.split, label %return
 
@@ -10212,7 +10212,7 @@ sw.bb11:                                          ; preds = %entry
   %sub15 = sub i32 %blocksize, %4
   %wasted_bits16 = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframe, i64 0, i32 2
   %5 = load i32, ptr %wasted_bits16, align 8
-  %call17 = tail call i32 @FLAC__subframe_add_lpc(ptr noundef nonnull %data12, i32 noundef %sub15, i32 noundef %subframe_bps, i32 noundef %5, ptr noundef %frame) #25
+  %call17 = tail call i32 @FLAC__subframe_add_lpc(ptr noundef nonnull %data12, i32 noundef %sub15, i32 noundef %subframe_bps, i32 noundef %5, ptr noundef %frame) #24
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %return.sink.split, label %return
 
@@ -10220,7 +10220,7 @@ sw.bb23:                                          ; preds = %entry
   %data24 = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframe, i64 0, i32 1
   %wasted_bits25 = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframe, i64 0, i32 2
   %6 = load i32, ptr %wasted_bits25, align 8
-  %call26 = tail call i32 @FLAC__subframe_add_verbatim(ptr noundef nonnull %data24, i32 noundef %blocksize, i32 noundef %subframe_bps, i32 noundef %6, ptr noundef %frame) #25
+  %call26 = tail call i32 @FLAC__subframe_add_verbatim(ptr noundef nonnull %data24, i32 noundef %blocksize, i32 noundef %subframe_bps, i32 noundef %6, ptr noundef %frame) #24
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return.sink.split, label %return
 
@@ -10248,11 +10248,11 @@ declare void @FLAC__fixed_compute_residual_wide_33bit(ptr noundef, i32 noundef, 
 define internal fastcc i32 @find_best_partition_order_(ptr nocapture noundef readonly %private_, ptr nocapture noundef readonly %threadtask, ptr noundef %residual, ptr noundef %abs_residual_partition_sums, ptr nocapture noundef %raw_bits_per_partition, i32 noundef %residual_samples, i32 noundef %predictor_order, i32 noundef %rice_parameter_limit, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %bps, i32 noundef %do_escape_coding, ptr nocapture noundef %best_ecm) unnamed_addr #0 {
 entry:
   %add = add i32 %predictor_order, %residual_samples
-  %call = tail call i32 @FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order(i32 noundef %max_partition_order, i32 noundef %add, i32 noundef %predictor_order) #25
+  %call = tail call i32 @FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order(i32 noundef %max_partition_order, i32 noundef %add, i32 noundef %predictor_order) #24
   %cond = tail call i32 @llvm.umin.i32(i32 %call, i32 %min_partition_order)
   %local_precompute_partition_info_sums = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %private_, i64 0, i32 14
   %0 = load ptr, ptr %local_precompute_partition_info_sums, align 8
-  tail call void %0(ptr noundef %residual, ptr noundef %abs_residual_partition_sums, i32 noundef %residual_samples, i32 noundef %predictor_order, i32 noundef %cond, i32 noundef %call, i32 noundef %bps) #25
+  tail call void %0(ptr noundef %residual, ptr noundef %abs_residual_partition_sums, i32 noundef %residual_samples, i32 noundef %predictor_order, i32 noundef %cond, i32 noundef %call, i32 noundef %bps) #24
   %tobool.not = icmp eq i32 %do_escape_coding, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -10535,7 +10535,7 @@ for.end46:                                        ; preds = %for.cond33, %if.the
 declare i32 @FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 
 declare void @FLAC__lpc_window_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -10568,28 +10568,28 @@ declare i32 @FLAC__subframe_add_lpc(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare i32 @FLAC__subframe_add_verbatim(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #21
+declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.uadd.sat.i32(i32, i32) #21
+declare i32 @llvm.uadd.sat.i32(i32, i32) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #21
+declare i32 @llvm.fshl.i32(i32, i32, i32) #20
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10601,23 +10601,22 @@ attributes #6 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-l
 attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree nounwind memory(read) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #24 = { nounwind allocsize(0,1) }
-attributes #25 = { nounwind }
-attributes #26 = { nounwind willreturn memory(read) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nofree nounwind memory(read) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #23 = { nounwind allocsize(0,1) }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

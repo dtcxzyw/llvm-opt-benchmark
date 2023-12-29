@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ERR_OSSLTEST_error = private unnamed_addr constant [19 x i8] c"ERR_OSSLTEST_error\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
+define noundef i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.inv = icmp ult i64 %v, 196608
   %. = select i1 %cmp.inv, i64 0, i64 196608
@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define noundef i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #8
   %0 = load ptr, ptr %fns, align 8
@@ -76,8 +76,7 @@ land.lhs.true.i:                                  ; preds = %skip_cbs
 
 bind_helper.exit:                                 ; preds = %skip_cbs, %land.lhs.true.i
   %call1.i = tail call fastcc i32 @bind_ossltest(ptr noundef %e), !range !4
-  %call1.i.fr = freeze i32 %call1.i
-  %tobool.not = icmp eq i32 %call1.i.fr, 0
+  %tobool.not = icmp eq i32 %call1.i, 0
   br i1 %tobool.not, label %bind_helper.exit.thread, label %4
 
 bind_helper.exit.thread:                          ; preds = %land.lhs.true.i, %bind_helper.exit
@@ -130,7 +129,7 @@ declare void @ERR_clear_error() local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bind_ossltest(ptr noundef %e) unnamed_addr #1 {
+define internal fastcc noundef i32 @bind_ossltest(ptr noundef %e) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @lib_code, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -382,7 +381,7 @@ return:                                           ; preds = %sw.bb, %sw.bb2, %sw
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
+define internal noundef i32 @ossltest_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -596,7 +595,7 @@ declare i32 @ENGINE_set_RAND(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_destroy_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_destroy(ptr nocapture readnone %e) #1 {
+define internal noundef i32 @ossltest_destroy(ptr nocapture readnone %e) #1 {
 entry:
   %0 = load ptr, ptr @_hidden_md5_md, align 8
   tail call void @EVP_MD_meth_free(ptr noundef %0) #8
@@ -692,7 +691,7 @@ load_key.exit:                                    ; preds = %entry, %cond.true.i
 declare i32 @ENGINE_set_init_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @ossltest_init(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @ossltest_init(ptr nocapture readnone %e) #0 {
 entry:
   ret i32 1
 }
@@ -700,7 +699,7 @@ entry:
 declare i32 @ENGINE_set_finish_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @ossltest_finish(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @ossltest_finish(ptr nocapture readnone %e) #0 {
 entry:
   ret i32 1
 }
@@ -1333,7 +1332,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_aes128_gcm_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
+define internal noundef i32 @ossltest_aes128_gcm_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef %inl, ptr noundef nonnull @.str.1, i32 noundef 734) #8
   %cmp = icmp eq ptr %call, null
@@ -1403,7 +1402,7 @@ declare ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_aes128_cbc_hmac_sha1_init_key(ptr noundef %ctx, ptr nocapture readnone %inkey, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal noundef i32 @ossltest_aes128_cbc_hmac_sha1_init_key(ptr noundef %ctx, ptr nocapture readnone %inkey, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   store i64 -1, ptr %call, align 8
@@ -1411,7 +1410,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_aes128_cbc_hmac_sha1_cipher(ptr noundef %ctx, ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef %len) #1 {
+define internal noundef i32 @ossltest_aes128_cbc_hmac_sha1_cipher(ptr noundef %ctx, ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef %len) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   %0 = load i64, ptr %call, align 8
@@ -1623,7 +1622,7 @@ declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define internal i32 @ossltest_rand_bytes(ptr nocapture noundef writeonly %buf, i32 noundef %num) #6 {
+define internal noundef i32 @ossltest_rand_bytes(ptr nocapture noundef writeonly %buf, i32 noundef %num) #6 {
 entry:
   %cmp1 = icmp sgt i32 %num, 0
   br i1 %cmp1, label %while.body, label %while.end
@@ -1644,7 +1643,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @ossltest_rand_status() #0 {
+define internal noundef i32 @ossltest_rand_status() #0 {
 entry:
   ret i32 1
 }

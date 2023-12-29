@@ -89,7 +89,7 @@ return:                                           ; preds = %OPENSSL_strnlen.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @OPENSSL_strnlen(ptr noundef %str, i64 noundef %maxlen) local_unnamed_addr #4 {
+define noundef i64 @OPENSSL_strnlen(ptr noundef %str, i64 noundef %maxlen) local_unnamed_addr #4 {
 entry:
   %cmp.not5 = icmp eq i64 %maxlen, 0
   br i1 %cmp.not5, label %for.end, label %land.rhs.preheader
@@ -252,7 +252,7 @@ OPENSSL_strlcpy.exit:                             ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OPENSSL_hexchar2int(i8 noundef zeroext %c) local_unnamed_addr #7 {
+define noundef i32 @OPENSSL_hexchar2int(i8 noundef zeroext %c) local_unnamed_addr #7 {
 entry:
   %switch.tableidx = add i8 %c, -48
   %0 = icmp ult i8 %switch.tableidx, 55
@@ -270,14 +270,14 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_hexstr2buf_ex(ptr noundef %buf, i64 noundef %buf_n, ptr noundef %buflen, ptr nocapture noundef readonly %str, i8 noundef signext %sep) local_unnamed_addr #0 {
+define noundef i32 @OPENSSL_hexstr2buf_ex(ptr noundef %buf, i64 noundef %buf_n, ptr noundef %buflen, ptr nocapture noundef readonly %str, i8 noundef signext %sep) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @hexstr2buf_sep(ptr noundef %buf, i64 noundef %buf_n, ptr noundef %buflen, ptr noundef %str, i8 noundef signext %sep), !range !8
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hexstr2buf_sep(ptr noundef writeonly %buf, i64 noundef %buf_n, ptr noundef writeonly %buflen, ptr nocapture noundef readonly %str, i8 noundef signext %sep) unnamed_addr #0 {
+define internal fastcc noundef i32 @hexstr2buf_sep(ptr noundef writeonly %buf, i64 noundef %buf_n, ptr noundef writeonly %buflen, ptr nocapture noundef readonly %str, i8 noundef signext %sep) unnamed_addr #0 {
 entry:
   %conv1 = sext i8 %sep to i32
   br label %for.cond.outer
@@ -315,10 +315,9 @@ if.then8:                                         ; preds = %if.end
 if.end9:                                          ; preds = %if.end
   %call = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %1), !range !10
   %call10 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %0), !range !10
-  %cmp11 = icmp slt i32 %call, 0
-  %cmp13 = icmp slt i32 %call10, 0
-  %or.cond1 = select i1 %cmp11, i1 true, i1 %cmp13
-  br i1 %or.cond1, label %if.then15, label %if.end16
+  %2 = or i32 %call10, %call
+  %or.cond1.not = icmp sgt i32 %2, -1
+  br i1 %or.cond1.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end9
   tail call void @ERR_new() #10
@@ -433,14 +432,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_buf2hexstr_ex(ptr noundef %str, i64 noundef %str_n, ptr noundef %strlength, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i8 noundef signext %sep) local_unnamed_addr #0 {
+define noundef i32 @OPENSSL_buf2hexstr_ex(ptr noundef %str, i64 noundef %str_n, ptr noundef %strlength, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i8 noundef signext %sep) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @buf2hexstr_sep(ptr noundef %str, i64 noundef %str_n, ptr noundef %strlength, ptr noundef %buf, i64 noundef %buflen, i8 noundef signext %sep), !range !8
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @buf2hexstr_sep(ptr noundef writeonly %str, i64 noundef %str_n, ptr noundef writeonly %strlength, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i8 noundef signext %sep) unnamed_addr #0 {
+define internal fastcc noundef i32 @buf2hexstr_sep(ptr noundef writeonly %str, i64 noundef %str_n, ptr noundef writeonly %strlength, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i8 noundef signext %sep) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ne i8 %sep, 0
   %mul = mul i64 %buflen, 3

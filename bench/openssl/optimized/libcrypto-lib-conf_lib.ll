@@ -50,7 +50,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @NCONF_default() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define i32 @CONF_set_default_method(ptr noundef %meth) local_unnamed_addr #2 {
+define noundef i32 @CONF_set_default_method(ptr noundef %meth) local_unnamed_addr #2 {
 entry:
   store ptr %meth, ptr @default_CONF_method, align 8
   ret i32 1
@@ -392,7 +392,7 @@ if.end3.i:                                        ; preds = %if.then
   %conv.i8 = sext i8 %0 to i32
   %call.i9 = tail call i32 @ossl_isdigit(i32 noundef %conv.i8) #14
   %tobool.not20.i = icmp eq i32 %call.i9, 0
-  br i1 %tobool.not20.i, label %if.end.thread14, label %for.body.i
+  br i1 %tobool.not20.i, label %if.end.thread13, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end3.i, %if.end25.i
   %res.022.i = phi i64 [ %add.i, %if.end25.i ], [ 0, %if.end3.i ]
@@ -418,11 +418,11 @@ if.end25.i:                                       ; preds = %for.body.i
   %conv.i4 = sext i8 %2 to i32
   %call.i5 = tail call i32 @ossl_isdigit(i32 noundef %conv.i4) #14
   %tobool.not.i = icmp eq i32 %call.i5, 0
-  br i1 %tobool.not.i, label %if.end.thread14, label %for.body.i, !llvm.loop !4
+  br i1 %tobool.not.i, label %if.end.thread13, label %for.body.i, !llvm.loop !4
 
-if.end.thread14:                                  ; preds = %if.end25.i, %if.end3.i
+if.end.thread13:                                  ; preds = %if.end25.i, %if.end3.i
   %res.0.lcssa.i = phi i64 [ 0, %if.end3.i ], [ %add.i, %if.end25.i ]
-  %call316 = tail call i32 @ERR_pop_to_mark() #14
+  %call315 = tail call i32 @ERR_pop_to_mark() #14
   br label %8
 
 if.else:                                          ; preds = %entry
@@ -450,23 +450,22 @@ if.end:                                           ; preds = %if.then.i, %if.else
   store ptr %conf, ptr %data.i, align 8
   %call2 = call i32 @NCONF_get_number_e(ptr noundef nonnull %ctmp, ptr noundef %group, ptr noundef %name, ptr noundef nonnull %result), !range !6
   %call3 = call i32 @ERR_pop_to_mark() #14
-  %call2.fr = freeze i32 %call2
-  %cmp4 = icmp eq i32 %call2.fr, 0
+  %cmp4 = icmp eq i32 %call2, 0
   %6 = load i64, ptr %result, align 8
   br i1 %cmp4, label %7, label %8
 
 7:                                                ; preds = %if.end.thread, %if.end
   br label %8
 
-8:                                                ; preds = %if.end.thread14, %if.end, %7
-  %9 = phi i64 [ 0, %7 ], [ %6, %if.end ], [ %res.0.lcssa.i, %if.end.thread14 ]
+8:                                                ; preds = %if.end.thread13, %if.end, %7
+  %9 = phi i64 [ 0, %7 ], [ %6, %if.end ], [ %res.0.lcssa.i, %if.end.thread13 ]
   ret i64 %9
 }
 
 declare i32 @ERR_set_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @NCONF_get_number_e(ptr noundef %conf, ptr noundef %group, ptr noundef %name, ptr noundef writeonly %result) local_unnamed_addr #0 {
+define noundef i32 @NCONF_get_number_e(ptr noundef %conf, ptr noundef %group, ptr noundef %name, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %result, null
   br i1 %cmp, label %if.then, label %if.end
@@ -976,7 +975,7 @@ return:                                           ; preds = %NCONF_dump_bio.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noalias ptr @OPENSSL_INIT_new() local_unnamed_addr #6 {
+define noalias noundef ptr @OPENSSL_INIT_new() local_unnamed_addr #6 {
 entry:
   %calloc = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %cmp = icmp eq ptr %calloc, null
@@ -992,7 +991,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define i32 @OPENSSL_INIT_set_config_filename(ptr nocapture noundef %settings, ptr noundef readonly %filename) local_unnamed_addr #7 {
+define noundef i32 @OPENSSL_INIT_set_config_filename(ptr nocapture noundef %settings, ptr noundef readonly %filename) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %filename, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -1029,7 +1028,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define i32 @OPENSSL_INIT_set_config_appname(ptr nocapture noundef %settings, ptr noundef readonly %appname) local_unnamed_addr #7 {
+define noundef i32 @OPENSSL_INIT_set_config_appname(ptr nocapture noundef %settings, ptr noundef readonly %appname) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %appname, null
   br i1 %cmp.not, label %if.end3, label %if.then

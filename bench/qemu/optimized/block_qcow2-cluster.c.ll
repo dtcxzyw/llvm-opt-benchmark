@@ -415,7 +415,7 @@ for.body:                                         ; preds = %do.end67, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %do.end67 ]
   %arrayidx = getelementptr i64, ptr %call, i64 %indvars.iv
   %12 = load i64, ptr %arrayidx, align 8
-  %13 = tail call i64 @llvm.bswap.i64(i64 %12)
+  %13 = tail call noundef i64 @llvm.bswap.i64(i64 %12)
   store i64 %13, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %l1_size, align 8
@@ -438,7 +438,7 @@ for.body85:                                       ; preds = %for.cond81.preheade
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %for.body85 ], [ 0, %for.cond81.preheader ]
   %arrayidx87 = getelementptr i64, ptr %call, i64 %indvars.iv80
   %18 = load i64, ptr %arrayidx87, align 8
-  %19 = tail call i64 @llvm.bswap.i64(i64 %18)
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
   store i64 %19, ptr %arrayidx87, align 8
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %20 = load i32, ptr %l1_size, align 8
@@ -556,7 +556,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr i64, ptr %.pre, i64 %idxprom
   %10 = load i64, ptr %arrayidx, align 8
-  %11 = tail call i64 @llvm.bswap.i64(i64 %10)
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %10)
   %arrayidx27 = getelementptr i64, ptr %call, i64 %indvars.iv
   store i64 %11, ptr %arrayidx27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -720,7 +720,7 @@ if.end23:                                         ; preds = %if.end18
   %idxprom.i = sext i32 %conv1.i110 to i64
   %arrayidx.i = getelementptr i64, ptr %20, i64 %idxprom.i
   %25 = load i64, ptr %arrayidx.i, align 8
-  %26 = call i64 @llvm.bswap.i64(i64 %25)
+  %26 = call noundef i64 @llvm.bswap.i64(i64 %25)
   %and.i.i = and i64 %.val86, 16
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.not.i, label %get_l2_bitmap.exit, label %if.then.i
@@ -731,7 +731,7 @@ if.then.i:                                        ; preds = %if.end23
   %idxprom.i112 = sext i32 %add.i111 to i64
   %arrayidx.i113 = getelementptr i64, ptr %20, i64 %idxprom.i112
   %27 = load i64, ptr %arrayidx.i113, align 8
-  %28 = call i64 @llvm.bswap.i64(i64 %27)
+  %28 = call noundef i64 @llvm.bswap.i64(i64 %27)
   br label %get_l2_bitmap.exit
 
 get_l2_bitmap.exit:                               ; preds = %if.end23, %if.then.i
@@ -868,7 +868,7 @@ for.body.i:                                       ; preds = %if.end32.i, %for.bo
   %idxprom.i.i = sext i32 %conv1.i.i126 to i64
   %arrayidx.i.i = getelementptr i64, ptr %35, i64 %idxprom.i.i
   %43 = load i64, ptr %arrayidx.i.i, align 8
-  %44 = call i64 @llvm.bswap.i64(i64 %43)
+  %44 = call noundef i64 @llvm.bswap.i64(i64 %43)
   %and.i.i.i127 = and i64 %.val.i, 16
   %tobool.i.not.i.i128 = icmp eq i64 %and.i.i.i127, 0
   br i1 %tobool.i.not.i.i128, label %get_l2_bitmap.exit.i, label %if.then.i.i
@@ -879,7 +879,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   %idxprom.i26.i = sext i32 %add.i.i to i64
   %arrayidx.i27.i = getelementptr i64, ptr %35, i64 %idxprom.i26.i
   %45 = load i64, ptr %arrayidx.i27.i, align 8
-  %46 = call i64 @llvm.bswap.i64(i64 %45)
+  %46 = call noundef i64 @llvm.bswap.i64(i64 %45)
   br label %get_l2_bitmap.exit.i
 
 get_l2_bitmap.exit.i:                             ; preds = %if.then.i.i, %for.body.i
@@ -1232,7 +1232,7 @@ do.end:                                           ; preds = %if.end26, %if.then3
   %20 = lshr i32 %19, 4
   %21 = and i32 %20, 1
   %conv2.i = shl i32 %4, %21
-  %22 = tail call i64 @llvm.bswap.i64(i64 %or28)
+  %22 = tail call noundef i64 @llvm.bswap.i64(i64 %or28)
   %idxprom.i35 = sext i32 %conv2.i to i64
   %arrayidx.i36 = getelementptr i64, ptr %3, i64 %idxprom.i35
   store i64 %22, ptr %arrayidx.i36, align 8
@@ -1989,7 +1989,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp51.not, label %if.end56, label %if.then53
 
 if.then53:                                        ; preds = %for.body
-  %32 = tail call i64 @llvm.bswap.i64(i64 %31)
+  %32 = tail call noundef i64 @llvm.bswap.i64(i64 %31)
   %inc = add i32 %j.0106, 1
   %idxprom = sext i32 %j.0106 to i64
   %arrayidx = getelementptr i64, ptr %call3, i64 %idxprom
@@ -2008,7 +2008,7 @@ if.else60:                                        ; preds = %if.end56
 
 if.end61:                                         ; preds = %if.end56
   %or = or disjoint i64 %add48, -9223372036854775808
-  %34 = tail call i64 @llvm.bswap.i64(i64 %or)
+  %34 = tail call noundef i64 @llvm.bswap.i64(i64 %or)
   store i64 %34, ptr %arrayidx.i, align 8
   %.val = load i64, ptr %13, align 8
   %and.i88 = and i64 %.val, 16
@@ -2045,7 +2045,7 @@ set_l2_bitmap.exit:                               ; preds = %get_l2_bitmap.exit
   %idxprom.i90 = sext i32 %add.i to i64
   %arrayidx.i91 = getelementptr i64, ptr %18, i64 %idxprom.i90
   %41 = load i64, ptr %arrayidx.i91, align 8
-  %42 = tail call i64 @llvm.bswap.i64(i64 %41)
+  %42 = tail call noundef i64 @llvm.bswap.i64(i64 %41)
   %conv94 = zext i32 %cond to i64
   %.val75 = load i32, ptr %25, align 4
   %.val76 = load i32, ptr %26, align 4
@@ -2069,7 +2069,7 @@ set_l2_bitmap.exit:                               ; preds = %get_l2_bitmap.exit
   %shl111 = shl i64 %sub103, 32
   %not = xor i64 %shl111, -1
   %and112 = and i64 %or104, %not
-  %45 = tail call i64 @llvm.bswap.i64(i64 %and112)
+  %45 = tail call noundef i64 @llvm.bswap.i64(i64 %and112)
   store i64 %45, ptr %arrayidx.i91, align 8
   br label %for.inc
 
@@ -2793,7 +2793,7 @@ return:                                           ; preds = %if.end50, %if.end37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @handle_dependencies(ptr nocapture noundef readonly %bs, i64 noundef %guest_offset, ptr nocapture noundef %cur_bytes, ptr nocapture noundef readonly %m) #0 {
+define internal noundef i32 @handle_dependencies(ptr nocapture noundef readonly %bs, i64 noundef %guest_offset, ptr nocapture noundef %cur_bytes, ptr nocapture noundef readonly %m) #0 {
 entry:
   %.compoundliteral = alloca %struct.QemuLockable, align 8
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
@@ -2997,7 +2997,7 @@ if.end20:                                         ; preds = %if.end
   %idxprom.i = sext i32 %conv1.i78 to i64
   %arrayidx.i = getelementptr i64, ptr %17, i64 %idxprom.i
   %23 = load i64, ptr %arrayidx.i, align 8
-  %24 = tail call i64 @llvm.bswap.i64(i64 %23)
+  %24 = tail call noundef i64 @llvm.bswap.i64(i64 %23)
   %and = and i64 %24, 72057594037927424
   %25 = load ptr, ptr %opaque, align 8
   %and.i.i = and i64 %24, 4611686018427387904
@@ -3309,7 +3309,7 @@ return:                                           ; preds = %if.end, %out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_cluster_discard(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %type, i1 noundef zeroext %full_discard) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcow2_cluster_discard(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %type, i1 noundef zeroext %full_discard) local_unnamed_addr #0 {
 entry:
   %l2_slice.i = alloca ptr, align 8
   %l2_index.i = alloca i32, align 4
@@ -3425,7 +3425,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %idxprom.i.i = sext i32 %conv1.i.i to i64
   %arrayidx.i.i = getelementptr i64, ptr %.pre.i, i64 %idxprom.i.i
   %12 = load i64, ptr %arrayidx.i.i, align 8
-  %13 = call i64 @llvm.bswap.i64(i64 %12)
+  %13 = call noundef i64 @llvm.bswap.i64(i64 %12)
   %and.i.i.i = and i64 %.val49.i, 16
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %get_l2_bitmap.exit.i, label %if.then.i.i
@@ -3436,7 +3436,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   %idxprom.i53.i = sext i32 %add.i.i to i64
   %arrayidx.i54.i = getelementptr i64, ptr %.pre.i, i64 %idxprom.i53.i
   %14 = load i64, ptr %arrayidx.i54.i, align 8
-  %15 = call i64 @llvm.bswap.i64(i64 %14)
+  %15 = call noundef i64 @llvm.bswap.i64(i64 %14)
   br label %get_l2_bitmap.exit.i
 
 get_l2_bitmap.exit.i:                             ; preds = %if.then.i.i, %for.body.i
@@ -3524,7 +3524,7 @@ if.end48.i:                                       ; preds = %if.then39.i, %if.el
   %new_l2_bitmap.0.i = phi i64 [ -4294967296, %if.then31.i ], [ %retval.0.i.i, %if.else36.i ], [ %retval.0.i.i, %if.then39.i ], [ %retval.0.i.i, %if.else25.i ], [ 0, %qcow2_get_cluster_type.exit.i ]
   %cmp49.i = icmp eq i64 %13, %new_l2_entry.1.i
   %cmp52.i = icmp eq i64 %retval.0.i.i, %new_l2_bitmap.0.i
-  %or.cond46.i = select i1 %cmp49.i, i1 %cmp52.i, i1 false
+  %or.cond46.i = and i1 %cmp49.i, %cmp52.i
   br i1 %or.cond46.i, label %for.inc.i, label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.end48.i, %land.end21.i
@@ -3539,7 +3539,7 @@ if.end55.i:                                       ; preds = %if.end48.i, %land.e
   %30 = lshr i32 %29, 4
   %31 = and i32 %30, 1
   %conv2.i60.i = shl i32 %add.i23, %31
-  %32 = call i64 @llvm.bswap.i64(i64 %new_l2_entry.196.i)
+  %32 = call noundef i64 @llvm.bswap.i64(i64 %new_l2_entry.196.i)
   %idxprom.i61.i = sext i32 %conv2.i60.i to i64
   %arrayidx.i62.i = getelementptr i64, ptr %.pre.i, i64 %idxprom.i61.i
   store i64 %32, ptr %arrayidx.i62.i, align 8
@@ -3550,7 +3550,7 @@ if.end55.i:                                       ; preds = %if.end48.i, %land.e
 
 set_l2_bitmap.exit.i:                             ; preds = %if.end55.i
   %conv2.i67.i = shl i32 %add.i23, 1
-  %33 = call i64 @llvm.bswap.i64(i64 %new_l2_bitmap.097.i)
+  %33 = call noundef i64 @llvm.bswap.i64(i64 %new_l2_bitmap.097.i)
   %add.i68.i = or disjoint i32 %conv2.i67.i, 1
   %idxprom.i69.i = sext i32 %add.i68.i to i64
   %arrayidx.i70.i = getelementptr i64, ptr %.pre.i, i64 %idxprom.i69.i
@@ -3863,7 +3863,7 @@ if.end15:                                         ; preds = %if.end11
   %idxprom.i = sext i32 %conv1.i32 to i64
   %arrayidx.i = getelementptr i64, ptr %5, i64 %idxprom.i
   %11 = load i64, ptr %arrayidx.i, align 8
-  %12 = tail call i64 @llvm.bswap.i64(i64 %11)
+  %12 = tail call noundef i64 @llvm.bswap.i64(i64 %11)
   %13 = load ptr, ptr %opaque, align 8
   %and.i33 = and i64 %12, 4611686018427387904
   %tobool.not.i = icmp eq i64 %and.i33, 0
@@ -3896,7 +3896,7 @@ if.then.i:                                        ; preds = %if.else7.i
   %idxprom.i36 = sext i32 %add.i to i64
   %arrayidx.i37 = getelementptr i64, ptr %5, i64 %idxprom.i36
   %15 = load i64, ptr %arrayidx.i37, align 8
-  %16 = tail call i64 @llvm.bswap.i64(i64 %15)
+  %16 = tail call noundef i64 @llvm.bswap.i64(i64 %15)
   br label %get_l2_bitmap.exit
 
 get_l2_bitmap.exit:                               ; preds = %if.else7.i, %if.then.i
@@ -3922,7 +3922,7 @@ if.else.i45:                                      ; preds = %if.then31
 
 set_l2_bitmap.exit:                               ; preds = %if.then31
   %conv2.i41 = shl i32 %6, 1
-  %17 = tail call i64 @llvm.bswap.i64(i64 %and)
+  %17 = tail call noundef i64 @llvm.bswap.i64(i64 %and)
   %add.i42 = or disjoint i32 %conv2.i41, 1
   %idxprom.i43 = sext i32 %add.i42 to i64
   %arrayidx.i44 = getelementptr i64, ptr %5, i64 %idxprom.i43
@@ -3997,7 +3997,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom.i = sext i32 %conv1.i to i64
   %arrayidx.i = getelementptr i64, ptr %.pre, i64 %idxprom.i
   %8 = load i64, ptr %arrayidx.i, align 8
-  %9 = tail call i64 @llvm.bswap.i64(i64 %8)
+  %9 = tail call noundef i64 @llvm.bswap.i64(i64 %8)
   %and.i.i = and i64 %.val44, 16
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.not.i, label %get_l2_bitmap.exit, label %if.then.i
@@ -4008,7 +4008,7 @@ if.then.i:                                        ; preds = %for.body
   %idxprom.i48 = sext i32 %add.i to i64
   %arrayidx.i49 = getelementptr i64, ptr %.pre, i64 %idxprom.i48
   %10 = load i64, ptr %arrayidx.i49, align 8
-  %11 = tail call i64 @llvm.bswap.i64(i64 %10)
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %10)
   br label %get_l2_bitmap.exit
 
 get_l2_bitmap.exit:                               ; preds = %for.body, %if.then.i
@@ -4083,7 +4083,7 @@ lor.end.thread:                                   ; preds = %get_l2_bitmap.exit,
   %new_l2_entry.1 = or i64 %22, %or
   %cmp34 = icmp eq i64 %9, %new_l2_entry.1
   %cmp37 = icmp eq i64 %retval.0.i, %new_l2_bitmap.0
-  %or.cond41 = select i1 %cmp34, i1 %cmp37, i1 false
+  %or.cond41 = and i1 %cmp37, %cmp34
   br i1 %or.cond41, label %for.inc, label %if.end40
 
 if.end40:                                         ; preds = %lor.end.thread
@@ -4094,7 +4094,7 @@ if.end40:                                         ; preds = %lor.end.thread
   %25 = lshr i32 %24, 4
   %26 = and i32 %25, 1
   %conv2.i55 = shl i32 %add, %26
-  %27 = tail call i64 @llvm.bswap.i64(i64 %new_l2_entry.1)
+  %27 = tail call noundef i64 @llvm.bswap.i64(i64 %new_l2_entry.1)
   %idxprom.i56 = sext i32 %conv2.i55 to i64
   %arrayidx.i57 = getelementptr i64, ptr %.pre, i64 %idxprom.i56
   store i64 %27, ptr %arrayidx.i57, align 8
@@ -4105,7 +4105,7 @@ if.end40:                                         ; preds = %lor.end.thread
 
 set_l2_bitmap.exit:                               ; preds = %if.end40
   %conv2.i62 = shl i32 %add, 1
-  %28 = tail call i64 @llvm.bswap.i64(i64 %new_l2_bitmap.0)
+  %28 = tail call noundef i64 @llvm.bswap.i64(i64 %new_l2_bitmap.0)
   %add.i63 = or disjoint i32 %conv2.i62, 1
   %idxprom.i64 = sext i32 %add.i63 to i64
   %arrayidx.i65 = getelementptr i64, ptr %.pre, i64 %idxprom.i64
@@ -4474,7 +4474,7 @@ for.body52.us:                                    ; preds = %for.cond48.preheade
   %idxprom.i.us = sext i32 %conv1.i.us to i64
   %arrayidx.i.us = getelementptr i64, ptr %21, i64 %idxprom.i.us
   %25 = load i64, ptr %arrayidx.i.us, align 8
-  %26 = call i64 @llvm.bswap.i64(i64 %25)
+  %26 = call noundef i64 @llvm.bswap.i64(i64 %25)
   %27 = load ptr, ptr %opaque, align 8
   %and.i121.us = and i64 %26, 4611686018427387904
   %tobool.not.i.us = icmp eq i64 %and.i121.us, 0
@@ -4590,7 +4590,7 @@ if.else140.us:                                    ; preds = %if.end136.us
   %41 = lshr i32 %40, 4
   %42 = and i32 %41, 1
   %conv2.i132.us = shl nuw i32 %j.0184.us, %42
-  %43 = call i64 @llvm.bswap.i64(i64 %offset.0.us)
+  %43 = call noundef i64 @llvm.bswap.i64(i64 %offset.0.us)
   %idxprom.i133.us = sext i32 %conv2.i132.us to i64
   %arrayidx.i134.us = getelementptr i64, ptr %39, i64 %idxprom.i133.us
   store i64 %43, ptr %arrayidx.i134.us, align 8
@@ -4603,7 +4603,7 @@ if.then139.us:                                    ; preds = %if.end136.us
   %45 = lshr i32 %44, 4
   %46 = and i32 %45, 1
   %conv2.i129.us = shl nuw i32 %j.0184.us, %46
-  %47 = call i64 @llvm.bswap.i64(i64 %or.us)
+  %47 = call noundef i64 @llvm.bswap.i64(i64 %or.us)
   %idxprom.i130.us = sext i32 %conv2.i129.us to i64
   %arrayidx.i131.us = getelementptr i64, ptr %39, i64 %idxprom.i130.us
   store i64 %47, ptr %arrayidx.i131.us, align 8
@@ -5115,7 +5115,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %idxprom.i17.us.us = sext i32 %conv1.i16.us.us to i64
   %arrayidx.i18.us.us = getelementptr i64, ptr %l2_slice, i64 %idxprom.i17.us.us
   %9 = load i64, ptr %arrayidx.i18.us.us, align 8
-  %10 = tail call i64 @llvm.bswap.i64(i64 %9)
+  %10 = tail call noundef i64 @llvm.bswap.i64(i64 %9)
   %and.i.i.us.us = and i64 %10, 4611686018427387904
   %tobool.not.i.i.us.us = icmp eq i64 %and.i.i.us.us, 0
   br i1 %tobool.not.i.i.us.us, label %if.else.i.i.us.us, label %cluster_needs_new_alloc.exit.us.us
@@ -5150,7 +5150,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %idxprom.i17.us = sext i32 %conv1.i16.us to i64
   %arrayidx.i18.us = getelementptr i64, ptr %l2_slice, i64 %idxprom.i17.us
   %11 = load i64, ptr %arrayidx.i18.us, align 8
-  %12 = tail call i64 @llvm.bswap.i64(i64 %11)
+  %12 = tail call noundef i64 @llvm.bswap.i64(i64 %11)
   %and.i.i.us = and i64 %12, 4611686018427387904
   %tobool.not.i.i.us = icmp eq i64 %and.i.i.us, 0
   br i1 %tobool.not.i.i.us, label %if.else.i.i.us, label %for.end
@@ -5195,7 +5195,7 @@ for.body.us27:                                    ; preds = %for.body.lr.ph.spli
   %idxprom.i17.us32 = sext i32 %add.us30 to i64
   %arrayidx.i18.us33 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i17.us32
   %15 = load i64, ptr %arrayidx.i18.us33, align 8
-  %16 = tail call i64 @llvm.bswap.i64(i64 %15)
+  %16 = tail call noundef i64 @llvm.bswap.i64(i64 %15)
   %and.i.i.us34 = and i64 %16, 4611686018427387904
   %tobool.not.i.i.us35 = icmp eq i64 %and.i.i.us34, 0
   br i1 %tobool.not.i.i.us35, label %if.else.i.i.us36, label %cluster_needs_new_alloc.exit.us52
@@ -5240,7 +5240,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %idxprom.i17 = sext i32 %add to i64
   %arrayidx.i18 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i17
   %18 = load i64, ptr %arrayidx.i18, align 8
-  %19 = tail call i64 @llvm.bswap.i64(i64 %18)
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
   %and.i.i = and i64 %19, 4611686018427387904
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %for.end
@@ -5300,7 +5300,7 @@ if.end19:                                         ; preds = %if.end12.us, %clust
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @calculate_l2_meta(ptr noundef %bs, i64 noundef %host_cluster_offset, i64 noundef %guest_offset, i32 noundef %bytes, ptr nocapture noundef readonly %l2_slice, ptr nocapture noundef %m, i1 noundef zeroext %keep_old) #0 {
+define internal noundef i32 @calculate_l2_meta(ptr noundef %bs, i64 noundef %host_cluster_offset, i64 noundef %guest_offset, i32 noundef %bytes, ptr nocapture noundef readonly %l2_slice, ptr nocapture noundef %m, i1 noundef zeroext %keep_old) #0 {
 entry:
   %type = alloca i32, align 4
   %.compoundliteral.sroa.5 = alloca [19 x i8], align 1
@@ -5362,7 +5362,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom.i = sext i32 %conv1.i146 to i64
   %arrayidx.i = getelementptr i64, ptr %l2_slice, i64 %idxprom.i
   %12 = load i64, ptr %arrayidx.i, align 8
-  %13 = tail call i64 @llvm.bswap.i64(i64 %12)
+  %13 = tail call noundef i64 @llvm.bswap.i64(i64 %12)
   %and.i.i = and i64 %.val134, 16
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.not.i, label %get_l2_bitmap.exit, label %if.then.i
@@ -5373,7 +5373,7 @@ if.then.i:                                        ; preds = %for.body
   %idxprom.i148 = sext i32 %add.i147 to i64
   %arrayidx.i149 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i148
   %14 = load i64, ptr %arrayidx.i149, align 8
-  %15 = tail call i64 @llvm.bswap.i64(i64 %14)
+  %15 = tail call noundef i64 @llvm.bswap.i64(i64 %14)
   br label %get_l2_bitmap.exit
 
 get_l2_bitmap.exit:                               ; preds = %for.body, %if.then.i
@@ -5455,7 +5455,7 @@ if.end51:                                         ; preds = %for.end
   %idxprom.i163 = sext i32 %conv1.i162 to i64
   %arrayidx.i164 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i163
   %30 = load i64, ptr %arrayidx.i164, align 8
-  %31 = tail call i64 @llvm.bswap.i64(i64 %30)
+  %31 = tail call noundef i64 @llvm.bswap.i64(i64 %30)
   %and.i.i165 = and i64 %.val133, 16
   %tobool.i.not.i166 = icmp eq i64 %and.i.i165, 0
   br i1 %tobool.i.not.i166, label %get_l2_bitmap.exit173, label %if.then.i167
@@ -5466,7 +5466,7 @@ if.then.i167:                                     ; preds = %if.end51
   %idxprom.i170 = sext i32 %add.i169 to i64
   %arrayidx.i171 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i170
   %32 = load i64, ptr %arrayidx.i171, align 8
-  %33 = tail call i64 @llvm.bswap.i64(i64 %32)
+  %33 = tail call noundef i64 @llvm.bswap.i64(i64 %32)
   br label %get_l2_bitmap.exit173
 
 get_l2_bitmap.exit173:                            ; preds = %if.end51, %if.then.i167
@@ -5538,7 +5538,7 @@ if.end86:                                         ; preds = %if.end86.sink.split
   %idxprom.i180 = sext i32 %conv1.i179 to i64
   %arrayidx.i181 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i180
   %42 = load i64, ptr %arrayidx.i181, align 8
-  %43 = tail call i64 @llvm.bswap.i64(i64 %42)
+  %43 = tail call noundef i64 @llvm.bswap.i64(i64 %42)
   %and.i.i182 = and i64 %.val132, 16
   %tobool.i.not.i183 = icmp eq i64 %and.i.i182, 0
   br i1 %tobool.i.not.i183, label %get_l2_bitmap.exit190, label %if.then.i184
@@ -5549,7 +5549,7 @@ if.then.i184:                                     ; preds = %if.end86
   %idxprom.i187 = sext i32 %add.i186 to i64
   %arrayidx.i188 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i187
   %44 = load i64, ptr %arrayidx.i188, align 8
-  %45 = tail call i64 @llvm.bswap.i64(i64 %44)
+  %45 = tail call noundef i64 @llvm.bswap.i64(i64 %44)
   br label %get_l2_bitmap.exit190
 
 get_l2_bitmap.exit190:                            ; preds = %if.end86, %if.then.i184

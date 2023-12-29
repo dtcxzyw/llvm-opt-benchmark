@@ -452,7 +452,7 @@ declare void @qemu_flush_queued_packets(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_get_subqueue(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @igb_can_receive(ptr noundef %core) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @igb_can_receive(ptr noundef %core) local_unnamed_addr #0 {
 entry:
   %_now.i.i11 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -859,7 +859,7 @@ if.end.i:                                         ; preds = %if.then.i90, %if.en
   %tobool3.not.i = icmp eq i32 %20, 0
   %h_proto20.i = getelementptr inbounds %struct.eth_header, ptr %buf, i64 0, i32 2
   %21 = load i16, ptr %h_proto20.i, align 2
-  %22 = call i16 @llvm.bswap.i16(i16 %21)
+  %22 = call noundef i16 @llvm.bswap.i16(i16 %21)
   br i1 %tobool3.not.i, label %if.else.i89, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -873,7 +873,7 @@ if.then4.i:                                       ; preds = %if.end.i
 land.lhs.true.i:                                  ; preds = %if.then4.i
   %h_proto10.i = getelementptr inbounds %struct.L2Header, ptr %buf, i64 0, i32 1, i64 0, i32 1
   %24 = load i16, ptr %h_proto10.i, align 2
-  %25 = call i16 @llvm.bswap.i16(i16 %24)
+  %25 = call noundef i16 @llvm.bswap.i16(i16 %24)
   %26 = trunc i32 %23 to i16
   %cmp16.i = icmp ne i16 %25, %26
   %spec.select176.i = select i1 %cmp16.i, i64 0, i64 2
@@ -961,7 +961,7 @@ if.end48.i:                                       ; preds = %igb_rx_is_oversized
   %tobool57.not.i284 = icmp ne i32 %40, 0
   %41 = trunc i32 %39 to i16
   %cmp68.i285 = icmp eq i16 %22, %41
-  %or.cond286 = select i1 %tobool57.not.i284, i1 %cmp68.i285, i1 false
+  %or.cond286 = and i1 %tobool57.not.i284, %cmp68.i285
   br i1 %or.cond286, label %if.then70.i, label %for.inc.i
 
 for.body.i:                                       ; preds = %for.inc.i
@@ -972,7 +972,7 @@ for.body.i:                                       ; preds = %for.inc.i
   %tobool57.not.i = icmp ne i32 %44, 0
   %45 = trunc i32 %43 to i16
   %cmp68.i = icmp eq i16 %22, %45
-  %or.cond = select i1 %tobool57.not.i, i1 %cmp68.i, i1 false
+  %or.cond = and i1 %tobool57.not.i, %cmp68.i
   br i1 %or.cond, label %if.then70.i.loopexit, label %for.inc.i, !llvm.loop !8
 
 if.then70.i.loopexit:                             ; preds = %for.body.i
@@ -4560,7 +4560,7 @@ if.end:                                           ; preds = %trace_e1000e_link_a
 declare zeroext i1 @net_tx_pkt_has_fragments(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @igb_core_post_load(ptr nocapture noundef readonly %core) local_unnamed_addr #0 {
+define dso_local noundef i32 @igb_core_post_load(ptr nocapture noundef readonly %core) local_unnamed_addr #0 {
 entry:
   %owner_nic = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 13
   %0 = load ptr, ptr %owner_nic, align 8

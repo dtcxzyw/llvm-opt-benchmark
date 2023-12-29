@@ -302,7 +302,7 @@ return:                                           ; preds = %if.end, %entry, %bi
 declare i32 @qcow2_inc_refcounts_imrt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @bitmap_list_load(ptr noundef %bs, i64 noundef %offset, i64 noundef %size, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @bitmap_list_load(ptr noundef %bs, i64 noundef %offset, i64 noundef %size, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -345,7 +345,7 @@ fail.thread:                                      ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #15
+  %call.i = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #15
   store ptr null, ptr %call.i, align 8
   %sqh_last.i = getelementptr inbounds %struct.Qcow2BitmapList, ptr %call.i, i64 0, i32 1
   store ptr %call.i, ptr %sqh_last.i, align 8
@@ -375,23 +375,23 @@ if.then18:                                        ; preds = %if.end16
 
 if.end19:                                         ; preds = %if.end16
   %3 = load i64, ptr %e.098, align 1
-  %4 = tail call i64 @llvm.bswap.i64(i64 %3)
+  %4 = tail call noundef i64 @llvm.bswap.i64(i64 %3)
   store i64 %4, ptr %e.098, align 1
   %bitmap_table_size.i = getelementptr inbounds %struct.Qcow2BitmapDirEntry, ptr %e.098, i64 0, i32 1
   %5 = load i32, ptr %bitmap_table_size.i, align 1
-  %6 = tail call i32 @llvm.bswap.i32(i32 %5)
+  %6 = tail call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %bitmap_table_size.i, align 1
   %flags.i = getelementptr inbounds %struct.Qcow2BitmapDirEntry, ptr %e.098, i64 0, i32 2
   %7 = load i32, ptr %flags.i, align 1
-  %8 = tail call i32 @llvm.bswap.i32(i32 %7)
+  %8 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
   store i32 %8, ptr %flags.i, align 1
   %name_size.i = getelementptr inbounds %struct.Qcow2BitmapDirEntry, ptr %e.098, i64 0, i32 5
   %9 = load i16, ptr %name_size.i, align 1
-  %10 = tail call i16 @llvm.bswap.i16(i16 %9)
+  %10 = tail call noundef i16 @llvm.bswap.i16(i16 %9)
   store i16 %10, ptr %name_size.i, align 1
   %extra_data_size.i = getelementptr inbounds %struct.Qcow2BitmapDirEntry, ptr %e.098, i64 0, i32 6
   %11 = load i32, ptr %extra_data_size.i, align 1
-  %12 = tail call i32 @llvm.bswap.i32(i32 %11)
+  %12 = tail call noundef i32 @llvm.bswap.i32(i32 %11)
   store i32 %12, ptr %extra_data_size.i, align 1
   %conv.i.i = zext i16 %10 to i32
   %add1.i.i.i = add nuw nsw i32 %conv.i.i, 31
@@ -413,7 +413,7 @@ if.then25:                                        ; preds = %if.end23
 if.end26:                                         ; preds = %if.end23
   %cmp.i = icmp eq i32 %5, 0
   %cmp2.i = icmp eq i64 %3, 0
-  %or.cond = select i1 %cmp.i, i1 true, i1 %cmp2.i
+  %or.cond = or i1 %cmp2.i, %cmp.i
   br i1 %or.cond, label %if.then29, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %if.end26
@@ -433,7 +433,7 @@ lor.lhs.false9.i:                                 ; preds = %lor.lhs.false3.i
   %16 = add i8 %15, -32
   %or.cond18.i = icmp ult i8 %16, -23
   %tobool19.not.i = icmp ugt i32 %8, 3
-  %or.cond81.not83 = select i1 %or.cond18.i, i1 true, i1 %tobool19.not.i
+  %or.cond81.not83 = or i1 %tobool19.not.i, %or.cond18.i
   %cmp22.i = icmp ugt i16 %10, 1023
   %or.cond82 = or i1 %cmp22.i, %or.cond81.not83
   br i1 %or.cond82, label %if.then29, label %lor.rhs.i
@@ -636,7 +636,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr i64, ptr %call, i64 %indvars.iv
   %7 = load i64, ptr %arrayidx, align 8
-  %8 = tail call i64 @llvm.bswap.i64(i64 %7)
+  %8 = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   store i64 %8, ptr %arrayidx, align 8
   %and.i = and i64 %8, -72057594037927426
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -679,7 +679,7 @@ return:                                           ; preds = %if.end, %fail, %for
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qcow2_load_dirty_bitmaps(ptr noundef %bs, ptr noundef writeonly %header_updated, ptr noundef %errp) #0 {
+define dso_local noundef zeroext i1 @qcow2_load_dirty_bitmaps(ptr noundef %bs, ptr noundef writeonly %header_updated, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -1078,7 +1078,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qcow2_get_bitmap_info_list(ptr noundef %bs, ptr nocapture noundef %info_list, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qcow2_get_bitmap_info_list(ptr noundef %bs, ptr nocapture noundef %info_list, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %list.i = alloca ptr, align 8
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
@@ -1428,7 +1428,7 @@ declare zeroext i1 @bdrv_dirty_bitmap_readonly(ptr noundef) local_unnamed_addr #
 declare zeroext i1 @bdrv_dirty_bitmap_inconsistent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_truncate_bitmaps_check(ptr noundef %bs, ptr noundef %errp) #0 {
+define dso_local noundef i32 @qcow2_truncate_bitmaps_check(ptr noundef %bs, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -1841,7 +1841,7 @@ return:                                           ; preds = %entry, %clear_bitma
 declare void @qemu_co_mutex_unlock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qcow2_store_persistent_dirty_bitmaps(ptr noundef %bs, i1 noundef zeroext %release_stored, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qcow2_store_persistent_dirty_bitmaps(ptr noundef %bs, i1 noundef zeroext %release_stored, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %drop_tables = alloca %struct.anon.16, align 8
@@ -1865,7 +1865,7 @@ entry:
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %entry
-  %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #15
+  %call.i = call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #15
   store ptr null, ptr %call.i, align 8
   %sqh_last.i = getelementptr inbounds %struct.Qcow2BitmapList, ptr %call.i, i64 0, i32 1
   store ptr %call.i, ptr %sqh_last.i, align 8
@@ -2291,7 +2291,7 @@ for.body.i.i:                                     ; preds = %if.end23.i, %for.bo
   %i.06.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end23.i ]
   %arrayidx.i32.i = getelementptr i64, ptr %call6.i.i, i64 %i.06.i.i
   %27 = load i64, ptr %arrayidx.i32.i, align 8
-  %28 = call i64 @llvm.bswap.i64(i64 %27)
+  %28 = call noundef i64 @llvm.bswap.i64(i64 %27)
   store i64 %28, ptr %arrayidx.i32.i, align 8
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv16.i
@@ -2313,7 +2313,7 @@ for.body.i34.i:                                   ; preds = %bitmap_table_bswap_
   %i.06.i35.i = phi i64 [ %inc.i37.i, %for.body.i34.i ], [ 0, %bitmap_table_bswap_be.exit.i ]
   %arrayidx.i36.i = getelementptr i64, ptr %call6.i.i, i64 %i.06.i35.i
   %31 = load i64, ptr %arrayidx.i36.i, align 8
-  %32 = call i64 @llvm.bswap.i64(i64 %31)
+  %32 = call noundef i64 @llvm.bswap.i64(i64 %31)
   store i64 %32, ptr %arrayidx.i36.i, align 8
   %inc.i37.i = add nuw nsw i64 %i.06.i35.i, 1
   %exitcond.not.i38.i = icmp eq i64 %inc.i37.i, %conv16.i
@@ -2664,7 +2664,7 @@ declare ptr @bdrv_dirty_bitmap_next(ptr noundef) local_unnamed_addr #1
 declare void @bdrv_release_dirty_bitmap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_reopen_bitmaps_ro(ptr noundef %bs, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcow2_reopen_bitmaps_ro(ptr noundef %bs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qcow2_store_persistent_dirty_bitmaps(ptr noundef %bs, i1 noundef zeroext false, ptr noundef %errp)
   br i1 %call, label %if.end, label %return
@@ -2696,7 +2696,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 declare void @bdrv_dirty_bitmap_set_readonly(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qcow2_co_can_store_new_dirty_bitmap(ptr noundef %bs, ptr noundef %name, i32 noundef %granularity, ptr noundef %errp) #0 {
+define dso_local noundef zeroext i1 @qcow2_co_can_store_new_dirty_bitmap(ptr noundef %bs, ptr noundef %name, i32 noundef %granularity, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
   %0 = load ptr, ptr %opaque, align 8
@@ -3214,19 +3214,19 @@ while.body.i:                                     ; preds = %for.end45, %while.b
   %idx.ext.i63 = sext i32 %and.i.i.i62 to i64
   %add.ptr1.i = getelementptr i8, ptr %dir.addr.07.i, i64 %idx.ext.i63
   %18 = load i64, ptr %dir.addr.07.i, align 1
-  %19 = tail call i64 @llvm.bswap.i64(i64 %18)
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
   store i64 %19, ptr %dir.addr.07.i, align 1
   %bitmap_table_size.i.i = getelementptr inbounds %struct.Qcow2BitmapDirEntry, ptr %dir.addr.07.i, i64 0, i32 1
   %20 = load i32, ptr %bitmap_table_size.i.i, align 1
-  %21 = tail call i32 @llvm.bswap.i32(i32 %20)
+  %21 = tail call noundef i32 @llvm.bswap.i32(i32 %20)
   store i32 %21, ptr %bitmap_table_size.i.i, align 1
   %flags.i.i = getelementptr inbounds %struct.Qcow2BitmapDirEntry, ptr %dir.addr.07.i, i64 0, i32 2
   %22 = load i32, ptr %flags.i.i, align 1
-  %23 = tail call i32 @llvm.bswap.i32(i32 %22)
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
   store i32 %23, ptr %flags.i.i, align 1
-  %24 = tail call i16 @llvm.bswap.i16(i16 %dir.addr.0.val.i)
+  %24 = tail call noundef i16 @llvm.bswap.i16(i16 %dir.addr.0.val.i)
   store i16 %24, ptr %16, align 1
-  %25 = tail call i32 @llvm.bswap.i32(i32 %dir.addr.0.val5.i)
+  %25 = tail call noundef i32 @llvm.bswap.i32(i32 %dir.addr.0.val5.i)
   store i32 %25, ptr %17, align 1
   %cmp.i64 = icmp ult ptr %add.ptr1.i, %add.ptr.i58
   br i1 %cmp.i64, label %while.body.i, label %bitmap_directory_to_be.exit, !llvm.loop !36

@@ -56,7 +56,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @lpStringToInt64(ptr nocapture noundef readonly %s, i64 noundef %slen, ptr noundef writeonly %value) local_unnamed_addr #1 {
+define dso_local noundef i32 @lpStringToInt64(ptr nocapture noundef readonly %s, i64 noundef %slen, ptr noundef writeonly %value) local_unnamed_addr #1 {
 entry:
   %0 = add i64 %slen, -21
   %or.cond = icmp ult i64 %0, -20
@@ -327,7 +327,7 @@ lpEncodeBacklen.exit:                             ; preds = %switch.lookup, %lpC
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpNext(ptr noundef %lp, ptr noundef %p) local_unnamed_addr #2 {
+define dso_local noundef ptr @lpNext(ptr noundef %lp, ptr noundef %p) local_unnamed_addr #2 {
 entry:
   %p.addr.i = alloca ptr, align 8
   %tobool.not = icmp eq ptr %p, null
@@ -546,7 +546,7 @@ return:                                           ; preds = %cond.end, %lpAssert
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpFirst(ptr noundef %lp) local_unnamed_addr #2 {
+define dso_local noundef ptr @lpFirst(ptr noundef %lp) local_unnamed_addr #2 {
 entry:
   %p.addr.i = alloca ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %lp, i64 6
@@ -2701,7 +2701,7 @@ while.body:                                       ; preds = %lpFirst.exit, %whil
   %dec = add nsw i64 %index.addr.245, -1
   %cmp30 = icmp ugt i64 %index.addr.245, 1
   %tobool32 = icmp ne ptr %call33, null
-  %5 = select i1 %cmp30, i1 %tobool32, i1 false
+  %5 = and i1 %cmp30, %tobool32
   br i1 %5, label %while.body, label %return, !llvm.loop !11
 
 if.else34:                                        ; preds = %if.end17, %if.end28
@@ -3345,7 +3345,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @lpValidateNext(ptr noundef readnone %lp, ptr nocapture noundef %pp, i64 noundef %lpbytes) local_unnamed_addr #1 {
+define dso_local noundef i32 @lpValidateNext(ptr noundef readnone %lp, ptr nocapture noundef %pp, i64 noundef %lpbytes) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -4666,7 +4666,7 @@ cond.end21.us:                                    ; preds = %cond.end.us
   store i32 %inc30.us, ptr %index, align 4
   %cmp3.us = icmp ult i64 %indvars.iv.next57, %9
   %tobool.us = icmp ne ptr %call28.us, null
-  %12 = select i1 %cmp3.us, i1 %tobool.us, i1 false
+  %12 = and i1 %tobool.us, %cmp3.us
   br i1 %12, label %while.body.us, label %while.end.loopexit, !llvm.loop !21
 
 while.body:                                       ; preds = %while.body.lr.ph, %cond.end21
@@ -4731,7 +4731,7 @@ cond.end21:                                       ; preds = %cond.end
   store i32 %inc30, ptr %index, align 4
   %cmp3 = icmp ult i64 %indvars.iv.next, %9
   %tobool = icmp ne ptr %call28, null
-  %16 = select i1 %cmp3, i1 %tobool, i1 false
+  %16 = and i1 %tobool, %cmp3
   br i1 %16, label %while.body, label %while.end.loopexit54, !llvm.loop !21
 
 while.end.loopexit:                               ; preds = %cond.end21.us
@@ -4748,7 +4748,7 @@ while.end:                                        ; preds = %lpLength.exit, %whi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lpNextRandom(ptr noundef %lp, ptr noundef %p, ptr nocapture noundef %index, i32 noundef %remaining, i32 noundef %even_only) local_unnamed_addr #2 {
+define dso_local noundef ptr @lpNextRandom(ptr noundef %lp, ptr noundef %p, ptr nocapture noundef %index, i32 noundef %remaining, i32 noundef %even_only) local_unnamed_addr #2 {
 entry:
   %p.addr.i.i.i = alloca ptr, align 8
   %0 = load i32, ptr %index, align 4
@@ -4843,7 +4843,7 @@ if.end19.us:                                      ; preds = %while.body.us
   %inc21.us = add nuw i32 %i.021.us, 1
   %cmp.us = icmp ult i32 %inc21.us, %retval.0.in.i
   %cmp2.us = icmp ne ptr %call20.us, null
-  %13 = select i1 %cmp.us, i1 %cmp2.us, i1 false
+  %13 = and i1 %cmp.us, %cmp2.us
   br i1 %13, label %while.body.us, label %return, !llvm.loop !22
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -4863,7 +4863,7 @@ while.cond.backedge:                              ; preds = %if.then, %if.end19
   %p.addr.0.be = phi ptr [ %call6, %if.then ], [ %call20, %if.end19 ]
   %cmp = icmp ult i32 %i.0.be, %retval.0.in.i
   %cmp2 = icmp ne ptr %p.addr.0.be, null
-  %14 = select i1 %cmp, i1 %cmp2, i1 false
+  %14 = and i1 %cmp, %cmp2
   br i1 %14, label %while.body, label %return, !llvm.loop !22
 
 if.end:                                           ; preds = %while.body
