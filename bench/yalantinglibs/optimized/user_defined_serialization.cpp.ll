@@ -591,9 +591,8 @@ _ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 576460752303423487
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 576460752303423487, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
@@ -602,13 +601,13 @@ _ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 4
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load i32, ptr %__args, align 4
-  %3 = load i32, ptr %__args1, align 4
-  store i32 %2, ptr %add.ptr, align 8
+  %3 = load i32, ptr %__args, align 4
+  %4 = load i32, ptr %__args1, align 4
+  store i32 %3, ptr %add.ptr, align 8
   %y3.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
-  store i32 %3, ptr %y3.i.i.i, align 4
-  %conv.i.i.i = zext i32 %2 to i64
-  %conv4.i.i.i = zext i32 %3 to i64
+  store i32 %4, ptr %y3.i.i.i, align 4
+  %conv.i.i.i = zext i32 %3 to i64
+  %conv4.i.i.i = zext i32 %4 to i64
   %mul5.i.i.i = mul nuw i64 %conv4.i.i.i, %conv.i.i.i
   %call.i.i.i = tail call noalias ptr @calloc(i64 noundef %mul5.i.i.i, i64 noundef 4) #15
   %p.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
@@ -619,16 +618,16 @@ _ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
 for.inc.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i.i.i
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit ]
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %4 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
-  store i32 %4, ptr %__cur.09.i.i.i.i.i, align 8
+  %5 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
+  store i32 %5, ptr %__cur.09.i.i.i.i.i, align 8
   %y.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1
   %y3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 1
-  %5 = load i32, ptr %y3.i.i.i.i.i.i.i, align 4
-  store i32 %5, ptr %y.i.i.i.i.i.i.i, align 4
+  %6 = load i32, ptr %y3.i.i.i.i.i.i.i, align 4
+  store i32 %6, ptr %y.i.i.i.i.i.i.i, align 4
   %p.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 2
   %p4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 2
-  %6 = load ptr, ptr %p4.i.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %p.i.i.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %p4.i.i.i.i.i.i.i, align 8
+  store ptr %7, ptr %p.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %p4.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 1
@@ -644,16 +643,16 @@ invoke.cont12:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.inc.i.i.i.i.i21:                              ; preds = %invoke.cont12, %for.inc.i.i.i.i.i21
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i.i.i29, %for.inc.i.i.i.i.i21 ], [ %incdec.ptr, %invoke.cont12 ]
   %__first.sroa.0.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i.i28, %for.inc.i.i.i.i.i21 ], [ %__position.coerce, %invoke.cont12 ]
-  %7 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i23, align 8
-  store i32 %7, ptr %__cur.09.i.i.i.i.i22, align 8
+  %8 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i23, align 8
+  store i32 %8, ptr %__cur.09.i.i.i.i.i22, align 8
   %y.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 1
   %y3.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 0, i32 1
-  %8 = load i32, ptr %y3.i.i.i.i.i.i.i25, align 4
-  store i32 %8, ptr %y.i.i.i.i.i.i.i24, align 4
+  %9 = load i32, ptr %y3.i.i.i.i.i.i.i25, align 4
+  store i32 %9, ptr %y.i.i.i.i.i.i.i24, align 4
   %p.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 2
   %p4.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 0, i32 2
-  %9 = load ptr, ptr %p4.i.i.i.i.i.i.i27, align 8
-  store ptr %9, ptr %p.i.i.i.i.i.i.i26, align 8
+  %10 = load ptr, ptr %p4.i.i.i.i.i.i.i27, align 8
+  store ptr %10, ptr %p.i.i.i.i.i.i.i26, align 8
   store ptr null, ptr %p4.i.i.i.i.i.i.i27, align 8
   %incdec.ptr.i.i.i.i.i.i28 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 1
   %incdec.ptr.i.i.i.i.i29 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 1
@@ -668,8 +667,8 @@ invoke.cont16:                                    ; preds = %for.inc.i.i.i.i.i21
 for.body.i.i.i:                                   ; preds = %invoke.cont16, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont16 ]
   %p.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 0, i32 2
-  %10 = load ptr, ptr %p.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %10) #16
+  %11 = load ptr, ptr %p.i.i.i.i.i.i, align 8
+  tail call void @free(ptr noundef %11) #16
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN13my_name_space7array2DES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !10
@@ -1097,22 +1096,21 @@ _ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 576460752303423487
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 576460752303423487, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %invoke.cont, label %_ZNSt16allocator_traitsISaIN13my_name_space7array2DEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN13my_name_space7array2DEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 4
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN13my_name_space7array2DEEE8allocateERS2_m.exit.i, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN13my_name_space7array2DEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit ]
+invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN13my_name_space7array2DESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.my_name_space::array2D", ptr %cond.i19, i64 %sub.ptr.div.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i8 0, i64 16, i1 false)
   %cmp.i7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -1121,16 +1119,16 @@ invoke.cont:                                      ; preds = %_ZNSt16allocator_tr
 for.inc.i.i.i.i.i:                                ; preds = %invoke.cont, %for.inc.i.i.i.i.i
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i19, %invoke.cont ]
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
-  %2 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
-  store i32 %2, ptr %__cur.09.i.i.i.i.i, align 8
+  %3 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
+  store i32 %3, ptr %__cur.09.i.i.i.i.i, align 8
   %y.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1
   %y3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 1
-  %3 = load i32, ptr %y3.i.i.i.i.i.i.i, align 4
-  store i32 %3, ptr %y.i.i.i.i.i.i.i, align 4
+  %4 = load i32, ptr %y3.i.i.i.i.i.i.i, align 4
+  store i32 %4, ptr %y.i.i.i.i.i.i.i, align 4
   %p.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 0, i32 2
   %p4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 0, i32 2
-  %4 = load ptr, ptr %p4.i.i.i.i.i.i.i, align 8
-  store ptr %4, ptr %p.i.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %p4.i.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %p.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %p4.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i, i64 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i, i64 1
@@ -1146,16 +1144,16 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.inc.i.i.i.i.i21:                              ; preds = %invoke.cont10, %for.inc.i.i.i.i.i21
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i.i.i29, %for.inc.i.i.i.i.i21 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.sroa.0.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i.i28, %for.inc.i.i.i.i.i21 ], [ %__position.coerce, %invoke.cont10 ]
-  %5 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i23, align 8
-  store i32 %5, ptr %__cur.09.i.i.i.i.i22, align 8
+  %6 = load i32, ptr %__first.sroa.0.08.i.i.i.i.i23, align 8
+  store i32 %6, ptr %__cur.09.i.i.i.i.i22, align 8
   %y.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 1
   %y3.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 0, i32 1
-  %6 = load i32, ptr %y3.i.i.i.i.i.i.i25, align 4
-  store i32 %6, ptr %y.i.i.i.i.i.i.i24, align 4
+  %7 = load i32, ptr %y3.i.i.i.i.i.i.i25, align 4
+  store i32 %7, ptr %y.i.i.i.i.i.i.i24, align 4
   %p.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 0, i32 2
   %p4.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 0, i32 2
-  %7 = load ptr, ptr %p4.i.i.i.i.i.i.i27, align 8
-  store ptr %7, ptr %p.i.i.i.i.i.i.i26, align 8
+  %8 = load ptr, ptr %p4.i.i.i.i.i.i.i27, align 8
+  store ptr %8, ptr %p.i.i.i.i.i.i.i26, align 8
   store ptr null, ptr %p4.i.i.i.i.i.i.i27, align 8
   %incdec.ptr.i.i.i.i.i.i28 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.sroa.0.08.i.i.i.i.i23, i64 1
   %incdec.ptr.i.i.i.i.i29 = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__cur.09.i.i.i.i.i22, i64 1
@@ -1170,8 +1168,8 @@ invoke.cont14:                                    ; preds = %for.inc.i.i.i.i.i21
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont14 ]
   %p.i.i.i.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 0, i32 2
-  %8 = load ptr, ptr %p.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %8) #16
+  %9 = load ptr, ptr %p.i.i.i.i.i.i, align 8
+  tail call void @free(ptr noundef %9) #16
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.my_name_space::array2D", ptr %__first.addr.04.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN13my_name_space7array2DES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !10
@@ -1389,11 +1387,11 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

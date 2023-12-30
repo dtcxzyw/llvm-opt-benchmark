@@ -44,16 +44,15 @@ define dso_local i32 @lua_sethook(ptr nocapture noundef writeonly %L, ptr nounde
 entry:
   %cmp = icmp eq ptr %func, null
   %cmp1 = icmp eq i32 %mask, 0
-  %or.cond = or i1 %cmp, %cmp1
   %0 = trunc i32 %mask to i8
-  %spec.select9 = select i1 %or.cond, ptr null, ptr %func
+  %spec.select9 = select i1 %cmp1, ptr null, ptr %func
   %hook = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 21
   store ptr %spec.select9, ptr %hook, align 8, !tbaa !4
   %basehookcount = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 19
   store i32 %count, ptr %basehookcount, align 8, !tbaa !13
   %hookcount = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 20
   store i32 %count, ptr %hookcount, align 4, !tbaa !14
-  %conv = select i1 %or.cond, i8 0, i8 %0
+  %conv = select i1 %cmp, i8 0, i8 %0
   %hookmask = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 17
   store i8 %conv, ptr %hookmask, align 4, !tbaa !15
   ret i32 1

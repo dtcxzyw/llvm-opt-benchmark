@@ -64,9 +64,8 @@ _ZNKSt6vectorISt4pairIjhESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.els
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %6
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
@@ -83,8 +82,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt4pa
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %5, %_ZNKSt6vectorISt4pairIjhESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %6 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 4, !alias.scope !7, !noalias !4
-  store i64 %6, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !4, !noalias !7
+  %7 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 4, !alias.scope !7, !noalias !4
+  store i64 %7, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !4, !noalias !7
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
@@ -108,10 +107,10 @@ _ZNSt6vectorISt4pairIjhESaIS1_EE17_M_realloc_insertIJRjhEEEvN9__gnu_cxx17__norma
   br label %_ZNSt6vectorISt4pairIjhESaIS1_EE12emplace_backIJRjhEEERS1_DpOT_.exit
 
 _ZNSt6vectorISt4pairIjhESaIS1_EE12emplace_backIJRjhEEERS1_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorISt4pairIjhESaIS1_EE17_M_realloc_insertIJRjhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %7 = load double, ptr %this, align 8
+  %8 = load double, ptr %this, align 8
   %estimated_num_buckets_ = getelementptr inbounds %"class.rocksdb::DataBlockHashIndexBuilder", ptr %this, i64 0, i32 1
-  %8 = load double, ptr %estimated_num_buckets_, align 8
-  %add = fadd double %7, %8
+  %9 = load double, ptr %estimated_num_buckets_, align 8
+  %add = fadd double %8, %9
   store double %add, ptr %estimated_num_buckets_, align 8
   br label %return
 
@@ -285,6 +284,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

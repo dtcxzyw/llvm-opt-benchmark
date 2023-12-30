@@ -1377,9 +1377,8 @@ _ZNKSt6vectorISt4pairIjmESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.els
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 576460752303423487
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 576460752303423487, i64 %add.i.i.i
+  %13 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %13
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
@@ -1388,11 +1387,11 @@ _ZNKSt6vectorISt4pairIjmESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.els
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorISt4pairIjmESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i10, i64 %sub.ptr.sub.i.i.i.i
-  %13 = load i32, ptr %add.ptr.i, align 4
-  store i32 %13, ptr %add.ptr.i.i, align 8
+  %14 = load i32, ptr %add.ptr.i, align 4
+  store i32 %14, ptr %add.ptr.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.54", ptr %call5.i.i.i.i.i10, i64 %sub.ptr.div.i.i.i.i, i32 1
-  %14 = load i64, ptr %second.i.i, align 8
-  store i64 %14, ptr %second.i.i.i.i.i, align 8
+  %15 = load i64, ptr %second.i.i, align 8
+  store i64 %15, ptr %second.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %ts_sz_to_record.sroa.0.065, %ts_sz_to_record.sroa.8.063
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i, label %for.body.i.i.i.i.i
 
@@ -1420,14 +1419,14 @@ _ZNSt6vectorISt4pairIjmESaIS1_EE17_M_realloc_insertIJRKjRKmEEEvN9__gnu_cxx17__no
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %if.then.i, %_ZNSt6vectorISt4pairIjmESaIS1_EE17_M_realloc_insertIJRKjRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %15 = phi i64 [ %.pre, %_ZNSt6vectorISt4pairIjmESaIS1_EE17_M_realloc_insertIJRKjRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %12, %if.then.i ]
+  %16 = phi i64 [ %.pre, %_ZNSt6vectorISt4pairIjmESaIS1_EE17_M_realloc_insertIJRKjRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %12, %if.then.i ]
   %ts_sz_to_record.sroa.14.1 = phi ptr [ %add.ptr28.i.i, %_ZNSt6vectorISt4pairIjmESaIS1_EE17_M_realloc_insertIJRKjRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %ts_sz_to_record.sroa.14.061, %if.then.i ]
   %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt4pairIjmESaIS1_EE17_M_realloc_insertIJRKjRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %ts_sz_to_record.sroa.8.063, %if.then.i ]
   %ts_sz_to_record.sroa.0.2 = phi ptr [ %call5.i.i.i.i.i10, %_ZNSt6vectorISt4pairIjmESaIS1_EE17_M_realloc_insertIJRKjRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %ts_sz_to_record.sroa.0.065, %if.then.i ]
   %ts_sz_to_record.sroa.8.1 = getelementptr inbounds %"struct.std::pair.54", ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 1
-  %16 = load i32, ptr %add.ptr.i, align 4
-  store i32 %16, ptr %ref.tmp, align 8
-  store i64 %15, ptr %0, align 8
+  %17 = load i32, ptr %add.ptr.i, align 4
+  store i32 %17, ptr %ref.tmp, align 8
+  store i64 %16, ptr %0, align 8
   %call.i.i11 = invoke { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS0_IjmEEEES0_INS4_14_Node_iteratorIS2_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %recorded_cf_to_ts_sz_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %for.inc unwind label %ehcleanup.loopexit
 
@@ -1449,17 +1448,17 @@ if.end25:                                         ; preds = %for.end
 
 for.body.i:                                       ; preds = %if.end25, %call.i5.i.noexc
   %__begin2.sroa.0.09.i = phi ptr [ %incdec.ptr.i.i13, %call.i5.i.noexc ], [ %ts_sz_to_record.sroa.0.3, %if.end25 ]
-  %17 = load i32, ptr %__begin2.sroa.0.09.i, align 4
+  %18 = load i32, ptr %__begin2.sroa.0.09.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i.i)
-  store i32 %17, ptr %value.addr.i.i, align 4
+  store i32 %18, ptr %value.addr.i.i, align 4
   %call.i.i14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %encoded, ptr noundef nonnull %value.addr.i.i, i64 noundef 4)
           to label %call.i.i.noexc unwind label %lpad27.loopexit
 
 call.i.i.noexc:                                   ; preds = %for.body.i
   %second.i.i.i = getelementptr inbounds %"struct.std::pair.54", ptr %__begin2.sroa.0.09.i, i64 0, i32 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i.i)
-  %18 = load i64, ptr %second.i.i.i, align 8
-  %conv.i = trunc i64 %18 to i16
+  %19 = load i64, ptr %second.i.i.i, align 8
+  %conv.i = trunc i64 %19 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i4.i)
   store i16 %conv.i, ptr %value.addr.i4.i, align 2
   %call.i5.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %encoded, ptr noundef nonnull %value.addr.i4.i, i64 noundef 2)
@@ -1473,9 +1472,9 @@ call.i5.i.noexc:                                  ; preds = %call.i.i.noexc
 
 invoke.cont28:                                    ; preds = %call.i5.i.noexc
   %recycle_log_files_ = getelementptr inbounds %"class.rocksdb::log::Writer", ptr %this, i64 0, i32 3
-  %19 = load i8, ptr %recycle_log_files_, align 8
-  %20 = and i8 %19, 1
-  %tobool.not = icmp eq i8 %20, 0
+  %20 = load i8, ptr %recycle_log_files_, align 8
+  %21 = and i8 %20, 1
+  %tobool.not = icmp eq i8 %21, 0
   %cond = select i1 %tobool.not, i32 10, i32 11
   %call29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded) #18
   %call30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded) #18

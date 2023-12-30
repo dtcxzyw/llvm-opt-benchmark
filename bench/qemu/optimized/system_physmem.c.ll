@@ -5328,10 +5328,9 @@ if.then2:                                         ; preds = %entry
   %sub = sub i64 0, %addr
   %and = and i64 %sub, %addr
   %conv = trunc i64 %and to i32
-  %cmp3.not = icmp ne i32 %conv, 0
-  %cmp5 = icmp ugt i32 %spec.store.select, %conv
-  %or.cond = select i1 %cmp3.not, i1 %cmp5, i1 false
-  %spec.select10 = select i1 %or.cond, i32 %conv, i32 %spec.store.select
+  %cmp3.not.not = icmp eq i32 %conv, 0
+  %4 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 %conv)
+  %spec.select10 = select i1 %cmp3.not.not, i32 %spec.store.select, i32 %4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then2, %entry
@@ -5339,10 +5338,10 @@ if.end9:                                          ; preds = %if.then2, %entry
   %spec.select = tail call i32 @llvm.umin.i32(i32 %access_size_max.0, i32 %l)
   %conv14 = zext i32 %spec.select to i64
   %tobool.not.i = icmp eq i32 %spec.select, 0
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %conv14, i1 true), !range !51
-  %shr.i = lshr exact i64 -9223372036854775808, %4
-  %5 = trunc i64 %shr.i to i32
-  %conv15 = select i1 %tobool.not.i, i32 0, i32 %5
+  %5 = tail call i64 @llvm.ctlz.i64(i64 %conv14, i1 true), !range !51
+  %shr.i = lshr exact i64 -9223372036854775808, %5
+  %6 = trunc i64 %shr.i to i32
+  %conv15 = select i1 %tobool.not.i, i32 0, i32 %6
   ret i32 %conv15
 }
 
@@ -5462,10 +5461,9 @@ if.then2.i:                                       ; preds = %prepare_mmio_access
   %sub.i = sub i64 0, %2
   %and.i = and i64 %2, %sub.i
   %conv.i = trunc i64 %and.i to i32
-  %cmp3.not.i = icmp ne i32 %conv.i, 0
-  %cmp5.i = icmp ugt i32 %spec.store.select.i, %conv.i
-  %or.cond.i = select i1 %cmp3.not.i, i1 %cmp5.i, i1 false
-  %spec.select10.i = select i1 %or.cond.i, i32 %conv.i, i32 %spec.store.select.i
+  %cmp3.not.not.i = icmp eq i32 %conv.i, 0
+  %16 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 %conv.i)
+  %spec.select10.i = select i1 %cmp3.not.not.i, i32 %spec.store.select.i, i32 %16
   br label %memory_access_size.exit
 
 memory_access_size.exit:                          ; preds = %prepare_mmio_access.exit, %if.then2.i
@@ -5473,18 +5471,18 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv8)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i23 = icmp eq i32 %spec.select.i, 0
-  %16 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
-  %shr.i.i = lshr exact i64 -9223372036854775808, %16
-  %17 = trunc i64 %shr.i.i to i32
-  %conv15.i = select i1 %tobool.not.i.i23, i32 0, i32 %17
+  %17 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
+  %shr.i.i = lshr exact i64 -9223372036854775808, %17
+  %18 = trunc i64 %shr.i.i to i32
+  %conv15.i = select i1 %tobool.not.i.i23, i32 0, i32 %18
   %conv10 = sext i32 %conv15.i to i64
   store i64 %conv10, ptr %l.addr, align 8
-  %18 = call i32 @llvm.cttz.i32(i32 %conv15.i, i1 false), !range !81
-  %call14 = call i32 @memory_region_dispatch_read(ptr noundef nonnull %mr.addr.0, i64 noundef %2, ptr noundef nonnull %val, i32 noundef %18, i32 %attrs.coerce) #25
+  %19 = call i32 @llvm.cttz.i32(i32 %conv15.i, i1 false), !range !81
+  %call14 = call i32 @memory_region_dispatch_read(ptr noundef nonnull %mr.addr.0, i64 noundef %2, ptr noundef nonnull %val, i32 noundef %19, i32 %attrs.coerce) #25
   %or15 = or i32 %call14, %result.0
-  %19 = load i64, ptr %l.addr, align 8
-  %conv16 = trunc i64 %19 to i32
-  %20 = load i64, ptr %val, align 8
+  %20 = load i64, ptr %l.addr, align 8
+  %conv16 = trunc i64 %20 to i32
+  %21 = load i64, ptr %val, align 8
   switch i32 %conv16, label %do.body.i25 [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb1.i
@@ -5493,22 +5491,22 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   ]
 
 sw.bb.i:                                          ; preds = %memory_access_size.exit
-  %conv.i24 = trunc i64 %20 to i8
+  %conv.i24 = trunc i64 %21 to i8
   store i8 %conv.i24, ptr %buf.0, align 1
   br label %if.end19
 
 sw.bb1.i:                                         ; preds = %memory_access_size.exit
-  %conv2.i = trunc i64 %20 to i16
+  %conv2.i = trunc i64 %21 to i16
   store i16 %conv2.i, ptr %buf.0, align 1
   br label %if.end19
 
 sw.bb3.i:                                         ; preds = %memory_access_size.exit
-  %conv4.i = trunc i64 %20 to i32
+  %conv4.i = trunc i64 %21 to i32
   store i32 %conv4.i, ptr %buf.0, align 1
   br label %if.end19
 
 sw.bb5.i:                                         ; preds = %memory_access_size.exit
-  store i64 %20, ptr %buf.0, align 1
+  store i64 %21, ptr %buf.0, align 1
   br label %if.end19
 
 do.body.i25:                                      ; preds = %memory_access_size.exit
@@ -5517,17 +5515,17 @@ do.body.i25:                                      ; preds = %memory_access_size.
 
 if.else17:                                        ; preds = %land.lhs.true6.i, %memory_access_is_direct.exit
   %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %mr.addr.0, i64 0, i32 11
-  %21 = load ptr, ptr %ram_block, align 8
-  %call18 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %21, i64 noundef %2, ptr noundef nonnull %l.addr)
-  %22 = load i64, ptr %l.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.0, ptr align 1 %call18, i64 %22, i1 false)
+  %22 = load ptr, ptr %ram_block, align 8
+  %call18 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %22, i64 noundef %2, ptr noundef nonnull %l.addr)
+  %23 = load i64, ptr %l.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.0, ptr align 1 %call18, i64 %23, i1 false)
   br label %if.end19
 
 if.end19:                                         ; preds = %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i, %if.else17, %if.then
   %result.1 = phi i32 [ %result.0, %if.else17 ], [ %or, %if.then ], [ %or15, %sw.bb.i ], [ %or15, %sw.bb1.i ], [ %or15, %sw.bb3.i ], [ %or15, %sw.bb5.i ]
   %release_lock.1 = phi i8 [ %release_lock.0, %if.else17 ], [ %release_lock.0, %if.then ], [ %10, %sw.bb.i ], [ %10, %sw.bb1.i ], [ %10, %sw.bb3.i ], [ %10, %sw.bb5.i ]
-  %23 = and i8 %release_lock.1, 1
-  %tobool20.not = icmp eq i8 %23, 0
+  %24 = and i8 %release_lock.1, 1
+  %tobool20.not = icmp eq i8 %24, 0
   br i1 %tobool20.not, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
@@ -5536,14 +5534,14 @@ if.then21:                                        ; preds = %if.end19
 
 if.end22:                                         ; preds = %if.then21, %if.end19
   %release_lock.2 = phi i8 [ 0, %if.then21 ], [ %release_lock.1, %if.end19 ]
-  %24 = load i64, ptr %l.addr, align 8
-  %sub = sub i64 %len.addr.0, %24
+  %25 = load i64, ptr %l.addr, align 8
+  %sub = sub i64 %len.addr.0, %25
   %tobool23.not = icmp eq i64 %sub, 0
   br i1 %tobool23.not, label %for.end, label %if.end25
 
 if.end25:                                         ; preds = %if.end22
-  %add = add i64 %24, %addr.addr.0
-  %add.ptr = getelementptr i8, ptr %buf.0, i64 %24
+  %add = add i64 %25, %addr.addr.0
+  %add.ptr = getelementptr i8, ptr %buf.0, i64 %25
   store i64 %sub, ptr %l.addr, align 8
   %call27 = call ptr @flatview_translate(ptr noundef %fv, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, i1 noundef zeroext false, i32 %attrs.coerce)
   %.pre = load i64, ptr %addr1.addr, align 8
@@ -6011,10 +6009,9 @@ if.then2.i:                                       ; preds = %if.then
   %sub.i = sub i64 0, %15
   %and.i = and i64 %15, %sub.i
   %conv.i = trunc i64 %and.i to i32
-  %cmp3.not.i = icmp ne i32 %conv.i, 0
-  %cmp5.i = icmp ugt i32 %spec.store.select.i, %conv.i
-  %or.cond.i = select i1 %cmp3.not.i, i1 %cmp5.i, i1 false
-  %spec.select10.i = select i1 %or.cond.i, i32 %conv.i, i32 %spec.store.select.i
+  %cmp3.not.not.i = icmp eq i32 %conv.i, 0
+  %16 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 %conv.i)
+  %spec.select10.i = select i1 %cmp3.not.not.i, i32 %spec.store.select.i, i32 %16
   br label %memory_access_size.exit
 
 memory_access_size.exit:                          ; preds = %if.then, %if.then2.i
@@ -6022,42 +6019,42 @@ memory_access_size.exit:                          ; preds = %if.then, %if.then2.
   %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %16 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
-  %shr.i.i = lshr exact i64 -9223372036854775808, %16
-  %17 = shl nuw i64 %shr.i.i, 32
-  %18 = ashr exact i64 %17, 32
-  %conv6 = select i1 %tobool.not.i.i, i64 0, i64 %18
+  %17 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
+  %shr.i.i = lshr exact i64 -9223372036854775808, %17
+  %18 = shl nuw i64 %shr.i.i, 32
+  %19 = ashr exact i64 %18, 32
+  %conv6 = select i1 %tobool.not.i.i, i64 0, i64 %19
   store i64 %conv6, ptr %l, align 8
   br label %if.end
 
 if.else:                                          ; preds = %memory_region_is_romd.exit, %while.body
   %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %call2.i, i64 0, i32 11
-  %19 = load ptr, ptr %ram_block, align 8
-  %20 = load i64, ptr %addr1, align 8
-  %call7 = call ptr @qemu_map_ram_ptr(ptr noundef %19, i64 noundef %20)
+  %20 = load ptr, ptr %ram_block, align 8
+  %21 = load i64, ptr %addr1, align 8
+  %call7 = call ptr @qemu_map_ram_ptr(ptr noundef %20, i64 noundef %21)
   %.pre18 = load i64, ptr %l, align 8
   br i1 %cond, label %sw.bb, label %if.end
 
 sw.bb:                                            ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call7, ptr align 1 %buf.016, i64 %.pre18, i1 false)
-  %21 = load i64, ptr %l, align 8
-  call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %call2.i, i64 noundef %20, i64 noundef %21)
+  %22 = load i64, ptr %l, align 8
+  call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %call2.i, i64 noundef %21, i64 noundef %22)
   %.pre = load i64, ptr %l, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %sw.bb, %memory_access_size.exit
-  %22 = phi i64 [ %.pre18, %if.else ], [ %.pre, %sw.bb ], [ %conv6, %memory_access_size.exit ]
-  %sub = sub i64 %len.addr.014, %22
-  %add.ptr = getelementptr i8, ptr %buf.016, i64 %22
-  %add = add i64 %22, %addr.addr.015
+  %23 = phi i64 [ %.pre18, %if.else ], [ %.pre, %sw.bb ], [ %conv6, %memory_access_size.exit ]
+  %sub = sub i64 %len.addr.014, %23
+  %add.ptr = getelementptr i8, ptr %buf.016, i64 %23
+  %add = add i64 %23, %addr.addr.015
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %if.then.i.i, label %while.body, !llvm.loop !83
 
 if.then.i.i:                                      ; preds = %if.end, %rcu_read_auto_lock.exit
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #25
   %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
-  %23 = load i32, ptr %depth.i.i.i.i, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %23, 0
+  %24 = load i32, ptr %depth.i.i.i.i, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %24, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
@@ -6065,7 +6062,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
-  %dec.i.i.i.i = add i32 %23, -1
+  %dec.i.i.i.i = add i32 %24, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -6075,9 +6072,9 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !31
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
-  %24 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
-  %25 = and i8 %24, 1
-  %tobool.not.i.i.i.i = icmp eq i8 %25, 0
+  %25 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
+  %26 = and i8 %25, 1
+  %tobool.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.not.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit, label %while.end21.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
@@ -6382,10 +6379,9 @@ if.then2.i:                                       ; preds = %if.then
   %sub.i = sub i64 0, %addr.addr.016
   %and.i = and i64 %addr.addr.016, %sub.i
   %conv.i = trunc i64 %and.i to i32
-  %cmp3.not.i = icmp ne i32 %conv.i, 0
-  %cmp5.i = icmp ugt i32 %spec.store.select.i, %conv.i
-  %or.cond.i = select i1 %cmp3.not.i, i1 %cmp5.i, i1 false
-  %spec.select10.i = select i1 %or.cond.i, i32 %conv.i, i32 %spec.store.select.i
+  %cmp3.not.not.i = icmp eq i32 %conv.i, 0
+  %15 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 %conv.i)
+  %spec.select10.i = select i1 %cmp3.not.not.i, i32 %spec.store.select.i, i32 %15
   br label %memory_access_size.exit
 
 memory_access_size.exit:                          ; preds = %if.then, %if.then2.i
@@ -6393,20 +6389,20 @@ memory_access_size.exit:                          ; preds = %if.then, %if.then2.
   %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i10 = icmp eq i32 %spec.select.i, 0
-  %15 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
-  %shr.i.i = lshr exact i64 -9223372036854775808, %15
-  %16 = trunc i64 %shr.i.i to i32
-  %conv15.i = select i1 %tobool.not.i.i10, i32 0, i32 %16
+  %16 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
+  %shr.i.i = lshr exact i64 -9223372036854775808, %16
+  %17 = trunc i64 %shr.i.i to i32
+  %conv15.i = select i1 %tobool.not.i.i10, i32 0, i32 %17
   %conv5 = sext i32 %conv15.i to i64
   store i64 %conv5, ptr %l, align 8
-  %17 = load i64, ptr %xlat, align 8
-  %call9 = call zeroext i1 @memory_region_access_valid(ptr noundef nonnull %call, i64 noundef %17, i32 noundef %conv15.i, i1 noundef zeroext %is_write, i32 %attrs.coerce) #25
+  %18 = load i64, ptr %xlat, align 8
+  %call9 = call zeroext i1 @memory_region_access_valid(ptr noundef nonnull %call, i64 noundef %18, i32 noundef %conv15.i, i1 noundef zeroext %is_write, i32 %attrs.coerce) #25
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %land.lhs.true6.i, %land.rhs.i, %memory_access_size.exit, %memory_access_is_direct.exit
-  %18 = load i64, ptr %l, align 8
-  %sub = sub i64 %len.addr.015, %18
-  %add = add i64 %18, %addr.addr.016
+  %19 = load i64, ptr %l, align 8
+  %sub = sub i64 %len.addr.015, %19
+  %add = add i64 %19, %addr.addr.016
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !87
 
@@ -8589,10 +8585,9 @@ if.then2.i:                                       ; preds = %prepare_mmio_access
   %sub.i = sub i64 0, %2
   %and.i = and i64 %2, %sub.i
   %conv.i = trunc i64 %and.i to i32
-  %cmp3.not.i = icmp ne i32 %conv.i, 0
-  %cmp5.i = icmp ugt i32 %spec.store.select.i, %conv.i
-  %or.cond.i = select i1 %cmp3.not.i, i1 %cmp5.i, i1 false
-  %spec.select10.i = select i1 %or.cond.i, i32 %conv.i, i32 %spec.store.select.i
+  %cmp3.not.not.i = icmp eq i32 %conv.i, 0
+  %16 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 %conv.i)
+  %spec.select10.i = select i1 %cmp3.not.not.i, i32 %spec.store.select.i, i32 %16
   br label %memory_access_size.exit
 
 memory_access_size.exit:                          ; preds = %prepare_mmio_access.exit, %if.then2.i
@@ -8600,10 +8595,10 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv8)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %16 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
-  %shr.i.i = lshr exact i64 -9223372036854775808, %16
-  %17 = trunc i64 %shr.i.i to i32
-  %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %17
+  %17 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
+  %shr.i.i = lshr exact i64 -9223372036854775808, %17
+  %18 = trunc i64 %shr.i.i to i32
+  %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %18
   %conv10 = sext i32 %conv15.i to i64
   store i64 %conv10, ptr %l.addr, align 8
   switch i32 %conv15.i, label %do.body.i23 [
@@ -8638,26 +8633,26 @@ do.body.i23:                                      ; preds = %memory_access_size.
 
 ldn_he_p.exit:                                    ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb4.i, %sw.bb7.i
   %retval.0.i21 = phi i64 [ %ptr.val6.i, %sw.bb7.i ], [ %conv6.i, %sw.bb4.i ], [ %conv3.i, %sw.bb1.i ], [ %conv.i22, %sw.bb.i ]
-  %18 = call i32 @llvm.cttz.i32(i32 %conv15.i, i1 false), !range !81
-  %call16 = call i32 @memory_region_dispatch_write(ptr noundef nonnull %mr.addr.0, i64 noundef %2, i64 noundef %retval.0.i21, i32 noundef %18, i32 %attrs.coerce) #25
+  %19 = call i32 @llvm.cttz.i32(i32 %conv15.i, i1 false), !range !81
+  %call16 = call i32 @memory_region_dispatch_write(ptr noundef nonnull %mr.addr.0, i64 noundef %2, i64 noundef %retval.0.i21, i32 noundef %19, i32 %attrs.coerce) #25
   %or17 = or i32 %call16, %result.0
   br label %if.end20
 
 if.else18:                                        ; preds = %memory_access_is_direct.exit
   %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %mr.addr.0, i64 0, i32 11
-  %19 = load ptr, ptr %ram_block, align 8
-  %call19 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %19, i64 noundef %2, ptr noundef nonnull %l.addr)
-  %20 = load i64, ptr %l.addr, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %call19, ptr align 1 %buf.0, i64 %20, i1 false)
+  %20 = load ptr, ptr %ram_block, align 8
+  %call19 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %20, i64 noundef %2, ptr noundef nonnull %l.addr)
   %21 = load i64, ptr %l.addr, align 8
-  call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %mr.addr.0, i64 noundef %2, i64 noundef %21)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %call19, ptr align 1 %buf.0, i64 %21, i1 false)
+  %22 = load i64, ptr %l.addr, align 8
+  call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %mr.addr.0, i64 noundef %2, i64 noundef %22)
   br label %if.end20
 
 if.end20:                                         ; preds = %ldn_he_p.exit, %if.else18, %if.then
   %result.1 = phi i32 [ %result.0, %if.else18 ], [ %or17, %ldn_he_p.exit ], [ %or, %if.then ]
   %release_lock.1 = phi i8 [ %release_lock.0, %if.else18 ], [ %10, %ldn_he_p.exit ], [ %release_lock.0, %if.then ]
-  %22 = and i8 %release_lock.1, 1
-  %tobool21.not = icmp eq i8 %22, 0
+  %23 = and i8 %release_lock.1, 1
+  %tobool21.not = icmp eq i8 %23, 0
   br i1 %tobool21.not, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
@@ -8666,14 +8661,14 @@ if.then22:                                        ; preds = %if.end20
 
 if.end23:                                         ; preds = %if.then22, %if.end20
   %release_lock.2 = phi i8 [ 0, %if.then22 ], [ %release_lock.1, %if.end20 ]
-  %23 = load i64, ptr %l.addr, align 8
-  %sub = sub i64 %len.addr.0, %23
+  %24 = load i64, ptr %l.addr, align 8
+  %sub = sub i64 %len.addr.0, %24
   %tobool24.not = icmp eq i64 %sub, 0
   br i1 %tobool24.not, label %for.end, label %if.end26
 
 if.end26:                                         ; preds = %if.end23
-  %add = add i64 %23, %addr.addr.0
-  %add.ptr = getelementptr i8, ptr %buf.0, i64 %23
+  %add = add i64 %24, %addr.addr.0
+  %add.ptr = getelementptr i8, ptr %buf.0, i64 %24
   store i64 %sub, ptr %l.addr, align 8
   %call28 = call ptr @flatview_translate(ptr noundef %fv, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, i1 noundef zeroext true, i32 %attrs.coerce)
   %.pre = load i64, ptr %addr1.addr, align 8

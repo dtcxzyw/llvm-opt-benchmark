@@ -1062,39 +1062,38 @@ _ZNKSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ;
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 576460752303423487
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 576460752303423487, i64 %add.i.i.i
+  %13 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %13
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN8facebook5velox9ByteRangeEEE8allocateERS3_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIN8facebook5velox9ByteRangeEEE8allocateERS3_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #24
   br label %_ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN8facebook5velox9ByteRangeEEE8allocateERS3_m.exit.i.i.i, %_ZNKSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN8facebook5velox9ByteRangeEEE8allocateERS3_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i2 = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i2, i8 0, i64 16, i1 false)
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
 
-if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %12, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+  br label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
 
-_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN8facebook5velox9ByteRangeESaIS2_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %add.ptr.i.i.i.i.i, i64 1
   %tobool.not.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i18.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %12) #25
   br label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
   store ptr %cond.i10.i.i, ptr %ranges_27, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %cond.i10.i.i, i64 %cond.i.i.i
@@ -1102,16 +1101,16 @@ _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu
   br label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %13 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  %add.ptr.i.i4 = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %13, i64 -1
+  %14 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %add.ptr.i.i4 = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %14, i64 -1
   store ptr %add.ptr.i.i4, ptr %current_, align 8
   %lastRangeEnd_ = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %this, i64 0, i32 8
   store i32 0, ptr %lastRangeEnd_, align 8
-  %14 = load ptr, ptr %this, align 8
+  %15 = load ptr, ptr %this, align 8
   %allocatedBytes_.i = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %this, i64 0, i32 6
-  %15 = load i64, ptr %allocatedBytes_.i, align 8
-  %16 = trunc i64 %15 to i32
-  %conv2.i = add i32 %16, %bytes
+  %16 = load i64, ptr %allocatedBytes_.i, align 8
+  %17 = trunc i64 %16 to i32
+  %conv2.i = add i32 %17, %bytes
   %cmp.i = icmp slt i32 %conv2.i, 128
   br i1 %cmp.i, label %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit, label %if.end.i
 
@@ -1121,8 +1120,8 @@ if.end.i:                                         ; preds = %_ZNSt6vectorIN8face
 
 if.then4.i:                                       ; preds = %if.end.i
   %add.i.i = add i32 %bytes, 127
-  %17 = srem i32 %add.i.i, 128
-  %mul.i.i = sub nsw i32 %add.i.i, %17
+  %18 = srem i32 %add.i.i, 128
+  %mul.i.i = sub nsw i32 %add.i.i, %18
   br label %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -1131,8 +1130,8 @@ if.end5.i:                                        ; preds = %if.end.i
 
 if.then8.i:                                       ; preds = %if.end5.i
   %add.i7.i = add i32 %bytes, 511
-  %18 = srem i32 %add.i7.i, 512
-  %mul.i8.i = sub nsw i32 %add.i7.i, %18
+  %19 = srem i32 %add.i7.i, 512
+  %mul.i8.i = sub nsw i32 %add.i7.i, %19
   br label %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit
 
 if.end10.i:                                       ; preds = %if.end5.i
@@ -1142,24 +1141,24 @@ if.end10.i:                                       ; preds = %if.end5.i
 
 _ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit: ; preds = %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit, %if.then4.i, %if.then8.i, %if.end10.i
   %retval.0.i = phi i32 [ %mul.i.i, %if.then4.i ], [ %mul.i8.i, %if.then8.i ], [ %mul.i10.i, %if.end10.i ], [ 128, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
-  %19 = load ptr, ptr %ranges_27, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %19 to i64
+  %20 = load ptr, ptr %ranges_27, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp35 = icmp eq i64 %sub.ptr.sub.i, 16
-  %20 = getelementptr i8, ptr %19, i64 %sub.ptr.sub.i
-  %add.ptr.i = getelementptr %"struct.facebook::velox::ByteRange", ptr %20, i64 -2
+  %21 = getelementptr i8, ptr %20, i64 %sub.ptr.sub.i
+  %add.ptr.i = getelementptr %"struct.facebook::velox::ByteRange", ptr %21, i64 -2
   %cond = select i1 %cmp35, ptr null, ptr %add.ptr.i
-  %vtable = load ptr, ptr %14, align 8
+  %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %21 = load ptr, ptr %vfn, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(152) %14, i32 noundef %retval.0.i, ptr noundef %cond, ptr noundef nonnull %add.ptr.i.i4)
-  %22 = load ptr, ptr %current_, align 8
-  %size42 = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %22, i64 0, i32 1
-  %23 = load i32, ptr %size42, align 8
-  %conv = sext i32 %23 to i64
-  %24 = load i64, ptr %allocatedBytes_.i, align 8
-  %add = add nsw i64 %24, %conv
+  %22 = load ptr, ptr %vfn, align 8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(152) %15, i32 noundef %retval.0.i, ptr noundef %cond, ptr noundef nonnull %add.ptr.i.i4)
+  %23 = load ptr, ptr %current_, align 8
+  %size42 = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %23, i64 0, i32 1
+  %24 = load i32, ptr %size42, align 8
+  %conv = sext i32 %24 to i64
+  %25 = load i64, ptr %allocatedBytes_.i, align 8
+  %add = add nsw i64 %25, %conv
   store i64 %add, ptr %allocatedBytes_.i, align 8
   %cmp44 = icmp slt i64 %add, 1
   br i1 %cmp44, label %if.then46, label %if.end47
@@ -1170,14 +1169,14 @@ if.then46:                                        ; preds = %_ZNK8facebook5velox
 
 if.end47:                                         ; preds = %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit
   %isBits_ = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %this, i64 0, i32 1
-  %25 = load i8, ptr %isBits_, align 8
-  %26 = and i8 %25, 1
-  %tobool48.not = icmp eq i8 %26, 0
+  %26 = load i8, ptr %isBits_, align 8
+  %27 = and i8 %26, 1
+  %tobool48.not = icmp eq i8 %27, 0
   br i1 %tobool48.not, label %if.end52, label %if.then49
 
 if.then49:                                        ; preds = %if.end47
-  %27 = load i32, ptr %size42, align 8
-  %mul = shl nsw i32 %27, 3
+  %28 = load i32, ptr %size42, align 8
+  %mul = shl nsw i32 %28, 3
   store i32 %mul, ptr %size42, align 8
   br label %if.end52
 
@@ -3237,6 +3236,9 @@ declare i32 @llvm.smax.i32(i32, i32) #19
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshr.i32(i32, i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3244,9 +3246,6 @@ declare i16 @llvm.fshr.i16(i16, i16, i16) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshr.i8(i8, i8, i8) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20

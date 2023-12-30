@@ -7518,9 +7518,8 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 72057594037927935
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 72057594037927935, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 72057594037927935)
+  %cond.i = select i1 %cmp7.i, i64 72057594037927935, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 7
@@ -7529,23 +7528,23 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 7
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load i64, ptr %__args, align 8, !tbaa !146
-  store i64 %2, ptr %add.ptr, align 8, !tbaa !206
+  %3 = load i64, ptr %__args, align 8, !tbaa !146
+  store i64 %3, ptr %add.ptr, align 8, !tbaa !206
   %element.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
-  %3 = load i64, ptr %__args3, align 8, !tbaa !23
-  %4 = inttoptr i64 %3 to ptr
-  %5 = load i64, ptr %__args5, align 8, !tbaa !23
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i32, ptr %4, align 4, !tbaa !81
-  store i32 %7, ptr %element.i.i.i, align 8, !tbaa !236
+  %4 = load i64, ptr %__args3, align 8, !tbaa !23
+  %5 = inttoptr i64 %4 to ptr
+  %6 = load i64, ptr %__args5, align 8, !tbaa !23
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load i32, ptr %5, align 4, !tbaa !81
+  store i32 %8, ptr %element.i.i.i, align 8, !tbaa !236
   %second.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false)
   %details.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1, i32 11
-  %details3.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::meta_type_node", ptr %6, i64 0, i32 11
-  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::meta_type_node", ptr %6, i64 0, i32 11, i32 0, i32 1
-  %8 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i, align 8, !tbaa !23
+  %details3.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::meta_type_node", ptr %7, i64 0, i32 11
+  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::meta_type_node", ptr %7, i64 0, i32 11, i32 0, i32 1
+  %9 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i, align 8, !tbaa !23
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !tbaa !79
-  store <2 x ptr> %8, ptr %details.i.i.i.i.i.i, align 8, !tbaa !23
+  store <2 x ptr> %9, ptr %details.i.i.i.i.i.i, align 8, !tbaa !23
   store ptr null, ptr %details3.i.i.i.i.i.i, align 8, !tbaa !77
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i
@@ -7555,21 +7554,21 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4ent
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  %9 = load i64, ptr %__first.addr.07.i.i.i, align 8, !tbaa !206, !alias.scope !240, !noalias !237
-  store i64 %9, ptr %__cur.08.i.i.i, align 8, !tbaa !206, !alias.scope !237, !noalias !240
+  %10 = load i64, ptr %__first.addr.07.i.i.i, align 8, !tbaa !206, !alias.scope !240, !noalias !237
+  store i64 %10, ptr %__cur.08.i.i.i, align 8, !tbaa !206, !alias.scope !237, !noalias !240
   %element.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i, i64 0, i32 1
   %element3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 0, i32 1
-  %10 = load i32, ptr %element3.i.i.i.i.i.i.i, align 8, !tbaa !236, !alias.scope !240, !noalias !237
-  store i32 %10, ptr %element.i.i.i.i.i.i.i, align 8, !tbaa !236, !alias.scope !237, !noalias !240
+  %11 = load i32, ptr %element3.i.i.i.i.i.i.i, align 8, !tbaa !236, !alias.scope !240, !noalias !237
+  store i32 %11, ptr %element.i.i.i.i.i.i.i, align 8, !tbaa !236, !alias.scope !237, !noalias !240
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %second3.i.i.i.i.i.i.i.i, i64 96, i1 false), !alias.scope !242
   %details.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1, i32 11
   %details3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1, i32 11
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1, i32 11, i32 0, i32 1
-  %11 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !240, !noalias !237
+  %12 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !240, !noalias !237
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !79, !alias.scope !240, !noalias !237
-  store <2 x ptr> %11, ptr %details.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !237, !noalias !240
+  store <2 x ptr> %12, ptr %details.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !237, !noalias !240
   store ptr null, ptr %details3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !77, !alias.scope !240, !noalias !237
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i, i64 1
@@ -7587,21 +7586,21 @@ for.body.i.i.i55:                                 ; preds = %_ZNSt6vectorIN4entt
   %__first.addr.07.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i66, %for.body.i.i.i55 ], [ %__position.coerce, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
-  %12 = load i64, ptr %__first.addr.07.i.i.i57, align 8, !tbaa !206, !alias.scope !247, !noalias !244
-  store i64 %12, ptr %__cur.08.i.i.i56, align 8, !tbaa !206, !alias.scope !244, !noalias !247
+  %13 = load i64, ptr %__first.addr.07.i.i.i57, align 8, !tbaa !206, !alias.scope !247, !noalias !244
+  store i64 %13, ptr %__cur.08.i.i.i56, align 8, !tbaa !206, !alias.scope !244, !noalias !247
   %element.i.i.i.i.i.i.i58 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i56, i64 0, i32 1
   %element3.i.i.i.i.i.i.i59 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 0, i32 1
-  %13 = load i32, ptr %element3.i.i.i.i.i.i.i59, align 8, !tbaa !236, !alias.scope !247, !noalias !244
-  store i32 %13, ptr %element.i.i.i.i.i.i.i58, align 8, !tbaa !236, !alias.scope !244, !noalias !247
+  %14 = load i32, ptr %element3.i.i.i.i.i.i.i59, align 8, !tbaa !236, !alias.scope !247, !noalias !244
+  store i32 %14, ptr %element.i.i.i.i.i.i.i58, align 8, !tbaa !236, !alias.scope !244, !noalias !247
   %second.i.i.i.i.i.i.i.i60 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i56, i64 0, i32 1, i32 1
   %second3.i.i.i.i.i.i.i.i61 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 0, i32 1, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i.i60, ptr noundef nonnull align 8 dereferenceable(96) %second3.i.i.i.i.i.i.i.i61, i64 96, i1 false), !alias.scope !249
   %details.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i56, i64 0, i32 1, i32 1, i32 11
   %details3.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 0, i32 1, i32 1, i32 11
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 0, i32 1, i32 1, i32 11, i32 0, i32 1
-  %14 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !23, !alias.scope !247, !noalias !244
+  %15 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !23, !alias.scope !247, !noalias !244
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !79, !alias.scope !247, !noalias !244
-  store <2 x ptr> %14, ptr %details.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !23, !alias.scope !244, !noalias !247
+  store <2 x ptr> %15, ptr %details.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !23, !alias.scope !244, !noalias !247
   store ptr null, ptr %details3.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !77, !alias.scope !247, !noalias !244
   %incdec.ptr.i.i.i66 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 1
   %incdec.ptr1.i.i.i67 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i56, i64 1
@@ -7993,9 +7992,8 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 72057594037927935
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 72057594037927935, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 72057594037927935)
+  %cond.i = select i1 %cmp7.i, i64 72057594037927935, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 7
@@ -8010,13 +8008,13 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjNS1_14meta_type_node
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEEEE8allocateERS5_m.exit.i, %_ZNKSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12_M_check_lenEmPKc.exit
   %cond.i53 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEEEE8allocateERS5_m.exit.i ], [ null, %_ZNKSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %cond.i53, i64 %sub.ptr.div.i
-  %2 = load i64, ptr %__args, align 8, !tbaa !146
-  store i64 %2, ptr %add.ptr, align 8, !tbaa !206
+  %3 = load i64, ptr %__args, align 8, !tbaa !146
+  store i64 %3, ptr %add.ptr, align 8, !tbaa !206
   %element.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %cond.i53, i64 %sub.ptr.div.i, i32 1
-  %3 = load i64, ptr %__args3, align 8, !tbaa !23
-  %4 = inttoptr i64 %3 to ptr
-  %5 = load i32, ptr %4, align 4, !tbaa !81
-  store i32 %5, ptr %element.i.i.i, align 8, !tbaa !236
+  %4 = load i64, ptr %__args3, align 8, !tbaa !23
+  %5 = inttoptr i64 %4 to ptr
+  %6 = load i32, ptr %5, align 4, !tbaa !81
+  store i32 %6, ptr %element.i.i.i, align 8, !tbaa !236
   %second.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %cond.i53, i64 %sub.ptr.div.i, i32 1, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %second.i.i.i.i.i, i8 0, i64 112, i1 false)
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -8027,21 +8025,21 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %6 = load i64, ptr %__first.addr.07.i.i.i, align 8, !tbaa !206, !alias.scope !266, !noalias !263
-  store i64 %6, ptr %__cur.08.i.i.i, align 8, !tbaa !206, !alias.scope !263, !noalias !266
+  %7 = load i64, ptr %__first.addr.07.i.i.i, align 8, !tbaa !206, !alias.scope !266, !noalias !263
+  store i64 %7, ptr %__cur.08.i.i.i, align 8, !tbaa !206, !alias.scope !263, !noalias !266
   %element.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i, i64 0, i32 1
   %element3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 0, i32 1
-  %7 = load i32, ptr %element3.i.i.i.i.i.i.i, align 8, !tbaa !236, !alias.scope !266, !noalias !263
-  store i32 %7, ptr %element.i.i.i.i.i.i.i, align 8, !tbaa !236, !alias.scope !263, !noalias !266
+  %8 = load i32, ptr %element3.i.i.i.i.i.i.i, align 8, !tbaa !236, !alias.scope !266, !noalias !263
+  store i32 %8, ptr %element.i.i.i.i.i.i.i, align 8, !tbaa !236, !alias.scope !263, !noalias !266
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %second3.i.i.i.i.i.i.i.i, i64 96, i1 false), !alias.scope !268
   %details.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1, i32 11
   %details3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1, i32 11
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1, i32 11, i32 0, i32 1
-  %8 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !266, !noalias !263
+  %9 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !266, !noalias !263
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !79, !alias.scope !266, !noalias !263
-  store <2 x ptr> %8, ptr %details.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !263, !noalias !266
+  store <2 x ptr> %9, ptr %details.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !263, !noalias !266
   store ptr null, ptr %details3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !77, !alias.scope !266, !noalias !263
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i, i64 1
@@ -8059,21 +8057,21 @@ for.body.i.i.i55:                                 ; preds = %_ZNSt6vectorIN4entt
   %__first.addr.07.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i66, %for.body.i.i.i55 ], [ %__position.coerce, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
-  %9 = load i64, ptr %__first.addr.07.i.i.i57, align 8, !tbaa !206, !alias.scope !272, !noalias !269
-  store i64 %9, ptr %__cur.08.i.i.i56, align 8, !tbaa !206, !alias.scope !269, !noalias !272
+  %10 = load i64, ptr %__first.addr.07.i.i.i57, align 8, !tbaa !206, !alias.scope !272, !noalias !269
+  store i64 %10, ptr %__cur.08.i.i.i56, align 8, !tbaa !206, !alias.scope !269, !noalias !272
   %element.i.i.i.i.i.i.i58 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i56, i64 0, i32 1
   %element3.i.i.i.i.i.i.i59 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 0, i32 1
-  %10 = load i32, ptr %element3.i.i.i.i.i.i.i59, align 8, !tbaa !236, !alias.scope !272, !noalias !269
-  store i32 %10, ptr %element.i.i.i.i.i.i.i58, align 8, !tbaa !236, !alias.scope !269, !noalias !272
+  %11 = load i32, ptr %element3.i.i.i.i.i.i.i59, align 8, !tbaa !236, !alias.scope !272, !noalias !269
+  store i32 %11, ptr %element.i.i.i.i.i.i.i58, align 8, !tbaa !236, !alias.scope !269, !noalias !272
   %second.i.i.i.i.i.i.i.i60 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i56, i64 0, i32 1, i32 1
   %second3.i.i.i.i.i.i.i.i61 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 0, i32 1, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i.i60, ptr noundef nonnull align 8 dereferenceable(96) %second3.i.i.i.i.i.i.i.i61, i64 96, i1 false), !alias.scope !274
   %details.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i56, i64 0, i32 1, i32 1, i32 11
   %details3.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 0, i32 1, i32 1, i32 11
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 0, i32 1, i32 1, i32 11, i32 0, i32 1
-  %11 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !23, !alias.scope !272, !noalias !269
+  %12 = load <2 x ptr>, ptr %details3.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !23, !alias.scope !272, !noalias !269
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !79, !alias.scope !272, !noalias !269
-  store <2 x ptr> %11, ptr %details.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !23, !alias.scope !269, !noalias !272
+  store <2 x ptr> %12, ptr %details.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !23, !alias.scope !269, !noalias !272
   store ptr null, ptr %details3.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !77, !alias.scope !272, !noalias !269
   %incdec.ptr.i.i.i66 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__first.addr.07.i.i.i57, i64 1
   %incdec.ptr1.i.i.i67 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %__cur.08.i.i.i56, i64 1
@@ -11671,9 +11669,8 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEESaIS4_EE12
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 76861433640456465
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 76861433640456465, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 76861433640456465)
+  %cond.i = select i1 %cmp7.i, i64 76861433640456465, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 120
@@ -11682,35 +11679,35 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEESaIS4_EE12
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 120
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load i64, ptr %__args, align 8, !tbaa !146
-  store i64 %2, ptr %add.ptr, align 8, !tbaa !342
+  %3 = load i64, ptr %__args, align 8, !tbaa !146
+  store i64 %3, ptr %add.ptr, align 8, !tbaa !342
   %element.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
-  %3 = load i32, ptr %__args1, align 4, !tbaa !81
-  store i32 %3, ptr %element.i.i.i, align 8, !tbaa !399
+  %4 = load i32, ptr %__args1, align 4, !tbaa !81
+  store i32 %4, ptr %element.i.i.i, align 8, !tbaa !399
   %second.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__args3, i64 48, i1 false)
   %prop.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1, i32 6
   %prop3.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::meta_data_node", ptr %__args3, i64 0, i32 6
-  %4 = load <2 x ptr>, ptr %prop3.i.i.i.i.i, align 8, !tbaa !23
-  store <2 x ptr> %4, ptr %prop.i.i.i.i.i, align 8, !tbaa !23
+  %5 = load <2 x ptr>, ptr %prop3.i.i.i.i.i, align 8, !tbaa !23
+  store <2 x ptr> %5, ptr %prop.i.i.i.i.i, align 8, !tbaa !23
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1, i32 6, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::meta_data_node", ptr %__args3, i64 0, i32 6, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
-  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !210
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !210
+  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !210
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !210
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prop3.i.i.i.i.i, i8 0, i64 24, i1 false)
   %packed.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1, i32 6, i32 1
   %packed3.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::meta_data_node", ptr %__args3, i64 0, i32 6, i32 1
-  %6 = load <2 x ptr>, ptr %packed3.i.i.i.i.i.i, align 8, !tbaa !23
-  store <2 x ptr> %6, ptr %packed.i.i.i.i.i.i, align 8, !tbaa !23
+  %7 = load <2 x ptr>, ptr %packed3.i.i.i.i.i.i, align 8, !tbaa !23
+  store <2 x ptr> %7, ptr %packed.i.i.i.i.i.i, align 8, !tbaa !23
   %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1, i32 6, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i10.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::meta_data_node", ptr %__args3, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i10.i.i.i.i.i.i, align 8, !tbaa !397
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i.i, align 8, !tbaa !397
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i10.i.i.i.i.i.i, align 8, !tbaa !397
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i.i, align 8, !tbaa !397
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packed3.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %threshold.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1, i32 6, i32 2
   %threshold4.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::meta_data_node", ptr %__args3, i64 0, i32 6, i32 2
-  %8 = load float, ptr %threshold4.i.i.i.i.i.i, align 8, !tbaa !318
-  store float %8, ptr %threshold.i.i.i.i.i.i, align 8, !tbaa !318
+  %9 = load float, ptr %threshold4.i.i.i.i.i.i, align 8, !tbaa !318
+  store float %9, ptr %threshold.i.i.i.i.i.i, align 8, !tbaa !318
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %_ZNSt15__new_allocatorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEEE7destroyIS4_EEvPT_.exit
 
@@ -11719,37 +11716,37 @@ _ZNSt15__new_allocatorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEEE
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt15__new_allocatorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEEE7destroyIS4_EEvPT_.exit ], [ %1, %_ZNKSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEESaIS4_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !400)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
-  %9 = load i64, ptr %__first.addr.07.i.i.i, align 8, !tbaa !342, !alias.scope !403, !noalias !400
-  store i64 %9, ptr %__cur.08.i.i.i, align 8, !tbaa !342, !alias.scope !400, !noalias !403
+  %10 = load i64, ptr %__first.addr.07.i.i.i, align 8, !tbaa !342, !alias.scope !403, !noalias !400
+  store i64 %10, ptr %__cur.08.i.i.i, align 8, !tbaa !342, !alias.scope !400, !noalias !403
   %element.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i, i64 0, i32 1
   %element3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i, i64 0, i32 1
-  %10 = load i32, ptr %element3.i.i.i.i.i.i.i, align 8, !tbaa !399, !alias.scope !403, !noalias !400
-  store i32 %10, ptr %element.i.i.i.i.i.i.i, align 8, !tbaa !399, !alias.scope !400, !noalias !403
+  %11 = load i32, ptr %element3.i.i.i.i.i.i.i, align 8, !tbaa !399, !alias.scope !403, !noalias !400
+  store i32 %11, ptr %element.i.i.i.i.i.i.i, align 8, !tbaa !399, !alias.scope !400, !noalias !403
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %second3.i.i.i.i.i.i.i.i, i64 48, i1 false), !alias.scope !405
   %prop.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1, i32 6
   %prop3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1, i32 6
-  %11 = load <2 x ptr>, ptr %prop3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !403, !noalias !400
-  store <2 x ptr> %11, ptr %prop.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !400, !noalias !403
+  %12 = load <2 x ptr>, ptr %prop3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !403, !noalias !400
+  store <2 x ptr> %12, ptr %prop.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !400, !noalias !403
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1, i32 6, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1, i32 6, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
-  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !210, !alias.scope !403, !noalias !400
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !210, !alias.scope !400, !noalias !403
+  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !210, !alias.scope !403, !noalias !400
+  store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !210, !alias.scope !400, !noalias !403
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prop3.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !403, !noalias !400
   %packed.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1, i32 6, i32 1
   %packed3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1, i32 6, i32 1
-  %13 = load <2 x ptr>, ptr %packed3.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !403, !noalias !400
-  store <2 x ptr> %13, ptr %packed.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !400, !noalias !403
+  %14 = load <2 x ptr>, ptr %packed3.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !403, !noalias !400
+  store <2 x ptr> %14, ptr %packed.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !400, !noalias !403
   %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1, i32 6, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1, i32 6, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
-  %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !397, !alias.scope !403, !noalias !400
-  store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !397, !alias.scope !400, !noalias !403
+  %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !397, !alias.scope !403, !noalias !400
+  store ptr %15, ptr %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !397, !alias.scope !400, !noalias !403
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packed3.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !403, !noalias !400
   %threshold.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i, i64 0, i32 1, i32 1, i32 6, i32 2
   %threshold4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i, i64 0, i32 1, i32 1, i32 6, i32 2
-  %15 = load float, ptr %threshold4.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !318, !alias.scope !403, !noalias !400
-  store float %15, ptr %threshold.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !318, !alias.scope !400, !noalias !403
+  %16 = load float, ptr %threshold4.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !318, !alias.scope !403, !noalias !400
+  store float %16, ptr %threshold.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !318, !alias.scope !400, !noalias !403
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -11766,37 +11763,37 @@ _ZNSt15__new_allocatorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEEE
   %__first.addr.07.i.i.i55 = phi ptr [ %incdec.ptr.i.i.i74, %_ZNSt15__new_allocatorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEEE7destroyIS4_EEvPT_.exit38 ], [ %__position.coerce, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !407)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
-  %16 = load i64, ptr %__first.addr.07.i.i.i55, align 8, !tbaa !342, !alias.scope !410, !noalias !407
-  store i64 %16, ptr %__cur.08.i.i.i54, align 8, !tbaa !342, !alias.scope !407, !noalias !410
+  %17 = load i64, ptr %__first.addr.07.i.i.i55, align 8, !tbaa !342, !alias.scope !410, !noalias !407
+  store i64 %17, ptr %__cur.08.i.i.i54, align 8, !tbaa !342, !alias.scope !407, !noalias !410
   %element.i.i.i.i.i.i.i56 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i54, i64 0, i32 1
   %element3.i.i.i.i.i.i.i57 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i55, i64 0, i32 1
-  %17 = load i32, ptr %element3.i.i.i.i.i.i.i57, align 8, !tbaa !399, !alias.scope !410, !noalias !407
-  store i32 %17, ptr %element.i.i.i.i.i.i.i56, align 8, !tbaa !399, !alias.scope !407, !noalias !410
+  %18 = load i32, ptr %element3.i.i.i.i.i.i.i57, align 8, !tbaa !399, !alias.scope !410, !noalias !407
+  store i32 %18, ptr %element.i.i.i.i.i.i.i56, align 8, !tbaa !399, !alias.scope !407, !noalias !410
   %second.i.i.i.i.i.i.i.i58 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i54, i64 0, i32 1, i32 1
   %second3.i.i.i.i.i.i.i.i59 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i55, i64 0, i32 1, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(48) %second3.i.i.i.i.i.i.i.i59, i64 48, i1 false), !alias.scope !412
   %prop.i.i.i.i.i.i.i.i.i60 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i54, i64 0, i32 1, i32 1, i32 6
   %prop3.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i55, i64 0, i32 1, i32 1, i32 6
-  %18 = load <2 x ptr>, ptr %prop3.i.i.i.i.i.i.i.i.i61, align 8, !tbaa !23, !alias.scope !410, !noalias !407
-  store <2 x ptr> %18, ptr %prop.i.i.i.i.i.i.i.i.i60, align 8, !tbaa !23, !alias.scope !407, !noalias !410
+  %19 = load <2 x ptr>, ptr %prop3.i.i.i.i.i.i.i.i.i61, align 8, !tbaa !23, !alias.scope !410, !noalias !407
+  store <2 x ptr> %19, ptr %prop.i.i.i.i.i.i.i.i.i60, align 8, !tbaa !23, !alias.scope !407, !noalias !410
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i54, i64 0, i32 1, i32 1, i32 6, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i55, i64 0, i32 1, i32 1, i32 6, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
-  %19 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !210, !alias.scope !410, !noalias !407
-  store ptr %19, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64, align 8, !tbaa !210, !alias.scope !407, !noalias !410
+  %20 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !210, !alias.scope !410, !noalias !407
+  store ptr %20, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64, align 8, !tbaa !210, !alias.scope !407, !noalias !410
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prop3.i.i.i.i.i.i.i.i.i61, i8 0, i64 24, i1 false), !alias.scope !410, !noalias !407
   %packed.i.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i54, i64 0, i32 1, i32 1, i32 6, i32 1
   %packed3.i.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i55, i64 0, i32 1, i32 1, i32 6, i32 1
-  %20 = load <2 x ptr>, ptr %packed3.i.i.i.i.i.i.i.i.i.i67, align 8, !tbaa !23, !alias.scope !410, !noalias !407
-  store <2 x ptr> %20, ptr %packed.i.i.i.i.i.i.i.i.i.i66, align 8, !tbaa !23, !alias.scope !407, !noalias !410
+  %21 = load <2 x ptr>, ptr %packed3.i.i.i.i.i.i.i.i.i.i67, align 8, !tbaa !23, !alias.scope !410, !noalias !407
+  store <2 x ptr> %21, ptr %packed.i.i.i.i.i.i.i.i.i.i66, align 8, !tbaa !23, !alias.scope !407, !noalias !410
   %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i54, i64 0, i32 1, i32 1, i32 6, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i.i71 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i55, i64 0, i32 1, i32 1, i32 6, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
-  %21 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i.i71, align 8, !tbaa !397, !alias.scope !410, !noalias !407
-  store ptr %21, ptr %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i.i.i.i.i.i70, align 8, !tbaa !397, !alias.scope !407, !noalias !410
+  %22 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i.i71, align 8, !tbaa !397, !alias.scope !410, !noalias !407
+  store ptr %22, ptr %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i.i.i.i.i.i70, align 8, !tbaa !397, !alias.scope !407, !noalias !410
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packed3.i.i.i.i.i.i.i.i.i.i67, i8 0, i64 24, i1 false), !alias.scope !410, !noalias !407
   %threshold.i.i.i.i.i.i.i.i.i.i72 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i54, i64 0, i32 1, i32 1, i32 6, i32 2
   %threshold4.i.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i55, i64 0, i32 1, i32 1, i32 6, i32 2
-  %22 = load float, ptr %threshold4.i.i.i.i.i.i.i.i.i.i73, align 8, !tbaa !318, !alias.scope !410, !noalias !407
-  store float %22, ptr %threshold.i.i.i.i.i.i.i.i.i.i72, align 8, !tbaa !318, !alias.scope !407, !noalias !410
+  %23 = load float, ptr %threshold4.i.i.i.i.i.i.i.i.i.i73, align 8, !tbaa !318, !alias.scope !410, !noalias !407
+  store float %23, ptr %threshold.i.i.i.i.i.i.i.i.i.i72, align 8, !tbaa !318, !alias.scope !407, !noalias !410
   %incdec.ptr.i.i.i74 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__first.addr.07.i.i.i55, i64 1
   %incdec.ptr1.i.i.i75 = getelementptr inbounds %"struct.entt::internal::dense_map_node.162", ptr %__cur.08.i.i.i54, i64 1
   %cmp.not.i.i.i76 = icmp eq ptr %incdec.ptr.i.i.i74, %0

@@ -320,7 +320,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.end.i.i
           cleanup
   br label %lpad.i
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i, %call3.i.noexc76.i, %if.end.i72.i, %if.end42.sink.split.i.i, %.noexc65.i, %.noexc64.i, %if.then23.i.i, %.noexc62.i, %if.then9.i.i, %if.then2.i.i, %if.then19.i, %while.cond.i
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %cond.true.i.i.i.i, %call3.i.noexc76.i, %if.end.i72.i, %if.end42.sink.split.i.i, %.noexc65.i, %.noexc64.i, %if.then23.i.i, %.noexc62.i, %if.then9.i.i, %if.then2.i.i, %if.then19.i, %while.cond.i
   %lpad.loopexit126.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
@@ -656,19 +656,18 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i84.i
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 2305843009213693951
-  %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
-  %cond.i.i.i.i = select i1 %or.cond.i.i.i.i, i64 2305843009213693951, i64 %add.i.i.i.i
+  %58 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 2305843009213693951)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 2305843009213693951, i64 %58
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 2
   %call5.i.i.i.i.i89.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #17
           to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i89.i, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i ]
+_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i89.i, %cond.true.i.i.i.i ]
   %add.ptr.i.i85.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store i32 %spec.store.select.i, ptr %add.ptr.i.i85.i, align 4
   %cmp.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
@@ -701,41 +700,41 @@ if.end71.i:                                       ; preds = %do.cond.i, %lor.lhs
 
 land.lhs.true73.i:                                ; preds = %if.end71.i
   %call74.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
-  %58 = load i8, ptr %call74.i, align 1
-  %cmp76.i = icmp eq i8 %58, 92
+  %59 = load i8, ptr %call74.i, align 1
+  %cmp76.i = icmp eq i8 %59, 92
   br i1 %cmp76.i, label %if.then81.i, label %lor.lhs.false77.i
 
 lor.lhs.false77.i:                                ; preds = %land.lhs.true73.i
   %call78.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
-  %59 = load i8, ptr %call78.i, align 1
-  %cmp80.i = icmp eq i8 %59, 47
+  %60 = load i8, ptr %call78.i, align 1
+  %cmp80.i = icmp eq i8 %60, 47
   br i1 %cmp80.i, label %if.then81.i, label %while.cond.i.backedge
 
 if.then81.i:                                      ; preds = %lor.lhs.false77.i, %land.lhs.true73.i
-  %60 = load i8, ptr @_ZN7consoleL16advanced_displayE, align 1
-  %61 = and i8 %60, 1
-  %tobool.not.i90.i = icmp eq i8 %61, 0
-  %62 = load i32, ptr @_ZN7consoleL15current_displayE, align 4
-  %cmp.not.i91.i = icmp eq i32 %62, 1
+  %61 = load i8, ptr @_ZN7consoleL16advanced_displayE, align 1
+  %62 = and i8 %61, 1
+  %tobool.not.i90.i = icmp eq i8 %62, 0
+  %63 = load i32, ptr @_ZN7consoleL15current_displayE, align 4
+  %cmp.not.i91.i = icmp eq i32 %63, 1
   %or.cond.i92.i = select i1 %tobool.not.i90.i, i1 true, i1 %cmp.not.i91.i
   br i1 %or.cond.i92.i, label %invoke.cont82.i, label %if.then.i93.i
 
 if.then.i93.i:                                    ; preds = %if.then81.i
-  %63 = load ptr, ptr @stdout, align 8
-  %call.i94.i = call i32 @fflush(ptr noundef %63)
-  %64 = load ptr, ptr @_ZN7consoleL3outE, align 8
-  %65 = call i64 @fwrite(ptr nonnull @.str.4, i64 5, i64 1, ptr %64)
+  %64 = load ptr, ptr @stdout, align 8
+  %call.i94.i = call i32 @fflush(ptr noundef %64)
+  %65 = load ptr, ptr @_ZN7consoleL3outE, align 8
+  %66 = call i64 @fwrite(ptr nonnull @.str.4, i64 5, i64 1, ptr %65)
   store i32 1, ptr @_ZN7consoleL15current_displayE, align 4
-  %66 = load ptr, ptr @_ZN7consoleL3outE, align 8
-  %call8.i95.i = call i32 @fflush(ptr noundef %66)
+  %67 = load ptr, ptr @_ZN7consoleL3outE, align 8
+  %call8.i95.i = call i32 @fflush(ptr noundef %67)
   br label %invoke.cont82.i
 
 invoke.cont82.i:                                  ; preds = %if.then.i93.i, %if.then81.i
   %call83.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
-  %67 = load i8, ptr %call83.i, align 1
-  %68 = load ptr, ptr @_ZN7consoleL3outE, align 8
-  %conv.i98.i = sext i8 %67 to i32
-  %call.i99.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.8, i32 noundef %conv.i98.i)
+  %68 = load i8, ptr %call83.i, align 1
+  %69 = load ptr, ptr @_ZN7consoleL3outE, align 8
+  %conv.i98.i = sext i8 %68 to i32
+  %call.i99.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.8, i32 noundef %conv.i98.i)
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %invoke.cont82.i, %lor.lhs.false77.i, %if.end71.i
@@ -743,19 +742,19 @@ while.cond.i.backedge:                            ; preds = %invoke.cont82.i, %l
   br label %while.cond.i, !llvm.loop !9
 
 while.end86.i:                                    ; preds = %invoke.cont2.i, %invoke.cont2.i, %invoke.cont2.i, %invoke.cont2.i
-  %69 = and i8 %is_special_char.0.i, 1
-  %tobool89.not.i = icmp eq i8 %69, 0
+  %70 = and i8 %is_special_char.0.i, 1
+  %tobool89.not.i = icmp eq i8 %70, 0
   br i1 %tobool89.not.i, label %if.else115.i, label %invoke.cont92.i
 
 invoke.cont92.i:                                  ; preds = %while.end86.i
-  %70 = load ptr, ptr @_ZN7consoleL3outE, align 8
-  %call.i100.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.8, i32 noundef 32)
   %71 = load ptr, ptr @_ZN7consoleL3outE, align 8
-  %call.i101.i = call i32 @putc(i32 noundef 8, ptr noundef %71)
+  %call.i100.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.8, i32 noundef 32)
+  %72 = load ptr, ptr @_ZN7consoleL3outE, align 8
+  %call.i101.i = call i32 @putc(i32 noundef 8, ptr noundef %72)
   %call93.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
-  %72 = load i8, ptr %call93.i, align 1
+  %73 = load i8, ptr %call93.i, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
-  %cmp95.i = icmp eq i8 %72, 92
+  %cmp95.i = icmp eq i8 %73, 92
   br i1 %cmp95.i, label %if.then96.i, label %if.else104.i
 
 if.then96.i:                                      ; preds = %invoke.cont92.i
@@ -763,8 +762,8 @@ if.then96.i:                                      ; preds = %invoke.cont92.i
           to label %invoke.cont97.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont97.i:                                  ; preds = %if.then96.i
-  %73 = load ptr, ptr @_ZN7consoleL3outE, align 8
-  %call100.i = call i32 @fputc(i32 noundef 10, ptr noundef %73)
+  %74 = load ptr, ptr @_ZN7consoleL3outE, align 8
+  %call100.i = call i32 @fputc(i32 noundef 10, ptr noundef %74)
   %lnot102.i = xor i1 %multiline_input, true
   br label %if.end124.i
 
@@ -775,14 +774,14 @@ if.else104.i:                                     ; preds = %invoke.cont92.i
 
 land.lhs.true107.i:                               ; preds = %if.else104.i
   %call108.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
-  %74 = load i8, ptr %call108.i, align 1
-  %cmp110.i = icmp eq i8 %74, 32
+  %75 = load i8, ptr %call108.i, align 1
+  %cmp110.i = icmp eq i8 %75, 32
   br i1 %cmp110.i, label %if.then111.i, label %if.end124.i
 
 if.then111.i:                                     ; preds = %land.lhs.true107.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
-  %75 = load ptr, ptr @_ZN7consoleL3outE, align 8
-  %call.i102.i = call i32 @putc(i32 noundef 8, ptr noundef %75)
+  %76 = load ptr, ptr @_ZN7consoleL3outE, align 8
+  %call.i102.i = call i32 @putc(i32 noundef 8, ptr noundef %76)
   br label %if.end124.i
 
 if.else115.i:                                     ; preds = %while.end86.i
@@ -796,14 +795,14 @@ if.else118.i:                                     ; preds = %if.else115.i, %if.e
           to label %invoke.cont119.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont119.i:                                 ; preds = %if.else118.i
-  %76 = load ptr, ptr @_ZN7consoleL3outE, align 8
-  %call122.i = call i32 @fputc(i32 noundef 10, ptr noundef %76)
+  %77 = load ptr, ptr @_ZN7consoleL3outE, align 8
+  %call122.i = call i32 @fputc(i32 noundef 10, ptr noundef %77)
   br label %if.end124.i
 
 if.end124.i:                                      ; preds = %invoke.cont119.i, %if.else115.i, %if.then111.i, %land.lhs.true107.i, %if.else104.i, %invoke.cont97.i
   %has_more.0.shrunk.i = phi i1 [ %lnot102.i, %invoke.cont97.i ], [ %multiline_input, %invoke.cont119.i ], [ false, %if.then111.i ], [ false, %land.lhs.true107.i ], [ false, %if.else104.i ], [ false, %if.else115.i ]
-  %77 = load ptr, ptr @_ZN7consoleL3outE, align 8
-  %call126.i = call i32 @fflush(ptr noundef %77)
+  %78 = load ptr, ptr @_ZN7consoleL3outE, align 8
+  %call126.i = call i32 @fflush(ptr noundef %78)
   %tobool.not.i.i.i103.i = icmp eq ptr %widths.sroa.0.0.i, null
   br i1 %tobool.not.i.i.i103.i, label %return, label %if.then.i.i.i104.i
 

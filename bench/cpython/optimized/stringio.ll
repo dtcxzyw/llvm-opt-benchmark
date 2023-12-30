@@ -2260,26 +2260,25 @@ if.end.i.i:                                       ; preds = %if.end7.i
   %add.ptr.i.i = getelementptr i32, ptr %8, i64 %6
   %cmp2.i.i = icmp slt i64 %1, 0
   %sub.i.i = sub i64 %7, %6
-  %cmp5.i.i = icmp slt i64 %sub.i.i, %1
-  %or.cond.i.i = or i1 %cmp2.i.i, %cmp5.i.i
-  %spec.select23.i.i = select i1 %or.cond.i.i, i64 %sub.i.i, i64 %1
+  %9 = call i64 @llvm.smin.i64(i64 %sub.i.i, i64 %1)
+  %spec.select23.i.i = select i1 %cmp2.i.i, i64 %sub.i.i, i64 %9
   %add.ptr11.i.i = getelementptr i32, ptr %add.ptr.i.i, i64 %spec.select23.i.i
-  %9 = load i32, ptr %add.ptr11.i.i, align 4
+  %10 = load i32, ptr %add.ptr11.i.i, align 4
   store i32 0, ptr %add.ptr11.i.i, align 4
   %readtranslate.i.i = getelementptr inbounds %struct.stringio, ptr %self, i64 0, i32 10
-  %10 = load i8, ptr %readtranslate.i.i, align 1
-  %conv.i.i = sext i8 %10 to i32
+  %11 = load i8, ptr %readtranslate.i.i, align 1
+  %conv.i.i = sext i8 %11 to i32
   %readuniversal.i.i = getelementptr inbounds %struct.stringio, ptr %self, i64 0, i32 9
-  %11 = load i8, ptr %readuniversal.i.i, align 2
-  %conv12.i.i = sext i8 %11 to i32
+  %12 = load i8, ptr %readuniversal.i.i, align 2
+  %conv12.i.i = sext i8 %12 to i32
   %readnl.i.i = getelementptr inbounds %struct.stringio, ptr %self, i64 0, i32 12
-  %12 = load ptr, ptr %readnl.i.i, align 8
-  %call13.i.i = call i64 @_PyIO_find_line_ending(i32 noundef %conv.i.i, i32 noundef %conv12.i.i, ptr noundef %12, i32 noundef 4, ptr noundef %add.ptr.i.i, ptr noundef nonnull %add.ptr11.i.i, ptr noundef nonnull %consumed.i.i) #6
-  store i32 %9, ptr %add.ptr11.i.i, align 4
+  %13 = load ptr, ptr %readnl.i.i, align 8
+  %call13.i.i = call i64 @_PyIO_find_line_ending(i32 noundef %conv.i.i, i32 noundef %conv12.i.i, ptr noundef %13, i32 noundef 4, ptr noundef %add.ptr.i.i, ptr noundef nonnull %add.ptr11.i.i, ptr noundef nonnull %consumed.i.i) #6
+  store i32 %10, ptr %add.ptr11.i.i, align 4
   %cmp14.i.i = icmp slt i64 %call13.i.i, 0
   %spec.select.i.i = select i1 %cmp14.i.i, i64 %spec.select23.i.i, i64 %call13.i.i
-  %13 = load i64, ptr %pos.i.i, align 8
-  %add.i.i = add i64 %13, %spec.select.i.i
+  %14 = load i64, ptr %pos.i.i, align 8
+  %add.i.i = add i64 %14, %spec.select.i.i
   store i64 %add.i.i, ptr %pos.i.i, align 8
   %call19.i.i = call ptr @PyUnicode_FromKindAndData(i32 noundef 4, ptr noundef %add.ptr.i.i, i64 noundef %spec.select.i.i) #6
   br label %_stringio_readline.exit.i
@@ -3557,6 +3556,9 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5

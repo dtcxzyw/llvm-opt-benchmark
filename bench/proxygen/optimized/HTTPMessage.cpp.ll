@@ -15378,19 +15378,18 @@ _ZNKSt6vectorISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE12_M_check_lenEmS2_.exit: ;
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i83, i64 %sub.ptr.div.i.i)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i83
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i83
-  %cmp9.i = icmp ugt i64 %add.i, 384307168202282325
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 384307168202282325, i64 %add.i
+  %8 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
+  %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %8
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaISt4pairIPKcN5folly5RangeIS2_EEEEE8allocateERS7_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaISt4pairIPKcN5folly5RangeIS2_EEEEE8allocateERS7_m.exit.i: ; preds = %_ZNKSt6vectorISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE12_M_check_lenEmS2_.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE12_M_check_lenEmS2_.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #33
   br label %_ZNSt12_Vector_baseISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE12_M_check_lenEmS2_.exit, %_ZNSt16allocator_traitsISaISt4pairIPKcN5folly5RangeIS2_EEEEE8allocateERS7_m.exit.i
-  %cond.i84 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIPKcN5folly5RangeIS2_EEEEE8allocateERS7_m.exit.i ], [ null, %_ZNKSt6vectorISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE12_M_check_lenEmS2_.exit ]
+_ZNSt12_Vector_baseISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE12_M_check_lenEmS2_.exit, %cond.true.i
+  %cond.i84 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt4pairIPKcN5folly5RangeIS2_EEESaIS6_EE12_M_check_lenEmS2_.exit ]
   %cmp.i.i.not7.i.i.i.i.i85 = icmp eq ptr %7, %__position.coerce
   br i1 %cmp.i.i.not7.i.i.i.i.i85, label %for.body.i.i.i.i94.preheader, label %for.body.i.i.i.i.i86
 

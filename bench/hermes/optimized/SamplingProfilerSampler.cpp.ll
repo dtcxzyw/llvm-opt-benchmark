@@ -1471,28 +1471,27 @@ _ZNKSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE8allocateERS4_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
   br label %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE8allocateERS4_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = load i64, ptr %__args, align 8
+  %3 = load i64, ptr %__args, align 8
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %__args1, align 8
   %agg.tmp8.sroa.0.0.copyload.i.i = load ptr, ptr %__args3, align 8
   %agg.tmp9.sroa.0.0.copyload.i.i = load ptr, ptr %__args5, align 8
-  store i64 %2, ptr %add.ptr, align 8
+  store i64 %3, ptr %add.ptr, align 8
   %timeStamp.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
   store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %timeStamp.i.i.i, align 8
   %stack.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
@@ -1543,12 +1542,12 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !19
   %stack.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i, i64 0, i32 2
   %stack3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %3 = load <2 x ptr>, ptr %stack3.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store <2 x ptr> %3, ptr %stack.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %4 = load <2 x ptr>, ptr %stack3.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store <2 x ptr> %4, ptr %stack.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !14
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i, i64 1
@@ -1569,12 +1568,12 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6herm
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i14, i64 16, i1 false), !alias.scope !26
   %stack.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i13, i64 0, i32 2
   %stack3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load <2 x ptr>, ptr %stack3.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !21
-  store <2 x ptr> %5, ptr %stack.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !24
+  %6 = load <2 x ptr>, ptr %stack3.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !21
+  store <2 x ptr> %6, ptr %stack.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !24
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i13, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i14, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !24, !noalias !21
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !21, !noalias !24
+  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !24, !noalias !21
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !21, !noalias !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack3.i.i.i.i.i.i.i16, i8 0, i64 24, i1 false), !alias.scope !24, !noalias !21
   %incdec.ptr.i.i.i21 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i22 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i13, i64 1
@@ -1981,6 +1980,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

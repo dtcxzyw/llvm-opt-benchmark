@@ -156,7 +156,7 @@ lpad.loopexit.split-lp.loopexit.loopexit:         ; preds = %while.cond, %if.the
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %_ZNSt16allocator_traitsISaIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataEE8allocateERS4_m.exit.i.i.i
+lpad.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %cond.true.i.i.i
   %lpad.loopexit.split-lp47 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -211,38 +211,37 @@ _ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_chec
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 2247410340364224
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 2247410340364224, i64 %add.i.i.i
+  %2 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2247410340364224)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2247410340364224, i64 %2
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataEE8allocateERS4_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 4104
   %call5.i.i.i.i.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #17
           to label %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit.split-lp.loopexit.loopexit.split-lp
 
-_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataEE8allocateERS4_m.exit.i.i.i, %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
-  %cond.i12.i.i = phi ptr [ null, %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i ], [ %call5.i.i.i.i.i28, %_ZNSt16allocator_traitsISaIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataEE8allocateERS4_m.exit.i.i.i ]
+_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
+  %cond.i12.i.i = phi ptr [ null, %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i ], [ %call5.i.i.i.i.i28, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %struct.FileData, ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4104) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(4104) %file_data, i64 4104, i1 false)
-  %cmp.i.i.i13.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i13.i.i, label %if.then.i.i.i14.i.i, label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
 
-if.then.i.i.i14.i.i:                              ; preds = %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i, ptr align 8 %roots_filenames.sroa.0.0.ph, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i
+  br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
 
-_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i: ; preds = %if.then.i.i.i14.i.i, %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i12.i.i, i64 %sub.ptr.sub.i.i.i.i
   %tobool.not.i.i.i25 = icmp eq ptr %roots_filenames.sroa.0.0.ph, null
-  br i1 %tobool.not.i.i.i25, label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i22.i.i
+  br i1 %tobool.not.i.i.i25, label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i22.i.i:                                  ; preds = %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
   call void @_ZdlPv(ptr noundef nonnull %roots_filenames.sroa.0.0.ph) #15
   br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i22.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i
+_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
   %add.ptr19.i.i = getelementptr inbounds %struct.FileData, ptr %cond.i12.i.i, i64 %cond.i.i.i
   br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_backERKS3_.exit
 
@@ -284,14 +283,14 @@ invoke.cont33:                                    ; preds = %for.body
 
 if.then36:                                        ; preds = %invoke.cont33
   %size38 = getelementptr inbounds %struct.FileData, ptr %roots_filenames.sroa.0.0.ph, i64 %i.066, i32 1
-  %2 = load i64, ptr %size38, align 8
+  %3 = load i64, ptr %size38, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call27, i64 %bytes_read.067
-  %call40 = invoke i64 @read(i32 noundef %call34, ptr noundef %add.ptr, i64 noundef %2)
+  %call40 = invoke i64 @read(i32 noundef %call34, ptr noundef %add.ptr, i64 noundef %3)
           to label %invoke.cont39 unwind label %lpad.thread
 
 invoke.cont39:                                    ; preds = %if.then36
-  %3 = and i64 %call40, 4294967295
-  %cmp41.not = icmp eq i64 %3, 4294967295
+  %4 = and i64 %call40, 4294967295
+  %cmp41.not = icmp eq i64 %4, 4294967295
   br i1 %cmp41.not, label %if.else, label %if.then42
 
 if.then42:                                        ; preds = %invoke.cont39
@@ -573,6 +572,9 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

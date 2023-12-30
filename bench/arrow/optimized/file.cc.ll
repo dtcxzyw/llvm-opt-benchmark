@@ -14071,10 +14071,8 @@ if.then16:                                        ; preds = %if.end15
   br label %return
 
 if.end17:                                         ; preds = %if.end15
-  %cmp18 = icmp sgt i64 %length, -1
-  %cmp19 = icmp slt i64 %length, %initial_size
-  %or.cond = and i1 %cmp18, %cmp19
-  %mmap_length.0 = select i1 %or.cond, i64 %length, i64 %initial_size
+  %cmp18102 = icmp slt i64 %length, 0
+  %mmap_length.0 = select i1 %cmp18102, i64 %initial_size, i64 %length
   %prot_flags_ = getelementptr inbounds %"class.arrow::io::MemoryMappedFile::MemoryMap", ptr %this, i64 0, i32 2
   %3 = load i32, ptr %prot_flags_, align 8
   %map_mode_ = getelementptr inbounds %"class.arrow::io::MemoryMappedFile::MemoryMap", ptr %this, i64 0, i32 3

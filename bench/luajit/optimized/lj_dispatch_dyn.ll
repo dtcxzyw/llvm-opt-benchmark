@@ -135,8 +135,8 @@ for.end:                                          ; preds = %for.body
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @lj_dispatch_update(ptr nocapture noundef %g) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @lj_dispatch_update(ptr nocapture noundef %g) local_unnamed_addr #0 {
 entry:
   %dispatchmode = getelementptr inbounds %struct.global_State, ptr %g, i64 0, i32 6
   %0 = load i8, ptr %dispatchmode, align 2
@@ -369,7 +369,7 @@ if.end195:                                        ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 declare hidden void @lj_vm_rethook() #1
 
@@ -382,7 +382,7 @@ declare hidden void @lj_vm_inshook() #1
 declare hidden void @lj_vm_callhook() #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @luaJIT_setmode(ptr noundef %L, i32 noundef %idx, i32 noundef %mode) local_unnamed_addr #4 {
+define i32 @luaJIT_setmode(ptr noundef %L, i32 noundef %idx, i32 noundef %mode) local_unnamed_addr #3 {
 entry:
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
   %0 = load i64, ptr %glref, align 8
@@ -400,7 +400,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 897) #12
+  tail call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 897) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -420,7 +420,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %tobool4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %sw.bb
-  %call = tail call i32 @lj_trace_flushall(ptr noundef nonnull %L) #13
+  %call = tail call i32 @lj_trace_flushall(ptr noundef nonnull %L) #12
   br label %return
 
 if.else:                                          ; preds = %sw.bb
@@ -545,7 +545,7 @@ if.then.i:                                        ; preds = %if.then81
   %24 = load i8, ptr %flags.i, align 1
   %25 = and i8 %24, -9
   store i8 %25, ptr %flags.i, align 1
-  tail call void @lj_trace_reenableproto(ptr noundef %pt.0) #13
+  tail call void @lj_trace_reenableproto(ptr noundef %pt.0) #12
   br label %setptmode.exit
 
 if.else.i:                                        ; preds = %if.then81
@@ -561,7 +561,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %if.end.i50
 
 if.end.i50:                                       ; preds = %if.then5.i, %if.else.i
-  tail call void @lj_trace_flushproto(ptr noundef nonnull %1, ptr noundef %pt.0) #13
+  tail call void @lj_trace_flushproto(ptr noundef nonnull %1, ptr noundef %pt.0) #12
   br label %setptmode.exit
 
 setptmode.exit:                                   ; preds = %if.then.i, %if.end.i50
@@ -578,7 +578,7 @@ sw.bb87:                                          ; preds = %if.end
   br i1 %tobool89.not, label %return, label %if.end91
 
 if.end91:                                         ; preds = %sw.bb87
-  tail call void @lj_trace_flush(ptr noundef nonnull %J, i32 noundef %idx) #13
+  tail call void @lj_trace_flush(ptr noundef nonnull %J, i32 noundef %idx) #12
   br label %return
 
 sw.bb94:                                          ; preds = %if.end
@@ -655,12 +655,12 @@ return:                                           ; preds = %if.end91, %if.else,
 }
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare hidden i32 @lj_trace_flushall(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setptmode_all(ptr noundef %g, ptr nocapture noundef readonly %pt, i32 noundef %mode) unnamed_addr #4 {
+define internal fastcc void @setptmode_all(ptr noundef %g, ptr nocapture noundef readonly %pt, i32 noundef %mode) unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds %struct.GCproto, ptr %pt, i64 0, i32 14
   %0 = load i8, ptr %flags, align 1
@@ -704,7 +704,7 @@ if.then6.us.us:                                   ; preds = %for.body.us.us
   %8 = load i8, ptr %flags6.i.us.us, align 1
   %9 = or i8 %8, 8
   store i8 %9, ptr %flags6.i.us.us, align 1
-  tail call void @lj_trace_flushproto(ptr noundef %g, ptr noundef nonnull %6) #13
+  tail call void @lj_trace_flushproto(ptr noundef %g, ptr noundef nonnull %6) #12
   tail call fastcc void @setptmode_all(ptr noundef %g, ptr noundef nonnull %6, i32 noundef %mode)
   br label %for.inc.us.us
 
@@ -726,7 +726,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   br i1 %cmp4.us, label %if.then6.us, label %for.inc.us
 
 if.then6.us:                                      ; preds = %for.body.us
-  tail call void @lj_trace_flushproto(ptr noundef %g, ptr noundef nonnull %13) #13
+  tail call void @lj_trace_flushproto(ptr noundef %g, ptr noundef nonnull %13) #12
   tail call fastcc void @setptmode_all(ptr noundef %g, ptr noundef nonnull %13, i32 noundef %mode)
   br label %for.inc.us
 
@@ -752,7 +752,7 @@ if.then6:                                         ; preds = %for.body
   %20 = load i8, ptr %flags.i, align 1
   %21 = and i8 %20, -9
   store i8 %21, ptr %flags.i, align 1
-  tail call void @lj_trace_reenableproto(ptr noundef nonnull %18) #13
+  tail call void @lj_trace_reenableproto(ptr noundef nonnull %18) #12
   tail call fastcc void @setptmode_all(ptr noundef %g, ptr noundef nonnull %18, i32 noundef %mode)
   br label %for.inc
 
@@ -768,22 +768,21 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 declare hidden void @lj_trace_flush(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @luaJIT_version_2_1_1702296283() local_unnamed_addr #6 {
+define void @luaJIT_version_2_1_1702296283() local_unnamed_addr #5 {
 entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @lua_sethook(ptr nocapture noundef readonly %L, ptr noundef %func, i32 noundef %mask, i32 noundef %count) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define i32 @lua_sethook(ptr nocapture noundef readonly %L, ptr noundef %func, i32 noundef %mask, i32 noundef %count) local_unnamed_addr #6 {
 entry:
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
   %0 = load i64, ptr %glref, align 8
   %and = and i32 %mask, 15
   %cmp = icmp eq ptr %func, null
   %cmp1 = icmp eq i32 %and, 0
-  %or.cond = or i1 %cmp, %cmp1
   %1 = trunc i32 %and to i8
-  %spec.select10 = select i1 %or.cond, ptr null, ptr %func
+  %spec.select10 = select i1 %cmp1, ptr null, ptr %func
   %2 = inttoptr i64 %0 to ptr
   %hookf = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 19
   store ptr %spec.select10, ptr %hookf, align 8
@@ -794,7 +793,7 @@ entry:
   %hookmask = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 5
   %3 = load i8, ptr %hookmask, align 1
   %4 = and i8 %3, -16
-  %5 = select i1 %or.cond, i8 0, i8 %1
+  %5 = select i1 %cmp, i8 0, i8 %1
   %conv3 = or disjoint i8 %4, %5
   store i8 %conv3, ptr %hookmask, align 1
   %state = getelementptr inbounds i8, ptr %2, i64 964
@@ -806,7 +805,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lua_gethook(ptr nocapture noundef readonly %L) local_unnamed_addr #8 {
+define ptr @lua_gethook(ptr nocapture noundef readonly %L) local_unnamed_addr #7 {
 entry:
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
   %0 = load i64, ptr %glref, align 8
@@ -817,7 +816,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lua_gethookmask(ptr nocapture noundef readonly %L) local_unnamed_addr #8 {
+define i32 @lua_gethookmask(ptr nocapture noundef readonly %L) local_unnamed_addr #7 {
 entry:
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
   %0 = load i64, ptr %glref, align 8
@@ -830,7 +829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lua_gethookcount(ptr nocapture noundef readonly %L) local_unnamed_addr #8 {
+define i32 @lua_gethookcount(ptr nocapture noundef readonly %L) local_unnamed_addr #7 {
 entry:
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
   %0 = load i64, ptr %glref, align 8
@@ -841,12 +840,12 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_dispatch_ins(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #4 {
+define hidden void @lj_dispatch_ins(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #3 {
 entry:
   %ar.i75 = alloca %struct.lua_Debug, align 8
   %ar.i45 = alloca %struct.lua_Debug, align 8
   %ar.i = alloca %struct.lua_Debug, align 8
-  %call = tail call ptr @__errno_location() #14
+  %call = tail call ptr @__errno_location() #13
   %0 = load i32, ptr %call, align 4
   %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %1 = load ptr, ptr %base, align 8
@@ -947,7 +946,7 @@ if.then:                                          ; preds = %cur_topslot.exit
   %J14 = getelementptr inbounds i8, ptr %12, i64 728
   %L15 = getelementptr inbounds i8, ptr %12, i64 856
   store ptr %L, ptr %L15, align 8
-  tail call void @lj_trace_ins(ptr noundef nonnull %J14, ptr noundef nonnull %arrayidx.i) #13
+  tail call void @lj_trace_ins(ptr noundef nonnull %J14, ptr noundef nonnull %arrayidx.i) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cur_topslot.exit
@@ -1009,7 +1008,7 @@ if.then.i43:                                      ; preds = %land.lhs.true.i
   br i1 %cmp.i.i, label %if.then.i.i, label %lj_state_checkstack.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i43
-  tail call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #13
+  tail call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #12
   %.pre.i44 = load i8, ptr %hookmask.i, align 1
   br label %lj_state_checkstack.exit.i
 
@@ -1017,7 +1016,7 @@ lj_state_checkstack.exit.i:                       ; preds = %if.then.i.i, %if.th
   %37 = phi i8 [ %.pre.i44, %if.then.i.i ], [ %30, %if.then.i43 ]
   %38 = or i8 %37, 16
   store i8 %38, ptr %hookmask.i, align 1
-  call void %29(ptr noundef nonnull %L, ptr noundef nonnull %ar.i) #13
+  call void %29(ptr noundef nonnull %L, ptr noundef nonnull %ar.i) #12
   %39 = ptrtoint ptr %L to i64
   %cur_L.i = getelementptr inbounds %struct.global_State, ptr %28, i64 0, i32 24
   store i64 %39, ptr %cur_L.i, align 8
@@ -1049,7 +1048,7 @@ if.then31:                                        ; preds = %if.end26
   %sub.ptr.div38 = lshr exact i64 %sub.ptr.sub37, 2
   %conv39 = trunc i64 %sub.ptr.div38 to i32
   %sub40 = add i32 %conv39, -1
-  %call41 = call i32 @lj_debug_line(ptr noundef nonnull %add.ptr2, i32 noundef %sub) #13
+  %call41 = call i32 @lj_debug_line(ptr noundef nonnull %add.ptr2, i32 noundef %sub) #12
   %cmp42.not = icmp ult ptr %10, %pc
   br i1 %cmp42.not, label %lor.lhs.false, label %if.then50
 
@@ -1060,7 +1059,7 @@ lor.lhs.false:                                    ; preds = %if.then31
   br i1 %cmp44.not, label %lor.lhs.false46, label %if.then50
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false
-  %call47 = call i32 @lj_debug_line(ptr noundef nonnull %add.ptr2, i32 noundef %sub40) #13
+  %call47 = call i32 @lj_debug_line(ptr noundef nonnull %add.ptr2, i32 noundef %sub40) #12
   %cmp48.not = icmp eq i32 %call41, %call47
   br i1 %cmp48.not, label %if.end56, label %if.then50
 
@@ -1107,7 +1106,7 @@ if.then.i53:                                      ; preds = %land.lhs.true.i49
   br i1 %cmp.i.i69, label %if.then.i.i72, label %lj_state_checkstack.exit.i70
 
 if.then.i.i72:                                    ; preds = %if.then.i53
-  call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #13
+  call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #12
   %.pre.i73 = load i8, ptr %hookmask.i50, align 1
   br label %lj_state_checkstack.exit.i70
 
@@ -1115,7 +1114,7 @@ lj_state_checkstack.exit.i70:                     ; preds = %if.then.i.i72, %if.
   %56 = phi i8 [ %.pre.i73, %if.then.i.i72 ], [ %49, %if.then.i53 ]
   %57 = or i8 %56, 16
   store i8 %57, ptr %hookmask.i50, align 1
-  call void %48(ptr noundef nonnull %L, ptr noundef nonnull %ar.i45) #13
+  call void %48(ptr noundef nonnull %L, ptr noundef nonnull %ar.i45) #12
   %58 = ptrtoint ptr %L to i64
   %cur_L.i71 = getelementptr inbounds %struct.global_State, ptr %47, i64 0, i32 24
   store i64 %58, ptr %cur_L.i71, align 8
@@ -1187,7 +1186,7 @@ if.then.i83:                                      ; preds = %land.lhs.true.i79
   br i1 %cmp.i.i99, label %if.then.i.i102, label %lj_state_checkstack.exit.i100
 
 if.then.i.i102:                                   ; preds = %if.then.i83
-  call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #13
+  call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #12
   %.pre.i103 = load i8, ptr %hookmask.i80, align 1
   br label %lj_state_checkstack.exit.i100
 
@@ -1195,7 +1194,7 @@ lj_state_checkstack.exit.i100:                    ; preds = %if.then.i.i102, %if
   %75 = phi i8 [ %.pre.i103, %if.then.i.i102 ], [ %68, %if.then.i83 ]
   %76 = or i8 %75, 16
   store i8 %76, ptr %hookmask.i80, align 1
-  call void %67(ptr noundef nonnull %L, ptr noundef nonnull %ar.i75) #13
+  call void %67(ptr noundef nonnull %L, ptr noundef nonnull %ar.i75) #12
   %77 = ptrtoint ptr %L to i64
   %cur_L.i101 = getelementptr inbounds %struct.global_State, ptr %66, i64 0, i32 24
   store i64 %77, ptr %cur_L.i101, align 8
@@ -1214,17 +1213,17 @@ if.end66:                                         ; preds = %land.lhs.true61, %c
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
 declare hidden void @lj_trace_ins(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare hidden i32 @lj_debug_line(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_dispatch_call(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #4 {
+define hidden ptr @lj_dispatch_call(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #3 {
 entry:
   %ar.i = alloca %struct.lua_Debug, align 8
-  %call = tail call ptr @__errno_location() #14
+  %call = tail call ptr @__errno_location() #13
   %0 = load i32, ptr %call, align 4
   %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %1 = load ptr, ptr %base, align 8
@@ -1274,7 +1273,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i19.not.i, label %lj_state_checkstack.exit21.i, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %if.then.i
-  tail call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef %need.0.i) #13
+  tail call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef %need.0.i) #12
   br label %lj_state_checkstack.exit21.i
 
 lj_state_checkstack.exit21.i:                     ; preds = %if.then.i20.i, %if.then.i
@@ -1293,7 +1292,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %call_init.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
-  tail call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 20) #13
+  tail call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 20) #12
   br label %call_init.exit
 
 call_init.exit:                                   ; preds = %lj_state_checkstack.exit21.i, %if.else.i, %if.then.i.i
@@ -1308,7 +1307,7 @@ call_init.exit:                                   ; preds = %lj_state_checkstack
 if.then:                                          ; preds = %call_init.exit
   %and6 = and i64 %17, -2
   %18 = inttoptr i64 %and6 to ptr
-  tail call void @lj_trace_hot(ptr noundef nonnull %J2, ptr noundef %18) #13
+  tail call void @lj_trace_hot(ptr noundef nonnull %J2, ptr noundef %18) #12
   br label %out
 
 if.else:                                          ; preds = %call_init.exit
@@ -1326,7 +1325,7 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.then9:                                         ; preds = %land.lhs.true
   %add.ptr10 = getelementptr inbounds i32, ptr %pc, i64 -1
-  tail call void @lj_trace_ins(ptr noundef nonnull %J2, ptr noundef nonnull %add.ptr10) #13
+  tail call void @lj_trace_ins(ptr noundef nonnull %J2, ptr noundef nonnull %add.ptr10) #12
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %land.lhs.true, %if.then9
@@ -1398,7 +1397,7 @@ if.then.i25:                                      ; preds = %land.lhs.true.i
   br i1 %cmp.i.i34, label %if.then.i.i35, label %lj_state_checkstack.exit.i
 
 if.then.i.i35:                                    ; preds = %if.then.i25
-  tail call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #13
+  tail call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #12
   %.pre.i = load i8, ptr %hookmask.i, align 1
   br label %lj_state_checkstack.exit.i
 
@@ -1406,7 +1405,7 @@ lj_state_checkstack.exit.i:                       ; preds = %if.then.i.i35, %if.
   %35 = phi i8 [ %.pre.i, %if.then.i.i35 ], [ %28, %if.then.i25 ]
   %36 = or i8 %35, 16
   store i8 %36, ptr %hookmask.i, align 1
-  call void %27(ptr noundef nonnull %L, ptr noundef nonnull %ar.i) #13
+  call void %27(ptr noundef nonnull %L, ptr noundef nonnull %ar.i) #12
   %37 = ptrtoint ptr %L to i64
   %cur_L.i = getelementptr inbounds %struct.global_State, ptr %26, i64 0, i32 24
   store i64 %37, ptr %cur_L.i, align 8
@@ -1480,9 +1479,9 @@ if.end41:                                         ; preds = %land.lhs.true34, %i
 declare hidden void @lj_trace_hot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_dispatch_stitch(ptr noundef %J, ptr noundef %pc) local_unnamed_addr #4 {
+define hidden void @lj_dispatch_stitch(ptr noundef %J, ptr noundef %pc) local_unnamed_addr #3 {
 entry:
-  %call = tail call ptr @__errno_location() #14
+  %call = tail call ptr @__errno_location() #13
   %0 = load i32, ptr %call, align 4
   %L1 = getelementptr inbounds %struct.jit_State, ptr %J, i64 0, i32 2
   %1 = load ptr, ptr %L1, align 8
@@ -1571,7 +1570,7 @@ cur_topslot.exit:                                 ; preds = %sw.bb.i, %sw.bb11.i
   %top = getelementptr inbounds %struct.lua_State, ptr %1, i64 0, i32 8
   store ptr %add.ptr13, ptr %top, align 8
   %add.ptr14 = getelementptr inbounds i32, ptr %pc, i64 -1
-  tail call void @lj_trace_stitch(ptr noundef nonnull %J, ptr noundef nonnull %add.ptr14) #13
+  tail call void @lj_trace_stitch(ptr noundef nonnull %J, ptr noundef nonnull %add.ptr14) #12
   store i64 %5, ptr %add.ptr, align 8
   store i32 %0, ptr %call, align 4
   ret void
@@ -1580,9 +1579,9 @@ cur_topslot.exit:                                 ; preds = %sw.bb.i, %sw.bb11.i
 declare hidden void @lj_trace_stitch(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_dispatch_profile(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #4 {
+define hidden void @lj_dispatch_profile(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #3 {
 entry:
-  %call = tail call ptr @__errno_location() #14
+  %call = tail call ptr @__errno_location() #13
   %0 = load i32, ptr %call, align 4
   %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %1 = load ptr, ptr %base, align 8
@@ -1669,7 +1668,7 @@ cur_topslot.exit:                                 ; preds = %sw.bb.i, %sw.bb11.i
   %add.ptr11 = getelementptr inbounds %union.TValue, ptr %11, i64 %idx.ext
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
   store ptr %add.ptr11, ptr %top, align 8
-  tail call void @lj_profile_interpreter(ptr noundef nonnull %L) #13
+  tail call void @lj_profile_interpreter(ptr noundef nonnull %L) #12
   store i64 %9, ptr %add.ptr4, align 8
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
   %19 = load i64, ptr %glref, align 8
@@ -1692,32 +1691,31 @@ declare hidden void @lj_trace_flushproto(ptr noundef, ptr noundef) local_unnamed
 declare hidden void @lj_state_growstack(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

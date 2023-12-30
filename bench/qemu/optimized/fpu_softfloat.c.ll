@@ -855,14 +855,14 @@ if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i3.i.i.i.i = icmp ne i32 %and.i2.i.i.i.i, 0
   %5 = and i1 %cmp.i.i.i.i.i, %cmp.i3.i.i.i.i
   %.lobit.i.i.i = and i32 %a, -2147483648
-  %ua.sroa.0.0.i = select i1 %5, i32 %.lobit.i.i.i, i32 %a
+  %ua.sroa.0.0.i = select i1 %cmp.i.i.i.i.i, i32 %.lobit.i.i.i, i32 %a
   %and.i.i.i3.i.i = and i32 %b, 2139095040
   %cmp.i.i.i4.i.i = icmp eq i32 %and.i.i.i3.i.i, 0
   %and.i2.i.i5.i.i = and i32 %b, 2147483647
   %cmp.i3.i.i6.i.i = icmp ne i32 %and.i2.i.i5.i.i, 0
   %6 = and i1 %cmp.i.i.i4.i.i, %cmp.i3.i.i6.i.i
   %.lobit.i8.i.i = and i32 %b, -2147483648
-  %ub.sroa.0.0.ph.i = select i1 %6, i32 %.lobit.i8.i.i, i32 %b
+  %ub.sroa.0.0.ph.i = select i1 %cmp.i.i.i4.i.i, i32 %.lobit.i8.i.i, i32 %b
   %7 = or i1 %5, %6
   br i1 %7, label %8, label %float32_input_flush2.exit.i
 
@@ -957,14 +957,14 @@ if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i3.i.i.i.i = icmp ne i32 %and.i2.i.i.i.i, 0
   %5 = and i1 %cmp.i.i.i.i.i, %cmp.i3.i.i.i.i
   %.lobit.i.i.i = and i32 %a, -2147483648
-  %ua.sroa.0.0.i = select i1 %5, i32 %.lobit.i.i.i, i32 %a
+  %ua.sroa.0.0.i = select i1 %cmp.i.i.i.i.i, i32 %.lobit.i.i.i, i32 %a
   %and.i.i.i3.i.i = and i32 %b, 2139095040
   %cmp.i.i.i4.i.i = icmp eq i32 %and.i.i.i3.i.i, 0
   %and.i2.i.i5.i.i = and i32 %b, 2147483647
   %cmp.i3.i.i6.i.i = icmp ne i32 %and.i2.i.i5.i.i, 0
   %6 = and i1 %cmp.i.i.i4.i.i, %cmp.i3.i.i6.i.i
   %.lobit.i8.i.i = and i32 %b, -2147483648
-  %ub.sroa.0.0.ph.i = select i1 %6, i32 %.lobit.i8.i.i, i32 %b
+  %ub.sroa.0.0.ph.i = select i1 %cmp.i.i.i4.i.i, i32 %.lobit.i8.i.i, i32 %b
   %7 = or i1 %5, %6
   br i1 %7, label %8, label %float32_input_flush2.exit.i
 
@@ -1059,14 +1059,14 @@ if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i3.i.i.i.i = icmp ne i64 %and.i2.i.i.i.i, 0
   %5 = and i1 %cmp.i.i.i.i.i, %cmp.i3.i.i.i.i
   %.lobit.i.i.i = and i64 %a, -9223372036854775808
-  %ua.sroa.0.0.i = select i1 %5, i64 %.lobit.i.i.i, i64 %a
+  %ua.sroa.0.0.i = select i1 %cmp.i.i.i.i.i, i64 %.lobit.i.i.i, i64 %a
   %and.i.i.i3.i.i = and i64 %b, 9218868437227405312
   %cmp.i.i.i4.i.i = icmp eq i64 %and.i.i.i3.i.i, 0
   %and.i2.i.i5.i.i = and i64 %b, 9223372036854775807
   %cmp.i3.i.i6.i.i = icmp ne i64 %and.i2.i.i5.i.i, 0
   %6 = and i1 %cmp.i.i.i4.i.i, %cmp.i3.i.i6.i.i
   %.lobit.i8.i.i = and i64 %b, -9223372036854775808
-  %ub.sroa.0.0.ph.i = select i1 %6, i64 %.lobit.i8.i.i, i64 %b
+  %ub.sroa.0.0.ph.i = select i1 %cmp.i.i.i4.i.i, i64 %.lobit.i8.i.i, i64 %b
   %7 = or i1 %5, %6
   br i1 %7, label %8, label %float64_input_flush2.exit.i
 
@@ -1166,14 +1166,14 @@ if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i3.i.i.i.i = icmp ne i64 %and.i2.i.i.i.i, 0
   %5 = and i1 %cmp.i.i.i.i.i, %cmp.i3.i.i.i.i
   %.lobit.i.i.i = and i64 %a, -9223372036854775808
-  %ua.sroa.0.0.i = select i1 %5, i64 %.lobit.i.i.i, i64 %a
+  %ua.sroa.0.0.i = select i1 %cmp.i.i.i.i.i, i64 %.lobit.i.i.i, i64 %a
   %and.i.i.i3.i.i = and i64 %b, 9218868437227405312
   %cmp.i.i.i4.i.i = icmp eq i64 %and.i.i.i3.i.i, 0
   %and.i2.i.i5.i.i = and i64 %b, 9223372036854775807
   %cmp.i3.i.i6.i.i = icmp ne i64 %and.i2.i.i5.i.i, 0
   %6 = and i1 %cmp.i.i.i4.i.i, %cmp.i3.i.i6.i.i
   %.lobit.i8.i.i = and i64 %b, -9223372036854775808
-  %ub.sroa.0.0.ph.i = select i1 %6, i64 %.lobit.i8.i.i, i64 %b
+  %ub.sroa.0.0.ph.i = select i1 %cmp.i.i.i4.i.i, i64 %.lobit.i8.i.i, i64 %b
   %7 = or i1 %5, %6
   br i1 %7, label %8, label %float64_input_flush2.exit.i
 
@@ -3665,7 +3665,7 @@ if.end.i7:                                        ; preds = %if.end.i
   %5 = and i1 %cmp.i.i.i.i, %cmp.i3.i.i.i
   %.lobit.i.i = and i32 %a, -2147483648
   %or1.i.i.i = or i16 %0, 32
-  %ua.i.sroa.0.0 = select i1 %5, i32 %.lobit.i.i, i32 %a
+  %ua.i.sroa.0.0 = select i1 %cmp.i.i.i.i, i32 %.lobit.i.i, i32 %a
   %and.i.i.i3.i = and i32 %b, 2139095040
   %cmp.i.i.i4.i = icmp eq i32 %and.i.i.i3.i, 0
   %and.i2.i.i5.i = and i32 %b, 2147483647
@@ -3674,7 +3674,7 @@ if.end.i7:                                        ; preds = %if.end.i
   %.lobit.i8.i = and i32 %b, -2147483648
   %7 = or i1 %6, %5
   %.ph = select i1 %7, i16 %or1.i.i.i, i16 %0
-  %ub.i.sroa.0.0.ph = select i1 %6, i32 %.lobit.i8.i, i32 %b
+  %ub.i.sroa.0.0.ph = select i1 %cmp.i.i.i4.i, i32 %.lobit.i8.i, i32 %b
   %8 = or i1 %5, %6
   br i1 %8, label %9, label %float32_input_flush2.exit
 
@@ -4100,7 +4100,7 @@ if.end.i7:                                        ; preds = %if.end.i
   %5 = and i1 %cmp.i.i.i.i, %cmp.i3.i.i.i
   %.lobit.i.i = and i64 %a, -9223372036854775808
   %or1.i.i.i = or i16 %0, 32
-  %ua.i.sroa.0.0 = select i1 %5, i64 %.lobit.i.i, i64 %a
+  %ua.i.sroa.0.0 = select i1 %cmp.i.i.i.i, i64 %.lobit.i.i, i64 %a
   %and.i.i.i3.i = and i64 %b, 9218868437227405312
   %cmp.i.i.i4.i = icmp eq i64 %and.i.i.i3.i, 0
   %and.i2.i.i5.i = and i64 %b, 9223372036854775807
@@ -4109,7 +4109,7 @@ if.end.i7:                                        ; preds = %if.end.i
   %.lobit.i8.i = and i64 %b, -9223372036854775808
   %7 = or i1 %6, %5
   %.ph = select i1 %7, i16 %or1.i.i.i, i16 %0
-  %ub.i.sroa.0.0.ph = select i1 %6, i64 %.lobit.i8.i, i64 %b
+  %ub.i.sroa.0.0.ph = select i1 %cmp.i.i.i4.i, i64 %.lobit.i8.i, i64 %b
   %8 = or i1 %5, %6
   br i1 %8, label %9, label %float64_input_flush2.exit
 
@@ -6780,7 +6780,7 @@ if.end.i:                                         ; preds = %if.end11
   %5 = and i1 %cmp.i.i.i, %cmp.i3.i.i
   %.lobit.i = and i32 %xa, -2147483648
   %or1.i.i = or i16 %0, 32
-  %ua.sroa.0.0 = select i1 %5, i32 %.lobit.i, i32 %xa
+  %ua.sroa.0.0 = select i1 %cmp.i.i.i, i32 %.lobit.i, i32 %xa
   %and.i.i.i23 = and i32 %xb, 2139095040
   %cmp.i.i.i24 = icmp eq i32 %and.i.i.i23, 0
   %and.i2.i.i25 = and i32 %xb, 2147483647
@@ -6788,7 +6788,7 @@ if.end.i:                                         ; preds = %if.end11
   %6 = and i1 %cmp.i.i.i24, %cmp.i3.i.i26
   %.lobit.i29 = and i32 %xb, -2147483648
   %7 = or i1 %6, %5
-  %ub.sroa.0.0 = select i1 %6, i32 %.lobit.i29, i32 %xb
+  %ub.sroa.0.0 = select i1 %cmp.i.i.i24, i32 %.lobit.i29, i32 %xb
   %8 = or i1 %5, %6
   %and.i.i.i32 = and i32 %xc, 2139095040
   %cmp.i.i.i33 = icmp eq i32 %and.i.i.i32, 0
@@ -6798,7 +6798,7 @@ if.end.i:                                         ; preds = %if.end11
   %.lobit.i38 = and i32 %xc, -2147483648
   %10 = or i1 %9, %7
   %.ph = select i1 %10, i16 %or1.i.i, i16 %0
-  %uc.sroa.0.1.ph = select i1 %9, i32 %.lobit.i38, i32 %xc
+  %uc.sroa.0.1.ph = select i1 %cmp.i.i.i33, i32 %.lobit.i38, i32 %xc
   %11 = or i1 %8, %9
   br i1 %11, label %12, label %float32_input_flush3.exit
 
@@ -7380,7 +7380,7 @@ if.end.i:                                         ; preds = %if.end11
   %5 = and i1 %cmp.i.i.i, %cmp.i3.i.i
   %.lobit.i = and i64 %xa, -9223372036854775808
   %or1.i.i = or i16 %0, 32
-  %ua.sroa.0.0 = select i1 %5, i64 %.lobit.i, i64 %xa
+  %ua.sroa.0.0 = select i1 %cmp.i.i.i, i64 %.lobit.i, i64 %xa
   %and.i.i.i49 = and i64 %xb, 9218868437227405312
   %cmp.i.i.i50 = icmp eq i64 %and.i.i.i49, 0
   %and.i2.i.i51 = and i64 %xb, 9223372036854775807
@@ -7388,7 +7388,7 @@ if.end.i:                                         ; preds = %if.end11
   %6 = and i1 %cmp.i.i.i50, %cmp.i3.i.i52
   %.lobit.i55 = and i64 %xb, -9223372036854775808
   %7 = or i1 %6, %5
-  %ub.sroa.0.0 = select i1 %6, i64 %.lobit.i55, i64 %xb
+  %ub.sroa.0.0 = select i1 %cmp.i.i.i50, i64 %.lobit.i55, i64 %xb
   %8 = or i1 %5, %6
   %and.i.i.i58 = and i64 %xc, 9218868437227405312
   %cmp.i.i.i59 = icmp eq i64 %and.i.i.i58, 0
@@ -7398,7 +7398,7 @@ if.end.i:                                         ; preds = %if.end11
   %.lobit.i64 = and i64 %xc, -9223372036854775808
   %10 = or i1 %9, %7
   %.ph = select i1 %10, i16 %or1.i.i, i16 %0
-  %uc.sroa.0.1.ph = select i1 %9, i64 %.lobit.i64, i64 %xc
+  %uc.sroa.0.1.ph = select i1 %cmp.i.i.i59, i64 %.lobit.i64, i64 %xc
   %11 = or i1 %8, %9
   br i1 %11, label %12, label %float64_input_flush3.exit
 
@@ -9449,7 +9449,7 @@ if.end.i7:                                        ; preds = %if.end.i
   %5 = and i1 %cmp.i.i.i.i, %cmp.i3.i.i.i
   %.lobit.i.i = and i32 %a, -2147483648
   %or1.i.i.i = or i16 %0, 32
-  %ua.i.sroa.0.0 = select i1 %5, i32 %.lobit.i.i, i32 %a
+  %ua.i.sroa.0.0 = select i1 %cmp.i.i.i.i, i32 %.lobit.i.i, i32 %a
   %and.i.i.i3.i = and i32 %b, 2139095040
   %cmp.i.i.i4.i = icmp eq i32 %and.i.i.i3.i, 0
   %and.i2.i.i5.i = and i32 %b, 2147483647
@@ -9458,7 +9458,7 @@ if.end.i7:                                        ; preds = %if.end.i
   %.lobit.i8.i = and i32 %b, -2147483648
   %7 = or i1 %6, %5
   %.ph = select i1 %7, i16 %or1.i.i.i, i16 %0
-  %ub.i.sroa.0.0.ph = select i1 %6, i32 %.lobit.i8.i, i32 %b
+  %ub.i.sroa.0.0.ph = select i1 %cmp.i.i.i4.i, i32 %.lobit.i8.i, i32 %b
   %8 = or i1 %5, %6
   br i1 %8, label %9, label %float32_input_flush2.exit
 
@@ -9879,7 +9879,7 @@ if.end.i7:                                        ; preds = %if.end.i
   %5 = and i1 %cmp.i.i.i.i, %cmp.i3.i.i.i
   %.lobit.i.i = and i64 %a, -9223372036854775808
   %or1.i.i.i = or i16 %0, 32
-  %ua.i.sroa.0.0 = select i1 %5, i64 %.lobit.i.i, i64 %a
+  %ua.i.sroa.0.0 = select i1 %cmp.i.i.i.i, i64 %.lobit.i.i, i64 %a
   %and.i.i.i3.i = and i64 %b, 9218868437227405312
   %cmp.i.i.i4.i = icmp eq i64 %and.i.i.i3.i, 0
   %and.i2.i.i5.i = and i64 %b, 9223372036854775807
@@ -9888,7 +9888,7 @@ if.end.i7:                                        ; preds = %if.end.i
   %.lobit.i8.i = and i64 %b, -9223372036854775808
   %7 = or i1 %6, %5
   %.ph = select i1 %7, i16 %or1.i.i.i, i16 %0
-  %ub.i.sroa.0.0.ph = select i1 %6, i64 %.lobit.i8.i, i64 %b
+  %ub.i.sroa.0.0.ph = select i1 %cmp.i.i.i4.i, i64 %.lobit.i8.i, i64 %b
   %8 = or i1 %5, %6
   br i1 %8, label %9, label %float64_input_flush2.exit
 
@@ -31295,7 +31295,7 @@ return:                                           ; preds = %if.then, %entry, %i
   ret i16 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @normalizeFloatx80Subnormal(i64 noundef %aSig, ptr nocapture noundef writeonly %zExpPtr, ptr nocapture noundef writeonly %zSigPtr) local_unnamed_addr #8 {
 entry:
   %0 = tail call i64 @llvm.ctlz.i64(i64 %aSig, i1 false), !range !5
@@ -36404,7 +36404,7 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2139,13 +2139,12 @@ cond.true22:                                      ; preds = %land.lhs.true19
 cond.end27:                                       ; preds = %if.end, %land.lhs.true19, %cond.true22
   %cond28 = phi i64 [ %sub25, %cond.true22 ], [ 0, %land.lhs.true19 ], [ 0, %if.end ]
   %cmp29 = icmp sgt i64 %limit, -1
-  %cmp31 = icmp sgt i64 %cond28, %limit
-  %or.cond = select i1 %cmp29, i1 %cmp31, i1 false
-  %n.0 = select i1 %or.cond, i64 %limit, i64 %cond28
-  %16 = load ptr, ptr %buffer, align 8
+  %16 = tail call i64 @llvm.smin.i64(i64 %cond28, i64 %limit)
+  %n.0 = select i1 %cmp29, i64 %16, i64 %cond28
+  %17 = load ptr, ptr %buffer, align 8
   %pos35 = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 10
-  %17 = load i64, ptr %pos35, align 8
-  %add.ptr = getelementptr i8, ptr %16, i64 %17
+  %18 = load i64, ptr %pos35, align 8
+  %add.ptr = getelementptr i8, ptr %17, i64 %18
   %call36 = tail call ptr @memchr(ptr noundef %add.ptr, i32 noundef 10, i64 noundef %n.0) #11
   %cmp37.not = icmp eq ptr %call36, null
   br i1 %cmp37.not, label %if.end49, label %if.then38
@@ -2160,8 +2159,8 @@ if.then38:                                        ; preds = %cond.end27
   br i1 %cmp40.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %if.then38
-  %18 = load i64, ptr %pos35, align 8
-  %add47 = add i64 %18, %add
+  %19 = load i64, ptr %pos35, align 8
+  %add47 = add i64 %19, %add
   store i64 %add47, ptr %pos35, align 8
   br label %return
 
@@ -2175,15 +2174,15 @@ if.then51:                                        ; preds = %if.end49
   br i1 %cmp53.not, label %return, label %if.then54
 
 if.then54:                                        ; preds = %if.then51
-  %19 = load i64, ptr %pos35, align 8
-  %add56 = add i64 %19, %limit
+  %20 = load i64, ptr %pos35, align 8
+  %add56 = add i64 %20, %limit
   store i64 %add56, ptr %pos35, align 8
   br label %return
 
 if.end58:                                         ; preds = %if.end49
   %lock = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 15
-  %20 = load ptr, ptr %lock, align 8
-  %call59 = tail call i32 @PyThread_acquire_lock(ptr noundef %20, i32 noundef 0) #10
+  %21 = load ptr, ptr %lock, align 8
+  %call59 = tail call i32 @PyThread_acquire_lock(ptr noundef %21, i32 noundef 0) #10
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %cond.false62, label %land.lhs.true65
 
@@ -2202,8 +2201,8 @@ land.lhs.true65:                                  ; preds = %if.end58, %cond.fal
 
 end_unlocked.thread206:                           ; preds = %land.lhs.true65
   store volatile i64 0, ptr %owner, align 8
-  %21 = load ptr, ptr %lock, align 8
-  tail call void @PyThread_release_lock(ptr noundef %21) #10
+  %22 = load ptr, ptr %lock, align 8
+  tail call void @PyThread_release_lock(ptr noundef %22) #10
   br label %return
 
 if.end72:                                         ; preds = %land.lhs.true65
@@ -2218,16 +2217,16 @@ if.then74:                                        ; preds = %if.end72
 if.end78:                                         ; preds = %if.then74
   %call79 = tail call i32 @PyList_Append(ptr noundef nonnull %call69, ptr noundef nonnull %call75) #10
   %cmp80 = icmp slt i32 %call79, 0
-  %22 = load i64, ptr %call75, align 8
-  %23 = and i64 %22, 2147483648
-  %cmp.i244.not = icmp eq i64 %23, 0
+  %23 = load i64, ptr %call75, align 8
+  %24 = and i64 %23, 2147483648
+  %cmp.i244.not = icmp eq i64 %24, 0
   br i1 %cmp80, label %if.then83, label %if.then90
 
 if.then83:                                        ; preds = %if.end78
   br i1 %cmp.i244.not, label %if.end.i237, label %end_unlocked.thread
 
 if.end.i237:                                      ; preds = %if.then83
-  %dec.i238 = add i64 %22, -1
+  %dec.i238 = add i64 %23, -1
   store i64 %dec.i238, ptr %call75, align 8
   %cmp.i239 = icmp eq i64 %dec.i238, 0
   br i1 %cmp.i239, label %if.then1.i240, label %end_unlocked.thread
@@ -2240,7 +2239,7 @@ if.then90:                                        ; preds = %if.end78
   br i1 %cmp.i244.not, label %if.end.i228, label %do.end92
 
 if.end.i228:                                      ; preds = %if.then90
-  %dec.i229 = add i64 %22, -1
+  %dec.i229 = add i64 %23, -1
   store i64 %dec.i229, ptr %call75, align 8
   %cmp.i230 = icmp eq i64 %dec.i229, 0
   br i1 %cmp.i230, label %if.then1.i231, label %do.end92
@@ -2250,18 +2249,18 @@ if.then1.i231:                                    ; preds = %if.end.i228
   br label %do.end92
 
 do.end92:                                         ; preds = %if.then90, %if.then1.i231, %if.end.i228
-  %24 = load i64, ptr %pos35, align 8
-  %add94 = add i64 %24, %n.0
+  %25 = load i64, ptr %pos35, align 8
+  %add94 = add i64 %25, %n.0
   store i64 %add94, ptr %pos35, align 8
-  %sub97 = select i1 %cmp29, i64 %n.0, i64 0
+  %sub97 = select i1 %cmp29, i64 %16, i64 0
   %spec.select = sub nsw i64 %limit, %sub97
   br label %if.end99
 
 if.end99:                                         ; preds = %do.end92, %if.end72
   %limit.addr.0 = phi i64 [ %limit, %if.end72 ], [ %spec.select, %do.end92 ]
   %writable = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 5
-  %25 = load i32, ptr %writable, align 4
-  %tobool100.not = icmp eq i32 %25, 0
+  %26 = load i32, ptr %writable, align 4
+  %tobool100.not = icmp eq i32 %26, 0
   br i1 %tobool100.not, label %if.end106, label %if.then101
 
 if.then101:                                       ; preds = %if.end99
@@ -2270,13 +2269,13 @@ if.then101:                                       ; preds = %if.end99
   br i1 %cmp.i127, label %end_unlocked.thread, label %if.end.i128
 
 if.end.i128:                                      ; preds = %if.then101
-  %26 = load i64, ptr %call.i126, align 8
-  %27 = and i64 %26, 2147483648
-  %cmp.i18.not.i = icmp eq i64 %27, 0
+  %27 = load i64, ptr %call.i126, align 8
+  %28 = and i64 %27, 2147483648
+  %cmp.i18.not.i = icmp eq i64 %28, 0
   br i1 %cmp.i18.not.i, label %if.end.i.i131, label %Py_DECREF.exit.i
 
 if.end.i.i131:                                    ; preds = %if.end.i128
-  %dec.i.i132 = add i64 %26, -1
+  %dec.i.i132 = add i64 %27, -1
   store i64 %dec.i.i132, ptr %call.i126, align 8
   %cmp.i.i133 = icmp eq i64 %dec.i.i132, 0
   br i1 %cmp.i.i133, label %if.then1.i.i134, label %Py_DECREF.exit.i
@@ -2286,36 +2285,36 @@ if.then1.i.i134:                                  ; preds = %if.end.i.i131
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i134, %if.end.i.i131, %if.end.i128
-  %28 = load i32, ptr %readable14, align 8
-  %tobool.not.i129 = icmp eq i32 %28, 0
+  %29 = load i32, ptr %readable14, align 8
+  %tobool.not.i129 = icmp eq i32 %29, 0
   br i1 %tobool.not.i129, label %if.end105, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %Py_DECREF.exit.i
   %read_end.i = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 12
-  %29 = load i64, ptr %read_end.i, align 8
-  %cmp4.not.i = icmp eq i64 %29, -1
+  %30 = load i64, ptr %read_end.i, align 8
+  %cmp4.not.i = icmp eq i64 %30, -1
   br i1 %cmp4.not.i, label %lor.lhs.false.i, label %land.lhs.true8.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %30 = load i32, ptr %writable, align 4
-  %tobool5.not.i = icmp eq i32 %30, 0
+  %31 = load i32, ptr %writable, align 4
+  %tobool5.not.i = icmp eq i32 %31, 0
   br i1 %tobool5.not.i, label %cond.end.i, label %land.lhs.true6.i
 
 land.lhs.true6.i:                                 ; preds = %lor.lhs.false.i
   %write_end.i = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 14
-  %31 = load i64, ptr %write_end.i, align 8
-  %cmp7.not.i = icmp eq i64 %31, -1
+  %32 = load i64, ptr %write_end.i, align 8
+  %cmp7.not.i = icmp eq i64 %32, -1
   br i1 %cmp7.not.i, label %cond.end.i, label %land.lhs.true8.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true6.i, %land.lhs.true.i
   %raw_pos.i = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 11
-  %32 = load i64, ptr %raw_pos.i, align 8
-  %cmp9.i = icmp sgt i64 %32, -1
+  %33 = load i64, ptr %raw_pos.i, align 8
+  %cmp9.i = icmp sgt i64 %33, -1
   br i1 %cmp9.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %land.lhs.true8.i
-  %33 = load i64, ptr %pos35, align 8
-  %sub.neg.i = sub i64 %33, %32
+  %34 = load i64, ptr %pos35, align 8
+  %sub.neg.i = sub i64 %34, %33
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %land.lhs.true8.i, %land.lhs.true6.i, %lor.lhs.false.i
@@ -2326,13 +2325,13 @@ cond.end.i:                                       ; preds = %cond.true.i, %land.
   br i1 %cmp13.i, label %end_unlocked.thread, label %if.end105
 
 if.end105:                                        ; preds = %cond.end.i, %Py_DECREF.exit.i
-  %34 = load i64, ptr @_Py_NoneStruct, align 8
-  %35 = and i64 %34, 2147483648
-  %cmp.i251.not = icmp eq i64 %35, 0
+  %35 = load i64, ptr @_Py_NoneStruct, align 8
+  %36 = and i64 %35, 2147483648
+  %cmp.i251.not = icmp eq i64 %36, 0
   br i1 %cmp.i251.not, label %if.end.i219, label %if.end106
 
 if.end.i219:                                      ; preds = %if.end105
-  %dec.i220 = add i64 %34, -1
+  %dec.i220 = add i64 %35, -1
   store i64 %dec.i220, ptr @_Py_NoneStruct, align 8
   %cmp.i221 = icmp eq i64 %dec.i220, 0
   br i1 %cmp.i221, label %if.then1.i222, label %if.end106
@@ -2345,9 +2344,9 @@ if.end106:                                        ; preds = %if.end.i219, %if.th
   %read_end.i135 = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 12
   %buffer_size.i = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 17
   store i64 -1, ptr %read_end.i135, align 8
-  %36 = load i64, ptr %buffer_size.i, align 8
-  %37 = load ptr, ptr %buffer, align 8
-  %call.i141188 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %37, i64 noundef %36), !range !8
+  %37 = load i64, ptr %buffer_size.i, align 8
+  %38 = load ptr, ptr %buffer, align 8
+  %call.i141188 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %38, i64 noundef %37), !range !8
   %cmp2.i189 = icmp slt i64 %call.i141188, 1
   br i1 %cmp2.i189, label %_bufferedreader_fill_buffer.exit, label %if.end113.lr.ph
 
@@ -2366,31 +2365,31 @@ if.end113:                                        ; preds = %if.end113.lr.ph, %d
   store i64 %call.i141191, ptr %read_end.i135, align 8
   store i64 %call.i141191, ptr %raw_pos.i142, align 8
   %n.1 = tail call i64 @llvm.umin.i64(i64 %limit.addr.1190, i64 %call.i141191)
-  %38 = load ptr, ptr %buffer, align 8
-  %add.ptr120 = getelementptr i8, ptr %38, i64 %n.1
+  %39 = load ptr, ptr %buffer, align 8
+  %add.ptr120 = getelementptr i8, ptr %39, i64 %n.1
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end113
-  %s.0 = phi ptr [ %38, %if.end113 ], [ %incdec.ptr, %while.body ]
+  %s.0 = phi ptr [ %39, %if.end113 ], [ %incdec.ptr, %while.body ]
   %cmp121 = icmp ult ptr %s.0, %add.ptr120
   br i1 %cmp121, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
   %incdec.ptr = getelementptr i8, ptr %s.0, i64 1
-  %39 = load i8, ptr %s.0, align 1
-  %cmp122 = icmp eq i8 %39, 10
+  %40 = load i8, ptr %s.0, align 1
+  %cmp122 = icmp eq i8 %40, 10
   br i1 %cmp122, label %if.then124, label %while.cond, !llvm.loop !9
 
 if.then124:                                       ; preds = %while.body
   %sub.ptr.lhs.cast125 = ptrtoint ptr %incdec.ptr to i64
-  %sub.ptr.rhs.cast126 = ptrtoint ptr %38 to i64
+  %sub.ptr.rhs.cast126 = ptrtoint ptr %39 to i64
   %sub.ptr.sub127 = sub i64 %sub.ptr.lhs.cast125, %sub.ptr.rhs.cast126
-  %call128 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %38, i64 noundef %sub.ptr.sub127) #10
+  %call128 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %39, i64 noundef %sub.ptr.sub127) #10
   %cmp129 = icmp eq ptr %call128, null
   br i1 %cmp129, label %end_unlocked, label %land.lhs.true176
 
 while.end:                                        ; preds = %while.cond
-  %call138 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %38, i64 noundef %n.1) #10
+  %call138 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %39, i64 noundef %n.1) #10
   %cmp139 = icmp eq ptr %call138, null
   br i1 %cmp139, label %end_unlocked, label %if.end142
 
@@ -2401,16 +2400,16 @@ if.end142:                                        ; preds = %while.end
 if.end147:                                        ; preds = %if.end142
   %call148 = tail call i32 @PyList_Append(ptr noundef nonnull %call69, ptr noundef nonnull %call138) #10
   %cmp149 = icmp slt i32 %call148, 0
-  %40 = load i64, ptr %call138, align 8
-  %41 = and i64 %40, 2147483648
-  %cmp.i255.not = icmp eq i64 %41, 0
+  %41 = load i64, ptr %call138, align 8
+  %42 = and i64 %41, 2147483648
+  %cmp.i255.not = icmp eq i64 %42, 0
   br i1 %cmp149, label %if.then157, label %if.then166
 
 if.then157:                                       ; preds = %if.end147
   br i1 %cmp.i255.not, label %if.end.i210, label %end_unlocked
 
 if.end.i210:                                      ; preds = %if.then157
-  %dec.i211 = add i64 %40, -1
+  %dec.i211 = add i64 %41, -1
   store i64 %dec.i211, ptr %call138, align 8
   %cmp.i212 = icmp eq i64 %dec.i211, 0
   br i1 %cmp.i212, label %if.then1.i213, label %end_unlocked
@@ -2423,7 +2422,7 @@ if.then166:                                       ; preds = %if.end147
   br i1 %cmp.i255.not, label %if.end.i201, label %do.end168
 
 if.end.i201:                                      ; preds = %if.then166
-  %dec.i202 = add i64 %40, -1
+  %dec.i202 = add i64 %41, -1
   store i64 %dec.i202, ptr %call138, align 8
   %cmp.i203 = icmp eq i64 %dec.i202, 0
   br i1 %cmp.i203, label %if.then1.i204, label %do.end168
@@ -2437,9 +2436,9 @@ do.end168:                                        ; preds = %if.then166, %if.the
   %sub172 = select i1 %cmp114175, i64 0, i64 %n.1
   %spec.select123 = sub nsw i64 %limit.addr.1190, %sub172
   store i64 -1, ptr %read_end.i135, align 8
-  %42 = load i64, ptr %buffer_size.i, align 8
-  %43 = load ptr, ptr %buffer, align 8
-  %call.i141 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %43, i64 noundef %42), !range !8
+  %43 = load i64, ptr %buffer_size.i, align 8
+  %44 = load ptr, ptr %buffer, align 8
+  %call.i141 = tail call fastcc i64 @_bufferedreader_raw_read(ptr noundef nonnull %self, ptr noundef %44, i64 noundef %43), !range !8
   %cmp2.i = icmp slt i64 %call.i141, 1
   br i1 %cmp2.i, label %_bufferedreader_fill_buffer.exit, label %if.end113
 
@@ -2457,13 +2456,13 @@ land.lhs.true176:                                 ; preds = %if.end142, %if.then
 
 if.then.i146:                                     ; preds = %land.lhs.true176
   %call191119 = tail call ptr @_PyBytes_Join(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 1), ptr noundef nonnull %call69) #10
-  %44 = load i64, ptr %res.4.ph, align 8
-  %45 = and i64 %44, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %45, 0
+  %45 = load i64, ptr %res.4.ph, align 8
+  %46 = and i64 %45, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %46, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i148, label %end_unlocked
 
 if.end.i.i148:                                    ; preds = %if.then.i146
-  %dec.i.i149 = add i64 %44, -1
+  %dec.i.i149 = add i64 %45, -1
   store i64 %dec.i.i149, ptr %res.4.ph, align 8
   %cmp.i.i150 = icmp eq i64 %dec.i.i149, 0
   br i1 %cmp.i.i150, label %if.then1.i.i151, label %end_unlocked
@@ -2473,13 +2472,13 @@ if.then1.i.i151:                                  ; preds = %if.end.i.i148
   br label %end_unlocked
 
 if.then186:                                       ; preds = %land.lhs.true176
-  %46 = load i64, ptr %res.4.ph, align 8
-  %47 = and i64 %46, 2147483648
-  %cmp.i263.not = icmp eq i64 %47, 0
+  %47 = load i64, ptr %res.4.ph, align 8
+  %48 = and i64 %47, 2147483648
+  %cmp.i263.not = icmp eq i64 %48, 0
   br i1 %cmp.i263.not, label %if.end.i, label %end_unlocked
 
 if.end.i:                                         ; preds = %if.then186
-  %dec.i = add i64 %46, -1
+  %dec.i = add i64 %47, -1
   store i64 %dec.i, ptr %res.4.ph, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %end_unlocked
@@ -2490,26 +2489,26 @@ if.then1.i:                                       ; preds = %if.end.i
 
 end_unlocked.thread:                              ; preds = %cond.end.i, %if.then101, %if.end.i237, %if.then1.i240, %if.then83, %if.then74
   store volatile i64 0, ptr %owner, align 8
-  %48 = load ptr, ptr %lock, align 8
-  tail call void @PyThread_release_lock(ptr noundef %48) #10
+  %49 = load ptr, ptr %lock, align 8
+  tail call void @PyThread_release_lock(ptr noundef %49) #10
   br label %if.then.i153
 
 end_unlocked:                                     ; preds = %while.end, %if.end.i, %if.then1.i, %if.then186, %if.end.i210, %if.then1.i213, %if.then157, %if.then124, %_bufferedreader_fill_buffer.exit, %found.split, %if.then.i146, %if.end.i.i148, %if.then1.i.i151
   %res.5 = phi ptr [ null, %_bufferedreader_fill_buffer.exit ], [ null, %if.then186 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ null, %if.then124 ], [ null, %if.then157 ], [ null, %if.then1.i213 ], [ null, %if.end.i210 ], [ %call191120, %found.split ], [ %call191119, %if.then.i146 ], [ %call191119, %if.end.i.i148 ], [ %call191119, %if.then1.i.i151 ], [ null, %while.end ]
   store volatile i64 0, ptr %owner, align 8
-  %49 = load ptr, ptr %lock, align 8
-  tail call void @PyThread_release_lock(ptr noundef %49) #10
+  %50 = load ptr, ptr %lock, align 8
+  tail call void @PyThread_release_lock(ptr noundef %50) #10
   br i1 %cmp70, label %return, label %if.then.i153
 
 if.then.i153:                                     ; preds = %end_unlocked.thread, %end_unlocked
   %res.5205 = phi ptr [ null, %end_unlocked.thread ], [ %res.5, %end_unlocked ]
-  %50 = load i64, ptr %call69, align 8
-  %51 = and i64 %50, 2147483648
-  %cmp.i2.not.i154 = icmp eq i64 %51, 0
+  %51 = load i64, ptr %call69, align 8
+  %52 = and i64 %51, 2147483648
+  %cmp.i2.not.i154 = icmp eq i64 %52, 0
   br i1 %cmp.i2.not.i154, label %if.end.i.i156, label %return
 
 if.end.i.i156:                                    ; preds = %if.then.i153
-  %dec.i.i157 = add i64 %50, -1
+  %dec.i.i157 = add i64 %51, -1
   store i64 %dec.i.i157, ptr %call69, align 8
   %cmp.i.i158 = icmp eq i64 %dec.i.i157, 0
   br i1 %cmp.i.i158, label %if.then1.i.i159, label %return

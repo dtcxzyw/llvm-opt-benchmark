@@ -5109,13 +5109,12 @@ for.body107:                                      ; preds = %for.body107.lr.ph, 
   %arrayidx110 = getelementptr %struct.asdl_expr_seq, ptr %call58, i64 0, i32 2, i64 %i.3131
   %28 = load ptr, ptr %arrayidx110, align 8
   %.pre.pre = load i32, ptr %28, align 8
-  %cmp130.not = icmp eq i32 %.pre.pre, 20
-  %or.cond244 = select i1 %prev_is_constant.0130, i1 %cmp130.not, i1 false
-  %not.or.cond244 = xor i1 %or.cond244, true
-  %inc132 = zext i1 %not.or.cond244 to i64
+  %cmp130.not = icmp ne i32 %.pre.pre, 20
+  %not.prev_is_constant.0130 = xor i1 %prev_is_constant.0130, true
+  %or.cond244 = select i1 %not.prev_is_constant.0130, i1 true, i1 %cmp130.not
+  %inc132 = zext i1 %or.cond244 to i64
   %n_elements.1 = add i64 %n_elements.0129, %inc132
-  %cmp135245 = icmp eq i32 %.pre.pre, 20
-  %cmp135 = select i1 %or.cond244, i1 true, i1 %cmp135245
+  %cmp135 = icmp eq i32 %.pre.pre, 20
   %inc137 = add nuw nsw i64 %i.3131, 1
   %exitcond151.not = icmp eq i64 %inc137, %n_flattened_elements.0.lcssa173185198
   br i1 %exitcond151.not, label %for.end138, label %for.body107, !llvm.loop !42
@@ -5163,11 +5162,11 @@ for.body174.preheader:                            ; preds = %land.lhs.true160
   %kind170 = getelementptr inbounds %struct._expr, ptr %31, i64 0, i32 1, i32 0, i32 1
   %35 = load ptr, ptr %kind170, align 8
   call void @_PyUnicodeWriter_Init(ptr noundef nonnull %writer) #8
-  %arrayidx176251 = getelementptr %struct.asdl_expr_seq, ptr %call58, i64 0, i32 2, i64 %i.4142
-  %36 = load ptr, ptr %arrayidx176251, align 8
+  %arrayidx176250 = getelementptr %struct.asdl_expr_seq, ptr %call58, i64 0, i32 2, i64 %i.4142
+  %36 = load ptr, ptr %arrayidx176250, align 8
   %37 = load i32, ptr %36, align 8
-  %cmp178252 = icmp eq i32 %37, 20
-  br i1 %cmp178252, label %if.then180, label %for.end191
+  %cmp178251 = icmp eq i32 %37, 20
+  br i1 %cmp178251, label %if.then180, label %for.end191
 
 for.body174:                                      ; preds = %if.end186
   %arrayidx176 = getelementptr %struct.asdl_expr_seq, ptr %call58, i64 0, i32 2, i64 %inc190
@@ -5178,7 +5177,7 @@ for.body174:                                      ; preds = %if.end186
 
 if.then180:                                       ; preds = %for.body174.preheader, %for.body174
   %40 = phi ptr [ %38, %for.body174 ], [ %36, %for.body174.preheader ]
-  %j.1134253 = phi i64 [ %inc190, %for.body174 ], [ %i.4142, %for.body174.preheader ]
+  %j.1134252 = phi i64 [ %inc190, %for.body174 ], [ %i.4142, %for.body174.preheader ]
   %v181 = getelementptr inbounds %struct._expr, ptr %40, i64 0, i32 1
   %41 = load ptr, ptr %v181, align 8
   %call183 = call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef %41) #8
@@ -5190,7 +5189,7 @@ if.then185:                                       ; preds = %if.then180
   br label %return
 
 if.end186:                                        ; preds = %if.then180
-  %inc190 = add nsw i64 %j.1134253, 1
+  %inc190 = add nsw i64 %j.1134252, 1
   %exitcond153.not = icmp eq i64 %inc190, %n_flattened_elements.0.lcssa173185198
   br i1 %exitcond153.not, label %for.end191, label %for.body174, !llvm.loop !45
 

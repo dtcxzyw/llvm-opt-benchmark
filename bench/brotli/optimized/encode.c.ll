@@ -146,13 +146,13 @@ return:                                           ; preds = %if.end, %sw.bb31, %
 ; Function Attrs: nounwind uwtable
 define ptr @BrotliEncoderCreateInstance(ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @BrotliBootstrapAlloc(i64 noundef 6976, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) #19
+  %call = tail call ptr @BrotliBootstrapAlloc(i64 noundef 6976, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) #18
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %memory_manager_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 1
-  tail call void @BrotliInitMemoryManager(ptr noundef nonnull %memory_manager_, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) #19
+  tail call void @BrotliInitMemoryManager(ptr noundef nonnull %memory_manager_, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) #18
   store i32 0, ptr %call, align 8
   %large_window.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 7
   store i32 0, ptr %large_window.i.i, align 4
@@ -163,7 +163,7 @@ if.end:                                           ; preds = %entry
   %lgblock.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 3
   %dictionary.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %lgblock.i.i, i8 0, i64 24, i1 false)
-  tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %dictionary.i.i) #19
+  tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %dictionary.i.i) #18
   %dist.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 9
   store <4 x i32> <i32 0, i32 0, i32 64, i32 64>, ptr %dist.i.i, align 8
   %max_distance.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 9, i32 4
@@ -210,15 +210,15 @@ if.else:                                          ; preds = %entry
   %memory_manager_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 1
   %storage_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 19
   %0 = load ptr, ptr %storage_.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %0) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %0) #18
   store ptr null, ptr %storage_.i, align 8
   %commands_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 5
   %1 = load ptr, ptr %commands_.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %1) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %1) #18
   store ptr null, ptr %commands_.i, align 8
   %data_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 3, i32 6
   %2 = load ptr, ptr %data_.i.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %2) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %2) #18
   store ptr null, ptr %data_.i.i, align 8
   %hasher_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 20
   %3 = load ptr, ptr %hasher_.i, align 8
@@ -226,7 +226,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %3) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %3) #18
   store ptr null, ptr %hasher_.i, align 8
   br label %if.end.i.i
 
@@ -237,7 +237,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.el
   br i1 %cmp10.i.not.i, label %if.end18.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %4) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %4) #18
   store ptr null, ptr %arrayidx9.i.i, align 8
   br label %if.end18.i.i
 
@@ -248,7 +248,7 @@ if.end18.i.i:                                     ; preds = %if.then11.i.i, %if.
   br i1 %cmp22.i.not.i, label %if.end30.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.end18.i.i
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %5) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %5) #18
   store ptr null, ptr %arrayidx21.i.i, align 8
   br label %if.end30.i.i
 
@@ -259,34 +259,34 @@ if.end30.i.i:                                     ; preds = %if.then23.i.i, %if.
   br i1 %cmp34.i.not.i, label %BrotliEncoderCleanupState.exit, label %if.then35.i.i
 
 if.then35.i.i:                                    ; preds = %if.end30.i.i
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %6) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %6) #18
   store ptr null, ptr %arrayidx33.i.i, align 8
   br label %BrotliEncoderCleanupState.exit
 
 BrotliEncoderCleanupState.exit:                   ; preds = %if.end30.i.i, %if.then35.i.i
   %large_table_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 22
   %7 = load ptr, ptr %large_table_.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %7) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %7) #18
   store ptr null, ptr %large_table_.i, align 8
   %one_pass_arena_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 24
   %8 = load ptr, ptr %one_pass_arena_.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %8) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %8) #18
   store ptr null, ptr %one_pass_arena_.i, align 8
   %two_pass_arena_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 25
   %9 = load ptr, ptr %two_pass_arena_.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %9) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %9) #18
   store ptr null, ptr %two_pass_arena_.i, align 8
   %command_buf_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 26
   %10 = load ptr, ptr %command_buf_.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %10) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %10) #18
   store ptr null, ptr %command_buf_.i, align 8
   %literal_buf_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 27
   %11 = load ptr, ptr %literal_buf_.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %11) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %11) #18
   store ptr null, ptr %literal_buf_.i, align 8
   %dictionary.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10
-  tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %dictionary.i.i) #19
-  tail call void @BrotliBootstrapFree(ptr noundef nonnull %state, ptr noundef nonnull %memory_manager_.i) #19
+  tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %dictionary.i.i) #18
+  tail call void @BrotliBootstrapFree(ptr noundef nonnull %state, ptr noundef nonnull %memory_manager_.i) #18
   br label %if.end
 
 if.end:                                           ; preds = %entry, %BrotliEncoderCleanupState.exit
@@ -348,13 +348,13 @@ if.then2:                                         ; preds = %BrotliEncoderMaxCom
   br label %return
 
 if.end3:                                          ; preds = %BrotliEncoderMaxCompressedSize.exit.thread
-  %call.i = tail call ptr @BrotliBootstrapAlloc(i64 noundef 6976, ptr noundef null, ptr noundef null, ptr noundef null) #19
+  %call.i = tail call ptr @BrotliBootstrapAlloc(i64 noundef 6976, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %cmp.i27 = icmp eq ptr %call.i, null
   br i1 %cmp.i27, label %return, label %BrotliEncoderSetParameter.exit45
 
 BrotliEncoderSetParameter.exit45:                 ; preds = %if.end3
   %memory_manager_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 1
-  tail call void @BrotliInitMemoryManager(ptr noundef nonnull %memory_manager_.i, ptr noundef null, ptr noundef null, ptr noundef null) #19
+  tail call void @BrotliInitMemoryManager(ptr noundef nonnull %memory_manager_.i, ptr noundef null, ptr noundef null, ptr noundef null) #18
   store i32 0, ptr %call.i, align 8
   %large_window.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 7
   store i32 0, ptr %large_window.i.i.i, align 4
@@ -365,7 +365,7 @@ BrotliEncoderSetParameter.exit45:                 ; preds = %if.end3
   %lgblock.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 3
   %dictionary.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %lgblock.i.i.i, i8 0, i64 24, i1 false)
-  tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %dictionary.i.i.i) #19
+  tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %dictionary.i.i.i) #18
   %dist.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 9
   store <4 x i32> <i32 0, i32 0, i32 64, i32 64>, ptr %dist.i.i.i, align 8
   %max_distance.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 9, i32 4
@@ -643,7 +643,7 @@ ChooseDistanceParams.exit.i:                      ; preds = %if.then10.i94.i, %l
   %dist13.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 9
   %large_window.i89.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 7
   %9 = load i32, ptr %large_window.i89.i, align 4
-  tail call void @BrotliInitDistanceParams(ptr noundef nonnull %dist13.i.i, i32 noundef %distance_postfix_bits.1.i.i, i32 noundef %num_direct_distance_codes.1.i.i, i32 noundef %9) #19
+  tail call void @BrotliInitDistanceParams(ptr noundef nonnull %dist13.i.i, i32 noundef %distance_postfix_bits.1.i.i, i32 noundef %num_direct_distance_codes.1.i.i, i32 noundef %9) #18
   %stream_offset.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 4
   %10 = load i64, ptr %stream_offset.i, align 8
   %cmp.not.i = icmp eq i64 %10, 0
@@ -738,7 +738,7 @@ if.end39.i:                                       ; preds = %if.else.i, %EncodeW
   ]
 
 if.then43.i:                                      ; preds = %if.end39.i
-  %call44.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 8144) #19
+  %call44.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 8144) #18
   %one_pass_arena_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 24
   store ptr %call44.i, ptr %one_pass_arena_.i, align 8
   %cmd_depth.i.i = getelementptr inbounds %struct.BrotliOnePassArena, ptr %call44.i, i64 0, i32 2
@@ -752,7 +752,7 @@ if.then43.i:                                      ; preds = %if.end39.i
   br label %if.end53.i
 
 if.then50.i:                                      ; preds = %if.end39.i
-  %call51.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 7624) #19
+  %call51.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 7624) #18
   %two_pass_arena_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 25
   store ptr %call51.i, ptr %two_pass_arena_.i, align 8
   br label %if.end53.i
@@ -1174,9 +1174,9 @@ if.then9.i:                                       ; preds = %if.end.i97
   br i1 %or.cond.i167, label %if.then12.i, label %if.end16.i
 
 if.then12.i:                                      ; preds = %if.then9.i
-  %call13.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 524288) #19
+  %call13.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 524288) #18
   store ptr %call13.i, ptr %command_buf_.i, align 8
-  %call15.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 131072) #19
+  %call15.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 131072) #18
   %literal_buf_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 27
   store ptr %call15.i, ptr %literal_buf_.i, align 8
   %.pr.i170 = load ptr, ptr %command_buf_.i, align 8
@@ -1198,8 +1198,8 @@ if.else.i168:                                     ; preds = %if.end16.i
 
 cond.true25.i:                                    ; preds = %if.else.i168
   %mul.i = shl nuw nsw i64 %cond.i116.i, 2
-  %call23.i169 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %mul.i) #19
-  %call27.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %cond.i116.i) #19
+  %call23.i169 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %mul.i) #18
+  %call27.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %cond.i116.i) #18
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %cond.true25.i, %if.else.i168, %if.then19.i, %if.end.i97
@@ -1227,14 +1227,15 @@ if.end32.i:                                       ; preds = %cond.true25.i, %if.
   %total_in_.i107 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 28
   %83 = add i32 %op, -1
   %84 = icmp ult i32 %83, 2
-  br label %while.body.i108
+  %spec.select.i108 = select i1 %cmp46.i, i32 2, i32 1
+  br label %while.body.i109
 
-while.body.i108:                                  ; preds = %while.body.i108.backedge, %if.end32.i
+while.body.i109:                                  ; preds = %while.body.i109.backedge, %if.end32.i
   %85 = load i32, ptr %stream_state_, align 4
-  %cmp.i.i109 = icmp eq i32 %85, 1
-  br i1 %cmp.i.i109, label %land.lhs.true.i.i138, label %if.end.i.i110
+  %cmp.i.i110 = icmp eq i32 %85, 1
+  br i1 %cmp.i.i110, label %land.lhs.true.i.i138, label %if.end.i.i111
 
-land.lhs.true.i.i138:                             ; preds = %while.body.i108
+land.lhs.true.i.i138:                             ; preds = %while.body.i109
   %86 = load i8, ptr %last_bytes_bits_.i.i98, align 2
   %cmp1.not.i.i139 = icmp eq i8 %86, 0
   br i1 %cmp1.not.i.i139, label %if.end.i.thread.i, label %if.then.i.i140
@@ -1289,51 +1290,51 @@ InjectBytePaddingBlock.exit.i.i152:               ; preds = %if.then14.i.i.i162,
   %90 = load i64, ptr %available_out_.i.i.i101, align 8
   %add22.i.i.i156 = add i64 %90, %shr20.i.i.i155
   store i64 %add22.i.i.i156, ptr %available_out_.i.i.i101, align 8
-  br label %while.body.i108.backedge
+  br label %while.body.i109.backedge
 
-if.end.i.i110:                                    ; preds = %while.body.i108
+if.end.i.i111:                                    ; preds = %while.body.i109
   %91 = load i64, ptr %available_out_.i.i.i101, align 8
-  %cmp3.not.i.i111 = icmp eq i64 %91, 0
-  br i1 %cmp3.not.i.i111, label %land.lhs.true38.i, label %land.lhs.true5.i.i112
+  %cmp3.not.i.i112 = icmp eq i64 %91, 0
+  br i1 %cmp3.not.i.i112, label %land.lhs.true38.i, label %land.lhs.true5.i.i113
 
 if.end.i.thread.i:                                ; preds = %land.lhs.true.i.i138
   %92 = load i64, ptr %available_out_.i.i.i101, align 8
   %cmp3.not.i113.i = icmp eq i64 %92, 0
-  br i1 %cmp3.not.i113.i, label %while.end.i, label %land.lhs.true5.i.i112
+  br i1 %cmp3.not.i113.i, label %while.end.i, label %land.lhs.true5.i.i113
 
-land.lhs.true5.i.i112:                            ; preds = %if.end.i.thread.i, %if.end.i.i110
-  %93 = phi i64 [ %92, %if.end.i.thread.i ], [ %91, %if.end.i.i110 ]
+land.lhs.true5.i.i113:                            ; preds = %if.end.i.thread.i, %if.end.i.i111
+  %93 = phi i64 [ %92, %if.end.i.thread.i ], [ %91, %if.end.i.i111 ]
   %94 = load i64, ptr %available_out, align 8
-  %cmp6.not.i.i113 = icmp eq i64 %94, 0
-  br i1 %cmp6.not.i.i113, label %while.end.i, label %if.then8.i.i114
+  %cmp6.not.i.i114 = icmp eq i64 %94, 0
+  br i1 %cmp6.not.i.i114, label %while.end.i, label %if.then8.i.i115
 
-if.then8.i.i114:                                  ; preds = %land.lhs.true5.i.i112
-  %cond.i.i.i115 = call i64 @llvm.umin.i64(i64 %93, i64 %94)
+if.then8.i.i115:                                  ; preds = %land.lhs.true5.i.i113
+  %cond.i.i.i116 = call i64 @llvm.umin.i64(i64 %93, i64 %94)
   %95 = load ptr, ptr %next_out, align 8
   %96 = load ptr, ptr %next_out_.i.i.i100, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 1 %96, i64 %cond.i.i.i115, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 1 %96, i64 %cond.i.i.i116, i1 false)
   %97 = load ptr, ptr %next_out, align 8
-  %add.ptr.i.i116 = getelementptr inbounds i8, ptr %97, i64 %cond.i.i.i115
-  store ptr %add.ptr.i.i116, ptr %next_out, align 8
+  %add.ptr.i.i117 = getelementptr inbounds i8, ptr %97, i64 %cond.i.i.i116
+  store ptr %add.ptr.i.i117, ptr %next_out, align 8
   %98 = load i64, ptr %available_out, align 8
-  %sub.i.i117 = sub i64 %98, %cond.i.i.i115
-  store i64 %sub.i.i117, ptr %available_out, align 8
+  %sub.i.i118 = sub i64 %98, %cond.i.i.i116
+  store i64 %sub.i.i118, ptr %available_out, align 8
   %99 = load ptr, ptr %next_out_.i.i.i100, align 8
-  %add.ptr11.i.i118 = getelementptr inbounds i8, ptr %99, i64 %cond.i.i.i115
-  store ptr %add.ptr11.i.i118, ptr %next_out_.i.i.i100, align 8
+  %add.ptr11.i.i119 = getelementptr inbounds i8, ptr %99, i64 %cond.i.i.i116
+  store ptr %add.ptr11.i.i119, ptr %next_out_.i.i.i100, align 8
   %100 = load i64, ptr %available_out_.i.i.i101, align 8
-  %sub13.i.i119 = sub i64 %100, %cond.i.i.i115
-  store i64 %sub13.i.i119, ptr %available_out_.i.i.i101, align 8
+  %sub13.i.i120 = sub i64 %100, %cond.i.i.i116
+  store i64 %sub13.i.i120, ptr %available_out_.i.i.i101, align 8
   %101 = load i64, ptr %total_out_.i.i103, align 8
-  %add.i.i120 = add i64 %101, %cond.i.i.i115
-  store i64 %add.i.i120, ptr %total_out_.i.i103, align 8
-  br i1 %tobool.not.i21.i.i104, label %while.body.i108.backedge, label %if.then.i22.i.i121
+  %add.i.i121 = add i64 %101, %cond.i.i.i116
+  store i64 %add.i.i121, ptr %total_out_.i.i103, align 8
+  br i1 %tobool.not.i21.i.i104, label %while.body.i109.backedge, label %if.then.i22.i.i122
 
-if.then.i22.i.i121:                               ; preds = %if.then8.i.i114
-  store i64 %add.i.i120, ptr %total_out, align 8
-  br label %while.body.i108.backedge
+if.then.i22.i.i122:                               ; preds = %if.then8.i.i115
+  store i64 %add.i.i121, ptr %total_out, align 8
+  br label %while.body.i109.backedge
 
-land.lhs.true38.i:                                ; preds = %if.end.i.i110
+land.lhs.true38.i:                                ; preds = %if.end.i.i111
   %cmp39.i = icmp eq i32 %85, 0
   br i1 %cmp39.i, label %land.lhs.true40.i, label %while.end.i
 
@@ -1341,29 +1342,29 @@ land.lhs.true40.i:                                ; preds = %land.lhs.true38.i
   %102 = load i64, ptr %available_in, align 8
   %cmp41.i = icmp ne i64 %102, 0
   %or.cond1.i = or i1 %cmp42.i, %cmp41.i
-  br i1 %or.cond1.i, label %if.then43.i124, label %while.end.i
+  br i1 %or.cond1.i, label %if.then43.i125, label %while.end.i
 
-if.then43.i124:                                   ; preds = %land.lhs.true40.i
-  %cond.i.i125 = call i64 @llvm.umin.i64(i64 %shl.i93, i64 %102)
+if.then43.i125:                                   ; preds = %land.lhs.true40.i
+  %cond.i.i126 = call i64 @llvm.umin.i64(i64 %shl.i93, i64 %102)
   %cmp45.i = icmp ule i64 %102, %shl.i93
   %103 = and i1 %cmp46.i, %cmp45.i
   %land.ext.i = zext i1 %103 to i32
-  %mul52.i = shl i64 %cond.i.i125, 1
-  %add.i126 = add i64 %mul52.i, 503
+  %mul52.i = shl i64 %cond.i.i126, 1
+  %add.i127 = add i64 %mul52.i, 503
   %104 = load i8, ptr %last_bytes_bits_.i.i98, align 2
-  %conv.i127 = zext i8 %104 to i64
-  store i64 %conv.i127, ptr %storage_ix.i, align 8
+  %conv.i128 = zext i8 %104 to i64
+  store i64 %conv.i128, ptr %storage_ix.i, align 8
   %cmp55.i = icmp eq i64 %102, 0
   %or.cond2.i = and i1 %cmp49.i, %cmp55.i
   br i1 %or.cond2.i, label %if.then57.i, label %if.end59.i
 
-if.then57.i:                                      ; preds = %if.then43.i124
+if.then57.i:                                      ; preds = %if.then43.i125
   store i32 1, ptr %stream_state_, align 4
-  br label %while.body.i108.backedge
+  br label %while.body.i109.backedge
 
-if.end59.i:                                       ; preds = %if.then43.i124
+if.end59.i:                                       ; preds = %if.then43.i125
   %105 = load i64, ptr %available_out, align 8
-  %cmp60.not.i = icmp ugt i64 %add.i126, %105
+  %cmp60.not.i = icmp ugt i64 %add.i127, %105
   br i1 %cmp60.not.i, label %if.else63.i, label %if.then62.i
 
 if.then62.i:                                      ; preds = %if.end59.i
@@ -1372,16 +1373,16 @@ if.then62.i:                                      ; preds = %if.end59.i
 
 if.else63.i:                                      ; preds = %if.end59.i
   %107 = load i64, ptr %storage_size_.i.i, align 8
-  %cmp.i91.i = icmp ult i64 %107, %add.i126
+  %cmp.i91.i = icmp ult i64 %107, %add.i127
   %108 = load ptr, ptr %storage_5.phi.trans.insert.i.i, align 8
   br i1 %cmp.i91.i, label %if.then.i93.i, label %if.end65.i
 
 if.then.i93.i:                                    ; preds = %if.else63.i
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %108) #19
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %108) #18
   store ptr null, ptr %storage_5.phi.trans.insert.i.i, align 8
-  %call.i.i = call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %add.i126) #19
+  %call.i.i = call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %add.i127) #18
   store ptr %call.i.i, ptr %storage_5.phi.trans.insert.i.i, align 8
-  store i64 %add.i126, ptr %storage_size_.i.i, align 8
+  store i64 %add.i127, ptr %storage_size_.i.i, align 8
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.then.i93.i, %if.else63.i, %if.then62.i
@@ -1391,13 +1392,13 @@ if.end65.i:                                       ; preds = %if.then.i93.i, %if.
   store i8 %conv66.i, ptr %storage.0.i, align 1
   %110 = load i16, ptr %last_bytes_.i.i.i99, align 8
   %111 = lshr i16 %110, 8
-  %conv69.i128 = trunc i16 %111 to i8
+  %conv69.i129 = trunc i16 %111 to i8
   %arrayidx70.i = getelementptr inbounds i8, ptr %storage.0.i, i64 1
-  store i8 %conv69.i128, ptr %arrayidx70.i, align 1
+  store i8 %conv69.i129, ptr %arrayidx70.i, align 1
   %112 = load i32, ptr %quality, align 4
   %cmp.i.i94.i = icmp eq i32 %112, 0
   %cond.i.i95.i = select i1 %cmp.i.i94.i, i64 32768, i64 131072
-  %invariant.umin.i.i.i = call i64 @llvm.umin.i64(i64 %cond.i.i95.i, i64 %cond.i.i125)
+  %invariant.umin.i.i.i = call i64 @llvm.umin.i64(i64 %cond.i.i95.i, i64 %cond.i.i126)
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %if.end65.i
@@ -1407,29 +1408,29 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %
   br i1 %113, label %while.cond.i.i.i, label %HashTableSize.exit.i.i, !llvm.loop !8
 
 HashTableSize.exit.i.i:                           ; preds = %while.cond.i.i.i
-  %and.i.i129 = and i64 %htsize.0.i.i.i, 698880
-  %cmp2.i.i = icmp eq i64 %and.i.i129, 0
-  %or.cond.i.i130 = and i1 %cmp.i.i94.i, %cmp2.i.i
-  %htsize.0.i.i = select i1 %or.cond.i.i130, i64 %shl.i.i96.i, i64 %htsize.0.i.i.i
-  %cmp5.i.i131 = icmp ult i64 %htsize.0.i.i, 1025
-  br i1 %cmp5.i.i131, label %GetHashTable.exit.i, label %if.else.i.i132
+  %and.i.i130 = and i64 %htsize.0.i.i.i, 698880
+  %cmp2.i.i = icmp eq i64 %and.i.i130, 0
+  %or.cond.i.i131 = and i1 %cmp.i.i94.i, %cmp2.i.i
+  %htsize.0.i.i = select i1 %or.cond.i.i131, i64 %shl.i.i96.i, i64 %htsize.0.i.i.i
+  %cmp5.i.i132 = icmp ult i64 %htsize.0.i.i, 1025
+  br i1 %cmp5.i.i132, label %GetHashTable.exit.i, label %if.else.i.i133
 
-if.else.i.i132:                                   ; preds = %HashTableSize.exit.i.i
+if.else.i.i133:                                   ; preds = %HashTableSize.exit.i.i
   %114 = load i64, ptr %large_table_size_.i.i, align 8
-  %cmp7.i.i133 = icmp ugt i64 %htsize.0.i.i, %114
-  br i1 %cmp7.i.i133, label %if.then8.i99.i, label %if.else.if.end14_crit_edge.i.i
+  %cmp7.i.i134 = icmp ugt i64 %htsize.0.i.i, %114
+  br i1 %cmp7.i.i134, label %if.then8.i99.i, label %if.else.if.end14_crit_edge.i.i
 
-if.else.if.end14_crit_edge.i.i:                   ; preds = %if.else.i.i132
+if.else.if.end14_crit_edge.i.i:                   ; preds = %if.else.i.i133
   %.pre.i98.i = load ptr, ptr %large_table_15.phi.trans.insert.i.i, align 8
   br label %GetHashTable.exit.i
 
-if.then8.i99.i:                                   ; preds = %if.else.i.i132
+if.then8.i99.i:                                   ; preds = %if.else.i.i133
   store i64 %htsize.0.i.i, ptr %large_table_size_.i.i, align 8
   %115 = load ptr, ptr %large_table_15.phi.trans.insert.i.i, align 8
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %115) #19
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %115) #18
   store ptr null, ptr %large_table_15.phi.trans.insert.i.i, align 8
   %mul.i.i137 = shl i64 %htsize.0.i.i, 2
-  %call12.i.i = call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %mul.i.i137) #19
+  %call12.i.i = call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %mul.i.i137) #18
   store ptr %call12.i.i, ptr %large_table_15.phi.trans.insert.i.i, align 8
   br label %GetHashTable.exit.i
 
@@ -1444,12 +1445,12 @@ GetHashTable.exit.i:                              ; preds = %if.then8.i99.i, %if
 
 if.then78.i:                                      ; preds = %GetHashTable.exit.i
   %118 = load ptr, ptr %one_pass_arena_.i106, align 8
-  call void @BrotliCompressFragmentFast(ptr noundef %118, ptr noundef %117, i64 noundef %cond.i.i125, i32 noundef %land.ext.i, ptr noundef %table.0.i.i, i64 noundef %htsize.0.i.i, ptr noundef nonnull %storage_ix.i, ptr noundef nonnull %storage.0.i) #19
+  call void @BrotliCompressFragmentFast(ptr noundef %118, ptr noundef %117, i64 noundef %cond.i.i126, i32 noundef %land.ext.i, ptr noundef %table.0.i.i, i64 noundef %htsize.0.i.i, ptr noundef nonnull %storage_ix.i, ptr noundef nonnull %storage.0.i) #18
   br label %if.end80.i
 
 if.else79.i:                                      ; preds = %GetHashTable.exit.i
   %119 = load ptr, ptr %two_pass_arena_.i105, align 8
-  call void @BrotliCompressFragmentTwoPass(ptr noundef %119, ptr noundef %117, i64 noundef %cond.i.i125, i32 noundef %land.ext.i, ptr noundef %command_buf.0.i, ptr noundef %literal_buf.0.i, ptr noundef %table.0.i.i, i64 noundef %htsize.0.i.i, ptr noundef nonnull %storage_ix.i, ptr noundef nonnull %storage.0.i) #19
+  call void @BrotliCompressFragmentTwoPass(ptr noundef %119, ptr noundef %117, i64 noundef %cond.i.i126, i32 noundef %land.ext.i, ptr noundef %command_buf.0.i, ptr noundef %literal_buf.0.i, ptr noundef %table.0.i.i, i64 noundef %htsize.0.i.i, ptr noundef nonnull %storage_ix.i, ptr noundef nonnull %storage.0.i) #18
   br label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.else79.i, %if.then78.i
@@ -1457,13 +1458,13 @@ if.end80.i:                                       ; preds = %if.else79.i, %if.th
 
 if.then83.i:                                      ; preds = %if.end80.i
   %120 = load ptr, ptr %next_in, align 8
-  %add.ptr.i134 = getelementptr inbounds i8, ptr %120, i64 %cond.i.i125
-  store ptr %add.ptr.i134, ptr %next_in, align 8
+  %add.ptr.i135 = getelementptr inbounds i8, ptr %120, i64 %cond.i.i126
+  store ptr %add.ptr.i135, ptr %next_in, align 8
   %121 = load i64, ptr %available_in, align 8
-  %sub.i135 = sub i64 %121, %cond.i.i125
-  store i64 %sub.i135, ptr %available_in, align 8
+  %sub.i136 = sub i64 %121, %cond.i.i126
+  store i64 %sub.i136, ptr %available_in, align 8
   %122 = load i64, ptr %total_in_.i107, align 8
-  %add84.i = add i64 %122, %cond.i.i125
+  %add84.i = add i64 %122, %cond.i.i126
   store i64 %add84.i, ptr %total_in_.i107, align 8
   br label %if.end85.i
 
@@ -1502,27 +1503,26 @@ if.end96.i:                                       ; preds = %if.else92.i, %if.th
   %conv101.i = and i8 %128, 7
   store i8 %conv101.i, ptr %last_bytes_bits_.i.i98, align 2
   %129 = and i1 %84, %cmp45.i
-  br i1 %129, label %130, label %while.body.i108.backedge
+  br i1 %129, label %130, label %while.body.i109.backedge
 
 130:                                              ; preds = %if.end96.i
-  %spec.select.i136 = select i1 %103, i32 2, i32 1
-  store i32 %spec.select.i136, ptr %stream_state_, align 4
-  br label %while.body.i108.backedge
+  store i32 %spec.select.i108, ptr %stream_state_, align 4
+  br label %while.body.i109.backedge
 
-while.body.i108.backedge:                         ; preds = %130, %if.end96.i, %if.then57.i, %if.then.i22.i.i121, %if.then8.i.i114, %InjectBytePaddingBlock.exit.i.i152
-  br label %while.body.i108
+while.body.i109.backedge:                         ; preds = %130, %if.end96.i, %if.then57.i, %if.then.i22.i.i122, %if.then8.i.i115, %InjectBytePaddingBlock.exit.i.i152
+  br label %while.body.i109
 
-while.end.i:                                      ; preds = %land.lhs.true40.i, %land.lhs.true38.i, %land.lhs.true5.i.i112, %if.end.i.thread.i
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %tmp_command_buf.0.i) #19
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %tmp_literal_buf.0.i) #19
+while.end.i:                                      ; preds = %land.lhs.true40.i, %land.lhs.true38.i, %land.lhs.true5.i.i113, %if.end.i.thread.i
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %tmp_command_buf.0.i) #18
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %tmp_literal_buf.0.i) #18
   %131 = load i32, ptr %stream_state_, align 4
   %cmp.i103.i = icmp eq i32 %131, 1
   br i1 %cmp.i103.i, label %land.lhs.true.i105.i, label %BrotliEncoderCompressStreamFast.exit
 
 land.lhs.true.i105.i:                             ; preds = %while.end.i
   %132 = load i64, ptr %available_out_.i.i.i101, align 8
-  %cmp1.i.i123 = icmp eq i64 %132, 0
-  br i1 %cmp1.i.i123, label %if.then.i107.i, label %BrotliEncoderCompressStreamFast.exit
+  %cmp1.i.i124 = icmp eq i64 %132, 0
+  br i1 %cmp1.i.i124, label %if.then.i107.i, label %BrotliEncoderCompressStreamFast.exit
 
 if.then.i107.i:                                   ; preds = %land.lhs.true.i105.i
   store i32 0, ptr %stream_state_, align 4
@@ -1573,7 +1573,7 @@ if.then.i.i200:                                   ; preds = %land.lhs.true.i.i19
   %add3.i.i = add i64 %cond.i, 2
   %conv4.i.i201 = and i64 %add3.i.i, 4294967295
   %add5.i.i = add nuw nsw i64 %conv4.i.i201, 7
-  %call.i.i202 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %add5.i.i) #19
+  %call.i.i202 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %add5.i.i) #18
   %138 = load ptr, ptr %data_.i27.i, align 8
   %tobool.i.not.i203 = icmp eq ptr %138, null
   br i1 %tobool.i.not.i203, label %if.end.i7.i, label %if.then.i13.i
@@ -1585,7 +1585,7 @@ if.then.i13.i:                                    ; preds = %if.then.i.i200
   %add9.i.i = add nuw nsw i64 %conv8.i.i, 7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i.i202, ptr noundef nonnull align 1 dereferenceable(1) %138, i64 %add9.i.i, i1 false)
   %140 = load ptr, ptr %data_.i27.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %140) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %140) #18
   br label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %if.then.i13.i, %if.then.i.i200
@@ -1628,7 +1628,7 @@ if.then8.i.i193:                                  ; preds = %if.end.i.i177
   %add3.i23.i = add i32 %147, 2
   %conv4.i24.i = zext i32 %add3.i23.i to i64
   %add5.i25.i = add nuw nsw i64 %conv4.i24.i, 7
-  %call.i26.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %add5.i25.i) #19
+  %call.i26.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef %add5.i25.i) #18
   %148 = load ptr, ptr %data_.i27.i, align 8
   %tobool.i28.not.i = icmp eq ptr %148, null
   br i1 %tobool.i28.not.i, label %if.end.i29.i, label %if.then.i48.i
@@ -1640,7 +1640,7 @@ if.then.i48.i:                                    ; preds = %if.then8.i.i193
   %add9.i53.i = add nuw nsw i64 %conv8.i52.i, 7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i26.i, ptr noundef nonnull align 1 dereferenceable(1) %148, i64 %add9.i53.i, i1 false)
   %150 = load ptr, ptr %data_.i27.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %150) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %150) #18
   br label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %if.then.i48.i, %if.then8.i.i193
@@ -2146,9 +2146,9 @@ land.lhs.true65:                                  ; preds = %if.end60
   br i1 %tobool66.not, label %if.then67, label %if.then73
 
 if.then67:                                        ; preds = %land.lhs.true65
-  %call68 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef 524288) #19
+  %call68 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef 524288) #18
   store ptr %call68, ptr %command_buf_, align 8
-  %call70 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef 131072) #19
+  %call70 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef 131072) #18
   %literal_buf_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 27
   store ptr %call70, ptr %literal_buf_, align 8
   br label %if.then73
@@ -2169,9 +2169,9 @@ if.then73:                                        ; preds = %if.end60, %land.lhs
   br i1 %cmp.i1137, label %if.then.i1138, label %GetBrotliStorage.exit
 
 if.then.i1138:                                    ; preds = %if.then73
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %19) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %19) #18
   store ptr null, ptr %storage_.i, align 8
-  %call.i1139 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %conv77) #19
+  %call.i1139 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %conv77) #18
   store ptr %call.i1139, ptr %storage_.i, align 8
   store i64 %conv77, ptr %storage_size_.i, align 8
   br label %GetBrotliStorage.exit
@@ -2227,10 +2227,10 @@ if.then8.i:                                       ; preds = %if.else.i
   store i64 %htsize.0.i, ptr %large_table_size_.i, align 8
   %large_table_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 22
   %27 = load ptr, ptr %large_table_.i, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %27) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %27) #18
   store ptr null, ptr %large_table_.i, align 8
   %mul.i1145 = shl i64 %htsize.0.i, 2
-  %call12.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %mul.i1145) #19
+  %call12.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %mul.i1145) #18
   store ptr %call12.i, ptr %large_table_.i, align 8
   br label %GetHashTable.exit
 
@@ -2248,7 +2248,7 @@ GetHashTable.exit:                                ; preds = %if.then6.i, %if.els
 if.then95:                                        ; preds = %GetHashTable.exit
   %one_pass_arena_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 24
   %29 = load ptr, ptr %one_pass_arena_, align 8
-  call void @BrotliCompressFragmentFast(ptr noundef %29, ptr noundef %arrayidx96, i64 noundef %conv89, i32 noundef %is_last, ptr noundef %table.0.i, i64 noundef %htsize.0.i, ptr noundef nonnull %storage_ix, ptr noundef nonnull %20) #19
+  call void @BrotliCompressFragmentFast(ptr noundef %29, ptr noundef %arrayidx96, i64 noundef %conv89, i32 noundef %is_last, ptr noundef %table.0.i, i64 noundef %htsize.0.i, ptr noundef nonnull %storage_ix, ptr noundef nonnull %20) #18
   br label %if.end105
 
 if.else98:                                        ; preds = %GetHashTable.exit
@@ -2258,7 +2258,7 @@ if.else98:                                        ; preds = %GetHashTable.exit
   %31 = load ptr, ptr %command_buf_103, align 8
   %literal_buf_104 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 27
   %32 = load ptr, ptr %literal_buf_104, align 8
-  call void @BrotliCompressFragmentTwoPass(ptr noundef %30, ptr noundef %arrayidx96, i64 noundef %conv89, i32 noundef %is_last, ptr noundef %31, ptr noundef %32, ptr noundef %table.0.i, i64 noundef %htsize.0.i, ptr noundef nonnull %storage_ix, ptr noundef nonnull %20) #19
+  call void @BrotliCompressFragmentTwoPass(ptr noundef %30, ptr noundef %arrayidx96, i64 noundef %conv89, i32 noundef %is_last, ptr noundef %31, ptr noundef %32, ptr noundef %table.0.i, i64 noundef %htsize.0.i, ptr noundef nonnull %storage_ix, ptr noundef nonnull %20) #18
   br label %if.end105
 
 if.end105:                                        ; preds = %if.else98, %if.then95
@@ -2299,7 +2299,7 @@ if.then122:                                       ; preds = %if.end116
 
 cond.true:                                        ; preds = %if.then122
   %mul130 = shl i64 %add126, 4
-  %call131 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %mul130) #19
+  %call131 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %mul130) #18
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then122, %cond.true
@@ -2314,7 +2314,7 @@ if.then133:                                       ; preds = %cond.end
   %mul136 = shl i64 %40, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %cond, ptr nonnull align 4 %39, i64 %mul136, i1 false)
   %41 = load ptr, ptr %commands_, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %41) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %41) #18
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then133, %cond.end
@@ -2576,9 +2576,8 @@ HashMemAllocInBytesH35.exit:                      ; preds = %ChooseHasher.exit.i
 sw.bb12.i.i:                                      ; preds = %ChooseHasher.exit.i
   %sh_prom.i1967 = zext nneg i32 %48 to i64
   %shl.i1968 = shl nuw i64 1, %sh_prom.i1967
-  %cmp.i1974 = icmp ugt i64 %shl.i1968, %conv145
-  %or.cond1117 = select i1 %42, i1 %cmp.i1974, i1 false
-  %num_nodes.i.0 = select i1 %or.cond1117, i64 %conv145, i64 %shl.i1968
+  %55 = tail call i64 @llvm.umin.i64(i64 %shl.i1968, i64 %conv145)
+  %num_nodes.i.0 = select i1 %42, i64 %55, i64 %shl.i1968
   store i64 524288, ptr %alloc_size.i, align 16
   %mul.i1971 = shl i64 %num_nodes.i.0, 3
   %arrayidx1.i1972 = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
@@ -2592,12 +2591,12 @@ HasherSize.exit.i:                                ; preds = %ChooseHasher.exit.i
 for.body.i:                                       ; preds = %HasherSize.exit.i, %for.inc.i
   %i.i.01445 = phi i64 [ 0, %HasherSize.exit.i ], [ %inc.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [4 x i64], ptr %alloc_size.i, i64 0, i64 %i.i.01445
-  %55 = load i64, ptr %arrayidx.i, align 8
-  %cmp9.i = icmp eq i64 %55, 0
+  %56 = load i64, ptr %arrayidx.i, align 8
+  %cmp9.i = icmp eq i64 %56, 0
   br i1 %cmp9.i, label %for.inc.i, label %cond.true.i380
 
 cond.true.i380:                                   ; preds = %for.body.i
-  %call.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %55) #19
+  %call.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %56) #18
   %arrayidx15.i = getelementptr inbounds [4 x ptr], ptr %hasher_, i64 0, i64 %i.i.01445
   store ptr %call.i, ptr %arrayidx15.i, align 8
   br label %for.inc.i
@@ -2608,8 +2607,8 @@ for.inc.i:                                        ; preds = %for.body.i, %cond.t
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i
-  %56 = load i32, ptr %params4.i1421, align 8
-  switch i32 %56, label %if.end57.i.thread [
+  %57 = load i32, ptr %params4.i1421, align 8
+  switch i32 %57, label %if.end57.i.thread [
     i32 2, label %sw.bb.i375
     i32 3, label %sw.bb19.i
     i32 4, label %sw.bb22.i373
@@ -2629,27 +2628,27 @@ sw.bb.i375:                                       ; preds = %for.end.i
   %privat.i376 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   store ptr %hasher_, ptr %privat.i376, align 8, !alias.scope !11
-  %57 = load ptr, ptr %hasher_, align 8, !noalias !11
+  %58 = load ptr, ptr %hasher_, align 8, !noalias !11
   %buckets_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  store ptr %57, ptr %buckets_.i, align 8, !alias.scope !11
+  store ptr %58, ptr %buckets_.i, align 8, !alias.scope !11
   br label %if.end57.i.thread
 
 sw.bb19.i:                                        ; preds = %for.end.i
   %privat21.i374 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   store ptr %hasher_, ptr %privat21.i374, align 8, !alias.scope !14
-  %58 = load ptr, ptr %hasher_, align 8, !noalias !14
+  %59 = load ptr, ptr %hasher_, align 8, !noalias !14
   %buckets_.i1151 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  store ptr %58, ptr %buckets_.i1151, align 8, !alias.scope !14
+  store ptr %59, ptr %buckets_.i1151, align 8, !alias.scope !14
   br label %if.end57.i.thread
 
 sw.bb22.i373:                                     ; preds = %for.end.i
   %privat24.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   store ptr %hasher_, ptr %privat24.i, align 8, !alias.scope !17
-  %59 = load ptr, ptr %hasher_, align 8, !noalias !17
+  %60 = load ptr, ptr %hasher_, align 8, !noalias !17
   %buckets_.i1152 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  store ptr %59, ptr %buckets_.i1152, align 8, !alias.scope !17
+  store ptr %60, ptr %buckets_.i1152, align 8, !alias.scope !17
   br label %if.end57.i.thread
 
 sw.bb25.i:                                        ; preds = %for.end.i
@@ -2668,8 +2667,8 @@ sw.bb31.i:                                        ; preds = %for.end.i
   %common1.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 16
   store ptr %hasher_, ptr %common1.i, align 8, !alias.scope !20
   %extra2.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
-  %60 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !20
-  store <2 x ptr> %60, ptr %extra2.i, align 8, !alias.scope !20
+  %61 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !20
+  store <2 x ptr> %61, ptr %extra2.i, align 8, !alias.scope !20
   %cmp.inv.i = icmp slt i32 %s.val1124, 7
   %cond.i1153 = select i1 %cmp.inv.i, i32 8, i32 7
   %sub.i1154 = add nsw i32 %s.val1124, -4
@@ -2685,8 +2684,8 @@ sw.bb34.i:                                        ; preds = %for.end.i
   %common1.i1157 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 16
   store ptr %hasher_, ptr %common1.i1157, align 8, !alias.scope !23
   %extra2.i1158 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
-  %61 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !23
-  store <2 x ptr> %61, ptr %extra2.i1158, align 8, !alias.scope !23
+  %62 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !23
+  store <2 x ptr> %62, ptr %extra2.i1158, align 8, !alias.scope !23
   %cmp.inv.i1161 = icmp slt i32 %s.val1125, 7
   %cond.i1162 = select i1 %cmp.inv.i1161, i32 8, i32 7
   %sub.i1163 = add nsw i32 %s.val1125, -4
@@ -2702,8 +2701,8 @@ sw.bb37.i:                                        ; preds = %for.end.i
   %common1.i1167 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 3
   store ptr %hasher_, ptr %common1.i1167, align 8, !alias.scope !26
   %extra2.i1168 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 2
-  %62 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !26
-  store <2 x ptr> %62, ptr %extra2.i1168, align 8, !alias.scope !26
+  %63 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !26
+  store <2 x ptr> %63, ptr %extra2.i1168, align 8, !alias.scope !26
   %cmp.inv.i1171 = icmp slt i32 %s.val1126, 7
   %cond.i1172 = select i1 %cmp.inv.i1171, i32 8, i32 7
   %sub.i1173 = add nsw i32 %s.val1126, -4
@@ -2717,9 +2716,9 @@ sw.bb40.i:                                        ; preds = %for.end.i
   %privat42.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   store ptr %hasher_, ptr %privat42.i, align 8, !alias.scope !29
-  %63 = load ptr, ptr %hasher_, align 8, !noalias !29
+  %64 = load ptr, ptr %hasher_, align 8, !noalias !29
   %buckets_.i1177 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  store ptr %63, ptr %buckets_.i1177, align 8, !alias.scope !29
+  store ptr %64, ptr %buckets_.i1177, align 8, !alias.scope !29
   br label %if.end57.i.thread
 
 sw.bb43.i:                                        ; preds = %for.end.i
@@ -2764,8 +2763,8 @@ sw.bb49.i:                                        ; preds = %for.end.i
 sw.bb52.i:                                        ; preds = %for.end.i
   %privat54.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
   %hasher_.val = load ptr, ptr %hasher_, align 8
-  %64 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 0, i64 1
-  %hasher_.val1127 = load ptr, ptr %64, align 8
+  %65 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 0, i64 1
+  %hasher_.val1127 = load ptr, ptr %65, align 8
   %s.val1128 = load i32, ptr %lgwin62.i.i, align 8
   %buckets_.i1190 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
   store ptr %hasher_.val, ptr %buckets_.i1190, align 8, !alias.scope !41
@@ -2797,8 +2796,8 @@ if.end57.i:                                       ; preds = %if.end141
 if.then60.i:                                      ; preds = %if.end57.i.thread, %if.end57.i
   %is_prepared_.i3721492 = phi ptr [ %is_prepared_.i3721490, %if.end57.i.thread ], [ %is_prepared_.i372, %if.end57.i ]
   %params62.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 4
-  %65 = load i32, ptr %params62.i, align 8
-  switch i32 %65, label %sw.epilog91.i [
+  %66 = load i32, ptr %params62.i, align 8
+  switch i32 %66, label %sw.epilog91.i [
     i32 2, label %sw.bb64.i
     i32 3, label %sw.bb66.i
     i32 4, label %sw.bb68.i
@@ -2815,8 +2814,8 @@ if.then60.i:                                      ; preds = %if.end57.i.thread, 
   ]
 
 sw.bb64.i:                                        ; preds = %if.then60.i
-  %66 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %privat65.i.val = load ptr, ptr %66, align 8
+  %67 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %privat65.i.val = load ptr, ptr %67, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %cmp.i1195 = icmp ult i64 %conv145, 2049
   %or.cond.i1196 = and i1 %cmp.i1195, %42
@@ -2843,8 +2842,8 @@ if.else.i1197:                                    ; preds = %sw.bb64.i
   br label %sw.epilog91.i
 
 sw.bb66.i:                                        ; preds = %if.then60.i
-  %67 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %privat67.i.val = load ptr, ptr %67, align 8
+  %68 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %privat67.i.val = load ptr, ptr %68, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %cmp.i1203 = icmp ult i64 %conv145, 2049
   %or.cond.i1204 = and i1 %cmp.i1203, %42
@@ -2875,8 +2874,8 @@ if.else.i1205:                                    ; preds = %sw.bb66.i
   br label %sw.epilog91.i
 
 sw.bb68.i:                                        ; preds = %if.then60.i
-  %68 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %privat69.i.val = load ptr, ptr %68, align 8
+  %69 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %privat69.i.val = load ptr, ptr %69, align 8
   tail call fastcc void @PrepareH4(ptr %privat69.i.val, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
@@ -2906,8 +2905,8 @@ sw.bb78.i:                                        ; preds = %if.then60.i
   br label %sw.epilog91.i
 
 sw.bb80.i:                                        ; preds = %if.then60.i
-  %69 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %privat81.i.val = load ptr, ptr %69, align 8
+  %70 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %privat81.i.val = load ptr, ptr %70, align 8
   tail call fastcc void @PrepareH54(ptr %privat81.i.val, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
@@ -2927,10 +2926,10 @@ sw.bb86.i:                                        ; preds = %if.then60.i
   br label %sw.epilog91.i
 
 sw.bb88.i:                                        ; preds = %if.then60.i
-  %70 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %privat89.i.val = load ptr, ptr %70, align 8
-  %71 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
-  %privat89.i.val1129 = load i32, ptr %71, align 8
+  %71 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %privat89.i.val = load ptr, ptr %71, align 8
+  %72 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %privat89.i.val1129 = load i32, ptr %72, align 8
   br label %for.body.i1218
 
 for.body.i1218:                                   ; preds = %for.body.i1218, %sw.bb88.i
@@ -2948,8 +2947,8 @@ sw.epilog91.i:                                    ; preds = %for.body.i1218, %fo
 HasherSetup.exit:                                 ; preds = %sw.epilog91.i, %if.end57.i
   %is_prepared_.i3721493 = phi ptr [ %is_prepared_.i3721492, %sw.epilog91.i ], [ %is_prepared_.i372, %if.end57.i ]
   %params1.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 4
-  %72 = load i32, ptr %params1.i, align 8
-  switch i32 %72, label %InitOrStitchToPreviousBlock.exit [
+  %73 = load i32, ptr %params1.i, align 8
+  switch i32 %73, label %InitOrStitchToPreviousBlock.exit [
     i32 2, label %sw.bb.i
     i32 3, label %sw.bb2.i
     i32 4, label %sw.bb4.i
@@ -2980,8 +2979,8 @@ if.then.i389:                                     ; preds = %sw.bb.i
   %shr.i1223 = lshr i64 %mul.i1222, 48
   %conv.i609 = trunc i64 %sub2.i to i32
   %buckets_.i610 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %73 = load ptr, ptr %buckets_.i610, align 8
-  %arrayidx1.i612 = getelementptr inbounds i32, ptr %73, i64 %shr.i1223
+  %74 = load ptr, ptr %buckets_.i610, align 8
+  %arrayidx1.i612 = getelementptr inbounds i32, ptr %74, i64 %shr.i1223
   store i32 %conv.i609, ptr %arrayidx1.i612, align 4
   %sub3.i = add nsw i64 %conv144, -2
   %and.i594 = and i64 %sub3.i, %conv142
@@ -2990,8 +2989,8 @@ if.then.i389:                                     ; preds = %sw.bb.i
   %mul.i1225 = mul i64 %arrayidx.i595.val, 8922571613522624512
   %shr.i1226 = lshr i64 %mul.i1225, 48
   %conv.i597 = trunc i64 %sub3.i to i32
-  %74 = load ptr, ptr %buckets_.i610, align 8
-  %arrayidx1.i600 = getelementptr inbounds i32, ptr %74, i64 %shr.i1226
+  %75 = load ptr, ptr %buckets_.i610, align 8
+  %arrayidx1.i600 = getelementptr inbounds i32, ptr %75, i64 %shr.i1226
   store i32 %conv.i597, ptr %arrayidx1.i600, align 4
   %sub4.i = add nsw i64 %conv144, -1
   %and.i = and i64 %sub4.i, %conv142
@@ -3000,8 +2999,8 @@ if.then.i389:                                     ; preds = %sw.bb.i
   %mul.i1228 = mul i64 %arrayidx.i586.val, 8922571613522624512
   %shr.i1229 = lshr i64 %mul.i1228, 48
   %conv.i588 = trunc i64 %sub4.i to i32
-  %75 = load ptr, ptr %buckets_.i610, align 8
-  %arrayidx1.i = getelementptr inbounds i32, ptr %75, i64 %shr.i1229
+  %76 = load ptr, ptr %buckets_.i610, align 8
+  %arrayidx1.i = getelementptr inbounds i32, ptr %76, i64 %shr.i1229
   store i32 %conv.i588, ptr %arrayidx1.i, align 4
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3018,40 +3017,40 @@ if.then.i401:                                     ; preds = %sw.bb2.i
   %arrayidx.i700.val = load i64, ptr %arrayidx.i700, align 1
   %mul.i1231 = mul i64 %arrayidx.i700.val, 8922571613522624512
   %shr.i1232 = lshr i64 %mul.i1231, 48
-  %76 = trunc i64 %sub2.i402 to i32
+  %77 = trunc i64 %sub2.i402 to i32
   %conv.i703 = and i64 %sub2.i402, 8
   %buckets_.i705 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %77 = load ptr, ptr %buckets_.i705, align 8
+  %78 = load ptr, ptr %buckets_.i705, align 8
   %add.i706 = add nuw nsw i64 %shr.i1232, %conv.i703
   %and3.i707 = and i64 %add.i706, 65535
-  %arrayidx4.i709 = getelementptr inbounds i32, ptr %77, i64 %and3.i707
-  store i32 %76, ptr %arrayidx4.i709, align 4
+  %arrayidx4.i709 = getelementptr inbounds i32, ptr %78, i64 %and3.i707
+  store i32 %77, ptr %arrayidx4.i709, align 4
   %sub3.i403 = add nsw i64 %conv144, -2
   %and.i682 = and i64 %sub3.i403, %conv142
   %arrayidx.i683 = getelementptr inbounds i8, ptr %6, i64 %and.i682
   %arrayidx.i683.val = load i64, ptr %arrayidx.i683, align 1
   %mul.i1234 = mul i64 %arrayidx.i683.val, 8922571613522624512
   %shr.i1235 = lshr i64 %mul.i1234, 48
-  %78 = trunc i64 %sub3.i403 to i32
+  %79 = trunc i64 %sub3.i403 to i32
   %conv.i686 = and i64 %sub3.i403, 8
-  %79 = load ptr, ptr %buckets_.i705, align 8
+  %80 = load ptr, ptr %buckets_.i705, align 8
   %add.i689 = add nuw nsw i64 %shr.i1235, %conv.i686
   %and3.i690 = and i64 %add.i689, 65535
-  %arrayidx4.i692 = getelementptr inbounds i32, ptr %79, i64 %and3.i690
-  store i32 %78, ptr %arrayidx4.i692, align 4
+  %arrayidx4.i692 = getelementptr inbounds i32, ptr %80, i64 %and3.i690
+  store i32 %79, ptr %arrayidx4.i692, align 4
   %sub4.i404 = add nsw i64 %conv144, -1
   %and.i665 = and i64 %sub4.i404, %conv142
   %arrayidx.i666 = getelementptr inbounds i8, ptr %6, i64 %and.i665
   %arrayidx.i666.val = load i64, ptr %arrayidx.i666, align 1
   %mul.i1237 = mul i64 %arrayidx.i666.val, 8922571613522624512
   %shr.i1238 = lshr i64 %mul.i1237, 48
-  %80 = trunc i64 %sub4.i404 to i32
+  %81 = trunc i64 %sub4.i404 to i32
   %conv.i669 = and i64 %sub4.i404, 8
-  %81 = load ptr, ptr %buckets_.i705, align 8
+  %82 = load ptr, ptr %buckets_.i705, align 8
   %add.i672 = add nuw nsw i64 %shr.i1238, %conv.i669
   %and3.i673 = and i64 %add.i672, 65535
-  %arrayidx4.i675 = getelementptr inbounds i32, ptr %81, i64 %and3.i673
-  store i32 %80, ptr %arrayidx4.i675, align 4
+  %arrayidx4.i675 = getelementptr inbounds i32, ptr %82, i64 %and3.i673
+  store i32 %81, ptr %arrayidx4.i675, align 4
   br label %InitOrStitchToPreviousBlock.exit
 
 sw.bb4.i:                                         ; preds = %HasherSetup.exit
@@ -3067,40 +3066,40 @@ if.then.i416:                                     ; preds = %sw.bb4.i
   %arrayidx.i751.val = load i64, ptr %arrayidx.i751, align 1
   %mul.i1240 = mul i64 %arrayidx.i751.val, 8922571613522624512
   %shr.i1241 = lshr i64 %mul.i1240, 47
-  %82 = trunc i64 %sub2.i417 to i32
+  %83 = trunc i64 %sub2.i417 to i32
   %conv.i754 = and i64 %sub2.i417, 24
   %buckets_.i756 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %83 = load ptr, ptr %buckets_.i756, align 8
+  %84 = load ptr, ptr %buckets_.i756, align 8
   %add.i757 = add nuw nsw i64 %shr.i1241, %conv.i754
   %and3.i758 = and i64 %add.i757, 131071
-  %arrayidx4.i760 = getelementptr inbounds i32, ptr %83, i64 %and3.i758
-  store i32 %82, ptr %arrayidx4.i760, align 4
+  %arrayidx4.i760 = getelementptr inbounds i32, ptr %84, i64 %and3.i758
+  store i32 %83, ptr %arrayidx4.i760, align 4
   %sub3.i418 = add nsw i64 %conv144, -2
   %and.i733 = and i64 %sub3.i418, %conv142
   %arrayidx.i734 = getelementptr inbounds i8, ptr %6, i64 %and.i733
   %arrayidx.i734.val = load i64, ptr %arrayidx.i734, align 1
   %mul.i1243 = mul i64 %arrayidx.i734.val, 8922571613522624512
   %shr.i1244 = lshr i64 %mul.i1243, 47
-  %84 = trunc i64 %sub3.i418 to i32
+  %85 = trunc i64 %sub3.i418 to i32
   %conv.i737 = and i64 %sub3.i418, 24
-  %85 = load ptr, ptr %buckets_.i756, align 8
+  %86 = load ptr, ptr %buckets_.i756, align 8
   %add.i740 = add nuw nsw i64 %shr.i1244, %conv.i737
   %and3.i741 = and i64 %add.i740, 131071
-  %arrayidx4.i743 = getelementptr inbounds i32, ptr %85, i64 %and3.i741
-  store i32 %84, ptr %arrayidx4.i743, align 4
+  %arrayidx4.i743 = getelementptr inbounds i32, ptr %86, i64 %and3.i741
+  store i32 %85, ptr %arrayidx4.i743, align 4
   %sub4.i419 = add nsw i64 %conv144, -1
   %and.i716 = and i64 %sub4.i419, %conv142
   %arrayidx.i717 = getelementptr inbounds i8, ptr %6, i64 %and.i716
   %arrayidx.i717.val = load i64, ptr %arrayidx.i717, align 1
   %mul.i1246 = mul i64 %arrayidx.i717.val, 8922571613522624512
   %shr.i1247 = lshr i64 %mul.i1246, 47
-  %86 = trunc i64 %sub4.i419 to i32
+  %87 = trunc i64 %sub4.i419 to i32
   %conv.i720 = and i64 %sub4.i419, 24
-  %87 = load ptr, ptr %buckets_.i756, align 8
+  %88 = load ptr, ptr %buckets_.i756, align 8
   %add.i723 = add nuw nsw i64 %shr.i1247, %conv.i720
   %and3.i724 = and i64 %add.i723, 131071
-  %arrayidx4.i726 = getelementptr inbounds i32, ptr %87, i64 %and3.i724
-  store i32 %86, ptr %arrayidx4.i726, align 4
+  %arrayidx4.i726 = getelementptr inbounds i32, ptr %88, i64 %and3.i724
+  store i32 %87, ptr %arrayidx4.i726, align 4
   br label %InitOrStitchToPreviousBlock.exit
 
 sw.bb6.i:                                         ; preds = %HasherSetup.exit
@@ -3114,90 +3113,90 @@ if.then.i431:                                     ; preds = %sw.bb6.i
   %and.i812 = and i64 %sub2.i432, %conv142
   %arrayidx.i813 = getelementptr inbounds i8, ptr %6, i64 %and.i812
   %hash_shift_.i814 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
-  %88 = load i32, ptr %hash_shift_.i814, align 8
+  %89 = load i32, ptr %hash_shift_.i814, align 8
   %arrayidx.i813.val = load i32, ptr %arrayidx.i813, align 1
   %mul.i1249 = mul i32 %arrayidx.i813.val, 506832829
-  %shr.i1250 = lshr i32 %mul.i1249, %88
+  %shr.i1250 = lshr i32 %mul.i1249, %89
   %num_.i816 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 20
-  %89 = load ptr, ptr %num_.i816, align 8
+  %90 = load ptr, ptr %num_.i816, align 8
   %idxprom.i817 = zext i32 %shr.i1250 to i64
-  %arrayidx1.i818 = getelementptr inbounds i16, ptr %89, i64 %idxprom.i817
-  %90 = load i16, ptr %arrayidx1.i818, align 2
-  %conv.i819 = zext i16 %90 to i32
+  %arrayidx1.i818 = getelementptr inbounds i16, ptr %90, i64 %idxprom.i817
+  %91 = load i16, ptr %arrayidx1.i818, align 2
+  %conv.i819 = zext i16 %91 to i32
   %block_mask_.i820 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 10
-  %91 = load i32, ptr %block_mask_.i820, align 4
-  %and2.i821 = and i32 %91, %conv.i819
+  %92 = load i32, ptr %block_mask_.i820, align 4
+  %and2.i821 = and i32 %92, %conv.i819
   %conv3.i822 = zext nneg i32 %and2.i821 to i64
   %block_bits_.i823 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
-  %92 = load i32, ptr %block_bits_.i823, align 8
-  %shl.i824 = shl i32 %shr.i1250, %92
+  %93 = load i32, ptr %block_bits_.i823, align 8
+  %shl.i824 = shl i32 %shr.i1250, %93
   %conv4.i825 = zext i32 %shl.i824 to i64
   %conv5.i827 = trunc i64 %sub2.i432 to i32
   %buckets_.i828 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 24
-  %93 = load ptr, ptr %buckets_.i828, align 8
-  %94 = getelementptr i32, ptr %93, i64 %conv3.i822
-  %arrayidx6.i829 = getelementptr i32, ptr %94, i64 %conv4.i825
+  %94 = load ptr, ptr %buckets_.i828, align 8
+  %95 = getelementptr i32, ptr %94, i64 %conv3.i822
+  %arrayidx6.i829 = getelementptr i32, ptr %95, i64 %conv4.i825
   store i32 %conv5.i827, ptr %arrayidx6.i829, align 4
-  %95 = load ptr, ptr %num_.i816, align 8
-  %arrayidx9.i832 = getelementptr inbounds i16, ptr %95, i64 %idxprom.i817
-  %96 = load i16, ptr %arrayidx9.i832, align 2
-  %inc.i833 = add i16 %96, 1
+  %96 = load ptr, ptr %num_.i816, align 8
+  %arrayidx9.i832 = getelementptr inbounds i16, ptr %96, i64 %idxprom.i817
+  %97 = load i16, ptr %arrayidx9.i832, align 2
+  %inc.i833 = add i16 %97, 1
   store i16 %inc.i833, ptr %arrayidx9.i832, align 2
   %sub3.i433 = add nsw i64 %conv144, -2
   %and.i783 = and i64 %sub3.i433, %conv142
   %arrayidx.i784 = getelementptr inbounds i8, ptr %6, i64 %and.i783
-  %97 = load i32, ptr %hash_shift_.i814, align 8
+  %98 = load i32, ptr %hash_shift_.i814, align 8
   %arrayidx.i784.val = load i32, ptr %arrayidx.i784, align 1
   %mul.i1251 = mul i32 %arrayidx.i784.val, 506832829
-  %shr.i1252 = lshr i32 %mul.i1251, %97
-  %98 = load ptr, ptr %num_.i816, align 8
+  %shr.i1252 = lshr i32 %mul.i1251, %98
+  %99 = load ptr, ptr %num_.i816, align 8
   %idxprom.i788 = zext i32 %shr.i1252 to i64
-  %arrayidx1.i789 = getelementptr inbounds i16, ptr %98, i64 %idxprom.i788
-  %99 = load i16, ptr %arrayidx1.i789, align 2
-  %conv.i790 = zext i16 %99 to i32
-  %100 = load i32, ptr %block_mask_.i820, align 4
-  %and2.i792 = and i32 %100, %conv.i790
+  %arrayidx1.i789 = getelementptr inbounds i16, ptr %99, i64 %idxprom.i788
+  %100 = load i16, ptr %arrayidx1.i789, align 2
+  %conv.i790 = zext i16 %100 to i32
+  %101 = load i32, ptr %block_mask_.i820, align 4
+  %and2.i792 = and i32 %101, %conv.i790
   %conv3.i793 = zext nneg i32 %and2.i792 to i64
-  %101 = load i32, ptr %block_bits_.i823, align 8
-  %shl.i795 = shl i32 %shr.i1252, %101
+  %102 = load i32, ptr %block_bits_.i823, align 8
+  %shl.i795 = shl i32 %shr.i1252, %102
   %conv4.i796 = zext i32 %shl.i795 to i64
   %conv5.i798 = trunc i64 %sub3.i433 to i32
-  %102 = load ptr, ptr %buckets_.i828, align 8
-  %103 = getelementptr i32, ptr %102, i64 %conv3.i793
-  %arrayidx6.i800 = getelementptr i32, ptr %103, i64 %conv4.i796
+  %103 = load ptr, ptr %buckets_.i828, align 8
+  %104 = getelementptr i32, ptr %103, i64 %conv3.i793
+  %arrayidx6.i800 = getelementptr i32, ptr %104, i64 %conv4.i796
   store i32 %conv5.i798, ptr %arrayidx6.i800, align 4
-  %104 = load ptr, ptr %num_.i816, align 8
-  %arrayidx9.i803 = getelementptr inbounds i16, ptr %104, i64 %idxprom.i788
-  %105 = load i16, ptr %arrayidx9.i803, align 2
-  %inc.i804 = add i16 %105, 1
+  %105 = load ptr, ptr %num_.i816, align 8
+  %arrayidx9.i803 = getelementptr inbounds i16, ptr %105, i64 %idxprom.i788
+  %106 = load i16, ptr %arrayidx9.i803, align 2
+  %inc.i804 = add i16 %106, 1
   store i16 %inc.i804, ptr %arrayidx9.i803, align 2
   %sub4.i434 = add nsw i64 %conv144, -1
   %and.i766 = and i64 %sub4.i434, %conv142
   %arrayidx.i767 = getelementptr inbounds i8, ptr %6, i64 %and.i766
-  %106 = load i32, ptr %hash_shift_.i814, align 8
+  %107 = load i32, ptr %hash_shift_.i814, align 8
   %arrayidx.i767.val = load i32, ptr %arrayidx.i767, align 1
   %mul.i1253 = mul i32 %arrayidx.i767.val, 506832829
-  %shr.i1254 = lshr i32 %mul.i1253, %106
-  %107 = load ptr, ptr %num_.i816, align 8
+  %shr.i1254 = lshr i32 %mul.i1253, %107
+  %108 = load ptr, ptr %num_.i816, align 8
   %idxprom.i769 = zext i32 %shr.i1254 to i64
-  %arrayidx1.i770 = getelementptr inbounds i16, ptr %107, i64 %idxprom.i769
-  %108 = load i16, ptr %arrayidx1.i770, align 2
-  %conv.i771 = zext i16 %108 to i32
-  %109 = load i32, ptr %block_mask_.i820, align 4
-  %and2.i = and i32 %109, %conv.i771
+  %arrayidx1.i770 = getelementptr inbounds i16, ptr %108, i64 %idxprom.i769
+  %109 = load i16, ptr %arrayidx1.i770, align 2
+  %conv.i771 = zext i16 %109 to i32
+  %110 = load i32, ptr %block_mask_.i820, align 4
+  %and2.i = and i32 %110, %conv.i771
   %conv3.i = zext nneg i32 %and2.i to i64
-  %110 = load i32, ptr %block_bits_.i823, align 8
-  %shl.i772 = shl i32 %shr.i1254, %110
+  %111 = load i32, ptr %block_bits_.i823, align 8
+  %shl.i772 = shl i32 %shr.i1254, %111
   %conv4.i = zext i32 %shl.i772 to i64
   %conv5.i = trunc i64 %sub4.i434 to i32
-  %111 = load ptr, ptr %buckets_.i828, align 8
-  %112 = getelementptr i32, ptr %111, i64 %conv3.i
-  %arrayidx6.i = getelementptr i32, ptr %112, i64 %conv4.i
+  %112 = load ptr, ptr %buckets_.i828, align 8
+  %113 = getelementptr i32, ptr %112, i64 %conv3.i
+  %arrayidx6.i = getelementptr i32, ptr %113, i64 %conv4.i
   store i32 %conv5.i, ptr %arrayidx6.i, align 4
-  %113 = load ptr, ptr %num_.i816, align 8
-  %arrayidx9.i = getelementptr inbounds i16, ptr %113, i64 %idxprom.i769
-  %114 = load i16, ptr %arrayidx9.i, align 2
-  %inc.i775 = add i16 %114, 1
+  %114 = load ptr, ptr %num_.i816, align 8
+  %arrayidx9.i = getelementptr inbounds i16, ptr %114, i64 %idxprom.i769
+  %115 = load i16, ptr %arrayidx9.i, align 2
+  %inc.i775 = add i16 %115, 1
   store i16 %inc.i775, ptr %arrayidx9.i, align 2
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3210,80 +3209,80 @@ sw.bb8.i:                                         ; preds = %HasherSetup.exit
 if.then.i446:                                     ; preds = %sw.bb8.i
   %sub2.i447 = add nsw i64 %conv144, -3
   %num_.i1008 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 24
-  %115 = load ptr, ptr %num_.i1008, align 8
+  %116 = load ptr, ptr %num_.i1008, align 8
   %buckets_.i1009 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 28
-  %116 = load ptr, ptr %buckets_.i1009, align 8
+  %117 = load ptr, ptr %buckets_.i1009, align 8
   %and.i1010 = and i64 %sub2.i447, %conv142
   %arrayidx.i1011 = getelementptr inbounds i8, ptr %6, i64 %and.i1010
   %hash_mul_.i1012 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
-  %117 = load i64, ptr %hash_mul_.i1012, align 8
+  %118 = load i64, ptr %hash_mul_.i1012, align 8
   %t.i.i.i995.0.copyload = load i64, ptr %arrayidx.i1011, align 1
-  %mul.i.i1013 = mul i64 %t.i.i.i995.0.copyload, %117
+  %mul.i.i1013 = mul i64 %t.i.i.i995.0.copyload, %118
   %shr.i.i1014 = lshr i64 %mul.i.i1013, 49
-  %arrayidx1.i1015 = getelementptr inbounds i16, ptr %115, i64 %shr.i.i1014
-  %118 = load i16, ptr %arrayidx1.i1015, align 2
-  %conv.i1016 = zext i16 %118 to i32
+  %arrayidx1.i1015 = getelementptr inbounds i16, ptr %116, i64 %shr.i.i1014
+  %119 = load i16, ptr %arrayidx1.i1015, align 2
+  %conv.i1016 = zext i16 %119 to i32
   %block_mask_.i1017 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
-  %119 = load i32, ptr %block_mask_.i1017, align 8
-  %and2.i1018 = and i32 %119, %conv.i1016
+  %120 = load i32, ptr %block_mask_.i1017, align 8
+  %and2.i1018 = and i32 %120, %conv.i1016
   %conv3.i1019 = zext nneg i32 %and2.i1018 to i64
   %block_bits_.i1020 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 14
-  %120 = load i32, ptr %block_bits_.i1020, align 4
-  %sh_prom.i1021 = zext nneg i32 %120 to i64
+  %121 = load i32, ptr %block_bits_.i1020, align 4
+  %sh_prom.i1021 = zext nneg i32 %121 to i64
   %shl.i1022 = shl i64 %shr.i.i1014, %sh_prom.i1021
-  %inc.i1025 = add i16 %118, 1
+  %inc.i1025 = add i16 %119, 1
   store i16 %inc.i1025, ptr %arrayidx1.i1015, align 2
   %conv5.i1026 = trunc i64 %sub2.i447 to i32
-  %121 = getelementptr i32, ptr %116, i64 %shl.i1022
-  %arrayidx6.i1027 = getelementptr i32, ptr %121, i64 %conv3.i1019
+  %122 = getelementptr i32, ptr %117, i64 %shl.i1022
+  %arrayidx6.i1027 = getelementptr i32, ptr %122, i64 %conv3.i1019
   store i32 %conv5.i1026, ptr %arrayidx6.i1027, align 4
   %sub3.i448 = add nsw i64 %conv144, -2
-  %122 = load ptr, ptr %num_.i1008, align 8
-  %123 = load ptr, ptr %buckets_.i1009, align 8
+  %123 = load ptr, ptr %num_.i1008, align 8
+  %124 = load ptr, ptr %buckets_.i1009, align 8
   %and.i976 = and i64 %sub3.i448, %conv142
   %arrayidx.i977 = getelementptr inbounds i8, ptr %6, i64 %and.i976
-  %124 = load i64, ptr %hash_mul_.i1012, align 8
+  %125 = load i64, ptr %hash_mul_.i1012, align 8
   %t.i.i.i961.0.copyload = load i64, ptr %arrayidx.i977, align 1
-  %mul.i.i979 = mul i64 %t.i.i.i961.0.copyload, %124
+  %mul.i.i979 = mul i64 %t.i.i.i961.0.copyload, %125
   %shr.i.i980 = lshr i64 %mul.i.i979, 49
-  %arrayidx1.i981 = getelementptr inbounds i16, ptr %122, i64 %shr.i.i980
-  %125 = load i16, ptr %arrayidx1.i981, align 2
-  %conv.i982 = zext i16 %125 to i32
-  %126 = load i32, ptr %block_mask_.i1017, align 8
-  %and2.i984 = and i32 %126, %conv.i982
+  %arrayidx1.i981 = getelementptr inbounds i16, ptr %123, i64 %shr.i.i980
+  %126 = load i16, ptr %arrayidx1.i981, align 2
+  %conv.i982 = zext i16 %126 to i32
+  %127 = load i32, ptr %block_mask_.i1017, align 8
+  %and2.i984 = and i32 %127, %conv.i982
   %conv3.i985 = zext nneg i32 %and2.i984 to i64
-  %127 = load i32, ptr %block_bits_.i1020, align 4
-  %sh_prom.i987 = zext nneg i32 %127 to i64
+  %128 = load i32, ptr %block_bits_.i1020, align 4
+  %sh_prom.i987 = zext nneg i32 %128 to i64
   %shl.i988 = shl i64 %shr.i.i980, %sh_prom.i987
-  %inc.i991 = add i16 %125, 1
+  %inc.i991 = add i16 %126, 1
   store i16 %inc.i991, ptr %arrayidx1.i981, align 2
   %conv5.i992 = trunc i64 %sub3.i448 to i32
-  %128 = getelementptr i32, ptr %123, i64 %shl.i988
-  %arrayidx6.i993 = getelementptr i32, ptr %128, i64 %conv3.i985
+  %129 = getelementptr i32, ptr %124, i64 %shl.i988
+  %arrayidx6.i993 = getelementptr i32, ptr %129, i64 %conv3.i985
   store i32 %conv5.i992, ptr %arrayidx6.i993, align 4
   %sub4.i449 = add nsw i64 %conv144, -1
-  %129 = load ptr, ptr %num_.i1008, align 8
-  %130 = load ptr, ptr %buckets_.i1009, align 8
+  %130 = load ptr, ptr %num_.i1008, align 8
+  %131 = load ptr, ptr %buckets_.i1009, align 8
   %and.i942 = and i64 %sub4.i449, %conv142
   %arrayidx.i943 = getelementptr inbounds i8, ptr %6, i64 %and.i942
-  %131 = load i64, ptr %hash_mul_.i1012, align 8
+  %132 = load i64, ptr %hash_mul_.i1012, align 8
   %t.i.i.i927.0.copyload = load i64, ptr %arrayidx.i943, align 1
-  %mul.i.i945 = mul i64 %t.i.i.i927.0.copyload, %131
+  %mul.i.i945 = mul i64 %t.i.i.i927.0.copyload, %132
   %shr.i.i946 = lshr i64 %mul.i.i945, 49
-  %arrayidx1.i947 = getelementptr inbounds i16, ptr %129, i64 %shr.i.i946
-  %132 = load i16, ptr %arrayidx1.i947, align 2
-  %conv.i948 = zext i16 %132 to i32
-  %133 = load i32, ptr %block_mask_.i1017, align 8
-  %and2.i950 = and i32 %133, %conv.i948
+  %arrayidx1.i947 = getelementptr inbounds i16, ptr %130, i64 %shr.i.i946
+  %133 = load i16, ptr %arrayidx1.i947, align 2
+  %conv.i948 = zext i16 %133 to i32
+  %134 = load i32, ptr %block_mask_.i1017, align 8
+  %and2.i950 = and i32 %134, %conv.i948
   %conv3.i951 = zext nneg i32 %and2.i950 to i64
-  %134 = load i32, ptr %block_bits_.i1020, align 4
-  %sh_prom.i953 = zext nneg i32 %134 to i64
+  %135 = load i32, ptr %block_bits_.i1020, align 4
+  %sh_prom.i953 = zext nneg i32 %135 to i64
   %shl.i954 = shl i64 %shr.i.i946, %sh_prom.i953
-  %inc.i957 = add i16 %132, 1
+  %inc.i957 = add i16 %133, 1
   store i16 %inc.i957, ptr %arrayidx1.i947, align 2
   %conv5.i958 = trunc i64 %sub4.i449 to i32
-  %135 = getelementptr i32, ptr %130, i64 %shl.i954
-  %arrayidx6.i959 = getelementptr i32, ptr %135, i64 %conv3.i951
+  %136 = getelementptr i32, ptr %131, i64 %shl.i954
+  %arrayidx6.i959 = getelementptr i32, ptr %136, i64 %conv3.i951
   store i32 %conv5.i958, ptr %arrayidx6.i959, align 4
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3297,24 +3296,24 @@ if.then.i460:                                     ; preds = %sw.bb10.i
   %privat11.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
   %sub2.i461 = add nsw i64 %conv144, -3
   %extra.i1123 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
-  %136 = load ptr, ptr %extra.i1123, align 8
-  %arrayidx.i1255 = getelementptr inbounds i32, ptr %136, i64 32768
-  %arrayidx.i1256 = getelementptr inbounds i32, ptr %136, i64 49152
+  %137 = load ptr, ptr %extra.i1123, align 8
+  %arrayidx.i1255 = getelementptr inbounds i32, ptr %137, i64 32768
+  %arrayidx.i1256 = getelementptr inbounds i32, ptr %137, i64 49152
   %arrayidx8.i1130 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
-  %137 = load ptr, ptr %arrayidx8.i1130, align 8
+  %138 = load ptr, ptr %arrayidx8.i1130, align 8
   %and.i1132 = and i64 %sub2.i461, %conv142
   %arrayidx10.i1133 = getelementptr inbounds i8, ptr %6, i64 %and.i1132
   %t.i.i.i1108.0.copyload = load i32, ptr %arrayidx10.i1133, align 1
   %mul.i.i1134 = mul i32 %t.i.i.i1108.0.copyload, 506832829
   %shr.i.i1135 = lshr i32 %mul.i.i1134, 17
   %conv.i.i1136 = zext nneg i32 %shr.i.i1135 to i64
-  %138 = load i16, ptr %privat11.i, align 2
-  %inc.i1138 = add i16 %138, 1
+  %139 = load i16, ptr %privat11.i, align 2
+  %inc.i1138 = add i16 %139, 1
   store i16 %inc.i1138, ptr %privat11.i, align 2
-  %conv15.i1141 = zext i16 %138 to i64
-  %arrayidx16.i1142 = getelementptr inbounds i32, ptr %136, i64 %conv.i.i1136
-  %139 = load i32, ptr %arrayidx16.i1142, align 4
-  %conv17.i1143 = zext i32 %139 to i64
+  %conv15.i1141 = zext i16 %139 to i64
+  %arrayidx16.i1142 = getelementptr inbounds i32, ptr %137, i64 %conv.i.i1136
+  %140 = load i32, ptr %arrayidx16.i1142, align 4
+  %conv17.i1143 = zext i32 %140 to i64
   %sub.i1144 = sub nsw i64 %sub2.i461, %conv17.i1143
   %conv18.i1145 = trunc i32 %shr.i.i1135 to i8
   %idxprom.i1147 = and i64 %sub2.i461, 65535
@@ -3322,33 +3321,33 @@ if.then.i460:                                     ; preds = %sw.bb10.i
   store i8 %conv18.i1145, ptr %arrayidx20.i1148, align 1
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub.i1144, i64 65535)
   %conv22.i1151 = trunc i64 %spec.store.select to i16
-  %arrayidx24.i1153 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %137, i64 0, i64 %conv15.i1141
+  %arrayidx24.i1153 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %138, i64 0, i64 %conv15.i1141
   store i16 %conv22.i1151, ptr %arrayidx24.i1153, align 2
   %arrayidx26.i1154 = getelementptr inbounds i16, ptr %arrayidx.i1255, i64 %conv.i.i1136
-  %140 = load i16, ptr %arrayidx26.i1154, align 2
-  %next.i1157 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %137, i64 0, i64 %conv15.i1141, i32 1
-  store i16 %140, ptr %next.i1157, align 2
+  %141 = load i16, ptr %arrayidx26.i1154, align 2
+  %next.i1157 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %138, i64 0, i64 %conv15.i1141, i32 1
+  store i16 %141, ptr %next.i1157, align 2
   %conv30.i1158 = trunc i64 %sub2.i461 to i32
   store i32 %conv30.i1158, ptr %arrayidx16.i1142, align 4
-  store i16 %138, ptr %arrayidx26.i1154, align 2
+  store i16 %139, ptr %arrayidx26.i1154, align 2
   %sub3.i462 = add nsw i64 %conv144, -2
-  %141 = load ptr, ptr %extra.i1123, align 8
-  %arrayidx.i1257 = getelementptr inbounds i32, ptr %141, i64 32768
-  %arrayidx.i1258 = getelementptr inbounds i32, ptr %141, i64 49152
-  %142 = load ptr, ptr %arrayidx8.i1130, align 8
+  %142 = load ptr, ptr %extra.i1123, align 8
+  %arrayidx.i1257 = getelementptr inbounds i32, ptr %142, i64 32768
+  %arrayidx.i1258 = getelementptr inbounds i32, ptr %142, i64 49152
+  %143 = load ptr, ptr %arrayidx8.i1130, align 8
   %and.i1075 = and i64 %sub3.i462, %conv142
   %arrayidx10.i1076 = getelementptr inbounds i8, ptr %6, i64 %and.i1075
   %t.i.i.i1051.0.copyload = load i32, ptr %arrayidx10.i1076, align 1
   %mul.i.i1077 = mul i32 %t.i.i.i1051.0.copyload, 506832829
   %shr.i.i1078 = lshr i32 %mul.i.i1077, 17
   %conv.i.i1079 = zext nneg i32 %shr.i.i1078 to i64
-  %143 = load i16, ptr %privat11.i, align 2
-  %inc.i1081 = add i16 %143, 1
+  %144 = load i16, ptr %privat11.i, align 2
+  %inc.i1081 = add i16 %144, 1
   store i16 %inc.i1081, ptr %privat11.i, align 2
-  %conv15.i1084 = zext i16 %143 to i64
-  %arrayidx16.i1085 = getelementptr inbounds i32, ptr %141, i64 %conv.i.i1079
-  %144 = load i32, ptr %arrayidx16.i1085, align 4
-  %conv17.i1086 = zext i32 %144 to i64
+  %conv15.i1084 = zext i16 %144 to i64
+  %arrayidx16.i1085 = getelementptr inbounds i32, ptr %142, i64 %conv.i.i1079
+  %145 = load i32, ptr %arrayidx16.i1085, align 4
+  %conv17.i1086 = zext i32 %145 to i64
   %sub.i1087 = sub nsw i64 %sub3.i462, %conv17.i1086
   %conv18.i1088 = trunc i32 %shr.i.i1078 to i8
   %idxprom.i1090 = and i64 %sub3.i462, 65535
@@ -3356,33 +3355,33 @@ if.then.i460:                                     ; preds = %sw.bb10.i
   store i8 %conv18.i1088, ptr %arrayidx20.i1091, align 1
   %spec.store.select31 = tail call i64 @llvm.umin.i64(i64 %sub.i1087, i64 65535)
   %conv22.i1094 = trunc i64 %spec.store.select31 to i16
-  %arrayidx24.i1096 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %142, i64 0, i64 %conv15.i1084
+  %arrayidx24.i1096 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %143, i64 0, i64 %conv15.i1084
   store i16 %conv22.i1094, ptr %arrayidx24.i1096, align 2
   %arrayidx26.i1097 = getelementptr inbounds i16, ptr %arrayidx.i1257, i64 %conv.i.i1079
-  %145 = load i16, ptr %arrayidx26.i1097, align 2
-  %next.i1100 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %142, i64 0, i64 %conv15.i1084, i32 1
-  store i16 %145, ptr %next.i1100, align 2
+  %146 = load i16, ptr %arrayidx26.i1097, align 2
+  %next.i1100 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %143, i64 0, i64 %conv15.i1084, i32 1
+  store i16 %146, ptr %next.i1100, align 2
   %conv30.i1101 = trunc i64 %sub3.i462 to i32
   store i32 %conv30.i1101, ptr %arrayidx16.i1085, align 4
-  store i16 %143, ptr %arrayidx26.i1097, align 2
+  store i16 %144, ptr %arrayidx26.i1097, align 2
   %sub4.i463 = add nsw i64 %conv144, -1
-  %146 = load ptr, ptr %extra.i1123, align 8
-  %arrayidx.i1259 = getelementptr inbounds i32, ptr %146, i64 32768
-  %arrayidx.i1260 = getelementptr inbounds i32, ptr %146, i64 49152
-  %147 = load ptr, ptr %arrayidx8.i1130, align 8
+  %147 = load ptr, ptr %extra.i1123, align 8
+  %arrayidx.i1259 = getelementptr inbounds i32, ptr %147, i64 32768
+  %arrayidx.i1260 = getelementptr inbounds i32, ptr %147, i64 49152
+  %148 = load ptr, ptr %arrayidx8.i1130, align 8
   %and.i1039 = and i64 %sub4.i463, %conv142
   %arrayidx10.i = getelementptr inbounds i8, ptr %6, i64 %and.i1039
   %t.i.i.i1029.0.copyload = load i32, ptr %arrayidx10.i, align 1
   %mul.i.i1040 = mul i32 %t.i.i.i1029.0.copyload, 506832829
   %shr.i.i1041 = lshr i32 %mul.i.i1040, 17
   %conv.i.i = zext nneg i32 %shr.i.i1041 to i64
-  %148 = load i16, ptr %privat11.i, align 2
-  %inc.i1043 = add i16 %148, 1
+  %149 = load i16, ptr %privat11.i, align 2
+  %inc.i1043 = add i16 %149, 1
   store i16 %inc.i1043, ptr %privat11.i, align 2
-  %conv15.i = zext i16 %148 to i64
-  %arrayidx16.i = getelementptr inbounds i32, ptr %146, i64 %conv.i.i
-  %149 = load i32, ptr %arrayidx16.i, align 4
-  %conv17.i = zext i32 %149 to i64
+  %conv15.i = zext i16 %149 to i64
+  %arrayidx16.i = getelementptr inbounds i32, ptr %147, i64 %conv.i.i
+  %150 = load i32, ptr %arrayidx16.i, align 4
+  %conv17.i = zext i32 %150 to i64
   %sub.i1045 = sub nsw i64 %sub4.i463, %conv17.i
   %conv18.i = trunc i32 %shr.i.i1041 to i8
   %idxprom.i1046 = and i64 %sub4.i463, 65535
@@ -3390,15 +3389,15 @@ if.then.i460:                                     ; preds = %sw.bb10.i
   store i8 %conv18.i, ptr %arrayidx20.i, align 1
   %spec.store.select13 = tail call i64 @llvm.umin.i64(i64 %sub.i1045, i64 65535)
   %conv22.i = trunc i64 %spec.store.select13 to i16
-  %arrayidx24.i = getelementptr inbounds [65536 x %struct.SlotH40], ptr %147, i64 0, i64 %conv15.i
+  %arrayidx24.i = getelementptr inbounds [65536 x %struct.SlotH40], ptr %148, i64 0, i64 %conv15.i
   store i16 %conv22.i, ptr %arrayidx24.i, align 2
   %arrayidx26.i = getelementptr inbounds i16, ptr %arrayidx.i1259, i64 %conv.i.i
-  %150 = load i16, ptr %arrayidx26.i, align 2
-  %next.i = getelementptr inbounds [65536 x %struct.SlotH40], ptr %147, i64 0, i64 %conv15.i, i32 1
-  store i16 %150, ptr %next.i, align 2
+  %151 = load i16, ptr %arrayidx26.i, align 2
+  %next.i = getelementptr inbounds [65536 x %struct.SlotH40], ptr %148, i64 0, i64 %conv15.i, i32 1
+  store i16 %151, ptr %next.i, align 2
   %conv30.i = trunc i64 %sub4.i463 to i32
   store i32 %conv30.i, ptr %arrayidx16.i, align 4
-  store i16 %148, ptr %arrayidx26.i, align 2
+  store i16 %149, ptr %arrayidx26.i, align 2
   br label %InitOrStitchToPreviousBlock.exit
 
 sw.bb12.i:                                        ; preds = %HasherSetup.exit
@@ -3411,24 +3410,24 @@ if.then.i475:                                     ; preds = %sw.bb12.i
   %privat13.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
   %sub2.i476 = add nsw i64 %conv144, -3
   %extra.i1293 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
-  %151 = load ptr, ptr %extra.i1293, align 8
-  %arrayidx.i1261 = getelementptr inbounds i32, ptr %151, i64 32768
-  %arrayidx.i1262 = getelementptr inbounds i32, ptr %151, i64 49152
+  %152 = load ptr, ptr %extra.i1293, align 8
+  %arrayidx.i1261 = getelementptr inbounds i32, ptr %152, i64 32768
+  %arrayidx.i1262 = getelementptr inbounds i32, ptr %152, i64 49152
   %arrayidx8.i1300 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
-  %152 = load ptr, ptr %arrayidx8.i1300, align 8
+  %153 = load ptr, ptr %arrayidx8.i1300, align 8
   %and.i1302 = and i64 %sub2.i476, %conv142
   %arrayidx10.i1303 = getelementptr inbounds i8, ptr %6, i64 %and.i1302
   %t.i.i.i1278.0.copyload = load i32, ptr %arrayidx10.i1303, align 1
   %mul.i.i1304 = mul i32 %t.i.i.i1278.0.copyload, 506832829
   %shr.i.i1305 = lshr i32 %mul.i.i1304, 17
   %conv.i.i1306 = zext nneg i32 %shr.i.i1305 to i64
-  %153 = load i16, ptr %privat13.i, align 2
-  %inc.i1308 = add i16 %153, 1
+  %154 = load i16, ptr %privat13.i, align 2
+  %inc.i1308 = add i16 %154, 1
   store i16 %inc.i1308, ptr %privat13.i, align 2
-  %conv15.i1311 = zext i16 %153 to i64
-  %arrayidx16.i1312 = getelementptr inbounds i32, ptr %151, i64 %conv.i.i1306
-  %154 = load i32, ptr %arrayidx16.i1312, align 4
-  %conv17.i1313 = zext i32 %154 to i64
+  %conv15.i1311 = zext i16 %154 to i64
+  %arrayidx16.i1312 = getelementptr inbounds i32, ptr %152, i64 %conv.i.i1306
+  %155 = load i32, ptr %arrayidx16.i1312, align 4
+  %conv17.i1313 = zext i32 %155 to i64
   %sub.i1314 = sub nsw i64 %sub2.i476, %conv17.i1313
   %conv18.i1315 = trunc i32 %shr.i.i1305 to i8
   %idxprom.i1317 = and i64 %sub2.i476, 65535
@@ -3436,33 +3435,33 @@ if.then.i475:                                     ; preds = %sw.bb12.i
   store i8 %conv18.i1315, ptr %arrayidx20.i1318, align 1
   %spec.store.select15 = tail call i64 @llvm.umin.i64(i64 %sub.i1314, i64 65535)
   %conv22.i1321 = trunc i64 %spec.store.select15 to i16
-  %arrayidx24.i1323 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %152, i64 0, i64 %conv15.i1311
+  %arrayidx24.i1323 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %153, i64 0, i64 %conv15.i1311
   store i16 %conv22.i1321, ptr %arrayidx24.i1323, align 2
   %arrayidx26.i1324 = getelementptr inbounds i16, ptr %arrayidx.i1261, i64 %conv.i.i1306
-  %155 = load i16, ptr %arrayidx26.i1324, align 2
-  %next.i1327 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %152, i64 0, i64 %conv15.i1311, i32 1
-  store i16 %155, ptr %next.i1327, align 2
+  %156 = load i16, ptr %arrayidx26.i1324, align 2
+  %next.i1327 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %153, i64 0, i64 %conv15.i1311, i32 1
+  store i16 %156, ptr %next.i1327, align 2
   %conv30.i1328 = trunc i64 %sub2.i476 to i32
   store i32 %conv30.i1328, ptr %arrayidx16.i1312, align 4
-  store i16 %153, ptr %arrayidx26.i1324, align 2
+  store i16 %154, ptr %arrayidx26.i1324, align 2
   %sub3.i477 = add nsw i64 %conv144, -2
-  %156 = load ptr, ptr %extra.i1293, align 8
-  %arrayidx.i1263 = getelementptr inbounds i32, ptr %156, i64 32768
-  %arrayidx.i1264 = getelementptr inbounds i32, ptr %156, i64 49152
-  %157 = load ptr, ptr %arrayidx8.i1300, align 8
+  %157 = load ptr, ptr %extra.i1293, align 8
+  %arrayidx.i1263 = getelementptr inbounds i32, ptr %157, i64 32768
+  %arrayidx.i1264 = getelementptr inbounds i32, ptr %157, i64 49152
+  %158 = load ptr, ptr %arrayidx8.i1300, align 8
   %and.i1245 = and i64 %sub3.i477, %conv142
   %arrayidx10.i1246 = getelementptr inbounds i8, ptr %6, i64 %and.i1245
   %t.i.i.i1221.0.copyload = load i32, ptr %arrayidx10.i1246, align 1
   %mul.i.i1247 = mul i32 %t.i.i.i1221.0.copyload, 506832829
   %shr.i.i1248 = lshr i32 %mul.i.i1247, 17
   %conv.i.i1249 = zext nneg i32 %shr.i.i1248 to i64
-  %158 = load i16, ptr %privat13.i, align 2
-  %inc.i1251 = add i16 %158, 1
+  %159 = load i16, ptr %privat13.i, align 2
+  %inc.i1251 = add i16 %159, 1
   store i16 %inc.i1251, ptr %privat13.i, align 2
-  %conv15.i1254 = zext i16 %158 to i64
-  %arrayidx16.i1255 = getelementptr inbounds i32, ptr %156, i64 %conv.i.i1249
-  %159 = load i32, ptr %arrayidx16.i1255, align 4
-  %conv17.i1256 = zext i32 %159 to i64
+  %conv15.i1254 = zext i16 %159 to i64
+  %arrayidx16.i1255 = getelementptr inbounds i32, ptr %157, i64 %conv.i.i1249
+  %160 = load i32, ptr %arrayidx16.i1255, align 4
+  %conv17.i1256 = zext i32 %160 to i64
   %sub.i1257 = sub nsw i64 %sub3.i477, %conv17.i1256
   %conv18.i1258 = trunc i32 %shr.i.i1248 to i8
   %idxprom.i1260 = and i64 %sub3.i477, 65535
@@ -3470,33 +3469,33 @@ if.then.i475:                                     ; preds = %sw.bb12.i
   store i8 %conv18.i1258, ptr %arrayidx20.i1261, align 1
   %spec.store.select32 = tail call i64 @llvm.umin.i64(i64 %sub.i1257, i64 65535)
   %conv22.i1264 = trunc i64 %spec.store.select32 to i16
-  %arrayidx24.i1266 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %157, i64 0, i64 %conv15.i1254
+  %arrayidx24.i1266 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %158, i64 0, i64 %conv15.i1254
   store i16 %conv22.i1264, ptr %arrayidx24.i1266, align 2
   %arrayidx26.i1267 = getelementptr inbounds i16, ptr %arrayidx.i1263, i64 %conv.i.i1249
-  %160 = load i16, ptr %arrayidx26.i1267, align 2
-  %next.i1270 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %157, i64 0, i64 %conv15.i1254, i32 1
-  store i16 %160, ptr %next.i1270, align 2
+  %161 = load i16, ptr %arrayidx26.i1267, align 2
+  %next.i1270 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %158, i64 0, i64 %conv15.i1254, i32 1
+  store i16 %161, ptr %next.i1270, align 2
   %conv30.i1271 = trunc i64 %sub3.i477 to i32
   store i32 %conv30.i1271, ptr %arrayidx16.i1255, align 4
-  store i16 %158, ptr %arrayidx26.i1267, align 2
+  store i16 %159, ptr %arrayidx26.i1267, align 2
   %sub4.i478 = add nsw i64 %conv144, -1
-  %161 = load ptr, ptr %extra.i1293, align 8
-  %arrayidx.i1265 = getelementptr inbounds i32, ptr %161, i64 32768
-  %arrayidx.i1266 = getelementptr inbounds i32, ptr %161, i64 49152
-  %162 = load ptr, ptr %arrayidx8.i1300, align 8
+  %162 = load ptr, ptr %extra.i1293, align 8
+  %arrayidx.i1265 = getelementptr inbounds i32, ptr %162, i64 32768
+  %arrayidx.i1266 = getelementptr inbounds i32, ptr %162, i64 49152
+  %163 = load ptr, ptr %arrayidx8.i1300, align 8
   %and.i1189 = and i64 %sub4.i478, %conv142
   %arrayidx10.i1190 = getelementptr inbounds i8, ptr %6, i64 %and.i1189
   %t.i.i.i1165.0.copyload = load i32, ptr %arrayidx10.i1190, align 1
   %mul.i.i1191 = mul i32 %t.i.i.i1165.0.copyload, 506832829
   %shr.i.i1192 = lshr i32 %mul.i.i1191, 17
   %conv.i.i1193 = zext nneg i32 %shr.i.i1192 to i64
-  %163 = load i16, ptr %privat13.i, align 2
-  %inc.i1195 = add i16 %163, 1
+  %164 = load i16, ptr %privat13.i, align 2
+  %inc.i1195 = add i16 %164, 1
   store i16 %inc.i1195, ptr %privat13.i, align 2
-  %conv15.i1198 = zext i16 %163 to i64
-  %arrayidx16.i1199 = getelementptr inbounds i32, ptr %161, i64 %conv.i.i1193
-  %164 = load i32, ptr %arrayidx16.i1199, align 4
-  %conv17.i1200 = zext i32 %164 to i64
+  %conv15.i1198 = zext i16 %164 to i64
+  %arrayidx16.i1199 = getelementptr inbounds i32, ptr %162, i64 %conv.i.i1193
+  %165 = load i32, ptr %arrayidx16.i1199, align 4
+  %conv17.i1200 = zext i32 %165 to i64
   %sub.i1201 = sub nsw i64 %sub4.i478, %conv17.i1200
   %conv18.i1202 = trunc i32 %shr.i.i1192 to i8
   %idxprom.i1204 = and i64 %sub4.i478, 65535
@@ -3504,15 +3503,15 @@ if.then.i475:                                     ; preds = %sw.bb12.i
   store i8 %conv18.i1202, ptr %arrayidx20.i1205, align 1
   %spec.store.select16 = tail call i64 @llvm.umin.i64(i64 %sub.i1201, i64 65535)
   %conv22.i1208 = trunc i64 %spec.store.select16 to i16
-  %arrayidx24.i1210 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %162, i64 0, i64 %conv15.i1198
+  %arrayidx24.i1210 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %163, i64 0, i64 %conv15.i1198
   store i16 %conv22.i1208, ptr %arrayidx24.i1210, align 2
   %arrayidx26.i1211 = getelementptr inbounds i16, ptr %arrayidx.i1265, i64 %conv.i.i1193
-  %165 = load i16, ptr %arrayidx26.i1211, align 2
-  %next.i1214 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %162, i64 0, i64 %conv15.i1198, i32 1
-  store i16 %165, ptr %next.i1214, align 2
+  %166 = load i16, ptr %arrayidx26.i1211, align 2
+  %next.i1214 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %163, i64 0, i64 %conv15.i1198, i32 1
+  store i16 %166, ptr %next.i1214, align 2
   %conv30.i1215 = trunc i64 %sub4.i478 to i32
   store i32 %conv30.i1215, ptr %arrayidx16.i1199, align 4
-  store i16 %163, ptr %arrayidx26.i1211, align 2
+  store i16 %164, ptr %arrayidx26.i1211, align 2
   br label %InitOrStitchToPreviousBlock.exit
 
 sw.bb14.i:                                        ; preds = %HasherSetup.exit
@@ -3525,11 +3524,11 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   %privat15.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
   %sub2.i491 = add nsw i64 %conv144, -3
   %extra.i1464 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 2
-  %166 = load ptr, ptr %extra.i1464, align 8
-  %arrayidx.i1267 = getelementptr inbounds i32, ptr %166, i64 32768
-  %arrayidx.i1268 = getelementptr inbounds i32, ptr %166, i64 49152
+  %167 = load ptr, ptr %extra.i1464, align 8
+  %arrayidx.i1267 = getelementptr inbounds i32, ptr %167, i64 32768
+  %arrayidx.i1268 = getelementptr inbounds i32, ptr %167, i64 49152
   %arrayidx8.i1471 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 2, i64 1
-  %167 = load ptr, ptr %arrayidx8.i1471, align 8
+  %168 = load ptr, ptr %arrayidx8.i1471, align 8
   %and.i1473 = and i64 %sub2.i491, %conv142
   %arrayidx10.i1474 = getelementptr inbounds i8, ptr %6, i64 %and.i1473
   %t.i.i.i1449.0.copyload = load i32, ptr %arrayidx10.i1474, align 1
@@ -3538,14 +3537,14 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   %conv.i.i1477 = zext nneg i32 %shr.i.i1476 to i64
   %and12.i1478 = and i64 %conv.i.i1477, 511
   %arrayidx13.i1479 = getelementptr inbounds [512 x i16], ptr %privat15.i, i64 0, i64 %and12.i1478
-  %168 = load i16, ptr %arrayidx13.i1479, align 2
-  %inc.i1480 = add i16 %168, 1
+  %169 = load i16, ptr %arrayidx13.i1479, align 2
+  %inc.i1480 = add i16 %169, 1
   store i16 %inc.i1480, ptr %arrayidx13.i1479, align 2
-  %169 = and i16 %168, 511
-  %conv15.i1483 = zext nneg i16 %169 to i64
-  %arrayidx16.i1484 = getelementptr inbounds i32, ptr %166, i64 %conv.i.i1477
-  %170 = load i32, ptr %arrayidx16.i1484, align 4
-  %conv17.i1485 = zext i32 %170 to i64
+  %170 = and i16 %169, 511
+  %conv15.i1483 = zext nneg i16 %170 to i64
+  %arrayidx16.i1484 = getelementptr inbounds i32, ptr %167, i64 %conv.i.i1477
+  %171 = load i32, ptr %arrayidx16.i1484, align 4
+  %conv17.i1485 = zext i32 %171 to i64
   %sub.i1486 = sub nsw i64 %sub2.i491, %conv17.i1485
   %conv18.i1487 = trunc i32 %shr.i.i1476 to i8
   %idxprom.i1489 = and i64 %sub2.i491, 65535
@@ -3553,21 +3552,21 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   store i8 %conv18.i1487, ptr %arrayidx20.i1490, align 1
   %spec.store.select18 = tail call i64 @llvm.umin.i64(i64 %sub.i1486, i64 65535)
   %conv22.i1493 = trunc i64 %spec.store.select18 to i16
-  %arrayidx23.i1494 = getelementptr inbounds %struct.BankH42, ptr %167, i64 %and12.i1478
+  %arrayidx23.i1494 = getelementptr inbounds %struct.BankH42, ptr %168, i64 %and12.i1478
   %arrayidx24.i1495 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx23.i1494, i64 0, i64 %conv15.i1483
   store i16 %conv22.i1493, ptr %arrayidx24.i1495, align 2
   %arrayidx26.i1496 = getelementptr inbounds i16, ptr %arrayidx.i1267, i64 %conv.i.i1477
-  %171 = load i16, ptr %arrayidx26.i1496, align 2
+  %172 = load i16, ptr %arrayidx26.i1496, align 2
   %next.i1499 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx23.i1494, i64 0, i64 %conv15.i1483, i32 1
-  store i16 %171, ptr %next.i1499, align 2
+  store i16 %172, ptr %next.i1499, align 2
   %conv30.i1500 = trunc i64 %sub2.i491 to i32
   store i32 %conv30.i1500, ptr %arrayidx16.i1484, align 4
-  store i16 %169, ptr %arrayidx26.i1496, align 2
+  store i16 %170, ptr %arrayidx26.i1496, align 2
   %sub3.i492 = add nsw i64 %conv144, -2
-  %172 = load ptr, ptr %extra.i1464, align 8
-  %arrayidx.i1269 = getelementptr inbounds i32, ptr %172, i64 32768
-  %arrayidx.i1270 = getelementptr inbounds i32, ptr %172, i64 49152
-  %173 = load ptr, ptr %arrayidx8.i1471, align 8
+  %173 = load ptr, ptr %extra.i1464, align 8
+  %arrayidx.i1269 = getelementptr inbounds i32, ptr %173, i64 32768
+  %arrayidx.i1270 = getelementptr inbounds i32, ptr %173, i64 49152
+  %174 = load ptr, ptr %arrayidx8.i1471, align 8
   %and.i1415 = and i64 %sub3.i492, %conv142
   %arrayidx10.i1416 = getelementptr inbounds i8, ptr %6, i64 %and.i1415
   %t.i.i.i1391.0.copyload = load i32, ptr %arrayidx10.i1416, align 1
@@ -3576,14 +3575,14 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   %conv.i.i1419 = zext nneg i32 %shr.i.i1418 to i64
   %and12.i1420 = and i64 %conv.i.i1419, 511
   %arrayidx13.i1421 = getelementptr inbounds [512 x i16], ptr %privat15.i, i64 0, i64 %and12.i1420
-  %174 = load i16, ptr %arrayidx13.i1421, align 2
-  %inc.i1422 = add i16 %174, 1
+  %175 = load i16, ptr %arrayidx13.i1421, align 2
+  %inc.i1422 = add i16 %175, 1
   store i16 %inc.i1422, ptr %arrayidx13.i1421, align 2
-  %175 = and i16 %174, 511
-  %conv15.i1425 = zext nneg i16 %175 to i64
-  %arrayidx16.i1426 = getelementptr inbounds i32, ptr %172, i64 %conv.i.i1419
-  %176 = load i32, ptr %arrayidx16.i1426, align 4
-  %conv17.i1427 = zext i32 %176 to i64
+  %176 = and i16 %175, 511
+  %conv15.i1425 = zext nneg i16 %176 to i64
+  %arrayidx16.i1426 = getelementptr inbounds i32, ptr %173, i64 %conv.i.i1419
+  %177 = load i32, ptr %arrayidx16.i1426, align 4
+  %conv17.i1427 = zext i32 %177 to i64
   %sub.i1428 = sub nsw i64 %sub3.i492, %conv17.i1427
   %conv18.i1429 = trunc i32 %shr.i.i1418 to i8
   %idxprom.i1431 = and i64 %sub3.i492, 65535
@@ -3591,21 +3590,21 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   store i8 %conv18.i1429, ptr %arrayidx20.i1432, align 1
   %spec.store.select33 = tail call i64 @llvm.umin.i64(i64 %sub.i1428, i64 65535)
   %conv22.i1435 = trunc i64 %spec.store.select33 to i16
-  %arrayidx23.i1436 = getelementptr inbounds %struct.BankH42, ptr %173, i64 %and12.i1420
+  %arrayidx23.i1436 = getelementptr inbounds %struct.BankH42, ptr %174, i64 %and12.i1420
   %arrayidx24.i1437 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx23.i1436, i64 0, i64 %conv15.i1425
   store i16 %conv22.i1435, ptr %arrayidx24.i1437, align 2
   %arrayidx26.i1438 = getelementptr inbounds i16, ptr %arrayidx.i1269, i64 %conv.i.i1419
-  %177 = load i16, ptr %arrayidx26.i1438, align 2
+  %178 = load i16, ptr %arrayidx26.i1438, align 2
   %next.i1441 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx23.i1436, i64 0, i64 %conv15.i1425, i32 1
-  store i16 %177, ptr %next.i1441, align 2
+  store i16 %178, ptr %next.i1441, align 2
   %conv30.i1442 = trunc i64 %sub3.i492 to i32
   store i32 %conv30.i1442, ptr %arrayidx16.i1426, align 4
-  store i16 %175, ptr %arrayidx26.i1438, align 2
+  store i16 %176, ptr %arrayidx26.i1438, align 2
   %sub4.i493 = add nsw i64 %conv144, -1
-  %178 = load ptr, ptr %extra.i1464, align 8
-  %arrayidx.i1271 = getelementptr inbounds i32, ptr %178, i64 32768
-  %arrayidx.i1272 = getelementptr inbounds i32, ptr %178, i64 49152
-  %179 = load ptr, ptr %arrayidx8.i1471, align 8
+  %179 = load ptr, ptr %extra.i1464, align 8
+  %arrayidx.i1271 = getelementptr inbounds i32, ptr %179, i64 32768
+  %arrayidx.i1272 = getelementptr inbounds i32, ptr %179, i64 49152
+  %180 = load ptr, ptr %arrayidx8.i1471, align 8
   %and.i1359 = and i64 %sub4.i493, %conv142
   %arrayidx10.i1360 = getelementptr inbounds i8, ptr %6, i64 %and.i1359
   %t.i.i.i1335.0.copyload = load i32, ptr %arrayidx10.i1360, align 1
@@ -3614,14 +3613,14 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   %conv.i.i1363 = zext nneg i32 %shr.i.i1362 to i64
   %and12.i = and i64 %conv.i.i1363, 511
   %arrayidx13.i1364 = getelementptr inbounds [512 x i16], ptr %privat15.i, i64 0, i64 %and12.i
-  %180 = load i16, ptr %arrayidx13.i1364, align 2
-  %inc.i1365 = add i16 %180, 1
+  %181 = load i16, ptr %arrayidx13.i1364, align 2
+  %inc.i1365 = add i16 %181, 1
   store i16 %inc.i1365, ptr %arrayidx13.i1364, align 2
-  %181 = and i16 %180, 511
-  %conv15.i1368 = zext nneg i16 %181 to i64
-  %arrayidx16.i1369 = getelementptr inbounds i32, ptr %178, i64 %conv.i.i1363
-  %182 = load i32, ptr %arrayidx16.i1369, align 4
-  %conv17.i1370 = zext i32 %182 to i64
+  %182 = and i16 %181, 511
+  %conv15.i1368 = zext nneg i16 %182 to i64
+  %arrayidx16.i1369 = getelementptr inbounds i32, ptr %179, i64 %conv.i.i1363
+  %183 = load i32, ptr %arrayidx16.i1369, align 4
+  %conv17.i1370 = zext i32 %183 to i64
   %sub.i1371 = sub nsw i64 %sub4.i493, %conv17.i1370
   %conv18.i1372 = trunc i32 %shr.i.i1362 to i8
   %idxprom.i1374 = and i64 %sub4.i493, 65535
@@ -3629,16 +3628,16 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   store i8 %conv18.i1372, ptr %arrayidx20.i1375, align 1
   %spec.store.select19 = tail call i64 @llvm.umin.i64(i64 %sub.i1371, i64 65535)
   %conv22.i1378 = trunc i64 %spec.store.select19 to i16
-  %arrayidx23.i1379 = getelementptr inbounds %struct.BankH42, ptr %179, i64 %and12.i
+  %arrayidx23.i1379 = getelementptr inbounds %struct.BankH42, ptr %180, i64 %and12.i
   %arrayidx24.i1380 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx23.i1379, i64 0, i64 %conv15.i1368
   store i16 %conv22.i1378, ptr %arrayidx24.i1380, align 2
   %arrayidx26.i1381 = getelementptr inbounds i16, ptr %arrayidx.i1271, i64 %conv.i.i1363
-  %183 = load i16, ptr %arrayidx26.i1381, align 2
+  %184 = load i16, ptr %arrayidx26.i1381, align 2
   %next.i1384 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx23.i1379, i64 0, i64 %conv15.i1368, i32 1
-  store i16 %183, ptr %next.i1384, align 2
+  store i16 %184, ptr %next.i1384, align 2
   %conv30.i1385 = trunc i64 %sub4.i493 to i32
   store i32 %conv30.i1385, ptr %arrayidx16.i1369, align 4
-  store i16 %181, ptr %arrayidx26.i1381, align 2
+  store i16 %182, ptr %arrayidx26.i1381, align 2
   br label %InitOrStitchToPreviousBlock.exit
 
 sw.bb16.i:                                        ; preds = %HasherSetup.exit
@@ -3654,40 +3653,40 @@ if.then.i505:                                     ; preds = %sw.bb16.i
   %arrayidx.i1598.val = load i64, ptr %arrayidx.i1598, align 1
   %mul.i1273 = mul i64 %arrayidx.i1598.val, -2064201331557805312
   %shr.i1274 = lshr i64 %mul.i1273, 44
-  %184 = trunc i64 %sub2.i506 to i32
+  %185 = trunc i64 %sub2.i506 to i32
   %conv.i1601 = and i64 %sub2.i506, 24
   %buckets_.i1603 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %185 = load ptr, ptr %buckets_.i1603, align 8
+  %186 = load ptr, ptr %buckets_.i1603, align 8
   %add.i1604 = add nuw nsw i64 %shr.i1274, %conv.i1601
   %and3.i1605 = and i64 %add.i1604, 1048575
-  %arrayidx4.i1607 = getelementptr inbounds i32, ptr %185, i64 %and3.i1605
-  store i32 %184, ptr %arrayidx4.i1607, align 4
+  %arrayidx4.i1607 = getelementptr inbounds i32, ptr %186, i64 %and3.i1605
+  store i32 %185, ptr %arrayidx4.i1607, align 4
   %sub3.i507 = add nsw i64 %conv144, -2
   %and.i1580 = and i64 %sub3.i507, %conv142
   %arrayidx.i1581 = getelementptr inbounds i8, ptr %6, i64 %and.i1580
   %arrayidx.i1581.val = load i64, ptr %arrayidx.i1581, align 1
   %mul.i1276 = mul i64 %arrayidx.i1581.val, -2064201331557805312
   %shr.i1277 = lshr i64 %mul.i1276, 44
-  %186 = trunc i64 %sub3.i507 to i32
+  %187 = trunc i64 %sub3.i507 to i32
   %conv.i1584 = and i64 %sub3.i507, 24
-  %187 = load ptr, ptr %buckets_.i1603, align 8
+  %188 = load ptr, ptr %buckets_.i1603, align 8
   %add.i1587 = add nuw nsw i64 %shr.i1277, %conv.i1584
   %and3.i1588 = and i64 %add.i1587, 1048575
-  %arrayidx4.i1590 = getelementptr inbounds i32, ptr %187, i64 %and3.i1588
-  store i32 %186, ptr %arrayidx4.i1590, align 4
+  %arrayidx4.i1590 = getelementptr inbounds i32, ptr %188, i64 %and3.i1588
+  store i32 %187, ptr %arrayidx4.i1590, align 4
   %sub4.i508 = add nsw i64 %conv144, -1
   %and.i1563 = and i64 %sub4.i508, %conv142
   %arrayidx.i1564 = getelementptr inbounds i8, ptr %6, i64 %and.i1563
   %arrayidx.i1564.val = load i64, ptr %arrayidx.i1564, align 1
   %mul.i1279 = mul i64 %arrayidx.i1564.val, -2064201331557805312
   %shr.i1280 = lshr i64 %mul.i1279, 44
-  %188 = trunc i64 %sub4.i508 to i32
+  %189 = trunc i64 %sub4.i508 to i32
   %conv.i1567 = and i64 %sub4.i508, 24
-  %189 = load ptr, ptr %buckets_.i1603, align 8
+  %190 = load ptr, ptr %buckets_.i1603, align 8
   %add.i1570 = add nuw nsw i64 %shr.i1280, %conv.i1567
   %and3.i1571 = and i64 %add.i1570, 1048575
-  %arrayidx4.i1573 = getelementptr inbounds i32, ptr %189, i64 %and3.i1571
-  store i32 %188, ptr %arrayidx4.i1573, align 4
+  %arrayidx4.i1573 = getelementptr inbounds i32, ptr %190, i64 %and3.i1571
+  store i32 %189, ptr %arrayidx4.i1573, align 4
   br label %InitOrStitchToPreviousBlock.exit
 
 sw.bb18.i:                                        ; preds = %HasherSetup.exit
@@ -3703,40 +3702,40 @@ if.then.i.i517:                                   ; preds = %sw.bb18.i
   %arrayidx.i649.val = load i64, ptr %arrayidx.i649, align 1
   %mul.i1282 = mul i64 %arrayidx.i649.val, 8922571613522624512
   %shr.i1283 = lshr i64 %mul.i1282, 48
-  %190 = trunc i64 %sub2.i.i to i32
+  %191 = trunc i64 %sub2.i.i to i32
   %conv.i652 = and i64 %sub2.i.i, 8
   %buckets_.i654 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %191 = load ptr, ptr %buckets_.i654, align 8
+  %192 = load ptr, ptr %buckets_.i654, align 8
   %add.i655 = add nuw nsw i64 %shr.i1283, %conv.i652
   %and3.i656 = and i64 %add.i655, 65535
-  %arrayidx4.i658 = getelementptr inbounds i32, ptr %191, i64 %and3.i656
-  store i32 %190, ptr %arrayidx4.i658, align 4
+  %arrayidx4.i658 = getelementptr inbounds i32, ptr %192, i64 %and3.i656
+  store i32 %191, ptr %arrayidx4.i658, align 4
   %sub3.i.i = add nsw i64 %conv144, -2
   %and.i631 = and i64 %sub3.i.i, %conv142
   %arrayidx.i632 = getelementptr inbounds i8, ptr %6, i64 %and.i631
   %arrayidx.i632.val = load i64, ptr %arrayidx.i632, align 1
   %mul.i1285 = mul i64 %arrayidx.i632.val, 8922571613522624512
   %shr.i1286 = lshr i64 %mul.i1285, 48
-  %192 = trunc i64 %sub3.i.i to i32
+  %193 = trunc i64 %sub3.i.i to i32
   %conv.i635 = and i64 %sub3.i.i, 8
-  %193 = load ptr, ptr %buckets_.i654, align 8
+  %194 = load ptr, ptr %buckets_.i654, align 8
   %add.i638 = add nuw nsw i64 %shr.i1286, %conv.i635
   %and3.i639 = and i64 %add.i638, 65535
-  %arrayidx4.i641 = getelementptr inbounds i32, ptr %193, i64 %and3.i639
-  store i32 %192, ptr %arrayidx4.i641, align 4
+  %arrayidx4.i641 = getelementptr inbounds i32, ptr %194, i64 %and3.i639
+  store i32 %193, ptr %arrayidx4.i641, align 4
   %sub4.i.i = add nsw i64 %conv144, -1
   %and.i618 = and i64 %sub4.i.i, %conv142
   %arrayidx.i619 = getelementptr inbounds i8, ptr %6, i64 %and.i618
   %arrayidx.i619.val = load i64, ptr %arrayidx.i619, align 1
   %mul.i1288 = mul i64 %arrayidx.i619.val, 8922571613522624512
   %shr.i1289 = lshr i64 %mul.i1288, 48
-  %194 = trunc i64 %sub4.i.i to i32
+  %195 = trunc i64 %sub4.i.i to i32
   %conv.i621 = and i64 %sub4.i.i, 8
-  %195 = load ptr, ptr %buckets_.i654, align 8
+  %196 = load ptr, ptr %buckets_.i654, align 8
   %add.i623 = add nuw nsw i64 %shr.i1289, %conv.i621
   %and3.i = and i64 %add.i623, 65535
-  %arrayidx4.i = getelementptr inbounds i32, ptr %195, i64 %and3.i
-  store i32 %194, ptr %arrayidx4.i, align 4
+  %arrayidx4.i = getelementptr inbounds i32, ptr %196, i64 %and3.i
+  store i32 %195, ptr %arrayidx4.i, align 4
   br label %StitchToPreviousBlockH35.exit
 
 StitchToPreviousBlockH35.exit:                    ; preds = %if.then.i.i517, %sw.bb18.i
@@ -3765,16 +3764,16 @@ if.end.i1636:                                     ; preds = %if.then.i1645, %Sti
 
 if.end.i:                                         ; preds = %if.end.i1636
   %factor.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 22
-  %196 = load i32, ptr %factor.i, align 4, !alias.scope !53, !noalias !56
+  %197 = load i32, ptr %factor.i, align 4, !alias.scope !53, !noalias !56
   br label %for.body.i1292
 
 for.body.i1292:                                   ; preds = %for.body.i1292, %if.end.i
   %i.08.i = phi i64 [ 0, %if.end.i ], [ %add.i1295, %for.body.i1292 ]
   %add1.i67.i = phi i32 [ 0, %if.end.i ], [ %add1.i.i, %for.body.i1292 ]
   %arrayidx.i1293 = getelementptr inbounds i8, ptr %add.ptr.i1641, i64 %i.08.i
-  %197 = load i8, ptr %arrayidx.i1293, align 1, !alias.scope !56, !noalias !53
-  %mul.i.i1294 = mul i32 %add1.i67.i, %196
-  %conv.i.i.i = zext i8 %197 to i32
+  %198 = load i8, ptr %arrayidx.i1293, align 1, !alias.scope !56, !noalias !53
+  %mul.i.i1294 = mul i32 %add1.i67.i, %197
+  %conv.i.i.i = zext i8 %198 to i32
   %add.i.i.i = add i32 %mul.i.i1294, 1
   %add1.i.i = add i32 %add.i.i.i, %conv.i.i.i
   %add.i1295 = add nuw nsw i64 %i.08.i, 4
@@ -3803,40 +3802,40 @@ if.then.i.i534:                                   ; preds = %sw.bb20.i
   %arrayidx.i1547.val = load i64, ptr %arrayidx.i1547, align 1
   %mul.i1297 = mul i64 %arrayidx.i1547.val, -2064201331557805312
   %shr.i1298 = lshr i64 %mul.i1297, 44
-  %198 = trunc i64 %sub2.i.i535 to i32
+  %199 = trunc i64 %sub2.i.i535 to i32
   %conv.i1550 = and i64 %sub2.i.i535, 24
   %buckets_.i1552 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %199 = load ptr, ptr %buckets_.i1552, align 8
+  %200 = load ptr, ptr %buckets_.i1552, align 8
   %add.i1553 = add nuw nsw i64 %shr.i1298, %conv.i1550
   %and3.i1554 = and i64 %add.i1553, 1048575
-  %arrayidx4.i1556 = getelementptr inbounds i32, ptr %199, i64 %and3.i1554
-  store i32 %198, ptr %arrayidx4.i1556, align 4
+  %arrayidx4.i1556 = getelementptr inbounds i32, ptr %200, i64 %and3.i1554
+  store i32 %199, ptr %arrayidx4.i1556, align 4
   %sub3.i.i536 = add nsw i64 %conv144, -2
   %and.i1529 = and i64 %sub3.i.i536, %conv142
   %arrayidx.i1530 = getelementptr inbounds i8, ptr %6, i64 %and.i1529
   %arrayidx.i1530.val = load i64, ptr %arrayidx.i1530, align 1
   %mul.i1300 = mul i64 %arrayidx.i1530.val, -2064201331557805312
   %shr.i1301 = lshr i64 %mul.i1300, 44
-  %200 = trunc i64 %sub3.i.i536 to i32
+  %201 = trunc i64 %sub3.i.i536 to i32
   %conv.i1533 = and i64 %sub3.i.i536, 24
-  %201 = load ptr, ptr %buckets_.i1552, align 8
+  %202 = load ptr, ptr %buckets_.i1552, align 8
   %add.i1536 = add nuw nsw i64 %shr.i1301, %conv.i1533
   %and3.i1537 = and i64 %add.i1536, 1048575
-  %arrayidx4.i1539 = getelementptr inbounds i32, ptr %201, i64 %and3.i1537
-  store i32 %200, ptr %arrayidx4.i1539, align 4
+  %arrayidx4.i1539 = getelementptr inbounds i32, ptr %202, i64 %and3.i1537
+  store i32 %201, ptr %arrayidx4.i1539, align 4
   %sub4.i.i537 = add nsw i64 %conv144, -1
   %and.i1512 = and i64 %sub4.i.i537, %conv142
   %arrayidx.i1513 = getelementptr inbounds i8, ptr %6, i64 %and.i1512
   %arrayidx.i1513.val = load i64, ptr %arrayidx.i1513, align 1
   %mul.i1303 = mul i64 %arrayidx.i1513.val, -2064201331557805312
   %shr.i1304 = lshr i64 %mul.i1303, 44
-  %202 = trunc i64 %sub4.i.i537 to i32
+  %203 = trunc i64 %sub4.i.i537 to i32
   %conv.i1516 = and i64 %sub4.i.i537, 24
-  %203 = load ptr, ptr %buckets_.i1552, align 8
+  %204 = load ptr, ptr %buckets_.i1552, align 8
   %add.i1519 = add nuw nsw i64 %shr.i1304, %conv.i1516
   %and3.i1520 = and i64 %add.i1519, 1048575
-  %arrayidx4.i1522 = getelementptr inbounds i32, ptr %203, i64 %and3.i1520
-  store i32 %202, ptr %arrayidx4.i1522, align 4
+  %arrayidx4.i1522 = getelementptr inbounds i32, ptr %204, i64 %and3.i1520
+  store i32 %203, ptr %arrayidx4.i1522, align 4
   br label %StitchToPreviousBlockH55.exit
 
 StitchToPreviousBlockH55.exit:                    ; preds = %if.then.i.i534, %sw.bb20.i
@@ -3865,16 +3864,16 @@ if.end.i1615:                                     ; preds = %if.then.i1617, %Sti
 
 if.end.i1307:                                     ; preds = %if.end.i1615
   %factor.i1308 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 22
-  %204 = load i32, ptr %factor.i1308, align 4, !alias.scope !59, !noalias !62
+  %205 = load i32, ptr %factor.i1308, align 4, !alias.scope !59, !noalias !62
   br label %for.body.i1309
 
 for.body.i1309:                                   ; preds = %for.body.i1309, %if.end.i1307
   %i.08.i1310 = phi i64 [ 0, %if.end.i1307 ], [ %add.i1317, %for.body.i1309 ]
   %add1.i67.i1311 = phi i32 [ 0, %if.end.i1307 ], [ %add1.i.i1316, %for.body.i1309 ]
   %arrayidx.i1312 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.08.i1310
-  %205 = load i8, ptr %arrayidx.i1312, align 1, !alias.scope !62, !noalias !59
-  %mul.i.i1313 = mul i32 %add1.i67.i1311, %204
-  %conv.i.i.i1314 = zext i8 %205 to i32
+  %206 = load i8, ptr %arrayidx.i1312, align 1, !alias.scope !62, !noalias !59
+  %mul.i.i1313 = mul i32 %add1.i67.i1311, %205
+  %conv.i.i.i1314 = zext i8 %206 to i32
   %add.i.i.i1315 = add i32 %mul.i.i1313, 1
   %add1.i.i1316 = add i32 %add.i.i.i1315, %conv.i.i.i1314
   %add.i1317 = add nuw nsw i64 %i.08.i1310, 4
@@ -3899,80 +3898,80 @@ sw.bb22.i:                                        ; preds = %HasherSetup.exit
 if.then.i.i554:                                   ; preds = %sw.bb22.i
   %sub2.i.i555 = add nsw i64 %conv144, -3
   %num_.i906 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 24
-  %206 = load ptr, ptr %num_.i906, align 8
+  %207 = load ptr, ptr %num_.i906, align 8
   %buckets_.i907 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 28
-  %207 = load ptr, ptr %buckets_.i907, align 8
+  %208 = load ptr, ptr %buckets_.i907, align 8
   %and.i908 = and i64 %sub2.i.i555, %conv142
   %arrayidx.i909 = getelementptr inbounds i8, ptr %6, i64 %and.i908
   %hash_mul_.i910 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
-  %208 = load i64, ptr %hash_mul_.i910, align 8
+  %209 = load i64, ptr %hash_mul_.i910, align 8
   %t.i.i.i893.0.copyload = load i64, ptr %arrayidx.i909, align 1
-  %mul.i.i911 = mul i64 %t.i.i.i893.0.copyload, %208
+  %mul.i.i911 = mul i64 %t.i.i.i893.0.copyload, %209
   %shr.i.i912 = lshr i64 %mul.i.i911, 49
-  %arrayidx1.i913 = getelementptr inbounds i16, ptr %206, i64 %shr.i.i912
-  %209 = load i16, ptr %arrayidx1.i913, align 2
-  %conv.i914 = zext i16 %209 to i32
+  %arrayidx1.i913 = getelementptr inbounds i16, ptr %207, i64 %shr.i.i912
+  %210 = load i16, ptr %arrayidx1.i913, align 2
+  %conv.i914 = zext i16 %210 to i32
   %block_mask_.i915 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
-  %210 = load i32, ptr %block_mask_.i915, align 8
-  %and2.i916 = and i32 %210, %conv.i914
+  %211 = load i32, ptr %block_mask_.i915, align 8
+  %and2.i916 = and i32 %211, %conv.i914
   %conv3.i917 = zext nneg i32 %and2.i916 to i64
   %block_bits_.i918 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 14
-  %211 = load i32, ptr %block_bits_.i918, align 4
-  %sh_prom.i919 = zext nneg i32 %211 to i64
+  %212 = load i32, ptr %block_bits_.i918, align 4
+  %sh_prom.i919 = zext nneg i32 %212 to i64
   %shl.i920 = shl i64 %shr.i.i912, %sh_prom.i919
-  %inc.i923 = add i16 %209, 1
+  %inc.i923 = add i16 %210, 1
   store i16 %inc.i923, ptr %arrayidx1.i913, align 2
   %conv5.i924 = trunc i64 %sub2.i.i555 to i32
-  %212 = getelementptr i32, ptr %207, i64 %shl.i920
-  %arrayidx6.i925 = getelementptr i32, ptr %212, i64 %conv3.i917
+  %213 = getelementptr i32, ptr %208, i64 %shl.i920
+  %arrayidx6.i925 = getelementptr i32, ptr %213, i64 %conv3.i917
   store i32 %conv5.i924, ptr %arrayidx6.i925, align 4
   %sub3.i.i556 = add nsw i64 %conv144, -2
-  %213 = load ptr, ptr %num_.i906, align 8
-  %214 = load ptr, ptr %buckets_.i907, align 8
+  %214 = load ptr, ptr %num_.i906, align 8
+  %215 = load ptr, ptr %buckets_.i907, align 8
   %and.i874 = and i64 %sub3.i.i556, %conv142
   %arrayidx.i875 = getelementptr inbounds i8, ptr %6, i64 %and.i874
-  %215 = load i64, ptr %hash_mul_.i910, align 8
+  %216 = load i64, ptr %hash_mul_.i910, align 8
   %t.i.i.i859.0.copyload = load i64, ptr %arrayidx.i875, align 1
-  %mul.i.i877 = mul i64 %t.i.i.i859.0.copyload, %215
+  %mul.i.i877 = mul i64 %t.i.i.i859.0.copyload, %216
   %shr.i.i878 = lshr i64 %mul.i.i877, 49
-  %arrayidx1.i879 = getelementptr inbounds i16, ptr %213, i64 %shr.i.i878
-  %216 = load i16, ptr %arrayidx1.i879, align 2
-  %conv.i880 = zext i16 %216 to i32
-  %217 = load i32, ptr %block_mask_.i915, align 8
-  %and2.i882 = and i32 %217, %conv.i880
+  %arrayidx1.i879 = getelementptr inbounds i16, ptr %214, i64 %shr.i.i878
+  %217 = load i16, ptr %arrayidx1.i879, align 2
+  %conv.i880 = zext i16 %217 to i32
+  %218 = load i32, ptr %block_mask_.i915, align 8
+  %and2.i882 = and i32 %218, %conv.i880
   %conv3.i883 = zext nneg i32 %and2.i882 to i64
-  %218 = load i32, ptr %block_bits_.i918, align 4
-  %sh_prom.i885 = zext nneg i32 %218 to i64
+  %219 = load i32, ptr %block_bits_.i918, align 4
+  %sh_prom.i885 = zext nneg i32 %219 to i64
   %shl.i886 = shl i64 %shr.i.i878, %sh_prom.i885
-  %inc.i889 = add i16 %216, 1
+  %inc.i889 = add i16 %217, 1
   store i16 %inc.i889, ptr %arrayidx1.i879, align 2
   %conv5.i890 = trunc i64 %sub3.i.i556 to i32
-  %219 = getelementptr i32, ptr %214, i64 %shl.i886
-  %arrayidx6.i891 = getelementptr i32, ptr %219, i64 %conv3.i883
+  %220 = getelementptr i32, ptr %215, i64 %shl.i886
+  %arrayidx6.i891 = getelementptr i32, ptr %220, i64 %conv3.i883
   store i32 %conv5.i890, ptr %arrayidx6.i891, align 4
   %sub4.i.i557 = add nsw i64 %conv144, -1
-  %220 = load ptr, ptr %num_.i906, align 8
-  %221 = load ptr, ptr %buckets_.i907, align 8
+  %221 = load ptr, ptr %num_.i906, align 8
+  %222 = load ptr, ptr %buckets_.i907, align 8
   %and.i843 = and i64 %sub4.i.i557, %conv142
   %arrayidx.i844 = getelementptr inbounds i8, ptr %6, i64 %and.i843
-  %222 = load i64, ptr %hash_mul_.i910, align 8
+  %223 = load i64, ptr %hash_mul_.i910, align 8
   %t.i.i.i.0.copyload = load i64, ptr %arrayidx.i844, align 1
-  %mul.i.i = mul i64 %t.i.i.i.0.copyload, %222
+  %mul.i.i = mul i64 %t.i.i.i.0.copyload, %223
   %shr.i.i = lshr i64 %mul.i.i, 49
-  %arrayidx1.i845 = getelementptr inbounds i16, ptr %220, i64 %shr.i.i
-  %223 = load i16, ptr %arrayidx1.i845, align 2
-  %conv.i846 = zext i16 %223 to i32
-  %224 = load i32, ptr %block_mask_.i915, align 8
-  %and2.i848 = and i32 %224, %conv.i846
+  %arrayidx1.i845 = getelementptr inbounds i16, ptr %221, i64 %shr.i.i
+  %224 = load i16, ptr %arrayidx1.i845, align 2
+  %conv.i846 = zext i16 %224 to i32
+  %225 = load i32, ptr %block_mask_.i915, align 8
+  %and2.i848 = and i32 %225, %conv.i846
   %conv3.i849 = zext nneg i32 %and2.i848 to i64
-  %225 = load i32, ptr %block_bits_.i918, align 4
-  %sh_prom.i851 = zext nneg i32 %225 to i64
+  %226 = load i32, ptr %block_bits_.i918, align 4
+  %sh_prom.i851 = zext nneg i32 %226 to i64
   %shl.i852 = shl i64 %shr.i.i, %sh_prom.i851
-  %inc.i855 = add i16 %223, 1
+  %inc.i855 = add i16 %224, 1
   store i16 %inc.i855, ptr %arrayidx1.i845, align 2
   %conv5.i856 = trunc i64 %sub4.i.i557 to i32
-  %226 = getelementptr i32, ptr %221, i64 %shl.i852
-  %arrayidx6.i857 = getelementptr i32, ptr %226, i64 %conv3.i849
+  %227 = getelementptr i32, ptr %222, i64 %shl.i852
+  %arrayidx6.i857 = getelementptr i32, ptr %227, i64 %conv3.i849
   store i32 %conv5.i856, ptr %arrayidx6.i857, align 4
   br label %StitchToPreviousBlockH65.exit
 
@@ -3989,16 +3988,16 @@ StitchToPreviousBlockH65.exit:                    ; preds = %if.then.i.i554, %sw
 
 if.end.i1322:                                     ; preds = %StitchToPreviousBlockH65.exit
   %factor.i1323 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 46
-  %227 = load i32, ptr %factor.i1323, align 4, !alias.scope !64, !noalias !67
+  %228 = load i32, ptr %factor.i1323, align 4, !alias.scope !64, !noalias !67
   br label %for.body.i1324
 
 for.body.i1324:                                   ; preds = %for.body.i1324, %if.end.i1322
   %i.08.i1325 = phi i64 [ 0, %if.end.i1322 ], [ %add.i1332, %for.body.i1324 ]
   %add1.i67.i1326 = phi i32 [ 0, %if.end.i1322 ], [ %add1.i.i1331, %for.body.i1324 ]
   %arrayidx.i1327 = getelementptr inbounds i8, ptr %add.ptr.i1669, i64 %i.08.i1325
-  %228 = load i8, ptr %arrayidx.i1327, align 1, !alias.scope !67, !noalias !64
-  %mul.i.i1328 = mul i32 %add1.i67.i1326, %227
-  %conv.i.i.i1329 = zext i8 %228 to i32
+  %229 = load i8, ptr %arrayidx.i1327, align 1, !alias.scope !67, !noalias !64
+  %mul.i.i1328 = mul i32 %add1.i67.i1326, %228
+  %conv.i.i.i1329 = zext i8 %229 to i32
   %add.i.i.i1330 = add i32 %mul.i.i1328, 1
   %add1.i.i1331 = add i32 %add.i.i.i1330, %conv.i.i.i1329
   %add.i1332 = add nuw nsw i64 %i.08.i1325, 1
@@ -4036,32 +4035,32 @@ for.body.i579.lr.ph:                              ; preds = %if.then.i572
 
 for.body.i579:                                    ; preds = %for.body.i579.lr.ph, %StoreAndFindMatchesH10.exit
   %i.i565.01474 = phi i64 [ %add.i, %for.body.i579.lr.ph ], [ %inc.i581, %StoreAndFindMatchesH10.exit ]
-  %229 = load i64, ptr %privat25.i, align 8
+  %230 = load i64, ptr %privat25.i, align 8
   %sub6.i = sub nsw i64 %conv144, %i.i565.01474
   %cond.i1678 = tail call i64 @llvm.umax.i64(i64 %sub6.i, i64 15)
-  %sub8.i = sub i64 %229, %cond.i1678
+  %sub8.i = sub i64 %230, %cond.i1678
   %and.i1687 = and i64 %i.i565.01474, %conv142
   %arrayidx.i1690 = getelementptr inbounds i8, ptr %6, i64 %and.i1687
   %arrayidx.i1690.val = load i32, ptr %arrayidx.i1690, align 1
   %mul.i1335 = mul i32 %arrayidx.i1690.val, 506832829
   %shr.i1336 = lshr i32 %mul.i1335, 15
-  %230 = load ptr, ptr %buckets_.i1691, align 8
-  %231 = load ptr, ptr %forest_.i, align 8
+  %231 = load ptr, ptr %buckets_.i1691, align 8
+  %232 = load ptr, ptr %forest_.i, align 8
   %idxprom.i1692 = zext nneg i32 %shr.i1336 to i64
-  %arrayidx3.i = getelementptr inbounds i32, ptr %230, i64 %idxprom.i1692
-  %232 = load i32, ptr %arrayidx3.i, align 4
-  %and.i1722 = and i64 %229, %i.i565.01474
+  %arrayidx3.i = getelementptr inbounds i32, ptr %231, i64 %idxprom.i1692
+  %233 = load i32, ptr %arrayidx3.i, align 4
+  %and.i1722 = and i64 %230, %i.i565.01474
   %mul.i1723 = shl nuw nsw i64 %and.i1722, 1
   %add.i1738 = or disjoint i64 %mul.i1723, 1
   %conv6.i = trunc i64 %i.i565.01474 to i32
   store i32 %conv6.i, ptr %arrayidx3.i, align 4
-  %prev_ix.i.01458 = zext i32 %232 to i64
+  %prev_ix.i.01458 = zext i32 %233 to i64
   %cmp10.i1460 = icmp eq i64 %i.i565.01474, %prev_ix.i.01458
   br i1 %cmp10.i1460, label %if.then19.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i579, %if.end75.i
   %prev_ix.i.01467 = phi i64 [ %prev_ix.i.0, %if.end75.i ], [ %prev_ix.i.01458, %for.body.i579 ]
-  %prev_ix.i.0.in1466 = phi i32 [ %prev_ix.i.1.in, %if.end75.i ], [ %232, %for.body.i579 ]
+  %prev_ix.i.0.in1466 = phi i32 [ %prev_ix.i.1.in, %if.end75.i ], [ %233, %for.body.i579 ]
   %node_left.i.01465 = phi i64 [ %node_left.i.1, %if.end75.i ], [ %mul.i1723, %for.body.i579 ]
   %node_right.i.01464 = phi i64 [ %node_right.i.1, %if.end75.i ], [ %add.i1738, %for.body.i579 ]
   %best_len_left.i.01463 = phi i64 [ %best_len_left.i.1, %if.end75.i ], [ 0, %for.body.i579 ]
@@ -4076,17 +4075,17 @@ lor.lhs.false.i:                                  ; preds = %for.body.i579, %if.
 if.then19.i:                                      ; preds = %lor.lhs.false.i, %if.end75.i, %for.body.i579
   %node_right.i.0.lcssa = phi i64 [ %add.i1738, %for.body.i579 ], [ %node_right.i.1, %if.end75.i ], [ %node_right.i.01464, %lor.lhs.false.i ]
   %node_left.i.0.lcssa = phi i64 [ %mul.i1723, %for.body.i579 ], [ %node_left.i.1, %if.end75.i ], [ %node_left.i.01465, %lor.lhs.false.i ]
-  %233 = load i32, ptr %invalid_pos_.i, align 8
-  %arrayidx20.i1711 = getelementptr inbounds i32, ptr %231, i64 %node_left.i.0.lcssa
-  store i32 %233, ptr %arrayidx20.i1711, align 4
+  %234 = load i32, ptr %invalid_pos_.i, align 8
+  %arrayidx20.i1711 = getelementptr inbounds i32, ptr %232, i64 %node_left.i.0.lcssa
+  store i32 %234, ptr %arrayidx20.i1711, align 4
   br label %StoreAndFindMatchesH10.exit
 
 if.end24.i:                                       ; preds = %lor.lhs.false.i
   %and9.i1468 = and i64 %prev_ix.i.01467, %conv142
   %cond.i.i1702 = tail call i64 @llvm.umin.i64(i64 %best_len_left.i.01463, i64 %best_len_right.i.01462)
   %arrayidx26.i1704 = getelementptr i8, ptr %arrayidx.i1690, i64 %cond.i.i1702
-  %234 = getelementptr i8, ptr %6, i64 %and9.i1468
-  %arrayidx28.i = getelementptr i8, ptr %234, i64 %cond.i.i1702
+  %235 = getelementptr i8, ptr %6, i64 %and9.i1468
+  %arrayidx28.i = getelementptr i8, ptr %235, i64 %cond.i.i1702
   %sub29.i = sub nuw nsw i64 128, %cond.i.i1702
   %cmp.i17401446 = icmp ult i64 %cond.i.i1702, 121
   br i1 %cmp.i17401446, label %for.body.i1750, label %while.cond.i.preheader
@@ -4113,11 +4112,11 @@ for.body.i1750:                                   ; preds = %if.end24.i, %if.end
   br i1 %cmp2.i1752.not, label %if.end.i1753, label %if.then.i1756
 
 if.then.i1756:                                    ; preds = %for.body.i1750
-  %235 = tail call i64 @llvm.cttz.i64(i64 %xor.i, i1 true), !range !70
+  %236 = tail call i64 @llvm.cttz.i64(i64 %xor.i, i1 true), !range !70
   %sub.ptr.lhs.cast.i = ptrtoint ptr %s1.addr.i.01449 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %arrayidx26.i1704 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %shr.i = lshr i64 %235, 3
+  %shr.i = lshr i64 %236, 3
   %add.i1758 = add i64 %sub.ptr.sub.i, %shr.i
   br label %FindMatchLengthWithLimit.exit
 
@@ -4132,9 +4131,9 @@ land.rhs.i1746:                                   ; preds = %land.rhs.i1746.preh
   %s1.addr.i.11455 = phi ptr [ %incdec.ptr8.i, %while.body.i ], [ %s1.addr.i.0.lcssa, %land.rhs.i1746.preheader ]
   %s2.addr.i.11454 = phi ptr [ %incdec.ptr.i1745, %while.body.i ], [ %s2.addr.i.0.lcssa, %land.rhs.i1746.preheader ]
   %limit.addr.i.11453 = phi i64 [ %dec.i1744, %while.body.i ], [ %limit.addr.i.0.lcssa, %land.rhs.i1746.preheader ]
-  %236 = load i8, ptr %s1.addr.i.11455, align 1
-  %237 = load i8, ptr %s2.addr.i.11454, align 1
-  %cmp6.i1749 = icmp eq i8 %236, %237
+  %237 = load i8, ptr %s1.addr.i.11455, align 1
+  %238 = load i8, ptr %s2.addr.i.11454, align 1
+  %cmp6.i1749 = icmp eq i8 %237, %238
   br i1 %cmp6.i1749, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %land.rhs.i1746
@@ -4158,43 +4157,43 @@ FindMatchLengthWithLimit.exit:                    ; preds = %while.end.i, %if.th
   br i1 %cmp37.i, label %if.then41.i, label %if.end49.i
 
 if.then41.i:                                      ; preds = %FindMatchLengthWithLimit.exit
-  %238 = load i64, ptr %privat25.i, align 8
-  %and.i1715 = and i64 %238, %prev_ix.i.01467
+  %239 = load i64, ptr %privat25.i, align 8
+  %and.i1715 = and i64 %239, %prev_ix.i.01467
   %mul.i = shl nuw nsw i64 %and.i1715, 1
-  %arrayidx43.i = getelementptr inbounds i32, ptr %231, i64 %mul.i
-  %239 = load i32, ptr %arrayidx43.i, align 4
-  %arrayidx44.i = getelementptr inbounds i32, ptr %231, i64 %node_left.i.01465
-  store i32 %239, ptr %arrayidx44.i, align 4
-  %240 = load i64, ptr %privat25.i, align 8
-  %and.i1726 = and i64 %240, %prev_ix.i.01467
+  %arrayidx43.i = getelementptr inbounds i32, ptr %232, i64 %mul.i
+  %240 = load i32, ptr %arrayidx43.i, align 4
+  %arrayidx44.i = getelementptr inbounds i32, ptr %232, i64 %node_left.i.01465
+  store i32 %240, ptr %arrayidx44.i, align 4
+  %241 = load i64, ptr %privat25.i, align 8
+  %and.i1726 = and i64 %241, %prev_ix.i.01467
   %mul.i1727 = shl nuw nsw i64 %and.i1726, 1
   %add.i1728 = or disjoint i64 %mul.i1727, 1
-  %arrayidx46.i = getelementptr inbounds i32, ptr %231, i64 %add.i1728
-  %241 = load i32, ptr %arrayidx46.i, align 4
+  %arrayidx46.i = getelementptr inbounds i32, ptr %232, i64 %add.i1728
+  %242 = load i32, ptr %arrayidx46.i, align 4
   br label %StoreAndFindMatchesH10.exit
 
 if.end49.i:                                       ; preds = %FindMatchLengthWithLimit.exit
   %arrayidx51.i = getelementptr i8, ptr %arrayidx.i1690, i64 %add31.i
-  %242 = load i8, ptr %arrayidx51.i, align 1
-  %arrayidx54.i = getelementptr i8, ptr %234, i64 %add31.i
-  %243 = load i8, ptr %arrayidx54.i, align 1
-  %cmp56.i = icmp ugt i8 %242, %243
+  %243 = load i8, ptr %arrayidx51.i, align 1
+  %arrayidx54.i = getelementptr i8, ptr %235, i64 %add31.i
+  %244 = load i8, ptr %arrayidx54.i, align 1
+  %cmp56.i = icmp ugt i8 %243, %244
   br i1 %cmp56.i, label %if.then60.i1707, label %if.then68.i
 
 if.then60.i1707:                                  ; preds = %if.end49.i
-  %arrayidx62.i = getelementptr inbounds i32, ptr %231, i64 %node_left.i.01465
+  %arrayidx62.i = getelementptr inbounds i32, ptr %232, i64 %node_left.i.01465
   store i32 %prev_ix.i.0.in1466, ptr %arrayidx62.i, align 4
-  %244 = load i64, ptr %privat25.i, align 8
-  %and.i1731 = and i64 %244, %prev_ix.i.01467
+  %245 = load i64, ptr %privat25.i, align 8
+  %and.i1731 = and i64 %245, %prev_ix.i.01467
   %mul.i1732 = shl nuw nsw i64 %and.i1731, 1
   %add.i1733 = or disjoint i64 %mul.i1732, 1
   br label %if.end75.i
 
 if.then68.i:                                      ; preds = %if.end49.i
-  %arrayidx70.i = getelementptr inbounds i32, ptr %231, i64 %node_right.i.01464
+  %arrayidx70.i = getelementptr inbounds i32, ptr %232, i64 %node_right.i.01464
   store i32 %prev_ix.i.0.in1466, ptr %arrayidx70.i, align 4
-  %245 = load i64, ptr %privat25.i, align 8
-  %and.i1718 = and i64 %245, %prev_ix.i.01467
+  %246 = load i64, ptr %privat25.i, align 8
+  %and.i1718 = and i64 %246, %prev_ix.i.01467
   %mul.i1719 = shl nuw nsw i64 %and.i1718, 1
   br label %if.end75.i
 
@@ -4204,7 +4203,7 @@ if.end75.i:                                       ; preds = %if.then68.i, %if.th
   %node_right.i.1 = phi i64 [ %node_right.i.01464, %if.then60.i1707 ], [ %mul.i1719, %if.then68.i ]
   %node_left.i.1 = phi i64 [ %add.i1733, %if.then60.i1707 ], [ %node_left.i.01465, %if.then68.i ]
   %add.i1733.pn = phi i64 [ %add.i1733, %if.then60.i1707 ], [ %mul.i1719, %if.then68.i ]
-  %prev_ix.i.1.in.in = getelementptr inbounds i32, ptr %231, i64 %add.i1733.pn
+  %prev_ix.i.1.in.in = getelementptr inbounds i32, ptr %232, i64 %add.i1733.pn
   %prev_ix.i.1.in = load i32, ptr %prev_ix.i.1.in.in, align 4
   %dec.i = add nsw i64 %depth_remaining.i.01461, -1
   %prev_ix.i.0 = zext i32 %prev_ix.i.1.in to i64
@@ -4213,8 +4212,8 @@ if.end75.i:                                       ; preds = %if.then68.i, %if.th
 
 StoreAndFindMatchesH10.exit:                      ; preds = %if.then41.i, %if.then19.i
   %node_right.i.01464.lcssa1498.sink = phi i64 [ %node_right.i.01464, %if.then41.i ], [ %node_right.i.0.lcssa, %if.then19.i ]
-  %.sink = phi i32 [ %241, %if.then41.i ], [ %233, %if.then19.i ]
-  %arrayidx47.i = getelementptr inbounds i32, ptr %231, i64 %node_right.i.01464.lcssa1498.sink
+  %.sink = phi i32 [ %242, %if.then41.i ], [ %234, %if.then19.i ]
+  %arrayidx47.i = getelementptr inbounds i32, ptr %232, i64 %node_right.i.01464.lcssa1498.sink
   store i32 %.sink, ptr %arrayidx47.i, align 4
   %inc.i581 = add nuw nsw i64 %i.i565.01474, 1
   %exitcond1483.not = icmp eq i64 %inc.i581, %cond.i.i576
@@ -4222,18 +4221,18 @@ StoreAndFindMatchesH10.exit:                      ; preds = %if.then41.i, %if.th
 
 InitOrStitchToPreviousBlock.exit:                 ; preds = %StoreAndFindMatchesH10.exit, %if.then.i572, %HasherSetup.exit, %sw.bb24.i, %sw.bb16.i, %if.then.i505, %sw.bb14.i, %if.then.i490, %sw.bb12.i, %if.then.i475, %sw.bb10.i, %if.then.i460, %sw.bb8.i, %if.then.i446, %sw.bb6.i, %if.then.i431, %sw.bb4.i, %if.then.i416, %sw.bb2.i, %if.then.i401, %sw.bb.i, %if.then.i389, %PrepareHROLLING.exit, %PrepareHROLLING_FAST.exit1320, %PrepareHROLLING_FAST.exit
   %last_flush_pos_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 9
-  %246 = load i64, ptr %last_flush_pos_, align 8
-  %conv.i1337 = trunc i64 %246 to i32
-  %cmp.i1338 = icmp ugt i64 %246, 3221225471
+  %247 = load i64, ptr %last_flush_pos_, align 8
+  %conv.i1337 = trunc i64 %247 to i32
+  %cmp.i1338 = icmp ugt i64 %247, 3221225471
   br i1 %cmp.i1338, label %if.then.i1341, label %WrapPosition.exit1345
 
 if.then.i1341:                                    ; preds = %InitOrStitchToPreviousBlock.exit
   %and.i1342 = and i32 %conv.i1337, 1073741823
-  %247 = shl i32 %conv.i1337, 1
-  %248 = ashr exact i32 %247, 1
-  %add.i1343 = and i32 %248, -1073741824
-  %249 = or disjoint i32 %add.i1343, %and.i1342
-  %or.i1344 = xor i32 %249, -2147483648
+  %248 = shl i32 %conv.i1337, 1
+  %249 = ashr exact i32 %248, 1
+  %add.i1343 = and i32 %249, -1073741824
+  %250 = or disjoint i32 %add.i1343, %and.i1342
+  %or.i1344 = xor i32 %250, -2147483648
   br label %WrapPosition.exit1345
 
 WrapPosition.exit1345:                            ; preds = %InitOrStitchToPreviousBlock.exit, %if.then.i1341
@@ -4243,10 +4242,10 @@ WrapPosition.exit1345:                            ; preds = %InitOrStitchToPrevi
   br i1 %cmp.i1346, label %land.lhs.true.i, label %if.end.i1347
 
 land.lhs.true.i:                                  ; preds = %WrapPosition.exit1345
-  %250 = load i64, ptr %0, align 8
-  %sub = sub i64 %250, %246
+  %251 = load i64, ptr %0, align 8
+  %sub = sub i64 %251, %247
   %conv148 = zext i32 %result.0.i1340 to i64
-  %call.i1348 = tail call i32 @BrotliIsMostlyUTF8(ptr noundef %6, i64 noundef %conv148, i64 noundef %conv142, i64 noundef %sub, double noundef 7.500000e-01) #19
+  %call.i1348 = tail call i32 @BrotliIsMostlyUTF8(ptr noundef %6, i64 noundef %conv148, i64 noundef %conv142, i64 noundef %sub, double noundef 7.500000e-01) #18
   %tobool.not.i = icmp eq i32 %call.i1348, 0
   br i1 %tobool.not.i, label %ChooseContextMode.exit, label %if.end.i1347
 
@@ -4258,14 +4257,14 @@ ChooseContextMode.exit:                           ; preds = %land.lhs.true.i, %i
   %shl152 = shl nuw nsw i32 %retval.0.i, 9
   %idxprom153 = zext nneg i32 %shl152 to i64
   %arrayidx154 = getelementptr inbounds [2048 x i8], ptr @_kBrotliContextLookupTable, i64 0, i64 %idxprom153
-  %251 = load i64, ptr %num_commands_, align 8
-  %tobool156.not = icmp eq i64 %251, 0
+  %252 = load i64, ptr %num_commands_, align 8
+  %tobool156.not = icmp eq i64 %252, 0
   br i1 %tobool156.not, label %if.end161, label %land.lhs.true157
 
 land.lhs.true157:                                 ; preds = %ChooseContextMode.exit
   %last_insert_len_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 8
-  %252 = load i64, ptr %last_insert_len_, align 8
-  %cmp158 = icmp eq i64 %252, 0
+  %253 = load i64, ptr %last_insert_len_, align 8
+  %cmp158 = icmp eq i64 %253, 0
   br i1 %cmp158, label %if.then160, label %if.end161
 
 if.then160:                                       ; preds = %land.lhs.true157
@@ -4273,81 +4272,81 @@ if.then160:                                       ; preds = %land.lhs.true157
   br label %if.end161
 
 if.end161:                                        ; preds = %if.then160, %land.lhs.true157, %ChooseContextMode.exit
-  %253 = load i32, ptr %quality, align 4
-  %254 = load i32, ptr %bytes, align 4
-  %conv198 = zext i32 %254 to i64
-  %255 = load i32, ptr %wrapped_last_processed_pos, align 4
-  %conv199 = zext i32 %255 to i64
+  %254 = load i32, ptr %quality, align 4
+  %255 = load i32, ptr %bytes, align 4
+  %conv198 = zext i32 %255 to i64
+  %256 = load i32, ptr %wrapped_last_processed_pos, align 4
+  %conv199 = zext i32 %256 to i64
   %dist_cache_203 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 11
   %last_insert_len_205 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 8
   %commands_206 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 5
-  %256 = load ptr, ptr %commands_206, align 8
-  %257 = load i64, ptr %num_commands_, align 8
-  %arrayidx208 = getelementptr inbounds %struct.Command, ptr %256, i64 %257
+  %257 = load ptr, ptr %commands_206, align 8
+  %258 = load i64, ptr %num_commands_, align 8
+  %arrayidx208 = getelementptr inbounds %struct.Command, ptr %257, i64 %258
   %num_literals_210 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
-  switch i32 %253, label %if.else197 [
+  switch i32 %254, label %if.else197 [
     i32 10, label %if.then166
     i32 11, label %if.then183
   ]
 
 if.then166:                                       ; preds = %if.end161
-  tail call void @BrotliCreateZopfliBackwardReferences(ptr noundef nonnull %memory_manager_, i64 noundef %conv198, i64 noundef %conv199, ptr noundef %6, i64 noundef %conv142, ptr noundef nonnull %arrayidx154, ptr noundef nonnull %s, ptr noundef nonnull %hasher_, ptr noundef nonnull %dist_cache_203, ptr noundef nonnull %last_insert_len_205, ptr noundef %arrayidx208, ptr noundef nonnull %num_commands_, ptr noundef nonnull %num_literals_210) #19
+  tail call void @BrotliCreateZopfliBackwardReferences(ptr noundef nonnull %memory_manager_, i64 noundef %conv198, i64 noundef %conv199, ptr noundef %6, i64 noundef %conv142, ptr noundef nonnull %arrayidx154, ptr noundef nonnull %s, ptr noundef nonnull %hasher_, ptr noundef nonnull %dist_cache_203, ptr noundef nonnull %last_insert_len_205, ptr noundef %arrayidx208, ptr noundef nonnull %num_commands_, ptr noundef nonnull %num_literals_210) #18
   br label %if.end212
 
 if.then183:                                       ; preds = %if.end161
-  tail call void @BrotliCreateHqZopfliBackwardReferences(ptr noundef nonnull %memory_manager_, i64 noundef %conv198, i64 noundef %conv199, ptr noundef %6, i64 noundef %conv142, ptr noundef nonnull %arrayidx154, ptr noundef nonnull %s, ptr noundef nonnull %hasher_, ptr noundef nonnull %dist_cache_203, ptr noundef nonnull %last_insert_len_205, ptr noundef %arrayidx208, ptr noundef nonnull %num_commands_, ptr noundef nonnull %num_literals_210) #19
+  tail call void @BrotliCreateHqZopfliBackwardReferences(ptr noundef nonnull %memory_manager_, i64 noundef %conv198, i64 noundef %conv199, ptr noundef %6, i64 noundef %conv142, ptr noundef nonnull %arrayidx154, ptr noundef nonnull %s, ptr noundef nonnull %hasher_, ptr noundef nonnull %dist_cache_203, ptr noundef nonnull %last_insert_len_205, ptr noundef %arrayidx208, ptr noundef nonnull %num_commands_, ptr noundef nonnull %num_literals_210) #18
   br label %if.end212
 
 if.else197:                                       ; preds = %if.end161
-  tail call void @BrotliCreateBackwardReferences(i64 noundef %conv198, i64 noundef %conv199, ptr noundef %6, i64 noundef %conv142, ptr noundef nonnull %arrayidx154, ptr noundef nonnull %s, ptr noundef nonnull %hasher_, ptr noundef nonnull %dist_cache_203, ptr noundef nonnull %last_insert_len_205, ptr noundef %arrayidx208, ptr noundef nonnull %num_commands_, ptr noundef nonnull %num_literals_210) #19
+  tail call void @BrotliCreateBackwardReferences(i64 noundef %conv198, i64 noundef %conv199, ptr noundef %6, i64 noundef %conv142, ptr noundef nonnull %arrayidx154, ptr noundef nonnull %s, ptr noundef nonnull %hasher_, ptr noundef nonnull %dist_cache_203, ptr noundef nonnull %last_insert_len_205, ptr noundef %arrayidx208, ptr noundef nonnull %num_commands_, ptr noundef nonnull %num_literals_210) #18
   br label %if.end212
 
 if.end212:                                        ; preds = %if.then183, %if.else197, %if.then166
   %lgwin.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 2
-  %258 = load i32, ptr %lgwin.i.i, align 8
-  %259 = load i32, ptr %15, align 4
-  %cond.i = tail call i32 @llvm.smax.i32(i32 %258, i32 %259)
-  %260 = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 23)
-  %cond.i.i = add nsw i32 %260, 1
+  %259 = load i32, ptr %lgwin.i.i, align 8
+  %260 = load i32, ptr %15, align 4
+  %cond.i = tail call i32 @llvm.smax.i32(i32 %259, i32 %260)
+  %261 = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 23)
+  %cond.i.i = add nsw i32 %261, 1
   %sh_prom.i = zext nneg i32 %cond.i.i to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %div2151114 = lshr i64 %shl.i, 3
-  %261 = load i64, ptr %0, align 8
-  %262 = load i64, ptr %last_flush_pos_, align 8
-  %sub219 = sub i64 %261, %262
-  %sh_prom.i1349 = zext nneg i32 %259 to i64
+  %262 = load i64, ptr %0, align 8
+  %263 = load i64, ptr %last_flush_pos_, align 8
+  %sub219 = sub i64 %262, %263
+  %sh_prom.i1349 = zext nneg i32 %260 to i64
   %shl.i1350 = shl nuw i64 1, %sh_prom.i1349
   %add221 = add i64 %sub219, %shl.i1350
   %cmp222 = icmp ugt i64 %add221, %shl.i
-  %263 = load i32, ptr %quality, align 4
-  %cmp228 = icmp slt i32 %263, 4
+  %264 = load i32, ptr %quality, align 4
+  %cmp228 = icmp slt i32 %264, 4
   br i1 %cmp228, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end212
   %num_literals_230 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
-  %264 = load i64, ptr %num_literals_230, align 8
-  %265 = load i64, ptr %num_commands_, align 8
-  %add232 = add i64 %265, %264
+  %265 = load i64, ptr %num_literals_230, align 8
+  %266 = load i64, ptr %num_commands_, align 8
+  %add232 = add i64 %266, %265
   %cmp233 = icmp ugt i64 %add232, 12286
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end212
-  %266 = phi i1 [ false, %if.end212 ], [ %cmp233, %land.rhs ]
-  %267 = or i32 %force_flush, %is_last
-  %or.cond26 = icmp ne i32 %267, 0
-  %or.cond27 = select i1 %or.cond26, i1 true, i1 %266
+  %267 = phi i1 [ false, %if.end212 ], [ %cmp233, %land.rhs ]
+  %268 = or i32 %force_flush, %is_last
+  %or.cond26 = icmp ne i32 %268, 0
+  %or.cond27 = select i1 %or.cond26, i1 true, i1 %267
   %or.cond28.not = select i1 %or.cond27, i1 true, i1 %cmp222
   br i1 %or.cond28.not, label %if.end259, label %land.lhs.true245
 
 land.lhs.true245:                                 ; preds = %land.end
   %num_literals_246 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
-  %268 = load i64, ptr %num_literals_246, align 8
-  %cmp247 = icmp ult i64 %268, %div2151114
+  %269 = load i64, ptr %num_literals_246, align 8
+  %cmp247 = icmp ult i64 %269, %div2151114
   br i1 %cmp247, label %land.lhs.true249, label %if.end259
 
 land.lhs.true249:                                 ; preds = %land.lhs.true245
-  %269 = load i64, ptr %num_commands_, align 8
-  %cmp251 = icmp ult i64 %269, %div2151114
+  %270 = load i64, ptr %num_commands_, align 8
+  %cmp251 = icmp ult i64 %270, %div2151114
   br i1 %cmp251, label %if.then253, label %if.end259
 
 if.then253:                                       ; preds = %land.lhs.true249
@@ -4361,62 +4360,62 @@ if.then256:                                       ; preds = %if.then253
 
 if.end259:                                        ; preds = %land.lhs.true249, %land.lhs.true245, %land.end
   %last_insert_len_260 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 8
-  %270 = load i64, ptr %last_insert_len_260, align 8
-  %cmp261.not = icmp eq i64 %270, 0
+  %271 = load i64, ptr %last_insert_len_260, align 8
+  %cmp261.not = icmp eq i64 %271, 0
   br i1 %cmp261.not, label %if.end272, label %if.then263
 
 if.then263:                                       ; preds = %if.end259
   %commands_264 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 5
-  %271 = load ptr, ptr %commands_264, align 8
-  %272 = load i64, ptr %num_commands_, align 8
-  %inc = add i64 %272, 1
+  %272 = load ptr, ptr %commands_264, align 8
+  %273 = load i64, ptr %num_commands_, align 8
+  %inc = add i64 %273, 1
   store i64 %inc, ptr %num_commands_, align 8
-  %arrayidx266 = getelementptr inbounds %struct.Command, ptr %271, i64 %272
-  %conv.i = trunc i64 %270 to i32
+  %arrayidx266 = getelementptr inbounds %struct.Command, ptr %272, i64 %273
+  %conv.i = trunc i64 %271 to i32
   store i32 %conv.i, ptr %arrayidx266, align 4
-  %copy_len_.i = getelementptr inbounds %struct.Command, ptr %271, i64 %272, i32 1
+  %copy_len_.i = getelementptr inbounds %struct.Command, ptr %272, i64 %273, i32 1
   store i32 134217728, ptr %copy_len_.i, align 4
-  %dist_extra_.i = getelementptr inbounds %struct.Command, ptr %271, i64 %272, i32 2
+  %dist_extra_.i = getelementptr inbounds %struct.Command, ptr %272, i64 %273, i32 2
   store i32 0, ptr %dist_extra_.i, align 4
-  %dist_prefix_.i = getelementptr inbounds %struct.Command, ptr %271, i64 %272, i32 4
+  %dist_prefix_.i = getelementptr inbounds %struct.Command, ptr %272, i64 %273, i32 4
   store i16 16, ptr %dist_prefix_.i, align 2
-  %cmd_prefix_.i = getelementptr inbounds %struct.Command, ptr %271, i64 %272, i32 3
-  %cmp.i1767 = icmp ult i64 %270, 6
+  %cmd_prefix_.i = getelementptr inbounds %struct.Command, ptr %272, i64 %273, i32 3
+  %cmp.i1767 = icmp ult i64 %271, 6
   br i1 %cmp.i1767, label %CombineLengthCodes.exit, label %if.else.i1768
 
 if.else.i1768:                                    ; preds = %if.then263
-  %cmp1.i1769 = icmp ult i64 %270, 130
+  %cmp1.i1769 = icmp ult i64 %271, 130
   br i1 %cmp1.i1769, label %if.then3.i, label %if.else9.i
 
 if.then3.i:                                       ; preds = %if.else.i1768
-  %sub.i1772 = add nsw i64 %270, -2
+  %sub.i1772 = add nsw i64 %271, -2
   %conv.i27.i = trunc i64 %sub.i1772 to i32
-  %273 = tail call i32 @llvm.ctlz.i32(i32 %conv.i27.i, i1 true), !range !7
-  %sub4.i1773 = sub nsw i32 30, %273
+  %274 = tail call i32 @llvm.ctlz.i32(i32 %conv.i27.i, i1 true), !range !7
+  %sub4.i1773 = sub nsw i32 30, %274
   %shl.i1774 = shl nsw i32 %sub4.i1773, 1
   %sh_prom.i1777 = zext nneg i32 %sub4.i1773 to i64
   %shr.i1778 = lshr i64 %sub.i1772, %sh_prom.i1777
-  %274 = trunc i64 %shr.i1778 to i32
-  %275 = add nsw i32 %shl.i1774, 2
-  %conv8.i = add i32 %275, %274
+  %275 = trunc i64 %shr.i1778 to i32
+  %276 = add nsw i32 %shl.i1774, 2
+  %conv8.i = add i32 %276, %275
   br label %CombineLengthCodes.exit
 
 if.else9.i:                                       ; preds = %if.else.i1768
-  %cmp10.i1770 = icmp ult i64 %270, 2114
+  %cmp10.i1770 = icmp ult i64 %271, 2114
   br i1 %cmp10.i1770, label %if.then12.i, label %if.else17.i
 
 if.then12.i:                                      ; preds = %if.else9.i
   %conv.i.i1771 = add nsw i32 %conv.i, -66
-  %276 = tail call i32 @llvm.ctlz.i32(i32 %conv.i.i1771, i1 true), !range !7
-  %conv16.i = sub nuw nsw i32 41, %276
+  %277 = tail call i32 @llvm.ctlz.i32(i32 %conv.i.i1771, i1 true), !range !7
+  %conv16.i = sub nuw nsw i32 41, %277
   br label %CombineLengthCodes.exit
 
 if.else17.i:                                      ; preds = %if.else9.i
-  %cmp18.i = icmp ult i64 %270, 6210
+  %cmp18.i = icmp ult i64 %271, 6210
   br i1 %cmp18.i, label %CombineLengthCodes.exit, label %if.else21.i
 
 if.else21.i:                                      ; preds = %if.else17.i
-  %cmp22.i = icmp ult i64 %270, 22594
+  %cmp22.i = icmp ult i64 %271, 22594
   %. = select i1 %cmp22.i, i32 22, i32 23
   br label %CombineLengthCodes.exit
 
@@ -4429,17 +4428,17 @@ CombineLengthCodes.exit:                          ; preds = %if.then263, %if.els
   %mul20.i = mul nuw nsw i32 %shr19.i, 6
   %shr23.i = lshr i32 5377344, %mul20.i
   %and24.i = and i32 %shr23.i, 192
-  %277 = shl i32 %retval.i1765.0, 3
-  %278 = and i32 %277, 56
-  %conv3.i1811 = or disjoint i32 %278, 2
+  %278 = shl i32 %retval.i1765.0, 3
+  %279 = and i32 %278, 56
+  %conv3.i1811 = or disjoint i32 %279, 2
   %add25.i = or disjoint i32 %add22.i, %conv3.i1811
   %or27.i = add nuw nsw i32 %add25.i, %and24.i
   %conv28.i = trunc i32 %or27.i to i16
   store i16 %conv28.i, ptr %cmd_prefix_.i, align 2
-  %279 = load i64, ptr %last_insert_len_260, align 8
+  %280 = load i64, ptr %last_insert_len_260, align 8
   %num_literals_269 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
-  %280 = load i64, ptr %num_literals_269, align 8
-  %add270 = add i64 %280, %279
+  %281 = load i64, ptr %num_literals_269, align 8
+  %add270 = add i64 %281, %280
   store i64 %add270, ptr %num_literals_269, align 8
   store i64 0, ptr %last_insert_len_260, align 8
   %.pre1484.pre = load i64, ptr %0, align 8
@@ -4447,8 +4446,8 @@ CombineLengthCodes.exit:                          ; preds = %if.then263, %if.els
   br label %if.end272
 
 if.end272:                                        ; preds = %CombineLengthCodes.exit, %if.end259
-  %.pre1485 = phi i64 [ %.pre1485.pre, %CombineLengthCodes.exit ], [ %262, %if.end259 ]
-  %.pre1484 = phi i64 [ %.pre1484.pre, %CombineLengthCodes.exit ], [ %261, %if.end259 ]
+  %.pre1485 = phi i64 [ %.pre1485.pre, %CombineLengthCodes.exit ], [ %263, %if.end259 ]
+  %.pre1484 = phi i64 [ %.pre1484.pre, %CombineLengthCodes.exit ], [ %262, %if.end259 ]
   %cmp277 = icmp ne i64 %.pre1484, %.pre1485
   %or.cond1501.not = select i1 %tobool52, i1 true, i1 %cmp277
   br i1 %or.cond1501.not, label %if.end280, label %return.sink.split
@@ -4459,63 +4458,63 @@ if.end280:                                        ; preds = %if.end272
   %add287 = add i64 %mul286, 503
   %conv288 = and i64 %add287, 4294967295
   %storage_size_.i1351 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 18
-  %281 = load i64, ptr %storage_size_.i1351, align 8
-  %cmp.i1352 = icmp ult i64 %281, %conv288
+  %282 = load i64, ptr %storage_size_.i1351, align 8
+  %cmp.i1352 = icmp ult i64 %282, %conv288
   %storage_.i1359 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 19
-  %282 = load ptr, ptr %storage_.i1359, align 8
+  %283 = load ptr, ptr %storage_.i1359, align 8
   br i1 %cmp.i1352, label %if.then.i1357, label %GetBrotliStorage.exit1361
 
 if.then.i1357:                                    ; preds = %if.end280
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %282) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %283) #18
   store ptr null, ptr %storage_.i1359, align 8
-  %call.i1360 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %conv288) #19
+  %call.i1360 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef %conv288) #18
   store ptr %call.i1360, ptr %storage_.i1359, align 8
   store i64 %conv288, ptr %storage_size_.i1351, align 8
   br label %GetBrotliStorage.exit1361
 
 GetBrotliStorage.exit1361:                        ; preds = %if.end280, %if.then.i1357
-  %283 = phi ptr [ %call.i1360, %if.then.i1357 ], [ %282, %if.end280 ]
+  %284 = phi ptr [ %call.i1360, %if.then.i1357 ], [ %283, %if.end280 ]
   %last_bytes_bits_291 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 14
-  %284 = load i8, ptr %last_bytes_bits_291, align 2
-  %conv292 = zext i8 %284 to i64
+  %285 = load i8, ptr %last_bytes_bits_291, align 2
+  %conv292 = zext i8 %285 to i64
   store i64 %conv292, ptr %storage_ix290, align 8
   %last_bytes_293 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 13
-  %285 = load i16, ptr %last_bytes_293, align 8
-  %conv294 = trunc i16 %285 to i8
-  store i8 %conv294, ptr %283, align 1
   %286 = load i16, ptr %last_bytes_293, align 8
-  %287 = lshr i16 %286, 8
-  %conv299 = trunc i16 %287 to i8
-  %arrayidx300 = getelementptr inbounds i8, ptr %283, i64 1
+  %conv294 = trunc i16 %286 to i8
+  store i8 %conv294, ptr %284, align 1
+  %287 = load i16, ptr %last_bytes_293, align 8
+  %288 = lshr i16 %287, 8
+  %conv299 = trunc i16 %288 to i8
+  %arrayidx300 = getelementptr inbounds i8, ptr %284, i64 1
   store i8 %conv299, ptr %arrayidx300, align 1
-  %288 = load i64, ptr %last_flush_pos_, align 8
+  %289 = load i64, ptr %last_flush_pos_, align 8
   %conv303 = and i64 %sub283, 4294967295
   %prev_byte_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 16
-  %289 = load i8, ptr %prev_byte_, align 4
+  %290 = load i8, ptr %prev_byte_, align 4
   %prev_byte2_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 17
-  %290 = load i8, ptr %prev_byte2_, align 1
+  %291 = load i8, ptr %prev_byte2_, align 1
   %num_literals_305 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
-  %291 = load i64, ptr %num_literals_305, align 8
-  %292 = load i64, ptr %num_commands_, align 8
+  %292 = load i64, ptr %num_literals_305, align 8
+  %293 = load i64, ptr %num_commands_, align 8
   %commands_307 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 5
-  %293 = load ptr, ptr %commands_307, align 8
+  %294 = load ptr, ptr %commands_307, align 8
   %saved_dist_cache_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 12
   %dist_cache_309 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 11
   call void @llvm.lifetime.start.p0(i64 1400, ptr nonnull %block_params.i)
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %mb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %num_literal_contexts.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %literal_context_map.i)
-  %conv.i126.i = trunc i64 %288 to i32
-  %cmp.i.i1362 = icmp ugt i64 %288, 3221225471
+  %conv.i126.i = trunc i64 %289 to i32
+  %cmp.i.i1362 = icmp ugt i64 %289, 3221225471
   br i1 %cmp.i.i1362, label %if.then.i.i1390, label %WrapPosition.exit.i1363
 
 if.then.i.i1390:                                  ; preds = %GetBrotliStorage.exit1361
   %and.i127.i = and i32 %conv.i126.i, 1073741823
-  %294 = shl i32 %conv.i126.i, 1
-  %295 = ashr exact i32 %294, 1
-  %add.i.i1391 = and i32 %295, -1073741824
-  %296 = or disjoint i32 %add.i.i1391, %and.i127.i
-  %or.i128.i = xor i32 %296, -2147483648
+  %295 = shl i32 %conv.i126.i, 1
+  %296 = ashr exact i32 %295, 1
+  %add.i.i1391 = and i32 %296, -1073741824
+  %297 = or disjoint i32 %add.i.i1391, %and.i127.i
+  %or.i128.i = xor i32 %297, -2147483648
   br label %WrapPosition.exit.i1363
 
 WrapPosition.exit.i1363:                          ; preds = %if.then.i.i1390, %GetBrotliStorage.exit1361
@@ -4525,17 +4524,17 @@ WrapPosition.exit.i1363:                          ; preds = %if.then.i.i1390, %G
   br i1 %cmp.i1368, label %if.then.i1382, label %if.end.i1369
 
 if.then.i1382:                                    ; preds = %WrapPosition.exit.i1363
-  %297 = load i64, ptr %storage_ix290, align 8
-  %shr.i.i1383 = lshr i64 %297, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %283, i64 %shr.i.i1383
-  %298 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i1384 = zext i8 %298 to i64
-  %and.i.i1385 = and i64 %297, 7
+  %298 = load i64, ptr %storage_ix290, align 8
+  %shr.i.i1383 = lshr i64 %298, 3
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %284, i64 %shr.i.i1383
+  %299 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i1384 = zext i8 %299 to i64
+  %and.i.i1385 = and i64 %298, 7
   %shl.i.i1386 = shl nuw nsw i64 3, %and.i.i1385
   %or.i.i1387 = or i64 %shl.i.i1386, %conv.i.i1384
   store i64 %or.i.i1387, ptr %arrayidx.i.i, align 1
-  %299 = load i64, ptr %storage_ix290, align 8
-  %add.i1388 = add i64 %299, 9
+  %300 = load i64, ptr %storage_ix290, align 8
+  %add.i1388 = add i64 %300, 9
   %and.i1389 = and i64 %add.i1388, 4294967288
   store i64 %and.i1389, ptr %storage_ix290, align 8
   br label %WriteMetaBlockInternal.exit
@@ -4548,11 +4547,11 @@ if.end.i1369:                                     ; preds = %WrapPosition.exit.i
 if.end.i.i:                                       ; preds = %if.end.i1369
   %shr.i130.i = lshr i64 %conv303, 8
   %add.i131.i = add nuw nsw i64 %shr.i130.i, 2
-  %cmp1.i.i1370 = icmp ugt i64 %add.i131.i, %292
+  %cmp1.i.i1370 = icmp ugt i64 %add.i131.i, %293
   br i1 %cmp1.i.i1370, label %if.then2.i.i, label %if.end3.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %conv.i132.i = uitofp i64 %291 to double
+  %conv.i132.i = uitofp i64 %292 to double
   %conv3.i.i = uitofp i64 %conv303 to double
   %mul.i.i1377 = fmul double %conv3.i.i, 0x3FEFAE147AE147AE
   %cmp4.i.i = fcmp olt double %mul.i.i1377, %conv.i132.i
@@ -4571,11 +4570,11 @@ for.body.i.i:                                     ; preds = %if.then6.i.i, %for.
   %and.i133.i1436 = and i32 %pos.033.i.i, %7
   %and.i133.i = zext i32 %and.i133.i1436 to i64
   %arrayidx.i134.i = getelementptr inbounds i8, ptr %6, i64 %and.i133.i
-  %300 = load i8, ptr %arrayidx.i134.i, align 1
-  %idxprom.i.i = zext i8 %300 to i64
+  %301 = load i8, ptr %arrayidx.i134.i, align 1
+  %idxprom.i.i = zext i8 %301 to i64
   %arrayidx15.i.i = getelementptr inbounds [256 x i32], ptr %literal_histo.i.i, i64 0, i64 %idxprom.i.i
-  %301 = load i32, ptr %arrayidx15.i.i, align 4
-  %inc.i.i = add i32 %301, 1
+  %302 = load i32, ptr %arrayidx15.i.i, align 4
+  %inc.i.i = add i32 %302, 1
   store i32 %inc.i.i, ptr %arrayidx15.i.i, align 4
   %add16.i.i = add i32 %pos.033.i.i, 13
   %inc17.i.i = add nuw nsw i64 %i.034.i.i, 1
@@ -4585,51 +4584,51 @@ for.body.i.i:                                     ; preds = %if.then6.i.i, %for.
 while.body.i.i.i:                                 ; preds = %for.body.i.i, %FastLog2.exit.i.i
   %population.addr.i24.0.idx37.i.i = phi i64 [ %incdec.ptr.i.add.i.i, %FastLog2.exit.i.i ], [ 0, %for.body.i.i ]
   %sum.i26.036.i.i = phi i64 [ %add5.i.i.i, %FastLog2.exit.i.i ], [ 0, %for.body.i.i ]
-  %retval1.i27.035.i.i = phi double [ %307, %FastLog2.exit.i.i ], [ 0.000000e+00, %for.body.i.i ]
+  %retval1.i27.035.i.i = phi double [ %308, %FastLog2.exit.i.i ], [ 0.000000e+00, %for.body.i.i ]
   %population.addr.i24.0.ptr.i.i = getelementptr inbounds i8, ptr %literal_histo.i.i, i64 %population.addr.i24.0.idx37.i.i
   %population.addr.i24.0.add.i.i = or disjoint i64 %population.addr.i24.0.idx37.i.i, 4
   %incdec.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %literal_histo.i.i, i64 %population.addr.i24.0.add.i.i
-  %302 = load i32, ptr %population.addr.i24.0.ptr.i.i, align 8
-  %conv.i29.i.i = zext i32 %302 to i64
+  %303 = load i32, ptr %population.addr.i24.0.ptr.i.i, align 8
+  %conv.i29.i.i = zext i32 %303 to i64
   %add.i.i.i1379 = add i64 %sum.i26.036.i.i, %conv.i29.i.i
-  %conv2.i.i.i = uitofp i32 %302 to double
-  %cmp.i38.i.i = icmp ult i32 %302, 256
+  %conv2.i.i.i = uitofp i32 %303 to double
+  %cmp.i38.i.i = icmp ult i32 %303, 256
   br i1 %cmp.i38.i.i, label %if.then.i42.i.i, label %if.end.i39.i.i
 
 if.then.i42.i.i:                                  ; preds = %while.body.i.i.i
   %arrayidx.i43.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv.i29.i.i
-  %303 = load double, ptr %arrayidx.i43.i.i, align 8
+  %304 = load double, ptr %arrayidx.i43.i.i, align 8
   br label %FastLog2.exit44.i.i
 
 if.end.i39.i.i:                                   ; preds = %while.body.i.i.i
-  %call.i41.i.i = tail call double @log2(double noundef %conv2.i.i.i) #19
+  %call.i41.i.i = tail call double @log2(double noundef %conv2.i.i.i) #18
   br label %FastLog2.exit44.i.i
 
 FastLog2.exit44.i.i:                              ; preds = %if.end.i39.i.i, %if.then.i42.i.i
-  %retval.i36.0.i.i = phi double [ %303, %if.then.i42.i.i ], [ %call.i41.i.i, %if.end.i39.i.i ]
+  %retval.i36.0.i.i = phi double [ %304, %if.then.i42.i.i ], [ %call.i41.i.i, %if.end.i39.i.i ]
   %neg.i.i.i = fneg double %conv2.i.i.i
-  %304 = tail call double @llvm.fmuladd.f64(double %neg.i.i.i, double %retval.i36.0.i.i, double %retval1.i27.035.i.i)
+  %305 = tail call double @llvm.fmuladd.f64(double %neg.i.i.i, double %retval.i36.0.i.i, double %retval1.i27.035.i.i)
   %incdec.ptr.i.add.i.i = add nuw nsw i64 %population.addr.i24.0.idx37.i.i, 8
-  %305 = load i32, ptr %incdec.ptr.i.ptr.i.i, align 4
-  %conv4.i.i.i = zext i32 %305 to i64
+  %306 = load i32, ptr %incdec.ptr.i.ptr.i.i, align 4
+  %conv4.i.i.i = zext i32 %306 to i64
   %add5.i.i.i = add i64 %add.i.i.i1379, %conv4.i.i.i
-  %conv6.i.i.i = uitofp i32 %305 to double
-  %cmp.i32.i.i = icmp ult i32 %305, 256
+  %conv6.i.i.i = uitofp i32 %306 to double
+  %cmp.i32.i.i = icmp ult i32 %306, 256
   br i1 %cmp.i32.i.i, label %if.then.i35.i.i, label %if.end.i33.i.i
 
 if.then.i35.i.i:                                  ; preds = %FastLog2.exit44.i.i
   %arrayidx.i.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv4.i.i.i
-  %306 = load double, ptr %arrayidx.i.i.i, align 8
+  %307 = load double, ptr %arrayidx.i.i.i, align 8
   br label %FastLog2.exit.i.i
 
 if.end.i33.i.i:                                   ; preds = %FastLog2.exit44.i.i
-  %call.i.i.i = tail call double @log2(double noundef %conv6.i.i.i) #19
+  %call.i.i.i = tail call double @log2(double noundef %conv6.i.i.i) #18
   br label %FastLog2.exit.i.i
 
 FastLog2.exit.i.i:                                ; preds = %if.end.i33.i.i, %if.then.i35.i.i
-  %retval.i.0.i.i = phi double [ %306, %if.then.i35.i.i ], [ %call.i.i.i, %if.end.i33.i.i ]
+  %retval.i.0.i.i = phi double [ %307, %if.then.i35.i.i ], [ %call.i.i.i, %if.end.i33.i.i ]
   %neg8.i.i.i = fneg double %conv6.i.i.i
-  %307 = tail call double @llvm.fmuladd.f64(double %neg8.i.i.i, double %retval.i.0.i.i, double %304)
+  %308 = tail call double @llvm.fmuladd.f64(double %neg8.i.i.i, double %retval.i.0.i.i, double %305)
   %cmp.i28.i.i = icmp ult i64 %population.addr.i24.0.idx37.i.i, 1016
   br i1 %cmp.i28.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !75
 
@@ -4645,20 +4644,20 @@ if.then10.i.i.i:                                  ; preds = %while.end.i.i.i
 
 if.then.i51.i.i:                                  ; preds = %if.then10.i.i.i
   %arrayidx.i52.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %add5.i.i.i
-  %308 = load double, ptr %arrayidx.i52.i.i, align 8
+  %309 = load double, ptr %arrayidx.i52.i.i, align 8
   br label %FastLog2.exit53.i.i
 
 if.end.i48.i.i:                                   ; preds = %if.then10.i.i.i
-  %call.i50.i.i = tail call double @log2(double noundef %.pre.i.i) #19
+  %call.i50.i.i = tail call double @log2(double noundef %.pre.i.i) #18
   br label %FastLog2.exit53.i.i
 
 FastLog2.exit53.i.i:                              ; preds = %if.end.i48.i.i, %if.then.i51.i.i
-  %retval.i45.0.i.i = phi double [ %308, %if.then.i51.i.i ], [ %call.i50.i.i, %if.end.i48.i.i ]
-  %309 = tail call double @llvm.fmuladd.f64(double %.pre.i.i, double %retval.i45.0.i.i, double %307)
+  %retval.i45.0.i.i = phi double [ %309, %if.then.i51.i.i ], [ %call.i50.i.i, %if.end.i48.i.i ]
+  %310 = tail call double @llvm.fmuladd.f64(double %.pre.i.i, double %retval.i45.0.i.i, double %308)
   br label %ShannonEntropy.exit.i.i
 
 ShannonEntropy.exit.i.i:                          ; preds = %FastLog2.exit53.i.i, %while.end.i.i.i
-  %retval1.i27.2.i.i = phi double [ %309, %FastLog2.exit53.i.i ], [ %307, %while.end.i.i.i ]
+  %retval1.i27.2.i.i = phi double [ %310, %FastLog2.exit53.i.i ], [ %308, %while.end.i.i.i ]
   %cmp.i.i.i = fcmp olt double %retval1.i27.2.i.i, %.pre.i.i
   %retval1.i.0.i.i = select i1 %cmp.i.i.i, double %.pre.i.i, double %retval1.i27.2.i.i
   %cmp18.i.i1380 = fcmp ogt double %retval1.i.0.i.i, %div.i.i
@@ -4666,61 +4665,61 @@ ShannonEntropy.exit.i.i:                          ; preds = %FastLog2.exit53.i.i
 
 ShannonEntropy.exit.i.i.if.end3.i_crit_edge:      ; preds = %ShannonEntropy.exit.i.i
   %.pre1486 = load i8, ptr %arrayidx300, align 1
-  %.pre1487 = load i8, ptr %283, align 1
+  %.pre1487 = load i8, ptr %284, align 1
   br label %if.end3.i
 
 if.then2.i:                                       ; preds = %ShannonEntropy.exit.i.i, %if.end.i1369
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %literal_histo.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
   %conv.i1381 = zext i32 %result.0.i.i1364 to i64
-  call void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_last, ptr noundef %6, i64 noundef %conv.i1381, i64 noundef %conv142, i64 noundef %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %283) #19
+  call void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_last, ptr noundef %6, i64 noundef %conv.i1381, i64 noundef %conv142, i64 noundef %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %284) #18
   br label %WriteMetaBlockInternal.exit
 
 if.end3.i:                                        ; preds = %ShannonEntropy.exit.i.i.if.end3.i_crit_edge, %if.then2.i.i, %if.end.i.i
-  %310 = phi i8 [ %.pre1487, %ShannonEntropy.exit.i.i.if.end3.i_crit_edge ], [ %conv294, %if.then2.i.i ], [ %conv294, %if.end.i.i ]
-  %311 = phi i8 [ %.pre1486, %ShannonEntropy.exit.i.i.if.end3.i_crit_edge ], [ %conv299, %if.then2.i.i ], [ %conv299, %if.end.i.i ]
+  %311 = phi i8 [ %.pre1487, %ShannonEntropy.exit.i.i.if.end3.i_crit_edge ], [ %conv294, %if.then2.i.i ], [ %conv294, %if.end.i.i ]
+  %312 = phi i8 [ %.pre1486, %ShannonEntropy.exit.i.i.if.end3.i_crit_edge ], [ %conv299, %if.then2.i.i ], [ %conv299, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %literal_histo.i.i)
-  %312 = load i64, ptr %storage_ix290, align 8
-  %313 = load i32, ptr %quality, align 4
-  %cmp11.i = icmp slt i32 %313, 3
+  %313 = load i64, ptr %storage_ix290, align 8
+  %314 = load i32, ptr %quality, align 4
+  %cmp11.i = icmp slt i32 %314, 3
   br i1 %cmp11.i, label %if.then13.i, label %if.else.i1372
 
 if.then13.i:                                      ; preds = %if.end3.i
   %conv14.i = zext i32 %result.0.i.i1364 to i64
-  call void @BrotliStoreMetaBlockFast(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv14.i, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %is_last, ptr noundef nonnull %s, ptr noundef %293, i64 noundef %292, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %283) #19
+  call void @BrotliStoreMetaBlockFast(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv14.i, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %is_last, ptr noundef nonnull %s, ptr noundef %294, i64 noundef %293, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %284) #18
   br label %if.end42.i
 
 if.else.i1372:                                    ; preds = %if.end3.i
-  %cmp16.i = icmp eq i32 %313, 3
+  %cmp16.i = icmp eq i32 %314, 3
   br i1 %cmp16.i, label %if.then18.i, label %if.else20.i
 
 if.then18.i:                                      ; preds = %if.else.i1372
   %conv19.i = zext i32 %result.0.i.i1364 to i64
-  call void @BrotliStoreMetaBlockTrivial(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv19.i, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %is_last, ptr noundef nonnull %s, ptr noundef %293, i64 noundef %292, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %283) #19
+  call void @BrotliStoreMetaBlockTrivial(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv19.i, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %is_last, ptr noundef nonnull %s, ptr noundef %294, i64 noundef %293, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %284) #18
   br label %if.end42.i
 
 if.else20.i:                                      ; preds = %if.else.i1372
-  call void @BrotliInitBlockSplit(ptr noundef nonnull %mb.i) #19
+  call void @BrotliInitBlockSplit(ptr noundef nonnull %mb.i) #18
   %command_split.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 1
-  call void @BrotliInitBlockSplit(ptr noundef nonnull %command_split.i.i) #19
+  call void @BrotliInitBlockSplit(ptr noundef nonnull %command_split.i.i) #18
   %distance_split.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 2
-  call void @BrotliInitBlockSplit(ptr noundef nonnull %distance_split.i.i) #19
+  call void @BrotliInitBlockSplit(ptr noundef nonnull %distance_split.i.i) #18
   %literal_context_map.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 3
   %distance_context_map.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 5
   %literal_histograms.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 7
   %command_histograms.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 9
   %distance_histograms.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %literal_context_map.i.i, i8 0, i64 80, i1 false)
-  %314 = load i32, ptr %quality, align 4
-  %cmp22.i1373 = icmp slt i32 %314, 10
+  %315 = load i32, ptr %quality, align 4
+  %cmp22.i1373 = icmp slt i32 %315, 10
   br i1 %cmp22.i1373, label %if.then24.i, label %if.else32.i
 
 if.then24.i:                                      ; preds = %if.else20.i
   store i64 1, ptr %num_literal_contexts.i, align 8
   store ptr null, ptr %literal_context_map.i, align 8
   %disable_literal_context_modeling.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 6
-  %315 = load i32, ptr %disable_literal_context_modeling.i, align 8
-  %tobool25.not.i = icmp eq i32 %315, 0
+  %316 = load i32, ptr %disable_literal_context_modeling.i, align 8
+  %tobool25.not.i = icmp eq i32 %316, 0
   br i1 %tobool25.not.i, label %if.then26.i, label %if.then24.if.end30_crit_edge.i
 
 if.then24.if.end30_crit_edge.i:                   ; preds = %if.then24.i
@@ -4728,78 +4727,78 @@ if.then24.if.end30_crit_edge.i:                   ; preds = %if.then24.i
   br label %if.end30.i
 
 if.then26.i:                                      ; preds = %if.then24.i
-  %call27.i = call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef 1792) #19
+  %call27.i = call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef 1792) #18
   %conv28.i1375 = zext i32 %result.0.i.i1364 to i64
-  %316 = load i32, ptr %quality, align 4
+  %317 = load i32, ptr %quality, align 4
   %size_hint.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 5
-  %317 = load i64, ptr %size_hint.i, align 8
-  call fastcc void @DecideOverLiteralContextModeling(ptr noundef %6, i64 noundef %conv28.i1375, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %316, i64 noundef %317, ptr noundef nonnull %num_literal_contexts.i, ptr noundef nonnull %literal_context_map.i, ptr noundef %call27.i)
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %call27.i) #19
+  %318 = load i64, ptr %size_hint.i, align 8
+  call fastcc void @DecideOverLiteralContextModeling(ptr noundef %6, i64 noundef %conv28.i1375, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %317, i64 noundef %318, ptr noundef nonnull %num_literal_contexts.i, ptr noundef nonnull %literal_context_map.i, ptr noundef %call27.i)
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %call27.i) #18
   %.pre.i1376 = load i64, ptr %num_literal_contexts.i, align 8
   %.pre137.i = load ptr, ptr %literal_context_map.i, align 8
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then26.i, %if.then24.if.end30_crit_edge.i
   %conv31.pre-phi.i = phi i64 [ %.pre138.i, %if.then24.if.end30_crit_edge.i ], [ %conv28.i1375, %if.then26.i ]
-  %318 = phi ptr [ null, %if.then24.if.end30_crit_edge.i ], [ %.pre137.i, %if.then26.i ]
-  %319 = phi i64 [ 1, %if.then24.if.end30_crit_edge.i ], [ %.pre.i1376, %if.then26.i ]
-  call void @BrotliBuildMetaBlockGreedy(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv31.pre-phi.i, i64 noundef %conv142, i8 noundef zeroext %289, i8 noundef zeroext %290, ptr noundef nonnull %arrayidx154, i64 noundef %319, ptr noundef %318, ptr noundef %293, i64 noundef %292, ptr noundef nonnull %mb.i) #19
+  %319 = phi ptr [ null, %if.then24.if.end30_crit_edge.i ], [ %.pre137.i, %if.then26.i ]
+  %320 = phi i64 [ 1, %if.then24.if.end30_crit_edge.i ], [ %.pre.i1376, %if.then26.i ]
+  call void @BrotliBuildMetaBlockGreedy(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv31.pre-phi.i, i64 noundef %conv142, i8 noundef zeroext %290, i8 noundef zeroext %291, ptr noundef nonnull %arrayidx154, i64 noundef %320, ptr noundef %319, ptr noundef %294, i64 noundef %293, ptr noundef nonnull %mb.i) #18
   br label %if.end34.i
 
 if.else32.i:                                      ; preds = %if.else20.i
   %conv33.i = zext i32 %result.0.i.i1364 to i64
-  call void @BrotliBuildMetaBlock(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv33.i, i64 noundef %conv142, ptr noundef nonnull %block_params.i, i8 noundef zeroext %289, i8 noundef zeroext %290, ptr noundef %293, i64 noundef %292, i32 noundef %retval.0.i, ptr noundef nonnull %mb.i) #19
+  call void @BrotliBuildMetaBlock(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv33.i, i64 noundef %conv142, ptr noundef nonnull %block_params.i, i8 noundef zeroext %290, i8 noundef zeroext %291, ptr noundef %294, i64 noundef %293, i32 noundef %retval.0.i, ptr noundef nonnull %mb.i) #18
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.else32.i, %if.end30.i
-  %320 = load i32, ptr %quality, align 4
-  %cmp36.i = icmp sgt i32 %320, 3
+  %321 = load i32, ptr %quality, align 4
+  %cmp36.i = icmp sgt i32 %321, 3
   br i1 %cmp36.i, label %if.then38.i, label %if.end39.i
 
 if.then38.i:                                      ; preds = %if.end34.i
   %alphabet_size_limit.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %block_params.i, i64 0, i32 9, i32 3
-  %321 = load i32, ptr %alphabet_size_limit.i, align 4
-  call void @BrotliOptimizeHistograms(i32 noundef %321, ptr noundef nonnull %mb.i) #19
+  %322 = load i32, ptr %alphabet_size_limit.i, align 4
+  call void @BrotliOptimizeHistograms(i32 noundef %322, ptr noundef nonnull %mb.i) #18
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then38.i, %if.end34.i
   %conv40.i = zext i32 %result.0.i.i1364 to i64
-  call void @BrotliStoreMetaBlock(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv40.i, i64 noundef %conv303, i64 noundef %conv142, i8 noundef zeroext %289, i8 noundef zeroext %290, i32 noundef %is_last, ptr noundef nonnull %block_params.i, i32 noundef %retval.0.i, ptr noundef %293, i64 noundef %292, ptr noundef nonnull %mb.i, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %283) #19
-  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %mb.i) #19
-  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %command_split.i.i) #19
-  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %distance_split.i.i) #19
-  %322 = load ptr, ptr %literal_context_map.i.i, align 8
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %322) #19
+  call void @BrotliStoreMetaBlock(ptr noundef nonnull %memory_manager_, ptr noundef %6, i64 noundef %conv40.i, i64 noundef %conv303, i64 noundef %conv142, i8 noundef zeroext %290, i8 noundef zeroext %291, i32 noundef %is_last, ptr noundef nonnull %block_params.i, i32 noundef %retval.0.i, ptr noundef %294, i64 noundef %293, ptr noundef nonnull %mb.i, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %284) #18
+  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %mb.i) #18
+  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %command_split.i.i) #18
+  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %distance_split.i.i) #18
+  %323 = load ptr, ptr %literal_context_map.i.i, align 8
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %323) #18
   store ptr null, ptr %literal_context_map.i.i, align 8
-  %323 = load ptr, ptr %distance_context_map.i.i, align 8
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %323) #19
+  %324 = load ptr, ptr %distance_context_map.i.i, align 8
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %324) #18
   store ptr null, ptr %distance_context_map.i.i, align 8
-  %324 = load ptr, ptr %literal_histograms.i.i, align 8
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %324) #19
+  %325 = load ptr, ptr %literal_histograms.i.i, align 8
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %325) #18
   store ptr null, ptr %literal_histograms.i.i, align 8
-  %325 = load ptr, ptr %command_histograms.i.i, align 8
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %325) #19
+  %326 = load ptr, ptr %command_histograms.i.i, align 8
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %326) #18
   store ptr null, ptr %command_histograms.i.i, align 8
-  %326 = load ptr, ptr %distance_histograms.i.i, align 8
-  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %326) #19
+  %327 = load ptr, ptr %distance_histograms.i.i, align 8
+  call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %327) #18
   store ptr null, ptr %distance_histograms.i.i, align 8
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end39.i, %if.then18.i, %if.then13.i
   %add43.i = add nuw nsw i64 %conv303, 4
-  %327 = load i64, ptr %storage_ix290, align 8
-  %shr.i1374 = lshr i64 %327, 3
+  %328 = load i64, ptr %storage_ix290, align 8
+  %shr.i1374 = lshr i64 %328, 3
   %cmp44.i = icmp ult i64 %add43.i, %shr.i1374
   br i1 %cmp44.i, label %if.then46.i, label %WriteMetaBlockInternal.exit
 
 if.then46.i:                                      ; preds = %if.end42.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dist_cache_309, ptr noundef nonnull align 4 dereferenceable(16) %saved_dist_cache_, i64 16, i1 false)
-  store i8 %310, ptr %283, align 1
-  store i8 %311, ptr %arrayidx300, align 1
-  %conv53.i = and i64 %312, 255
+  store i8 %311, ptr %284, align 1
+  store i8 %312, ptr %arrayidx300, align 1
+  %conv53.i = and i64 %313, 255
   store i64 %conv53.i, ptr %storage_ix290, align 8
   %conv54.i = zext i32 %result.0.i.i1364 to i64
-  call void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_last, ptr noundef %6, i64 noundef %conv54.i, i64 noundef %conv142, i64 noundef %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %283) #19
+  call void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_last, ptr noundef %6, i64 noundef %conv54.i, i64 noundef %conv142, i64 noundef %conv303, ptr noundef nonnull %storage_ix290, ptr noundef nonnull %284) #18
   br label %WriteMetaBlockInternal.exit
 
 WriteMetaBlockInternal.exit:                      ; preds = %if.then.i1382, %if.then2.i, %if.end42.i, %if.then46.i
@@ -4807,49 +4806,49 @@ WriteMetaBlockInternal.exit:                      ; preds = %if.then.i1382, %if.
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %mb.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_literal_contexts.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %literal_context_map.i)
-  %328 = load i64, ptr %storage_ix290, align 8
-  %shr311 = lshr i64 %328, 3
-  %arrayidx312 = getelementptr inbounds i8, ptr %283, i64 %shr311
-  %329 = load i8, ptr %arrayidx312, align 1
-  %conv313 = zext i8 %329 to i16
+  %329 = load i64, ptr %storage_ix290, align 8
+  %shr311 = lshr i64 %329, 3
+  %arrayidx312 = getelementptr inbounds i8, ptr %284, i64 %shr311
+  %330 = load i8, ptr %arrayidx312, align 1
+  %conv313 = zext i8 %330 to i16
   store i16 %conv313, ptr %last_bytes_293, align 8
-  %330 = trunc i64 %328 to i8
-  %conv316 = and i8 %330, 7
+  %331 = trunc i64 %329 to i8
+  %conv316 = and i8 %331, 7
   store i8 %conv316, ptr %last_bytes_bits_291, align 2
-  %331 = load i64, ptr %0, align 8
-  store i64 %331, ptr %last_flush_pos_, align 8
-  %332 = load i64, ptr %1, align 8
-  %conv.i.i1393 = trunc i64 %332 to i32
-  %cmp.i.i1394 = icmp ugt i64 %332, 3221225471
+  %332 = load i64, ptr %0, align 8
+  store i64 %332, ptr %last_flush_pos_, align 8
+  %333 = load i64, ptr %1, align 8
+  %conv.i.i1393 = trunc i64 %333 to i32
+  %cmp.i.i1394 = icmp ugt i64 %333, 3221225471
   br i1 %cmp.i.i1394, label %if.then.i.i1407, label %WrapPosition.exit.i1395
 
 if.then.i.i1407:                                  ; preds = %WriteMetaBlockInternal.exit
   %and.i.i1408 = and i32 %conv.i.i1393, 1073741823
-  %333 = shl i32 %conv.i.i1393, 1
-  %334 = ashr exact i32 %333, 1
-  %add.i.i1409 = and i32 %334, -1073741824
-  %335 = or disjoint i32 %add.i.i1409, %and.i.i1408
-  %or.i.i1410 = xor i32 %335, -2147483648
+  %334 = shl i32 %conv.i.i1393, 1
+  %335 = ashr exact i32 %334, 1
+  %add.i.i1409 = and i32 %335, -1073741824
+  %336 = or disjoint i32 %add.i.i1409, %and.i.i1408
+  %or.i.i1410 = xor i32 %336, -2147483648
   br label %WrapPosition.exit.i1395
 
 WrapPosition.exit.i1395:                          ; preds = %if.then.i.i1407, %WriteMetaBlockInternal.exit
   %result.0.i.i1396 = phi i32 [ %or.i.i1410, %if.then.i.i1407 ], [ %conv.i.i1393, %WriteMetaBlockInternal.exit ]
-  %conv.i4.i1398 = trunc i64 %331 to i32
-  %cmp.i5.i1399 = icmp ugt i64 %331, 3221225471
+  %conv.i4.i1398 = trunc i64 %332 to i32
+  %cmp.i5.i1399 = icmp ugt i64 %332, 3221225471
   br i1 %cmp.i5.i1399, label %if.then.i7.i1403, label %UpdateLastProcessedPos.exit1411
 
 if.then.i7.i1403:                                 ; preds = %WrapPosition.exit.i1395
   %and.i8.i1404 = and i32 %conv.i4.i1398, 1073741823
-  %336 = shl i32 %conv.i4.i1398, 1
-  %337 = ashr exact i32 %336, 1
-  %add.i9.i1405 = and i32 %337, -1073741824
-  %338 = or disjoint i32 %add.i9.i1405, %and.i8.i1404
-  %or.i10.i1406 = xor i32 %338, -2147483648
+  %337 = shl i32 %conv.i4.i1398, 1
+  %338 = ashr exact i32 %337, 1
+  %add.i9.i1405 = and i32 %338, -1073741824
+  %339 = or disjoint i32 %add.i9.i1405, %and.i8.i1404
+  %or.i10.i1406 = xor i32 %339, -2147483648
   br label %UpdateLastProcessedPos.exit1411
 
 UpdateLastProcessedPos.exit1411:                  ; preds = %WrapPosition.exit.i1395, %if.then.i7.i1403
   %result.0.i6.i1400 = phi i32 [ %or.i10.i1406, %if.then.i7.i1403 ], [ %conv.i4.i1398, %WrapPosition.exit.i1395 ]
-  store i64 %331, ptr %1, align 8
+  store i64 %332, ptr %1, align 8
   %cmp.i1401.not = icmp ult i32 %result.0.i6.i1400, %result.0.i.i1396
   br i1 %cmp.i1401.not, label %if.then322, label %if.end324
 
@@ -4858,7 +4857,7 @@ if.then322:                                       ; preds = %UpdateLastProcessed
   br label %if.end324
 
 if.end324:                                        ; preds = %if.then322, %UpdateLastProcessedPos.exit1411
-  %cmp326.not = icmp eq i64 %331, 0
+  %cmp326.not = icmp eq i64 %332, 0
   br i1 %cmp326.not, label %if.end348, label %if.end336
 
 if.end336:                                        ; preds = %if.end324
@@ -4866,9 +4865,9 @@ if.end336:                                        ; preds = %if.end324
   %and332 = and i32 %sub331, %7
   %idxprom333 = zext i32 %and332 to i64
   %arrayidx334 = getelementptr inbounds i8, ptr %6, i64 %idxprom333
-  %339 = load i8, ptr %arrayidx334, align 1
-  store i8 %339, ptr %prev_byte_, align 4
-  %cmp338.not = icmp eq i64 %331, 1
+  %340 = load i8, ptr %arrayidx334, align 1
+  store i8 %340, ptr %prev_byte_, align 4
+  %cmp338.not = icmp eq i64 %332, 1
   br i1 %cmp338.not, label %if.end348, label %if.then340
 
 if.then340:                                       ; preds = %if.end336
@@ -4876,14 +4875,14 @@ if.then340:                                       ; preds = %if.end336
   %and344 = and i32 %conv343, %7
   %idxprom345 = zext i32 %and344 to i64
   %arrayidx346 = getelementptr inbounds i8, ptr %6, i64 %idxprom345
-  %340 = load i8, ptr %arrayidx346, align 1
-  store i8 %340, ptr %prev_byte2_, align 1
+  %341 = load i8, ptr %arrayidx346, align 1
+  store i8 %341, ptr %prev_byte2_, align 1
   br label %if.end348
 
 if.end348:                                        ; preds = %if.end324, %if.then340, %if.end336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %num_commands_, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %saved_dist_cache_, ptr noundef nonnull align 8 dereferenceable(16) %dist_cache_309, i64 16, i1 false)
-  store ptr %283, ptr %output, align 8
+  store ptr %284, ptr %output, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end272, %if.then253, %if.then256, %if.else35, %if.then10, %if.then12, %if.end105, %if.end348
@@ -4906,8 +4905,8 @@ entry:
   ret i32 %cond
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @BrotliEncoderTakeOutput(ptr nocapture noundef %s, ptr nocapture noundef %size) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define ptr @BrotliEncoderTakeOutput(ptr nocapture noundef %s, ptr nocapture noundef %size) local_unnamed_addr #0 {
 entry:
   %available_out_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 30
   %0 = load i64, ptr %available_out_, align 8
@@ -4960,20 +4959,20 @@ entry:
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @BrotliCreateManagedDictionary(ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) #19
+  %call = tail call ptr @BrotliCreateManagedDictionary(ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) #18
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   %memory_manager_ = getelementptr inbounds %struct.ManagedDictionary, ptr %call, i64 0, i32 1
-  %call8 = tail call ptr @CreatePreparedDictionary(ptr noundef nonnull %memory_manager_, ptr noundef %data, i64 noundef %size) #19
+  %call8 = tail call ptr @CreatePreparedDictionary(ptr noundef nonnull %memory_manager_, ptr noundef %data, i64 noundef %size) #18
   %dictionary = getelementptr inbounds %struct.ManagedDictionary, ptr %call, i64 0, i32 2
   store ptr %call8, ptr %dictionary, align 8
   %cmp11 = icmp eq ptr %call8, null
   br i1 %cmp11, label %if.then13, label %return
 
 if.then13:                                        ; preds = %if.then7
-  tail call void @BrotliDestroyManagedDictionary(ptr noundef nonnull %call) #19
+  tail call void @BrotliDestroyManagedDictionary(ptr noundef nonnull %call) #18
   br label %return
 
 return:                                           ; preds = %if.then7, %if.end, %entry, %if.then13
@@ -5013,19 +5012,19 @@ if.else:                                          ; preds = %if.end2
 
 if.then8:                                         ; preds = %if.else
   %memory_manager_ = getelementptr inbounds %struct.ManagedDictionary, ptr %dictionary, i64 0, i32 1
-  tail call void @DestroyPreparedDictionary(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %1) #19
+  tail call void @DestroyPreparedDictionary(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %1) #18
   br label %if.end21
 
 if.then13:                                        ; preds = %if.else
   %memory_manager_14 = getelementptr inbounds %struct.ManagedDictionary, ptr %dictionary, i64 0, i32 1
-  tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %memory_manager_14, ptr noundef nonnull %1) #19
+  tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %memory_manager_14, ptr noundef nonnull %1) #18
   %3 = load ptr, ptr %dictionary3, align 8
-  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_14, ptr noundef %3) #19
+  tail call void @BrotliFree(ptr noundef nonnull %memory_manager_14, ptr noundef %3) #18
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then8, %if.then13, %if.end2
   store ptr null, ptr %dictionary3, align 8
-  tail call void @BrotliDestroyManagedDictionary(ptr noundef nonnull %dictionary) #19
+  tail call void @BrotliDestroyManagedDictionary(ptr noundef nonnull %dictionary) #18
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end21
@@ -5062,7 +5061,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then6:                                         ; preds = %if.end, %if.end
   %compound = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10, i32 1
-  %call = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %compound, ptr noundef nonnull %dict.0) #19
+  %call = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %compound, ptr noundef nonnull %dict.0) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end77
 
@@ -5152,7 +5151,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.030 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %arrayidx61 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict.0, i64 0, i32 1, i32 2, i64 %i.030
   %20 = load ptr, ptr %arrayidx61, align 8
-  %call62 = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %compound59, ptr noundef %20) #19
+  %call62 = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %compound59, ptr noundef %20) #18
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %return, label %for.cond
 
@@ -5179,7 +5178,7 @@ return:                                           ; preds = %for.body, %if.end, 
 declare hidden i32 @AttachPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @BrotliEncoderEstimatePeakMemoryUsage(i32 noundef %quality, i32 noundef %lgwin, i64 noundef %input_size) local_unnamed_addr #1 {
@@ -5195,7 +5194,7 @@ entry:
   %lgblock.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 3
   %dictionary.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %lgblock.i, i8 0, i64 24, i1 false)
-  call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %dictionary.i) #19
+  call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %dictionary.i) #18
   %cmp = icmp slt i32 %lgwin, 25
   %cond.i226 = call i32 @llvm.smax.i32(i32 %quality, i32 0)
   %cond.i.i = call i32 @llvm.umin.i32(i32 %cond.i226, i32 11)
@@ -5517,10 +5516,10 @@ return:                                           ; preds = %if.end88, %cond.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @BrotliEncoderGetPreparedDictionarySize(ptr nocapture noundef readonly %prepared_dictionary) local_unnamed_addr #8 {
+define hidden i64 @BrotliEncoderGetPreparedDictionarySize(ptr nocapture noundef readonly %prepared_dictionary) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %prepared_dictionary, align 4
   %cmp = icmp eq i32 %0, -558043678
@@ -5701,7 +5700,7 @@ declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr 
 declare hidden void @BrotliInitDistanceParams(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
 declare hidden void @BrotliCompressFragmentFast(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -5750,8 +5749,8 @@ WrapPosition.exit11:                              ; preds = %WrapPosition.exit, 
   ret i32 %cond
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ExtendLastCommand(ptr nocapture noundef readonly %s, ptr nocapture noundef %bytes, ptr nocapture noundef %wrapped_last_processed_pos) unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @ExtendLastCommand(ptr nocapture noundef readonly %s, ptr nocapture noundef %bytes, ptr nocapture noundef %wrapped_last_processed_pos) unnamed_addr #9 {
 entry:
   %commands_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 5
   %0 = load ptr, ptr %commands_, align 8
@@ -6156,8 +6155,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PrepareH4(ptr nocapture writeonly %self.8.val, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @PrepareH4(ptr nocapture writeonly %self.8.val, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #10 {
 entry:
   %tobool.not = icmp ne i32 %one_shot, 0
   %cmp = icmp ult i64 %input_size, 4097
@@ -6202,8 +6201,8 @@ if.end:                                           ; preds = %for.inc6, %for.cond
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH5(ptr noalias nocapture noundef readonly %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @PrepareH5(ptr noalias nocapture noundef readonly %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
 entry:
   %num_ = getelementptr inbounds %struct.H5, ptr %self, i64 0, i32 7
   %0 = load ptr, ptr %num_, align 8
@@ -6245,8 +6244,8 @@ if.end:                                           ; preds = %for.body, %for.cond
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH6(ptr noalias nocapture noundef readonly %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @PrepareH6(ptr noalias nocapture noundef readonly %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
 entry:
   %num_ = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 7
   %0 = load ptr, ptr %num_, align 8
@@ -6287,8 +6286,8 @@ if.end:                                           ; preds = %for.body, %for.cond
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH40(ptr noalias nocapture noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @PrepareH40(ptr noalias nocapture noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
 entry:
   %extra = getelementptr inbounds %struct.H40, ptr %self, i64 0, i32 2
   %0 = load ptr, ptr %extra, align 8
@@ -6329,8 +6328,8 @@ if.end:                                           ; preds = %for.body, %for.cond
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH41(ptr noalias nocapture noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @PrepareH41(ptr noalias nocapture noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
 entry:
   %extra = getelementptr inbounds %struct.H41, ptr %self, i64 0, i32 2
   %0 = load ptr, ptr %extra, align 8
@@ -6371,8 +6370,8 @@ if.end:                                           ; preds = %for.body, %for.cond
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH42(ptr noalias nocapture noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @PrepareH42(ptr noalias nocapture noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
 entry:
   %extra = getelementptr inbounds %struct.H42, ptr %self, i64 0, i32 2
   %0 = load ptr, ptr %extra, align 8
@@ -6413,8 +6412,8 @@ if.end:                                           ; preds = %for.body, %for.cond
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PrepareH54(ptr nocapture writeonly %self.8.val, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @PrepareH54(ptr nocapture writeonly %self.8.val, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #10 {
 entry:
   %tobool.not = icmp ne i32 %one_shot, 0
   %cmp = icmp ult i64 %input_size, 32769
@@ -6459,8 +6458,8 @@ if.end:                                           ; preds = %for.inc6, %for.cond
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc void @PrepareH35(ptr noalias noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #13 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc void @PrepareH35(ptr noalias noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
 entry:
   %fresh = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 5
   %0 = load i32, ptr %fresh, align 8
@@ -6577,8 +6576,8 @@ PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc void @PrepareH55(ptr noalias noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #13 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc void @PrepareH55(ptr noalias noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
 entry:
   %fresh = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 5
   %0 = load i32, ptr %fresh, align 8
@@ -6705,8 +6704,8 @@ PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind uwtable
-define internal fastcc void @PrepareH65(ptr noalias noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #13 {
+; Function Attrs: nofree norecurse nosync nounwind uwtable
+define internal fastcc void @PrepareH65(ptr noalias noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
 entry:
   %fresh = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 5
   %0 = load i32, ptr %fresh, align 8
@@ -6854,7 +6853,7 @@ PrepareHROLLING.exit:                             ; preds = %for.cond.preheader.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 
 declare hidden i32 @BrotliIsMostlyUTF8(ptr noundef, i64 noundef, i64 noundef, i64 noundef, double noundef) local_unnamed_addr #2
 
@@ -6865,7 +6864,7 @@ declare hidden void @BrotliStoreMetaBlockFast(ptr noundef, ptr noundef, i64 noun
 declare hidden void @BrotliStoreMetaBlockTrivial(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc void @DecideOverLiteralContextModeling(ptr nocapture noundef readonly %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i32 noundef %quality, i64 noundef %size_hint, ptr nocapture noundef writeonly %num_literal_contexts, ptr nocapture noundef writeonly %literal_context_map, ptr nocapture noundef %arena) unnamed_addr #14 {
+define internal fastcc void @DecideOverLiteralContextModeling(ptr nocapture noundef readonly %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i32 noundef %quality, i64 noundef %size_hint, ptr nocapture noundef writeonly %num_literal_contexts, ptr nocapture noundef writeonly %literal_context_map, ptr nocapture noundef %arena) unnamed_addr #13 {
 entry:
   %monogram_histo.i = alloca [3 x i32], align 4
   %two_prefix_histo.i = alloca [6 x i32], align 16
@@ -6983,7 +6982,7 @@ if.then.i111.i:                                   ; preds = %while.body.i84.i
   br label %FastLog2.exit113.i
 
 if.end.i108.i:                                    ; preds = %while.body.i84.i
-  %call.i110.i = tail call double @log2(double noundef %conv2.i88.i) #19
+  %call.i110.i = tail call double @log2(double noundef %conv2.i88.i) #18
   br label %FastLog2.exit113.i
 
 FastLog2.exit113.i:                               ; preds = %if.end.i108.i, %if.then.i111.i
@@ -7004,7 +7003,7 @@ if.then.i104.i:                                   ; preds = %FastLog2.exit113.i
   br label %FastLog2.exit.i
 
 if.end.i101.i:                                    ; preds = %FastLog2.exit113.i
-  %call.i103.i = tail call double @log2(double noundef %conv6.i95.i) #19
+  %call.i103.i = tail call double @log2(double noundef %conv6.i95.i) #18
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %if.end.i101.i, %if.then.i104.i
@@ -7029,7 +7028,7 @@ if.then.i120.i:                                   ; preds = %if.then10.i81.i
   br label %FastLog2.exit122.i
 
 if.end.i117.i:                                    ; preds = %if.then10.i81.i
-  %call.i119.i = tail call double @log2(double noundef %conv11.i82.i) #19
+  %call.i119.i = tail call double @log2(double noundef %conv11.i82.i) #18
   br label %FastLog2.exit122.i
 
 FastLog2.exit122.i:                               ; preds = %if.end.i117.i, %if.then.i120.i
@@ -7068,7 +7067,7 @@ if.then.i138.i:                                   ; preds = %while.body.i.i
   br label %FastLog2.exit140.i
 
 if.end.i135.i:                                    ; preds = %while.body.i.i
-  %call.i137.i = tail call double @log2(double noundef %conv2.i.i) #19
+  %call.i137.i = tail call double @log2(double noundef %conv2.i.i) #18
   br label %FastLog2.exit140.i
 
 FastLog2.exit140.i:                               ; preds = %if.end.i135.i, %if.then.i138.i
@@ -7089,7 +7088,7 @@ if.then.i129.i:                                   ; preds = %FastLog2.exit140.i
   br label %FastLog2.exit131.i
 
 if.end.i126.i:                                    ; preds = %FastLog2.exit140.i
-  %call.i128.i = tail call double @log2(double noundef %conv6.i.i) #19
+  %call.i128.i = tail call double @log2(double noundef %conv6.i.i) #18
   br label %FastLog2.exit131.i
 
 FastLog2.exit131.i:                               ; preds = %if.end.i126.i, %if.then.i129.i
@@ -7114,7 +7113,7 @@ if.then.i146.i:                                   ; preds = %if.then10.i.i
   br label %FastLog2.exit148.i
 
 if.end.i144.i:                                    ; preds = %if.then10.i.i
-  %call.i.i = tail call double @log2(double noundef %conv11.i.i) #19
+  %call.i.i = tail call double @log2(double noundef %conv11.i.i) #18
   br label %FastLog2.exit148.i
 
 FastLog2.exit148.i:                               ; preds = %if.end.i144.i, %if.then.i146.i
@@ -7239,7 +7238,7 @@ if.then.i177.i:                                   ; preds = %while.body.i150.i
   br label %FastLog2.exit179.i
 
 if.end.i174.i:                                    ; preds = %while.body.i150.i
-  %call.i176.i = tail call double @log2(double noundef %conv2.i154.i) #19
+  %call.i176.i = tail call double @log2(double noundef %conv2.i154.i) #18
   br label %FastLog2.exit179.i
 
 FastLog2.exit179.i:                               ; preds = %if.end.i174.i, %if.then.i177.i
@@ -7269,7 +7268,7 @@ if.then.i170.i:                                   ; preds = %odd_number_of_eleme
   br label %FastLog2.exit.i27
 
 if.end.i167.i:                                    ; preds = %odd_number_of_elements_left.i157.i
-  %call.i169.i = tail call double @log2(double noundef %conv6.i161.i) #19
+  %call.i169.i = tail call double @log2(double noundef %conv6.i161.i) #18
   br label %FastLog2.exit.i27
 
 FastLog2.exit.i27:                                ; preds = %if.end.i167.i, %if.then.i170.i
@@ -7293,7 +7292,7 @@ if.then.i186.i:                                   ; preds = %if.then10.i147.i
   br label %FastLog2.exit188.i
 
 if.end.i183.i:                                    ; preds = %if.then10.i147.i
-  %call.i185.i = tail call double @log2(double noundef %conv11.i148.i) #19
+  %call.i185.i = tail call double @log2(double noundef %conv11.i148.i) #18
   br label %FastLog2.exit188.i
 
 FastLog2.exit188.i:                               ; preds = %if.end.i183.i, %if.then.i186.i
@@ -7319,7 +7318,7 @@ if.then.i204.i:                                   ; preds = %while.body.i116.i
   br label %FastLog2.exit206.i
 
 if.end.i201.i:                                    ; preds = %while.body.i116.i
-  %call.i203.i = tail call double @log2(double noundef %conv2.i120.i) #19
+  %call.i203.i = tail call double @log2(double noundef %conv2.i120.i) #18
   br label %FastLog2.exit206.i
 
 FastLog2.exit206.i:                               ; preds = %if.end.i201.i, %if.then.i204.i
@@ -7349,7 +7348,7 @@ if.then.i195.i:                                   ; preds = %odd_number_of_eleme
   br label %FastLog2.exit197.i
 
 if.end.i192.i:                                    ; preds = %odd_number_of_elements_left.i123.i
-  %call.i194.i = tail call double @log2(double noundef %conv6.i127.i) #19
+  %call.i194.i = tail call double @log2(double noundef %conv6.i127.i) #18
   br label %FastLog2.exit197.i
 
 FastLog2.exit197.i:                               ; preds = %if.end.i192.i, %if.then.i195.i
@@ -7373,7 +7372,7 @@ if.then.i213.i:                                   ; preds = %if.then10.i113.i
   br label %FastLog2.exit215.i
 
 if.end.i210.i:                                    ; preds = %if.then10.i113.i
-  %call.i212.i = tail call double @log2(double noundef %conv11.i114.i) #19
+  %call.i212.i = tail call double @log2(double noundef %conv11.i114.i) #18
   br label %FastLog2.exit215.i
 
 FastLog2.exit215.i:                               ; preds = %if.end.i210.i, %if.then.i213.i
@@ -7400,7 +7399,7 @@ if.then.i231.i:                                   ; preds = %while.body.i82.i
   br label %FastLog2.exit233.i
 
 if.end.i228.i:                                    ; preds = %while.body.i82.i
-  %call.i230.i = tail call double @log2(double noundef %conv2.i86.i) #19
+  %call.i230.i = tail call double @log2(double noundef %conv2.i86.i) #18
   br label %FastLog2.exit233.i
 
 FastLog2.exit233.i:                               ; preds = %if.end.i228.i, %if.then.i231.i
@@ -7428,7 +7427,7 @@ if.then.i222.i:                                   ; preds = %odd_number_of_eleme
   br label %FastLog2.exit224.i
 
 if.end.i219.i:                                    ; preds = %odd_number_of_elements_left.i89.i
-  %call.i221.i = tail call double @log2(double noundef %conv6.i93.i) #19
+  %call.i221.i = tail call double @log2(double noundef %conv6.i93.i) #18
   br label %FastLog2.exit224.i
 
 FastLog2.exit224.i:                               ; preds = %if.end.i219.i, %if.then.i222.i
@@ -7453,7 +7452,7 @@ if.then.i240.i:                                   ; preds = %if.then10.i79.i
   br label %FastLog2.exit242.i
 
 if.end.i237.i:                                    ; preds = %if.then10.i79.i
-  %call.i239.i = tail call double @log2(double noundef %conv11.i80.i) #19
+  %call.i239.i = tail call double @log2(double noundef %conv11.i80.i) #18
   br label %FastLog2.exit242.i
 
 FastLog2.exit242.i:                               ; preds = %if.end.i237.i, %if.then.i240.i
@@ -7486,7 +7485,7 @@ if.then.i258.i:                                   ; preds = %while.body.i.i47
   br label %FastLog2.exit260.i
 
 if.end.i255.i:                                    ; preds = %while.body.i.i47
-  %call.i257.i = tail call double @log2(double noundef %conv2.i.i50) #19
+  %call.i257.i = tail call double @log2(double noundef %conv2.i.i50) #18
   br label %FastLog2.exit260.i
 
 FastLog2.exit260.i:                               ; preds = %if.end.i255.i, %if.then.i258.i
@@ -7516,7 +7515,7 @@ if.then.i249.i:                                   ; preds = %odd_number_of_eleme
   br label %FastLog2.exit251.i
 
 if.end.i246.i:                                    ; preds = %odd_number_of_elements_left.i.i
-  %call.i248.i = tail call double @log2(double noundef %conv6.i.i33) #19
+  %call.i248.i = tail call double @log2(double noundef %conv6.i.i33) #18
   br label %FastLog2.exit251.i
 
 FastLog2.exit251.i:                               ; preds = %if.end.i246.i, %if.then.i249.i
@@ -7540,7 +7539,7 @@ if.then.i266.i:                                   ; preds = %if.then10.i.i37
   br label %FastLog2.exit268.i
 
 if.end.i264.i:                                    ; preds = %if.then10.i.i37
-  %call.i.i39 = tail call double @log2(double noundef %conv11.i.i38) #19
+  %call.i.i39 = tail call double @log2(double noundef %conv11.i.i38) #18
   br label %FastLog2.exit268.i
 
 FastLog2.exit268.i:                               ; preds = %if.end.i264.i, %if.then.i266.i
@@ -7616,10 +7615,10 @@ declare hidden void @BrotliOptimizeHistograms(i32 noundef, ptr noundef) local_un
 declare hidden void @BrotliStoreMetaBlock(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log2(double noundef) local_unnamed_addr #15
+declare double @log2(double noundef) local_unnamed_addr #14
 
 declare hidden void @BrotliInitBlockSplit(ptr noundef) local_unnamed_addr #2
 
@@ -7628,52 +7627,51 @@ declare hidden void @BrotliDestroyBlockSplit(ptr noundef, ptr noundef) local_unn
 declare hidden void @BrotliInitSharedEncoderDictionary(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #17
+declare i64 @llvm.usub.sat.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nounwind }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

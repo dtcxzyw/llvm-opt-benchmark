@@ -4807,25 +4807,24 @@ _ZNKSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE12_M_check_lenEmPKc.ex
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 384307168202282325
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 384307168202282325, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
+  %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN5arrow10FutureImpl14CallbackRecordESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN5arrow10FutureImpl14CallbackRecordEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN5arrow10FutureImpl14CallbackRecordESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN5arrow10FutureImpl14CallbackRecordEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
   br label %_ZNSt12_Vector_baseIN5arrow10FutureImpl14CallbackRecordESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN5arrow10FutureImpl14CallbackRecordESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN5arrow10FutureImpl14CallbackRecordEEE8allocateERS3_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN5arrow10FutureImpl14CallbackRecordEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN5arrow10FutureImpl14CallbackRecordESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.arrow::FutureImpl::CallbackRecord", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = load i64, ptr %__args, align 8
-  store i64 %2, ptr %add.ptr, align 8
+  %3 = load i64, ptr %__args, align 8
+  store i64 %3, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
   %options.i.i.i = getelementptr inbounds %"struct.arrow::FutureImpl::CallbackRecord", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
   %options3.i.i.i = getelementptr inbounds %"struct.arrow::FutureImpl::CallbackRecord", ptr %__args, i64 0, i32 1
@@ -4838,8 +4837,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN5arrow10FutureImpl14CallbackRecordESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %3 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !50, !noalias !47
-  store i64 %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !47, !noalias !50
+  %4 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !50, !noalias !47
+  store i64 %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !47, !noalias !50
   %options.i.i.i.i.i.i.i = getelementptr inbounds %"struct.arrow::FutureImpl::CallbackRecord", ptr %__cur.07.i.i.i, i64 0, i32 1
   %options3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.arrow::FutureImpl::CallbackRecord", ptr %__first.addr.06.i.i.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %options.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %options3.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !52
@@ -4860,8 +4859,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN5arro
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  %4 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !57, !noalias !54
-  store i64 %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !54, !noalias !57
+  %5 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !57, !noalias !54
+  store i64 %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !54, !noalias !57
   %options.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.arrow::FutureImpl::CallbackRecord", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %options3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.arrow::FutureImpl::CallbackRecord", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %options.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %options3.i.i.i.i.i.i.i16, i64 16, i1 false), !alias.scope !59
@@ -9277,6 +9276,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

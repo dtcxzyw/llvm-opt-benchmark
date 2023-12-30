@@ -33,7 +33,7 @@ entry:
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_759UVector32C2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-if.end11.i:
+entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759UVector32E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %count = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 1
   store i32 0, ptr %count, align 8
@@ -43,12 +43,12 @@ if.end11.i:
   store i32 0, ptr %maxCapacity, align 8
   %elements = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
   store ptr null, ptr %elements, align 8
-  %call12.i2 = invoke noalias dereferenceable_or_null(32) ptr @uprv_malloc_75(i64 noundef 32) #13
+  %call12.i1 = invoke noalias dereferenceable_or_null(32) ptr @uprv_malloc_75(i64 noundef 32) #13
           to label %call12.i.noexc unwind label %lpad
 
-call12.i.noexc:                                   ; preds = %if.end11.i
-  store ptr %call12.i2, ptr %elements, align 8
-  %cmp14.i = icmp eq ptr %call12.i2, null
+call12.i.noexc:                                   ; preds = %entry
+  store ptr %call12.i1, ptr %elements, align 8
+  %cmp14.i = icmp eq ptr %call12.i1, null
   br i1 %cmp14.i, label %if.then15.i, label %if.else.i
 
 if.then15.i:                                      ; preds = %call12.i.noexc
@@ -62,7 +62,7 @@ if.else.i:                                        ; preds = %call12.i.noexc
 invoke.cont:                                      ; preds = %if.else.i, %if.then15.i
   ret void
 
-lpad:                                             ; preds = %if.end11.i
+lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
@@ -77,9 +77,8 @@ entry:
   %maxCapacity = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 3
   %0 = load i32, ptr %maxCapacity, align 8
   %cmp2 = icmp sgt i32 %0, 0
-  %cmp4 = icmp slt i32 %0, %spec.store.select
-  %or.cond = and i1 %cmp2, %cmp4
-  %initialCapacity.addr.0 = select i1 %or.cond, i32 %0, i32 %spec.store.select
+  %1 = tail call i32 @llvm.smin.i32(i32 %0, i32 %spec.store.select)
+  %initialCapacity.addr.0 = select i1 %cmp2, i32 %1, i32 %spec.store.select
   %cmp8 = icmp sgt i32 %initialCapacity.addr.0, 536870911
   br i1 %cmp8, label %if.then9, label %if.end11
 
@@ -255,18 +254,17 @@ if.end11.i.i:                                     ; preds = %if.end6.i.i
 if.end15.i.i:                                     ; preds = %if.end11.i.i
   %mul.i.i = shl nsw i32 %1, 1
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %mul.i.i, i32 %0)
-  %cmp24.i.i = icmp sgt i32 %spec.select.i.i, %3
-  %or.cond17.i.i = select i1 %cmp7.i.i, i1 %cmp24.i.i, i1 false
-  %newCap.1.i.i = select i1 %or.cond17.i.i, i32 %3, i32 %spec.select.i.i
+  %4 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i, i32 %3)
+  %newCap.1.i.i = select i1 %cmp7.i.i, i32 %4, i32 %spec.select.i.i
   %cmp28.i.i = icmp sgt i32 %newCap.1.i.i, 536870911
   br i1 %cmp28.i.i, label %if.end.sink.split, label %if.end30.i.i
 
 if.end30.i.i:                                     ; preds = %if.end15.i.i
   %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %4 = load ptr, ptr %elements.i.i, align 8
+  %5 = load ptr, ptr %elements.i.i, align 8
   %conv.i.i = zext nneg i32 %newCap.1.i.i to i64
   %mul31.i.i = shl nuw nsw i64 %conv.i.i, 2
-  %call32.i.i = tail call ptr @uprv_realloc_75(ptr noundef %4, i64 noundef %mul31.i.i) #16
+  %call32.i.i = tail call ptr @uprv_realloc_75(ptr noundef %5, i64 noundef %mul31.i.i) #16
   %cmp33.i.i = icmp eq ptr %call32.i.i, null
   br i1 %cmp33.i.i, label %if.end.sink.split, label %if.then
 
@@ -278,42 +276,41 @@ if.then:                                          ; preds = %if.end30.i.i
   br i1 %cmp.i7, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end3.i.i, %if.then
-  %5 = phi i32 [ %.pre, %if.then ], [ %0, %if.end3.i.i ], [ %0, %entry ]
-  %6 = phi i32 [ %newCap.1.i.i, %if.then ], [ %1, %if.end3.i.i ], [ %1, %entry ]
+  %6 = phi i32 [ %.pre, %if.then ], [ %0, %if.end3.i.i ], [ %0, %entry ]
+  %7 = phi i32 [ %newCap.1.i.i, %if.then ], [ %1, %if.end3.i.i ], [ %1, %entry ]
   %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 1
-  %7 = load i32, ptr %count.i, align 8
-  %cmp2.i = icmp slt i32 %7, %5
+  %8 = load i32, ptr %count.i, align 8
+  %cmp2.i = icmp slt i32 %8, %6
   br i1 %cmp2.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %cmp2.not.i.i = icmp slt i32 %6, %5
+  %cmp2.not.i.i = icmp slt i32 %7, %6
   br i1 %cmp2.not.i.i, label %if.end6.i.i.i, label %if.end5.i
 
 if.end6.i.i.i:                                    ; preds = %if.then3.i
   %maxCapacity.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 3
-  %8 = load i32, ptr %maxCapacity.i.i.i, align 8
-  %cmp7.i.i.i = icmp sgt i32 %8, 0
-  %cmp9.i.i.i = icmp slt i32 %8, %5
+  %9 = load i32, ptr %maxCapacity.i.i.i, align 8
+  %cmp7.i.i.i = icmp sgt i32 %9, 0
+  %cmp9.i.i.i = icmp slt i32 %9, %6
   %or.cond.i.i.i = and i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cmp13.i.i.i = icmp sgt i32 %6, 1073741823
+  %cmp13.i.i.i = icmp sgt i32 %7, 1073741823
   %or.cond.i8 = or i1 %cmp13.i.i.i, %or.cond.i.i.i
   br i1 %or.cond.i8, label %_ZN6icu_759UVector327setSizeEi.exit, label %if.end15.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %if.end6.i.i.i
-  %mul.i.i.i = shl nsw i32 %6, 1
-  %spec.select.i.i.i = tail call i32 @llvm.smax.i32(i32 %mul.i.i.i, i32 %5)
-  %cmp24.i.i.i = icmp sgt i32 %spec.select.i.i.i, %8
-  %or.cond17.i.i.i = select i1 %cmp7.i.i.i, i1 %cmp24.i.i.i, i1 false
-  %newCap.1.i.i.i = select i1 %or.cond17.i.i.i, i32 %8, i32 %spec.select.i.i.i
+  %mul.i.i.i = shl nsw i32 %7, 1
+  %spec.select.i.i.i = tail call i32 @llvm.smax.i32(i32 %mul.i.i.i, i32 %6)
+  %10 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %9)
+  %newCap.1.i.i.i = select i1 %cmp7.i.i.i, i32 %10, i32 %spec.select.i.i.i
   %cmp28.i.i.i = icmp sgt i32 %newCap.1.i.i.i, 536870911
   br i1 %cmp28.i.i.i, label %_ZN6icu_759UVector327setSizeEi.exit, label %if.end30.i.i.i
 
 if.end30.i.i.i:                                   ; preds = %if.end15.i.i.i
   %elements.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %9 = load ptr, ptr %elements.i.i.i, align 8
+  %11 = load ptr, ptr %elements.i.i.i, align 8
   %conv.i.i.i = zext nneg i32 %newCap.1.i.i.i to i64
   %mul31.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
-  %call32.i.i.i = tail call ptr @uprv_realloc_75(ptr noundef %9, i64 noundef %mul31.i.i.i) #16
+  %call32.i.i.i = tail call ptr @uprv_realloc_75(ptr noundef %11, i64 noundef %mul31.i.i.i) #16
   %cmp33.i.i.i = icmp eq ptr %call32.i.i.i, null
   br i1 %cmp33.i.i.i, label %_ZN6icu_759UVector327setSizeEi.exit, label %if.end35.i.i.i
 
@@ -324,27 +321,27 @@ if.end35.i.i.i:                                   ; preds = %if.end30.i.i.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end35.i.i.i, %if.then3.i
-  %10 = phi i32 [ %.pre.i, %if.end35.i.i.i ], [ %7, %if.then3.i ]
-  %cmp79.i = icmp slt i32 %10, %5
+  %12 = phi i32 [ %.pre.i, %if.end35.i.i.i ], [ %8, %if.then3.i ]
+  %cmp79.i = icmp slt i32 %12, %6
   br i1 %cmp79.i, label %for.body.lr.ph.i, label %if.end8.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end5.i
   %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %11 = sext i32 %10 to i64
-  %wide.trip.count.i = zext nneg i32 %5 to i64
+  %13 = sext i32 %12 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %11, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %12 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.i
+  %indvars.iv.i = phi i64 [ %13, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %14 = load ptr, ptr %elements.i, align 8
+  %arrayidx.i = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
   store i32 0, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %if.end8.i, label %for.body.i, !llvm.loop !4
 
 if.end8.i:                                        ; preds = %for.body.i, %if.end5.i, %if.end.i
-  store i32 %5, ptr %count.i, align 8
+  store i32 %6, ptr %count.i, align 8
   br label %_ZN6icu_759UVector327setSizeEi.exit
 
 _ZN6icu_759UVector327setSizeEi.exit:              ; preds = %if.end6.i.i.i, %if.end15.i.i.i, %if.end30.i.i.i, %if.end8.i
@@ -359,16 +356,16 @@ for.body.lr.ph:                                   ; preds = %_ZN6icu_759UVector3
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %13 = load ptr, ptr %elements, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
-  %14 = load i32, ptr %arrayidx, align 4
-  %15 = load ptr, ptr %elements4, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
-  store i32 %14, ptr %arrayidx6, align 4
+  %15 = load ptr, ptr %elements, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %16 = load i32, ptr %arrayidx, align 4
+  %17 = load ptr, ptr %elements4, align 8
+  %arrayidx6 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  store i32 %16, ptr %arrayidx6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %count, align 8
-  %17 = sext i32 %16 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %17
+  %18 = load i32, ptr %count, align 8
+  %19 = sext i32 %18 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %19
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !6
 
 if.end.sink.split:                                ; preds = %if.end30.i.i, %if.end15.i.i, %if.end11.i.i, %if.end6.i.i, %if.end.i.i
@@ -411,18 +408,17 @@ if.end6.i.i:                                      ; preds = %if.then3
 if.end15.i.i:                                     ; preds = %if.end6.i.i
   %mul.i.i = shl nsw i32 %1, 1
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %mul.i.i, i32 %newSize)
-  %cmp24.i.i = icmp sgt i32 %spec.select.i.i, %2
-  %or.cond17.i.i = select i1 %cmp7.i.i, i1 %cmp24.i.i, i1 false
-  %newCap.1.i.i = select i1 %or.cond17.i.i, i32 %2, i32 %spec.select.i.i
+  %3 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i, i32 %2)
+  %newCap.1.i.i = select i1 %cmp7.i.i, i32 %3, i32 %spec.select.i.i
   %cmp28.i.i = icmp sgt i32 %newCap.1.i.i, 536870911
   br i1 %cmp28.i.i, label %return, label %if.end30.i.i
 
 if.end30.i.i:                                     ; preds = %if.end15.i.i
   %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %3 = load ptr, ptr %elements.i.i, align 8
+  %4 = load ptr, ptr %elements.i.i, align 8
   %conv.i.i = zext nneg i32 %newCap.1.i.i to i64
   %mul31.i.i = shl nuw nsw i64 %conv.i.i, 2
-  %call32.i.i = tail call ptr @uprv_realloc_75(ptr noundef %3, i64 noundef %mul31.i.i) #16
+  %call32.i.i = tail call ptr @uprv_realloc_75(ptr noundef %4, i64 noundef %mul31.i.i) #16
   %cmp33.i.i = icmp eq ptr %call32.i.i, null
   br i1 %cmp33.i.i, label %return, label %if.end35.i.i
 
@@ -433,20 +429,20 @@ if.end35.i.i:                                     ; preds = %if.end30.i.i
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end35.i.i, %if.then3
-  %4 = phi i32 [ %.pre, %if.end35.i.i ], [ %0, %if.then3 ]
-  %cmp79 = icmp slt i32 %4, %newSize
+  %5 = phi i32 [ %.pre, %if.end35.i.i ], [ %0, %if.then3 ]
+  %cmp79 = icmp slt i32 %5, %newSize
   br i1 %cmp79, label %for.body.lr.ph, label %if.end8
 
 for.body.lr.ph:                                   ; preds = %if.end5
   %elements = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %5 = sext i32 %4 to i64
+  %6 = sext i32 %5 to i64
   %wide.trip.count = zext nneg i32 %newSize to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %5, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %6 = load ptr, ptr %elements, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %indvars.iv = phi i64 [ %6, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %7 = load ptr, ptr %elements, align 8
+  %arrayidx = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
   store i32 0, ptr %arrayidx, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -568,9 +564,8 @@ if.then14.i.i:                                    ; preds = %if.end11.i.i
 if.end15.i.i:                                     ; preds = %if.end11.i.i
   %mul.i.i = shl nsw i32 %1, 1
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %mul.i.i, i32 %add)
-  %cmp24.i.i = icmp sgt i32 %spec.select.i.i, %3
-  %or.cond17.i.i = select i1 %cmp7.i.i, i1 %cmp24.i.i, i1 false
-  %newCap.1.i.i = select i1 %or.cond17.i.i, i32 %3, i32 %spec.select.i.i
+  %4 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i, i32 %3)
+  %newCap.1.i.i = select i1 %cmp7.i.i, i32 %4, i32 %spec.select.i.i
   %cmp28.i.i = icmp sgt i32 %newCap.1.i.i, 536870911
   br i1 %cmp28.i.i, label %if.then29.i.i, label %if.end30.i.i
 
@@ -580,10 +575,10 @@ if.then29.i.i:                                    ; preds = %if.end15.i.i
 
 if.end30.i.i:                                     ; preds = %if.end15.i.i
   %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %4 = load ptr, ptr %elements.i.i, align 8
+  %5 = load ptr, ptr %elements.i.i, align 8
   %conv.i.i = zext nneg i32 %newCap.1.i.i to i64
   %mul31.i.i = shl nuw nsw i64 %conv.i.i, 2
-  %call32.i.i = tail call ptr @uprv_realloc_75(ptr noundef %4, i64 noundef %mul31.i.i) #16
+  %call32.i.i = tail call ptr @uprv_realloc_75(ptr noundef %5, i64 noundef %mul31.i.i) #16
   %cmp33.i.i = icmp eq ptr %call32.i.i, null
   br i1 %cmp33.i.i, label %if.then34.i.i, label %if.end35.i.i
 
@@ -598,35 +593,35 @@ if.end35.i.i:                                     ; preds = %if.end30.i.i
   br label %if.then
 
 if.then:                                          ; preds = %if.end35.i.i, %land.lhs.true3
-  %5 = phi i32 [ %.pre, %if.end35.i.i ], [ %0, %land.lhs.true3 ]
-  %cmp69 = icmp sgt i32 %5, %index
+  %6 = phi i32 [ %.pre, %if.end35.i.i ], [ %0, %land.lhs.true3 ]
+  %cmp69 = icmp sgt i32 %6, %index
   br i1 %cmp69, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
   %elements = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %6 = sext i32 %5 to i64
-  %7 = zext nneg i32 %index to i64
+  %7 = sext i32 %6 to i64
+  %8 = zext nneg i32 %index to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %6, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %8 = load ptr, ptr %elements, align 8
-  %9 = getelementptr i32, ptr %8, i64 %indvars.iv
-  %arrayidx = getelementptr i32, ptr %9, i64 -1
-  %10 = load i32, ptr %arrayidx, align 4
-  store i32 %10, ptr %9, align 4
+  %indvars.iv = phi i64 [ %7, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %9 = load ptr, ptr %elements, align 8
+  %10 = getelementptr i32, ptr %9, i64 %indvars.iv
+  %arrayidx = getelementptr i32, ptr %10, i64 -1
+  %11 = load i32, ptr %arrayidx, align 4
+  store i32 %11, ptr %10, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp6 = icmp sgt i64 %indvars.iv.next, %7
+  %cmp6 = icmp sgt i64 %indvars.iv.next, %8
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %if.then
   %elements10 = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %11 = load ptr, ptr %elements10, align 8
+  %12 = load ptr, ptr %elements10, align 8
   %idxprom11 = zext nneg i32 %index to i64
-  %arrayidx12 = getelementptr inbounds i32, ptr %11, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds i32, ptr %12, i64 %idxprom11
   store i32 %elem, ptr %arrayidx12, align 4
-  %12 = load i32, ptr %count, align 8
-  %inc = add nsw i32 %12, 1
+  %13 = load i32, ptr %count, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %count, align 8
   br label %if.end
 
@@ -1093,9 +1088,8 @@ if.then14:                                        ; preds = %if.end11
 if.end15:                                         ; preds = %if.end11
   %mul = shl nsw i32 %1, 1
   %spec.select = tail call i32 @llvm.smax.i32(i32 %mul, i32 %minimumCapacity)
-  %cmp24 = icmp sgt i32 %spec.select, %2
-  %or.cond17 = select i1 %cmp7, i1 %cmp24, i1 false
-  %newCap.1 = select i1 %or.cond17, i32 %2, i32 %spec.select
+  %3 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %2)
+  %newCap.1 = select i1 %cmp7, i32 %3, i32 %spec.select
   %cmp28 = icmp sgt i32 %newCap.1, 536870911
   br i1 %cmp28, label %if.then29, label %if.end30
 
@@ -1105,10 +1099,10 @@ if.then29:                                        ; preds = %if.end15
 
 if.end30:                                         ; preds = %if.end15
   %elements = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %3 = load ptr, ptr %elements, align 8
+  %4 = load ptr, ptr %elements, align 8
   %conv = zext nneg i32 %newCap.1 to i64
   %mul31 = shl nuw nsw i64 %conv, 2
-  %call32 = tail call ptr @uprv_realloc_75(ptr noundef %3, i64 noundef %mul31) #16
+  %call32 = tail call ptr @uprv_realloc_75(ptr noundef %4, i64 noundef %mul31) #16
   %cmp33 = icmp eq ptr %call32, null
   br i1 %cmp33, label %if.then34, label %if.end35
 
@@ -1248,9 +1242,8 @@ if.then14.i.i:                                    ; preds = %if.end11.i.i
 if.end15.i.i:                                     ; preds = %if.end11.i.i
   %mul.i.i = shl nsw i32 %3, 1
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %mul.i.i, i32 %add5)
-  %cmp24.i.i = icmp sgt i32 %spec.select.i.i, %5
-  %or.cond17.i.i = select i1 %cmp7.i.i, i1 %cmp24.i.i, i1 false
-  %newCap.1.i.i = select i1 %or.cond17.i.i, i32 %5, i32 %spec.select.i.i
+  %6 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i, i32 %5)
+  %newCap.1.i.i = select i1 %cmp7.i.i, i32 %6, i32 %spec.select.i.i
   %cmp28.i.i = icmp sgt i32 %newCap.1.i.i, 536870911
   br i1 %cmp28.i.i, label %if.then29.i.i, label %if.end30.i.i
 
@@ -1260,10 +1253,10 @@ if.then29.i.i:                                    ; preds = %if.end15.i.i
 
 if.end30.i.i:                                     ; preds = %if.end15.i.i
   %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %6 = load ptr, ptr %elements.i.i, align 8
+  %7 = load ptr, ptr %elements.i.i, align 8
   %conv.i.i = zext nneg i32 %newCap.1.i.i to i64
   %mul31.i.i = shl nuw nsw i64 %conv.i.i, 2
-  %call32.i.i = tail call ptr @uprv_realloc_75(ptr noundef %6, i64 noundef %mul31.i.i) #16
+  %call32.i.i = tail call ptr @uprv_realloc_75(ptr noundef %7, i64 noundef %mul31.i.i) #16
   %cmp33.i.i = icmp eq ptr %call32.i.i, null
   br i1 %cmp33.i.i, label %if.then34.i.i, label %if.end35.i.i
 
@@ -1278,8 +1271,8 @@ if.end35.i.i:                                     ; preds = %if.end30.i.i
   br label %if.then6
 
 if.then6:                                         ; preds = %if.end35.i.i, %if.end3.i.i, %while.end
-  %7 = phi i32 [ %.pre, %if.end35.i.i ], [ %0, %if.end3.i.i ], [ %0, %while.end ]
-  %cmp816 = icmp sgt i32 %7, %min.0.lcssa
+  %8 = phi i32 [ %.pre, %if.end35.i.i ], [ %0, %if.end3.i.i ], [ %0, %while.end ]
+  %cmp816 = icmp sgt i32 %8, %min.0.lcssa
   br i1 %cmp816, label %for.body.lr.ph, label %if.then6.for.end_crit_edge
 
 if.then6.for.end_crit_edge:                       ; preds = %if.then6
@@ -1288,29 +1281,29 @@ if.then6.for.end_crit_edge:                       ; preds = %if.then6
 
 for.body.lr.ph:                                   ; preds = %if.then6
   %elements9 = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %8 = sext i32 %7 to i64
-  %9 = sext i32 %min.0.lcssa to i64
+  %9 = sext i32 %8 to i64
+  %10 = sext i32 %min.0.lcssa to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %8, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %10 = load ptr, ptr %elements9, align 8
-  %11 = getelementptr i32, ptr %10, i64 %indvars.iv
-  %arrayidx11 = getelementptr i32, ptr %11, i64 -1
-  %12 = load i32, ptr %arrayidx11, align 4
-  store i32 %12, ptr %11, align 4
+  %indvars.iv = phi i64 [ %9, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %11 = load ptr, ptr %elements9, align 8
+  %12 = getelementptr i32, ptr %11, i64 %indvars.iv
+  %arrayidx11 = getelementptr i32, ptr %12, i64 -1
+  %13 = load i32, ptr %arrayidx11, align 4
+  store i32 %13, ptr %12, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp8 = icmp sgt i64 %indvars.iv.next, %9
+  %cmp8 = icmp sgt i64 %indvars.iv.next, %10
   br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %if.then6.for.end_crit_edge
-  %idxprom16.pre-phi = phi i64 [ %.pre19, %if.then6.for.end_crit_edge ], [ %9, %for.body ]
+  %idxprom16.pre-phi = phi i64 [ %.pre19, %if.then6.for.end_crit_edge ], [ %10, %for.body ]
   %elements15 = getelementptr inbounds %"class.icu_75::UVector32", ptr %this, i64 0, i32 4
-  %13 = load ptr, ptr %elements15, align 8
-  %arrayidx17 = getelementptr inbounds i32, ptr %13, i64 %idxprom16.pre-phi
+  %14 = load ptr, ptr %elements15, align 8
+  %arrayidx17 = getelementptr inbounds i32, ptr %14, i64 %idxprom16.pre-phi
   store i32 %tok, ptr %arrayidx17, align 4
-  %14 = load i32, ptr %count, align 8
-  %inc = add nsw i32 %14, 1
+  %15 = load i32, ptr %count, align 8
+  %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %count, align 8
   br label %if.end19
 
@@ -1320,6 +1313,9 @@ if.end19:                                         ; preds = %if.else.i, %if.then
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -25492,9 +25492,8 @@ _ZNKSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 14411518807585587
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 14411518807585587, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 14411518807585587)
+  %cond.i = select i1 %cmp7.i, i64 14411518807585587, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 640
@@ -25510,8 +25509,8 @@ _ZNSt16allocator_traitsISaIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTask
 _ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNSt16allocator_traitsISaIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEEEE8allocateERS6_m.exit.i, %_ZNKSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEESaIS5_EE12_M_check_lenEmPKc.exit
   %cond.i47 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.folly::MPMCQueue", ptr %cond.i47, i64 %sub.ptr.div.i
-  %2 = load i64, ptr %__args, align 8, !tbaa !146
-  invoke void @_ZN5folly9MPMCQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEC2Em(ptr noundef nonnull align 128 dereferenceable(640) %add.ptr, i64 noundef %2)
+  %3 = load i64, ptr %__args, align 8, !tbaa !146
+  invoke void @_ZN5folly9MPMCQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEC2Em(ptr noundef nonnull align 128 dereferenceable(640) %add.ptr, i64 noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEESaIS5_EE11_M_allocateEm.exit
@@ -25523,40 +25522,40 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !785)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !788)
-  %3 = load i64, ptr %__first.addr.07.i.i.i, align 128, !tbaa !763, !alias.scope !788, !noalias !785
-  store i64 %3, ptr %__cur.08.i.i.i, align 128, !tbaa !763, !alias.scope !785, !noalias !788
-  %4 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 1
-  %5 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 1
-  %6 = load ptr, ptr %5, align 8, !tbaa !47, !alias.scope !788, !noalias !785
-  store ptr %6, ptr %4, align 8, !tbaa !47, !alias.scope !785, !noalias !788
-  %7 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 2
-  %8 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 2
-  %9 = load i32, ptr %8, align 16, !tbaa !47, !alias.scope !788, !noalias !785
-  store i32 %9, ptr %7, align 16, !tbaa !47, !alias.scope !785, !noalias !788
+  %4 = load i64, ptr %__first.addr.07.i.i.i, align 128, !tbaa !763, !alias.scope !788, !noalias !785
+  store i64 %4, ptr %__cur.08.i.i.i, align 128, !tbaa !763, !alias.scope !785, !noalias !788
+  %5 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 1
+  %6 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !47, !alias.scope !788, !noalias !785
+  store ptr %7, ptr %5, align 8, !tbaa !47, !alias.scope !785, !noalias !788
+  %8 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 2
+  %9 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 2
+  %10 = load i32, ptr %9, align 16, !tbaa !47, !alias.scope !788, !noalias !785
+  store i32 %10, ptr %8, align 16, !tbaa !47, !alias.scope !785, !noalias !788
   %dstate_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 3
   %dstate_3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 3
-  %10 = load atomic i64, ptr %dstate_3.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
-  store i64 %10, ptr %dstate_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !785, !noalias !788
+  %11 = load atomic i64, ptr %dstate_3.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
+  store i64 %11, ptr %dstate_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !785, !noalias !788
   %dcapacity_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 4
   %dcapacity_4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 4
-  %11 = load atomic i64, ptr %dcapacity_4.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
-  store i64 %11, ptr %dcapacity_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !785, !noalias !788
+  %12 = load atomic i64, ptr %dcapacity_4.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
+  store i64 %12, ptr %dcapacity_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !785, !noalias !788
   %pushTicket_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 6
   %pushTicket_6.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 6
-  %12 = load atomic i64, ptr %pushTicket_6.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
-  store i64 %12, ptr %pushTicket_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !785, !noalias !788
+  %13 = load atomic i64, ptr %pushTicket_6.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
+  store i64 %13, ptr %pushTicket_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !785, !noalias !788
   %popTicket_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 8
   %popTicket_8.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 8
-  %13 = load atomic i64, ptr %popTicket_8.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
-  store i64 %13, ptr %popTicket_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !785, !noalias !788
+  %14 = load atomic i64, ptr %popTicket_8.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
+  store i64 %14, ptr %popTicket_.i.i.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !785, !noalias !788
   %pushSpinCutoff_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 10
   %pushSpinCutoff_10.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 10
-  %14 = load atomic i32, ptr %pushSpinCutoff_10.i.i.i.i.i.i.i.i monotonic, align 4, !alias.scope !788, !noalias !785
-  store i32 %14, ptr %pushSpinCutoff_.i.i.i.i.i.i.i.i, align 4, !tbaa !44, !alias.scope !785, !noalias !788
+  %15 = load atomic i32, ptr %pushSpinCutoff_10.i.i.i.i.i.i.i.i monotonic, align 4, !alias.scope !788, !noalias !785
+  store i32 %15, ptr %pushSpinCutoff_.i.i.i.i.i.i.i.i, align 4, !tbaa !44, !alias.scope !785, !noalias !788
   %popSpinCutoff_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i, i64 0, i32 12
   %popSpinCutoff_12.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i, i64 0, i32 12
-  %15 = load atomic i32, ptr %popSpinCutoff_12.i.i.i.i.i.i.i.i monotonic, align 4, !alias.scope !788, !noalias !785
-  store i32 %15, ptr %popSpinCutoff_.i.i.i.i.i.i.i.i, align 4, !tbaa !44, !alias.scope !785, !noalias !788
+  %16 = load atomic i32, ptr %popSpinCutoff_12.i.i.i.i.i.i.i.i monotonic, align 4, !alias.scope !788, !noalias !785
+  store i32 %16, ptr %popSpinCutoff_.i.i.i.i.i.i.i.i, align 4, !tbaa !44, !alias.scope !785, !noalias !788
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(20) %__first.addr.07.i.i.i, i8 0, i64 20, i1 false), !alias.scope !788, !noalias !785
   store atomic i64 0, ptr %dstate_3.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
   store atomic i64 0, ptr %dcapacity_4.i.i.i.i.i.i.i.i monotonic, align 8, !alias.scope !788, !noalias !785
@@ -25580,40 +25579,40 @@ for.body.i.i.i49:                                 ; preds = %_ZNSt6vectorIN5foll
   %__first.addr.07.i.i.i51 = phi ptr [ %incdec.ptr.i.i.i64, %for.body.i.i.i49 ], [ %__position.coerce, %_ZNSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !791)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !794)
-  %16 = load i64, ptr %__first.addr.07.i.i.i51, align 128, !tbaa !763, !alias.scope !794, !noalias !791
-  store i64 %16, ptr %__cur.08.i.i.i50, align 128, !tbaa !763, !alias.scope !791, !noalias !794
-  %17 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 1
-  %18 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 1
-  %19 = load ptr, ptr %18, align 8, !tbaa !47, !alias.scope !794, !noalias !791
-  store ptr %19, ptr %17, align 8, !tbaa !47, !alias.scope !791, !noalias !794
-  %20 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 2
-  %21 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 2
-  %22 = load i32, ptr %21, align 16, !tbaa !47, !alias.scope !794, !noalias !791
-  store i32 %22, ptr %20, align 16, !tbaa !47, !alias.scope !791, !noalias !794
+  %17 = load i64, ptr %__first.addr.07.i.i.i51, align 128, !tbaa !763, !alias.scope !794, !noalias !791
+  store i64 %17, ptr %__cur.08.i.i.i50, align 128, !tbaa !763, !alias.scope !791, !noalias !794
+  %18 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 1
+  %19 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !47, !alias.scope !794, !noalias !791
+  store ptr %20, ptr %18, align 8, !tbaa !47, !alias.scope !791, !noalias !794
+  %21 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 2
+  %22 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 2
+  %23 = load i32, ptr %22, align 16, !tbaa !47, !alias.scope !794, !noalias !791
+  store i32 %23, ptr %21, align 16, !tbaa !47, !alias.scope !791, !noalias !794
   %dstate_.i.i.i.i.i.i.i.i52 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 3
   %dstate_3.i.i.i.i.i.i.i.i53 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 3
-  %23 = load atomic i64, ptr %dstate_3.i.i.i.i.i.i.i.i53 monotonic, align 8, !alias.scope !794, !noalias !791
-  store i64 %23, ptr %dstate_.i.i.i.i.i.i.i.i52, align 8, !tbaa !43, !alias.scope !791, !noalias !794
+  %24 = load atomic i64, ptr %dstate_3.i.i.i.i.i.i.i.i53 monotonic, align 8, !alias.scope !794, !noalias !791
+  store i64 %24, ptr %dstate_.i.i.i.i.i.i.i.i52, align 8, !tbaa !43, !alias.scope !791, !noalias !794
   %dcapacity_.i.i.i.i.i.i.i.i54 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 4
   %dcapacity_4.i.i.i.i.i.i.i.i55 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 4
-  %24 = load atomic i64, ptr %dcapacity_4.i.i.i.i.i.i.i.i55 monotonic, align 8, !alias.scope !794, !noalias !791
-  store i64 %24, ptr %dcapacity_.i.i.i.i.i.i.i.i54, align 8, !tbaa !43, !alias.scope !791, !noalias !794
+  %25 = load atomic i64, ptr %dcapacity_4.i.i.i.i.i.i.i.i55 monotonic, align 8, !alias.scope !794, !noalias !791
+  store i64 %25, ptr %dcapacity_.i.i.i.i.i.i.i.i54, align 8, !tbaa !43, !alias.scope !791, !noalias !794
   %pushTicket_.i.i.i.i.i.i.i.i56 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 6
   %pushTicket_6.i.i.i.i.i.i.i.i57 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 6
-  %25 = load atomic i64, ptr %pushTicket_6.i.i.i.i.i.i.i.i57 monotonic, align 8, !alias.scope !794, !noalias !791
-  store i64 %25, ptr %pushTicket_.i.i.i.i.i.i.i.i56, align 8, !tbaa !43, !alias.scope !791, !noalias !794
+  %26 = load atomic i64, ptr %pushTicket_6.i.i.i.i.i.i.i.i57 monotonic, align 8, !alias.scope !794, !noalias !791
+  store i64 %26, ptr %pushTicket_.i.i.i.i.i.i.i.i56, align 8, !tbaa !43, !alias.scope !791, !noalias !794
   %popTicket_.i.i.i.i.i.i.i.i58 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 8
   %popTicket_8.i.i.i.i.i.i.i.i59 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 8
-  %26 = load atomic i64, ptr %popTicket_8.i.i.i.i.i.i.i.i59 monotonic, align 8, !alias.scope !794, !noalias !791
-  store i64 %26, ptr %popTicket_.i.i.i.i.i.i.i.i58, align 8, !tbaa !43, !alias.scope !791, !noalias !794
+  %27 = load atomic i64, ptr %popTicket_8.i.i.i.i.i.i.i.i59 monotonic, align 8, !alias.scope !794, !noalias !791
+  store i64 %27, ptr %popTicket_.i.i.i.i.i.i.i.i58, align 8, !tbaa !43, !alias.scope !791, !noalias !794
   %pushSpinCutoff_.i.i.i.i.i.i.i.i60 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 10
   %pushSpinCutoff_10.i.i.i.i.i.i.i.i61 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 10
-  %27 = load atomic i32, ptr %pushSpinCutoff_10.i.i.i.i.i.i.i.i61 monotonic, align 4, !alias.scope !794, !noalias !791
-  store i32 %27, ptr %pushSpinCutoff_.i.i.i.i.i.i.i.i60, align 4, !tbaa !44, !alias.scope !791, !noalias !794
+  %28 = load atomic i32, ptr %pushSpinCutoff_10.i.i.i.i.i.i.i.i61 monotonic, align 4, !alias.scope !794, !noalias !791
+  store i32 %28, ptr %pushSpinCutoff_.i.i.i.i.i.i.i.i60, align 4, !tbaa !44, !alias.scope !791, !noalias !794
   %popSpinCutoff_.i.i.i.i.i.i.i.i62 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__cur.08.i.i.i50, i64 0, i32 12
   %popSpinCutoff_12.i.i.i.i.i.i.i.i63 = getelementptr inbounds %"class.folly::detail::MPMCQueueBase", ptr %__first.addr.07.i.i.i51, i64 0, i32 12
-  %28 = load atomic i32, ptr %popSpinCutoff_12.i.i.i.i.i.i.i.i63 monotonic, align 4, !alias.scope !794, !noalias !791
-  store i32 %28, ptr %popSpinCutoff_.i.i.i.i.i.i.i.i62, align 4, !tbaa !44, !alias.scope !791, !noalias !794
+  %29 = load atomic i32, ptr %popSpinCutoff_12.i.i.i.i.i.i.i.i63 monotonic, align 4, !alias.scope !794, !noalias !791
+  store i32 %29, ptr %popSpinCutoff_.i.i.i.i.i.i.i.i62, align 4, !tbaa !44, !alias.scope !791, !noalias !794
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(20) %__first.addr.07.i.i.i51, i8 0, i64 20, i1 false), !alias.scope !794, !noalias !791
   store atomic i64 0, ptr %dstate_3.i.i.i.i.i.i.i.i53 monotonic, align 8, !alias.scope !794, !noalias !791
   store atomic i64 0, ptr %dcapacity_4.i.i.i.i.i.i.i.i55 monotonic, align 8, !alias.scope !794, !noalias !791
@@ -25644,10 +25643,10 @@ _ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6ato
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEESaIS5_EE11_M_allocateEm.exit
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #23
+  %31 = extractvalue { ptr, i32 } %30, 0
+  %32 = tail call ptr @__cxa_begin_catch(ptr %31) #23
   %tobool.not = icmp eq ptr %cond.i47, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i71
 
@@ -25656,7 +25655,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont20 unwind label %terminate.lpad
@@ -25670,13 +25669,13 @@ invoke.cont19:                                    ; preds = %if.then.i71, %if.en
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %33
 
 terminate.lpad:                                   ; preds = %lpad17
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #34
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #34
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19

@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [98 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/boards.h\00", align 1
 @__func__.MACHINE_GET_CLASS = private unnamed_addr constant [18 x i8] c"MACHINE_GET_CLASS\00", align 1
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @riscv_socket_count(ptr nocapture noundef readonly %ms) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
@@ -86,9 +86,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %node_id = getelementptr %struct.CPUArchIdList, ptr %3, i64 0, i32 1, i64 %idxprom, i32 2, i32 1
   %4 = load i64, ptr %node_id, align 8
   %cmp4.not = icmp eq i64 %4, %conv
-  %cmp8 = icmp slt i32 %i.013, %first_hartid.014
-  %or.cond = select i1 %cmp4.not, i1 %cmp8, i1 false
-  %first_hartid.1 = select i1 %or.cond, i32 %i.013, i32 %first_hartid.014
+  %5 = tail call i32 @llvm.smin.i32(i32 %i.013, i32 %first_hartid.014)
+  %first_hartid.1 = select i1 %cmp4.not, i32 %5, i32 %first_hartid.014
   %inc = add nuw i32 %i.013, 1
   %exitcond.not = icmp eq i32 %inc, %0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -146,9 +145,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %node_id = getelementptr %struct.CPUArchIdList, ptr %3, i64 0, i32 1, i64 %idxprom, i32 2, i32 1
   %5 = load i64, ptr %node_id, align 8
   %cmp4.not = icmp eq i64 %5, %conv
-  %cmp8 = icmp sgt i32 %i.013, %last_hartid.014
-  %or.cond = select i1 %cmp4.not, i1 %cmp8, i1 false
-  %last_hartid.1 = select i1 %or.cond, i32 %i.013, i32 %last_hartid.014
+  %6 = tail call i32 @llvm.smax.i32(i32 %i.013, i32 %last_hartid.014)
+  %last_hartid.1 = select i1 %cmp4.not, i32 %6, i32 %last_hartid.014
   %inc = add nuw i32 %i.013, 1
   %exitcond.not = icmp eq i32 %inc, %2
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -205,9 +203,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %node_id.i = getelementptr %struct.CPUArchIdList, ptr %4, i64 0, i32 1, i64 %idxprom.i, i32 2, i32 1
   %5 = load i64, ptr %node_id.i, align 8
   %cmp4.not.i = icmp eq i64 %5, %conv.i
-  %cmp8.i = icmp slt i32 %i.013.i, %first_hartid.014.i
-  %or.cond.i = select i1 %cmp4.not.i, i1 %cmp8.i, i1 false
-  %first_hartid.1.i = select i1 %or.cond.i, i32 %i.013.i, i32 %first_hartid.014.i
+  %6 = tail call i32 @llvm.smin.i32(i32 %i.013.i, i32 %first_hartid.014.i)
+  %first_hartid.1.i = select i1 %cmp4.not.i, i32 %6, i32 %first_hartid.014.i
   %inc.i = add nuw i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %3
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -215,26 +212,25 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i
   %cmp14.i = icmp uge i32 %first_hartid.1.i, %3
   %cmp = icmp slt i32 %first_hartid.1.i, 0
-  %or.cond71 = or i1 %cmp14.i, %cmp
-  br i1 %or.cond71, label %return, label %for.body.i20
+  %or.cond69 = or i1 %cmp14.i, %cmp
+  br i1 %or.cond69, label %return, label %for.body.i20
 
 for.body.i20:                                     ; preds = %for.end.i, %for.body.i20
   %last_hartid.014.i = phi i32 [ %last_hartid.1.i, %for.body.i20 ], [ -1, %for.end.i ]
-  %i.013.i21 = phi i32 [ %inc.i27, %for.body.i20 ], [ 0, %for.end.i ]
+  %i.013.i21 = phi i32 [ %inc.i25, %for.body.i20 ], [ 0, %for.end.i ]
   %idxprom.i22 = sext i32 %i.013.i21 to i64
   %node_id.i23 = getelementptr %struct.CPUArchIdList, ptr %4, i64 0, i32 1, i64 %idxprom.i22, i32 2, i32 1
-  %6 = load i64, ptr %node_id.i23, align 8
-  %cmp4.not.i24 = icmp eq i64 %6, %conv.i
-  %cmp8.i25 = icmp sgt i32 %i.013.i21, %last_hartid.014.i
-  %or.cond.i26 = select i1 %cmp4.not.i24, i1 %cmp8.i25, i1 false
-  %last_hartid.1.i = select i1 %or.cond.i26, i32 %i.013.i21, i32 %last_hartid.014.i
-  %inc.i27 = add nuw i32 %i.013.i21, 1
-  %exitcond.not.i28 = icmp eq i32 %inc.i27, %3
-  br i1 %exitcond.not.i28, label %riscv_socket_last_hartid.exit, label %for.body.i20, !llvm.loop !7
+  %7 = load i64, ptr %node_id.i23, align 8
+  %cmp4.not.i24 = icmp eq i64 %7, %conv.i
+  %8 = tail call i32 @llvm.smax.i32(i32 %i.013.i21, i32 %last_hartid.014.i)
+  %last_hartid.1.i = select i1 %cmp4.not.i24, i32 %8, i32 %last_hartid.014.i
+  %inc.i25 = add nuw i32 %i.013.i21, 1
+  %exitcond.not.i26 = icmp eq i32 %inc.i25, %3
+  br i1 %exitcond.not.i26, label %riscv_socket_last_hartid.exit, label %for.body.i20, !llvm.loop !7
 
 riscv_socket_last_hartid.exit:                    ; preds = %for.body.i20
-  %cmp14.i30 = icmp ult i32 %last_hartid.1.i, %3
-  %cond19.i = select i1 %cmp14.i30, i32 %last_hartid.1.i, i32 -1
+  %cmp14.i28 = icmp ult i32 %last_hartid.1.i, %3
+  %cond19.i = select i1 %cmp14.i28, i32 %last_hartid.1.i, i32 -1
   %cmp5 = icmp slt i32 %cond19.i, 0
   %cmp8 = icmp sgt i32 %first_hartid.1.i, %cond19.i
   %or.cond = or i1 %cmp5, %cmp8
@@ -286,9 +282,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %node_id.i = getelementptr %struct.CPUArchIdList, ptr %3, i64 0, i32 1, i64 %idxprom.i, i32 2, i32 1
   %4 = load i64, ptr %node_id.i, align 8
   %cmp4.not.i = icmp eq i64 %4, %conv.i
-  %cmp8.i = icmp slt i32 %i.013.i, %first_hartid.014.i
-  %or.cond.i = select i1 %cmp4.not.i, i1 %cmp8.i, i1 false
-  %first_hartid.1.i = select i1 %or.cond.i, i32 %i.013.i, i32 %first_hartid.014.i
+  %5 = tail call i32 @llvm.smin.i32(i32 %i.013.i, i32 %first_hartid.014.i)
+  %first_hartid.1.i = select i1 %cmp4.not.i, i32 %5, i32 %first_hartid.014.i
   %inc.i = add nuw i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %2
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -301,52 +296,51 @@ for.end.i:                                        ; preds = %for.body.i
 
 for.body.i21:                                     ; preds = %for.end.i, %for.body.i21
   %last_hartid.014.i = phi i32 [ %last_hartid.1.i, %for.body.i21 ], [ -1, %for.end.i ]
-  %i.013.i22 = phi i32 [ %inc.i28, %for.body.i21 ], [ 0, %for.end.i ]
+  %i.013.i22 = phi i32 [ %inc.i26, %for.body.i21 ], [ 0, %for.end.i ]
   %idxprom.i23 = sext i32 %i.013.i22 to i64
   %node_id.i24 = getelementptr %struct.CPUArchIdList, ptr %3, i64 0, i32 1, i64 %idxprom.i23, i32 2, i32 1
-  %5 = load i64, ptr %node_id.i24, align 8
-  %cmp4.not.i25 = icmp eq i64 %5, %conv.i
-  %cmp8.i26 = icmp sgt i32 %i.013.i22, %last_hartid.014.i
-  %or.cond.i27 = select i1 %cmp4.not.i25, i1 %cmp8.i26, i1 false
-  %last_hartid.1.i = select i1 %or.cond.i27, i32 %i.013.i22, i32 %last_hartid.014.i
-  %inc.i28 = add nuw i32 %i.013.i22, 1
-  %exitcond.not.i29 = icmp eq i32 %inc.i28, %2
-  br i1 %exitcond.not.i29, label %for.end.i30, label %for.body.i21, !llvm.loop !7
+  %6 = load i64, ptr %node_id.i24, align 8
+  %cmp4.not.i25 = icmp eq i64 %6, %conv.i
+  %7 = tail call i32 @llvm.smax.i32(i32 %i.013.i22, i32 %last_hartid.014.i)
+  %last_hartid.1.i = select i1 %cmp4.not.i25, i32 %7, i32 %last_hartid.014.i
+  %inc.i26 = add nuw i32 %i.013.i22, 1
+  %exitcond.not.i27 = icmp eq i32 %inc.i26, %2
+  br i1 %exitcond.not.i27, label %for.end.i28, label %for.body.i21, !llvm.loop !7
 
-for.end.i30:                                      ; preds = %for.body.i21
-  %cmp14.i31 = icmp uge i32 %last_hartid.1.i, %2
+for.end.i28:                                      ; preds = %for.body.i21
+  %cmp14.i29 = icmp uge i32 %last_hartid.1.i, %2
   %cmp6 = icmp slt i32 %last_hartid.1.i, 0
-  %or.cond77 = or i1 %cmp14.i31, %cmp6
-  br i1 %or.cond77, label %return, label %for.cond.preheader
+  %or.cond75 = or i1 %cmp14.i29, %cmp6
+  br i1 %or.cond75, label %return, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %for.end.i30
-  %cmp9.not74 = icmp sgt i32 %first_hartid.1.i, %last_hartid.1.i
-  br i1 %cmp9.not74, label %return, label %for.body.lr.ph
+for.cond.preheader:                               ; preds = %for.end.i28
+  %cmp9.not72 = icmp sgt i32 %first_hartid.1.i, %last_hartid.1.i
+  br i1 %cmp9.not72, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %possible_cpus = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 28
-  %6 = load ptr, ptr %possible_cpus, align 8
+  %8 = load ptr, ptr %possible_cpus, align 8
   %conv = sext i32 %socket_id to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
-  %i.075 = phi i32 [ %first_hartid.1.i, %for.body.lr.ph ], [ %inc, %for.body ]
-  %idxprom = sext i32 %i.075 to i64
-  %node_id = getelementptr %struct.CPUArchIdList, ptr %6, i64 0, i32 1, i64 %idxprom, i32 2, i32 1
-  %7 = load i64, ptr %node_id, align 8
-  %cmp10.not = icmp eq i64 %7, %conv
-  %inc = add i32 %i.075, 1
+  %i.073 = phi i32 [ %first_hartid.1.i, %for.body.lr.ph ], [ %inc, %for.body ]
+  %idxprom = sext i32 %i.073 to i64
+  %node_id = getelementptr %struct.CPUArchIdList, ptr %8, i64 0, i32 1, i64 %idxprom, i32 2, i32 1
+  %9 = load i64, ptr %node_id, align 8
+  %cmp10.not = icmp eq i64 %9, %conv
+  %inc = add i32 %i.073, 1
   %cmp9.not = icmp sle i32 %inc, %last_hartid.1.i
-  %or.cond78.not = select i1 %cmp10.not, i1 %cmp9.not, i1 false
-  br i1 %or.cond78.not, label %for.body, label %return, !llvm.loop !8
+  %or.cond76.not = select i1 %cmp10.not, i1 %cmp9.not, i1 false
+  br i1 %or.cond76.not, label %for.body, label %return, !llvm.loop !8
 
-return:                                           ; preds = %for.body, %for.cond.preheader, %for.cond.preheader.i, %for.end.i30, %for.end.i, %if.then
-  %retval.0 = phi i1 [ %tobool.not, %if.then ], [ false, %for.end.i ], [ false, %for.end.i30 ], [ false, %for.cond.preheader.i ], [ true, %for.cond.preheader ], [ %cmp10.not, %for.body ]
+return:                                           ; preds = %for.body, %for.cond.preheader, %for.cond.preheader.i, %for.end.i28, %for.end.i, %if.then
+  %retval.0 = phi i1 [ %tobool.not, %if.then ], [ false, %for.end.i ], [ false, %for.end.i28 ], [ false, %for.cond.preheader.i ], [ true, %for.cond.preheader ], [ %cmp10.not, %for.body ]
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @riscv_socket_mem_offset(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
+define dso_local i64 @riscv_socket_mem_offset(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -394,7 +388,7 @@ return:                                           ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @riscv_socket_mem_size(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #3 {
+define dso_local i64 @riscv_socket_mem_size(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -434,7 +428,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_socket_fdt_write_id(ptr nocapture noundef readonly %ms, ptr noundef %node_name, i32 noundef %socket_id) local_unnamed_addr #4 {
+define dso_local void @riscv_socket_fdt_write_id(ptr nocapture noundef readonly %ms, ptr noundef %node_name, i32 noundef %socket_id) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -449,17 +443,17 @@ numa_enabled.exit:                                ; preds = %entry
 if.then:                                          ; preds = %numa_enabled.exit
   %fdt = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 1
   %2 = load ptr, ptr %fdt, align 8
-  %call1 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %2, ptr noundef %node_name, ptr noundef nonnull @.str, i32 noundef %socket_id) #11
+  %call1 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %2, ptr noundef %node_name, ptr noundef nonnull @.str, i32 noundef %socket_id) #9
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %numa_enabled.exit
   ret void
 }
 
-declare i32 @qemu_fdt_setprop_cell(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @qemu_fdt_setprop_cell(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_socket_fdt_write_distance_matrix(ptr nocapture noundef readonly %ms) local_unnamed_addr #4 {
+define dso_local void @riscv_socket_fdt_write_distance_matrix(ptr nocapture noundef readonly %ms) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -482,7 +476,7 @@ riscv_socket_count.exit32:                        ; preds = %land.lhs.true
   %mul = mul i32 %1, 12
   %mul3 = mul i32 %mul, %1
   %conv5 = zext i32 %mul3 to i64
-  %call6 = tail call noalias ptr @g_malloc0(i64 noundef %conv5) #12
+  %call6 = tail call noalias ptr @g_malloc0(i64 noundef %conv5) #10
   %ms.val.i33 = load ptr, ptr %0, align 8
   %ms.val.i33.fr = freeze ptr %ms.val.i33
   %tobool.not.i.i34 = icmp eq ptr %ms.val.i33.fr, null
@@ -559,12 +553,12 @@ for.inc33.split:                                  ; preds = %numa_enabled.exit.i
 for.end35:                                        ; preds = %for.inc33.split, %for.cond9.preheader.us.preheader, %riscv_socket_count.exit32.split
   %fdt = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 1
   %18 = load ptr, ptr %fdt, align 8
-  %call36 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %18, ptr noundef nonnull @.str.1) #11
+  %call36 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %18, ptr noundef nonnull @.str.1) #9
   %19 = load ptr, ptr %fdt, align 8
-  %call38 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #11
+  %call38 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #9
   %20 = load ptr, ptr %fdt, align 8
-  %call40 = tail call i32 @qemu_fdt_setprop(ptr noundef %20, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef %call6, i32 noundef %mul3) #11
-  tail call void @g_free(ptr noundef %call6) #11
+  %call40 = tail call i32 @qemu_fdt_setprop(ptr noundef %20, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef %call6, i32 noundef %mul3) #9
+  tail call void @g_free(ptr noundef %call6) #9
   br label %if.end
 
 if.end:                                           ; preds = %entry, %for.end35, %land.lhs.true, %numa_enabled.exit
@@ -572,30 +566,30 @@ if.end:                                           ; preds = %entry, %for.end35, 
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 
-declare i32 @qemu_fdt_add_subnode(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @qemu_fdt_add_subnode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @qemu_fdt_setprop_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @qemu_fdt_setprop_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @qemu_fdt_setprop(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @qemu_fdt_setprop(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @g_free(ptr noundef) local_unnamed_addr #5
+declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_numa_cpu_index_to_props(ptr noalias nocapture writeonly sret(%struct.CpuInstanceProperties) align 8 %agg.result, ptr noundef %ms, i32 noundef %cpu_index) local_unnamed_addr #4 {
+define dso_local void @riscv_numa_cpu_index_to_props(ptr noalias nocapture writeonly sret(%struct.CpuInstanceProperties) align 8 %agg.result, ptr noundef %ms, i32 noundef %cpu_index) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %ms) #11
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #11
+  %call.i = tail call ptr @object_get_class(ptr noundef %ms) #9
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #9
   %possible_cpu_arch_ids = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 47
   %0 = load ptr, ptr %possible_cpu_arch_ids, align 8
-  %call1 = tail call ptr %0(ptr noundef %ms) #11
+  %call1 = tail call ptr %0(ptr noundef %ms) #9
   %1 = load i32, ptr %call1, align 8
   %cmp = icmp ugt i32 %1, %cpu_index
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 202, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_numa_cpu_index_to_props) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 202, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_numa_cpu_index_to_props) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -606,13 +600,13 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @riscv_numa_get_default_cpu_node_id(ptr nocapture noundef readonly %ms, i32 noundef %idx) local_unnamed_addr #4 {
+define dso_local i64 @riscv_numa_get_default_cpu_node_id(ptr nocapture noundef readonly %ms, i32 noundef %idx) local_unnamed_addr #2 {
 entry:
   %numa_state = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 31
   %0 = load ptr, ptr %numa_state, align 8
@@ -623,8 +617,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, i32 noundef %1, i32 noundef %2) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, i32 noundef %1, i32 noundef %2) #9
+  tail call void @exit(i32 noundef 1) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -649,13 +643,13 @@ if.end23:                                         ; preds = %if.then7, %if.then1
   ret i64 %nidx.0
 }
 
-declare void @error_report(ptr noundef, ...) local_unnamed_addr #5
+declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @riscv_numa_possible_cpu_arch_ids(ptr nocapture noundef %ms) local_unnamed_addr #4 {
+define dso_local ptr @riscv_numa_possible_cpu_arch_ids(ptr nocapture noundef %ms) local_unnamed_addr #2 {
 entry:
   %max_cpus1 = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 8
   %0 = load i32, ptr %max_cpus1, align 8
@@ -670,14 +664,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, i32 noundef 232, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_numa_possible_cpu_arch_ids) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, i32 noundef 232, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_numa_possible_cpu_arch_ids) #11
   unreachable
 
 if.end5:                                          ; preds = %entry
   %conv = zext i32 %0 to i64
   %mul = mul nuw nsw i64 %conv, 160
   %add = or disjoint i64 %mul, 8
-  %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #12
+  %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #10
   store ptr %call, ptr %possible_cpus, align 8
   store i32 %0, ptr %call, align 8
   %cmp1122 = icmp sgt i32 %0, 0
@@ -715,32 +709,36 @@ return:                                           ; preds = %for.body, %if.end5,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #9
+declare i32 @llvm.bswap.i32(i32) #7
 
-declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @object_get_class(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare ptr @object_get_class(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.umax.i32(i32, i32) #8
 
-attributes #0 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { noreturn nounwind }
+attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

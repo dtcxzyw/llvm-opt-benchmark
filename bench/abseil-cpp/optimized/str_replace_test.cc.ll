@@ -13271,9 +13271,8 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
@@ -13285,18 +13284,18 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %__args, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 8
-  %2 = load ptr, ptr %__args1, align 8
-  %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
-  %3 = load i64, ptr %__args3, align 8
+  %3 = load ptr, ptr %__args1, align 8
+  %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
+  %4 = load i64, ptr %__args3, align 8
   store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %add.ptr, align 8
   %old_str.sroa.2.0.old.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %agg.tmp.sroa.2.0.copyload.i.i, ptr %old_str.sroa.2.0.old.sroa_idx.i.i.i, align 8
   %replacement.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   store i64 %call.i.i.i.i, ptr %replacement.i.i.i, align 8
   %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1
-  store ptr %2, ptr %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i, align 8
+  store ptr %3, ptr %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i, align 8
   %offset.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
-  store i64 %3, ptr %offset.i.i.i, align 8
+  store i64 %4, ptr %offset.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
@@ -14120,9 +14119,8 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
@@ -14137,7 +14135,7 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %agg.tmp6.sroa.0.0.copyload.i.i = load i64, ptr %__args1, align 8
   %agg.tmp6.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
   %agg.tmp6.sroa.2.0.copyload.i.i = load ptr, ptr %agg.tmp6.sroa.2.0..sroa_idx.i.i, align 8
-  %2 = load i64, ptr %__args3, align 8
+  %3 = load i64, ptr %__args3, align 8
   store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %add.ptr, align 8
   %old_str.sroa.2.0.old.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %agg.tmp.sroa.2.0.copyload.i.i, ptr %old_str.sroa.2.0.old.sroa_idx.i.i.i, align 8
@@ -14146,7 +14144,7 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1
   store ptr %agg.tmp6.sroa.2.0.copyload.i.i, ptr %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i, align 8
   %offset.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
-  store i64 %2, ptr %offset.i.i.i, align 8
+  store i64 %3, ptr %offset.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
@@ -14416,39 +14414,38 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %invoke.cont, label %_ZNSt16allocator_traitsISaIN4absl16strings_internal18ViableSubstitutionEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4absl16strings_internal18ViableSubstitutionEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN4absl16strings_internal18ViableSubstitutionEEE8allocateERS3_m.exit.i, %_ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_lenEmPKc.exit
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4absl16strings_internal18ViableSubstitutionEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_lenEmPKc.exit ]
+invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_lenEmPKc.exit
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %cond.i17, i64 %sub.ptr.div.i
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %__args, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 8
   %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__args1) #18
-  %2 = extractvalue { i64, ptr } %call.i.i, 0
-  %3 = extractvalue { i64, ptr } %call.i.i, 1
-  %4 = load i64, ptr %__args3, align 8
+  %3 = extractvalue { i64, ptr } %call.i.i, 0
+  %4 = extractvalue { i64, ptr } %call.i.i, 1
+  %5 = load i64, ptr %__args3, align 8
   store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %add.ptr, align 8
   %old_str.sroa.2.0.old.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %agg.tmp.sroa.2.0.copyload.i.i, ptr %old_str.sroa.2.0.old.sroa_idx.i.i.i, align 8
   %replacement.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
-  store i64 %2, ptr %replacement.i.i.i, align 8
+  store i64 %3, ptr %replacement.i.i.i, align 8
   %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 1
-  store ptr %3, ptr %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i, align 8
+  store ptr %4, ptr %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i, align 8
   %offset.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %cond.i17, i64 %sub.ptr.div.i, i32 2
-  store i64 %4, ptr %offset.i.i.i, align 8
+  store i64 %5, ptr %offset.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
@@ -14592,22 +14589,21 @@ _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESa
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 144115188075855871
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 144115188075855871, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 144115188075855871)
+  %cond.i = select i1 %cmp7.i, i64 144115188075855871, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS8_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS8_m.exit.i: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 6
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS8_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE8allocateERS8_m.exit.i ], [ null, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.std::pair.29", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #18
   %second.i.i.i = getelementptr inbounds %"struct.std::pair.29", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
@@ -15356,7 +15352,7 @@ lpad.loopexit.split.us:                           ; preds = %if.end.i.i.i.us
   br label %lpad
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %5 = phi ptr [ %19, %for.inc ], [ %agg.result.promoted, %for.body.lr.ph ]
+  %5 = phi ptr [ %20, %for.inc ], [ %agg.result.promoted, %for.body.lr.ph ]
   %__begin0.sroa.0.0126 = phi ptr [ %incdec.ptr.i34, %for.inc ], [ %1, %for.body.lr.ph ]
   %add.ptr30.i119125 = phi ptr [ %add.ptr30.i118, %for.inc ], [ %_M_end_of_storage.i.i.promoted, %for.body.lr.ph ]
   %call5.i.i.i.i67122124 = phi ptr [ %call5.i.i.i.i67121, %for.inc ], [ %agg.result.promoted, %for.body.lr.ph ]
@@ -15517,9 +15513,8 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i36 = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i36, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i36, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i36
+  %13 = call i64 @llvm.umin.i64(i64 %add.i.i36, i64 230584300921369395)
+  %cond.i.i = select i1 %cmp7.i.i, i64 230584300921369395, i64 %13
   %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
   call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i40 = mul nuw nsw i64 %cond.i.i, 40
@@ -15567,10 +15562,10 @@ if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN4absl
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %.noexc23, %if.then.i21
-  %13 = phi ptr [ %incdec.ptr.i60, %.noexc23 ], [ %incdec.ptr.i, %if.then.i21 ]
+  %14 = phi ptr [ %incdec.ptr.i60, %.noexc23 ], [ %incdec.ptr.i, %if.then.i21 ]
   %call5.i.i.i.i67120 = phi ptr [ %call5.i.i.i.i67, %.noexc23 ], [ %call5.i.i.i.i67122124, %if.then.i21 ]
   %add.ptr30.i117 = phi ptr [ %add.ptr30.i, %.noexc23 ], [ %add.ptr30.i119125, %if.then.i21 ]
-  %sub.ptr.lhs.cast.i25 = ptrtoint ptr %13 to i64
+  %sub.ptr.lhs.cast.i25 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i26 = ptrtoint ptr %call5.i.i.i.i67120 to i64
   %sub.ptr.sub.i27 = sub i64 %sub.ptr.lhs.cast.i25, %sub.ptr.rhs.cast.i26
   %sub.ptr.div.i28 = sdiv exact i64 %sub.ptr.sub.i27, 40
@@ -15581,18 +15576,18 @@ invoke.cont14:                                    ; preds = %.noexc23, %if.then.
 land.rhs:                                         ; preds = %invoke.cont14, %while.body
   %dec116 = phi i64 [ %dec, %while.body ], [ %dec113, %invoke.cont14 ]
   %index.0115 = phi i64 [ %dec116, %while.body ], [ %sub.ptr.div.i28, %invoke.cont14 ]
-  %14 = getelementptr %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i.i67120, i64 %index.0115
-  %add.ptr.i29 = getelementptr %"struct.absl::strings_internal::ViableSubstitution", ptr %14, i64 -2
+  %15 = getelementptr %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i.i67120, i64 %index.0115
+  %add.ptr.i29 = getelementptr %"struct.absl::strings_internal::ViableSubstitution", ptr %15, i64 -2
   %add.ptr.i30 = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i.i67120, i64 %dec116
-  %offset.i = getelementptr %"struct.absl::strings_internal::ViableSubstitution", ptr %14, i64 -2, i32 2
-  %15 = load i64, ptr %offset.i, align 8
+  %offset.i = getelementptr %"struct.absl::strings_internal::ViableSubstitution", ptr %15, i64 -2, i32 2
+  %16 = load i64, ptr %offset.i, align 8
   %offset2.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i.i67120, i64 %dec116, i32 2
-  %16 = load i64, ptr %offset2.i, align 8
-  %cmp.not.i31 = icmp eq i64 %15, %16
-  %cmp5.i = icmp ult i64 %15, %16
-  %17 = load i64, ptr %add.ptr.i29, align 8
-  %18 = load i64, ptr %add.ptr.i30, align 8
-  %cmp8.i = icmp ugt i64 %17, %18
+  %17 = load i64, ptr %offset2.i, align 8
+  %cmp.not.i31 = icmp eq i64 %16, %17
+  %cmp5.i = icmp ult i64 %16, %17
+  %18 = load i64, ptr %add.ptr.i29, align 8
+  %19 = load i64, ptr %add.ptr.i30, align 8
+  %cmp8.i = icmp ugt i64 %18, %19
   %retval.0.i = select i1 %cmp.not.i31, i1 %cmp8.i, i1 %cmp5.i
   br i1 %retval.0.i, label %while.body, label %for.inc
 
@@ -15607,7 +15602,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool.not, label %for.inc, label %land.rhs, !llvm.loop !610
 
 for.inc:                                          ; preds = %while.body.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %if.end20.i.i, %while.body, %land.rhs, %invoke.cont14, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %invoke.cont6.thread, %invoke.cont6
-  %19 = phi ptr [ %5, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ %5, %invoke.cont6.thread ], [ %5, %invoke.cont6 ], [ %13, %invoke.cont14 ], [ %13, %land.rhs ], [ %13, %while.body ], [ %5, %if.end20.i.i ], [ %5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %5, %while.body.i.i ]
+  %20 = phi ptr [ %5, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ %5, %invoke.cont6.thread ], [ %5, %invoke.cont6 ], [ %14, %invoke.cont14 ], [ %14, %land.rhs ], [ %14, %while.body ], [ %5, %if.end20.i.i ], [ %5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %5, %while.body.i.i ]
   %call5.i.i.i.i67121 = phi ptr [ %call5.i.i.i.i67122124, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ %call5.i.i.i.i67122124, %invoke.cont6.thread ], [ %call5.i.i.i.i67122124, %invoke.cont6 ], [ %call5.i.i.i.i67120, %invoke.cont14 ], [ %call5.i.i.i.i67120, %land.rhs ], [ %call5.i.i.i.i67120, %while.body ], [ %call5.i.i.i.i67122124, %if.end20.i.i ], [ %call5.i.i.i.i67122124, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %call5.i.i.i.i67122124, %while.body.i.i ]
   %add.ptr30.i118 = phi ptr [ %add.ptr30.i119125, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ %add.ptr30.i119125, %invoke.cont6.thread ], [ %add.ptr30.i119125, %invoke.cont6 ], [ %add.ptr30.i117, %invoke.cont14 ], [ %add.ptr30.i117, %land.rhs ], [ %add.ptr30.i117, %while.body ], [ %add.ptr30.i119125, %if.end20.i.i ], [ %add.ptr30.i119125, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %add.ptr30.i119125, %while.body.i.i ]
   %incdec.ptr.i34 = getelementptr inbounds %struct.Cont, ptr %__begin0.sroa.0.0126, i64 1
@@ -16324,6 +16319,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17
 
@@ -16332,9 +16330,6 @@ declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

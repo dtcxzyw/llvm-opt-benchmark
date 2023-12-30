@@ -1677,9 +1677,8 @@ if.end344:                                        ; preds = %if.end328
   %spec.store.select = select i1 %or.cond13, i32 %sort.2, i32 1
   %48 = load i64, ptr %count, align 8
   %cmp346 = icmp eq i64 %48, 0
-  %cmp348 = icmp slt i64 %46, %48
-  %or.cond235 = or i1 %cmp346, %cmp348
-  %cond352 = select i1 %or.cond235, i64 %46, i64 %48
+  %49 = call i64 @llvm.smin.i64(i64 %46, i64 %48)
+  %cond352 = select i1 %cmp346, i64 %46, i64 %49
   switch i32 %spec.store.select, label %if.then359 [
     i32 0, label %if.end368
     i32 1, label %if.end361
@@ -1691,16 +1690,16 @@ if.then359:                                       ; preds = %if.end344
 if.end361:                                        ; preds = %if.end344, %if.then359
   %sort_gp_callback.0 = phi ptr [ @sort_gp_desc, %if.then359 ], [ @sort_gp_asc, %if.end344 ]
   %cmp362 = icmp eq i64 %cond352, %46
-  %49 = load ptr, ptr %call.i240, align 8
+  %50 = load ptr, ptr %call.i240, align 8
   br i1 %cmp362, label %if.then363, label %if.else364
 
 if.then363:                                       ; preds = %if.end361
-  call void @qsort(ptr noundef %49, i64 noundef %46, i64 noundef 40, ptr noundef nonnull %sort_gp_callback.0) #14
+  call void @qsort(ptr noundef %50, i64 noundef %46, i64 noundef 40, ptr noundef nonnull %sort_gp_callback.0) #14
   br label %if.end368
 
 if.else364:                                       ; preds = %if.end361
   %sub366 = add nsw i64 %cond352, -1
-  call void @pqsort(ptr noundef %49, i64 noundef %46, i64 noundef 40, ptr noundef nonnull %sort_gp_callback.0, i64 noundef 0, i64 noundef %sub366) #14
+  call void @pqsort(ptr noundef %50, i64 noundef %46, i64 noundef 40, ptr noundef nonnull %sort_gp_callback.0, i64 noundef 0, i64 noundef %sub366) #14
   br label %if.end368
 
 if.end368:                                        ; preds = %if.end344, %if.then363, %if.else364
@@ -1727,12 +1726,12 @@ for.body387.lr.ph:                                ; preds = %if.then370
 
 for.body387:                                      ; preds = %for.body387.lr.ph, %for.inc411
   %indvars.iv336 = phi i64 [ 0, %for.body387.lr.ph ], [ %indvars.iv.next337, %for.inc411 ]
-  %50 = load ptr, ptr %call.i240, align 8
-  %add.ptr390 = getelementptr inbounds %struct.geoPoint, ptr %50, i64 %indvars.iv336
-  %51 = load double, ptr %conversion391, align 8
-  %dist = getelementptr inbounds %struct.geoPoint, ptr %50, i64 %indvars.iv336, i32 2
-  %52 = load double, ptr %dist, align 8
-  %div = fdiv double %52, %51
+  %51 = load ptr, ptr %call.i240, align 8
+  %add.ptr390 = getelementptr inbounds %struct.geoPoint, ptr %51, i64 %indvars.iv336
+  %52 = load double, ptr %conversion391, align 8
+  %dist = getelementptr inbounds %struct.geoPoint, ptr %51, i64 %indvars.iv336, i32 2
+  %53 = load double, ptr %dist, align 8
+  %div = fdiv double %53, %52
   store double %div, ptr %dist, align 8
   br i1 %tobool392.not, label %if.end395, label %if.then393
 
@@ -1741,16 +1740,16 @@ if.then393:                                       ; preds = %for.body387
   br label %if.end395
 
 if.end395:                                        ; preds = %if.then393, %for.body387
-  %member396 = getelementptr inbounds %struct.geoPoint, ptr %50, i64 %indvars.iv336, i32 4
-  %53 = load ptr, ptr %member396, align 8
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %53) #14
+  %member396 = getelementptr inbounds %struct.geoPoint, ptr %51, i64 %indvars.iv336, i32 4
+  %54 = load ptr, ptr %member396, align 8
+  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %54) #14
   store ptr null, ptr %member396, align 8
   br i1 %tobool371.not, label %if.then399, label %if.end401
 
 if.then399:                                       ; preds = %if.end395
-  %54 = load double, ptr %dist, align 8
+  %55 = load double, ptr %dist, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %dbuf.i)
-  %call.i241 = call i32 @fixedpoint_d2string(ptr noundef nonnull %dbuf.i, i64 noundef 128, double noundef %54, i32 noundef 4) #14
+  %call.i241 = call i32 @fixedpoint_d2string(ptr noundef nonnull %dbuf.i, i64 noundef 128, double noundef %55, i32 noundef 4) #14
   %conv.i = sext i32 %call.i241 to i64
   call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %dbuf.i, i64 noundef %conv.i) #14
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %dbuf.i)
@@ -1760,9 +1759,9 @@ if.end401:                                        ; preds = %if.then399, %if.end
   br i1 %tobool379.not, label %if.then403, label %if.end405
 
 if.then403:                                       ; preds = %if.end401
-  %score = getelementptr inbounds %struct.geoPoint, ptr %50, i64 %indvars.iv336, i32 3
-  %55 = load double, ptr %score, align 8
-  %conv404 = fptosi double %55 to i64
+  %score = getelementptr inbounds %struct.geoPoint, ptr %51, i64 %indvars.iv336, i32 3
+  %56 = load double, ptr %score, align 8
+  %conv404 = fptosi double %56 to i64
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv404) #14
   br label %if.end405
 
@@ -1771,12 +1770,12 @@ if.end405:                                        ; preds = %if.then403, %if.end
 
 if.then407:                                       ; preds = %if.end405
   call void @addReplyArrayLen(ptr noundef %c, i64 noundef 2) #14
-  %56 = load double, ptr %add.ptr390, align 8
-  %conv408 = fpext double %56 to x86_fp80
+  %57 = load double, ptr %add.ptr390, align 8
+  %conv408 = fpext double %57 to x86_fp80
   call void @addReplyHumanLongDouble(ptr noundef %c, x86_fp80 noundef %conv408) #14
-  %latitude = getelementptr inbounds %struct.geoPoint, ptr %50, i64 %indvars.iv336, i32 1
-  %57 = load double, ptr %latitude, align 8
-  %conv409 = fpext double %57 to x86_fp80
+  %latitude = getelementptr inbounds %struct.geoPoint, ptr %51, i64 %indvars.iv336, i32 1
+  %58 = load double, ptr %latitude, align 8
+  %conv409 = fpext double %58 to x86_fp80
   call void @addReplyHumanLongDouble(ptr noundef %c, x86_fp80 noundef %conv409) #14
   br label %for.inc411
 
@@ -1792,40 +1791,40 @@ if.else414:                                       ; preds = %if.end368
 if.end421:                                        ; preds = %if.else414
   %call419 = call ptr @createZsetObject() #14
   %ptr420 = getelementptr inbounds %struct.redisObject, ptr %call419, i64 0, i32 2
-  %58 = load ptr, ptr %ptr420, align 8
+  %59 = load ptr, ptr %ptr420, align 8
   %cmp424324 = icmp sgt i64 %cond352, 0
   br i1 %cmp424324, label %for.body426.lr.ph, label %if.then467
 
 for.body426.lr.ph:                                ; preds = %if.end421
   %conversion431 = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 2
   %tobool435.not = icmp eq i32 %storedist.2, 0
-  %zsl = getelementptr inbounds %struct.zset, ptr %58, i64 0, i32 1
+  %zsl = getelementptr inbounds %struct.zset, ptr %59, i64 0, i32 1
   br label %for.body426
 
 for.body426:                                      ; preds = %for.body426.lr.ph, %cond.end461
   %indvars.iv = phi i64 [ 0, %for.body426.lr.ph ], [ %indvars.iv.next, %cond.end461 ]
   %totelelen.0327 = phi i64 [ 0, %for.body426.lr.ph ], [ %add448, %cond.end461 ]
   %maxelelen.0326 = phi i64 [ 0, %for.body426.lr.ph ], [ %spec.select236, %cond.end461 ]
-  %59 = load ptr, ptr %call.i240, align 8
-  %60 = load double, ptr %conversion431, align 8
-  %dist432 = getelementptr inbounds %struct.geoPoint, ptr %59, i64 %indvars.iv, i32 2
-  %61 = load double, ptr %dist432, align 8
-  %div433 = fdiv double %61, %60
+  %60 = load ptr, ptr %call.i240, align 8
+  %61 = load double, ptr %conversion431, align 8
+  %dist432 = getelementptr inbounds %struct.geoPoint, ptr %60, i64 %indvars.iv, i32 2
+  %62 = load double, ptr %dist432, align 8
+  %div433 = fdiv double %62, %61
   store double %div433, ptr %dist432, align 8
   br i1 %tobool435.not, label %cond.false438, label %cond.end440
 
 cond.false438:                                    ; preds = %for.body426
-  %score439 = getelementptr inbounds %struct.geoPoint, ptr %59, i64 %indvars.iv, i32 3
-  %62 = load double, ptr %score439, align 8
+  %score439 = getelementptr inbounds %struct.geoPoint, ptr %60, i64 %indvars.iv, i32 3
+  %63 = load double, ptr %score439, align 8
   br label %cond.end440
 
 cond.end440:                                      ; preds = %for.body426, %cond.false438
-  %cond441 = phi double [ %62, %cond.false438 ], [ %div433, %for.body426 ]
-  %member442 = getelementptr inbounds %struct.geoPoint, ptr %59, i64 %indvars.iv, i32 4
-  %63 = load ptr, ptr %member442, align 8
-  %arrayidx.i242 = getelementptr inbounds i8, ptr %63, i64 -1
-  %64 = load i8, ptr %arrayidx.i242, align 1
-  %conv.i243 = zext i8 %64 to i32
+  %cond441 = phi double [ %63, %cond.false438 ], [ %div433, %for.body426 ]
+  %member442 = getelementptr inbounds %struct.geoPoint, ptr %60, i64 %indvars.iv, i32 4
+  %64 = load ptr, ptr %member442, align 8
+  %arrayidx.i242 = getelementptr inbounds i8, ptr %64, i64 -1
+  %65 = load i8, ptr %arrayidx.i242, align 1
+  %conv.i243 = zext i8 %65 to i32
   %and.i = and i32 %conv.i243, 7
   switch i32 %and.i, label %sdslen.exit [
     i32 0, label %sw.bb.i
@@ -1841,36 +1840,36 @@ sw.bb.i:                                          ; preds = %cond.end440
   br label %sdslen.exit
 
 sw.bb3.i:                                         ; preds = %cond.end440
-  %add.ptr.i245 = getelementptr inbounds i8, ptr %63, i64 -3
-  %65 = load i8, ptr %add.ptr.i245, align 1
-  %conv4.i = zext i8 %65 to i64
+  %add.ptr.i245 = getelementptr inbounds i8, ptr %64, i64 -3
+  %66 = load i8, ptr %add.ptr.i245, align 1
+  %conv4.i = zext i8 %66 to i64
   br label %sdslen.exit
 
 sw.bb5.i:                                         ; preds = %cond.end440
-  %add.ptr6.i = getelementptr inbounds i8, ptr %63, i64 -5
-  %66 = load i16, ptr %add.ptr6.i, align 1
-  %conv8.i = zext i16 %66 to i64
+  %add.ptr6.i = getelementptr inbounds i8, ptr %64, i64 -5
+  %67 = load i16, ptr %add.ptr6.i, align 1
+  %conv8.i = zext i16 %67 to i64
   br label %sdslen.exit
 
 sw.bb9.i:                                         ; preds = %cond.end440
-  %add.ptr10.i = getelementptr inbounds i8, ptr %63, i64 -9
-  %67 = load i32, ptr %add.ptr10.i, align 1
-  %conv12.i = zext i32 %67 to i64
+  %add.ptr10.i = getelementptr inbounds i8, ptr %64, i64 -9
+  %68 = load i32, ptr %add.ptr10.i, align 1
+  %conv12.i = zext i32 %68 to i64
   br label %sdslen.exit
 
 sw.bb13.i:                                        ; preds = %cond.end440
-  %add.ptr14.i = getelementptr inbounds i8, ptr %63, i64 -17
-  %68 = load i64, ptr %add.ptr14.i, align 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %64, i64 -17
+  %69 = load i64, ptr %add.ptr14.i, align 1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %cond.end440, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i244 = phi i64 [ %68, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %cond.end440 ]
-  %69 = load ptr, ptr %zsl, align 8
-  %call450 = call ptr @zslInsert(ptr noundef %69, double noundef %cond441, ptr noundef nonnull %63) #14
-  %70 = load ptr, ptr %58, align 8
-  %71 = load ptr, ptr %member442, align 8
+  %retval.0.i244 = phi i64 [ %69, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %cond.end440 ]
+  %70 = load ptr, ptr %zsl, align 8
+  %call450 = call ptr @zslInsert(ptr noundef %70, double noundef %cond441, ptr noundef nonnull %64) #14
+  %71 = load ptr, ptr %59, align 8
+  %72 = load ptr, ptr %member442, align 8
   %score452 = getelementptr inbounds %struct.zskiplistNode, ptr %call450, i64 0, i32 1
-  %call453 = call i32 @dictAdd(ptr noundef %70, ptr noundef %71, ptr noundef nonnull %score452) #14
+  %call453 = call i32 @dictAdd(ptr noundef %71, ptr noundef %72, ptr noundef nonnull %score452) #14
   %cmp454 = icmp eq i32 %call453, 0
   br i1 %cmp454, label %cond.end461, label %cond.false460
 
@@ -1894,35 +1893,35 @@ if.then467:                                       ; preds = %if.end421, %for.end
   %totelelen.0.lcssa355 = phi i64 [ %add448, %for.end465 ], [ 0, %if.end421 ]
   %maxelelen.0.lcssa354 = phi i64 [ %spec.select236, %for.end465 ], [ 0, %if.end421 ]
   call void @zsetConvertToListpackIfNeeded(ptr noundef %call419, i64 noundef %maxelelen.0.lcssa354, i64 noundef %totelelen.0.lcssa355) #14
-  %72 = load ptr, ptr %db, align 8
-  call void @setKey(ptr noundef %c, ptr noundef %72, ptr noundef nonnull %storekey.3, ptr noundef %call419, i32 noundef 0) #14
+  %73 = load ptr, ptr %db, align 8
+  call void @setKey(ptr noundef %c, ptr noundef %73, ptr noundef nonnull %storekey.3, ptr noundef %call419, i32 noundef 0) #14
   call void @decrRefCount(ptr noundef %call419) #14
   %cond471 = select i1 %tobool288, ptr @.str.52, ptr @.str.51
-  %73 = load ptr, ptr %db, align 8
-  %id473 = getelementptr inbounds %struct.redisDb, ptr %73, i64 0, i32 6
-  %74 = load i32, ptr %id473, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %cond471, ptr noundef nonnull %storekey.3, i32 noundef %74) #14
+  %74 = load ptr, ptr %db, align 8
+  %id473 = getelementptr inbounds %struct.redisDb, ptr %74, i64 0, i32 6
+  %75 = load i32, ptr %id473, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %cond471, ptr noundef nonnull %storekey.3, i32 noundef %75) #14
   br label %if.end485.sink.split
 
 if.else475:                                       ; preds = %if.else414, %for.end465
-  %75 = load ptr, ptr %db, align 8
-  %call477 = call i32 @dbDelete(ptr noundef %75, ptr noundef nonnull %storekey.3) #14
+  %76 = load ptr, ptr %db, align 8
+  %call477 = call i32 @dbDelete(ptr noundef %76, ptr noundef nonnull %storekey.3) #14
   %tobool478.not = icmp eq i32 %call477, 0
   br i1 %tobool478.not, label %if.end485, label %if.then479
 
 if.then479:                                       ; preds = %if.else475
-  %76 = load ptr, ptr %db, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %76, ptr noundef nonnull %storekey.3) #14
   %77 = load ptr, ptr %db, align 8
-  %id482 = getelementptr inbounds %struct.redisDb, ptr %77, i64 0, i32 6
-  %78 = load i32, ptr %id482, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %storekey.3, i32 noundef %78) #14
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %77, ptr noundef nonnull %storekey.3) #14
+  %78 = load ptr, ptr %db, align 8
+  %id482 = getelementptr inbounds %struct.redisDb, ptr %78, i64 0, i32 6
+  %79 = load i32, ptr %id482, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %storekey.3, i32 noundef %79) #14
   br label %if.end485.sink.split
 
 if.end485.sink.split:                             ; preds = %if.then467, %if.then479
   %.sink357 = phi i64 [ 1, %if.then479 ], [ %cond352, %if.then467 ]
-  %79 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %inc483 = add nsw i64 %79, %.sink357
+  %80 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %inc483 = add nsw i64 %80, %.sink357
   store i64 %inc483, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
   br label %if.end485
 
@@ -2401,6 +2400,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

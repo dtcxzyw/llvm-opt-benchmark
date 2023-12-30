@@ -131,14 +131,12 @@ if.end56.i:                                       ; preds = %if.then45.i, %for.e
   %best.sroa.14.3.i = phi i32 [ %best.sroa.14.2.i, %for.end41.i ], [ %spec.select65.i, %if.then45.i ]
   %best.sroa.0.3.i = phi i32 [ %best.sroa.0.2.i, %for.end41.i ], [ %spec.select66.i, %if.then45.i ]
   %best.sroa.14.3.i.fr = freeze i32 %best.sroa.14.3.i
-  %cmp58.i = icmp ne i32 %best.sroa.0.3.i, -1
   %cmp61.i = icmp slt i32 %best.sroa.14.3.i.fr, 2
-  %or.cond.i7 = and i1 %cmp58.i, %cmp61.i
-  %spec.select.i = select i1 %or.cond.i7, i32 -1, i32 %best.sroa.0.3.i
-  %spec.select.fr.i = freeze i32 %spec.select.i
-  %cmp72.not.i = icmp ne i32 %spec.select.fr.i, -1
-  %add.i = add nsw i32 %spec.select.fr.i, %best.sroa.14.3.i.fr
-  %cmp99.i = icmp eq i32 %spec.select.fr.i, 0
+  %best.sroa.0.3.i.fr = freeze i32 %best.sroa.0.3.i
+  %spec.select.i = select i1 %cmp61.i, i32 -1, i32 %best.sroa.0.3.i.fr
+  %cmp72.not.i = icmp ne i32 %spec.select.i, -1
+  %add.i = add nsw i32 %spec.select.i, %best.sroa.14.3.i.fr
+  %cmp99.i = icmp eq i32 %spec.select.i, 0
   %cmp107.i = icmp eq i32 %best.sroa.14.3.i.fr, 7
   %arrayidx110.i = getelementptr inbounds [8 x i32], ptr %words.i, i64 0, i64 7
   %cmp115.i = icmp eq i32 %best.sroa.14.3.i.fr, 5
@@ -197,9 +195,9 @@ if.end56.split.us.i:                              ; preds = %if.end56.i
   br i1 %cmp72.not.i, label %for.body70.us.preheader.i, label %for.body70.us.us.i
 
 for.body70.us.preheader.i:                        ; preds = %if.end56.split.us.i
-  %11 = sext i32 %spec.select.fr.i to i64
+  %11 = sext i32 %spec.select.i to i64
   %12 = sext i32 %add.i to i64
-  %13 = zext i32 %spec.select.fr.i to i64
+  %13 = zext i32 %spec.select.i to i64
   br label %for.body70.us.i
 
 for.body70.us.us.i:                               ; preds = %if.end56.split.us.i, %if.end128.us.us.i

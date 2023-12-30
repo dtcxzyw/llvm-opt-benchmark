@@ -1614,21 +1614,20 @@ block_copy_chunk_size.exit:                       ; preds = %sw.bb.i, %sw.bb1.i,
   %6 = load i64, ptr %max_chunk5, align 8
   %cmp = icmp eq i64 %retval.0.i, 0
   %cmp6 = icmp eq i64 %6, 0
-  %cmp7 = icmp sgt i64 %6, %retval.0.i
-  %or.cond = or i1 %cmp6, %cmp7
-  %spec.select = select i1 %or.cond, i64 %retval.0.i, i64 %6
+  %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 %retval.0.i)
+  %spec.select = select i1 %cmp6, i64 %retval.0.i, i64 %7
   %cond11 = select i1 %cmp, i64 %6, i64 %spec.select
   %copy_bitmap = getelementptr inbounds %struct.BlockCopyState, ptr %s, i64 0, i32 12
-  %7 = load ptr, ptr %copy_bitmap, align 8
+  %8 = load ptr, ptr %copy_bitmap, align 8
   %add = add i64 %bytes, %offset
-  %call12 = call zeroext i1 @bdrv_dirty_bitmap_next_dirty_area(ptr noundef %7, i64 noundef %offset, i64 noundef %add, i64 noundef %cond11, ptr noundef nonnull %offset.addr, ptr noundef nonnull %bytes.addr) #13
+  %call12 = call zeroext i1 @bdrv_dirty_bitmap_next_dirty_area(ptr noundef %8, i64 noundef %offset, i64 noundef %add, i64 noundef %cond11, ptr noundef nonnull %offset.addr, ptr noundef nonnull %bytes.addr) #13
   br i1 %call12, label %if.end, label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end:                                           ; preds = %block_copy_chunk_size.exit
-  %8 = load i64, ptr %offset.addr, align 8
+  %9 = load i64, ptr %offset.addr, align 8
   %cluster_size = getelementptr inbounds %struct.BlockCopyState, ptr %s, i64 0, i32 2
-  %9 = load i64, ptr %cluster_size, align 8
-  %rem = srem i64 %8, %9
+  %10 = load i64, ptr %cluster_size, align 8
+  %rem = srem i64 %9, %10
   %cmp13 = icmp eq i64 %rem, 0
   br i1 %cmp13, label %if.end15, label %if.else
 
@@ -1637,15 +1636,15 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end15:                                         ; preds = %if.end
-  %10 = load i64, ptr %bytes.addr, align 8
-  %add17 = add i64 %10, %9
+  %11 = load i64, ptr %bytes.addr, align 8
+  %add17 = add i64 %11, %10
   %add17.fr = freeze i64 %add17
   %sub = add i64 %add17.fr, -1
-  %11 = srem i64 %sub, %9
-  %mul = sub nsw i64 %sub, %11
+  %12 = srem i64 %sub, %10
+  %mul = sub nsw i64 %sub, %12
   store i64 %mul, ptr %bytes.addr, align 8
   %reqs = getelementptr inbounds %struct.BlockCopyState, ptr %s, i64 0, i32 9
-  %call20 = call ptr @reqlist_find_conflict(ptr noundef nonnull %reqs, i64 noundef %8, i64 noundef %mul) #13
+  %call20 = call ptr @reqlist_find_conflict(ptr noundef nonnull %reqs, i64 noundef %9, i64 noundef %mul) #13
   %tobool.not = icmp eq ptr %call20, null
   br i1 %tobool.not, label %if.end23, label %if.else22
 
@@ -1654,17 +1653,17 @@ if.else22:                                        ; preds = %if.end15
   unreachable
 
 if.end23:                                         ; preds = %if.end15
-  %12 = load ptr, ptr %copy_bitmap, align 8
-  %13 = load i64, ptr %offset.addr, align 8
-  %14 = load i64, ptr %bytes.addr, align 8
-  call void @bdrv_reset_dirty_bitmap(ptr noundef %12, i64 noundef %13, i64 noundef %14) #13
+  %13 = load ptr, ptr %copy_bitmap, align 8
+  %14 = load i64, ptr %offset.addr, align 8
   %15 = load i64, ptr %bytes.addr, align 8
+  call void @bdrv_reset_dirty_bitmap(ptr noundef %13, i64 noundef %14, i64 noundef %15) #13
+  %16 = load i64, ptr %bytes.addr, align 8
   %in_flight_bytes = getelementptr inbounds %struct.BlockCopyState, ptr %s, i64 0, i32 7
-  %16 = load i64, ptr %in_flight_bytes, align 8
-  %add25 = add i64 %16, %15
+  %17 = load i64, ptr %in_flight_bytes, align 8
+  %add25 = add i64 %17, %16
   store i64 %add25, ptr %in_flight_bytes, align 8
   %call26 = call noalias dereferenceable_or_null(96) ptr @g_malloc_n(i64 noundef 1, i64 noundef 96) #15
-  %17 = load i32, ptr %method.i, align 8
+  %18 = load i32, ptr %method.i, align 8
   %.compoundliteral27.sroa.7.4.req.sroa_idx24 = getelementptr inbounds i8, ptr %.compoundliteral27.sroa.7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.compoundliteral27.sroa.7.4.req.sroa_idx24, i8 0, i64 48, i1 false)
   store ptr null, ptr %call26, align 8
@@ -1677,13 +1676,13 @@ if.end23:                                         ; preds = %if.end15
   %.compoundliteral27.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call26, i64 32
   store ptr %call_state, ptr %.compoundliteral27.sroa.5.0..sroa_idx, align 8
   %.compoundliteral27.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %call26, i64 40
-  store i32 %17, ptr %.compoundliteral27.sroa.6.0..sroa_idx, align 8
+  store i32 %18, ptr %.compoundliteral27.sroa.6.0..sroa_idx, align 8
   %.compoundliteral27.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %call26, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.compoundliteral27.sroa.7.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.compoundliteral27.sroa.7, i64 52, i1 false)
   %req33 = getelementptr inbounds %struct.BlockCopyTask, ptr %call26, i64 0, i32 4
-  %18 = load i64, ptr %offset.addr, align 8
-  %19 = load i64, ptr %bytes.addr, align 8
-  call void @reqlist_init_req(ptr noundef nonnull %reqs, ptr noundef nonnull %req33, i64 noundef %18, i64 noundef %19) #13
+  %19 = load i64, ptr %offset.addr, align 8
+  %20 = load i64, ptr %bytes.addr, align 8
+  call void @reqlist_init_req(ptr noundef nonnull %reqs, ptr noundef nonnull %req33, i64 noundef %19, i64 noundef %20) #13
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %block_copy_chunk_size.exit, %if.end23

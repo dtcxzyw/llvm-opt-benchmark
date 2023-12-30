@@ -83,7 +83,7 @@ entry:
   ret i1 %tobool
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef %node, i32 noundef %revents) local_unnamed_addr #1 {
 entry:
   %node_ready = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 9
@@ -134,10 +134,8 @@ if.end31:                                         ; preds = %if.then25, %do.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_set_fd_handler(ptr noundef %ctx, i32 noundef %fd, ptr noundef %io_read, ptr noundef %io_write, ptr noundef %io_poll, ptr noundef %io_poll_ready, ptr noundef %opaque) local_unnamed_addr #2 {
 entry:
-  %tobool = icmp eq ptr %io_poll, null
-  %tobool1 = icmp ne ptr %io_poll_ready, null
-  %or.cond = or i1 %tobool, %tobool1
-  %spec.store.select = select i1 %or.cond, ptr %io_poll, ptr null
+  %tobool1.not = icmp eq ptr %io_poll_ready, null
+  %spec.store.select = select i1 %tobool1.not, ptr null, ptr %io_poll
   %list_lock = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 6
   tail call void @qemu_lockcnt_lock(ptr noundef nonnull %list_lock) #10
   %aio_handlers.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 3
@@ -1966,7 +1964,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

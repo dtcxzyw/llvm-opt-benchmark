@@ -27624,7 +27624,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.body, %lpad163.body, %lpad.i.i112, %lpad.i.i39, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %6, %lpad.i.i ], [ %8, %lpad.i.i39 ], [ %55, %lpad.i.i112 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body103, %lpad163.body ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %lpad.i.i ], [ %8, %lpad.i.i39 ], [ %56, %lpad.i.i112 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body103, %lpad163.body ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i
@@ -28032,30 +28032,29 @@ if.end179:                                        ; preds = %if.else131
   %cmp182 = icmp eq i32 %9, 0
   %cmp185 = icmp sgt i32 %5, -1
   %or.cond = and i1 %cmp182, %cmp185
-  %cmp188 = icmp slt i32 %5, %sub181
-  %or.cond37 = select i1 %or.cond, i1 %cmp188, i1 false
-  %spec.store.select38 = select i1 %or.cond37, i32 %5, i32 %sub181
+  %53 = call i32 @llvm.smin.i32(i32 %5, i32 %sub181)
+  %spec.store.select38 = select i1 %or.cond, i32 %53, i32 %sub181
   store i32 %spec.store.select38, ptr %num_zeros180, align 4
   %cmp192 = icmp ne i32 %spec.store.select38, 0
   %cmp193 = icmp ne i32 %9, 0
   %or.cond1 = select i1 %cmp192, i1 true, i1 %cmp193
-  br i1 %or.cond1, label %54, label %lor.end
+  br i1 %or.cond1, label %55, label %lor.end
 
 lor.end:                                          ; preds = %if.end179
-  %53 = and i32 %4, 524288
-  %bf.cast198.not = icmp eq i32 %53, 0
-  %.lobit = lshr exact i32 %53, 19
+  %54 = and i32 %4, 524288
+  %bf.cast198.not = icmp eq i32 %54, 0
+  %.lobit = lshr exact i32 %54, 19
   %frombool = trunc i32 %.lobit to i8
   store i8 %frombool, ptr %pointy, align 1
   %spec.select = select i1 %bf.cast198.not, i32 1, i32 2
   br label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit114
 
-54:                                               ; preds = %if.end179
+55:                                               ; preds = %if.end179
   store i8 1, ptr %pointy, align 1
   %cmp.i109 = icmp sgt i32 %spec.store.select38, -1
   br i1 %cmp.i109, label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit114, label %if.then.i110
 
-if.then.i110:                                     ; preds = %54
+if.then.i110:                                     ; preds = %55
   %exception.i.i111 = call ptr @__cxa_allocate_exception(i64 16) #26
   invoke void @_ZN17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i111, ptr noundef nonnull @.str.184)
           to label %invoke.cont.i.i113 unwind label %lpad.i.i112
@@ -28065,29 +28064,29 @@ invoke.cont.i.i113:                               ; preds = %if.then.i110
   unreachable
 
 lpad.i.i112:                                      ; preds = %if.then.i110
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i.i111) #26
   br label %common.resume
 
-_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit114: ; preds = %lor.end, %54
-  %56 = phi i32 [ 2, %54 ], [ %spec.select, %lor.end ]
-  %add203 = add nuw i32 %56, %spec.store.select38
+_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit114: ; preds = %lor.end, %55
+  %57 = phi i32 [ 2, %55 ], [ %spec.select, %lor.end ]
+  %add203 = add nuw i32 %57, %spec.store.select38
   %conv204 = zext i32 %add203 to i64
   %add205 = add nuw nsw i64 %add, %conv204
   store ptr %sign, ptr %ref.tmp207, align 8
-  %57 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 1
-  store ptr %zero, ptr %57, align 8
-  %58 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 2
-  store ptr %pointy, ptr %58, align 8
-  %59 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 3
-  store ptr %decimal_point, ptr %59, align 8
-  %60 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 4
-  store ptr %num_zeros180, ptr %60, align 8
-  %61 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 5
-  store ptr %significand, ptr %61, align 8
-  %62 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 6
-  store ptr %significand_size, ptr %62, align 8
+  %58 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 1
+  store ptr %zero, ptr %58, align 8
+  %59 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 2
+  store ptr %pointy, ptr %59, align 8
+  %60 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 3
+  store ptr %decimal_point, ptr %60, align 8
+  %61 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 4
+  store ptr %num_zeros180, ptr %61, align 8
+  %62 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 5
+  store ptr %significand, ptr %62, align 8
+  %63 = getelementptr inbounds %class.anon.107, ptr %ref.tmp207, i64 0, i32 6
+  store ptr %significand_size, ptr %63, align 8
   %call.i115 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add205, i64 noundef %add205, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp207)
   br label %return
 
@@ -30724,7 +30723,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.body, %lpad163.body, %lpad.i.i113, %lpad.i.i39, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %9, %lpad.i.i39 ], [ %56, %lpad.i.i113 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body104, %lpad163.body ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %9, %lpad.i.i39 ], [ %57, %lpad.i.i113 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body104, %lpad163.body ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i
@@ -31133,30 +31132,29 @@ if.end179:                                        ; preds = %if.else131
   %cmp182 = icmp eq i32 %10, 0
   %cmp185 = icmp sgt i32 %6, -1
   %or.cond = and i1 %cmp182, %cmp185
-  %cmp188 = icmp slt i32 %6, %sub181
-  %or.cond37 = select i1 %or.cond, i1 %cmp188, i1 false
-  %spec.store.select38 = select i1 %or.cond37, i32 %6, i32 %sub181
+  %54 = call i32 @llvm.smin.i32(i32 %6, i32 %sub181)
+  %spec.store.select38 = select i1 %or.cond, i32 %54, i32 %sub181
   store i32 %spec.store.select38, ptr %num_zeros180, align 4
   %cmp192 = icmp ne i32 %spec.store.select38, 0
   %cmp193 = icmp ne i32 %10, 0
   %or.cond1 = select i1 %cmp192, i1 true, i1 %cmp193
-  br i1 %or.cond1, label %55, label %lor.end
+  br i1 %or.cond1, label %56, label %lor.end
 
 lor.end:                                          ; preds = %if.end179
-  %54 = and i32 %5, 524288
-  %bf.cast198.not = icmp eq i32 %54, 0
-  %.lobit = lshr exact i32 %54, 19
+  %55 = and i32 %5, 524288
+  %bf.cast198.not = icmp eq i32 %55, 0
+  %.lobit = lshr exact i32 %55, 19
   %frombool = trunc i32 %.lobit to i8
   store i8 %frombool, ptr %pointy, align 1
   %spec.select = select i1 %bf.cast198.not, i32 1, i32 2
   br label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit115
 
-55:                                               ; preds = %if.end179
+56:                                               ; preds = %if.end179
   store i8 1, ptr %pointy, align 1
   %cmp.i110 = icmp sgt i32 %spec.store.select38, -1
   br i1 %cmp.i110, label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit115, label %if.then.i111
 
-if.then.i111:                                     ; preds = %55
+if.then.i111:                                     ; preds = %56
   %exception.i.i112 = call ptr @__cxa_allocate_exception(i64 16) #26
   invoke void @_ZN17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i112, ptr noundef nonnull @.str.184)
           to label %invoke.cont.i.i114 unwind label %lpad.i.i113
@@ -31166,29 +31164,29 @@ invoke.cont.i.i114:                               ; preds = %if.then.i111
   unreachable
 
 lpad.i.i113:                                      ; preds = %if.then.i111
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i.i112) #26
   br label %common.resume
 
-_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit115: ; preds = %lor.end, %55
-  %57 = phi i32 [ 2, %55 ], [ %spec.select, %lor.end ]
-  %add203 = add nuw i32 %57, %spec.store.select38
+_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit115: ; preds = %lor.end, %56
+  %58 = phi i32 [ 2, %56 ], [ %spec.select, %lor.end ]
+  %add203 = add nuw i32 %58, %spec.store.select38
   %conv204 = zext i32 %add203 to i64
   %add205 = add nuw nsw i64 %conv204, %conv
   store ptr %sign, ptr %ref.tmp207, align 8
-  %58 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 1
-  store ptr %zero, ptr %58, align 8
-  %59 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 2
-  store ptr %pointy, ptr %59, align 8
-  %60 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 3
-  store ptr %decimal_point, ptr %60, align 8
-  %61 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 4
-  store ptr %num_zeros180, ptr %61, align 8
-  %62 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 5
-  store ptr %significand, ptr %62, align 8
-  %63 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 6
-  store ptr %significand_size, ptr %63, align 8
+  %59 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 1
+  store ptr %zero, ptr %59, align 8
+  %60 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 2
+  store ptr %pointy, ptr %60, align 8
+  %61 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 3
+  store ptr %decimal_point, ptr %61, align 8
+  %62 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 4
+  store ptr %num_zeros180, ptr %62, align 8
+  %63 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 5
+  store ptr %significand, ptr %63, align 8
+  %64 = getelementptr inbounds %class.anon.114, ptr %ref.tmp207, i64 0, i32 6
+  store ptr %significand_size, ptr %64, align 8
   %call.i116 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add205, i64 noundef %add205, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp207)
   br label %return
 
@@ -35280,7 +35278,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.body, %lpad163.body, %lpad.i.i112, %lpad.i.i39, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %7, %lpad.i.i39 ], [ %54, %lpad.i.i112 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body103, %lpad163.body ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %7, %lpad.i.i39 ], [ %55, %lpad.i.i112 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body103, %lpad163.body ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i
@@ -35689,30 +35687,29 @@ if.end179:                                        ; preds = %if.else131
   %cmp182 = icmp eq i32 %8, 0
   %cmp185 = icmp sgt i32 %4, -1
   %or.cond = and i1 %cmp182, %cmp185
-  %cmp188 = icmp slt i32 %4, %sub181
-  %or.cond37 = select i1 %or.cond, i1 %cmp188, i1 false
-  %spec.store.select38 = select i1 %or.cond37, i32 %4, i32 %sub181
+  %52 = call i32 @llvm.smin.i32(i32 %4, i32 %sub181)
+  %spec.store.select38 = select i1 %or.cond, i32 %52, i32 %sub181
   store i32 %spec.store.select38, ptr %num_zeros180, align 4
   %cmp192 = icmp ne i32 %spec.store.select38, 0
   %cmp193 = icmp ne i32 %8, 0
   %or.cond1 = select i1 %cmp192, i1 true, i1 %cmp193
-  br i1 %or.cond1, label %53, label %lor.end
+  br i1 %or.cond1, label %54, label %lor.end
 
 lor.end:                                          ; preds = %if.end179
-  %52 = and i32 %3, 524288
-  %bf.cast198.not = icmp eq i32 %52, 0
-  %.lobit = lshr exact i32 %52, 19
+  %53 = and i32 %3, 524288
+  %bf.cast198.not = icmp eq i32 %53, 0
+  %.lobit = lshr exact i32 %53, 19
   %frombool = trunc i32 %.lobit to i8
   store i8 %frombool, ptr %pointy, align 1
   %spec.select = select i1 %bf.cast198.not, i32 1, i32 2
   br label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit114
 
-53:                                               ; preds = %if.end179
+54:                                               ; preds = %if.end179
   store i8 1, ptr %pointy, align 1
   %cmp.i109 = icmp sgt i32 %spec.store.select38, -1
   br i1 %cmp.i109, label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit114, label %if.then.i110
 
-if.then.i110:                                     ; preds = %53
+if.then.i110:                                     ; preds = %54
   %exception.i.i111 = call ptr @__cxa_allocate_exception(i64 16) #26
   invoke void @_ZN17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i111, ptr noundef nonnull @.str.184)
           to label %invoke.cont.i.i113 unwind label %lpad.i.i112
@@ -35722,29 +35719,29 @@ invoke.cont.i.i113:                               ; preds = %if.then.i110
   unreachable
 
 lpad.i.i112:                                      ; preds = %if.then.i110
-  %54 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i.i111) #26
   br label %common.resume
 
-_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit114: ; preds = %lor.end, %53
-  %55 = phi i32 [ 2, %53 ], [ %spec.select, %lor.end ]
-  %add203 = add nuw i32 %55, %spec.store.select38
+_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit114: ; preds = %lor.end, %54
+  %56 = phi i32 [ 2, %54 ], [ %spec.select, %lor.end ]
+  %add203 = add nuw i32 %56, %spec.store.select38
   %conv204 = zext i32 %add203 to i64
   %add205 = add nuw nsw i64 %conv204, %conv
   store ptr %sign, ptr %ref.tmp207, align 8
-  %56 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 1
-  store ptr %zero, ptr %56, align 8
-  %57 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 2
-  store ptr %pointy, ptr %57, align 8
-  %58 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 3
-  store ptr %decimal_point, ptr %58, align 8
-  %59 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 4
-  store ptr %num_zeros180, ptr %59, align 8
-  %60 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 5
-  store ptr %significand, ptr %60, align 8
-  %61 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 6
-  store ptr %significand_size, ptr %61, align 8
+  %57 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 1
+  store ptr %zero, ptr %57, align 8
+  %58 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 2
+  store ptr %pointy, ptr %58, align 8
+  %59 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 3
+  store ptr %decimal_point, ptr %59, align 8
+  %60 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 4
+  store ptr %num_zeros180, ptr %60, align 8
+  %61 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 5
+  store ptr %significand, ptr %61, align 8
+  %62 = getelementptr inbounds %class.anon.123, ptr %ref.tmp207, i64 0, i32 6
+  store ptr %significand_size, ptr %62, align 8
   %call.i115 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add205, i64 noundef %add205, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp207)
   br label %return
 
@@ -49853,7 +49850,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.body, %lpad150.body, %lpad.i.i113, %lpad.i.i39, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %7, %lpad.i.i39 ], [ %51, %lpad.i.i113 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body104, %lpad150.body ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %7, %lpad.i.i39 ], [ %52, %lpad.i.i113 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body104, %lpad150.body ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i
@@ -50261,30 +50258,29 @@ if.end164:                                        ; preds = %if.else118
   %cmp167 = icmp eq i32 %8, 0
   %cmp170 = icmp sgt i32 %4, -1
   %or.cond = and i1 %cmp167, %cmp170
-  %cmp173 = icmp slt i32 %4, %sub166
-  %or.cond37 = select i1 %or.cond, i1 %cmp173, i1 false
-  %spec.store.select38 = select i1 %or.cond37, i32 %4, i32 %sub166
+  %49 = call i32 @llvm.smin.i32(i32 %4, i32 %sub166)
+  %spec.store.select38 = select i1 %or.cond, i32 %49, i32 %sub166
   store i32 %spec.store.select38, ptr %num_zeros165, align 4
   %cmp177 = icmp ne i32 %spec.store.select38, 0
   %cmp178 = icmp ne i32 %8, 0
   %or.cond1 = select i1 %cmp177, i1 true, i1 %cmp178
-  br i1 %or.cond1, label %50, label %lor.end
+  br i1 %or.cond1, label %51, label %lor.end
 
 lor.end:                                          ; preds = %if.end164
-  %49 = and i32 %3, 524288
-  %bf.cast183.not = icmp eq i32 %49, 0
-  %.lobit = lshr exact i32 %49, 19
+  %50 = and i32 %3, 524288
+  %bf.cast183.not = icmp eq i32 %50, 0
+  %.lobit = lshr exact i32 %50, 19
   %frombool = trunc i32 %.lobit to i8
   store i8 %frombool, ptr %pointy, align 1
   %spec.select = select i1 %bf.cast183.not, i32 1, i32 2
   br label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit115
 
-50:                                               ; preds = %if.end164
+51:                                               ; preds = %if.end164
   store i8 1, ptr %pointy, align 1
   %cmp.i110 = icmp sgt i32 %spec.store.select38, -1
   br i1 %cmp.i110, label %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit115, label %if.then.i111
 
-if.then.i111:                                     ; preds = %50
+if.then.i111:                                     ; preds = %51
   %exception.i.i112 = call ptr @__cxa_allocate_exception(i64 16) #26
   invoke void @_ZN17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i112, ptr noundef nonnull @.str.184)
           to label %invoke.cont.i.i114 unwind label %lpad.i.i113
@@ -50294,27 +50290,27 @@ invoke.cont.i.i114:                               ; preds = %if.then.i111
   unreachable
 
 lpad.i.i113:                                      ; preds = %if.then.i111
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i.i112) #26
   br label %common.resume
 
-_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit115: ; preds = %lor.end, %50
-  %52 = phi i32 [ 2, %50 ], [ %spec.select, %lor.end ]
-  %add188 = add nuw i32 %52, %spec.store.select38
+_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit115: ; preds = %lor.end, %51
+  %53 = phi i32 [ 2, %51 ], [ %spec.select, %lor.end ]
+  %add188 = add nuw i32 %53, %spec.store.select38
   %conv189 = zext i32 %add188 to i64
   %add190 = add nuw nsw i64 %conv189, %conv
   store ptr %sign, ptr %ref.tmp192, align 8
-  %53 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 1
-  store ptr %pointy, ptr %53, align 8
-  %54 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 2
-  store ptr %decimal_point, ptr %54, align 8
-  %55 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 3
-  store ptr %num_zeros165, ptr %55, align 8
-  %56 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 4
-  store ptr %significand, ptr %56, align 8
-  %57 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 5
-  store ptr %significand_size, ptr %57, align 8
+  %54 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 1
+  store ptr %pointy, ptr %54, align 8
+  %55 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 2
+  store ptr %decimal_point, ptr %55, align 8
+  %56 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 3
+  store ptr %num_zeros165, ptr %56, align 8
+  %57 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 4
+  store ptr %significand, ptr %57, align 8
+  %58 = getelementptr inbounds %class.anon.186, ptr %ref.tmp192, i64 0, i32 5
+  store ptr %significand_size, ptr %58, align 8
   %call.i116 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_14do_write_floatISC_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SH_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlPcE2_EESI_SI_SP_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add190, i64 noundef %add190, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp192)
   br label %return
 

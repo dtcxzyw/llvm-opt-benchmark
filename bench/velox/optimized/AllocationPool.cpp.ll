@@ -798,9 +798,8 @@ _ZNKSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE12_M_check_l
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
@@ -811,24 +810,24 @@ _ZNKSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE12_M_check_l
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %data_.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %size_.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
-  %2 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
+  %3 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  %4 = load ptr, ptr %__args, align 8
+  store ptr %4, ptr %add.ptr, align 8
   %data_4.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__args, i64 0, i32 1
-  %4 = load ptr, ptr %data_4.i.i.i, align 8
-  store ptr %4, ptr %data_.i.i.i, align 8
+  %5 = load ptr, ptr %data_4.i.i.i, align 8
+  store ptr %5, ptr %data_.i.i.i, align 8
   %size_6.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__args, i64 0, i32 2
-  %5 = load <2 x i64>, ptr %size_6.i.i.i, align 8
-  store <2 x i64> %5, ptr %size_.i.i.i, align 8
+  %6 = load <2 x i64>, ptr %size_6.i.i.i, align 8
+  store <2 x i64> %6, ptr %size_.i.i.i, align 8
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %_ZNKSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE12_M_check_lenEmPKc.exit
-  %6 = extractelement <2 x i64> %5, i64 0
-  %cmp.i.i.i.i = icmp eq i64 %6, 0
-  %7 = icmp eq ptr %4, null
-  %lnot.i.i.i.i = xor i1 %cmp.i.i.i.i, %7
+  %7 = extractelement <2 x i64> %6, i64 0
+  %cmp.i.i.i.i = icmp eq i64 %7, 0
+  %8 = icmp eq ptr %5, null
+  %lnot.i.i.i.i = xor i1 %cmp.i.i.i.i, %8
   br i1 %lnot.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i.i
@@ -836,8 +835,8 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i.i
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i
-  %8 = load ptr, ptr %add.ptr, align 8
-  %cmp8.i.i.i.i = icmp ne ptr %8, null
+  %9 = load ptr, ptr %add.ptr, align 8
+  %cmp8.i.i.i.i = icmp ne ptr %9, null
   %lnot9.i.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp8.i.i.i.i, i1 false
   br i1 %lnot9.i.i.i.i, label %if.then11.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8facebook5velox6memory20ContiguousAllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
 
@@ -846,10 +845,10 @@ if.then11.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   unreachable
 
 terminate.lpad.i.i.i:                             ; preds = %_ZNKSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE12_M_check_lenEmPKc.exit
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #17
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #17
   unreachable
 
 _ZNSt16allocator_traitsISaIN8facebook5velox6memory20ContiguousAllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %if.end.i.i.i.i
@@ -863,22 +862,22 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %data_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__cur.010.i.i.i, i64 0, i32 1
   %size_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__cur.010.i.i.i, i64 0, i32 2
-  %11 = load ptr, ptr %__first.addr.09.i.i.i, align 8, !alias.scope !12, !noalias !9
-  store ptr %11, ptr %__cur.010.i.i.i, align 8, !alias.scope !9, !noalias !12
+  %12 = load ptr, ptr %__first.addr.09.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store ptr %12, ptr %__cur.010.i.i.i, align 8, !alias.scope !9, !noalias !12
   %data_4.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__first.addr.09.i.i.i, i64 0, i32 1
-  %12 = load ptr, ptr %data_4.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
-  store ptr %12, ptr %data_.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
+  %13 = load ptr, ptr %data_4.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store ptr %13, ptr %data_.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
   %size_6.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__first.addr.09.i.i.i, i64 0, i32 2
-  %13 = load <2 x i64>, ptr %size_6.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
-  store <2 x i64> %13, ptr %size_.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
+  %14 = load <2 x i64>, ptr %size_6.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store <2 x i64> %14, ptr %size_.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i)
           to label %invoke.cont.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !9
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i
-  %14 = extractelement <2 x i64> %13, i64 0
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %14, 0
-  %15 = icmp eq ptr %12, null
-  %lnot.i.i.i.i.i.i.i.i = xor i1 %15, %cmp.i.i.i.i.i.i.i.i
+  %15 = extractelement <2 x i64> %14, i64 0
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %15, 0
+  %16 = icmp eq ptr %13, null
+  %lnot.i.i.i.i.i.i.i.i = xor i1 %16, %cmp.i.i.i.i.i.i.i.i
   br i1 %lnot.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i.i.i.i
@@ -886,7 +885,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   unreachable
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i.i.i.i
-  %cmp8.i.i.i.i.i.i.i.i = icmp ne ptr %11, null
+  %cmp8.i.i.i.i.i.i.i.i = icmp ne ptr %12, null
   %lnot9.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp8.i.i.i.i.i.i.i.i, i1 false
   br i1 %lnot9.i.i.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
 
@@ -895,10 +894,10 @@ if.then11.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #17
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #17
   unreachable
 
 _ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i
@@ -921,22 +920,22 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8face
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %data_.i.i.i.i.i.i.i15 = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__cur.010.i.i.i13, i64 0, i32 1
   %size_.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__cur.010.i.i.i13, i64 0, i32 2
-  %18 = load ptr, ptr %__first.addr.09.i.i.i14, align 8, !alias.scope !18, !noalias !15
-  store ptr %18, ptr %__cur.010.i.i.i13, align 8, !alias.scope !15, !noalias !18
+  %19 = load ptr, ptr %__first.addr.09.i.i.i14, align 8, !alias.scope !18, !noalias !15
+  store ptr %19, ptr %__cur.010.i.i.i13, align 8, !alias.scope !15, !noalias !18
   %data_4.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__first.addr.09.i.i.i14, i64 0, i32 1
-  %19 = load ptr, ptr %data_4.i.i.i.i.i.i.i18, align 8, !alias.scope !18, !noalias !15
-  store ptr %19, ptr %data_.i.i.i.i.i.i.i15, align 8, !alias.scope !15, !noalias !18
+  %20 = load ptr, ptr %data_4.i.i.i.i.i.i.i18, align 8, !alias.scope !18, !noalias !15
+  store ptr %20, ptr %data_.i.i.i.i.i.i.i15, align 8, !alias.scope !15, !noalias !18
   %size_6.i.i.i.i.i.i.i19 = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %__first.addr.09.i.i.i14, i64 0, i32 2
-  %20 = load <2 x i64>, ptr %size_6.i.i.i.i.i.i.i19, align 8, !alias.scope !18, !noalias !15
-  store <2 x i64> %20, ptr %size_.i.i.i.i.i.i.i16, align 8, !alias.scope !15, !noalias !18
+  %21 = load <2 x i64>, ptr %size_6.i.i.i.i.i.i.i19, align 8, !alias.scope !18, !noalias !15
+  store <2 x i64> %21, ptr %size_.i.i.i.i.i.i.i16, align 8, !alias.scope !15, !noalias !18
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i14)
           to label %invoke.cont.i.i.i.i.i.i.i22 unwind label %terminate.lpad.i.i.i.i.i.i.i21, !noalias !15
 
 invoke.cont.i.i.i.i.i.i.i22:                      ; preds = %for.body.i.i.i12
-  %21 = extractelement <2 x i64> %20, i64 0
-  %cmp.i.i.i.i.i.i.i.i23 = icmp eq i64 %21, 0
-  %22 = icmp eq ptr %19, null
-  %lnot.i.i.i.i.i.i.i.i24 = xor i1 %22, %cmp.i.i.i.i.i.i.i.i23
+  %22 = extractelement <2 x i64> %21, i64 0
+  %cmp.i.i.i.i.i.i.i.i23 = icmp eq i64 %22, 0
+  %23 = icmp eq ptr %20, null
+  %lnot.i.i.i.i.i.i.i.i24 = xor i1 %23, %cmp.i.i.i.i.i.i.i.i23
   br i1 %lnot.i.i.i.i.i.i.i.i24, label %if.then.i.i.i.i.i.i.i.i34, label %if.end.i.i.i.i.i.i.i.i25
 
 if.then.i.i.i.i.i.i.i.i34:                        ; preds = %invoke.cont.i.i.i.i.i.i.i22
@@ -944,7 +943,7 @@ if.then.i.i.i.i.i.i.i.i34:                        ; preds = %invoke.cont.i.i.i.i
   unreachable
 
 if.end.i.i.i.i.i.i.i.i25:                         ; preds = %invoke.cont.i.i.i.i.i.i.i22
-  %cmp8.i.i.i.i.i.i.i.i26 = icmp ne ptr %18, null
+  %cmp8.i.i.i.i.i.i.i.i26 = icmp ne ptr %19, null
   %lnot9.i.i.i.i.i.i.i.i27 = select i1 %cmp.i.i.i.i.i.i.i.i23, i1 %cmp8.i.i.i.i.i.i.i.i26, i1 false
   br i1 %lnot9.i.i.i.i.i.i.i.i27, label %if.then11.i.i.i.i.i.i.i.i33, label %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28
 
@@ -953,10 +952,10 @@ if.then11.i.i.i.i.i.i.i.i33:                      ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 terminate.lpad.i.i.i.i.i.i.i21:                   ; preds = %for.body.i.i.i12
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #17
+  %25 = extractvalue { ptr, i32 } %24, 0
+  tail call void @__clang_call_terminate(ptr %25) #17
   unreachable
 
 _ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28: ; preds = %if.end.i.i.i.i.i.i.i.i25
@@ -1013,9 +1012,8 @@ _ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
@@ -1026,27 +1024,27 @@ _ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i: ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %runs_.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %numPages_.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
-  %2 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 28, i1 false)
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
+  %3 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, i8 0, i64 28, i1 false)
+  %4 = load ptr, ptr %__args, align 8
+  store ptr %4, ptr %add.ptr, align 8
   %runs_4.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %__args, i64 0, i32 1
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 0, i32 0, i32 0, i32 1
-  %4 = load ptr, ptr %runs_4.i.i.i, align 8
-  store ptr %4, ptr %runs_.i.i.i, align 8
+  %5 = load ptr, ptr %runs_4.i.i.i, align 8
+  store ptr %5, ptr %runs_.i.i.i, align 8
   %_M_finish.i2.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %__args, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %5 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i.i.i.i, align 8
-  store <2 x ptr> %5, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %6 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i.i.i.i, align 8
+  store <2 x ptr> %6, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i, i8 0, i64 24, i1 false)
   %numPages_6.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %__args, i64 0, i32 2
-  %6 = load i32, ptr %numPages_6.i.i.i, align 8
-  store i32 %6, ptr %numPages_.i.i.i, align 8
+  %7 = load i32, ptr %numPages_6.i.i.i, align 8
+  store i32 %7, ptr %numPages_.i.i.i, align 8
   store i32 0, ptr %numPages_6.i.i.i, align 8
   store ptr null, ptr %__args, align 8
-  %7 = extractelement <2 x ptr> %5, i64 0
-  %cmp.i.i.i.i.i = icmp eq ptr %4, %7
-  %8 = icmp eq i32 %6, 0
-  %lnot.i.i.i.i = xor i1 %8, %cmp.i.i.i.i.i
+  %8 = extractelement <2 x ptr> %6, i64 0
+  %cmp.i.i.i.i.i = icmp eq ptr %5, %8
+  %9 = icmp eq i32 %7, 0
+  %lnot.i.i.i.i = xor i1 %9, %cmp.i.i.i.i.i
   br i1 %lnot.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i
@@ -1054,9 +1052,9 @@ if.then.i.i.i.i:                                  ; preds = %_ZN8facebook5velox6
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %_ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i
-  %9 = load ptr, ptr %add.ptr, align 8
-  %cmp7.i.i.i.i = icmp ne ptr %9, null
-  %lnot8.i.i.i.i = select i1 %8, i1 %cmp7.i.i.i.i, i1 false
+  %10 = load ptr, ptr %add.ptr, align 8
+  %cmp7.i.i.i.i = icmp ne ptr %10, null
+  %lnot8.i.i.i.i = select i1 %9, i1 %cmp7.i.i.i.i, i1 false
   br i1 %lnot8.i.i.i.i, label %if.then10.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8facebook5velox6memory10AllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
 
 if.then10.i.i.i.i:                                ; preds = %if.end.i.i.i.i
@@ -1074,19 +1072,19 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %numPages_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %__cur.09.i.i.i, i64 0, i32 2
   %runs_4.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %__first.addr.08.i.i.i, i64 0, i32 1
-  %10 = load <4 x ptr>, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !23, !noalias !20
-  store <4 x ptr> %10, ptr %__cur.09.i.i.i, align 8, !alias.scope !20, !noalias !23
+  %11 = load <4 x ptr>, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !23, !noalias !20
+  store <4 x ptr> %11, ptr %__cur.09.i.i.i, align 8, !alias.scope !20, !noalias !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !23, !noalias !20
   %numPages_6.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %__first.addr.08.i.i.i, i64 0, i32 2
-  %11 = load i32, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !20
-  store i32 %11, ptr %numPages_.i.i.i.i.i.i.i, align 8, !alias.scope !20, !noalias !23
+  %12 = load i32, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !20
+  store i32 %12, ptr %numPages_.i.i.i.i.i.i.i, align 8, !alias.scope !20, !noalias !23
   store i32 0, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !20
   store ptr null, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !23, !noalias !20
-  %shift = shufflevector <4 x ptr> %10, <4 x ptr> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %12 = icmp eq <4 x ptr> %10, %shift
-  %cmp.i.i.i.i.i.i.i.i.i = extractelement <4 x i1> %12, i64 1
-  %13 = icmp eq i32 %11, 0
-  %lnot.i.i.i.i.i.i.i.i = xor i1 %cmp.i.i.i.i.i.i.i.i.i, %13
+  %shift = shufflevector <4 x ptr> %11, <4 x ptr> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %13 = icmp eq <4 x ptr> %11, %shift
+  %cmp.i.i.i.i.i.i.i.i.i = extractelement <4 x i1> %13, i64 1
+  %14 = icmp eq i32 %12, 0
+  %lnot.i.i.i.i.i.i.i.i = xor i1 %cmp.i.i.i.i.i.i.i.i.i, %14
   br i1 %lnot.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
@@ -1094,9 +1092,9 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   unreachable
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i
-  %14 = extractelement <4 x ptr> %10, i64 0
-  %cmp7.i.i.i.i.i.i.i.i = icmp ne ptr %14, null
-  %lnot8.i.i.i.i.i.i.i.i = select i1 %13, i1 %cmp7.i.i.i.i.i.i.i.i, i1 false
+  %15 = extractelement <4 x ptr> %11, i64 0
+  %cmp7.i.i.i.i.i.i.i.i = icmp ne ptr %15, null
+  %lnot8.i.i.i.i.i.i.i.i = select i1 %14, i1 %cmp7.i.i.i.i.i.i.i.i, i1 false
   br i1 %lnot8.i.i.i.i.i.i.i.i, label %if.then10.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.then10.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i
@@ -1123,19 +1121,19 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8face
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %numPages_.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %__cur.09.i.i.i13, i64 0, i32 2
   %runs_4.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %__first.addr.08.i.i.i14, i64 0, i32 1
-  %15 = load <4 x ptr>, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !29, !noalias !26
-  store <4 x ptr> %15, ptr %__cur.09.i.i.i13, align 8, !alias.scope !26, !noalias !29
+  %16 = load <4 x ptr>, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !29, !noalias !26
+  store <4 x ptr> %16, ptr %__cur.09.i.i.i13, align 8, !alias.scope !26, !noalias !29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i.i.i.i.i17, i8 0, i64 24, i1 false), !alias.scope !29, !noalias !26
   %numPages_6.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %__first.addr.08.i.i.i14, i64 0, i32 2
-  %16 = load i32, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !29, !noalias !26
-  store i32 %16, ptr %numPages_.i.i.i.i.i.i.i16, align 8, !alias.scope !26, !noalias !29
+  %17 = load i32, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !29, !noalias !26
+  store i32 %17, ptr %numPages_.i.i.i.i.i.i.i16, align 8, !alias.scope !26, !noalias !29
   store i32 0, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !29, !noalias !26
   store ptr null, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !29, !noalias !26
-  %shift39 = shufflevector <4 x ptr> %15, <4 x ptr> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %17 = icmp eq <4 x ptr> %15, %shift39
-  %cmp.i.i.i.i.i.i.i.i.i23 = extractelement <4 x i1> %17, i64 1
-  %18 = icmp eq i32 %16, 0
-  %lnot.i.i.i.i.i.i.i.i24 = xor i1 %cmp.i.i.i.i.i.i.i.i.i23, %18
+  %shift39 = shufflevector <4 x ptr> %16, <4 x ptr> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %18 = icmp eq <4 x ptr> %16, %shift39
+  %cmp.i.i.i.i.i.i.i.i.i23 = extractelement <4 x i1> %18, i64 1
+  %19 = icmp eq i32 %17, 0
+  %lnot.i.i.i.i.i.i.i.i24 = xor i1 %cmp.i.i.i.i.i.i.i.i.i23, %19
   br i1 %lnot.i.i.i.i.i.i.i.i24, label %if.then.i.i.i.i.i.i.i.i34, label %if.end.i.i.i.i.i.i.i.i25
 
 if.then.i.i.i.i.i.i.i.i34:                        ; preds = %for.body.i.i.i12
@@ -1143,9 +1141,9 @@ if.then.i.i.i.i.i.i.i.i34:                        ; preds = %for.body.i.i.i12
   unreachable
 
 if.end.i.i.i.i.i.i.i.i25:                         ; preds = %for.body.i.i.i12
-  %19 = extractelement <4 x ptr> %15, i64 0
-  %cmp7.i.i.i.i.i.i.i.i26 = icmp ne ptr %19, null
-  %lnot8.i.i.i.i.i.i.i.i27 = select i1 %18, i1 %cmp7.i.i.i.i.i.i.i.i26, i1 false
+  %20 = extractelement <4 x ptr> %16, i64 0
+  %cmp7.i.i.i.i.i.i.i.i26 = icmp ne ptr %20, null
+  %lnot8.i.i.i.i.i.i.i.i27 = select i1 %19, i1 %cmp7.i.i.i.i.i.i.i.i26, i1 false
   br i1 %lnot8.i.i.i.i.i.i.i.i27, label %if.then10.i.i.i.i.i.i.i.i33, label %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28
 
 if.then10.i.i.i.i.i.i.i.i33:                      ; preds = %if.end.i.i.i.i.i.i.i.i25
@@ -1179,6 +1177,9 @@ _ZNSt12_Vector_baseIN8facebook5velox6memory10AllocationESaIS3_EE13_M_deallocateE
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

@@ -886,10 +886,9 @@ entry:
   %2 = load i32, ptr %scale_numerator, align 4
   %scale_is_rational = getelementptr inbounds %struct.stbir__scale_info, ptr %scale_info, i64 0, i32 5
   %3 = load i32, ptr %scale_is_rational, align 4
-  %tobool = icmp ne i32 %3, 0
-  %cmp = icmp slt i32 %2, %num_contributors
-  %4 = select i1 %tobool, i1 %cmp, i1 false
-  %spec.select = select i1 %4, i32 %2, i32 %num_contributors
+  %tobool.not = icmp eq i32 %3, 0
+  %4 = tail call i32 @llvm.smin.i32(i32 %2, i32 %num_contributors)
+  %spec.select = select i1 %tobool.not, i32 %num_contributors, i32 %4
   %cmp332 = icmp sgt i32 %spec.select, 0
   br i1 %cmp332, label %for.body.lr.ph, label %for.end27
 
@@ -27126,9 +27125,8 @@ stbir__get_split_info.exit:                       ; preds = %for.body.i265, %if.
   %is_gather419 = getelementptr inbounds %struct.stbir__info, ptr %spec.select263, i64 0, i32 1, i32 17
   %132 = load i32, ptr %is_gather419, align 8
   %tobool420.not = icmp eq i32 %132, 0
-  %cmp423 = icmp sgt i32 %131, %max.0.lcssa.i
-  %or.cond264 = select i1 %tobool420.not, i1 %cmp423, i1 false
-  %spec.store.select = select i1 %or.cond264, i32 %max.0.lcssa.i, i32 %131
+  %133 = tail call i32 @llvm.smin.i32(i32 %131, i32 %max.0.lcssa.i)
+  %spec.store.select = select i1 %tobool420.not, i32 %133, i32 %131
   store i32 %spec.store.select, ptr %ring_buffer_num_entries417, align 4
   br i1 %cmp8.i, label %for.body431.lr.ph, label %return
 
@@ -27144,56 +27142,56 @@ for.body431.lr.ph:                                ; preds = %stbir__get_split_in
 
 for.body431:                                      ; preds = %for.body431.lr.ph, %for.inc494
   %indvars.iv311 = phi i64 [ 0, %for.body431.lr.ph ], [ %indvars.iv.next312, %for.inc494 ]
-  %133 = load i32, ptr %n1434, align 4
-  %134 = load i32, ptr %n1438, align 4
-  %cmp439 = icmp sgt i32 %133, %134
+  %134 = load i32, ptr %n1434, align 4
+  %135 = load i32, ptr %n1438, align 4
+  %cmp439 = icmp sgt i32 %134, %135
   br i1 %cmp439, label %if.then441, label %if.else451
 
 if.then441:                                       ; preds = %for.body431
-  %135 = load i32, ptr %spans, align 8
-  %sub450 = sub nsw i32 %133, %135
+  %136 = load i32, ptr %spans, align 8
+  %sub450 = sub nsw i32 %134, %136
   br label %if.end461
 
 if.else451:                                       ; preds = %for.body431
-  %136 = load i32, ptr %arrayidx437, align 4
-  %sub460 = sub nsw i32 %134, %136
+  %137 = load i32, ptr %arrayidx437, align 4
+  %sub460 = sub nsw i32 %135, %137
   br label %if.end461
 
 if.end461:                                        ; preds = %if.else451, %if.then441
   %width.0 = phi i32 [ %sub450, %if.then441 ], [ %sub460, %if.else451 ]
   %add462 = add nsw i32 %width.0, 1
-  %137 = load i32, ptr %scanline_extents, align 8
-  %sub466 = sub i32 %add462, %137
-  %138 = load i32, ptr %arrayidx468, align 4
-  %add469 = add nsw i32 %sub466, %138
+  %138 = load i32, ptr %scanline_extents, align 8
+  %sub466 = sub i32 %add462, %138
+  %139 = load i32, ptr %arrayidx468, align 4
+  %add469 = add nsw i32 %sub466, %139
   %mul470 = mul nsw i32 %add469, %effective_channels.0
-  %139 = load ptr, ptr %split_info406, align 8
-  %arrayidx473 = getelementptr inbounds %struct.stbir__per_split_info, ptr %139, i64 %indvars.iv311
-  %140 = load ptr, ptr %arrayidx473, align 8
+  %140 = load ptr, ptr %split_info406, align 8
+  %arrayidx473 = getelementptr inbounds %struct.stbir__per_split_info, ptr %140, i64 %indvars.iv311
+  %141 = load ptr, ptr %arrayidx473, align 8
   %idxprom475 = sext i32 %mul470 to i64
-  %arrayidx476 = getelementptr inbounds float, ptr %140, i64 %idxprom475
+  %arrayidx476 = getelementptr inbounds float, ptr %141, i64 %idxprom475
   store float 9.999000e+03, ptr %arrayidx476, align 4
   br i1 %cmp35.i, label %for.cond479.preheader, label %for.inc494
 
 for.cond479.preheader:                            ; preds = %if.end461
-  %141 = load i32, ptr %ring_buffer_num_entries417, align 4
-  %cmp481304 = icmp sgt i32 %141, 0
+  %142 = load i32, ptr %ring_buffer_num_entries417, align 4
+  %cmp481304 = icmp sgt i32 %142, 0
   br i1 %cmp481304, label %for.body483, label %for.inc494
 
 for.body483:                                      ; preds = %for.cond479.preheader, %for.body483
   %j.0305 = phi i32 [ %inc491, %for.body483 ], [ 0, %for.cond479.preheader ]
-  %142 = load ptr, ptr %split_info406, align 8
-  %ring_buffer.i = getelementptr inbounds %struct.stbir__per_split_info, ptr %142, i64 %indvars.iv311, i32 8
-  %143 = load ptr, ptr %ring_buffer.i, align 8
-  %144 = load i32, ptr %ring_buffer_length_bytes.i, align 8
-  %mul.i269 = mul nsw i32 %144, %j.0305
+  %143 = load ptr, ptr %split_info406, align 8
+  %ring_buffer.i = getelementptr inbounds %struct.stbir__per_split_info, ptr %143, i64 %indvars.iv311, i32 8
+  %144 = load ptr, ptr %ring_buffer.i, align 8
+  %145 = load i32, ptr %ring_buffer_length_bytes.i, align 8
+  %mul.i269 = mul nsw i32 %145, %j.0305
   %idx.ext.i = sext i32 %mul.i269 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %143, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %144, i64 %idx.ext.i
   %arrayidx489 = getelementptr inbounds float, ptr %add.ptr.i, i64 %idxprom475
   store float 9.999000e+03, ptr %arrayidx489, align 4
   %inc491 = add nuw nsw i32 %j.0305, 1
-  %145 = load i32, ptr %ring_buffer_num_entries417, align 4
-  %cmp481 = icmp slt i32 %inc491, %145
+  %146 = load i32, ptr %ring_buffer_num_entries417, align 4
+  %cmp481 = icmp slt i32 %inc491, %146
   br i1 %cmp481, label %for.body483, label %for.inc494, !llvm.loop !830
 
 for.inc494:                                       ; preds = %for.body483, %for.cond479.preheader, %if.end461
@@ -27202,9 +27200,9 @@ for.inc494:                                       ; preds = %for.body483, %for.c
   br i1 %exitcond315.not, label %return, label %for.body431, !llvm.loop !831
 
 if.then500:                                       ; preds = %no_vert_alloc
-  %146 = ptrtoint ptr %advance_mem.2 to i64
-  %147 = trunc i64 %146 to i32
-  %conv502 = add i32 %147, 15
+  %147 = ptrtoint ptr %advance_mem.2 to i64
+  %148 = trunc i64 %147 to i32
+  %conv502 = add i32 %148, 15
   %conv503 = sext i32 %conv502 to i64
   %call504 = tail call noalias ptr @malloc(i64 noundef %conv503) #25
   %cmp505 = icmp eq ptr %call504, null

@@ -2723,22 +2723,21 @@ _ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_l
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 64051194700380387
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 64051194700380387, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 64051194700380387)
+  %cond.i = select i1 %cmp7.i, i64 64051194700380387, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 144
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN8proxygen19ServerListGenerator12ServerConfigEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN8proxygen19ServerListGenerator12ServerConfigEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 144
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN8proxygen19ServerListGenerator12ServerConfigEEE8allocateERS3_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8proxygen19ServerListGenerator12ServerConfigEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZN8proxygen19ServerListGenerator12ServerConfigC2EOS1_(ptr noundef nonnull align 8 dereferenceable(140) %add.ptr, ptr noundef nonnull align 8 dereferenceable(140) %__args) #18
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -2935,22 +2934,21 @@ _ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_l
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 64051194700380387
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 64051194700380387, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 64051194700380387)
+  %cond.i = select i1 %cmp7.i, i64 64051194700380387, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 144
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN8proxygen19ServerListGenerator12ServerConfigEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN8proxygen19ServerListGenerator12ServerConfigEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 144
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN8proxygen19ServerListGenerator12ServerConfigEEE8allocateERS3_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8proxygen19ServerListGenerator12ServerConfigEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %.noexc unwind label %lpad
@@ -2965,15 +2963,15 @@ _ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_a
   %external_.i.i.i.i = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 2
   store i8 0, ptr %external_.i.i.i.i, align 2
   %port_2.i.i.i.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %__args1, i64 0, i32 1
-  %2 = load i16, ptr %port_2.i.i.i.i, align 8
-  store i16 %2, ptr %port_.i.i.i.i, align 8
+  %3 = load i16, ptr %port_2.i.i.i.i, align 8
+  store i16 %3, ptr %port_.i.i.i.i, align 8
   %external_.i.i.i.i.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %__args1, i64 0, i32 2
-  %3 = load i8, ptr %external_.i.i.i.i.i, align 2
-  %4 = and i8 %3, 1
-  %tobool.not.i.i.i.i.i = icmp ne i8 %4, 0
+  %4 = load i8, ptr %external_.i.i.i.i.i, align 2
+  %5 = and i8 %4, 1
+  %tobool.not.i.i.i.i.i = icmp ne i8 %5, 0
   %family_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %__args1, i64 0, i32 1
-  %5 = load i16, ptr %family_.i.i.i.i.i.i, align 4
-  %cmp5.i.i.i.i = icmp eq i16 %5, 1
+  %6 = load i16, ptr %family_.i.i.i.i.i.i, align 4
+  %cmp5.i.i.i.i = icmp eq i16 %6, 1
   %cmp.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i1 true, i1 %cmp5.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -2984,12 +2982,12 @@ if.then.i.i.i.i:                                  ; preds = %.noexc.i.i.i
 call.i.i.noexc.i.i.i:                             ; preds = %if.then.i.i.i.i
   store ptr %call.i.i1.i.i.i, ptr %address3.i.i.i, align 8
   %len.i.i.i.i.i = getelementptr inbounds %"struct.folly::SocketAddress::ExternalUnixAddr", ptr %__args1, i64 0, i32 1
-  %6 = load i32, ptr %len.i.i.i.i.i, align 8
+  %7 = load i32, ptr %len.i.i.i.i.i, align 8
   %len2.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 0, i32 0, i32 1
-  store i32 %6, ptr %len2.i.i.i.i.i, align 8
-  %7 = load ptr, ptr %__args1, align 8
-  %conv.i.i.i.i.i = zext i32 %6 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i.i1.i.i.i, ptr align 2 %7, i64 %conv.i.i.i.i.i, i1 false)
+  store i32 %7, ptr %len2.i.i.i.i.i, align 8
+  %8 = load ptr, ptr %__args1, align 8
+  %conv.i.i.i.i.i = zext i32 %7 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i.i1.i.i.i, ptr align 2 %8, i64 %conv.i.i.i.i.i, i1 false)
   br label %invoke.cont
 
 if.else.i.i.i.i:                                  ; preds = %.noexc.i.i.i
@@ -2997,23 +2995,23 @@ if.else.i.i.i.i:                                  ; preds = %.noexc.i.i.i
   br label %invoke.cont
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i, %.noexc
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #18
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i, %call.i.i.noexc.i.i.i
-  store i8 %4, ptr %external_.i.i.i.i, align 2
+  store i8 %5, ptr %external_.i.i.i.i, align 2
   %altAddresses.i.i.i = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %altAddresses.i.i.i, i8 0, i64 24, i1 false)
-  %9 = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1
-  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1
+  store i32 0, ptr %10, align 8
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %9, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
+  store ptr %10, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %9, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
+  store ptr %10, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1, i32 1
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
   %groupId_.i.i.i = getelementptr inbounds %"struct.proxygen::ServerListGenerator::ServerConfig", ptr %cond.i17, i64 %sub.ptr.div.i, i32 4
@@ -3065,14 +3063,14 @@ _ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE13_M_d
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %8, %lpad.i.i.i ]
-  %11 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #18
+  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %9, %lpad.i.i.i ]
+  %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #18
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i29
 
@@ -3081,7 +3079,7 @@ if.end.thread:                                    ; preds = %lpad.body
   br label %invoke.cont21
 
 lpad19:                                           ; preds = %invoke.cont21
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -3095,13 +3093,13 @@ invoke.cont21:                                    ; preds = %if.then.i29, %if.en
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %14
 
 terminate.lpad:                                   ; preds = %lpad19
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #19
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #19
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21

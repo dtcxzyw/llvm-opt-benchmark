@@ -9230,9 +9230,8 @@ _ZNKSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE12_M_check_lenEmPKc.exit: 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 164703072086692425
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 164703072086692425, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
+  %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
@@ -9241,20 +9240,20 @@ _ZNKSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE12_M_check_lenEmPKc.exit: 
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 56
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #26
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load ptr, ptr %__args, align 8
-  store ptr %2, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
   %value_.i.i.i.i = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %add.ptr, i64 0, i32 1
   %value_3.i.i.i.i = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__args, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i.i, i64 32, i1 false)
   %transport_size_.i.i.i.i = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %add.ptr, i64 0, i32 2
   %transport_size_4.i.i.i.i = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__args, i64 0, i32 2
-  %3 = load i32, ptr %transport_size_4.i.i.i.i, align 8
-  store i32 %3, ptr %transport_size_.i.i.i.i, align 8
+  %4 = load i32, ptr %transport_size_4.i.i.i.i, align 8
+  store i32 %4, ptr %transport_size_.i.i.i.i, align 8
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvE6vtable, ptr %__args, align 8
   %parse_status.i.i.i = getelementptr inbounds %"struct.grpc_core::HPackTable::Memento", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %parse_status3.i.i.i = getelementptr inbounds %"struct.grpc_core::HPackTable::Memento", ptr %__args, i64 0, i32 1
-  %4 = load i64, ptr %parse_status3.i.i.i, align 8
-  store i64 %4, ptr %parse_status.i.i.i, align 8
+  %5 = load i64, ptr %parse_status3.i.i.i, align 8
+  store i64 %5, ptr %parse_status.i.i.i, align 8
   store ptr null, ptr %parse_status3.i.i.i, align 8
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
@@ -9264,29 +9263,29 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN9grp
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNKSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !465)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !468)
-  %5 = load ptr, ptr %__first.addr.07.i.i.i, align 8, !alias.scope !468, !noalias !465
-  store ptr %5, ptr %__cur.08.i.i.i, align 8, !alias.scope !465, !noalias !468
+  %6 = load ptr, ptr %__first.addr.07.i.i.i, align 8, !alias.scope !468, !noalias !465
+  store ptr %6, ptr %__cur.08.i.i.i, align 8, !alias.scope !465, !noalias !468
   %value_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__cur.08.i.i.i, i64 0, i32 1
   %value_3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__first.addr.07.i.i.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !470
   %transport_size_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__cur.08.i.i.i, i64 0, i32 2
   %transport_size_4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__first.addr.07.i.i.i, i64 0, i32 2
-  %6 = load i32, ptr %transport_size_4.i.i.i.i.i.i.i.i, align 8, !alias.scope !468, !noalias !465
-  store i32 %6, ptr %transport_size_.i.i.i.i.i.i.i.i, align 8, !alias.scope !465, !noalias !468
+  %7 = load i32, ptr %transport_size_4.i.i.i.i.i.i.i.i, align 8, !alias.scope !468, !noalias !465
+  store i32 %7, ptr %transport_size_.i.i.i.i.i.i.i.i, align 8, !alias.scope !465, !noalias !468
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvE6vtable, ptr %__first.addr.07.i.i.i, align 8, !alias.scope !468, !noalias !465
   %parse_status.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::HPackTable::Memento", ptr %__cur.08.i.i.i, i64 0, i32 1
   %parse_status3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::HPackTable::Memento", ptr %__first.addr.07.i.i.i, i64 0, i32 1
-  %7 = load i64, ptr %parse_status3.i.i.i.i.i.i.i, align 8, !alias.scope !468, !noalias !465
-  store i64 %7, ptr %parse_status.i.i.i.i.i.i.i, align 8, !alias.scope !465, !noalias !468
+  %8 = load i64, ptr %parse_status3.i.i.i.i.i.i.i, align 8, !alias.scope !468, !noalias !465
+  store i64 %8, ptr %parse_status.i.i.i.i.i.i.i, align 8, !alias.scope !465, !noalias !468
   store ptr null, ptr %parse_status3.i.i.i.i.i.i.i, align 8, !alias.scope !468, !noalias !465
   invoke void @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i.i.i.i.i.i)
           to label %_ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i, !noalias !465
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #25
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #25
   unreachable
 
 _ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %for.body.i.i.i
@@ -9306,29 +9305,29 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN9grpc
   %__first.addr.07.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i23, %_ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %__position.coerce, %_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !471)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !474)
-  %10 = load ptr, ptr %__first.addr.07.i.i.i14, align 8, !alias.scope !474, !noalias !471
-  store ptr %10, ptr %__cur.08.i.i.i13, align 8, !alias.scope !471, !noalias !474
+  %11 = load ptr, ptr %__first.addr.07.i.i.i14, align 8, !alias.scope !474, !noalias !471
+  store ptr %11, ptr %__cur.08.i.i.i13, align 8, !alias.scope !471, !noalias !474
   %value_.i.i.i.i.i.i.i.i15 = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__cur.08.i.i.i13, i64 0, i32 1
   %value_3.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__first.addr.07.i.i.i14, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i.i.i.i.i.i16, i64 32, i1 false), !alias.scope !476
   %transport_size_.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__cur.08.i.i.i13, i64 0, i32 2
   %transport_size_4.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.grpc_core::ParsedMetadata", ptr %__first.addr.07.i.i.i14, i64 0, i32 2
-  %11 = load i32, ptr %transport_size_4.i.i.i.i.i.i.i.i18, align 8, !alias.scope !474, !noalias !471
-  store i32 %11, ptr %transport_size_.i.i.i.i.i.i.i.i17, align 8, !alias.scope !471, !noalias !474
+  %12 = load i32, ptr %transport_size_4.i.i.i.i.i.i.i.i18, align 8, !alias.scope !474, !noalias !471
+  store i32 %12, ptr %transport_size_.i.i.i.i.i.i.i.i17, align 8, !alias.scope !471, !noalias !474
   store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvE6vtable, ptr %__first.addr.07.i.i.i14, align 8, !alias.scope !474, !noalias !471
   %parse_status.i.i.i.i.i.i.i19 = getelementptr inbounds %"struct.grpc_core::HPackTable::Memento", ptr %__cur.08.i.i.i13, i64 0, i32 1
   %parse_status3.i.i.i.i.i.i.i20 = getelementptr inbounds %"struct.grpc_core::HPackTable::Memento", ptr %__first.addr.07.i.i.i14, i64 0, i32 1
-  %12 = load i64, ptr %parse_status3.i.i.i.i.i.i.i20, align 8, !alias.scope !474, !noalias !471
-  store i64 %12, ptr %parse_status.i.i.i.i.i.i.i19, align 8, !alias.scope !471, !noalias !474
+  %13 = load i64, ptr %parse_status3.i.i.i.i.i.i.i20, align 8, !alias.scope !474, !noalias !471
+  store i64 %13, ptr %parse_status.i.i.i.i.i.i.i19, align 8, !alias.scope !471, !noalias !474
   store ptr null, ptr %parse_status3.i.i.i.i.i.i.i20, align 8, !alias.scope !474, !noalias !471
   invoke void @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i.i.i.i.i.i16)
           to label %_ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i22 unwind label %terminate.lpad.i.i.i.i.i.i.i.i21, !noalias !471
 
 terminate.lpad.i.i.i.i.i.i.i.i21:                 ; preds = %for.body.i.i.i12
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #25
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #25
   unreachable
 
 _ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i22: ; preds = %for.body.i.i.i12
@@ -9460,6 +9459,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21

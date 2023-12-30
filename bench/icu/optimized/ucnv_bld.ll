@@ -791,9 +791,7 @@ ucnv_load_75.exit:                                ; preds = %lor.lhs.false.i, %i
   call void @umtx_unlock_75(ptr noundef nonnull @_ZL13cnvCacheMutex)
   %29 = load i32, ptr %err, align 4
   %cmp.i59 = icmp sgt i32 %29, 0
-  %cmp101 = icmp eq ptr %retval.0.i56, null
-  %or.cond = or i1 %cmp101, %cmp.i59
-  %spec.select = select i1 %or.cond, ptr null, ptr %retval.0.i56
+  %spec.select = select i1 %cmp.i59, ptr null, ptr %retval.0.i56
   br label %return
 
 return:                                           ; preds = %ucnv_load_75.exit, %_ZL26getAlgorithmicTypeFromNamePKc.exit, %if.else58, %entry, %if.then56, %if.then15, %if.then3

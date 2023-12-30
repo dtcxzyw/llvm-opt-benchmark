@@ -4942,22 +4942,21 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #20
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -5216,17 +5215,17 @@ entry:
   %b.sroa.8.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
   %b.sroa.8.8.extract.trunc.i.i.i = trunc i64 %b.sroa.8.8.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %b.sroa.0.0.extract.trunc.i.i.i, %b.sroa.5.8.extract.trunc.i.i.i
-  %cmp9.not.i.i.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
-  %or.cond.i.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp9.not.i.i.i.i
-  %pEnd.sroa.3.0.i.i.i.i = select i1 %or.cond.i.i.not.i.i, i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i
-  br i1 %or.cond.i.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_5ImageEN4pstd8optionalINS0_16ImageChannelDescEEEE3$_0JNS0_7Bounds2IiEENSC_4spanINSK_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %for.body.lr.ph.i.i.i
+  %1 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
+  %cmp4.i.i32.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
+  %cmp4.i.i32.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp4.i.i32.i.not1.i.i
+  br i1 %cmp4.i.i32.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_5ImageEN4pstd8optionalINS0_16ImageChannelDescEEEE3$_0JNS0_7Bounds2IiEENSC_4spanINSK_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %set.i.i.i.i = getelementptr inbounds %"class.pstd::optional", ptr %__functor.val, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon, ptr %__functor.val, i64 0, i32 1
+  %2 = getelementptr inbounds %class.anon, ptr %__functor.val, i64 0, i32 1
   %nStored.i.i.i.i = getelementptr inbounds %"class.pbrt::InlinedVector.46", ptr %v.i.i.i, i64 0, i32 4
   %ptr.i.i.i.i.i = getelementptr inbounds %"class.pbrt::InlinedVector.46", ptr %v.i.i.i, i64 0, i32 1
-  %2 = getelementptr inbounds %"class.pbrt::InlinedVector.46", ptr %v.i.i.i, i64 0, i32 2
+  %3 = getelementptr inbounds %"class.pbrt::InlinedVector.46", ptr %v.i.i.i, i64 0, i32 2
   %nAlloc.i.i.i.i.i = getelementptr inbounds %"class.pbrt::InlinedVector.46", ptr %v.i.i.i, i64 0, i32 3
   br label %for.body.i.i.i
 
@@ -5238,62 +5237,62 @@ for.body.i.i.i:                                   ; preds = %_ZN4pbrt18ImageChan
   %__begin2.sroa.7.0.insert.shift.i.i.i = shl nuw i64 %__begin2.sroa.7.0.insert.ext.i.i.i, 32
   %__begin2.sroa.0.0.insert.ext.i.i.i = zext i32 %__begin2.sroa.0.033.i.i.i to i64
   %__begin2.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %__begin2.sroa.7.0.insert.shift.i.i.i, %__begin2.sroa.0.0.insert.ext.i.i.i
-  %3 = load i8, ptr %set.i.i.i.i, align 8
-  %4 = and i8 %3, 1
-  %tobool.i.not.i.i.i = icmp eq i8 %4, 0
+  %4 = load i8, ptr %set.i.i.i.i, align 8
+  %5 = and i8 %4, 1
+  %tobool.i.not.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i, label %cond.false.i.i.i, label %_ZNK4pstd8optionalIN4pbrt16ImageChannelDescEEdeEv.exit.i.i.i
 
 _ZNK4pstd8optionalIN4pbrt16ImageChannelDescEEdeEv.exit.i.i.i: ; preds = %for.body.i.i.i
-  call void @_ZNK4pbrt5Image11GetChannelsENS_6Point2IiEERKNS_16ImageChannelDescENS_10WrapMode2DE(ptr nonnull sret(%"struct.pbrt::ImageChannelValues") align 8 %v.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 %__begin2.sroa.0.0.insert.insert.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__functor.val, i64 4294967297)
+  call void @_ZNK4pbrt5Image11GetChannelsENS_6Point2IiEERKNS_16ImageChannelDescENS_10WrapMode2DE(ptr nonnull sret(%"struct.pbrt::ImageChannelValues") align 8 %v.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %2, i64 %__begin2.sroa.0.0.insert.insert.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__functor.val, i64 4294967297)
   br label %cond.end.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %for.body.i.i.i
-  call void @_ZNK4pbrt5Image11GetChannelsENS_6Point2IiEENS_10WrapMode2DE(ptr nonnull sret(%"struct.pbrt::ImageChannelValues") align 8 %v.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 %__begin2.sroa.0.0.insert.insert.i.i.i, i64 4294967297)
+  call void @_ZNK4pbrt5Image11GetChannelsENS_6Point2IiEENS_10WrapMode2DE(ptr nonnull sret(%"struct.pbrt::ImageChannelValues") align 8 %v.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %2, i64 %__begin2.sroa.0.0.insert.insert.i.i.i, i64 4294967297)
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %_ZNK4pstd8optionalIN4pbrt16ImageChannelDescEEdeEv.exit.i.i.i
-  %5 = load i64, ptr %nStored.i.i.i.i, align 8
-  %cmp28.not.i.i.i = icmp eq i64 %5, 0
+  %6 = load i64, ptr %nStored.i.i.i.i, align 8
+  %cmp28.not.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp28.not.i.i.i, label %for.end.i.i.i, label %invoke.cont20.i.i.i
 
 invoke.cont20.i.i.i:                              ; preds = %cond.end.i.i.i, %invoke.cont20.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %invoke.cont20.i.i.i ], [ 0, %cond.end.i.i.i ]
-  %6 = load ptr, ptr %ptr.i.i.i.i.i, align 8
-  %tobool.not.i.i10.i.i.i = icmp eq ptr %6, null
-  %cond.i.i.i.i.i = select i1 %tobool.not.i.i10.i.i.i, ptr %2, ptr %6
+  %7 = load ptr, ptr %ptr.i.i.i.i.i, align 8
+  %tobool.not.i.i10.i.i.i = icmp eq ptr %7, null
+  %cond.i.i.i.i.i = select i1 %tobool.not.i.i10.i.i.i, ptr %3, ptr %7
   %arrayidx.i.i.i.i = getelementptr inbounds float, ptr %cond.i.i.i.i.i, i64 %indvars.iv.i.i.i
-  %7 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %8 = load float, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds %"class.pstd::span.25", ptr %__args1.val, i64 %indvars.iv.i.i.i
-  %8 = load ptr, ptr %arrayidx.i11.i.i.i, align 8
-  %arrayidx.i12.i.i.i = getelementptr inbounds float, ptr %8, i64 %indvars.iv37.i.i.i
-  store float %7, ptr %arrayidx.i12.i.i.i, align 4
+  %9 = load ptr, ptr %arrayidx.i11.i.i.i, align 8
+  %arrayidx.i12.i.i.i = getelementptr inbounds float, ptr %9, i64 %indvars.iv37.i.i.i
+  store float %8, ptr %arrayidx.i12.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %9 = load i64, ptr %nStored.i.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i64 %9, %indvars.iv.next.i.i.i
+  %10 = load i64, ptr %nStored.i.i.i.i, align 8
+  %cmp.i.i.i = icmp ugt i64 %10, %indvars.iv.next.i.i.i
   br i1 %cmp.i.i.i, label %invoke.cont20.i.i.i, label %for.end.i.i.i, !llvm.loop !35
 
 for.end.i.i.i:                                    ; preds = %invoke.cont20.i.i.i, %cond.end.i.i.i
   %indvars.iv.next38.i.i.i = add nuw i64 %indvars.iv37.i.i.i, 1
   store i64 0, ptr %nStored.i.i.i.i, align 8
-  %10 = load ptr, ptr %ptr.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
+  %11 = load ptr, ptr %ptr.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN4pbrt18ImageChannelValuesD2Ev.exit.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.end.i.i.i
-  %11 = load i64, ptr %nAlloc.i.i.i.i.i, align 8
-  %mul.i.i.i.i.i.i = shl i64 %11, 2
-  %12 = load ptr, ptr %v.i.i.i, align 8
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %12, align 8
+  %12 = load i64, ptr %nAlloc.i.i.i.i.i, align 8
+  %mul.i.i.i.i.i.i = shl i64 %12, 2
+  %13 = load ptr, ptr %v.i.i.i, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 3
-  %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %10, i64 noundef %mul.i.i.i.i.i.i, i64 noundef 4)
+  %14 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %11, i64 noundef %mul.i.i.i.i.i.i, i64 noundef 4)
           to label %_ZN4pbrt18ImageChannelValuesD2Ev.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #23
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #23
   unreachable
 
 _ZN4pbrt18ImageChannelValuesD2Ev.exit.i.i.i:      ; preds = %if.end.i.i.i.i.i.i.i.i, %for.end.i.i.i
@@ -5303,9 +5302,9 @@ _ZN4pbrt18ImageChannelValuesD2Ev.exit.i.i.i:      ; preds = %if.end.i.i.i.i.i.i.
   %inc10.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i to i32
   %__begin2.sroa.7.1.i.i.i = add nsw i32 %__begin2.sroa.7.034.i.i.i, %inc10.i.i.i.i.i
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin2.sroa.0.1.i.i.i, %b.sroa.0.0.extract.trunc.i.i.i
-  %cmp4.i.i.i.i.i = icmp ne i32 %__begin2.sroa.7.1.i.i.i, %pEnd.sroa.3.0.i.i.i.i
-  %16 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
-  br i1 %16, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_5ImageEN4pstd8optionalINS0_16ImageChannelDescEEEE3$_0JNS0_7Bounds2IiEENSC_4spanINSK_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
+  %cmp4.i.i.i.i.i = icmp ne i32 %__begin2.sroa.7.1.i.i.i, %1
+  %17 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
+  br i1 %17, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_5ImageEN4pstd8optionalINS0_16ImageChannelDescEEEE3$_0JNS0_7Bounds2IiEENSC_4spanINSK_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
 "_ZSt10__invoke_rIvRZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_5ImageEN4pstd8optionalINS0_16ImageChannelDescEEEE3$_0JNS0_7Bounds2IiEENSC_4spanINSK_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %_ZN4pbrt18ImageChannelValuesD2Ev.exit.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %v.i.i.i)
@@ -7650,9 +7649,8 @@ _ZNKSt6vectorIN4pbrt11DisplayItem18ImageChannelBufferESaIS2_EE12_M_check_lenEmPK
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 144115188075855871
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 144115188075855871, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 144115188075855871)
+  %cond.i = select i1 %cmp7.i, i64 144115188075855871, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
@@ -7661,30 +7659,30 @@ _ZNKSt6vectorIN4pbrt11DisplayItem18ImageChannelBufferESaIS2_EE12_M_check_lenEmPK
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 6
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %2, ptr %add.ptr, align 8
+  %3 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %3, ptr %add.ptr, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %add.ptr, i64 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__args, i64 0, i32 2
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
   %tileBoundsOffset.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %tileBoundsOffset3.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__args, i64 0, i32 1
-  %4 = load i64, ptr %tileBoundsOffset3.i.i.i, align 8
-  store i64 %4, ptr %tileBoundsOffset.i.i.i, align 8
+  %5 = load i64, ptr %tileBoundsOffset3.i.i.i, align 8
+  store i64 %5, ptr %tileBoundsOffset.i.i.i, align 8
   %tileHashes.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 3
   %tileHashes4.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__args, i64 0, i32 3
-  %5 = load <2 x ptr>, ptr %tileHashes4.i.i.i, align 8
-  store <2 x ptr> %5, ptr %tileHashes.i.i.i, align 8
+  %6 = load <2 x ptr>, ptr %tileHashes4.i.i.i, align 8
+  store <2 x ptr> %6, ptr %tileHashes.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i6.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i7.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__args, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i, align 8
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i6.i.i.i, align 8
+  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i6.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tileHashes4.i.i.i, i8 0, i64 24, i1 false)
   %setCount.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 4
   %setCount5.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__args, i64 0, i32 4
-  %7 = load i64, ptr %setCount5.i.i.i, align 8
-  store i64 %7, ptr %setCount.i.i.i, align 8
+  %8 = load i64, ptr %setCount5.i.i.i, align 8
+  store i64 %8, ptr %setCount.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4pbrt11DisplayItem18ImageChannelBufferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
@@ -7693,30 +7691,30 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4pbr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN4pbrt11DisplayItem18ImageChannelBufferESaIS2_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !39, !noalias !36
-  store <2 x ptr> %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !36, !noalias !39
+  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !39, !noalias !36
+  store <2 x ptr> %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !36, !noalias !39
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__cur.07.i.i.i, i64 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
-  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
+  %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
+  store ptr %10, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !39, !noalias !36
   %tileBoundsOffset.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i, i64 0, i32 1
   %tileBoundsOffset3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %10 = load i64, ptr %tileBoundsOffset3.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
-  store i64 %10, ptr %tileBoundsOffset.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
+  %11 = load i64, ptr %tileBoundsOffset3.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
+  store i64 %11, ptr %tileBoundsOffset.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
   %tileHashes.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i, i64 0, i32 3
   %tileHashes4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %11 = load <2 x ptr>, ptr %tileHashes4.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
-  store <2 x ptr> %11, ptr %tileHashes.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
+  %12 = load <2 x ptr>, ptr %tileHashes4.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
+  store <2 x ptr> %12, ptr %tileHashes.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
   %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
+  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
+  store ptr %13, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tileHashes4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !39, !noalias !36
   %setCount.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i, i64 0, i32 4
   %setCount5.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i, i64 0, i32 4
-  %13 = load i64, ptr %setCount5.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
-  store i64 %13, ptr %setCount.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
+  %14 = load i64, ptr %setCount5.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
+  store i64 %14, ptr %setCount.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -7733,30 +7731,30 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4pbrt
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i29, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN4pbrt11DisplayItem18ImageChannelBufferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %14 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !45, !noalias !42
-  store <2 x ptr> %14, ptr %__cur.07.i.i.i13, align 8, !alias.scope !42, !noalias !45
+  %15 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !45, !noalias !42
+  store <2 x ptr> %15, ptr %__cur.07.i.i.i13, align 8, !alias.scope !42, !noalias !45
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__cur.07.i.i.i13, i64 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !45, !noalias !42
-  store ptr %15, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !42, !noalias !45
+  %16 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !45, !noalias !42
+  store ptr %16, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !42, !noalias !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !45, !noalias !42
   %tileBoundsOffset.i.i.i.i.i.i.i19 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %tileBoundsOffset3.i.i.i.i.i.i.i20 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %16 = load i64, ptr %tileBoundsOffset3.i.i.i.i.i.i.i20, align 8, !alias.scope !45, !noalias !42
-  store i64 %16, ptr %tileBoundsOffset.i.i.i.i.i.i.i19, align 8, !alias.scope !42, !noalias !45
+  %17 = load i64, ptr %tileBoundsOffset3.i.i.i.i.i.i.i20, align 8, !alias.scope !45, !noalias !42
+  store i64 %17, ptr %tileBoundsOffset.i.i.i.i.i.i.i19, align 8, !alias.scope !42, !noalias !45
   %tileHashes.i.i.i.i.i.i.i21 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i13, i64 0, i32 3
   %tileHashes4.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %17 = load <2 x ptr>, ptr %tileHashes4.i.i.i.i.i.i.i22, align 8, !alias.scope !45, !noalias !42
-  store <2 x ptr> %17, ptr %tileHashes.i.i.i.i.i.i.i21, align 8, !alias.scope !42, !noalias !45
+  %18 = load <2 x ptr>, ptr %tileHashes4.i.i.i.i.i.i.i22, align 8, !alias.scope !45, !noalias !42
+  store <2 x ptr> %18, ptr %tileHashes.i.i.i.i.i.i.i21, align 8, !alias.scope !42, !noalias !45
   %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %18 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i26, align 8, !alias.scope !45, !noalias !42
-  store ptr %18, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i25, align 8, !alias.scope !42, !noalias !45
+  %19 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i26, align 8, !alias.scope !45, !noalias !42
+  store ptr %19, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i25, align 8, !alias.scope !42, !noalias !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tileHashes4.i.i.i.i.i.i.i22, i8 0, i64 24, i1 false), !alias.scope !45, !noalias !42
   %setCount.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i13, i64 0, i32 4
   %setCount5.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i14, i64 0, i32 4
-  %19 = load i64, ptr %setCount5.i.i.i.i.i.i.i28, align 8, !alias.scope !45, !noalias !42
-  store i64 %19, ptr %setCount.i.i.i.i.i.i.i27, align 8, !alias.scope !42, !noalias !45
+  %20 = load i64, ptr %setCount5.i.i.i.i.i.i.i28, align 8, !alias.scope !45, !noalias !42
+  store i64 %20, ptr %setCount.i.i.i.i.i.i.i27, align 8, !alias.scope !42, !noalias !45
   %incdec.ptr.i.i.i29 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i30 = getelementptr inbounds %"struct.pbrt::DisplayItem::ImageChannelBuffer", ptr %__cur.07.i.i.i13, i64 1
   %cmp.not.i.i.i31 = icmp eq ptr %incdec.ptr.i.i.i29, %0
@@ -7834,18 +7832,17 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 %__n)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.sub.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.sub.i
-  %cmp9.i = icmp slt i64 %add.i, 0
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775807)
+  %cond.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i21, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i
+  br i1 %cmp.not.i, label %if.then.i.i.i21, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i) #25
   br label %if.then.i.i.i21
 
-if.then.i.i.i21:                                  ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
+if.then.i.i.i21:                                  ; preds = %cond.true.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds i8, ptr %cond.i19, i64 %sub.ptr.sub.i
   store i8 0, ptr %add.ptr, align 1
   %sub.i.i.i23 = add i64 %__n, -1
@@ -7858,22 +7855,22 @@ if.then.i.i.i.i.i.i.i25:                          ; preds = %if.then.i.i.i21
   br label %try.cont
 
 try.cont:                                         ; preds = %if.then.i.i.i.i.i.i.i25, %if.then.i.i.i21
-  %cmp.i.i.i30.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i30.not, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, label %if.then.i.i.i31
+  %cmp.i.i.i.not = icmp eq ptr %0, %1
+  br i1 %cmp.i.i.i.not, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, label %if.then.i.i.i30
 
-if.then.i.i.i31:                                  ; preds = %try.cont
+if.then.i.i.i30:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %cond.i19, ptr align 1 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit
 
-_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i31
-  %tobool.not.i32 = icmp eq ptr %1, null
-  br i1 %tobool.not.i32, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34, label %if.then.i33
+_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i30
+  %tobool.not.i31 = icmp eq ptr %1, null
+  br i1 %tobool.not.i31, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33, label %if.then.i32
 
-if.then.i33:                                      ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit
+if.then.i32:                                      ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #24
-  br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34
+  br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33
 
-_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34: ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, %if.then.i33
+_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33: ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, %if.then.i32
   store ptr %cond.i19, ptr %this, align 8
   %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8
@@ -7881,7 +7878,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34: ; preds = %_ZNSt6vectorIh
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34, %entry
+if.end43:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33, %entry
   ret void
 }
 
@@ -8466,49 +8463,48 @@ _ZNKSt6vectorIN4pbrt11DisplayItemESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %e
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 72057594037927935
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 72057594037927935, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 72057594037927935)
+  %cond.i = select i1 %cmp7.i, i64 72057594037927935, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 7
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4pbrt11DisplayItemESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4pbrt11DisplayItemESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN4pbrt11DisplayItemESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4pbrt11DisplayItemESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 7
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   br label %_ZNSt12_Vector_baseIN4pbrt11DisplayItemESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4pbrt11DisplayItemESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4pbrt11DisplayItemESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE8allocateERS2_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN4pbrt11DisplayItemESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN4pbrt11DisplayItemESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4pbrt11DisplayItemESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4pbrt11DisplayItemESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = load i8, ptr %__args, align 8
-  %3 = and i8 %2, 1
-  store i8 %3, ptr %add.ptr, align 8
+  %3 = load i8, ptr %__args, align 8
+  %4 = and i8 %3, 1
+  store i8 %4, ptr %add.ptr, align 8
   %title.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
   %title3.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__args, i64 0, i32 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %title.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %title3.i.i.i) #20
   %resolution.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   %resolution4.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__args, i64 0, i32 2
-  %4 = load i64, ptr %resolution4.i.i.i, align 8
-  store i64 %4, ptr %resolution.i.i.i, align 8
+  %5 = load i64, ptr %resolution4.i.i.i, align 8
+  store i64 %5, ptr %resolution.i.i.i, align 8
   %getTileValues.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
   %_M_invoker.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %cond.i10, i64 %sub.ptr.div.i, i32 3, i32 1
   %_M_invoker2.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__args, i64 0, i32 3, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %getTileValues.i.i.i, i8 0, i64 24, i1 false)
-  %5 = load ptr, ptr %_M_invoker2.i.i.i.i, align 8
-  store ptr %5, ptr %_M_invoker.i.i.i.i, align 8
+  %6 = load ptr, ptr %_M_invoker2.i.i.i.i, align 8
+  store ptr %6, ptr %_M_invoker.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__args, i64 0, i32 3, i32 0, i32 1
-  %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.not.i.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.not.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN4pbrt11DisplayItemESaIS1_EE11_M_allocateEm.exit
   %getTileValues5.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__args, i64 0, i32 3
   %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %cond.i10, i64 %sub.ptr.div.i, i32 3, i32 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %getTileValues.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %getTileValues5.i.i.i, i64 16, i1 false)
-  store ptr %6, ptr %_M_manager.i.i.i.i.i, align 8
+  store ptr %7, ptr %_M_manager.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
@@ -8517,18 +8513,18 @@ _ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE9constructIS1_JS1_EEEvRS2_PT_Dp
   %channelNames6.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__args, i64 0, i32 4
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
   %channelBuffers7.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__args, i64 0, i32 5
-  %7 = load <2 x ptr>, ptr %channelNames6.i.i.i, align 8
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %channelNames6.i.i.i, align 8
+  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelNames6.i.i.i, i8 0, i64 24, i1 false)
-  %9 = load ptr, ptr %channelBuffers7.i.i.i, align 8
-  %10 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %11 = insertelement <4 x ptr> %10, ptr %8, i64 2
-  %12 = insertelement <4 x ptr> %11, ptr %9, i64 3
-  store <4 x ptr> %12, ptr %channelNames.i.i.i, align 8
+  %10 = load ptr, ptr %channelBuffers7.i.i.i, align 8
+  %11 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %12 = insertelement <4 x ptr> %11, ptr %9, i64 2
+  %13 = insertelement <4 x ptr> %12, ptr %10, i64 3
+  store <4 x ptr> %13, ptr %channelNames.i.i.i, align 8
   %_M_finish.i.i.i.i6.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %cond.i10, i64 %sub.ptr.div.i, i32 5, i32 0, i32 0, i32 0, i32 1
   %_M_finish3.i.i.i.i7.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__args, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %13 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i7.i.i.i, align 8
-  store <2 x ptr> %13, ptr %_M_finish.i.i.i.i6.i.i.i, align 8
+  %14 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i7.i.i.i, align 8
+  store <2 x ptr> %14, ptr %_M_finish.i.i.i.i6.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelBuffers7.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4pbrt11DisplayItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i
@@ -8538,32 +8534,32 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN4pbrt11DisplayItemES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaIN4pbrt11DisplayItemEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %14 = load i8, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !53, !noalias !50
-  %15 = and i8 %14, 1
-  store i8 %15, ptr %__cur.07.i.i.i, align 8, !alias.scope !50, !noalias !53
+  %15 = load i8, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !53, !noalias !50
+  %16 = and i8 %15, 1
+  store i8 %16, ptr %__cur.07.i.i.i, align 8, !alias.scope !50, !noalias !53
   %title.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i, i64 0, i32 1
   %title3.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 0, i32 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %title.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %title3.i.i.i.i.i.i.i) #20
   %resolution.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i, i64 0, i32 2
   %resolution4.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %16 = load i64, ptr %resolution4.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store i64 %16, ptr %resolution.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
+  %17 = load i64, ptr %resolution4.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  store i64 %17, ptr %resolution.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
   %getTileValues.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i, i64 0, i32 3
   %_M_invoker.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 1
   %_M_invoker2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %getTileValues.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !50, !noalias !53
-  %17 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store ptr %17, ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
+  %18 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  store ptr %18, ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
   %_M_manager.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 1
-  %18 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  %tobool.not.i.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %18, null
+  %19 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  %tobool.not.i.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN4pbrt11DisplayItemES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %getTileValues5.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 0, i32 3
   %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %getTileValues.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %getTileValues5.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !55
-  store ptr %18, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
+  store ptr %19, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !53, !noalias !50
   br label %_ZSt19__relocate_object_aIN4pbrt11DisplayItemES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
@@ -8572,18 +8568,18 @@ _ZSt19__relocate_object_aIN4pbrt11DisplayItemES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
   %channelNames6.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 0, i32 4
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
   %channelBuffers7.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 0, i32 5
-  %19 = load <2 x ptr>, ptr %channelNames6.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  %20 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  %20 = load <2 x ptr>, ptr %channelNames6.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  %21 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelNames6.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !53, !noalias !50
-  %21 = load ptr, ptr %channelBuffers7.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  %22 = shufflevector <2 x ptr> %19, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %23 = insertelement <4 x ptr> %22, ptr %20, i64 2
-  %24 = insertelement <4 x ptr> %23, ptr %21, i64 3
-  store <4 x ptr> %24, ptr %channelNames.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
+  %22 = load ptr, ptr %channelBuffers7.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  %23 = shufflevector <2 x ptr> %20, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %24 = insertelement <4 x ptr> %23, ptr %21, i64 2
+  %25 = insertelement <4 x ptr> %24, ptr %22, i64 3
+  store <4 x ptr> %25, ptr %channelNames.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
   %_M_finish.i.i.i.i6.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
   %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %25 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store <2 x ptr> %25, ptr %_M_finish.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
+  %26 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  store <2 x ptr> %26, ptr %_M_finish.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelBuffers7.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !53, !noalias !50
   tail call void @_ZN4pbrt11DisplayItemD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %__first.addr.06.i.i.i) #20
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i, i64 1
@@ -8602,32 +8598,32 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4pbrt
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i40, %_ZSt19__relocate_object_aIN4pbrt11DisplayItemES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i27 ], [ %__position.coerce, %_ZNSt6vectorIN4pbrt11DisplayItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %26 = load i8, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !60, !noalias !57
-  %27 = and i8 %26, 1
-  store i8 %27, ptr %__cur.07.i.i.i13, align 8, !alias.scope !57, !noalias !60
+  %27 = load i8, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !60, !noalias !57
+  %28 = and i8 %27, 1
+  store i8 %28, ptr %__cur.07.i.i.i13, align 8, !alias.scope !57, !noalias !60
   %title.i.i.i.i.i.i.i15 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %title3.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %title.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %title3.i.i.i.i.i.i.i16) #20
   %resolution.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i13, i64 0, i32 2
   %resolution4.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %28 = load i64, ptr %resolution4.i.i.i.i.i.i.i18, align 8, !alias.scope !60, !noalias !57
-  store i64 %28, ptr %resolution.i.i.i.i.i.i.i17, align 8, !alias.scope !57, !noalias !60
+  %29 = load i64, ptr %resolution4.i.i.i.i.i.i.i18, align 8, !alias.scope !60, !noalias !57
+  store i64 %29, ptr %resolution.i.i.i.i.i.i.i17, align 8, !alias.scope !57, !noalias !60
   %getTileValues.i.i.i.i.i.i.i19 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i13, i64 0, i32 3
   %_M_invoker.i.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 1
   %_M_invoker2.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %getTileValues.i.i.i.i.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !57, !noalias !60
-  %29 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i21, align 8, !alias.scope !60, !noalias !57
-  store ptr %29, ptr %_M_invoker.i.i.i.i.i.i.i.i20, align 8, !alias.scope !57, !noalias !60
+  %30 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i21, align 8, !alias.scope !60, !noalias !57
+  store ptr %30, ptr %_M_invoker.i.i.i.i.i.i.i.i20, align 8, !alias.scope !57, !noalias !60
   %_M_manager.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 1
-  %30 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !60, !noalias !57
-  %tobool.not.i.i.not.i.i.i.i.i.i.i.i23 = icmp eq ptr %30, null
+  %31 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !60, !noalias !57
+  %tobool.not.i.i.not.i.i.i.i.i.i.i.i23 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i.i23, label %_ZSt19__relocate_object_aIN4pbrt11DisplayItemES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i27, label %if.then.i.i.i.i.i.i.i.i24
 
 if.then.i.i.i.i.i.i.i.i24:                        ; preds = %for.body.i.i.i12
   %getTileValues5.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
   %_M_manager.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %getTileValues.i.i.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %getTileValues5.i.i.i.i.i.i.i25, i64 16, i1 false), !alias.scope !62
-  store ptr %30, ptr %_M_manager.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !57, !noalias !60
+  store ptr %31, ptr %_M_manager.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !57, !noalias !60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i22, i8 0, i64 16, i1 false), !alias.scope !60, !noalias !57
   br label %_ZSt19__relocate_object_aIN4pbrt11DisplayItemES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i27
 
@@ -8636,18 +8632,18 @@ _ZSt19__relocate_object_aIN4pbrt11DisplayItemES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
   %channelNames6.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 0, i32 4
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
   %channelBuffers7.i.i.i.i.i.i.i35 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 0, i32 5
-  %31 = load <2 x ptr>, ptr %channelNames6.i.i.i.i.i.i.i29, align 8, !alias.scope !60, !noalias !57
-  %32 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i33, align 8, !alias.scope !60, !noalias !57
+  %32 = load <2 x ptr>, ptr %channelNames6.i.i.i.i.i.i.i29, align 8, !alias.scope !60, !noalias !57
+  %33 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i33, align 8, !alias.scope !60, !noalias !57
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelNames6.i.i.i.i.i.i.i29, i8 0, i64 24, i1 false), !alias.scope !60, !noalias !57
-  %33 = load ptr, ptr %channelBuffers7.i.i.i.i.i.i.i35, align 8, !alias.scope !60, !noalias !57
-  %34 = shufflevector <2 x ptr> %31, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %35 = insertelement <4 x ptr> %34, ptr %32, i64 2
-  %36 = insertelement <4 x ptr> %35, ptr %33, i64 3
-  store <4 x ptr> %36, ptr %channelNames.i.i.i.i.i.i.i28, align 8, !alias.scope !57, !noalias !60
+  %34 = load ptr, ptr %channelBuffers7.i.i.i.i.i.i.i35, align 8, !alias.scope !60, !noalias !57
+  %35 = shufflevector <2 x ptr> %32, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %36 = insertelement <4 x ptr> %35, ptr %33, i64 2
+  %37 = insertelement <4 x ptr> %36, ptr %34, i64 3
+  store <4 x ptr> %37, ptr %channelNames.i.i.i.i.i.i.i28, align 8, !alias.scope !57, !noalias !60
   %_M_finish.i.i.i.i6.i.i.i.i.i.i.i36 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__cur.07.i.i.i13, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
   %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i37 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %37 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i37, align 8, !alias.scope !60, !noalias !57
-  store <2 x ptr> %37, ptr %_M_finish.i.i.i.i6.i.i.i.i.i.i.i36, align 8, !alias.scope !57, !noalias !60
+  %38 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i37, align 8, !alias.scope !60, !noalias !57
+  store <2 x ptr> %38, ptr %_M_finish.i.i.i.i6.i.i.i.i.i.i.i36, align 8, !alias.scope !57, !noalias !60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelBuffers7.i.i.i.i.i.i.i35, i8 0, i64 24, i1 false), !alias.scope !60, !noalias !57
   tail call void @_ZN4pbrt11DisplayItemD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %__first.addr.06.i.i.i14) #20
   %incdec.ptr.i.i.i40 = getelementptr inbounds %"class.pbrt::DisplayItem", ptr %__first.addr.06.i.i.i14, i64 1
@@ -8697,6 +8693,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #19

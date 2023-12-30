@@ -2814,9 +2814,8 @@ if.end:                                           ; preds = %entry
   %div14 = lshr i64 2147483136, %sh_prom.i
   %cmp2 = icmp eq i32 %3, 0
   %cmp4 = icmp ugt i8 %ns.val, 30
-  %cmp6 = icmp ugt i64 %div14, %conv
-  %or.cond13 = select i1 %cmp4, i1 true, i1 %cmp6
-  %spec.select = select i1 %or.cond13, i64 %conv, i64 %div14
+  %5 = tail call i64 @llvm.umin.i64(i64 %div14, i64 %conv)
+  %spec.select = select i1 %cmp4, i64 %conv, i64 %5
   %cond11 = select i1 %cmp2, i64 %div14, i64 %spec.select
   %conv12 = trunc i64 %cond11 to i32
   store i32 %conv12, ptr %dmrsl, align 4
@@ -5202,9 +5201,8 @@ nvme_attach_ns.exit:                              ; preds = %if.end24
   %div14.i = lshr i64 2147483136, %sh_prom.i.i
   %cmp2.i = icmp eq i32 %115, 0
   %cmp4.i = icmp ugt i8 %ns.val.i, 30
-  %cmp6.i = icmp ugt i64 %div14.i, %conv.i89
-  %or.cond13.i = select i1 %cmp4.i, i1 true, i1 %cmp6.i
-  %spec.select.i90 = select i1 %or.cond13.i, i64 %conv.i89, i64 %div14.i
+  %117 = call i64 @llvm.umin.i64(i64 %div14.i, i64 %conv.i89)
+  %spec.select.i90 = select i1 %cmp4.i, i64 %conv.i89, i64 %117
   %cond11.i = select i1 %cmp2.i, i64 %div14.i, i64 %spec.select.i90
   %conv12.i = trunc i64 %cond11.i to i32
   store i32 %conv12.i, ptr %dmrsl.i, align 4
@@ -5775,7 +5773,7 @@ entry:
   %_now.i.i100.i = alloca %struct.timeval, align 8
   %_now.i.i84.i = alloca %struct.timeval, align 8
   %_now.i.i.i33 = alloca %struct.timeval, align 8
-  %_now.i.i479.i = alloca %struct.timeval, align 8
+  %_now.i.i475.i = alloca %struct.timeval, align 8
   %_now.i.i455.i = alloca %struct.timeval, align 8
   %_now.i.i439.i = alloca %struct.timeval, align 8
   %_now.i.i423.i = alloca %struct.timeval, align 8
@@ -7562,25 +7560,25 @@ if.then410.i:                                     ; preds = %if.end402.i
   %248 = load ptr, ptr %pmr405.i, align 16
   %size424.i = getelementptr inbounds %struct.HostMemoryBackend, ptr %248, i64 0, i32 13, i32 18
   %249 = load i128, ptr %size424.i, align 16
-  %cmp.i475.i = icmp ult i128 %249, 18446744073709551616
-  br i1 %cmp.i475.i, label %int128_get64.exit478.i, label %if.else.i476.i
+  %cmp.i471.i = icmp ult i128 %249, 18446744073709551616
+  br i1 %cmp.i471.i, label %int128_get64.exit474.i, label %if.else.i472.i
 
-if.else.i476.i:                                   ; preds = %if.then410.i
+if.else.i472.i:                                   ; preds = %if.then410.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
   unreachable
 
-int128_get64.exit478.i:                           ; preds = %if.then410.i
+int128_get64.exit474.i:                           ; preds = %if.then410.i
   %coerce425.sroa.0.0.extract.trunc.i = trunc i128 %249 to i64
   %250 = xor i64 %or420.i, -1
   %cmp428.i = icmp ugt i64 %coerce425.sroa.0.0.extract.trunc.i, %250
   br i1 %cmp428.i, label %if.then430.i, label %if.end436.i
 
-if.then430.i:                                     ; preds = %int128_get64.exit478.i
+if.then430.i:                                     ; preds = %int128_get64.exit474.i
   %251 = or i32 %pmrsts13.val.i, 4096
   store i32 %251, ptr %pmrsts13.i, align 1
   br label %if.end7
 
-if.end436.i:                                      ; preds = %int128_get64.exit478.i
+if.end436.i:                                      ; preds = %int128_get64.exit474.i
   store i8 1, ptr %cmse406.i, align 8
   %cba440.i = getelementptr inbounds %struct.NvmeCtrl, ptr %opaque, i64 0, i32 26, i32 2
   store i64 %or420.i, ptr %cba440.i, align 16
@@ -7598,45 +7596,45 @@ if.end447.i:                                      ; preds = %sw.bb442.i
   br label %if.end7
 
 do.body451.i:                                     ; preds = %if.end50.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i479.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i475.i)
   %253 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i480.i = icmp ne i32 %253, 0
+  %tobool.i.i476.i = icmp ne i32 %253, 0
   %254 = load i16, ptr @_TRACE_PCI_NVME_UB_MMIOWR_INVALID_DSTATE, align 2
-  %tobool4.i.i481.i = icmp ne i16 %254, 0
-  %or.cond.i.i482.i = select i1 %tobool.i.i480.i, i1 %tobool4.i.i481.i, i1 false
-  br i1 %or.cond.i.i482.i, label %land.lhs.true5.i.i483.i, label %trace_pci_nvme_ub_mmiowr_invalid.exit.i
+  %tobool4.i.i477.i = icmp ne i16 %254, 0
+  %or.cond.i.i478.i = select i1 %tobool.i.i476.i, i1 %tobool4.i.i477.i, i1 false
+  br i1 %or.cond.i.i478.i, label %land.lhs.true5.i.i479.i, label %trace_pci_nvme_ub_mmiowr_invalid.exit.i
 
-land.lhs.true5.i.i483.i:                          ; preds = %do.body451.i
+land.lhs.true5.i.i479.i:                          ; preds = %do.body451.i
   %255 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i484.i = and i32 %255, 32768
-  %cmp.i.not.i.i485.i = icmp eq i32 %and.i.i.i484.i, 0
-  br i1 %cmp.i.not.i.i485.i, label %trace_pci_nvme_ub_mmiowr_invalid.exit.i, label %if.then.i.i486.i
+  %and.i.i.i480.i = and i32 %255, 32768
+  %cmp.i.not.i.i481.i = icmp eq i32 %and.i.i.i480.i, 0
+  br i1 %cmp.i.not.i.i481.i, label %trace_pci_nvme_ub_mmiowr_invalid.exit.i, label %if.then.i.i482.i
 
-if.then.i.i486.i:                                 ; preds = %land.lhs.true5.i.i483.i
+if.then.i.i482.i:                                 ; preds = %land.lhs.true5.i.i479.i
   %256 = load i8, ptr @message_with_timestamp, align 1
   %257 = and i8 %256, 1
-  %tobool7.not.i.i487.i = icmp eq i8 %257, 0
-  br i1 %tobool7.not.i.i487.i, label %if.else.i.i492.i, label %if.then8.i.i488.i
+  %tobool7.not.i.i483.i = icmp eq i8 %257, 0
+  br i1 %tobool7.not.i.i483.i, label %if.else.i.i488.i, label %if.then8.i.i484.i
 
-if.then8.i.i488.i:                                ; preds = %if.then.i.i486.i
-  %call9.i.i489.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i479.i, ptr noundef null) #17
-  %call10.i.i490.i = tail call i32 @qemu_get_thread_id() #17
-  %258 = load i64, ptr %_now.i.i479.i, align 8
-  %tv_usec.i.i491.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i479.i, i64 0, i32 1
-  %259 = load i64, ptr %tv_usec.i.i491.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.458, i32 noundef %call10.i.i490.i, i64 noundef %258, i64 noundef %259, i64 noundef %addr, i64 noundef %data) #17
+if.then8.i.i484.i:                                ; preds = %if.then.i.i482.i
+  %call9.i.i485.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i475.i, ptr noundef null) #17
+  %call10.i.i486.i = tail call i32 @qemu_get_thread_id() #17
+  %258 = load i64, ptr %_now.i.i475.i, align 8
+  %tv_usec.i.i487.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i475.i, i64 0, i32 1
+  %259 = load i64, ptr %tv_usec.i.i487.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.458, i32 noundef %call10.i.i486.i, i64 noundef %258, i64 noundef %259, i64 noundef %addr, i64 noundef %data) #17
   br label %trace_pci_nvme_ub_mmiowr_invalid.exit.i
 
-if.else.i.i492.i:                                 ; preds = %if.then.i.i486.i
+if.else.i.i488.i:                                 ; preds = %if.then.i.i482.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.459, i64 noundef %addr, i64 noundef %data) #17
   br label %trace_pci_nvme_ub_mmiowr_invalid.exit.i
 
-trace_pci_nvme_ub_mmiowr_invalid.exit.i:          ; preds = %if.else.i.i492.i, %if.then8.i.i488.i, %land.lhs.true5.i.i483.i, %do.body451.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i479.i)
+trace_pci_nvme_ub_mmiowr_invalid.exit.i:          ; preds = %if.else.i.i488.i, %if.then8.i.i484.i, %land.lhs.true5.i.i479.i, %do.body451.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i475.i)
   %260 = load i32, ptr @qemu_loglevel, align 4
-  %and.i493.i = and i32 %260, 2048
-  %cmp.i494.not.i = icmp eq i32 %and.i493.i, 0
-  br i1 %cmp.i494.not.i, label %if.end7, label %if.then460.i
+  %and.i489.i = and i32 %260, 2048
+  %cmp.i490.not.i = icmp eq i32 %and.i489.i, 0
+  br i1 %cmp.i490.not.i, label %if.end7, label %if.then460.i
 
 if.then460.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_invalid.exit.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr, i64 noundef %data) #17
@@ -13226,24 +13224,23 @@ nvme_attach_ns.exit.i:                            ; preds = %if.end40.i249
   %div14.i.i = lshr i64 2147483136, %sh_prom.i.i.i
   %cmp2.i.i = icmp eq i32 %486, 0
   %cmp4.i.i252 = icmp ugt i8 %ns.val.i.i, 30
-  %cmp6.i.i = icmp ugt i64 %div14.i.i, %conv.i.i251
-  %or.cond13.i.i = select i1 %cmp4.i.i252, i1 true, i1 %cmp6.i.i
-  %spec.select.i.i253 = select i1 %or.cond13.i.i, i64 %conv.i.i251, i64 %div14.i.i
+  %487 = call i64 @llvm.umin.i64(i64 %div14.i.i, i64 %conv.i.i251)
+  %spec.select.i.i253 = select i1 %cmp4.i.i252, i64 %conv.i.i251, i64 %487
   %cond11.i.i = select i1 %cmp2.i.i, i64 %div14.i.i, i64 %spec.select.i.i253
   %conv12.i.i = trunc i64 %cond11.i.i to i32
   store i32 %conv12.i.i, ptr %dmrsl.i.i, align 4
-  %487 = getelementptr i8, ptr %478, i64 3172
-  %call28.val.i = load i32, ptr %487, align 1
+  %488 = getelementptr i8, ptr %478, i64 3172
+  %call28.val.i = load i32, ptr %488, align 1
   store ptr @nvme_cse_iocs_none, ptr %iocs.i.i, align 8
-  %488 = load i8, ptr %csi.i.i, align 8
-  switch i8 %488, label %sw.epilog.i [
+  %489 = load i8, ptr %csi.i.i, align 8
+  switch i8 %489, label %sw.epilog.i [
     i8 0, label %sw.bb.i.i
     i8 2, label %sw.bb4.i.i254
   ]
 
 sw.bb.i.i:                                        ; preds = %nvme_attach_ns.exit.i
-  %489 = and i32 %call28.val.i, 112
-  %cmp.not.i.i255 = icmp eq i32 %489, 112
+  %490 = and i32 %call28.val.i, 112
+  %cmp.not.i.i255 = icmp eq i32 %490, 112
   br i1 %cmp.not.i.i255, label %sw.epilog.i, label %sw.epilog.sink.split.i.i
 
 sw.bb4.i.i254:                                    ; preds = %nvme_attach_ns.exit.i
@@ -13264,14 +13261,14 @@ sw.epilog.sink.split.i.i:                         ; preds = %if.then15.i.i, %sw.
 
 nvme_ns.exit59.i:                                 ; preds = %if.end31.i
   %arrayidx.i57.i = getelementptr %struct.NvmeCtrl, ptr %478, i64 0, i32 35, i64 %idxprom.i.i232
-  %490 = load ptr, ptr %arrayidx.i57.i, align 8
-  %tobool43.not.i = icmp eq ptr %490, null
+  %491 = load ptr, ptr %arrayidx.i57.i, align 8
+  %tobool43.not.i = icmp eq ptr %491, null
   br i1 %tobool43.not.i, label %nvme_ns_attachment.exit, label %if.end45.i
 
 if.end45.i:                                       ; preds = %nvme_ns.exit59.i
   store ptr null, ptr %arrayidx.i57.i, align 8
-  %491 = load i32, ptr %attached48.i, align 4
-  %dec.i = add i32 %491, -1
+  %492 = load i32, ptr %attached48.i, align 4
+  %dec.i = add i32 %492, -1
   store i32 %dec.i, ptr %attached48.i, align 4
   %dmrsl.i60.i = getelementptr inbounds %struct.NvmeCtrl, ptr %478, i64 0, i32 31
   br label %nvme_ns.exit.i.i244
@@ -13279,25 +13276,24 @@ if.end45.i:                                       ; preds = %nvme_ns.exit59.i
 nvme_ns.exit.i.i244:                              ; preds = %for.inc.i.i, %if.end45.i
   %indvars.iv.i.i = phi i64 [ 1, %if.end45.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i.i245 = getelementptr %struct.NvmeCtrl, ptr %478, i64 0, i32 35, i64 %indvars.iv.i.i
-  %492 = load ptr, ptr %arrayidx.i.i.i245, align 8
-  %tobool.not.i61.i = icmp eq ptr %492, null
+  %493 = load ptr, ptr %arrayidx.i.i.i245, align 8
+  %tobool.not.i61.i = icmp eq ptr %493, null
   br i1 %tobool.not.i61.i, label %for.inc.i.i, label %if.end.i62.i
 
 if.end.i62.i:                                     ; preds = %nvme_ns.exit.i.i244
-  %493 = load i32, ptr %dmrsl.i60.i, align 4
-  %conv.i63.i = zext i32 %493 to i64
-  %494 = getelementptr i8, ptr %492, i64 8466
-  %call.val.i.i = load i8, ptr %494, align 2
+  %494 = load i32, ptr %dmrsl.i60.i, align 4
+  %conv.i63.i = zext i32 %494 to i64
+  %495 = getelementptr i8, ptr %493, i64 8466
+  %call.val.i.i = load i8, ptr %495, align 2
   %sh_prom.i.i64.i = zext nneg i8 %call.val.i.i to i64
   %div13.i.i = lshr i64 2147483136, %sh_prom.i.i64.i
-  %cmp2.i65.i = icmp eq i32 %493, 0
+  %cmp2.i65.i = icmp eq i32 %494, 0
   %cmp4.i66.i = icmp ugt i8 %call.val.i.i, 30
-  %cmp6.i67.i = icmp ugt i64 %div13.i.i, %conv.i63.i
-  %or.cond.i68.i = select i1 %cmp4.i66.i, i1 true, i1 %cmp6.i67.i
-  %spec.select.i69.i = select i1 %or.cond.i68.i, i64 %conv.i63.i, i64 %div13.i.i
-  %cond11.i70.i = select i1 %cmp2.i65.i, i64 %div13.i.i, i64 %spec.select.i69.i
-  %conv12.i71.i = trunc i64 %cond11.i70.i to i32
-  store i32 %conv12.i71.i, ptr %dmrsl.i60.i, align 4
+  %496 = call i64 @llvm.umin.i64(i64 %div13.i.i, i64 %conv.i63.i)
+  %spec.select.i67.i = select i1 %cmp4.i66.i, i64 %conv.i63.i, i64 %496
+  %cond11.i68.i = select i1 %cmp2.i65.i, i64 %div13.i.i, i64 %spec.select.i67.i
+  %conv12.i69.i = trunc i64 %cond11.i68.i to i32
+  store i32 %conv12.i69.i, ptr %dmrsl.i60.i, align 4
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end.i62.i, %nvme_ns.exit.i.i244
@@ -13308,12 +13304,12 @@ for.inc.i.i:                                      ; preds = %if.end.i62.i, %nvme
 sw.epilog.i:                                      ; preds = %for.inc.i.i, %sw.epilog.sink.split.i.i, %sw.bb4.i.i254, %sw.bb.i.i, %nvme_attach_ns.exit.i
   %changed_nsids.i = getelementptr inbounds %struct.NvmeCtrl, ptr %478, i64 0, i32 32
   %add.ptr.i.i = getelementptr i64, ptr %changed_nsids.i, i64 %div5.i.i
-  %495 = load i64, ptr %add.ptr.i.i, align 8
-  %or.i.i = or i64 %495, %shl.i.i240
+  %497 = load i64, ptr %add.ptr.i.i, align 8
+  %or.i.i = or i64 %497, %shl.i.i240
   store i64 %or.i.i, ptr %add.ptr.i.i, align 8
-  %and.i.i = and i64 %495, %shl.i.i240
-  %cmp.i72.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.i72.not.i, label %if.then53.i, label %for.inc.i246
+  %and.i.i = and i64 %497, %shl.i.i240
+  %cmp.i70.not.i = icmp eq i64 %and.i.i, 0
+  br i1 %cmp.i70.not.i, label %if.then53.i, label %for.inc.i246
 
 if.then53.i:                                      ; preds = %sw.epilog.i
   call fastcc void @nvme_enqueue_event(ptr noundef nonnull %478, i8 noundef zeroext 2, i8 noundef zeroext 0, i8 noundef zeroext 4)
@@ -13321,9 +13317,9 @@ if.then53.i:                                      ; preds = %sw.epilog.i
 
 for.inc.i246:                                     ; preds = %if.then53.i, %sw.epilog.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %496 = load i16, ptr %list.i, align 16
-  %497 = zext i16 %496 to i64
-  %cmp23.i = icmp ult i64 %indvars.iv.next.i, %497
+  %498 = load i16, ptr %list.i, align 16
+  %499 = zext i16 %498 to i64
+  %cmp23.i = icmp ult i64 %indvars.iv.next.i, %499
   br i1 %cmp23.i, label %for.body.i241, label %nvme_ns_attachment.exit, !llvm.loop !40
 
 nvme_ns_attachment.exit:                          ; preds = %for.body.i241, %if.end.i41.i, %if.end.i41.i, %if.end31.i, %nvme_ns.exit.i247, %land.lhs.true.i248, %nvme_ns.exit59.i, %for.inc.i246, %trace_pci_nvme_ns_attachment.exit.i, %if.end.i230, %nvme_subsys_ns.exit.i, %if.end11.i, %nvme_h2c.exit.i, %if.end15.i
@@ -13333,51 +13329,51 @@ nvme_ns_attachment.exit:                          ; preds = %for.body.i241, %if.
 
 sw.bb45.i:                                        ; preds = %if.end20.i
   %cdw10.i189 = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 6, i32 7
-  %498 = load i32, ptr %cdw10.i189, align 8
+  %500 = load i32, ptr %cdw10.i189, align 8
   %cdw11.i190 = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 6, i32 8
-  %499 = load i32, ptr %cdw11.i190, align 4
-  %conv.i191 = and i32 %498, 15
-  %shr.i = lshr i32 %498, 8
-  %500 = trunc i32 %shr.i to i8
-  %conv4.i = and i8 %500, 7
-  %shr5.i = lshr i32 %498, 16
+  %501 = load i32, ptr %cdw11.i190, align 4
+  %conv.i191 = and i32 %500, 15
+  %shr.i = lshr i32 %500, 8
+  %502 = trunc i32 %shr.i to i8
+  %conv4.i = and i8 %502, 7
+  %shr5.i = lshr i32 %500, 16
   %conv7.i = trunc i32 %shr5.i to i16
-  %and8.i192 = and i32 %499, 65535
-  %501 = load i16, ptr %cid43, align 4
+  %and8.i192 = and i32 %501, 65535
+  %503 = load i16, ptr %cid43, align 4
   %conv11.i194 = and i32 %shr.i, 7
   %tobool.not.i195 = icmp eq i32 %conv11.i194, 0
   %cond.i = select i1 %tobool.not.i195, ptr @.str.413, ptr @.str.412
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i188)
-  %502 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i196 = icmp ne i32 %502, 0
-  %503 = load i16, ptr @_TRACE_PCI_NVME_VIRT_MNGMT_DSTATE, align 2
-  %tobool4.i.i.i197 = icmp ne i16 %503, 0
+  %504 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i196 = icmp ne i32 %504, 0
+  %505 = load i16, ptr @_TRACE_PCI_NVME_VIRT_MNGMT_DSTATE, align 2
+  %tobool4.i.i.i197 = icmp ne i16 %505, 0
   %or.cond.i.i.i198 = select i1 %tobool.i.i.i196, i1 %tobool4.i.i.i197, i1 false
   br i1 %or.cond.i.i.i198, label %land.lhs.true5.i.i.i208, label %trace_pci_nvme_virt_mngmt.exit.i
 
 land.lhs.true5.i.i.i208:                          ; preds = %sw.bb45.i
-  %504 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i209 = and i32 %504, 32768
+  %506 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i209 = and i32 %506, 32768
   %cmp.i.not.i.i.i210 = icmp eq i32 %and.i.i.i.i209, 0
   br i1 %cmp.i.not.i.i.i210, label %trace_pci_nvme_virt_mngmt.exit.i, label %if.then.i.i.i211
 
 if.then.i.i.i211:                                 ; preds = %land.lhs.true5.i.i.i208
-  %505 = load i8, ptr @message_with_timestamp, align 1
-  %506 = and i8 %505, 1
-  %tobool7.not.i.i.i212 = icmp eq i8 %506, 0
+  %507 = load i8, ptr @message_with_timestamp, align 1
+  %508 = and i8 %507, 1
+  %tobool7.not.i.i.i212 = icmp eq i8 %508, 0
   br i1 %tobool7.not.i.i.i212, label %if.else.i.i.i218, label %if.then8.i.i.i213
 
 if.then8.i.i.i213:                                ; preds = %if.then.i.i.i211
   %call9.i.i.i214 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i188, ptr noundef null) #17
   %call10.i.i.i215 = call i32 @qemu_get_thread_id() #17
-  %507 = load i64, ptr %_now.i.i.i188, align 8
-  %508 = load i64, ptr %tv_usec.i.i.i216, align 8
-  %conv11.i.i.i217 = zext i16 %501 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.414, i32 noundef %call10.i.i.i215, i64 noundef %507, i64 noundef %508, i32 noundef %conv11.i.i.i217, i32 noundef %conv.i191, i32 noundef %shr5.i, ptr noundef nonnull %cond.i, i32 noundef %and8.i192) #17
+  %509 = load i64, ptr %_now.i.i.i188, align 8
+  %510 = load i64, ptr %tv_usec.i.i.i216, align 8
+  %conv11.i.i.i217 = zext i16 %503 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.414, i32 noundef %call10.i.i.i215, i64 noundef %509, i64 noundef %510, i32 noundef %conv11.i.i.i217, i32 noundef %conv.i191, i32 noundef %shr5.i, ptr noundef nonnull %cond.i, i32 noundef %and8.i192) #17
   br label %trace_pci_nvme_virt_mngmt.exit.i
 
 if.else.i.i.i218:                                 ; preds = %if.then.i.i.i211
-  %conv15.i.i.i219 = zext i16 %501 to i32
+  %conv15.i.i.i219 = zext i16 %503 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.415, i32 noundef %conv15.i.i.i219, i32 noundef %conv.i191, i32 noundef %shr5.i, ptr noundef nonnull %cond.i, i32 noundef %and8.i192) #17
   br label %trace_pci_nvme_virt_mngmt.exit.i
 
@@ -13395,12 +13391,12 @@ if.end.i200:                                      ; preds = %trace_pci_nvme_virt
   ]
 
 sw.bb.i203:                                       ; preds = %if.end.i200
-  %509 = load i8, ptr %sec_ctrl_list.i.i.i, align 1
-  %cmp6.not.i.i.i = icmp eq i8 %509, 0
+  %511 = load i8, ptr %sec_ctrl_list.i.i.i, align 1
+  %cmp6.not.i.i.i = icmp eq i8 %511, 0
   br i1 %cmp6.not.i.i.i, label %if.then55, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %sw.bb.i203
-  %wide.trip.count.i.i.i = zext i8 %509 to i64
+  %wide.trip.count.i.i.i = zext i8 %511 to i64
   br label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
@@ -13411,14 +13407,14 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.body.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
   %arrayidx.i.i.i204 = getelementptr %struct.NvmeCtrl, ptr %0, i64 0, i32 43, i32 2, i64 %indvars.iv.i.i.i
-  %510 = load i16, ptr %arrayidx.i.i.i204, align 1
-  %cmp5.i.i.i = icmp eq i16 %510, %conv7.i
+  %512 = load i16, ptr %arrayidx.i.i.i204, align 1
+  %cmp5.i.i.i = icmp eq i16 %512, %conv7.i
   br i1 %cmp5.i.i.i, label %if.end.i22.i, label %for.cond.i.i.i
 
 if.end.i22.i:                                     ; preds = %for.body.i.i.i
   %scs.i.i = getelementptr %struct.NvmeCtrl, ptr %0, i64 0, i32 43, i32 2, i64 %indvars.iv.i.i.i, i32 2
-  %511 = load i8, ptr %scs.i.i, align 1
-  %tobool1.not.i.i = icmp eq i8 %511, 0
+  %513 = load i8, ptr %scs.i.i, align 1
+  %tobool1.not.i.i = icmp eq i8 %513, 0
   br i1 %tobool1.not.i.i, label %if.end3.i.i, label %if.then55
 
 if.end3.i.i:                                      ; preds = %if.end.i22.i
@@ -13438,8 +13434,8 @@ if.end13.i.i206:                                  ; preds = %if.end3.i.i
   %cond22.in.i.i.i = select i1 %tobool4.not.i.i, ptr %vqrfa.i.i31.i, ptr %virfa.i.i32.i
   %cond22.i.i.i = load i32, ptr %cond22.in.i.i.i, align 4
   %conv25.i.i.i = and i32 %cond22.i.i.i, 65535
-  %512 = add nuw nsw i32 %conv25.i.i.i, %conv14.i.i23.i
-  %sub14.i.i = sub i32 %cond.i.i.i, %512
+  %514 = add nuw nsw i32 %conv25.i.i.i, %conv14.i.i23.i
+  %sub14.i.i = sub i32 %cond.i.i.i, %514
   %nvi.i.i = getelementptr %struct.NvmeCtrl, ptr %0, i64 0, i32 43, i32 2, i64 %indvars.iv.i.i.i, i32 6
   %nvq.i.i = getelementptr %struct.NvmeCtrl, ptr %0, i64 0, i32 43, i32 2, i64 %indvars.iv.i.i.i, i32 5
   %cond22.in.in.i.i = select i1 %tobool4.not.i.i, ptr %nvq.i.i, ptr %nvi.i.i
@@ -13450,7 +13446,7 @@ if.end13.i.i206:                                  ; preds = %if.end3.i.i
   br i1 %cmp27.i.i, label %if.then55, label %if.end30.i.i
 
 if.end30.i.i:                                     ; preds = %if.end13.i.i206
-  %conv12.i.i24.i = trunc i32 %499 to i16
+  %conv12.i.i24.i = trunc i32 %501 to i16
   store i16 %conv12.i.i24.i, ptr %cond22.in.in.i.i, align 1
   %add15.i.i.i = add i32 %cond22.i.i.i, %and8.i192
   %sub16.i.i.i = sub i32 %add15.i.i.i, %conv25.i.i
@@ -13458,12 +13454,12 @@ if.end30.i.i:                                     ; preds = %if.end13.i.i206
   %cqe.i.i207 = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 5
   store i32 %and8.i192, ptr %cqe.i.i207, align 8
   %status.i.i = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 3
-  %513 = load i16, ptr %status.i.i, align 8
+  %515 = load i16, ptr %status.i.i, align 8
   br label %cond.end
 
 sw.bb20.i:                                        ; preds = %if.end.i200
-  %514 = load i16, ptr %cntlid1.i.i, align 8
-  %cmp.not.i.i = icmp eq i16 %514, %conv7.i
+  %516 = load i16, ptr %cntlid1.i.i, align 8
+  %cmp.not.i.i = icmp eq i16 %516, %conv7.i
   br i1 %cmp.not.i.i, label %if.end.i26.i, label %if.then55
 
 if.end.i26.i:                                     ; preds = %sw.bb20.i
@@ -13482,7 +13478,7 @@ if.end7.i.i:                                      ; preds = %if.end.i26.i
   br i1 %cmp8.i.i, label %if.then55, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end7.i.i
-  %conv14.i.i = trunc i32 %499 to i16
+  %conv14.i.i = trunc i32 %501 to i16
   br i1 %tobool.not.i.i.i, label %if.else.i.i202, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end11.i.i
@@ -13497,7 +13493,7 @@ if.end17.i.i:                                     ; preds = %if.else.i.i202, %if
   %cqe.i36.i = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 5
   store i32 %and8.i192, ptr %cqe.i36.i, align 8
   %status.i37.i = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 3
-  %515 = load i16, ptr %status.i37.i, align 8
+  %517 = load i16, ptr %status.i37.i, align 8
   br label %cond.end
 
 sw.bb22.i:                                        ; preds = %if.end.i200
@@ -13511,188 +13507,188 @@ sw.bb24.i:                                        ; preds = %if.end.i200
 sw.bb47.i:                                        ; preds = %if.end20.i
   %call.i.i153 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
   %dptr.i = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 6, i32 6
-  %516 = load i64, ptr %dptr.i, align 8
+  %518 = load i64, ptr %dptr.i, align 8
   %prp2.i = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 6, i32 6, i32 0, i32 1
-  %517 = load i64, ptr %prp2.i, align 8
-  %518 = load i32, ptr %page_size.i, align 4
-  %sub.i = add i32 %518, -1
+  %519 = load i64, ptr %prp2.i, align 8
+  %520 = load i32, ptr %page_size.i, align 4
+  %sub.i = add i32 %520, -1
   %conv.i154 = zext i32 %sub.i to i64
-  %and.i155 = and i64 %516, %conv.i154
+  %and.i155 = and i64 %518, %conv.i154
   %tobool.not.i156 = icmp eq i64 %and.i155, 0
-  %and8.i = and i64 %517, %conv.i154
+  %and8.i = and i64 %519, %conv.i154
   %tobool9.not.i = icmp eq i64 %and8.i, 0
   %or.cond.i157 = select i1 %tobool.not.i156, i1 %tobool9.not.i, i1 false
   br i1 %or.cond.i157, label %if.end.i159, label %if.then55
 
 if.end.i159:                                      ; preds = %sw.bb47.i
-  store i64 %516, ptr %dbbuf_dbs.i, align 16
-  store i64 %517, ptr %dbbuf_eis.i, align 8
+  store i64 %518, ptr %dbbuf_dbs.i, align 16
+  store i64 %519, ptr %dbbuf_eis.i, align 8
   store i8 1, ptr %dbbuf_enabled, align 16
-  %519 = load i32, ptr %max_ioqpairs.i, align 4
-  %cmp81.not.i = icmp eq i32 %519, -1
+  %521 = load i32, ptr %max_ioqpairs.i, align 4
+  %cmp81.not.i = icmp eq i32 %521, -1
   br i1 %cmp81.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i159
   %bus_master_as.i.i.i160 = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i153, i64 0, i32 12
-  %add68.i = add i64 %516, 4
-  %add73.i = add i64 %517, 4
+  %add68.i = add i64 %518, 4
+  %add73.i = add i64 %519, 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %.compoundliteral77.sroa.0.084.i = phi i32 [ undef, %for.body.lr.ph.i ], [ %.compoundliteral77.sroa.0.1.i, %for.inc.i ]
   %.compoundliteral.sroa.0.083.i = phi i32 [ undef, %for.body.lr.ph.i ], [ %.compoundliteral.sroa.0.1.i, %for.inc.i ]
   %i.082.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %520 = load ptr, ptr %sq11.i, align 16
+  %522 = load ptr, ptr %sq11.i, align 16
   %idxprom.i161 = sext i32 %i.082.i to i64
-  %arrayidx.i162 = getelementptr ptr, ptr %520, i64 %idxprom.i161
-  %521 = load ptr, ptr %arrayidx.i162, align 8
-  %522 = load ptr, ptr %cq1, align 8
-  %arrayidx14.i = getelementptr ptr, ptr %522, i64 %idxprom.i161
-  %523 = load ptr, ptr %arrayidx14.i, align 8
-  %tobool15.not.i = icmp eq ptr %521, null
+  %arrayidx.i162 = getelementptr ptr, ptr %522, i64 %idxprom.i161
+  %523 = load ptr, ptr %arrayidx.i162, align 8
+  %524 = load ptr, ptr %cq1, align 8
+  %arrayidx14.i = getelementptr ptr, ptr %524, i64 %idxprom.i161
+  %525 = load ptr, ptr %arrayidx14.i, align 8
+  %tobool15.not.i = icmp eq ptr %523, null
   br i1 %tobool15.not.i, label %if.end63.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %for.body.i
   %shl.i163 = shl i32 %i.082.i, 3
   %conv17.i164 = sext i32 %shl.i163 to i64
-  %add18.i = add i64 %516, %conv17.i164
-  %db_addr.i = getelementptr inbounds %struct.NvmeSQueue, ptr %521, i64 0, i32 7
+  %add18.i = add i64 %518, %conv17.i164
+  %db_addr.i = getelementptr inbounds %struct.NvmeSQueue, ptr %523, i64 0, i32 7
   store i64 %add18.i, ptr %db_addr.i, align 8
-  %add21.i = add i64 %517, %conv17.i164
-  %ei_addr.i165 = getelementptr inbounds %struct.NvmeSQueue, ptr %521, i64 0, i32 8
+  %add21.i = add i64 %519, %conv17.i164
+  %ei_addr.i165 = getelementptr inbounds %struct.NvmeSQueue, ptr %523, i64 0, i32 8
   store i64 %add21.i, ptr %ei_addr.i165, align 8
-  %tail.i166 = getelementptr inbounds %struct.NvmeSQueue, ptr %521, i64 0, i32 4
-  %524 = load i32, ptr %tail.i166, align 8
+  %tail.i166 = getelementptr inbounds %struct.NvmeSQueue, ptr %523, i64 0, i32 4
+  %526 = load i32, ptr %tail.i166, align 8
   %bf.set.i = and i32 %.compoundliteral.sroa.0.083.i, -67108864
   %bf.clear24.i = or disjoint i32 %bf.set.i, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i152)
-  store i32 %524, ptr %val.addr.i.i.i152, align 4
+  store i32 %526, ptr %val.addr.i.i.i152, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   fence seq_cst
   %call.i.i.i.i.i.i167 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i160, i64 noundef %add18.i, i32 %bf.clear24.i, ptr noundef nonnull %val.addr.i.i.i152, i64 noundef 4, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i152)
-  %525 = load i8, ptr %ioeventfd.i, align 2
-  %526 = and i8 %525, 1
-  %tobool52.not.i = icmp eq i8 %526, 0
+  %527 = load i8, ptr %ioeventfd.i, align 2
+  %528 = and i8 %527, 1
+  %tobool52.not.i = icmp eq i8 %528, 0
   br i1 %tobool52.not.i, label %if.end63.i, label %land.lhs.true.i168
 
 land.lhs.true.i168:                               ; preds = %if.then16.i
-  %sqid.i169 = getelementptr inbounds %struct.NvmeSQueue, ptr %521, i64 0, i32 1
-  %527 = load i16, ptr %sqid.i169, align 8
-  %cmp55.not.i = icmp eq i16 %527, 0
+  %sqid.i169 = getelementptr inbounds %struct.NvmeSQueue, ptr %523, i64 0, i32 1
+  %529 = load i16, ptr %sqid.i169, align 8
+  %cmp55.not.i = icmp eq i16 %529, 0
   br i1 %cmp55.not.i, label %if.end63.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %land.lhs.true.i168
-  %528 = load ptr, ptr %521, align 8
-  %notifier.i.i = getelementptr inbounds %struct.NvmeSQueue, ptr %521, i64 0, i32 10
+  %530 = load ptr, ptr %523, align 8
+  %notifier.i.i = getelementptr inbounds %struct.NvmeSQueue, ptr %523, i64 0, i32 10
   %call.i63.i = call i32 @event_notifier_init(ptr noundef nonnull %notifier.i.i, i32 noundef 0) #17
   %cmp.i.i170 = icmp slt i32 %call.i63.i, 0
   br i1 %cmp.i.i170, label %if.end63.i, label %if.then60.i
 
 if.then60.i:                                      ; preds = %if.then57.i
-  %shl.i.i = shl i16 %527, 3
+  %shl.i.i = shl i16 %529, 3
   call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i.i, ptr noundef nonnull @nvme_sq_notifier) #17
-  %iomem.i.i = getelementptr inbounds %struct.NvmeCtrl, ptr %528, i64 0, i32 2
+  %iomem.i.i = getelementptr inbounds %struct.NvmeCtrl, ptr %530, i64 0, i32 2
   %conv4.i.i = zext i16 %shl.i.i to i64
   %add.i.i = add nuw nsw i64 %conv4.i.i, 4096
   call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i.i, i64 noundef %add.i.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i.i) #17
-  %ioeventfd_enabled.i = getelementptr inbounds %struct.NvmeSQueue, ptr %521, i64 0, i32 11
+  %ioeventfd_enabled.i = getelementptr inbounds %struct.NvmeSQueue, ptr %523, i64 0, i32 11
   store i8 1, ptr %ioeventfd_enabled.i, align 4
   br label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.then60.i, %if.then57.i, %land.lhs.true.i168, %if.then16.i, %for.body.i
   %.compoundliteral.sroa.0.1.i = phi i32 [ %bf.clear24.i, %if.then60.i ], [ %bf.clear24.i, %land.lhs.true.i168 ], [ %bf.clear24.i, %if.then16.i ], [ %.compoundliteral.sroa.0.083.i, %for.body.i ], [ %bf.clear24.i, %if.then57.i ]
-  %tobool64.not.i = icmp eq ptr %523, null
+  %tobool64.not.i = icmp eq ptr %525, null
   br i1 %tobool64.not.i, label %for.inc.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %if.end63.i
   %shl66.i = shl i32 %i.082.i, 3
   %conv67.i = sext i32 %shl66.i to i64
   %add69.i = add i64 %add68.i, %conv67.i
-  %db_addr70.i = getelementptr inbounds %struct.NvmeCQueue, ptr %523, i64 0, i32 9
+  %db_addr70.i = getelementptr inbounds %struct.NvmeCQueue, ptr %525, i64 0, i32 9
   store i64 %add69.i, ptr %db_addr70.i, align 8
   %add74.i = add i64 %add73.i, %conv67.i
-  %ei_addr75.i = getelementptr inbounds %struct.NvmeCQueue, ptr %523, i64 0, i32 10
+  %ei_addr75.i = getelementptr inbounds %struct.NvmeCQueue, ptr %525, i64 0, i32 10
   store i64 %add74.i, ptr %ei_addr75.i, align 8
-  %head.i171 = getelementptr inbounds %struct.NvmeCQueue, ptr %523, i64 0, i32 4
-  %529 = load i32, ptr %head.i171, align 8
+  %head.i171 = getelementptr inbounds %struct.NvmeCQueue, ptr %525, i64 0, i32 4
+  %531 = load i32, ptr %head.i171, align 8
   %bf.set80.i = and i32 %.compoundliteral77.sroa.0.084.i, -67108864
   %bf.clear82.i = or disjoint i32 %bf.set80.i, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i64.i)
-  store i32 %529, ptr %val.addr.i.i64.i, align 4
+  store i32 %531, ptr %val.addr.i.i64.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   fence seq_cst
   %call.i.i.i.i.i66.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i160, i64 noundef %add69.i, i32 %bf.clear82.i, ptr noundef nonnull %val.addr.i.i64.i, i64 noundef 4, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i64.i)
-  %530 = load i8, ptr %ioeventfd.i, align 2
-  %531 = and i8 %530, 1
-  %tobool112.not.i = icmp eq i8 %531, 0
+  %532 = load i8, ptr %ioeventfd.i, align 2
+  %533 = and i8 %532, 1
+  %tobool112.not.i = icmp eq i8 %533, 0
   br i1 %tobool112.not.i, label %for.inc.i, label %land.lhs.true114.i
 
 land.lhs.true114.i:                               ; preds = %if.then65.i
-  %cqid.i = getelementptr inbounds %struct.NvmeCQueue, ptr %523, i64 0, i32 2
-  %532 = load i16, ptr %cqid.i, align 2
-  %cmp116.not.i = icmp eq i16 %532, 0
+  %cqid.i = getelementptr inbounds %struct.NvmeCQueue, ptr %525, i64 0, i32 2
+  %534 = load i16, ptr %cqid.i, align 2
+  %cmp116.not.i = icmp eq i16 %534, 0
   br i1 %cmp116.not.i, label %for.inc.i, label %if.then118.i
 
 if.then118.i:                                     ; preds = %land.lhs.true114.i
-  %533 = load ptr, ptr %523, align 8
-  %notifier.i67.i = getelementptr inbounds %struct.NvmeCQueue, ptr %523, i64 0, i32 12
+  %535 = load ptr, ptr %525, align 8
+  %notifier.i67.i = getelementptr inbounds %struct.NvmeCQueue, ptr %525, i64 0, i32 12
   %call.i68.i = call i32 @event_notifier_init(ptr noundef nonnull %notifier.i67.i, i32 noundef 0) #17
   %cmp.i69.i = icmp slt i32 %call.i68.i, 0
   br i1 %cmp.i69.i, label %for.inc.i, label %if.then121.i
 
 if.then121.i:                                     ; preds = %if.then118.i
-  %shl.i71.i = shl i16 %532, 3
+  %shl.i71.i = shl i16 %534, 3
   %add.i72.i = or disjoint i16 %shl.i71.i, 4
   call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i67.i, ptr noundef nonnull @nvme_cq_notifier) #17
-  %iomem.i73.i = getelementptr inbounds %struct.NvmeCtrl, ptr %533, i64 0, i32 2
+  %iomem.i73.i = getelementptr inbounds %struct.NvmeCtrl, ptr %535, i64 0, i32 2
   %conv4.i74.i = zext i16 %add.i72.i to i64
   %add5.i.i = add nuw nsw i64 %conv4.i74.i, 4096
   call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i73.i, i64 noundef %add5.i.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i67.i) #17
-  %ioeventfd_enabled122.i = getelementptr inbounds %struct.NvmeCQueue, ptr %523, i64 0, i32 13
+  %ioeventfd_enabled122.i = getelementptr inbounds %struct.NvmeCQueue, ptr %525, i64 0, i32 13
   store i8 1, ptr %ioeventfd_enabled122.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then121.i, %if.then118.i, %land.lhs.true114.i, %if.then65.i, %if.end63.i
   %.compoundliteral77.sroa.0.1.i = phi i32 [ %bf.clear82.i, %if.then121.i ], [ %bf.clear82.i, %land.lhs.true114.i ], [ %bf.clear82.i, %if.then65.i ], [ %.compoundliteral77.sroa.0.084.i, %if.end63.i ], [ %bf.clear82.i, %if.then118.i ]
   %inc.i = add nuw i32 %i.082.i, 1
-  %534 = load i32, ptr %max_ioqpairs.i, align 4
-  %add.i172 = add i32 %534, 1
+  %536 = load i32, ptr %max_ioqpairs.i, align 4
+  %add.i172 = add i32 %536, 1
   %cmp.i173 = icmp ult i32 %inc.i, %add.i172
   br i1 %cmp.i173, label %for.body.i, label %for.end.i, !llvm.loop !42
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end.i159
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i151)
-  %535 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i174 = icmp ne i32 %535, 0
-  %536 = load i16, ptr @_TRACE_PCI_NVME_DBBUF_CONFIG_DSTATE, align 2
-  %tobool4.i.i.i175 = icmp ne i16 %536, 0
+  %537 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i174 = icmp ne i32 %537, 0
+  %538 = load i16, ptr @_TRACE_PCI_NVME_DBBUF_CONFIG_DSTATE, align 2
+  %tobool4.i.i.i175 = icmp ne i16 %538, 0
   %or.cond.i.i.i176 = select i1 %tobool.i.i.i174, i1 %tobool4.i.i.i175, i1 false
   br i1 %or.cond.i.i.i176, label %land.lhs.true5.i.i.i177, label %trace_pci_nvme_dbbuf_config.exit.i
 
 land.lhs.true5.i.i.i177:                          ; preds = %for.end.i
-  %537 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i178 = and i32 %537, 32768
+  %539 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i178 = and i32 %539, 32768
   %cmp.i.not.i.i.i179 = icmp eq i32 %and.i.i.i.i178, 0
   br i1 %cmp.i.not.i.i.i179, label %trace_pci_nvme_dbbuf_config.exit.i, label %if.then.i.i.i180
 
 if.then.i.i.i180:                                 ; preds = %land.lhs.true5.i.i.i177
-  %538 = load i8, ptr @message_with_timestamp, align 1
-  %539 = and i8 %538, 1
-  %tobool7.not.i.i.i181 = icmp eq i8 %539, 0
+  %540 = load i8, ptr @message_with_timestamp, align 1
+  %541 = and i8 %540, 1
+  %tobool7.not.i.i.i181 = icmp eq i8 %541, 0
   br i1 %tobool7.not.i.i.i181, label %if.else.i.i.i186, label %if.then8.i.i.i182
 
 if.then8.i.i.i182:                                ; preds = %if.then.i.i.i180
   %call9.i.i.i183 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i151, ptr noundef null) #17
   %call10.i.i.i184 = call i32 @qemu_get_thread_id() #17
-  %540 = load i64, ptr %_now.i.i.i151, align 8
-  %541 = load i64, ptr %tv_usec.i.i.i185, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.416, i32 noundef %call10.i.i.i184, i64 noundef %540, i64 noundef %541, i64 noundef %516, i64 noundef %517) #17
+  %542 = load i64, ptr %_now.i.i.i151, align 8
+  %543 = load i64, ptr %tv_usec.i.i.i185, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.416, i32 noundef %call10.i.i.i184, i64 noundef %542, i64 noundef %543, i64 noundef %518, i64 noundef %519) #17
   br label %trace_pci_nvme_dbbuf_config.exit.i
 
 if.else.i.i.i186:                                 ; preds = %if.then.i.i.i180
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.417, i64 noundef %516, i64 noundef %517) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.417, i64 noundef %518, i64 noundef %519) #17
   br label %trace_pci_nvme_dbbuf_config.exit.i
 
 trace_pci_nvme_dbbuf_config.exit.i:               ; preds = %if.else.i.i.i186, %if.then8.i.i.i182, %land.lhs.true5.i.i.i177, %for.end.i
@@ -13701,17 +13697,17 @@ trace_pci_nvme_dbbuf_config.exit.i:               ; preds = %if.else.i.i.i186, %
 
 sw.bb49.i:                                        ; preds = %if.end20.i
   %nsid1.i137 = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 6, i32 3
-  %542 = load i32, ptr %nsid1.i137, align 4
+  %544 = load i32, ptr %nsid1.i137, align 4
   %cdw10.i138 = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 6, i32 7
-  %543 = load i32, ptr %cdw10.i138, align 8
-  %544 = trunc i32 %543 to i8
-  %conv.i = and i8 %544, 15
-  %545 = lshr i8 %544, 4
-  %conv5.i = and i8 %545, 1
-  %546 = lshr i8 %544, 5
-  %shr9.i = lshr i32 %543, 8
-  %547 = trunc i32 %shr9.i to i8
-  %conv11.i = and i8 %547, 1
+  %545 = load i32, ptr %cdw10.i138, align 8
+  %546 = trunc i32 %545 to i8
+  %conv.i = and i8 %546, 15
+  %547 = lshr i8 %546, 4
+  %conv5.i = and i8 %547, 1
+  %548 = lshr i8 %546, 5
+  %shr9.i = lshr i32 %545, 8
+  %549 = trunc i32 %shr9.i to i8
+  %conv11.i = and i8 %549, 1
   %call15.i = call ptr @qemu_aio_get(ptr noundef nonnull @nvme_format_aiocb_info, ptr noundef null, ptr noundef nonnull @nvme_misc_cb, ptr noundef nonnull %28) #17
   %req16.i = getelementptr inbounds %struct.NvmeFormatAIOCB, ptr %call15.i, i64 0, i32 2
   store ptr %28, ptr %req16.i, align 8
@@ -13726,22 +13722,22 @@ sw.bb49.i:                                        ; preds = %if.end20.i
   %mset19.i = getelementptr inbounds %struct.NvmeFormatAIOCB, ptr %call15.i, i64 0, i32 9
   store i8 %conv5.i, ptr %mset19.i, align 1
   %pi20.i = getelementptr inbounds %struct.NvmeFormatAIOCB, ptr %call15.i, i64 0, i32 10
-  store i8 %546, ptr %pi20.i, align 2
+  store i8 %548, ptr %pi20.i, align 2
   %pil21.i = getelementptr inbounds %struct.NvmeFormatAIOCB, ptr %call15.i, i64 0, i32 11
   store i8 %conv11.i, ptr %pil21.i, align 1
-  %cmp.i140 = icmp eq i32 %542, -1
+  %cmp.i140 = icmp eq i32 %544, -1
   %broadcast.i = getelementptr inbounds %struct.NvmeFormatAIOCB, ptr %call15.i, i64 0, i32 6
   %frombool.i = zext i1 %cmp.i140 to i8
   store i8 %frombool.i, ptr %broadcast.i, align 4
   %offset.i = getelementptr inbounds %struct.NvmeFormatAIOCB, ptr %call15.i, i64 0, i32 7
   store i64 0, ptr %offset.i, align 8
-  %548 = load i8, ptr %lbafee.i, align 2
-  %tobool.not.i141 = icmp eq i8 %548, 0
+  %550 = load i8, ptr %lbafee.i, align 2
+  %tobool.not.i141 = icmp eq i8 %550, 0
   br i1 %tobool.not.i141, label %if.end.i143, label %if.then.i142
 
 if.then.i142:                                     ; preds = %sw.bb49.i
-  %549 = and i8 %547, 48
-  %conv26.i = or disjoint i8 %549, %conv.i
+  %551 = and i8 %549, 48
+  %conv26.i = or disjoint i8 %551, %conv.i
   store i8 %conv26.i, ptr %lbaf18.i, align 8
   br label %if.end.i143
 
@@ -13749,16 +13745,16 @@ if.end.i143:                                      ; preds = %if.then.i142, %sw.b
   br i1 %cmp.i140, label %if.end39.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.end.i143
-  %550 = add i32 %542, -1
-  %551 = icmp ult i32 %550, 256
-  br i1 %551, label %nvme_ns.exit.i147, label %out.i
+  %552 = add i32 %544, -1
+  %553 = icmp ult i32 %552, 256
+  br i1 %553, label %nvme_ns.exit.i147, label %out.i
 
 nvme_ns.exit.i147:                                ; preds = %if.then29.i
-  %idxprom.i.i148 = zext nneg i32 %542 to i64
+  %idxprom.i.i148 = zext nneg i32 %544 to i64
   %arrayidx.i.i149 = getelementptr %struct.NvmeCtrl, ptr %0, i64 0, i32 35, i64 %idxprom.i.i148
-  %552 = load ptr, ptr %arrayidx.i.i149, align 8
-  store ptr %552, ptr %ns.i139, align 8
-  %tobool36.not.i150 = icmp eq ptr %552, null
+  %554 = load ptr, ptr %arrayidx.i.i149, align 8
+  store ptr %554, ptr %ns.i139, align 8
+  %tobool36.not.i150 = icmp eq ptr %554, null
   br i1 %tobool36.not.i150, label %out.i, label %if.end39.i
 
 if.end39.i:                                       ; preds = %nvme_ns.exit.i147, %if.end.i143
@@ -13775,47 +13771,47 @@ out.i:                                            ; preds = %nvme_ns.exit.i147, 
 sw.bb53.i:                                        ; preds = %if.end20.i
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %id.i)
   %cdw10.i = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 6, i32 7
-  %553 = load i32, ptr %cdw10.i, align 8
+  %555 = load i32, ptr %cdw10.i, align 8
   %cdw11.i = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 6, i32 8
-  %554 = load i32, ptr %cdw11.i, align 4
+  %556 = load i32, ptr %cdw11.i, align 4
   %nsid4.i = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 6, i32 3
-  %555 = load i32, ptr %nsid4.i, align 4
+  %557 = load i32, ptr %nsid4.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %8, i8 0, i64 4095, i1 false)
   store i8 1, ptr %id.i, align 1
   store i8 1, ptr %9, align 1
-  %add.i126 = shl i32 %553, 2
+  %add.i126 = shl i32 %555, 2
   %shl.i = add i32 %add.i126, 4
-  %556 = call i32 @llvm.umin.i32(i32 %shl.i, i32 4096)
-  %cmp11.i = icmp eq i32 %555, -1
-  %557 = and i32 %554, 65280
-  %cmp14.i = icmp ne i32 %557, 0
+  %558 = call i32 @llvm.umin.i32(i32 %shl.i, i32 4096)
+  %cmp11.i = icmp eq i32 %557, -1
+  %559 = and i32 %556, 65280
+  %cmp14.i = icmp ne i32 %559, 0
   %or.cond.i = select i1 %cmp11.i, i1 true, i1 %cmp14.i
-  %conv17.i = and i32 %554, 255
+  %conv17.i = and i32 %556, 255
   %cmp18.i = icmp ne i32 %conv17.i, 1
   %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %cmp18.i
-  %558 = add i32 %555, -257
-  %or.cond.i.i127 = icmp ult i32 %558, -256
+  %560 = add i32 %557, -257
+  %or.cond.i.i127 = icmp ult i32 %560, -256
   %or.cond20.i = or i1 %or.cond.i.i127, %or.cond3.i
   br i1 %or.cond20.i, label %nvme_directive_receive.exit, label %nvme_ns.exit.i128
 
 nvme_ns.exit.i128:                                ; preds = %sw.bb53.i
-  %idxprom.i.i129 = zext nneg i32 %555 to i64
+  %idxprom.i.i129 = zext nneg i32 %557 to i64
   %arrayidx.i.i130 = getelementptr %struct.NvmeCtrl, ptr %0, i64 0, i32 35, i64 %idxprom.i.i129
-  %559 = load ptr, ptr %arrayidx.i.i130, align 8
-  %tobool.not.i131 = icmp eq ptr %559, null
+  %561 = load ptr, ptr %arrayidx.i.i130, align 8
+  %tobool.not.i131 = icmp eq ptr %561, null
   br i1 %tobool.not.i131, label %nvme_directive_receive.exit, label %sw.bb25.i132
 
 sw.bb25.i132:                                     ; preds = %nvme_ns.exit.i128
-  %endgrp.i = getelementptr inbounds %struct.NvmeNamespace, ptr %559, i64 0, i32 32
-  %560 = load ptr, ptr %endgrp.i, align 8
-  %tobool26.not.i = icmp eq ptr %560, null
+  %endgrp.i = getelementptr inbounds %struct.NvmeNamespace, ptr %561, i64 0, i32 32
+  %562 = load ptr, ptr %endgrp.i, align 8
+  %tobool26.not.i = icmp eq ptr %562, null
   br i1 %tobool26.not.i, label %if.end40.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb25.i132
-  %enabled.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %560, i64 0, i32 1, i32 9
-  %561 = load i8, ptr %enabled.i, align 8
-  %562 = and i8 %561, 1
-  %tobool28.not.i = icmp eq i8 %562, 0
+  %enabled.i = getelementptr inbounds %struct.NvmeEnduranceGroup, ptr %562, i64 0, i32 1, i32 9
+  %563 = load i8, ptr %enabled.i, align 8
+  %564 = and i8 %563, 1
+  %tobool28.not.i = icmp eq i8 %564, 0
   br i1 %tobool28.not.i, label %if.end40.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %land.lhs.true.i
@@ -13826,13 +13822,13 @@ if.then30.i:                                      ; preds = %land.lhs.true.i
 
 if.end40.i:                                       ; preds = %if.then30.i, %land.lhs.true.i, %sw.bb25.i132
   %sg.i.i = getelementptr inbounds %struct.NvmeRequest, ptr %28, i64 0, i32 8
-  %conv.i.i = zext nneg i32 %556 to i64
+  %conv.i.i = zext nneg i32 %558 to i64
   %call.i.i133 = call zeroext i16 @nvme_map_dptr(ptr noundef nonnull %0, ptr noundef nonnull %sg.i.i, i64 noundef %conv.i.i, ptr noundef nonnull %cmd44)
   %tobool.not.i.i134 = icmp eq i16 %call.i.i133, 0
   br i1 %tobool.not.i.i134, label %if.end.i17.i, label %nvme_directive_receive.exit
 
 if.end.i17.i:                                     ; preds = %if.end40.i
-  %call2.i.i136 = call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i.i, ptr noundef nonnull %id.i, i32 noundef %556, i32 noundef 1)
+  %call2.i.i136 = call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i.i, ptr noundef nonnull %id.i, i32 noundef %558, i32 noundef 1)
   br label %nvme_directive_receive.exit
 
 nvme_directive_receive.exit:                      ; preds = %sw.bb53.i, %nvme_ns.exit.i128, %if.end40.i, %if.end.i17.i
@@ -13845,7 +13841,7 @@ sw.default.i79:                                   ; preds = %if.end20.i
   unreachable
 
 cond.end:                                         ; preds = %nvme_directive_receive.exit, %nvme_ns_attachment.exit, %nvme_get_feature.exit, %sw.bb.i557, %sw.bb32.i556, %sw.bb35.i555, %sw.bb38.i554, %sw.bb41.i553, %sw.bb44.i552, %sw.bb47.i550, %sw.bb50.i549, %sw.bb53.i547, %sw.bb56.i546, %sw.bb.i433, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i, %if.end.i.i.i, %nvme_identify_sec_ctrl_list.exit.i, %sw.bb14.i, %sw.bb16.i, %trace_pci_nvme_identify_ctrl.exit.i.i, %if.end.i.i69.i, %nvme_identify_ctrl_csi.exit.i, %sw.bb22.i417, %sw.bb24.i415, %sw.bb26.i, %sw.bb28.i, %nvme_identify_ns_descr_list.exit.i, %nvme_identify_cmd_set.exit.i, %sw.bb165.i, %sw.bb167.i, %sw.bb208.i, %if.end30.i.i, %if.end17.i.i, %sw.bb64.i, %sw.bb62.i, %sw.bb60.i, %sw.bb58.i, %sw.bb56.i, %sw.bb54.i, %sw.bb52.i, %sw.bb50.i, %sw.bb48.i, %sw.bb46.i, %sw.bb44.i, %sw.bb.i, %if.end28.i
-  %cond.in = phi i16 [ %call65.i, %sw.bb64.i ], [ %call63.i, %sw.bb62.i ], [ %call61.i, %sw.bb60.i ], [ %call59.i, %sw.bb58.i ], [ %call57.i, %sw.bb56.i ], [ %call55.i, %sw.bb54.i ], [ %call53.i, %sw.bb52.i ], [ %call51.i, %sw.bb50.i ], [ %call49.i, %sw.bb48.i ], [ %call.i66.i, %sw.bb46.i ], [ %call.i65.i, %sw.bb44.i ], [ %call.i.i, %sw.bb.i ], [ %64, %if.end28.i ], [ %retval.0.i135, %nvme_directive_receive.exit ], [ %retval.0.i229, %nvme_ns_attachment.exit ], [ %retval.0.i309, %nvme_get_feature.exit ], [ %call58.i, %sw.bb56.i546 ], [ %call55.i548, %sw.bb53.i547 ], [ %call52.i, %sw.bb50.i549 ], [ %call49.i551, %sw.bb47.i550 ], [ %call46.i, %sw.bb44.i552 ], [ %call43.i, %sw.bb41.i553 ], [ %call40.i, %sw.bb38.i554 ], [ %call37.i, %sw.bb35.i555 ], [ %call34.i, %sw.bb32.i556 ], [ %call31.i, %sw.bb.i557 ], [ %retval.0.i.i135.i, %nvme_identify_cmd_set.exit.i ], [ %retval.0.i109.i, %nvme_identify_ns_descr_list.exit.i ], [ %call29.i, %sw.bb28.i ], [ %call27.i, %sw.bb26.i ], [ %call25.i416, %sw.bb24.i415 ], [ %call23.i418, %sw.bb22.i417 ], [ %retval.0.i89.i, %nvme_identify_ctrl_csi.exit.i ], [ %call17.i, %sw.bb16.i ], [ %call15.i423, %sw.bb14.i ], [ %retval.0.i.i46.i, %nvme_identify_sec_ctrl_list.exit.i ], [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb.i433 ], [ %call2.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i ], [ %call2.i.i70.i, %if.end.i.i69.i ], [ %call.i.i66.i, %trace_pci_nvme_identify_ctrl.exit.i.i ], [ %call209.i, %sw.bb208.i ], [ %call166.i, %sw.bb165.i ], [ %call169.i, %sw.bb167.i ], [ %513, %if.end30.i.i ], [ %515, %if.end17.i.i ]
+  %cond.in = phi i16 [ %call65.i, %sw.bb64.i ], [ %call63.i, %sw.bb62.i ], [ %call61.i, %sw.bb60.i ], [ %call59.i, %sw.bb58.i ], [ %call57.i, %sw.bb56.i ], [ %call55.i, %sw.bb54.i ], [ %call53.i, %sw.bb52.i ], [ %call51.i, %sw.bb50.i ], [ %call49.i, %sw.bb48.i ], [ %call.i66.i, %sw.bb46.i ], [ %call.i65.i, %sw.bb44.i ], [ %call.i.i, %sw.bb.i ], [ %64, %if.end28.i ], [ %retval.0.i135, %nvme_directive_receive.exit ], [ %retval.0.i229, %nvme_ns_attachment.exit ], [ %retval.0.i309, %nvme_get_feature.exit ], [ %call58.i, %sw.bb56.i546 ], [ %call55.i548, %sw.bb53.i547 ], [ %call52.i, %sw.bb50.i549 ], [ %call49.i551, %sw.bb47.i550 ], [ %call46.i, %sw.bb44.i552 ], [ %call43.i, %sw.bb41.i553 ], [ %call40.i, %sw.bb38.i554 ], [ %call37.i, %sw.bb35.i555 ], [ %call34.i, %sw.bb32.i556 ], [ %call31.i, %sw.bb.i557 ], [ %retval.0.i.i135.i, %nvme_identify_cmd_set.exit.i ], [ %retval.0.i109.i, %nvme_identify_ns_descr_list.exit.i ], [ %call29.i, %sw.bb28.i ], [ %call27.i, %sw.bb26.i ], [ %call25.i416, %sw.bb24.i415 ], [ %call23.i418, %sw.bb22.i417 ], [ %retval.0.i89.i, %nvme_identify_ctrl_csi.exit.i ], [ %call17.i, %sw.bb16.i ], [ %call15.i423, %sw.bb14.i ], [ %retval.0.i.i46.i, %nvme_identify_sec_ctrl_list.exit.i ], [ %call9.i, %sw.bb8.i ], [ %call7.i, %sw.bb6.i ], [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb.i433 ], [ %call2.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i ], [ %call2.i.i70.i, %if.end.i.i69.i ], [ %call.i.i66.i, %trace_pci_nvme_identify_ctrl.exit.i.i ], [ %call209.i, %sw.bb208.i ], [ %call166.i, %sw.bb165.i ], [ %call169.i, %sw.bb167.i ], [ %515, %if.end30.i.i ], [ %517, %if.end17.i.i ]
   %cmp53.not = icmp eq i16 %cond.in, -1
   br i1 %cmp53.not, label %if.end57, label %if.then55
 
@@ -13857,62 +13853,62 @@ if.then55:                                        ; preds = %for.cond.i.i.i, %fo
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end39.i, %if.end.i278, %if.then7.i, %if.end15.i.i, %if.then55, %cond.end
-  %563 = load i8, ptr %dbbuf_enabled, align 16
-  %564 = and i8 %563, 1
-  %tobool59.not = icmp eq i8 %564, 0
+  %565 = load i8, ptr %dbbuf_enabled, align 16
+  %566 = and i8 %565, 1
+  %tobool59.not = icmp eq i8 %566, 0
   br i1 %tobool59.not, label %if.end61, label %if.then60
 
 if.then60:                                        ; preds = %if.end57
-  %565 = load i16, ptr %sqid, align 8
-  %566 = load i32, ptr %7, align 8
+  %567 = load i16, ptr %sqid, align 8
+  %568 = load i32, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i107)
-  %567 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i108 = icmp ne i32 %567, 0
-  %568 = load i16, ptr @_TRACE_PCI_NVME_UPDATE_SQ_EVENTIDX_DSTATE, align 2
-  %tobool4.i.i.i109 = icmp ne i16 %568, 0
+  %569 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i108 = icmp ne i32 %569, 0
+  %570 = load i16, ptr @_TRACE_PCI_NVME_UPDATE_SQ_EVENTIDX_DSTATE, align 2
+  %tobool4.i.i.i109 = icmp ne i16 %570, 0
   %or.cond.i.i.i110 = select i1 %tobool.i.i.i108, i1 %tobool4.i.i.i109, i1 false
   br i1 %or.cond.i.i.i110, label %land.lhs.true5.i.i.i112, label %nvme_update_sq_eventidx.exit
 
 land.lhs.true5.i.i.i112:                          ; preds = %if.then60
-  %569 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i113 = and i32 %569, 32768
+  %571 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i113 = and i32 %571, 32768
   %cmp.i.not.i.i.i114 = icmp eq i32 %and.i.i.i.i113, 0
   br i1 %cmp.i.not.i.i.i114, label %nvme_update_sq_eventidx.exit, label %if.then.i.i.i115
 
 if.then.i.i.i115:                                 ; preds = %land.lhs.true5.i.i.i112
-  %570 = load i8, ptr @message_with_timestamp, align 1
-  %571 = and i8 %570, 1
-  %tobool7.not.i.i.i116 = icmp eq i8 %571, 0
+  %572 = load i8, ptr @message_with_timestamp, align 1
+  %573 = and i8 %572, 1
+  %tobool7.not.i.i.i116 = icmp eq i8 %573, 0
   br i1 %tobool7.not.i.i.i116, label %if.else.i.i.i123, label %if.then8.i.i.i117
 
 if.then8.i.i.i117:                                ; preds = %if.then.i.i.i115
   %call9.i.i.i118 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i107, ptr noundef null) #17
   %call10.i.i.i119 = call i32 @qemu_get_thread_id() #17
-  %572 = load i64, ptr %_now.i.i.i107, align 8
-  %573 = load i64, ptr %tv_usec.i.i.i120, align 8
-  %conv11.i.i.i121 = zext i16 %565 to i32
-  %conv12.i.i.i122 = and i32 %566, 65535
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.420, i32 noundef %call10.i.i.i119, i64 noundef %572, i64 noundef %573, i32 noundef %conv11.i.i.i121, i32 noundef %conv12.i.i.i122) #17
+  %574 = load i64, ptr %_now.i.i.i107, align 8
+  %575 = load i64, ptr %tv_usec.i.i.i120, align 8
+  %conv11.i.i.i121 = zext i16 %567 to i32
+  %conv12.i.i.i122 = and i32 %568, 65535
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.420, i32 noundef %call10.i.i.i119, i64 noundef %574, i64 noundef %575, i32 noundef %conv11.i.i.i121, i32 noundef %conv12.i.i.i122) #17
   br label %nvme_update_sq_eventidx.exit
 
 if.else.i.i.i123:                                 ; preds = %if.then.i.i.i115
-  %conv13.i.i.i124 = zext i16 %565 to i32
-  %conv14.i.i.i125 = and i32 %566, 65535
+  %conv13.i.i.i124 = zext i16 %567 to i32
+  %conv14.i.i.i125 = and i32 %568, 65535
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.421, i32 noundef %conv13.i.i.i124, i32 noundef %conv14.i.i.i125) #17
   br label %nvme_update_sq_eventidx.exit
 
 nvme_update_sq_eventidx.exit:                     ; preds = %if.then60, %land.lhs.true5.i.i.i112, %if.then8.i.i.i117, %if.else.i.i.i123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i107)
-  %574 = load ptr, ptr %opaque, align 8
-  %call.i.i111 = call ptr @object_dynamic_cast_assert(ptr noundef %574, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %575 = load i64, ptr %ei_addr.i, align 8
-  %576 = load i32, ptr %7, align 8
+  %576 = load ptr, ptr %opaque, align 8
+  %call.i.i111 = call ptr @object_dynamic_cast_assert(ptr noundef %576, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %577 = load i64, ptr %ei_addr.i, align 8
+  %578 = load i32, ptr %7, align 8
   %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i111, i64 0, i32 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
-  store i32 %576, ptr %val.addr.i.i.i, align 4
+  store i32 %578, ptr %val.addr.i.i.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %575, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #17
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %577, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   call fastcc void @nvme_update_sq_tail(ptr noundef nonnull %opaque)
   br label %if.end61
@@ -21859,7 +21855,7 @@ return:                                           ; preds = %done, %trace_pci_nv
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal zeroext i16 @nvme_offline_zone(ptr nocapture noundef writeonly %ns, ptr nocapture noundef %zone, i32 noundef %state, ptr nocapture readnone %req) #12 {
 entry:
   switch i32 %state, label %sw.default [
@@ -25338,7 +25334,7 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

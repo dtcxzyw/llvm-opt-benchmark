@@ -409,15 +409,15 @@ for.body.lr.ph:                                   ; preds = %lor.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %7 = phi i8 [ 0, %for.body.lr.ph ], [ %42, %for.inc ]
-  %8 = phi i32 [ 0, %for.body.lr.ph ], [ %31, %for.inc ]
-  %9 = phi i32 [ 0, %for.body.lr.ph ], [ %32, %for.inc ]
-  %10 = phi i64 [ 0, %for.body.lr.ph ], [ %33, %for.inc ]
-  %11 = phi i64 [ 0, %for.body.lr.ph ], [ %34, %for.inc ]
-  %12 = phi i64 [ 0, %for.body.lr.ph ], [ %35, %for.inc ]
-  %13 = phi i32 [ 0, %for.body.lr.ph ], [ %36, %for.inc ]
-  %14 = phi i32 [ 0, %for.body.lr.ph ], [ %37, %for.inc ]
-  %15 = phi i32 [ 0, %for.body.lr.ph ], [ %38, %for.inc ]
+  %7 = phi i8 [ 0, %for.body.lr.ph ], [ %44, %for.inc ]
+  %8 = phi i32 [ 0, %for.body.lr.ph ], [ %33, %for.inc ]
+  %9 = phi i32 [ 0, %for.body.lr.ph ], [ %34, %for.inc ]
+  %10 = phi i64 [ 0, %for.body.lr.ph ], [ %35, %for.inc ]
+  %11 = phi i64 [ 0, %for.body.lr.ph ], [ %36, %for.inc ]
+  %12 = phi i64 [ 0, %for.body.lr.ph ], [ %37, %for.inc ]
+  %13 = phi i32 [ 0, %for.body.lr.ph ], [ %38, %for.inc ]
+  %14 = phi i32 [ 0, %for.body.lr.ph ], [ %39, %for.inc ]
+  %15 = phi i32 [ 0, %for.body.lr.ph ], [ %40, %for.inc ]
   %c.036 = phi ptr [ %c.033, %for.body.lr.ph ], [ %c.0, %for.inc ]
   %have_limits.035 = phi i8 [ 0, %for.body.lr.ph ], [ %have_limits.1, %for.inc ]
   %role = getelementptr inbounds %struct.BdrvChild, ptr %c.036, i64 0, i32 3
@@ -464,58 +464,56 @@ if.then25:                                        ; preds = %for.body
   %28 = load i32, ptr %max_iov56.i, align 8
   %cmp58.i = icmp eq i32 %9, 0
   %cmp61.i = icmp eq i32 %28, 0
-  %cmp63.i = icmp sgt i32 %28, %9
-  %or.cond59.i = or i1 %cmp61.i, %cmp63.i
-  %spec.select62.i = select i1 %or.cond59.i, i32 %9, i32 %28
+  %29 = tail call i32 @llvm.smin.i32(i32 %28, i32 %9)
+  %spec.select62.i = select i1 %cmp61.i, i32 %9, i32 %29
   %cond69.i = select i1 %cmp58.i, i32 %28, i32 %spec.select62.i
   store i32 %cond69.i, ptr %max_iov.i, align 8
   %max_hw_iov71.i = getelementptr inbounds %struct.BlockDriverState, ptr %17, i64 0, i32 17, i32 8
-  %29 = load i32, ptr %max_hw_iov71.i, align 8
+  %30 = load i32, ptr %max_hw_iov71.i, align 8
   %cmp73.i = icmp eq i32 %8, 0
-  %cmp76.i = icmp eq i32 %29, 0
-  %cmp78.i = icmp sgt i32 %29, %8
-  %or.cond60.i = or i1 %cmp76.i, %cmp78.i
-  %spec.select63.i = select i1 %or.cond60.i, i32 %8, i32 %29
-  %cond84.i = select i1 %cmp73.i, i32 %29, i32 %spec.select63.i
+  %cmp76.i = icmp eq i32 %30, 0
+  %31 = tail call i32 @llvm.smin.i32(i32 %30, i32 %8)
+  %spec.select63.i = select i1 %cmp76.i, i32 %8, i32 %31
+  %cond84.i = select i1 %cmp73.i, i32 %30, i32 %spec.select63.i
   store i32 %cond84.i, ptr %max_hw_iov.i, align 8
   %.pre = load i32, ptr %role, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then25, %for.body
-  %30 = phi i32 [ %.pre, %if.then25 ], [ %16, %for.body ]
-  %31 = phi i32 [ %cond84.i, %if.then25 ], [ %8, %for.body ]
-  %32 = phi i32 [ %cond69.i, %if.then25 ], [ %9, %for.body ]
-  %33 = phi i64 [ %cond54.i, %if.then25 ], [ %10, %for.body ]
-  %34 = phi i64 [ %cond46.i, %if.then25 ], [ %11, %for.body ]
-  %35 = phi i64 [ %cond38.i, %if.then25 ], [ %12, %for.body ]
-  %36 = phi i32 [ %cond23.i, %if.then25 ], [ %13, %for.body ]
-  %37 = phi i32 [ %cond9.i, %if.then25 ], [ %14, %for.body ]
-  %38 = phi i32 [ %cond.i, %if.then25 ], [ %15, %for.body ]
+  %32 = phi i32 [ %.pre, %if.then25 ], [ %16, %for.body ]
+  %33 = phi i32 [ %cond84.i, %if.then25 ], [ %8, %for.body ]
+  %34 = phi i32 [ %cond69.i, %if.then25 ], [ %9, %for.body ]
+  %35 = phi i64 [ %cond54.i, %if.then25 ], [ %10, %for.body ]
+  %36 = phi i64 [ %cond46.i, %if.then25 ], [ %11, %for.body ]
+  %37 = phi i64 [ %cond38.i, %if.then25 ], [ %12, %for.body ]
+  %38 = phi i32 [ %cond23.i, %if.then25 ], [ %13, %for.body ]
+  %39 = phi i32 [ %cond9.i, %if.then25 ], [ %14, %for.body ]
+  %40 = phi i32 [ %cond.i, %if.then25 ], [ %15, %for.body ]
   %have_limits.1 = phi i8 [ 1, %if.then25 ], [ %have_limits.035, %for.body ]
-  %and31 = and i32 %30, 4
+  %and31 = and i32 %32, 4
   %tobool32.not = icmp eq i32 %and31, 0
   br i1 %tobool32.not, label %for.inc, label %if.then33
 
 if.then33:                                        ; preds = %if.end29
-  %39 = load ptr, ptr %c.036, align 8
-  %has_variable_length = getelementptr inbounds %struct.BlockDriverState, ptr %39, i64 0, i32 17, i32 12
-  %40 = load i8, ptr %has_variable_length, align 4
-  %41 = or i8 %7, %40
-  %or31 = and i8 %41, 1
+  %41 = load ptr, ptr %c.036, align 8
+  %has_variable_length = getelementptr inbounds %struct.BlockDriverState, ptr %41, i64 0, i32 17, i32 12
+  %42 = load i8, ptr %has_variable_length, align 4
+  %43 = or i8 %7, %42
+  %or31 = and i8 %43, 1
   store i8 %or31, ptr %has_variable_length38, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end29, %if.then33
-  %42 = phi i8 [ %7, %if.end29 ], [ %or31, %if.then33 ]
+  %44 = phi i8 [ %7, %if.end29 ], [ %or31, %if.then33 ]
   %next = getelementptr inbounds %struct.BdrvChild, ptr %c.036, i64 0, i32 9
   %c.0 = load ptr, ptr %next, align 8
   %tobool23.not = icmp eq ptr %c.0, null
   br i1 %tobool23.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
-  %43 = and i8 %have_limits.1, 1
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %if.then44, label %if.end49
+  %45 = and i8 %have_limits.1, 1
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %if.then44, label %if.end49
 
 if.then44:                                        ; preds = %lor.end, %for.end
   %min_mem_alignment = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 17, i32 9
@@ -530,20 +528,20 @@ if.then44:                                        ; preds = %lor.end, %for.end
 
 if.end49:                                         ; preds = %if.then44, %for.end
   %bdrv_refresh_limits = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 45
-  %45 = load ptr, ptr %bdrv_refresh_limits, align 8
-  %tobool50.not = icmp eq ptr %45, null
+  %47 = load ptr, ptr %bdrv_refresh_limits, align 8
+  %tobool50.not = icmp eq ptr %47, null
   br i1 %tobool50.not, label %cleanup, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  call void %45(ptr noundef %bs, ptr noundef %spec.select) #14
-  %46 = load ptr, ptr %spec.select, align 8
-  %tobool53.not = icmp eq ptr %46, null
+  call void %47(ptr noundef %bs, ptr noundef %spec.select) #14
+  %48 = load ptr, ptr %spec.select, align 8
+  %tobool53.not = icmp eq ptr %48, null
   br i1 %tobool53.not, label %if.end56, label %cleanup
 
 if.end56:                                         ; preds = %if.then51
   %.pre37 = load i32, ptr %bl14, align 8
-  %47 = icmp ugt i32 %.pre37, 1073741824
-  br i1 %47, label %if.then62, label %cleanup
+  %49 = icmp ugt i32 %.pre37, 1073741824
+  br i1 %49, label %if.then62, label %cleanup
 
 if.then62:                                        ; preds = %if.end56
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.bdrv_refresh_limits, ptr noundef nonnull @.str.6) #14
@@ -6711,7 +6709,7 @@ return:                                           ; preds = %if.end, %entry, %if
 
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @bdrv_refresh_limits_abort(ptr nocapture noundef readonly %opaque) #9 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
@@ -8159,7 +8157,7 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

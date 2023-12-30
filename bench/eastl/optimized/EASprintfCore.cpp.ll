@@ -62,7 +62,7 @@ $_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb0EDsDiEclEPFiPKDimPvNS0_18Write
 @_ZN2EA4StdC12SprintfLocalL13kStringNull16E = internal constant [7 x i16] [i16 40, i16 110, i16 117, i16 108, i16 108, i16 41, i16 0], align 2
 @_ZN2EA4StdC12SprintfLocalL13kStringNull32E = internal constant [7 x i32] [i32 40, i32 110, i32 117, i32 108, i32 108, i32 41, i32 0], align 16
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef readonly %pData, i64 noundef %nCount, ptr noalias nocapture noundef %pContext8, i32 noundef %0) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %nCount, 0
@@ -131,7 +131,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef readonly %pData, i64 noundef %nCount, ptr noalias nocapture noundef %pContext16, i32 noundef %0) local_unnamed_addr #2 {
 entry:
   %mnMaxCount = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext16", ptr %pContext16, i64 0, i32 2
@@ -150,7 +150,7 @@ entry:
   ret i32 %conv
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef readonly %pData, i64 noundef %nCount, ptr noalias nocapture noundef %pContext32, i32 noundef %0) local_unnamed_addr #2 {
 entry:
   %mnMaxCount = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::SnprintfContext32", ptr %pContext32, i64 0, i32 2
@@ -5445,26 +5445,25 @@ if.then28:                                        ; preds = %land.lhs.true
 if.end35:                                         ; preds = %if.then28
   %add36 = add nsw i32 %call32, %conv24
   %6 = load i32, ptr %mnPrecision, align 4
-  %cmp38.not = icmp ne i32 %6, 2147483647
-  %cmp41 = icmp slt i32 %6, %add36
-  %or.cond49 = select i1 %cmp38.not, i1 %cmp41, i1 false
-  %spec.select50 = select i1 %or.cond49, i32 %6, i32 %add36
+  %cmp38.not.not = icmp eq i32 %6, 2147483647
+  %7 = call i32 @llvm.smin.i32(i32 %6, i32 %add36)
+  %spec.select50 = select i1 %cmp38.not.not, i32 %add36, i32 %7
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end35, %land.lhs.true, %if.then23
   %nWriteCount.0 = phi i32 [ %conv24, %land.lhs.true ], [ %conv24, %if.then23 ], [ %spec.select50, %if.end35 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nFill.i)
-  %7 = load i32, ptr %fd, align 4, !noalias !93
-  %cmp.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %fd, align 4, !noalias !93
+  %cmp.i = icmp eq i32 %8, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end45
-  %8 = load i32, ptr %mnWidth.i, align 4, !noalias !93
-  %cmp1.not.i = icmp sgt i32 %8, %nWriteCount.0
+  %9 = load i32, ptr %mnWidth.i, align 4, !noalias !93
+  %cmp1.not.i = icmp sgt i32 %9, %nWriteCount.0
   br i1 %cmp1.not.i, label %if.end.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp3.i = icmp eq i32 %7, 2
+  %cmp3.i = icmp eq i32 %8, 2
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -5472,8 +5471,8 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end17.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then4.i
-  %9 = load i8, ptr %pScratchBuffer, align 1, !noalias !93
-  switch i8 %9, label %if.end17.i [
+  %10 = load i8, ptr %pScratchBuffer, align 1, !noalias !93
+  switch i8 %10, label %if.end17.i [
     i8 43, label %if.then12.i
     i8 45, label %if.then12.i
     i8 32, label %if.then12.i
@@ -5494,9 +5493,9 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.else.i, %if.end15.i, %land.lhs.true.i, %if.then4.i
-  %10 = phi i32 [ %.pre.i, %if.end15.i ], [ %8, %if.then4.i ], [ %8, %if.else.i ], [ %8, %land.lhs.true.i ]
+  %11 = phi i32 [ %.pre.i, %if.end15.i ], [ %9, %if.then4.i ], [ %9, %if.else.i ], [ %9, %land.lhs.true.i ]
   %nWriteCount.addr.0.i = phi i32 [ %dec.i, %if.end15.i ], [ %nWriteCount.0, %if.then4.i ], [ %nWriteCount.0, %if.else.i ], [ %nWriteCount.0, %land.lhs.true.i ]
-  %sub.i = sub nsw i32 %10, %nWriteCount.addr.0.i
+  %sub.i = sub nsw i32 %11, %nWriteCount.addr.0.i
   %cmp1916.i = icmp sgt i32 %sub.i, 0
   br i1 %cmp1916.i, label %for.body.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit
 
@@ -5531,14 +5530,14 @@ if.end49:                                         ; preds = %_ZN2EA4StdC12Sprint
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end49, %if.end21
-  %11 = phi i64 [ %.pre, %if.end49 ], [ %.pre98, %if.end21 ]
+  %12 = phi i64 [ %.pre, %if.end49 ], [ %.pre98, %if.end21 ]
   %nWriteCountSum.1 = phi i32 [ %add50, %if.end49 ], [ %nWriteCountSum.088, %if.end21 ]
   %bFirstTime.1 = phi i8 [ 0, %if.end49 ], [ %bFirstTime.089, %if.end21 ]
-  %cmp52.not = icmp eq i64 %11, 0
+  %cmp52.not = icmp eq i64 %12, 0
   br i1 %cmp52.not, label %if.end57, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end51
-  %call54 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %11, ptr noundef %pWriteFunctionContext, i32 noundef 1)
+  %call54 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %12, ptr noundef %pWriteFunctionContext, i32 noundef 1)
   %cmp55 = icmp eq i32 %call54, -1
   br i1 %cmp55, label %return, label %land.lhs.true53.if.end57_crit_edge
 
@@ -5547,27 +5546,27 @@ land.lhs.true53.if.end57_crit_edge:               ; preds = %land.lhs.true53
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true53.if.end57_crit_edge, %if.end51
-  %12 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
-  %conv58 = trunc i64 %12 to i32
+  %13 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
+  %conv58 = trunc i64 %13 to i32
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
-  %13 = load i64, ptr %nInUsed, align 8
-  %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %13
+  %14 = load i64, ptr %nInUsed, align 8
+  %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %14
   %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
-  br i1 %14, label %while.body8, label %while.end61, !llvm.loop !96
+  %15 = select i1 %cmp6, i1 %cmp7, i1 false
+  br i1 %15, label %while.body8, label %while.end61, !llvm.loop !96
 
 while.end61:                                      ; preds = %if.end57, %while.body8, %if.then28
   %nWriteCountSum.0.lcssa.ph = phi i32 [ %add59, %if.end57 ], [ %nWriteCountSum.088, %while.body8 ], [ %nWriteCountSum.088, %if.then28 ]
   %bFirstTime.0.lcssa.ph = phi i8 [ %bFirstTime.1, %if.end57 ], [ %bFirstTime.089, %while.body8 ], [ %bFirstTime.089, %if.then28 ]
-  %15 = and i8 %bFirstTime.0.lcssa.ph, 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %if.then63, label %return
+  %16 = and i8 %bFirstTime.0.lcssa.ph, 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %if.then63, label %return
 
 if.then63:                                        ; preds = %while.end61
   %fd.val = load i32, ptr %fd, align 4
-  %17 = getelementptr inbounds i8, ptr %fd, i64 12
-  %fd.val52 = load i32, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %fd, i64 12
+  %fd.val52 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa.ph
@@ -5598,18 +5597,18 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
-  br label %18
+  br label %19
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
   %cmp66 = icmp slt i32 %sub.i56.fr, 0
-  br i1 %cmp66, label %18, label %return
+  br i1 %cmp66, label %19, label %return
 
-18:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
+19:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
   br label %return
 
-return:                                           ; preds = %land.lhs.true53, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %18, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end61, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end61 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %18 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true53 ]
+return:                                           ; preds = %land.lhs.true53, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %19, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end61, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end61 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %19 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true53 ]
   ret i32 %retval.0
 }
 
@@ -5706,26 +5705,25 @@ if.then28:                                        ; preds = %land.lhs.true
 if.end35:                                         ; preds = %if.then28
   %add36 = add nsw i32 %call32, %conv24
   %6 = load i32, ptr %mnPrecision, align 4
-  %cmp38.not = icmp ne i32 %6, 2147483647
-  %cmp41 = icmp slt i32 %6, %add36
-  %or.cond49 = select i1 %cmp38.not, i1 %cmp41, i1 false
-  %spec.select50 = select i1 %or.cond49, i32 %6, i32 %add36
+  %cmp38.not.not = icmp eq i32 %6, 2147483647
+  %7 = call i32 @llvm.smin.i32(i32 %6, i32 %add36)
+  %spec.select50 = select i1 %cmp38.not.not, i32 %add36, i32 %7
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end35, %land.lhs.true, %if.then23
   %nWriteCount.0 = phi i32 [ %conv24, %land.lhs.true ], [ %conv24, %if.then23 ], [ %spec.select50, %if.end35 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nFill.i)
-  %7 = load i32, ptr %fd, align 4, !noalias !101
-  %cmp.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %fd, align 4, !noalias !101
+  %cmp.i = icmp eq i32 %8, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end45
-  %8 = load i32, ptr %mnWidth.i, align 4, !noalias !101
-  %cmp1.not.i = icmp sgt i32 %8, %nWriteCount.0
+  %9 = load i32, ptr %mnWidth.i, align 4, !noalias !101
+  %cmp1.not.i = icmp sgt i32 %9, %nWriteCount.0
   br i1 %cmp1.not.i, label %if.end.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp3.i = icmp eq i32 %7, 2
+  %cmp3.i = icmp eq i32 %8, 2
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -5733,8 +5731,8 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end17.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then4.i
-  %9 = load i8, ptr %pScratchBuffer, align 1, !noalias !101
-  switch i8 %9, label %if.end17.i [
+  %10 = load i8, ptr %pScratchBuffer, align 1, !noalias !101
+  switch i8 %10, label %if.end17.i [
     i8 43, label %if.then12.i
     i8 45, label %if.then12.i
     i8 32, label %if.then12.i
@@ -5755,9 +5753,9 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.else.i, %if.end15.i, %land.lhs.true.i, %if.then4.i
-  %10 = phi i32 [ %.pre.i, %if.end15.i ], [ %8, %if.then4.i ], [ %8, %if.else.i ], [ %8, %land.lhs.true.i ]
+  %11 = phi i32 [ %.pre.i, %if.end15.i ], [ %9, %if.then4.i ], [ %9, %if.else.i ], [ %9, %land.lhs.true.i ]
   %nWriteCount.addr.0.i = phi i32 [ %dec.i, %if.end15.i ], [ %nWriteCount.0, %if.then4.i ], [ %nWriteCount.0, %if.else.i ], [ %nWriteCount.0, %land.lhs.true.i ]
-  %sub.i = sub nsw i32 %10, %nWriteCount.addr.0.i
+  %sub.i = sub nsw i32 %11, %nWriteCount.addr.0.i
   %cmp1916.i = icmp sgt i32 %sub.i, 0
   br i1 %cmp1916.i, label %for.body.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit
 
@@ -5792,14 +5790,14 @@ if.end49:                                         ; preds = %_ZN2EA4StdC12Sprint
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end49, %if.end21
-  %11 = phi i64 [ %.pre, %if.end49 ], [ %.pre98, %if.end21 ]
+  %12 = phi i64 [ %.pre, %if.end49 ], [ %.pre98, %if.end21 ]
   %nWriteCountSum.1 = phi i32 [ %add50, %if.end49 ], [ %nWriteCountSum.088, %if.end21 ]
   %bFirstTime.1 = phi i8 [ 0, %if.end49 ], [ %bFirstTime.089, %if.end21 ]
-  %cmp52.not = icmp eq i64 %11, 0
+  %cmp52.not = icmp eq i64 %12, 0
   br i1 %cmp52.not, label %if.end57, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end51
-  %call54 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %11, ptr noundef %pWriteFunctionContext, i32 noundef 1)
+  %call54 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %12, ptr noundef %pWriteFunctionContext, i32 noundef 1)
   %cmp55 = icmp eq i32 %call54, -1
   br i1 %cmp55, label %return, label %land.lhs.true53.if.end57_crit_edge
 
@@ -5808,27 +5806,27 @@ land.lhs.true53.if.end57_crit_edge:               ; preds = %land.lhs.true53
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true53.if.end57_crit_edge, %if.end51
-  %12 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
-  %conv58 = trunc i64 %12 to i32
+  %13 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
+  %conv58 = trunc i64 %13 to i32
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
-  %13 = load i64, ptr %nInUsed, align 8
-  %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %13
+  %14 = load i64, ptr %nInUsed, align 8
+  %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %14
   %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
-  br i1 %14, label %while.body8, label %while.end61, !llvm.loop !104
+  %15 = select i1 %cmp6, i1 %cmp7, i1 false
+  br i1 %15, label %while.body8, label %while.end61, !llvm.loop !104
 
 while.end61:                                      ; preds = %if.end57, %while.body8, %if.then28
   %nWriteCountSum.0.lcssa.ph = phi i32 [ %add59, %if.end57 ], [ %nWriteCountSum.088, %while.body8 ], [ %nWriteCountSum.088, %if.then28 ]
   %bFirstTime.0.lcssa.ph = phi i8 [ %bFirstTime.1, %if.end57 ], [ %bFirstTime.089, %while.body8 ], [ %bFirstTime.089, %if.then28 ]
-  %15 = and i8 %bFirstTime.0.lcssa.ph, 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %if.then63, label %return
+  %16 = and i8 %bFirstTime.0.lcssa.ph, 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %if.then63, label %return
 
 if.then63:                                        ; preds = %while.end61
   %fd.val = load i32, ptr %fd, align 4
-  %17 = getelementptr inbounds i8, ptr %fd, i64 12
-  %fd.val52 = load i32, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %fd, i64 12
+  %fd.val52 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa.ph
@@ -5859,18 +5857,18 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
-  br label %18
+  br label %19
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
   %cmp66 = icmp slt i32 %sub.i56.fr, 0
-  br i1 %cmp66, label %18, label %return
+  br i1 %cmp66, label %19, label %return
 
-18:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
+19:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
   br label %return
 
-return:                                           ; preds = %land.lhs.true53, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %18, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end61, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end61 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %18 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true53 ]
+return:                                           ; preds = %land.lhs.true53, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %19, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end61, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end61 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %19 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true53 ]
   ret i32 %retval.0
 }
 
@@ -7548,26 +7546,25 @@ if.then27:                                        ; preds = %land.lhs.true
 if.end34:                                         ; preds = %if.then27
   %add35 = add nsw i32 %call31, %conv23
   %6 = load i32, ptr %mnPrecision, align 4
-  %cmp37.not = icmp ne i32 %6, 2147483647
-  %cmp40 = icmp slt i32 %6, %add35
-  %or.cond49 = select i1 %cmp37.not, i1 %cmp40, i1 false
-  %spec.select50 = select i1 %or.cond49, i32 %6, i32 %add35
+  %cmp37.not.not = icmp eq i32 %6, 2147483647
+  %7 = call i32 @llvm.smin.i32(i32 %6, i32 %add35)
+  %spec.select50 = select i1 %cmp37.not.not, i32 %add35, i32 %7
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end34, %land.lhs.true, %if.then22
   %nWriteCount.0 = phi i32 [ %conv23, %land.lhs.true ], [ %conv23, %if.then22 ], [ %spec.select50, %if.end34 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nFill.i)
-  %7 = load i32, ptr %fd, align 4, !noalias !129
-  %cmp.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %fd, align 4, !noalias !129
+  %cmp.i = icmp eq i32 %8, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end44
-  %8 = load i32, ptr %mnWidth.i, align 4, !noalias !129
-  %cmp1.not.i = icmp sgt i32 %8, %nWriteCount.0
+  %9 = load i32, ptr %mnWidth.i, align 4, !noalias !129
+  %cmp1.not.i = icmp sgt i32 %9, %nWriteCount.0
   br i1 %cmp1.not.i, label %if.end.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp3.i = icmp eq i32 %7, 2
+  %cmp3.i = icmp eq i32 %8, 2
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -7575,8 +7572,8 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end17.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then4.i
-  %9 = load i16, ptr %pScratchBuffer, align 2, !noalias !129
-  switch i16 %9, label %if.end17.i [
+  %10 = load i16, ptr %pScratchBuffer, align 2, !noalias !129
+  switch i16 %10, label %if.end17.i [
     i16 43, label %if.then12.i
     i16 45, label %if.then12.i
     i16 32, label %if.then12.i
@@ -7597,9 +7594,9 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.else.i, %if.end15.i, %land.lhs.true.i, %if.then4.i
-  %10 = phi i32 [ %.pre.i, %if.end15.i ], [ %8, %if.then4.i ], [ %8, %if.else.i ], [ %8, %land.lhs.true.i ]
+  %11 = phi i32 [ %.pre.i, %if.end15.i ], [ %9, %if.then4.i ], [ %9, %if.else.i ], [ %9, %land.lhs.true.i ]
   %nWriteCount.addr.0.i = phi i32 [ %dec.i, %if.end15.i ], [ %nWriteCount.0, %if.then4.i ], [ %nWriteCount.0, %if.else.i ], [ %nWriteCount.0, %land.lhs.true.i ]
-  %sub.i = sub nsw i32 %10, %nWriteCount.addr.0.i
+  %sub.i = sub nsw i32 %11, %nWriteCount.addr.0.i
   %cmp1916.i = icmp sgt i32 %sub.i, 0
   br i1 %cmp1916.i, label %for.body.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit
 
@@ -7634,14 +7631,14 @@ if.end48:                                         ; preds = %_ZN2EA4StdC12Sprint
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end48, %if.end20
-  %11 = phi i64 [ %.pre, %if.end48 ], [ %.pre98, %if.end20 ]
+  %12 = phi i64 [ %.pre, %if.end48 ], [ %.pre98, %if.end20 ]
   %nWriteCountSum.1 = phi i32 [ %add49, %if.end48 ], [ %nWriteCountSum.088, %if.end20 ]
   %bFirstTime.1 = phi i8 [ 0, %if.end48 ], [ %bFirstTime.089, %if.end20 ]
-  %cmp51.not = icmp eq i64 %11, 0
+  %cmp51.not = icmp eq i64 %12, 0
   br i1 %cmp51.not, label %if.end56, label %land.lhs.true52
 
 land.lhs.true52:                                  ; preds = %if.end50
-  %call53 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %11, ptr noundef %pWriteFunctionContext, i32 noundef 1)
+  %call53 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %12, ptr noundef %pWriteFunctionContext, i32 noundef 1)
   %cmp54 = icmp eq i32 %call53, -1
   br i1 %cmp54, label %return, label %land.lhs.true52.if.end56_crit_edge
 
@@ -7650,27 +7647,27 @@ land.lhs.true52.if.end56_crit_edge:               ; preds = %land.lhs.true52
   br label %if.end56
 
 if.end56:                                         ; preds = %land.lhs.true52.if.end56_crit_edge, %if.end50
-  %12 = phi i64 [ %.pre99, %land.lhs.true52.if.end56_crit_edge ], [ 0, %if.end50 ]
-  %conv57 = trunc i64 %12 to i32
+  %13 = phi i64 [ %.pre99, %land.lhs.true52.if.end56_crit_edge ], [ 0, %if.end50 ]
+  %conv57 = trunc i64 %13 to i32
   %add58 = add nsw i32 %nWriteCountSum.1, %conv57
-  %13 = load i64, ptr %nInUsed, align 8
-  %add.ptr59 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %13
+  %14 = load i64, ptr %nInUsed, align 8
+  %add.ptr59 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %14
   %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr59, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
-  br i1 %14, label %while.body8, label %while.end60, !llvm.loop !132
+  %15 = select i1 %cmp6, i1 %cmp7, i1 false
+  br i1 %15, label %while.body8, label %while.end60, !llvm.loop !132
 
 while.end60:                                      ; preds = %if.end56, %while.body8, %if.then27
   %nWriteCountSum.0.lcssa.ph = phi i32 [ %add58, %if.end56 ], [ %nWriteCountSum.088, %while.body8 ], [ %nWriteCountSum.088, %if.then27 ]
   %bFirstTime.0.lcssa.ph = phi i8 [ %bFirstTime.1, %if.end56 ], [ %bFirstTime.089, %while.body8 ], [ %bFirstTime.089, %if.then27 ]
-  %15 = and i8 %bFirstTime.0.lcssa.ph, 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %if.then62, label %return
+  %16 = and i8 %bFirstTime.0.lcssa.ph, 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %if.then62, label %return
 
 if.then62:                                        ; preds = %while.end60
   %fd.val = load i32, ptr %fd, align 4
-  %17 = getelementptr inbounds i8, ptr %fd, i64 12
-  %fd.val52 = load i32, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %fd, i64 12
+  %fd.val52 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa.ph
@@ -7701,18 +7698,18 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
-  br label %18
+  br label %19
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
   %cmp65 = icmp slt i32 %sub.i56.fr, 0
-  br i1 %cmp65, label %18, label %return
+  br i1 %cmp65, label %19, label %return
 
-18:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
+19:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
   br label %return
 
-return:                                           ; preds = %land.lhs.true52, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %18, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end60, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end60 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %18 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true52 ]
+return:                                           ; preds = %land.lhs.true52, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %19, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end60, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end60 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %19 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true52 ]
   ret i32 %retval.0
 }
 
@@ -7809,26 +7806,25 @@ if.then28:                                        ; preds = %land.lhs.true
 if.end35:                                         ; preds = %if.then28
   %add36 = add nsw i32 %call32, %conv24
   %6 = load i32, ptr %mnPrecision, align 4
-  %cmp38.not = icmp ne i32 %6, 2147483647
-  %cmp41 = icmp slt i32 %6, %add36
-  %or.cond49 = select i1 %cmp38.not, i1 %cmp41, i1 false
-  %spec.select50 = select i1 %or.cond49, i32 %6, i32 %add36
+  %cmp38.not.not = icmp eq i32 %6, 2147483647
+  %7 = call i32 @llvm.smin.i32(i32 %6, i32 %add36)
+  %spec.select50 = select i1 %cmp38.not.not, i32 %add36, i32 %7
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end35, %land.lhs.true, %if.then23
   %nWriteCount.0 = phi i32 [ %conv24, %land.lhs.true ], [ %conv24, %if.then23 ], [ %spec.select50, %if.end35 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nFill.i)
-  %7 = load i32, ptr %fd, align 4, !noalias !137
-  %cmp.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %fd, align 4, !noalias !137
+  %cmp.i = icmp eq i32 %8, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end45
-  %8 = load i32, ptr %mnWidth.i, align 4, !noalias !137
-  %cmp1.not.i = icmp sgt i32 %8, %nWriteCount.0
+  %9 = load i32, ptr %mnWidth.i, align 4, !noalias !137
+  %cmp1.not.i = icmp sgt i32 %9, %nWriteCount.0
   br i1 %cmp1.not.i, label %if.end.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp3.i = icmp eq i32 %7, 2
+  %cmp3.i = icmp eq i32 %8, 2
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -7836,8 +7832,8 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end17.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then4.i
-  %9 = load i16, ptr %pScratchBuffer, align 2, !noalias !137
-  switch i16 %9, label %if.end17.i [
+  %10 = load i16, ptr %pScratchBuffer, align 2, !noalias !137
+  switch i16 %10, label %if.end17.i [
     i16 43, label %if.then12.i
     i16 45, label %if.then12.i
     i16 32, label %if.then12.i
@@ -7858,9 +7854,9 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.else.i, %if.end15.i, %land.lhs.true.i, %if.then4.i
-  %10 = phi i32 [ %.pre.i, %if.end15.i ], [ %8, %if.then4.i ], [ %8, %if.else.i ], [ %8, %land.lhs.true.i ]
+  %11 = phi i32 [ %.pre.i, %if.end15.i ], [ %9, %if.then4.i ], [ %9, %if.else.i ], [ %9, %land.lhs.true.i ]
   %nWriteCount.addr.0.i = phi i32 [ %dec.i, %if.end15.i ], [ %nWriteCount.0, %if.then4.i ], [ %nWriteCount.0, %if.else.i ], [ %nWriteCount.0, %land.lhs.true.i ]
-  %sub.i = sub nsw i32 %10, %nWriteCount.addr.0.i
+  %sub.i = sub nsw i32 %11, %nWriteCount.addr.0.i
   %cmp1916.i = icmp sgt i32 %sub.i, 0
   br i1 %cmp1916.i, label %for.body.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit
 
@@ -7895,14 +7891,14 @@ if.end49:                                         ; preds = %_ZN2EA4StdC12Sprint
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end49, %if.end21
-  %11 = phi i64 [ %.pre, %if.end49 ], [ %.pre98, %if.end21 ]
+  %12 = phi i64 [ %.pre, %if.end49 ], [ %.pre98, %if.end21 ]
   %nWriteCountSum.1 = phi i32 [ %add50, %if.end49 ], [ %nWriteCountSum.088, %if.end21 ]
   %bFirstTime.1 = phi i8 [ 0, %if.end49 ], [ %bFirstTime.089, %if.end21 ]
-  %cmp52.not = icmp eq i64 %11, 0
+  %cmp52.not = icmp eq i64 %12, 0
   br i1 %cmp52.not, label %if.end57, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end51
-  %call54 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %11, ptr noundef %pWriteFunctionContext, i32 noundef 1)
+  %call54 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %12, ptr noundef %pWriteFunctionContext, i32 noundef 1)
   %cmp55 = icmp eq i32 %call54, -1
   br i1 %cmp55, label %return, label %land.lhs.true53.if.end57_crit_edge
 
@@ -7911,27 +7907,27 @@ land.lhs.true53.if.end57_crit_edge:               ; preds = %land.lhs.true53
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true53.if.end57_crit_edge, %if.end51
-  %12 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
-  %conv58 = trunc i64 %12 to i32
+  %13 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
+  %conv58 = trunc i64 %13 to i32
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
-  %13 = load i64, ptr %nInUsed, align 8
-  %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %13
+  %14 = load i64, ptr %nInUsed, align 8
+  %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %14
   %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
-  br i1 %14, label %while.body8, label %while.end61, !llvm.loop !140
+  %15 = select i1 %cmp6, i1 %cmp7, i1 false
+  br i1 %15, label %while.body8, label %while.end61, !llvm.loop !140
 
 while.end61:                                      ; preds = %if.end57, %while.body8, %if.then28
   %nWriteCountSum.0.lcssa.ph = phi i32 [ %add59, %if.end57 ], [ %nWriteCountSum.088, %while.body8 ], [ %nWriteCountSum.088, %if.then28 ]
   %bFirstTime.0.lcssa.ph = phi i8 [ %bFirstTime.1, %if.end57 ], [ %bFirstTime.089, %while.body8 ], [ %bFirstTime.089, %if.then28 ]
-  %15 = and i8 %bFirstTime.0.lcssa.ph, 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %if.then63, label %return
+  %16 = and i8 %bFirstTime.0.lcssa.ph, 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %if.then63, label %return
 
 if.then63:                                        ; preds = %while.end61
   %fd.val = load i32, ptr %fd, align 4
-  %17 = getelementptr inbounds i8, ptr %fd, i64 12
-  %fd.val52 = load i32, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %fd, i64 12
+  %fd.val52 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa.ph
@@ -7962,18 +7958,18 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
-  br label %18
+  br label %19
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
   %cmp66 = icmp slt i32 %sub.i56.fr, 0
-  br i1 %cmp66, label %18, label %return
+  br i1 %cmp66, label %19, label %return
 
-18:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
+19:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
   br label %return
 
-return:                                           ; preds = %land.lhs.true53, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %18, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end61, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end61 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %18 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true53 ]
+return:                                           ; preds = %land.lhs.true53, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %19, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end61, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end61 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %19 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true53 ]
   ret i32 %retval.0
 }
 
@@ -9633,26 +9629,25 @@ if.then27:                                        ; preds = %land.lhs.true
 if.end34:                                         ; preds = %if.then27
   %add35 = add nsw i32 %call31, %conv23
   %6 = load i32, ptr %mnPrecision, align 4
-  %cmp37.not = icmp ne i32 %6, 2147483647
-  %cmp40 = icmp slt i32 %6, %add35
-  %or.cond49 = select i1 %cmp37.not, i1 %cmp40, i1 false
-  %spec.select50 = select i1 %or.cond49, i32 %6, i32 %add35
+  %cmp37.not.not = icmp eq i32 %6, 2147483647
+  %7 = call i32 @llvm.smin.i32(i32 %6, i32 %add35)
+  %spec.select50 = select i1 %cmp37.not.not, i32 %add35, i32 %7
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end34, %land.lhs.true, %if.then22
   %nWriteCount.0 = phi i32 [ %conv23, %land.lhs.true ], [ %conv23, %if.then22 ], [ %spec.select50, %if.end34 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nFill.i)
-  %7 = load i32, ptr %fd, align 4, !noalias !165
-  %cmp.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %fd, align 4, !noalias !165
+  %cmp.i = icmp eq i32 %8, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end44
-  %8 = load i32, ptr %mnWidth.i, align 4, !noalias !165
-  %cmp1.not.i = icmp sgt i32 %8, %nWriteCount.0
+  %9 = load i32, ptr %mnWidth.i, align 4, !noalias !165
+  %cmp1.not.i = icmp sgt i32 %9, %nWriteCount.0
   br i1 %cmp1.not.i, label %if.end.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp3.i = icmp eq i32 %7, 2
+  %cmp3.i = icmp eq i32 %8, 2
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -9660,8 +9655,8 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end15.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then4.i
-  %9 = load i32, ptr %pScratchBuffer, align 4, !noalias !165
-  switch i32 %9, label %if.end15.i [
+  %10 = load i32, ptr %pScratchBuffer, align 4, !noalias !165
+  switch i32 %10, label %if.end15.i [
     i32 43, label %if.then10.i
     i32 45, label %if.then10.i
     i32 32, label %if.then10.i
@@ -9682,9 +9677,9 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i, %if.end13.i, %land.lhs.true.i, %if.then4.i
-  %10 = phi i32 [ %.pre.i, %if.end13.i ], [ %8, %if.then4.i ], [ %8, %if.else.i ], [ %8, %land.lhs.true.i ]
+  %11 = phi i32 [ %.pre.i, %if.end13.i ], [ %9, %if.then4.i ], [ %9, %if.else.i ], [ %9, %land.lhs.true.i ]
   %nWriteCount.addr.0.i = phi i32 [ %dec.i, %if.end13.i ], [ %nWriteCount.0, %if.then4.i ], [ %nWriteCount.0, %if.else.i ], [ %nWriteCount.0, %land.lhs.true.i ]
-  %sub.i = sub nsw i32 %10, %nWriteCount.addr.0.i
+  %sub.i = sub nsw i32 %11, %nWriteCount.addr.0.i
   %cmp1717.i = icmp sgt i32 %sub.i, 0
   br i1 %cmp1717.i, label %for.body.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit
 
@@ -9719,14 +9714,14 @@ if.end48:                                         ; preds = %_ZN2EA4StdC12Sprint
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end48, %if.end20
-  %11 = phi i64 [ %.pre, %if.end48 ], [ %.pre98, %if.end20 ]
+  %12 = phi i64 [ %.pre, %if.end48 ], [ %.pre98, %if.end20 ]
   %nWriteCountSum.1 = phi i32 [ %add49, %if.end48 ], [ %nWriteCountSum.088, %if.end20 ]
   %bFirstTime.1 = phi i8 [ 0, %if.end48 ], [ %bFirstTime.089, %if.end20 ]
-  %cmp51.not = icmp eq i64 %11, 0
+  %cmp51.not = icmp eq i64 %12, 0
   br i1 %cmp51.not, label %if.end56, label %land.lhs.true52
 
 land.lhs.true52:                                  ; preds = %if.end50
-  %call53 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %11, ptr noundef %pWriteFunctionContext, i32 noundef 1)
+  %call53 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %12, ptr noundef %pWriteFunctionContext, i32 noundef 1)
   %cmp54 = icmp eq i32 %call53, -1
   br i1 %cmp54, label %return, label %land.lhs.true52.if.end56_crit_edge
 
@@ -9735,27 +9730,27 @@ land.lhs.true52.if.end56_crit_edge:               ; preds = %land.lhs.true52
   br label %if.end56
 
 if.end56:                                         ; preds = %land.lhs.true52.if.end56_crit_edge, %if.end50
-  %12 = phi i64 [ %.pre99, %land.lhs.true52.if.end56_crit_edge ], [ 0, %if.end50 ]
-  %conv57 = trunc i64 %12 to i32
+  %13 = phi i64 [ %.pre99, %land.lhs.true52.if.end56_crit_edge ], [ 0, %if.end50 ]
+  %conv57 = trunc i64 %13 to i32
   %add58 = add nsw i32 %nWriteCountSum.1, %conv57
-  %13 = load i64, ptr %nInUsed, align 8
-  %add.ptr59 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %13
+  %14 = load i64, ptr %nInUsed, align 8
+  %add.ptr59 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %14
   %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr59, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
-  br i1 %14, label %while.body8, label %while.end60, !llvm.loop !168
+  %15 = select i1 %cmp6, i1 %cmp7, i1 false
+  br i1 %15, label %while.body8, label %while.end60, !llvm.loop !168
 
 while.end60:                                      ; preds = %if.end56, %while.body8, %if.then27
   %nWriteCountSum.0.lcssa.ph = phi i32 [ %add58, %if.end56 ], [ %nWriteCountSum.088, %while.body8 ], [ %nWriteCountSum.088, %if.then27 ]
   %bFirstTime.0.lcssa.ph = phi i8 [ %bFirstTime.1, %if.end56 ], [ %bFirstTime.089, %while.body8 ], [ %bFirstTime.089, %if.then27 ]
-  %15 = and i8 %bFirstTime.0.lcssa.ph, 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %if.then62, label %return
+  %16 = and i8 %bFirstTime.0.lcssa.ph, 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %if.then62, label %return
 
 if.then62:                                        ; preds = %while.end60
   %fd.val = load i32, ptr %fd, align 4
-  %17 = getelementptr inbounds i8, ptr %fd, i64 12
-  %fd.val52 = load i32, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %fd, i64 12
+  %fd.val52 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa.ph
@@ -9786,18 +9781,18 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
-  br label %18
+  br label %19
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
   %cmp65 = icmp slt i32 %sub.i56.fr, 0
-  br i1 %cmp65, label %18, label %return
+  br i1 %cmp65, label %19, label %return
 
-18:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
+19:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
   br label %return
 
-return:                                           ; preds = %land.lhs.true52, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %18, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end60, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end60 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %18 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true52 ]
+return:                                           ; preds = %land.lhs.true52, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %19, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end60, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end60 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %19 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true52 ]
   ret i32 %retval.0
 }
 
@@ -9894,26 +9889,25 @@ if.then28:                                        ; preds = %land.lhs.true
 if.end35:                                         ; preds = %if.then28
   %add36 = add nsw i32 %call32, %conv24
   %6 = load i32, ptr %mnPrecision, align 4
-  %cmp38.not = icmp ne i32 %6, 2147483647
-  %cmp41 = icmp slt i32 %6, %add36
-  %or.cond49 = select i1 %cmp38.not, i1 %cmp41, i1 false
-  %spec.select50 = select i1 %or.cond49, i32 %6, i32 %add36
+  %cmp38.not.not = icmp eq i32 %6, 2147483647
+  %7 = call i32 @llvm.smin.i32(i32 %6, i32 %add36)
+  %spec.select50 = select i1 %cmp38.not.not, i32 %add36, i32 %7
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end35, %land.lhs.true, %if.then23
   %nWriteCount.0 = phi i32 [ %conv24, %land.lhs.true ], [ %conv24, %if.then23 ], [ %spec.select50, %if.end35 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nFill.i)
-  %7 = load i32, ptr %fd, align 4, !noalias !173
-  %cmp.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %fd, align 4, !noalias !173
+  %cmp.i = icmp eq i32 %8, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end45
-  %8 = load i32, ptr %mnWidth.i, align 4, !noalias !173
-  %cmp1.not.i = icmp sgt i32 %8, %nWriteCount.0
+  %9 = load i32, ptr %mnWidth.i, align 4, !noalias !173
+  %cmp1.not.i = icmp sgt i32 %9, %nWriteCount.0
   br i1 %cmp1.not.i, label %if.end.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp3.i = icmp eq i32 %7, 2
+  %cmp3.i = icmp eq i32 %8, 2
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -9921,8 +9915,8 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end15.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then4.i
-  %9 = load i32, ptr %pScratchBuffer, align 4, !noalias !173
-  switch i32 %9, label %if.end15.i [
+  %10 = load i32, ptr %pScratchBuffer, align 4, !noalias !173
+  switch i32 %10, label %if.end15.i [
     i32 43, label %if.then10.i
     i32 45, label %if.then10.i
     i32 32, label %if.then10.i
@@ -9943,9 +9937,9 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i, %if.end13.i, %land.lhs.true.i, %if.then4.i
-  %10 = phi i32 [ %.pre.i, %if.end13.i ], [ %8, %if.then4.i ], [ %8, %if.else.i ], [ %8, %land.lhs.true.i ]
+  %11 = phi i32 [ %.pre.i, %if.end13.i ], [ %9, %if.then4.i ], [ %9, %if.else.i ], [ %9, %land.lhs.true.i ]
   %nWriteCount.addr.0.i = phi i32 [ %dec.i, %if.end13.i ], [ %nWriteCount.0, %if.then4.i ], [ %nWriteCount.0, %if.else.i ], [ %nWriteCount.0, %land.lhs.true.i ]
-  %sub.i = sub nsw i32 %10, %nWriteCount.addr.0.i
+  %sub.i = sub nsw i32 %11, %nWriteCount.addr.0.i
   %cmp1717.i = icmp sgt i32 %sub.i, 0
   br i1 %cmp1717.i, label %for.body.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit
 
@@ -9980,14 +9974,14 @@ if.end49:                                         ; preds = %_ZN2EA4StdC12Sprint
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end49, %if.end21
-  %11 = phi i64 [ %.pre, %if.end49 ], [ %.pre98, %if.end21 ]
+  %12 = phi i64 [ %.pre, %if.end49 ], [ %.pre98, %if.end21 ]
   %nWriteCountSum.1 = phi i32 [ %add50, %if.end49 ], [ %nWriteCountSum.088, %if.end21 ]
   %bFirstTime.1 = phi i8 [ 0, %if.end49 ], [ %bFirstTime.089, %if.end21 ]
-  %cmp52.not = icmp eq i64 %11, 0
+  %cmp52.not = icmp eq i64 %12, 0
   br i1 %cmp52.not, label %if.end57, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end51
-  %call54 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %11, ptr noundef %pWriteFunctionContext, i32 noundef 1)
+  %call54 = call noundef i32 %pWriteFunction(ptr noundef %pScratchBuffer, i64 noundef %12, ptr noundef %pWriteFunctionContext, i32 noundef 1)
   %cmp55 = icmp eq i32 %call54, -1
   br i1 %cmp55, label %return, label %land.lhs.true53.if.end57_crit_edge
 
@@ -9996,27 +9990,27 @@ land.lhs.true53.if.end57_crit_edge:               ; preds = %land.lhs.true53
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true53.if.end57_crit_edge, %if.end51
-  %12 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
-  %conv58 = trunc i64 %12 to i32
+  %13 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
+  %conv58 = trunc i64 %13 to i32
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
-  %13 = load i64, ptr %nInUsed, align 8
-  %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %13
+  %14 = load i64, ptr %nInUsed, align 8
+  %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %14
   %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
-  br i1 %14, label %while.body8, label %while.end61, !llvm.loop !176
+  %15 = select i1 %cmp6, i1 %cmp7, i1 false
+  br i1 %15, label %while.body8, label %while.end61, !llvm.loop !176
 
 while.end61:                                      ; preds = %if.end57, %while.body8, %if.then28
   %nWriteCountSum.0.lcssa.ph = phi i32 [ %add59, %if.end57 ], [ %nWriteCountSum.088, %while.body8 ], [ %nWriteCountSum.088, %if.then28 ]
   %bFirstTime.0.lcssa.ph = phi i8 [ %bFirstTime.1, %if.end57 ], [ %bFirstTime.089, %while.body8 ], [ %bFirstTime.089, %if.then28 ]
-  %15 = and i8 %bFirstTime.0.lcssa.ph, 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %if.then63, label %return
+  %16 = and i8 %bFirstTime.0.lcssa.ph, 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %if.then63, label %return
 
 if.then63:                                        ; preds = %while.end61
   %fd.val = load i32, ptr %fd, align 4
-  %17 = getelementptr inbounds i8, ptr %fd, i64 12
-  %fd.val52 = load i32, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %fd, i64 12
+  %fd.val52 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa.ph
@@ -10047,18 +10041,18 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
-  br label %18
+  br label %19
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
   %cmp66 = icmp slt i32 %sub.i56.fr, 0
-  br i1 %cmp66, label %18, label %return
+  br i1 %cmp66, label %19, label %return
 
-18:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
+19:                                               ; preds = %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit
   br label %return
 
-return:                                           ; preds = %land.lhs.true53, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %18, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end61, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end61 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %18 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true53 ]
+return:                                           ; preds = %land.lhs.true53, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit, %while.cond5.preheader, %19, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, %while.end61, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %nWriteCountSum.0.lcssa.ph, %while.end61 ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread ], [ -1, %19 ], [ %fd.val52, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit ], [ %nWriteCountSum.0.lcssa.ph, %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread74 ], [ 0, %while.cond5.preheader ], [ -1, %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit ], [ -1, %land.lhs.true53 ]
   ret i32 %retval.0
 }
 
@@ -10090,9 +10084,12 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #10
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

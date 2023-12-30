@@ -996,7 +996,7 @@ for.body.lr.ph:                                   ; preds = %lor.lhs.false2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
-  %9 = phi i32 [ %1, %for.body.lr.ph ], [ %25, %for.inc14 ]
+  %9 = phi i32 [ %1, %for.body.lr.ph ], [ %26, %for.inc14 ]
   %indvars.iv19 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next20, %for.inc14 ]
   %10 = load ptr, ptr %mBones, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv19
@@ -1053,9 +1053,8 @@ _ZNKSt6vectorISt4pairIjfESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.els
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %21 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %21
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
@@ -1063,8 +1062,8 @@ _ZNKSt6vectorISt4pairIjfESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.els
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store i32 %14, ptr %add.ptr.i.i, align 4
   %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
-  %21 = load float, ptr %mWeight, align 4
-  store float %21, ptr %second.i.i.i.i.i, align 4
+  %22 = load float, ptr %mWeight, align 4
+  store float %22, ptr %second.i.i.i.i.i, align 4
   %cmp.not5.i.i.i.i.i = icmp eq ptr %20, %17
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i, label %for.body.i.i.i.i.i
 
@@ -1073,8 +1072,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt4pa
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %20, %_ZNKSt6vectorISt4pairIjfESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %22 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 4, !alias.scope !21, !noalias !18
-  store i64 %22, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !18, !noalias !21
+  %23 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 4, !alias.scope !21, !noalias !18
+  store i64 %23, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !18, !noalias !21
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %17
@@ -1099,9 +1098,9 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE17_M_realloc_insertIJRjRKfEEEvN9__gnu_cxx17__nor
 
 _ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRKfEEERS1_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorISt4pairIjfESaIS1_EE17_M_realloc_insertIJRjRKfEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %mNumWeights, align 4
-  %24 = zext i32 %23 to i64
-  %cmp7 = icmp ult i64 %indvars.iv.next, %24
+  %24 = load i32, ptr %mNumWeights, align 4
+  %25 = zext i32 %24 to i64
+  %cmp7 = icmp ult i64 %indvars.iv.next, %25
   br i1 %cmp7, label %for.body8, label %for.inc14.loopexit, !llvm.loop !24
 
 for.inc14.loopexit:                               ; preds = %_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRKfEEERS1_DpOT_.exit
@@ -1109,10 +1108,10 @@ for.inc14.loopexit:                               ; preds = %_ZNSt6vectorISt4pai
   br label %for.inc14
 
 for.inc14:                                        ; preds = %for.inc14.loopexit, %for.body
-  %25 = phi i32 [ %.pre, %for.inc14.loopexit ], [ %9, %for.body ]
+  %26 = phi i32 [ %.pre, %for.inc14.loopexit ], [ %9, %for.body ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %26 = zext i32 %25 to i64
-  %cmp = icmp ult i64 %indvars.iv.next20, %26
+  %27 = zext i32 %26 to i64
+  %cmp = icmp ult i64 %indvars.iv.next20, %27
   br i1 %cmp, label %for.body, label %return, !llvm.loop !25
 
 return:                                           ; preds = %for.inc14, %entry, %lor.lhs.false, %lor.lhs.false2
@@ -2036,6 +2035,9 @@ declare float @llvm.sqrt.f32(float) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17

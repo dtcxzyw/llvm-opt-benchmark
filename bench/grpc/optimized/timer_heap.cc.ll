@@ -308,39 +308,38 @@ _ZNKSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %6
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIPN17grpc_event_engine12experimental5TimerEEE8allocateERS4_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIPN17grpc_event_engine12experimental5TimerEEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #14
   br label %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN17grpc_event_engine12experimental5TimerEEE8allocateERS4_m.exit.i.i.i, %_ZNKSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIPN17grpc_event_engine12experimental5TimerEEE8allocateERS4_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %timer, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+  br label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
   %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i20.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %5) #15
   br label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   store ptr %cond.i10.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
@@ -348,37 +347,37 @@ _ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_inse
   br label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit: ; preds = %if.then.i, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
-  %6 = load i64, ptr %heap_index, align 8
-  %cmp.not16.i = icmp eq i64 %6, 0
+  %7 = load i64, ptr %heap_index, align 8
+  %cmp.not16.i = icmp eq i64 %7, 0
   br i1 %cmp.not16.i, label %_ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit, %if.end.i
-  %i.addr.017.i = phi i64 [ %div11.i, %if.end.i ], [ %6, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit ]
+  %i.addr.017.i = phi i64 [ %div11.i, %if.end.i ], [ %7, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit ]
   %sub.i = add i64 %i.addr.017.i, -1
   %div11.i = lshr i64 %sub.i, 1
-  %7 = load ptr, ptr %this, align 8
-  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %7, i64 %div11.i
-  %8 = load ptr, ptr %add.ptr.i.i2, align 8
-  %9 = load i64, ptr %8, align 8
-  %10 = load i64, ptr %timer, align 8
-  %cmp3.not.i = icmp sgt i64 %9, %10
+  %8 = load ptr, ptr %this, align 8
+  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %8, i64 %div11.i
+  %9 = load ptr, ptr %add.ptr.i.i2, align 8
+  %10 = load i64, ptr %9, align 8
+  %11 = load i64, ptr %timer, align 8
+  %cmp3.not.i = icmp sgt i64 %10, %11
   br i1 %cmp3.not.i, label %if.end.i, label %_ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit
 
 if.end.i:                                         ; preds = %while.body.i
-  %add.ptr.i13.i = getelementptr inbounds ptr, ptr %7, i64 %i.addr.017.i
-  store ptr %8, ptr %add.ptr.i13.i, align 8
-  %11 = load ptr, ptr %this, align 8
-  %add.ptr.i14.i = getelementptr inbounds ptr, ptr %11, i64 %i.addr.017.i
-  %12 = load ptr, ptr %add.ptr.i14.i, align 8
-  %heap_index.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %12, i64 0, i32 1
+  %add.ptr.i13.i = getelementptr inbounds ptr, ptr %8, i64 %i.addr.017.i
+  store ptr %9, ptr %add.ptr.i13.i, align 8
+  %12 = load ptr, ptr %this, align 8
+  %add.ptr.i14.i = getelementptr inbounds ptr, ptr %12, i64 %i.addr.017.i
+  %13 = load ptr, ptr %add.ptr.i14.i, align 8
+  %heap_index.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %13, i64 0, i32 1
   store i64 %i.addr.017.i, ptr %heap_index.i, align 8
   %cmp.not.i3 = icmp ult i64 %sub.i, 2
   br i1 %cmp.not.i3, label %_ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit, label %while.body.i, !llvm.loop !4
 
 _ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit: ; preds = %while.body.i, %if.end.i, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit
   %i.addr.0.lcssa.i = phi i64 [ 0, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit ], [ %div11.i, %if.end.i ], [ %i.addr.017.i, %while.body.i ]
-  %13 = load ptr, ptr %this, align 8
-  %add.ptr.i15.i = getelementptr inbounds ptr, ptr %13, i64 %i.addr.0.lcssa.i
+  %14 = load ptr, ptr %this, align 8
+  %add.ptr.i15.i = getelementptr inbounds ptr, ptr %14, i64 %i.addr.0.lcssa.i
   store ptr %timer, ptr %add.ptr.i15.i, align 8
   store i64 %i.addr.0.lcssa.i, ptr %heap_index, align 8
   %cmp = icmp eq i64 %i.addr.0.lcssa.i, 0
@@ -518,6 +517,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

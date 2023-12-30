@@ -374,24 +374,24 @@ if.end:                                           ; preds = %land.lhs.true
   br i1 %or.cond51, label %if.then13, label %if.end46
 
 if.end.thread:                                    ; preds = %entry
-  %available78 = getelementptr inbounds %struct.u_localized_print_string, ptr %context, i64 0, i32 1
-  %3 = load i32, ptr %available78, align 8
-  %resultLen.79 = tail call i32 @llvm.smin.i32(i32 %3, i32 %resultLen)
-  %cmp9.not80 = icmp ne i32 %1, -1
-  %cmp1281 = icmp slt i32 %resultLen.79, %1
-  %or.cond5182 = select i1 %cmp9.not80, i1 %cmp1281, i1 false
-  br i1 %or.cond5182, label %if.then13, label %if.end.i66
+  %available79 = getelementptr inbounds %struct.u_localized_print_string, ptr %context, i64 0, i32 1
+  %3 = load i32, ptr %available79, align 8
+  %resultLen.80 = tail call i32 @llvm.smin.i32(i32 %3, i32 %resultLen)
+  %cmp9.not81 = icmp ne i32 %1, -1
+  %cmp1282 = icmp slt i32 %resultLen.80, %1
+  %or.cond5183 = select i1 %cmp9.not81, i1 %cmp1282, i1 false
+  br i1 %or.cond5183, label %if.then13, label %if.end.i66
 
 if.then13:                                        ; preds = %if.end.thread, %if.end
-  %resultLen.85 = phi i32 [ %resultLen.79, %if.end.thread ], [ %resultLen., %if.end ]
+  %resultLen.86 = phi i32 [ %resultLen.80, %if.end.thread ], [ %resultLen., %if.end ]
   %4 = phi i32 [ %3, %if.end.thread ], [ %2, %if.end ]
-  %available83 = phi ptr [ %available78, %if.end.thread ], [ %available, %if.end ]
-  %sub = sub nsw i32 %1, %resultLen.85
+  %available84 = phi ptr [ %available79, %if.end.thread ], [ %available, %if.end ]
+  %sub = sub nsw i32 %1, %resultLen.86
   %len = getelementptr inbounds %struct.u_localized_print_string, ptr %context, i64 0, i32 2
   %5 = load i32, ptr %len, align 4
   %sub16 = sub nsw i32 %5, %4
   %cmp18 = icmp sgt i32 %1, %4
-  %sub21 = sub nsw i32 %4, %resultLen.85
+  %sub21 = sub nsw i32 %4, %resultLen.86
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %sub21, i32 0)
   %paddingLeft.0 = select i1 %cmp18, i32 %spec.store.select, i32 %sub
   %fLeft = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 7
@@ -405,25 +405,25 @@ if.then27:                                        ; preds = %if.then13
 if.end.i:                                         ; preds = %if.then27
   %idx.ext.i = sext i32 %sub16 to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %0, i64 %idx.ext.i
-  %call.i = tail call ptr @u_strncpy_75(ptr noundef nonnull %add.ptr.i, ptr noundef %result, i32 noundef %resultLen.85)
-  %7 = load i32, ptr %available83, align 8
-  %sub7.i = sub nsw i32 %7, %resultLen.85
-  store i32 %sub7.i, ptr %available83, align 8
-  %.pre77 = load ptr, ptr %context, align 8
+  %call.i = tail call ptr @u_strncpy_75(ptr noundef nonnull %add.ptr.i, ptr noundef %result, i32 noundef %resultLen.86)
+  %7 = load i32, ptr %available84, align 8
+  %sub7.i = sub nsw i32 %7, %resultLen.86
+  store i32 %sub7.i, ptr %available84, align 8
+  %.pre78 = load ptr, ptr %context, align 8
   br label %_ZL15u_sprintf_writePvPKDsi.exit
 
 _ZL15u_sprintf_writePvPKDsi.exit:                 ; preds = %if.then27, %if.end.i
-  %8 = phi ptr [ null, %if.then27 ], [ %.pre77, %if.end.i ]
-  %add28 = add nsw i32 %paddingLeft.0, %resultLen.85
-  %add30 = add nsw i32 %sub16, %resultLen.85
+  %8 = phi ptr [ null, %if.then27 ], [ %.pre78, %if.end.i ]
+  %add28 = add nsw i32 %paddingLeft.0, %resultLen.86
+  %add30 = add nsw i32 %sub16, %resultLen.86
   %idxprom = sext i32 %add30 to i64
   %arrayidx = getelementptr inbounds i16, ptr %8, i64 %idxprom
   %fPadChar = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 4
   %9 = load i16, ptr %fPadChar, align 4
   %call31 = tail call ptr @u_memset_75(ptr noundef %arrayidx, i16 noundef zeroext %9, i32 noundef %paddingLeft.0)
-  %10 = load i32, ptr %available83, align 8
+  %10 = load i32, ptr %available84, align 8
   %sub33 = sub nsw i32 %10, %paddingLeft.0
-  store i32 %sub33, ptr %available83, align 8
+  store i32 %sub33, ptr %available84, align 8
   br label %if.end46
 
 if.else:                                          ; preds = %if.then13
@@ -432,27 +432,27 @@ if.else:                                          ; preds = %if.then13
   %fPadChar37 = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 4
   %11 = load i16, ptr %fPadChar37, align 4
   %call38 = tail call ptr @u_memset_75(ptr noundef %arrayidx36, i16 noundef zeroext %11, i32 noundef %paddingLeft.0)
-  %12 = load i32, ptr %available83, align 8
+  %12 = load i32, ptr %available84, align 8
   %sub40 = sub nsw i32 %12, %paddingLeft.0
-  store i32 %sub40, ptr %available83, align 8
+  store i32 %sub40, ptr %available84, align 8
   %13 = load ptr, ptr %context, align 8
   %cmp.i53 = icmp eq ptr %13, null
   br i1 %cmp.i53, label %_ZL15u_sprintf_writePvPKDsi.exit64, label %if.end.i54
 
 if.end.i54:                                       ; preds = %if.else
-  %count..i56 = tail call i32 @llvm.smin.i32(i32 %sub40, i32 %resultLen.85)
+  %count..i56 = tail call i32 @llvm.smin.i32(i32 %sub40, i32 %resultLen.86)
   %14 = load i32, ptr %len, align 4
   %sub.i58 = sub nsw i32 %14, %sub40
   %idx.ext.i59 = sext i32 %sub.i58 to i64
   %add.ptr.i60 = getelementptr inbounds i16, ptr %13, i64 %idx.ext.i59
   %call.i61 = tail call ptr @u_strncpy_75(ptr noundef nonnull %add.ptr.i60, ptr noundef %result, i32 noundef %count..i56)
-  %15 = load i32, ptr %available83, align 8
+  %15 = load i32, ptr %available84, align 8
   %sub7.i62 = sub nsw i32 %15, %count..i56
-  store i32 %sub7.i62, ptr %available83, align 8
+  store i32 %sub7.i62, ptr %available84, align 8
   br label %_ZL15u_sprintf_writePvPKDsi.exit64
 
 _ZL15u_sprintf_writePvPKDsi.exit64:               ; preds = %if.else, %if.end.i54
-  %retval.0.i63 = phi i32 [ %count..i56, %if.end.i54 ], [ %resultLen.85, %if.else ]
+  %retval.0.i63 = phi i32 [ %count..i56, %if.end.i54 ], [ %resultLen.86, %if.else ]
   %add42 = add nsw i32 %retval.0.i63, %paddingLeft.0
   br label %if.end46
 
@@ -462,18 +462,17 @@ if.end.i66:                                       ; preds = %if.end.thread
   %sub.i70 = sub nsw i32 %16, %3
   %idx.ext.i71 = sext i32 %sub.i70 to i64
   %add.ptr.i72 = getelementptr inbounds i16, ptr %0, i64 %idx.ext.i71
-  %call.i73 = tail call ptr @u_strncpy_75(ptr noundef nonnull %add.ptr.i72, ptr noundef %result, i32 noundef %resultLen.79)
-  %17 = load i32, ptr %available78, align 8
-  %sub7.i74 = sub nsw i32 %17, %resultLen.79
-  store i32 %sub7.i74, ptr %available78, align 8
+  %call.i73 = tail call ptr @u_strncpy_75(ptr noundef nonnull %add.ptr.i72, ptr noundef %result, i32 noundef %resultLen.80)
+  %17 = load i32, ptr %available79, align 8
+  %sub7.i74 = sub nsw i32 %17, %resultLen.80
+  store i32 %sub7.i74, ptr %available79, align 8
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end, %if.end.i66, %_ZL15u_sprintf_writePvPKDsi.exit, %_ZL15u_sprintf_writePvPKDsi.exit64
-  %written.0 = phi i32 [ %add28, %_ZL15u_sprintf_writePvPKDsi.exit ], [ %add42, %_ZL15u_sprintf_writePvPKDsi.exit64 ], [ %resultLen.79, %if.end.i66 ], [ %resultLen., %if.end ]
-  %cmp47 = icmp sgt i32 %written.0, -1
-  %cmp49 = icmp slt i32 %written.0, %resultLen
-  %or.cond52 = and i1 %cmp47, %cmp49
-  %spec.select = select i1 %or.cond52, i32 %resultLen, i32 %written.0
+  %written.0 = phi i32 [ %add28, %_ZL15u_sprintf_writePvPKDsi.exit ], [ %add42, %_ZL15u_sprintf_writePvPKDsi.exit64 ], [ %resultLen.80, %if.end.i66 ], [ %resultLen., %if.end ]
+  %18 = tail call i32 @llvm.smax.i32(i32 %written.0, i32 %resultLen)
+  %cmp4777 = icmp slt i32 %written.0, 0
+  %spec.select = select i1 %cmp4777, i32 %written.0, i32 %18
   br label %return
 
 return:                                           ; preds = %if.end46, %land.lhs.true

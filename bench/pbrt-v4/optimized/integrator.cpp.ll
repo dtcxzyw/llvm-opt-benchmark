@@ -23366,15 +23366,15 @@ entry:
   %b.sroa.8.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
   %b.sroa.8.8.extract.trunc.i.i.i = trunc i64 %b.sroa.8.8.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %b.sroa.0.0.extract.trunc.i.i.i, %b.sroa.5.8.extract.trunc.i.i.i
-  %cmp9.not.i.i.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
-  %or.cond.i.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp9.not.i.i.i.i
-  %pEnd.sroa.3.0.i.i.i.i = select i1 %or.cond.i.i.not.i.i, i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i
-  br i1 %or.cond.i.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
+  %1 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
+  %cmp4.i.i26.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
+  %cmp4.i.i26.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp4.i.i26.i.not1.i.i
+  br i1 %cmp4.i.i26.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
-  %1 = getelementptr inbounds %class.anon.206, ptr %__functor.val, i64 0, i32 1
-  %2 = load ptr, ptr %1, align 8
-  %film.i.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %2, i64 0, i32 8
+  %2 = getelementptr inbounds %class.anon.206, ptr %__functor.val, i64 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %film.i.i.i = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %3, i64 0, i32 8
   %y.i8.i.i.i = getelementptr inbounds %"class.pbrt::Tuple2.157", ptr %__functor.val, i64 0, i32 1
   br label %for.body.i.i.i
 
@@ -23382,18 +23382,18 @@ for.body.i.i.i:                                   ; preds = %for.end.i.i.i, %for
   %indvars.iv31.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next32.i.i.i, %for.end.i.i.i ]
   %__begin2.sroa.7.028.i.i.i = phi i32 [ %b.sroa.4.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin2.sroa.7.1.i.i.i, %for.end.i.i.i ]
   %__begin2.sroa.0.027.i.i.i = phi i32 [ %b.sroa.0.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin2.sroa.0.1.i.i.i, %for.end.i.i.i ]
-  %3 = load i32, ptr %__functor.val, align 4
-  %add.i.i.i.i = add nsw i32 %3, %__begin2.sroa.0.027.i.i.i
-  %4 = load i32, ptr %y.i8.i.i.i, align 4
-  %add4.i.i.i.i = add nsw i32 %4, %__begin2.sroa.7.028.i.i.i
+  %4 = load i32, ptr %__functor.val, align 4
+  %add.i.i.i.i = add nsw i32 %4, %__begin2.sroa.0.027.i.i.i
+  %5 = load i32, ptr %y.i8.i.i.i, align 4
+  %add4.i.i.i.i = add nsw i32 %5, %__begin2.sroa.7.028.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i = zext i32 %add4.i.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %add.i.i.i.i to i64
   %retval.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i.i
-  %5 = load i64, ptr %film.i.i.i, align 8
-  %and.i.i.i.i.i.i = and i64 %5, 144115188075855871
-  %6 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %shr.i.i.i.i.i.i = lshr i64 %5, 57
+  %6 = load i64, ptr %film.i.i.i, align 8
+  %and.i.i.i.i.i.i = and i64 %6, 144115188075855871
+  %7 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %shr.i.i.i.i.i.i = lshr i64 %6, 57
   %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
   switch i32 %conv.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i [
     i32 1, label %sw.bb.i.i.i.i.i.i
@@ -23401,15 +23401,15 @@ for.body.i.i.i:                                   ; preds = %for.end.i.i.i, %for
   ]
 
 sw.bb.i.i.i.i.i.i:                                ; preds = %for.body.i.i.i
-  %call.i.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt7RGBFilm11GetPixelRGBENS_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(168) %6, i64 %retval.sroa.0.0.insert.insert.i.i.i.i, float noundef 1.000000e+00)
+  %call.i.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt7RGBFilm11GetPixelRGBENS_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(168) %7, i64 %retval.sroa.0.0.insert.insert.i.i.i.i, float noundef 1.000000e+00)
   br label %_ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i
 
 sw.bb3.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i
-  %call.i7.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt11GBufferFilm11GetPixelRGBENS_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(872) %6, i64 %retval.sroa.0.0.insert.insert.i.i.i.i, float noundef 1.000000e+00)
+  %call.i7.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt11GBufferFilm11GetPixelRGBENS_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(872) %7, i64 %retval.sroa.0.0.insert.insert.i.i.i.i, float noundef 1.000000e+00)
   br label %_ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i
 
 sw.default.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i
-  %call.i9.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt12SpectralFilm11GetPixelRGBENS_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(180) %6, i64 %retval.sroa.0.0.insert.insert.i.i.i.i, float noundef 1.000000e+00)
+  %call.i9.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt12SpectralFilm11GetPixelRGBENS_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(180) %7, i64 %retval.sroa.0.0.insert.insert.i.i.i.i, float noundef 1.000000e+00)
   br label %_ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i
 
 _ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i: ; preds = %sw.default.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
@@ -23422,8 +23422,8 @@ _ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i: ; preds = %sw.default.i.
 
 for.body12.i.i.i:                                 ; preds = %_ZN4pbrt3RGBixEi.exit.i.i.i, %_ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN4pbrt3RGBixEi.exit.i.i.i ]
-  %7 = trunc i64 %indvars.iv.i.i.i to i32
-  switch i32 %7, label %if.end4.i.i.i.i [
+  %8 = trunc i64 %indvars.iv.i.i.i to i32
+  switch i32 %8, label %if.end4.i.i.i.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit.i.i.i
     i32 1, label %if.then3.i.i.i.i
   ]
@@ -23437,8 +23437,8 @@ if.end4.i.i.i.i:                                  ; preds = %for.body12.i.i.i
 _ZN4pbrt3RGBixEi.exit.i.i.i:                      ; preds = %if.end4.i.i.i.i, %if.then3.i.i.i.i, %for.body12.i.i.i
   %retval.0.i.sroa.speculated.i.i.i = phi float [ %rgb.sroa.0.4.vec.extract.i.i.i, %if.then3.i.i.i.i ], [ %call10.fca.1.extract.i.i.i, %if.end4.i.i.i.i ], [ %rgb.sroa.0.0.vec.extract.i.i.i, %for.body12.i.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.pstd::span.184", ptr %__args1.val, i64 %indvars.iv.i.i.i
-  %8 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %arrayidx.i9.i.i.i = getelementptr inbounds float, ptr %8, i64 %indvars.iv31.i.i.i
+  %9 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  %arrayidx.i9.i.i.i = getelementptr inbounds float, ptr %9, i64 %indvars.iv31.i.i.i
   store float %retval.0.i.sroa.speculated.i.i.i, ptr %arrayidx.i9.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -23452,9 +23452,9 @@ for.end.i.i.i:                                    ; preds = %_ZN4pbrt3RGBixEi.ex
   %inc10.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i to i32
   %__begin2.sroa.7.1.i.i.i = add nsw i32 %__begin2.sroa.7.028.i.i.i, %inc10.i.i.i.i.i
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin2.sroa.0.1.i.i.i, %b.sroa.0.0.extract.trunc.i.i.i
-  %cmp4.i.i.i.i.i = icmp ne i32 %__begin2.sroa.7.1.i.i.i, %pEnd.sroa.3.0.i.i.i.i
-  %9 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
-  br i1 %9, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+  %cmp4.i.i.i.i.i = icmp ne i32 %__begin2.sroa.7.1.i.i.i, %1
+  %10 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
+  br i1 %10, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 "_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %for.end.i.i.i, %entry
   ret void

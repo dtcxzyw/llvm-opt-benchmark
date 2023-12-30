@@ -697,9 +697,8 @@ sw.bb151:                                         ; preds = %entry
   %call153 = tail call i32 @BIO_ADDR_sockaddr_size(ptr noundef %0) #11
   %conv154 = zext i32 %call153 to i64
   %cmp155 = icmp eq i64 %num, 0
-  %cmp158 = icmp slt i64 %conv154, %num
-  %or.cond107 = select i1 %cmp155, i1 true, i1 %cmp158
-  %num.addr.0 = select i1 %or.cond107, i64 %conv154, i64 %num
+  %27 = tail call i64 @llvm.smin.i64(i64 %conv154, i64 %num)
+  %num.addr.0 = select i1 %cmp155, i64 %conv154, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr, ptr align 8 %0, i64 %num.addr.0, i1 false)
   br label %sw.epilog333
 
@@ -716,8 +715,8 @@ sw.bb167:                                         ; preds = %entry
 
 if.then172:                                       ; preds = %sw.bb167
   %num173 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %27 = load i32, ptr %num173, align 8
-  %call176 = call i32 @getpeername(i32 noundef %27, ptr nonnull %xaddr, ptr noundef nonnull %xaddr_len) #11
+  %28 = load i32, ptr %num173, align 8
+  %call176 = call i32 @getpeername(i32 noundef %28, ptr nonnull %xaddr, ptr noundef nonnull %xaddr_len) #11
   %cmp177 = icmp eq i32 %call176, 0
   br i1 %cmp177, label %land.lhs.true179, label %sw.epilog333
 
@@ -731,33 +730,32 @@ if.end186:                                        ; preds = %land.lhs.true179, %
   %call187 = call i32 @BIO_ADDR_sockaddr_size(ptr noundef %p.0) #11
   %conv188 = zext i32 %call187 to i64
   %cmp189 = icmp eq i64 %num, 0
-  %cmp192 = icmp slt i64 %conv188, %num
-  %or.cond108 = select i1 %cmp189, i1 true, i1 %cmp192
-  %num.addr.1 = select i1 %or.cond108, i64 %conv188, i64 %num
+  %29 = call i64 @llvm.smin.i64(i64 %conv188, i64 %num)
+  %num.addr.1 = select i1 %cmp189, i64 %conv188, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr, ptr align 4 %p.0, i64 %num.addr.1, i1 false)
   br label %sw.epilog333
 
 sw.bb196:                                         ; preds = %entry
   %num197 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %28 = load i32, ptr %num197, align 8
+  %30 = load i32, ptr %num197, align 8
   %cmp198 = icmp ne i64 %num, 0
   %conv199 = zext i1 %cmp198 to i32
-  %call200 = tail call i32 @BIO_socket_nbio(i32 noundef %28, i32 noundef %conv199) #11
+  %call200 = tail call i32 @BIO_socket_nbio(i32 noundef %30, i32 noundef %conv199) #11
   %tobool201.not = icmp ne i32 %call200, 0
   %spec.select = zext i1 %tobool201.not to i64
   br label %sw.epilog333
 
 sw.bb204:                                         ; preds = %entry
   %next_timeout = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 5
-  %29 = load i64, ptr %ptr, align 8
-  %cmp.i116 = icmp slt i64 %29, 0
+  %31 = load i64, ptr %ptr, align 8
+  %cmp.i116 = icmp slt i64 %31, 0
   br i1 %cmp.i116, label %ossl_time_from_timeval.exit, label %if.end.i117
 
 if.end.i117:                                      ; preds = %sw.bb204
-  %30 = getelementptr inbounds { i64, i64 }, ptr %ptr, i64 0, i32 1
-  %31 = load i64, ptr %30, align 8
-  %mul.i = mul i64 %29, 1000000000
-  %mul2.i = mul i64 %31, 1000
+  %32 = getelementptr inbounds { i64, i64 }, ptr %ptr, i64 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %mul.i = mul i64 %31, 1000000000
+  %mul2.i = mul i64 %33, 1000
   %add.i = add i64 %mul2.i, %mul.i
   br label %ossl_time_from_timeval.exit
 
@@ -768,8 +766,8 @@ ossl_time_from_timeval.exit:                      ; preds = %sw.bb204, %if.end.i
 
 sw.bb208:                                         ; preds = %entry
   %num209 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %32 = load i32, ptr %num209, align 8
-  %call210 = tail call i32 @setsockopt(i32 noundef %32, i32 noundef 1, i32 noundef 20, ptr noundef %ptr, i32 noundef 16) #11
+  %34 = load i32, ptr %num209, align 8
+  %call210 = tail call i32 @setsockopt(i32 noundef %34, i32 noundef 1, i32 noundef 20, ptr noundef %ptr, i32 noundef 16) #11
   %conv211 = sext i32 %call210 to i64
   %cmp212 = icmp slt i32 %call210, 0
   br i1 %cmp212, label %if.then214, label %sw.epilog333
@@ -778,15 +776,15 @@ if.then214:                                       ; preds = %sw.bb208
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__func__.dgram_ctrl) #11
   %call215 = tail call ptr @__errno_location() #12
-  %33 = load i32, ptr %call215, align 4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %33, ptr noundef nonnull @.str.3) #11
+  %35 = load i32, ptr %call215, align 4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %35, ptr noundef nonnull @.str.3) #11
   br label %sw.epilog333
 
 sw.bb217:                                         ; preds = %entry
   store i32 16, ptr %sz, align 4
   %num218 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %34 = load i32, ptr %num218, align 8
-  %call219 = call i32 @getsockopt(i32 noundef %34, i32 noundef 1, i32 noundef 20, ptr noundef %ptr, ptr noundef nonnull %sz) #11
+  %36 = load i32, ptr %num218, align 8
+  %call219 = call i32 @getsockopt(i32 noundef %36, i32 noundef 1, i32 noundef 20, ptr noundef %ptr, ptr noundef nonnull %sz) #11
   %cmp221 = icmp slt i32 %call219, 0
   br i1 %cmp221, label %if.then223, label %if.else225
 
@@ -795,13 +793,13 @@ if.then223:                                       ; preds = %sw.bb217
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 807, ptr noundef nonnull @__func__.dgram_ctrl) #11
   %call224 = tail call ptr @__errno_location() #12
-  %35 = load i32, ptr %call224, align 4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %35, ptr noundef nonnull @.str.2) #11
+  %37 = load i32, ptr %call224, align 4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %37, ptr noundef nonnull @.str.2) #11
   br label %sw.epilog333
 
 if.else225:                                       ; preds = %sw.bb217
-  %36 = load i32, ptr %sz, align 4
-  %cmp227 = icmp ult i32 %36, 17
+  %38 = load i32, ptr %sz, align 4
+  %cmp227 = icmp ult i32 %38, 17
   br i1 %cmp227, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.else225
@@ -809,13 +807,13 @@ cond.false:                                       ; preds = %if.else225
   unreachable
 
 cond.end:                                         ; preds = %if.else225
-  %conv229 = zext nneg i32 %36 to i64
+  %conv229 = zext nneg i32 %38 to i64
   br label %sw.epilog333
 
 sw.bb231:                                         ; preds = %entry
   %num232 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %37 = load i32, ptr %num232, align 8
-  %call233 = tail call i32 @setsockopt(i32 noundef %37, i32 noundef 1, i32 noundef 21, ptr noundef %ptr, i32 noundef 16) #11
+  %39 = load i32, ptr %num232, align 8
+  %call233 = tail call i32 @setsockopt(i32 noundef %39, i32 noundef 1, i32 noundef 21, ptr noundef %ptr, i32 noundef 16) #11
   %conv234 = sext i32 %call233 to i64
   %cmp235 = icmp slt i32 %call233, 0
   br i1 %cmp235, label %if.then237, label %sw.epilog333
@@ -824,15 +822,15 @@ if.then237:                                       ; preds = %sw.bb231
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 832, ptr noundef nonnull @__func__.dgram_ctrl) #11
   %call238 = tail call ptr @__errno_location() #12
-  %38 = load i32, ptr %call238, align 4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %38, ptr noundef nonnull @.str.3) #11
+  %40 = load i32, ptr %call238, align 4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %40, ptr noundef nonnull @.str.3) #11
   br label %sw.epilog333
 
 sw.bb240:                                         ; preds = %entry
   store i32 16, ptr %sz241, align 4
   %num242 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %39 = load i32, ptr %num242, align 8
-  %call243 = call i32 @getsockopt(i32 noundef %39, i32 noundef 1, i32 noundef 21, ptr noundef %ptr, ptr noundef nonnull %sz241) #11
+  %41 = load i32, ptr %num242, align 8
+  %call243 = call i32 @getsockopt(i32 noundef %41, i32 noundef 1, i32 noundef 21, ptr noundef %ptr, ptr noundef nonnull %sz241) #11
   %cmp245 = icmp slt i32 %call243, 0
   br i1 %cmp245, label %if.then247, label %if.else249
 
@@ -841,13 +839,13 @@ if.then247:                                       ; preds = %sw.bb240
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 858, ptr noundef nonnull @__func__.dgram_ctrl) #11
   %call248 = tail call ptr @__errno_location() #12
-  %40 = load i32, ptr %call248, align 4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %40, ptr noundef nonnull @.str.2) #11
+  %42 = load i32, ptr %call248, align 4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %42, ptr noundef nonnull @.str.2) #11
   br label %sw.epilog333
 
 if.else249:                                       ; preds = %sw.bb240
-  %41 = load i32, ptr %sz241, align 4
-  %cmp251 = icmp ult i32 %41, 17
+  %43 = load i32, ptr %sz241, align 4
+  %cmp251 = icmp ult i32 %43, 17
   br i1 %cmp251, label %cond.end255, label %cond.false254
 
 cond.false254:                                    ; preds = %if.else249
@@ -855,13 +853,13 @@ cond.false254:                                    ; preds = %if.else249
   unreachable
 
 cond.end255:                                      ; preds = %if.else249
-  %conv257 = zext nneg i32 %41 to i64
+  %conv257 = zext nneg i32 %43 to i64
   br label %sw.epilog333
 
 sw.bb259:                                         ; preds = %entry, %entry
   %_errno = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 3
-  %42 = load i32, ptr %_errno, align 4
-  %cmp260 = icmp eq i32 %42, 11
+  %44 = load i32, ptr %_errno, align 4
+  %cmp260 = icmp eq i32 %44, 11
   br i1 %cmp260, label %if.then263, label %sw.epilog333
 
 if.then263:                                       ; preds = %sw.bb259
@@ -870,8 +868,8 @@ if.then263:                                       ; preds = %sw.bb259
 
 sw.bb267:                                         ; preds = %entry
   %_errno268 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 3
-  %43 = load i32, ptr %_errno268, align 4
-  %cmp269 = icmp eq i32 %43, 90
+  %45 = load i32, ptr %_errno268, align 4
+  %cmp269 = icmp eq i32 %45, 90
   br i1 %cmp269, label %if.then271, label %sw.epilog333
 
 if.then271:                                       ; preds = %sw.bb267
@@ -879,8 +877,8 @@ if.then271:                                       ; preds = %sw.bb267
   br label %sw.epilog333
 
 sw.bb275:                                         ; preds = %entry
-  %44 = load i16, ptr %0, align 8
-  switch i16 %44, label %sw.epilog333 [
+  %46 = load i16, ptr %0, align 8
+  switch i16 %46, label %sw.epilog333 [
     i16 2, label %sw.bb279
     i16 10, label %sw.bb290
   ]
@@ -890,8 +888,8 @@ sw.bb279:                                         ; preds = %sw.bb275
   %cond281 = select i1 %tobool280.not, i32 0, i32 3
   store i32 %cond281, ptr %sockopt_val, align 4
   %num282 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %45 = load i32, ptr %num282, align 8
-  %call283 = call i32 @setsockopt(i32 noundef %45, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %sockopt_val, i32 noundef 4) #11
+  %47 = load i32, ptr %num282, align 8
+  %call283 = call i32 @setsockopt(i32 noundef %47, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %sockopt_val, i32 noundef 4) #11
   %conv284 = sext i32 %call283 to i64
   %cmp285 = icmp slt i32 %call283, 0
   br i1 %cmp285, label %if.then287, label %sw.epilog333
@@ -900,8 +898,8 @@ if.then287:                                       ; preds = %sw.bb279
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 904, ptr noundef nonnull @__func__.dgram_ctrl) #11
   %call288 = tail call ptr @__errno_location() #12
-  %46 = load i32, ptr %call288, align 4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %46, ptr noundef nonnull @.str.3) #11
+  %48 = load i32, ptr %call288, align 4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.3) #11
   br label %sw.epilog333
 
 sw.bb290:                                         ; preds = %sw.bb275
@@ -909,8 +907,8 @@ sw.bb290:                                         ; preds = %sw.bb275
   %cond292 = zext i1 %tobool291.not to i32
   store i32 %cond292, ptr %sockopt_val, align 4
   %num293 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %47 = load i32, ptr %num293, align 8
-  %call294 = call i32 @setsockopt(i32 noundef %47, i32 noundef 41, i32 noundef 62, ptr noundef nonnull %sockopt_val, i32 noundef 4) #11
+  %49 = load i32, ptr %num293, align 8
+  %call294 = call i32 @setsockopt(i32 noundef %49, i32 noundef 41, i32 noundef 62, ptr noundef nonnull %sockopt_val, i32 noundef 4) #11
   %conv295 = sext i32 %call294 to i64
   %cmp296 = icmp slt i32 %call294, 0
   br i1 %cmp296, label %if.then298, label %sw.epilog333
@@ -919,8 +917,8 @@ if.then298:                                       ; preds = %sw.bb290
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 924, ptr noundef nonnull @__func__.dgram_ctrl) #11
   %call299 = tail call ptr @__errno_location() #12
-  %48 = load i32, ptr %call299, align 4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.3) #11
+  %50 = load i32, ptr %call299, align 4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %50, ptr noundef nonnull @.str.3) #11
   br label %sw.epilog333
 
 sw.bb303:                                         ; preds = %entry
@@ -935,19 +933,19 @@ sw.bb1.i122:                                      ; preds = %sw.bb303
   br i1 %tobool.not.i124, label %if.else.i130, label %land.lhs.true.i125
 
 land.lhs.true.i125:                               ; preds = %sw.bb1.i122
-  %49 = load i32, ptr %tmp_addr.i118, align 4
-  %cmp.i126 = icmp eq i32 %49, 0
+  %51 = load i32, ptr %tmp_addr.i118, align 4
+  %cmp.i126 = icmp eq i32 %51, 0
   %arrayidx6.i127 = getelementptr inbounds [4 x i32], ptr %tmp_addr.i118, i64 0, i64 1
-  %50 = load i32, ptr %arrayidx6.i127, align 4
-  %cmp7.i128 = icmp eq i32 %50, 0
+  %52 = load i32, ptr %arrayidx6.i127, align 4
+  %cmp7.i128 = icmp eq i32 %52, 0
   %or.cond.i129 = select i1 %cmp.i126, i1 %cmp7.i128, i1 false
   br i1 %or.cond.i129, label %land.rhs.i131, label %if.else.i130
 
 land.rhs.i131:                                    ; preds = %land.lhs.true.i125
   %arrayidx9.i132 = getelementptr inbounds [4 x i32], ptr %tmp_addr.i118, i64 0, i64 2
-  %51 = load i32, ptr %arrayidx9.i132, align 4
+  %53 = load i32, ptr %arrayidx9.i132, align 4
   %call10.i133 = call i32 @htonl(i32 noundef 65535) #12
-  %cmp11.i134 = icmp eq i32 %51, %call10.i133
+  %cmp11.i134 = icmp eq i32 %53, %call10.i133
   br i1 %cmp11.i134, label %dgram_get_mtu_overhead.exit135, label %if.else.i130
 
 if.else.i130:                                     ; preds = %land.rhs.i131, %land.lhs.true.i125, %sw.bb1.i122
@@ -971,8 +969,8 @@ sw.bb308:                                         ; preds = %entry
   %cmp309 = icmp sgt i64 %num, 0
   %conv311 = zext i1 %cmp309 to i64
   %local_addr_enabled312 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 8
-  %52 = load i8, ptr %local_addr_enabled312, align 4
-  %conv313 = sext i8 %52 to i64
+  %54 = load i8, ptr %local_addr_enabled312, align 4
+  %conv313 = sext i8 %54 to i64
   %cmp314.not = icmp eq i64 %conv311, %conv313
   br i1 %cmp314.not, label %sw.epilog333, label %if.then316
 
@@ -989,8 +987,8 @@ if.end322:                                        ; preds = %if.then316
 
 sw.bb326:                                         ; preds = %entry
   %local_addr_enabled327 = getelementptr inbounds %struct.bio_dgram_data_st, ptr %0, i64 0, i32 8
-  %53 = load i8, ptr %local_addr_enabled327, align 4
-  %conv328 = sext i8 %53 to i32
+  %55 = load i8, ptr %local_addr_enabled327, align 4
+  %conv328 = sext i8 %55 to i32
   store i32 %conv328, ptr %ptr, align 4
   br label %sw.epilog333
 
@@ -1000,9 +998,9 @@ sw.bb329:                                         ; preds = %entry
 sw.bb330:                                         ; preds = %entry, %entry
   store i32 1, ptr %ptr, align 8
   %num331 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %54 = load i32, ptr %num331, align 8
+  %56 = load i32, ptr %num331, align 8
   %value = getelementptr inbounds %struct.bio_poll_descriptor_st, ptr %ptr, i64 0, i32 1
-  store i32 %54, ptr %value, align 8
+  store i32 %56, ptr %value, align 8
   br label %sw.epilog333
 
 sw.epilog333:                                     ; preds = %sw.bb196, %entry, %if.then316, %sw.bb275, %sw.bb267, %sw.bb259, %if.then172, %land.lhs.true179, %if.end67, %sw.bb84, %sw.bb70, %sw.bb59, %if.end39, %sw.bb33, %sw.bb10, %sw.bb308, %if.end322, %if.then287, %sw.bb279, %if.then298, %sw.bb290, %if.then271, %if.then263, %if.then247, %cond.end255, %sw.bb231, %if.then237, %if.then223, %cond.end, %sw.bb208, %if.then214, %if.then143, %if.else147, %sw.bb108, %sw.default131, %if.else128, %if.then126, %if.else79, %if.else94, %if.then47, %sw.bb41, %if.then56, %sw.bb50, %if.end18, %dgram_update_local_addr.exit, %if.then7, %if.then, %sw.bb330, %sw.bb329, %sw.bb326, %sw.bb307, %sw.bb305, %dgram_get_mtu_overhead.exit135, %ossl_time_from_timeval.exit, %if.end186, %sw.bb163, %sw.bb151, %sw.bb137, %sw.bb30, %sw.bb29, %sw.bb25, %sw.bb22
@@ -1740,6 +1738,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #9

@@ -13228,9 +13228,8 @@ if.end176:                                        ; preds = %if.else129
   %cmp179 = icmp eq i32 %8, 0
   %cmp182 = icmp sgt i32 %6, -1
   %or.cond = and i1 %cmp179, %cmp182
-  %cmp185 = icmp slt i32 %6, %sub178
-  %or.cond36 = select i1 %or.cond, i1 %cmp185, i1 false
-  %spec.store.select37 = select i1 %or.cond36, i32 %6, i32 %sub178
+  %59 = call i32 @llvm.smin.i32(i32 %6, i32 %sub178)
+  %spec.store.select37 = select i1 %or.cond, i32 %59, i32 %sub178
   store i32 %spec.store.select37, ptr %num_zeros177, align 4
   %cmp189 = icmp ne i32 %spec.store.select37, 0
   %cmp190 = icmp ne i32 %8, 0
@@ -13239,42 +13238,42 @@ if.end176:                                        ; preds = %if.else129
 
 lor.end.thread:                                   ; preds = %if.end176
   store i8 1, ptr %pointy, align 1
-  br label %60
-
-lor.end:                                          ; preds = %if.end176
-  %59 = and i32 %4, 1048576
-  %bf.cast195.not = icmp eq i32 %59, 0
-  %.lobit = lshr exact i32 %59, 20
-  %frombool = trunc i32 %.lobit to i8
-  store i8 %frombool, ptr %pointy, align 1
-  br i1 %bf.cast195.not, label %61, label %60
-
-60:                                               ; preds = %lor.end.thread, %lor.end
   br label %61
 
-61:                                               ; preds = %lor.end, %60
-  %62 = phi i32 [ 2, %60 ], [ 1, %lor.end ]
-  %add200 = add i32 %62, %spec.store.select37
+lor.end:                                          ; preds = %if.end176
+  %60 = and i32 %4, 1048576
+  %bf.cast195.not = icmp eq i32 %60, 0
+  %.lobit = lshr exact i32 %60, 20
+  %frombool = trunc i32 %.lobit to i8
+  store i8 %frombool, ptr %pointy, align 1
+  br i1 %bf.cast195.not, label %62, label %61
+
+61:                                               ; preds = %lor.end.thread, %lor.end
+  br label %62
+
+62:                                               ; preds = %lor.end, %61
+  %63 = phi i32 [ 2, %61 ], [ 1, %lor.end ]
+  %add200 = add i32 %63, %spec.store.select37
   %conv201 = zext i32 %add200 to i64
   %add202 = add nuw nsw i64 %conv, %conv201
   store ptr %sign, ptr %ref.tmp204, align 8
-  %63 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 1
-  store ptr %zero, ptr %63, align 8
-  %64 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 2
-  store ptr %pointy, ptr %64, align 8
-  %65 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 3
-  store ptr %decimal_point, ptr %65, align 8
-  %66 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 4
-  store ptr %num_zeros177, ptr %66, align 8
-  %67 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 5
-  store ptr %significand, ptr %67, align 8
-  %68 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 6
-  store ptr %significand_size, ptr %68, align 8
+  %64 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 1
+  store ptr %zero, ptr %64, align 8
+  %65 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 2
+  store ptr %pointy, ptr %65, align 8
+  %66 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 3
+  store ptr %decimal_point, ptr %66, align 8
+  %67 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 4
+  store ptr %num_zeros177, ptr %67, align 8
+  %68 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 5
+  store ptr %significand, ptr %68, align 8
+  %69 = getelementptr inbounds %class.anon.62, ptr %ref.tmp204, i64 0, i32 6
+  store ptr %significand_size, ptr %69, align 8
   %call.i70 = call ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add202, i64 noundef %add202, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp204)
   br label %return
 
-return:                                           ; preds = %cond.true52, %cond.false59, %61, %invoke.cont171, %invoke.cont125
-  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true52 ], [ %call66, %cond.false59 ], [ %call.i3940, %invoke.cont125 ], [ %call.i6869, %invoke.cont171 ], [ %call.i70, %61 ]
+return:                                           ; preds = %cond.true52, %cond.false59, %62, %invoke.cont171, %invoke.cont125
+  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true52 ], [ %call66, %cond.false59 ], [ %call.i3940, %invoke.cont125 ], [ %call.i6869, %invoke.cont171 ], [ %call.i70, %62 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -16814,9 +16813,8 @@ if.end176:                                        ; preds = %if.else129
   %cmp179 = icmp eq i32 %9, 0
   %cmp182 = icmp sgt i32 %7, -1
   %or.cond = and i1 %cmp179, %cmp182
-  %cmp185 = icmp slt i32 %7, %sub178
-  %or.cond36 = select i1 %or.cond, i1 %cmp185, i1 false
-  %spec.store.select37 = select i1 %or.cond36, i32 %7, i32 %sub178
+  %60 = call i32 @llvm.smin.i32(i32 %7, i32 %sub178)
+  %spec.store.select37 = select i1 %or.cond, i32 %60, i32 %sub178
   store i32 %spec.store.select37, ptr %num_zeros177, align 4
   %cmp189 = icmp ne i32 %spec.store.select37, 0
   %cmp190 = icmp ne i32 %9, 0
@@ -16825,42 +16823,42 @@ if.end176:                                        ; preds = %if.else129
 
 lor.end.thread:                                   ; preds = %if.end176
   store i8 1, ptr %pointy, align 1
-  br label %61
-
-lor.end:                                          ; preds = %if.end176
-  %60 = and i32 %5, 1048576
-  %bf.cast195.not = icmp eq i32 %60, 0
-  %.lobit = lshr exact i32 %60, 20
-  %frombool = trunc i32 %.lobit to i8
-  store i8 %frombool, ptr %pointy, align 1
-  br i1 %bf.cast195.not, label %62, label %61
-
-61:                                               ; preds = %lor.end.thread, %lor.end
   br label %62
 
-62:                                               ; preds = %lor.end, %61
-  %63 = phi i32 [ 2, %61 ], [ 1, %lor.end ]
-  %add200 = add i32 %63, %spec.store.select37
+lor.end:                                          ; preds = %if.end176
+  %61 = and i32 %5, 1048576
+  %bf.cast195.not = icmp eq i32 %61, 0
+  %.lobit = lshr exact i32 %61, 20
+  %frombool = trunc i32 %.lobit to i8
+  store i8 %frombool, ptr %pointy, align 1
+  br i1 %bf.cast195.not, label %63, label %62
+
+62:                                               ; preds = %lor.end.thread, %lor.end
+  br label %63
+
+63:                                               ; preds = %lor.end, %62
+  %64 = phi i32 [ 2, %62 ], [ 1, %lor.end ]
+  %add200 = add i32 %64, %spec.store.select37
   %conv201 = zext i32 %add200 to i64
   %add202 = add nuw nsw i64 %conv201, %conv
   store ptr %sign, ptr %ref.tmp204, align 8
-  %64 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 1
-  store ptr %zero, ptr %64, align 8
-  %65 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 2
-  store ptr %pointy, ptr %65, align 8
-  %66 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 3
-  store ptr %decimal_point, ptr %66, align 8
-  %67 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 4
-  store ptr %num_zeros177, ptr %67, align 8
-  %68 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 5
-  store ptr %significand, ptr %68, align 8
-  %69 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 6
-  store ptr %significand_size, ptr %69, align 8
+  %65 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 1
+  store ptr %zero, ptr %65, align 8
+  %66 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 2
+  store ptr %pointy, ptr %66, align 8
+  %67 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 3
+  store ptr %decimal_point, ptr %67, align 8
+  %68 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 4
+  store ptr %num_zeros177, ptr %68, align 8
+  %69 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 5
+  store ptr %significand, ptr %69, align 8
+  %70 = getelementptr inbounds %class.anon.72, ptr %ref.tmp204, i64 0, i32 6
+  store ptr %significand_size, ptr %70, align 8
   %call.i71 = call ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add202, i64 noundef %add202, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp204)
   br label %return
 
-return:                                           ; preds = %cond.true52, %cond.false59, %62, %invoke.cont171, %invoke.cont125
-  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true52 ], [ %call66, %cond.false59 ], [ %call.i4041, %invoke.cont125 ], [ %call.i6970, %invoke.cont171 ], [ %call.i71, %62 ]
+return:                                           ; preds = %cond.true52, %cond.false59, %63, %invoke.cont171, %invoke.cont125
+  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true52 ], [ %call66, %cond.false59 ], [ %call.i4041, %invoke.cont125 ], [ %call.i6970, %invoke.cont171 ], [ %call.i71, %63 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -23425,9 +23423,8 @@ if.end176:                                        ; preds = %if.else129
   %cmp179 = icmp eq i32 %7, 0
   %cmp182 = icmp sgt i32 %5, -1
   %or.cond = and i1 %cmp179, %cmp182
-  %cmp185 = icmp slt i32 %5, %sub178
-  %or.cond36 = select i1 %or.cond, i1 %cmp185, i1 false
-  %spec.store.select37 = select i1 %or.cond36, i32 %5, i32 %sub178
+  %58 = call i32 @llvm.smin.i32(i32 %5, i32 %sub178)
+  %spec.store.select37 = select i1 %or.cond, i32 %58, i32 %sub178
   store i32 %spec.store.select37, ptr %num_zeros177, align 4
   %cmp189 = icmp ne i32 %spec.store.select37, 0
   %cmp190 = icmp ne i32 %7, 0
@@ -23436,42 +23433,42 @@ if.end176:                                        ; preds = %if.else129
 
 lor.end.thread:                                   ; preds = %if.end176
   store i8 1, ptr %pointy, align 1
-  br label %59
-
-lor.end:                                          ; preds = %if.end176
-  %58 = and i32 %3, 1048576
-  %bf.cast195.not = icmp eq i32 %58, 0
-  %.lobit = lshr exact i32 %58, 20
-  %frombool = trunc i32 %.lobit to i8
-  store i8 %frombool, ptr %pointy, align 1
-  br i1 %bf.cast195.not, label %60, label %59
-
-59:                                               ; preds = %lor.end.thread, %lor.end
   br label %60
 
-60:                                               ; preds = %lor.end, %59
-  %61 = phi i32 [ 2, %59 ], [ 1, %lor.end ]
-  %add200 = add i32 %61, %spec.store.select37
+lor.end:                                          ; preds = %if.end176
+  %59 = and i32 %3, 1048576
+  %bf.cast195.not = icmp eq i32 %59, 0
+  %.lobit = lshr exact i32 %59, 20
+  %frombool = trunc i32 %.lobit to i8
+  store i8 %frombool, ptr %pointy, align 1
+  br i1 %bf.cast195.not, label %61, label %60
+
+60:                                               ; preds = %lor.end.thread, %lor.end
+  br label %61
+
+61:                                               ; preds = %lor.end, %60
+  %62 = phi i32 [ 2, %60 ], [ 1, %lor.end ]
+  %add200 = add i32 %62, %spec.store.select37
   %conv201 = zext i32 %add200 to i64
   %add202 = add nuw nsw i64 %conv201, %conv
   store ptr %sign, ptr %ref.tmp204, align 8
-  %62 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 1
-  store ptr %zero, ptr %62, align 8
-  %63 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 2
-  store ptr %pointy, ptr %63, align 8
-  %64 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 3
-  store ptr %decimal_point, ptr %64, align 8
-  %65 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 4
-  store ptr %num_zeros177, ptr %65, align 8
-  %66 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 5
-  store ptr %significand, ptr %66, align 8
-  %67 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 6
-  store ptr %significand_size, ptr %67, align 8
+  %63 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 1
+  store ptr %zero, ptr %63, align 8
+  %64 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 2
+  store ptr %pointy, ptr %64, align 8
+  %65 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 3
+  store ptr %decimal_point, ptr %65, align 8
+  %66 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 4
+  store ptr %num_zeros177, ptr %66, align 8
+  %67 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 5
+  store ptr %significand, ptr %67, align 8
+  %68 = getelementptr inbounds %class.anon.89, ptr %ref.tmp204, i64 0, i32 6
+  store ptr %significand_size, ptr %68, align 8
   %call.i70 = call ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add202, i64 noundef %add202, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp204)
   br label %return
 
-return:                                           ; preds = %cond.true52, %cond.false59, %60, %invoke.cont171, %invoke.cont125
-  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true52 ], [ %call66, %cond.false59 ], [ %call.i3940, %invoke.cont125 ], [ %call.i6869, %invoke.cont171 ], [ %call.i70, %60 ]
+return:                                           ; preds = %cond.true52, %cond.false59, %61, %invoke.cont171, %invoke.cont125
+  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true52 ], [ %call66, %cond.false59 ], [ %call.i3940, %invoke.cont125 ], [ %call.i6869, %invoke.cont171 ], [ %call.i70, %61 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -37558,7 +37555,7 @@ lpad2.i.i.i.i:                                    ; preds = %invoke.cont3.i.i.i.
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad68, %lpad2.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %18, %lpad2.i.i.i.i ], [ %71, %lpad68 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %lpad2.i.i.i.i ], [ %72, %lpad68 ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad2.i.i.i.i
@@ -37707,19 +37704,18 @@ _ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit: 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i119, i64 %sub.ptr.div.i.i)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i119
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i119
-  %cmp9.i = icmp ugt i64 %add.i, 57646075230342348
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 57646075230342348, i64 %add.i
+  %37 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 57646075230342348)
+  %cond.i = select i1 %cmp7.i, i64 57646075230342348, i64 %37
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_09ImageSpecEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_09ImageSpecEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 160
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   br label %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_09ImageSpecEEE8allocateERS2_m.exit.i
-  %cond.i120 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_09ImageSpecEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i120 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit ]
   %cmp.i.i.not7.i.i.i.i.i121 = icmp eq ptr %36, %__position.coerce
   br i1 %cmp.i.i.not7.i.i.i.i.i121, label %invoke.cont, label %for.body.i.i.i.i.i122
 
@@ -37729,63 +37725,63 @@ for.body.i.i.i.i.i122:                            ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__cur.09.i.i.i.i.i123, ptr noundef nonnull align 8 dereferenceable(64) %__first.sroa.0.08.i.i.i.i.i124, i64 64, i1 false)
   %format.i.i.i.i.i.i.i125 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 16
   %format3.i.i.i.i.i.i.i126 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 16
-  %37 = load i8, ptr %format3.i.i.i.i.i.i.i126, align 4
-  store i8 %37, ptr %format.i.i.i.i.i.i.i125, align 4
+  %38 = load i8, ptr %format3.i.i.i.i.i.i.i126, align 4
+  store i8 %38, ptr %format.i.i.i.i.i.i.i125, align 4
   %aggregate.i.i.i.i.i.i.i.i127 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 16, i32 1
   %aggregate3.i.i.i.i.i.i.i.i128 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 16, i32 1
-  %38 = load i8, ptr %aggregate3.i.i.i.i.i.i.i.i128, align 1
-  store i8 %38, ptr %aggregate.i.i.i.i.i.i.i.i127, align 1
+  %39 = load i8, ptr %aggregate3.i.i.i.i.i.i.i.i128, align 1
+  store i8 %39, ptr %aggregate.i.i.i.i.i.i.i.i127, align 1
   %vecsemantics.i.i.i.i.i.i.i.i129 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 16, i32 2
   %vecsemantics4.i.i.i.i.i.i.i.i130 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 16, i32 2
-  %39 = load i8, ptr %vecsemantics4.i.i.i.i.i.i.i.i130, align 2
-  store i8 %39, ptr %vecsemantics.i.i.i.i.i.i.i.i129, align 2
+  %40 = load i8, ptr %vecsemantics4.i.i.i.i.i.i.i.i130, align 2
+  store i8 %40, ptr %vecsemantics.i.i.i.i.i.i.i.i129, align 2
   %reserved.i.i.i.i.i.i.i.i131 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 16, i32 3
   store i8 0, ptr %reserved.i.i.i.i.i.i.i.i131, align 1
   %arraylen.i.i.i.i.i.i.i.i132 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 16, i32 4
   %arraylen5.i.i.i.i.i.i.i.i133 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 16, i32 4
-  %40 = load i32, ptr %arraylen5.i.i.i.i.i.i.i.i133, align 4
-  store i32 %40, ptr %arraylen.i.i.i.i.i.i.i.i132, align 4
+  %41 = load i32, ptr %arraylen5.i.i.i.i.i.i.i.i133, align 4
+  store i32 %41, ptr %arraylen.i.i.i.i.i.i.i.i132, align 4
   %channelformats.i.i.i.i.i.i.i134 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 17
   %channelformats4.i.i.i.i.i.i.i135 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 17
-  %41 = load ptr, ptr %channelformats4.i.i.i.i.i.i.i135, align 8
-  store ptr %41, ptr %channelformats.i.i.i.i.i.i.i134, align 8
+  %42 = load ptr, ptr %channelformats4.i.i.i.i.i.i.i135, align 8
+  store ptr %42, ptr %channelformats.i.i.i.i.i.i.i134, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i136 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 17, i32 0, i32 0, i32 0, i32 1
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i137 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 17, i32 0, i32 0, i32 0, i32 1
-  %42 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i137, align 8
-  store ptr %42, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i136, align 8
+  %43 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i137, align 8
+  store ptr %43, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i136, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i138 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 17, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i139 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 17, i32 0, i32 0, i32 0, i32 2
-  %43 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i139, align 8
-  store ptr %43, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i138, align 8
+  %44 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i139, align 8
+  store ptr %44, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i138, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelformats4.i.i.i.i.i.i.i135, i8 0, i64 24, i1 false)
   %channelnames.i.i.i.i.i.i.i140 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 18
   %channelnames5.i.i.i.i.i.i.i141 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 18
-  %44 = load ptr, ptr %channelnames5.i.i.i.i.i.i.i141, align 8
-  store ptr %44, ptr %channelnames.i.i.i.i.i.i.i140, align 8
+  %45 = load ptr, ptr %channelnames5.i.i.i.i.i.i.i141, align 8
+  store ptr %45, ptr %channelnames.i.i.i.i.i.i.i140, align 8
   %_M_finish.i.i.i.i6.i.i.i.i.i.i.i142 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 18, i32 0, i32 0, i32 0, i32 1
   %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i143 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 18, i32 0, i32 0, i32 0, i32 1
-  %45 = load ptr, ptr %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i143, align 8
-  store ptr %45, ptr %_M_finish.i.i.i.i6.i.i.i.i.i.i.i142, align 8
+  %46 = load ptr, ptr %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i143, align 8
+  store ptr %46, ptr %_M_finish.i.i.i.i6.i.i.i.i.i.i.i142, align 8
   %_M_end_of_storage.i.i.i.i8.i.i.i.i.i.i.i144 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 18, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i.i.i145 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 18, i32 0, i32 0, i32 0, i32 2
-  %46 = load ptr, ptr %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i.i.i145, align 8
-  store ptr %46, ptr %_M_end_of_storage.i.i.i.i8.i.i.i.i.i.i.i144, align 8
+  %47 = load ptr, ptr %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i.i.i145, align 8
+  store ptr %47, ptr %_M_end_of_storage.i.i.i.i8.i.i.i.i.i.i.i144, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelnames5.i.i.i.i.i.i.i141, i8 0, i64 24, i1 false)
   %alpha_channel.i.i.i.i.i.i.i146 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 19
   %alpha_channel6.i.i.i.i.i.i.i147 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %alpha_channel.i.i.i.i.i.i.i146, ptr noundef nonnull align 8 dereferenceable(9) %alpha_channel6.i.i.i.i.i.i.i147, i64 9, i1 false)
   %extra_attribs.i.i.i.i.i.i.i148 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 22
   %extra_attribs7.i.i.i.i.i.i.i149 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 22
-  %47 = load ptr, ptr %extra_attribs7.i.i.i.i.i.i.i149, align 8
-  store ptr %47, ptr %extra_attribs.i.i.i.i.i.i.i148, align 8
+  %48 = load ptr, ptr %extra_attribs7.i.i.i.i.i.i.i149, align 8
+  store ptr %48, ptr %extra_attribs.i.i.i.i.i.i.i148, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i150 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 1
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i151 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 1
-  %48 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i151, align 8
-  store ptr %48, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i150, align 8
+  %49 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i151, align 8
+  store ptr %49, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i150, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i152 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i153 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 2
-  %49 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i153, align 8
-  store ptr %49, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i152, align 8
+  %50 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i153, align 8
+  store ptr %50, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i152, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extra_attribs7.i.i.i.i.i.i.i149, i8 0, i64 24, i1 false)
   %incdec.ptr.i.i.i.i.i.i154 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i124, i64 1
   %incdec.ptr.i.i.i.i.i155 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i123, i64 1
@@ -37809,10 +37805,10 @@ for.inc.i.i.i.i168:                               ; preds = %for.body.i.i.i.i159
   br i1 %cmp.not.i.i.i.i171, label %invoke.cont61, label %for.body.i.i.i.i159, !llvm.loop !294
 
 lpad.i.i.i.i162:                                  ; preds = %for.body.i.i.i.i159
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  %52 = tail call ptr @__cxa_begin_catch(ptr %51) #21
+  %52 = extractvalue { ptr, i32 } %51, 0
+  %53 = tail call ptr @__cxa_begin_catch(ptr %52) #21
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN18OpenImageIO_v2_6_09ImageSpecEEEvT_S5_(ptr noundef %__cur.0.lcssa.i.i.i.i.i157, ptr noundef %__cur.010.i.i.i.i160)
           to label %invoke.cont3.i.i.i.i166 unwind label %lpad2.i.i.i.i163
 
@@ -37821,16 +37817,16 @@ invoke.cont3.i.i.i.i166:                          ; preds = %lpad.i.i.i.i162
           to label %unreachable.i.i.i.i167 unwind label %lpad2.i.i.i.i163
 
 lpad2.i.i.i.i163:                                 ; preds = %invoke.cont3.i.i.i.i166, %lpad.i.i.i.i162
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i164
 
 terminate.lpad.i.i.i.i164:                        ; preds = %lpad2.i.i.i.i163
-  %54 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #23
+  %56 = extractvalue { ptr, i32 } %55, 0
+  tail call void @__clang_call_terminate(ptr %56) #23
   unreachable
 
 unreachable.i.i.i.i167:                           ; preds = %invoke.cont3.i.i.i.i166
@@ -37846,63 +37842,63 @@ for.body.i.i.i.i.i175:                            ; preds = %invoke.cont61, %for
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__cur.09.i.i.i.i.i176, ptr noundef nonnull align 8 dereferenceable(64) %__first.sroa.0.08.i.i.i.i.i177, i64 64, i1 false)
   %format.i.i.i.i.i.i.i178 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 16
   %format3.i.i.i.i.i.i.i179 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 16
-  %56 = load i8, ptr %format3.i.i.i.i.i.i.i179, align 4
-  store i8 %56, ptr %format.i.i.i.i.i.i.i178, align 4
+  %57 = load i8, ptr %format3.i.i.i.i.i.i.i179, align 4
+  store i8 %57, ptr %format.i.i.i.i.i.i.i178, align 4
   %aggregate.i.i.i.i.i.i.i.i180 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 16, i32 1
   %aggregate3.i.i.i.i.i.i.i.i181 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 16, i32 1
-  %57 = load i8, ptr %aggregate3.i.i.i.i.i.i.i.i181, align 1
-  store i8 %57, ptr %aggregate.i.i.i.i.i.i.i.i180, align 1
+  %58 = load i8, ptr %aggregate3.i.i.i.i.i.i.i.i181, align 1
+  store i8 %58, ptr %aggregate.i.i.i.i.i.i.i.i180, align 1
   %vecsemantics.i.i.i.i.i.i.i.i182 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 16, i32 2
   %vecsemantics4.i.i.i.i.i.i.i.i183 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 16, i32 2
-  %58 = load i8, ptr %vecsemantics4.i.i.i.i.i.i.i.i183, align 2
-  store i8 %58, ptr %vecsemantics.i.i.i.i.i.i.i.i182, align 2
+  %59 = load i8, ptr %vecsemantics4.i.i.i.i.i.i.i.i183, align 2
+  store i8 %59, ptr %vecsemantics.i.i.i.i.i.i.i.i182, align 2
   %reserved.i.i.i.i.i.i.i.i184 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 16, i32 3
   store i8 0, ptr %reserved.i.i.i.i.i.i.i.i184, align 1
   %arraylen.i.i.i.i.i.i.i.i185 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 16, i32 4
   %arraylen5.i.i.i.i.i.i.i.i186 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 16, i32 4
-  %59 = load i32, ptr %arraylen5.i.i.i.i.i.i.i.i186, align 4
-  store i32 %59, ptr %arraylen.i.i.i.i.i.i.i.i185, align 4
+  %60 = load i32, ptr %arraylen5.i.i.i.i.i.i.i.i186, align 4
+  store i32 %60, ptr %arraylen.i.i.i.i.i.i.i.i185, align 4
   %channelformats.i.i.i.i.i.i.i187 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 17
   %channelformats4.i.i.i.i.i.i.i188 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 17
-  %60 = load ptr, ptr %channelformats4.i.i.i.i.i.i.i188, align 8
-  store ptr %60, ptr %channelformats.i.i.i.i.i.i.i187, align 8
+  %61 = load ptr, ptr %channelformats4.i.i.i.i.i.i.i188, align 8
+  store ptr %61, ptr %channelformats.i.i.i.i.i.i.i187, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i189 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 17, i32 0, i32 0, i32 0, i32 1
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i190 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 17, i32 0, i32 0, i32 0, i32 1
-  %61 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i190, align 8
-  store ptr %61, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i189, align 8
+  %62 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i190, align 8
+  store ptr %62, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i189, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i191 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 17, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i192 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 17, i32 0, i32 0, i32 0, i32 2
-  %62 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i192, align 8
-  store ptr %62, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i191, align 8
+  %63 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i192, align 8
+  store ptr %63, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i191, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelformats4.i.i.i.i.i.i.i188, i8 0, i64 24, i1 false)
   %channelnames.i.i.i.i.i.i.i193 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 18
   %channelnames5.i.i.i.i.i.i.i194 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 18
-  %63 = load ptr, ptr %channelnames5.i.i.i.i.i.i.i194, align 8
-  store ptr %63, ptr %channelnames.i.i.i.i.i.i.i193, align 8
+  %64 = load ptr, ptr %channelnames5.i.i.i.i.i.i.i194, align 8
+  store ptr %64, ptr %channelnames.i.i.i.i.i.i.i193, align 8
   %_M_finish.i.i.i.i6.i.i.i.i.i.i.i195 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 18, i32 0, i32 0, i32 0, i32 1
   %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i196 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 18, i32 0, i32 0, i32 0, i32 1
-  %64 = load ptr, ptr %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i196, align 8
-  store ptr %64, ptr %_M_finish.i.i.i.i6.i.i.i.i.i.i.i195, align 8
+  %65 = load ptr, ptr %_M_finish3.i.i.i.i7.i.i.i.i.i.i.i196, align 8
+  store ptr %65, ptr %_M_finish.i.i.i.i6.i.i.i.i.i.i.i195, align 8
   %_M_end_of_storage.i.i.i.i8.i.i.i.i.i.i.i197 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 18, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i.i.i198 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 18, i32 0, i32 0, i32 0, i32 2
-  %65 = load ptr, ptr %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i.i.i198, align 8
-  store ptr %65, ptr %_M_end_of_storage.i.i.i.i8.i.i.i.i.i.i.i197, align 8
+  %66 = load ptr, ptr %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i.i.i198, align 8
+  store ptr %66, ptr %_M_end_of_storage.i.i.i.i8.i.i.i.i.i.i.i197, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelnames5.i.i.i.i.i.i.i194, i8 0, i64 24, i1 false)
   %alpha_channel.i.i.i.i.i.i.i199 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 19
   %alpha_channel6.i.i.i.i.i.i.i200 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %alpha_channel.i.i.i.i.i.i.i199, ptr noundef nonnull align 8 dereferenceable(9) %alpha_channel6.i.i.i.i.i.i.i200, i64 9, i1 false)
   %extra_attribs.i.i.i.i.i.i.i201 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 22
   %extra_attribs7.i.i.i.i.i.i.i202 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 22
-  %66 = load ptr, ptr %extra_attribs7.i.i.i.i.i.i.i202, align 8
-  store ptr %66, ptr %extra_attribs.i.i.i.i.i.i.i201, align 8
+  %67 = load ptr, ptr %extra_attribs7.i.i.i.i.i.i.i202, align 8
+  store ptr %67, ptr %extra_attribs.i.i.i.i.i.i.i201, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i203 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 1
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i204 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 1
-  %67 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i204, align 8
-  store ptr %67, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i203, align 8
+  %68 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i204, align 8
+  store ptr %68, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i203, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i205 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i206 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 2
-  %68 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i206, align 8
-  store ptr %68, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i205, align 8
+  %69 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i206, align 8
+  store ptr %69, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i205, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extra_attribs7.i.i.i.i.i.i.i202, i8 0, i64 24, i1 false)
   %incdec.ptr.i.i.i.i.i.i207 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.sroa.0.08.i.i.i.i.i177, i64 1
   %incdec.ptr.i.i.i.i.i208 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.09.i.i.i.i.i176, i64 1
@@ -37927,8 +37923,8 @@ _ZNSt12_Vector_baseIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE13_M_deallocateEPS1_
   br label %if.end87
 
 lpad.body:                                        ; preds = %lpad2.i.i.i.i163
-  %69 = extractvalue { ptr, i32 } %53, 0
-  %70 = tail call ptr @__cxa_begin_catch(ptr %69) #21
+  %70 = extractvalue { ptr, i32 } %54, 0
+  %71 = tail call ptr @__cxa_begin_catch(ptr %70) #21
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN18OpenImageIO_v2_6_09ImageSpecEEEvT_S5_(ptr noundef %cond.i120, ptr noundef %__cur.0.lcssa.i.i.i.i.i157)
           to label %invoke.cont69 unwind label %lpad68
 
@@ -37945,7 +37941,7 @@ invoke.cont70:                                    ; preds = %if.then.i214, %invo
           to label %unreachable unwind label %lpad68
 
 lpad68:                                           ; preds = %lpad.body, %invoke.cont70
-  %71 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
@@ -37954,10 +37950,10 @@ if.end87:                                         ; preds = %for.body.i.i.i.i.i9
   ret void
 
 terminate.lpad:                                   ; preds = %lpad68
-  %72 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  tail call void @__clang_call_terminate(ptr %73) #23
+  %74 = extractvalue { ptr, i32 } %73, 0
+  tail call void @__clang_call_terminate(ptr %74) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont70
@@ -38468,19 +38464,18 @@ _ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit: 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 57646075230342348
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 57646075230342348, i64 %add.i
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 57646075230342348)
+  %cond.i = select i1 %cmp7.i, i64 57646075230342348, i64 %3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %for.body.lr.ph.i.i.i22, label %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_09ImageSpecEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %for.body.lr.ph.i.i.i22, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_09ImageSpecEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 160
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   br label %for.body.lr.ph.i.i.i22
 
-for.body.lr.ph.i.i.i22:                           ; preds = %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_09ImageSpecEEE8allocateERS2_m.exit.i, %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_09ImageSpecEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit ]
+for.body.lr.ph.i.i.i22:                           ; preds = %cond.true.i, %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN18OpenImageIO_v2_6_09ImageSpecESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %cond.i19, i64 %sub.ptr.div.i
   %arraylen4.i.i.i.i.i26 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %agg.tmp.i.i.i.i20, i64 0, i32 4
   br label %for.body.i.i.i27
@@ -38510,51 +38505,51 @@ for.body.i.i.i36:                                 ; preds = %try.cont, %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i, i64 64, i1 false), !alias.scope !304
   %format.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 16
   %format3.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 16
-  %3 = load i8, ptr %format3.i.i.i.i.i.i.i, align 4, !alias.scope !302, !noalias !299
-  store i8 %3, ptr %format.i.i.i.i.i.i.i, align 4, !alias.scope !299, !noalias !302
+  %4 = load i8, ptr %format3.i.i.i.i.i.i.i, align 4, !alias.scope !302, !noalias !299
+  store i8 %4, ptr %format.i.i.i.i.i.i.i, align 4, !alias.scope !299, !noalias !302
   %aggregate.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 16, i32 1
   %aggregate3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 16, i32 1
-  %4 = load i8, ptr %aggregate3.i.i.i.i.i.i.i.i, align 1, !alias.scope !302, !noalias !299
-  store i8 %4, ptr %aggregate.i.i.i.i.i.i.i.i, align 1, !alias.scope !299, !noalias !302
+  %5 = load i8, ptr %aggregate3.i.i.i.i.i.i.i.i, align 1, !alias.scope !302, !noalias !299
+  store i8 %5, ptr %aggregate.i.i.i.i.i.i.i.i, align 1, !alias.scope !299, !noalias !302
   %vecsemantics.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 16, i32 2
   %vecsemantics4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 16, i32 2
-  %5 = load i8, ptr %vecsemantics4.i.i.i.i.i.i.i.i, align 2, !alias.scope !302, !noalias !299
-  store i8 %5, ptr %vecsemantics.i.i.i.i.i.i.i.i, align 2, !alias.scope !299, !noalias !302
+  %6 = load i8, ptr %vecsemantics4.i.i.i.i.i.i.i.i, align 2, !alias.scope !302, !noalias !299
+  store i8 %6, ptr %vecsemantics.i.i.i.i.i.i.i.i, align 2, !alias.scope !299, !noalias !302
   %reserved.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 16, i32 3
   store i8 0, ptr %reserved.i.i.i.i.i.i.i.i, align 1, !alias.scope !299, !noalias !302
   %arraylen.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 16, i32 4
   %arraylen5.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 16, i32 4
-  %6 = load i32, ptr %arraylen5.i.i.i.i.i.i.i.i, align 4, !alias.scope !302, !noalias !299
-  store i32 %6, ptr %arraylen.i.i.i.i.i.i.i.i, align 4, !alias.scope !299, !noalias !302
+  %7 = load i32, ptr %arraylen5.i.i.i.i.i.i.i.i, align 4, !alias.scope !302, !noalias !299
+  store i32 %7, ptr %arraylen.i.i.i.i.i.i.i.i, align 4, !alias.scope !299, !noalias !302
   %channelformats.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 17
   %channelformats4.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 17
-  %7 = load <2 x ptr>, ptr %channelformats4.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
-  store <2 x ptr> %7, ptr %channelformats.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
+  %8 = load <2 x ptr>, ptr %channelformats4.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
+  store <2 x ptr> %8, ptr %channelformats.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 17, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 17, i32 0, i32 0, i32 0, i32 2
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
+  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelformats4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !302, !noalias !299
   %channelnames.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 18
   %channelnames5.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 18
-  %9 = load <2 x ptr>, ptr %channelnames5.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
-  store <2 x ptr> %9, ptr %channelnames.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
+  %10 = load <2 x ptr>, ptr %channelnames5.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
+  store <2 x ptr> %10, ptr %channelnames.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
   %_M_end_of_storage.i.i.i.i8.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 18, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 18, i32 0, i32 0, i32 0, i32 2
-  %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
-  store ptr %10, ptr %_M_end_of_storage.i.i.i.i8.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
+  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i9.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i8.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channelnames5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !302, !noalias !299
   %alpha_channel.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 19
   %alpha_channel6.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %alpha_channel.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %alpha_channel6.i.i.i.i.i.i.i, i64 9, i1 false), !alias.scope !304
   %extra_attribs.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 22
   %extra_attribs7.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 22
-  %11 = load <2 x ptr>, ptr %extra_attribs7.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
-  store <2 x ptr> %11, ptr %extra_attribs.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
+  %12 = load <2 x ptr>, ptr %extra_attribs7.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
+  store <2 x ptr> %12, ptr %extra_attribs.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 2
-  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
+  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !302, !noalias !299
+  store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !299, !noalias !302
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extra_attribs7.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !302, !noalias !299
   %incdec.ptr.i.i.i37 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %__cur.07.i.i.i, i64 1
@@ -41704,18 +41699,17 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 %__n)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.sub.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.sub.i
-  %cmp9.i = icmp slt i64 %add.i, 0
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775807)
+  %cond.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i21, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i
+  br i1 %cmp.not.i, label %if.then.i.i.i21, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i) #25
   br label %if.then.i.i.i21
 
-if.then.i.i.i21:                                  ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
+if.then.i.i.i21:                                  ; preds = %cond.true.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds i8, ptr %cond.i19, i64 %sub.ptr.sub.i
   store i8 0, ptr %add.ptr, align 1
   %sub.i.i.i23 = add i64 %__n, -1
@@ -41728,22 +41722,22 @@ if.then.i.i.i.i.i.i.i25:                          ; preds = %if.then.i.i.i21
   br label %try.cont
 
 try.cont:                                         ; preds = %if.then.i.i.i.i.i.i.i25, %if.then.i.i.i21
-  %cmp.i.i.i30.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i30.not, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, label %if.then.i.i.i31
+  %cmp.i.i.i.not = icmp eq ptr %0, %1
+  br i1 %cmp.i.i.i.not, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, label %if.then.i.i.i30
 
-if.then.i.i.i31:                                  ; preds = %try.cont
+if.then.i.i.i30:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %cond.i19, ptr align 1 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit
 
-_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i31
-  %tobool.not.i32 = icmp eq ptr %1, null
-  br i1 %tobool.not.i32, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34, label %if.then.i33
+_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i30
+  %tobool.not.i31 = icmp eq ptr %1, null
+  br i1 %tobool.not.i31, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33, label %if.then.i32
 
-if.then.i33:                                      ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit
+if.then.i32:                                      ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #22
-  br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34
+  br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33
 
-_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34: ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, %if.then.i33
+_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33: ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit, %if.then.i32
   store ptr %cond.i19, ptr %this, align 8
   %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8
@@ -41751,7 +41745,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34: ; preds = %_ZNSt6vectorIh
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34, %entry
+if.end43:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33, %entry
   ret void
 }
 

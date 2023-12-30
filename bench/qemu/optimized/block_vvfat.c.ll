@@ -2602,7 +2602,7 @@ declare ptr @bdrv_get_device_or_node_name(ptr noundef) local_unnamed_addr #1
 
 declare i32 @migrate_add_blocker_normal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @init_mbr(ptr nocapture noundef %s, i32 noundef %cyls, i32 noundef %heads, i32 noundef %secs) unnamed_addr #8 {
 entry:
   %first_sectors = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 2
@@ -4300,8 +4300,8 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool2.not.i, label %vvfat_close_current_file.exit.thread, label %vvfat_close_current_file.exit
 
 vvfat_close_current_file.exit.thread:             ; preds = %if.end, %if.then.i
-  %current_cluster.i121 = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 23
-  store i32 -1, ptr %current_cluster.i121, align 8
+  %current_cluster.i120 = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 23
+  store i32 -1, ptr %current_cluster.i120, align 8
   br label %for.body.lr.ph.lr.ph.i
 
 vvfat_close_current_file.exit:                    ; preds = %if.then.i
@@ -4315,7 +4315,7 @@ vvfat_close_current_file.exit:                    ; preds = %if.then.i
 
 for.body.lr.ph.lr.ph.i:                           ; preds = %vvfat_close_current_file.exit.thread, %vvfat_close_current_file.exit
   %3 = phi i32 [ %0, %vvfat_close_current_file.exit.thread ], [ %.pre, %vvfat_close_current_file.exit ]
-  %commits.i124 = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 28
+  %commits.i123 = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 28
   %item_size.i.i = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 28, i32 3
   %next99.i = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 5, i32 2
   %sectors_per_cluster106.i = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 10
@@ -4344,7 +4344,7 @@ if.else.i.i:                                      ; preds = %for.body.i
   unreachable
 
 if.end.i.i:                                       ; preds = %for.body.i
-  %7 = load ptr, ptr %commits.i124, align 8
+  %7 = load ptr, ptr %commits.i123, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
@@ -4585,7 +4585,7 @@ if.end53.i:                                       ; preds = %if.end39.i
   %add.ptr64.i = getelementptr i8, ptr %41, i64 %conv48.i
   tail call void @pstrcpy(ptr noundef %add.ptr58.i, i32 noundef %sub61.i, ptr noundef %add.ptr64.i) #18
   %42 = load i32, ptr %add.ptr.i.i122.i, align 8
-  %call.i130.i = tail call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i124)
+  %call.i130.i = tail call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i123)
   store ptr %call45.i, ptr %call.i130.i, align 8
   %param.i.i = getelementptr inbounds %struct.commit_t, ptr %call.i130.i, i64 0, i32 1
   store i32 %42, ptr %param.i.i, align 8
@@ -4627,7 +4627,7 @@ if.else7.i.i.i:                                   ; preds = %if.end.i.i132.i
 
 for.cond.backedge.i:                              ; preds = %if.end.i.i154.i, %if.end.i.i132.i
   %.sink242.i = phi i32 [ %62, %if.end.i.i154.i ], [ %44, %if.end.i.i132.i ]
-  %45 = load ptr, ptr %commits.i124, align 8
+  %45 = load ptr, ptr %commits.i123, align 8
   %46 = load i32, ptr %item_size.i.i, align 8
   %mul.i.i134.i = mul i32 %46, %i.0.ph205.i
   %idx.ext.i.i135.i = zext i32 %mul.i.i134.i to i64
@@ -4823,12 +4823,12 @@ while.cond.loopexit.i:                            ; preds = %for.inc58.i
   br i1 %71, label %for.cond.preheader.i, label %if.end18, !llvm.loop !32
 
 for.cond.preheader.i:                             ; preds = %if.end13, %while.cond.loopexit.i
-  %72 = phi i32 [ %90, %while.cond.loopexit.i ], [ %69, %if.end13 ]
+  %72 = phi i32 [ %91, %while.cond.loopexit.i ], [ %69, %if.end13 ]
   %cmp70.i = icmp ugt i32 %72, 1
   br i1 %cmp70.i, label %for.body.i26, label %if.end18
 
 for.body.i26:                                     ; preds = %for.cond.preheader.i, %for.inc58.i
-  %73 = phi i32 [ %90, %for.inc58.i ], [ %72, %for.cond.preheader.i ]
+  %73 = phi i32 [ %91, %for.inc58.i ], [ %72, %for.cond.preheader.i ]
   %i.073.i = phi i32 [ %inc59.i, %for.inc58.i ], [ 1, %for.cond.preheader.i ]
   %deferred.172.i = phi i32 [ %deferred.2.i, %for.inc58.i ], [ 0, %for.cond.preheader.i ]
   %deleted.171.i = phi i32 [ %deleted.3.i, %for.inc58.i ], [ 0, %for.cond.preheader.i ]
@@ -4842,9 +4842,9 @@ if.else.i.i28:                                    ; preds = %for.body.i26
 if.end.i.i29:                                     ; preds = %for.body.i26
   %74 = load ptr, ptr %mapping.i, align 8
   %tobool.not.i.i30 = icmp eq ptr %74, null
-  br i1 %tobool.not.i.i30, label %if.else2.i.i49, label %array_get.exit.i31
+  br i1 %tobool.not.i.i30, label %if.else2.i.i48, label %array_get.exit.i31
 
-if.else2.i.i49:                                   ; preds = %if.end.i.i29
+if.else2.i.i48:                                   ; preds = %if.end.i.i29
   tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #20
   unreachable
 
@@ -4915,18 +4915,18 @@ for.body27.i.preheader:                           ; preds = %for.cond23.preheade
   br label %if.end.i42.i
 
 if.then19.i:                                      ; preds = %if.then13.i
-  %call20.i46 = tail call ptr @__errno_location() #21
-  %85 = load i32, ptr %call20.i46, align 4
+  %call20.i45 = tail call ptr @__errno_location() #21
+  %85 = load i32, ptr %call20.i45, align 4
   %cmp21.i = icmp eq i32 %85, 39
   br i1 %cmp21.i, label %if.then22.i, label %if.then16
 
 if.then22.i:                                      ; preds = %if.then19.i
-  %inc.i47 = add i32 %deferred.172.i, 1
+  %inc.i46 = add i32 %deferred.172.i, 1
   br label %for.inc58.i
 
-if.end.i42.i:                                     ; preds = %for.inc.i45, %for.body27.i.preheader
-  %next_dir_index.069.i = phi i32 [ %next_dir_index.1.i, %for.inc.i45 ], [ %78, %for.body27.i.preheader ]
-  %j.068.i = phi i32 [ %inc44.i, %for.inc.i45 ], [ 1, %for.body27.i.preheader ]
+if.end.i42.i:                                     ; preds = %for.inc.i44, %for.body27.i.preheader
+  %next_dir_index.069.i = phi i32 [ %next_dir_index.1.i, %for.inc.i44 ], [ %78, %for.body27.i.preheader ]
+  %j.068.i = phi i32 [ %inc44.i, %for.inc.i44 ], [ 1, %for.body27.i.preheader ]
   br i1 %tobool.not.i43.i, label %if.else2.i48.i, label %array_get.exit49.i
 
 if.else2.i48.i:                                   ; preds = %if.end.i42.i
@@ -4942,25 +4942,24 @@ array_get.exit49.i:                               ; preds = %if.end.i42.i
   %87 = load i32, ptr %mode30.i, align 8
   %and31.i = and i32 %87, 4
   %tobool32.not.i = icmp eq i32 %and31.i, 0
-  br i1 %tobool32.not.i, label %for.inc.i45, label %land.lhs.true.i43
+  br i1 %tobool32.not.i, label %for.inc.i44, label %land.lhs.true.i43
 
 land.lhs.true.i43:                                ; preds = %array_get.exit49.i
   %first_dir_index34.i = getelementptr inbounds %struct.mapping_t, ptr %add.ptr.i47.i, i64 0, i32 4, i32 0, i32 1
   %88 = load i32, ptr %first_dir_index34.i, align 4
   %cmp35.i = icmp sgt i32 %88, %81
-  %cmp39.i = icmp slt i32 %88, %next_dir_index.069.i
-  %or.cond.i44 = select i1 %cmp35.i, i1 %cmp39.i, i1 false
-  %spec.select.i = select i1 %or.cond.i44, i32 %88, i32 %next_dir_index.069.i
-  br label %for.inc.i45
+  %89 = tail call i32 @llvm.smin.i32(i32 %88, i32 %next_dir_index.069.i)
+  %spec.select.i = select i1 %cmp35.i, i32 %89, i32 %next_dir_index.069.i
+  br label %for.inc.i44
 
-for.inc.i45:                                      ; preds = %land.lhs.true.i43, %array_get.exit49.i
+for.inc.i44:                                      ; preds = %land.lhs.true.i43, %array_get.exit49.i
   %next_dir_index.1.i = phi i32 [ %next_dir_index.069.i, %array_get.exit49.i ], [ %spec.select.i, %land.lhs.true.i43 ]
   %inc44.i = add nuw i32 %j.068.i, 1
   %exitcond77.not.i = icmp eq i32 %inc44.i, %83
   br i1 %exitcond77.not.i, label %for.end.i, label %if.end.i42.i, !llvm.loop !34
 
-for.end.i:                                        ; preds = %for.inc.i45, %for.cond23.preheader.i
-  %next_dir_index.0.lcssa.i = phi i32 [ %78, %for.cond23.preheader.i ], [ %next_dir_index.1.i, %for.inc.i45 ]
+for.end.i:                                        ; preds = %for.inc.i44, %for.cond23.preheader.i
+  %next_dir_index.0.lcssa.i = phi i32 [ %78, %for.cond23.preheader.i ], [ %next_dir_index.1.i, %for.inc.i44 ]
   %sub.i39 = sub i32 %next_dir_index.0.lcssa.i, %81
   tail call fastcc void @remove_direntries(ptr noundef nonnull %s, i32 noundef %81, i32 noundef %sub.i39)
   %inc46.i = add i32 %deleted.171.i, 1
@@ -4968,54 +4967,54 @@ for.end.i:                                        ; preds = %for.inc.i45, %for.c
 
 if.else48.i:                                      ; preds = %array_get.exit37.i
   %path49.i = getelementptr inbounds %struct.mapping_t, ptr %add.ptr.i.i34, i64 0, i32 5
-  %89 = load ptr, ptr %path49.i, align 8
-  %call50.i = tail call i32 @unlink(ptr noundef %89) #18
+  %90 = load ptr, ptr %path49.i, align 8
+  %call50.i = tail call i32 @unlink(ptr noundef %90) #18
   %tobool51.not.i = icmp eq i32 %call50.i, 0
-  br i1 %tobool51.not.i, label %if.end53.i48, label %if.then16
+  br i1 %tobool51.not.i, label %if.end53.i47, label %if.then16
 
-if.end53.i48:                                     ; preds = %if.else48.i
+if.end53.i47:                                     ; preds = %if.else48.i
   %inc54.i = add i32 %deleted.171.i, 1
   br label %if.end55.i
 
-if.end55.i:                                       ; preds = %if.end53.i48, %for.end.i, %if.then9.i
-  %deleted.2.i = phi i32 [ %inc46.i, %for.end.i ], [ %deleted.171.i, %if.then9.i ], [ %inc54.i, %if.end53.i48 ]
+if.end55.i:                                       ; preds = %if.end53.i47, %for.end.i, %if.then9.i
+  %deleted.2.i = phi i32 [ %inc46.i, %for.end.i ], [ %deleted.171.i, %if.then9.i ], [ %inc54.i, %if.end53.i47 ]
   tail call fastcc void @remove_mapping(ptr noundef nonnull %s, i32 noundef %i.073.i)
   br label %for.inc58.i
 
 for.inc58.i:                                      ; preds = %if.end55.i, %if.then22.i, %array_get.exit.i31
   %deleted.3.i = phi i32 [ %deleted.171.i, %if.then22.i ], [ %deleted.2.i, %if.end55.i ], [ %deleted.171.i, %array_get.exit.i31 ]
-  %deferred.2.i = phi i32 [ %inc.i47, %if.then22.i ], [ %deferred.172.i, %if.end55.i ], [ %deferred.172.i, %array_get.exit.i31 ]
+  %deferred.2.i = phi i32 [ %inc.i46, %if.then22.i ], [ %deferred.172.i, %if.end55.i ], [ %deferred.172.i, %array_get.exit.i31 ]
   %inc59.i = add nuw i32 %i.073.i, 1
-  %90 = load i32, ptr %next.i22, align 4
-  %cmp.i41 = icmp ult i32 %inc59.i, %90
+  %91 = load i32, ptr %next.i22, align 4
+  %cmp.i41 = icmp ult i32 %inc59.i, %91
   br i1 %cmp.i41, label %for.body.i26, label %while.cond.loopexit.i, !llvm.loop !35
 
 if.then16:                                        ; preds = %if.else48.i, %if.then19.i
-  %91 = load ptr, ptr @stderr, align 8
-  %92 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 15, i64 1, ptr %91) #23
+  %92 = load ptr, ptr @stderr, align 8
+  %93 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 15, i64 1, ptr %92) #23
   tail call void @abort() #20
   unreachable
 
 if.end18:                                         ; preds = %for.cond.preheader.i, %while.cond.loopexit.i, %if.end13
   %qcow = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 25
-  %93 = load ptr, ptr %qcow, align 8
-  %call19 = tail call i32 @bdrv_make_empty(ptr noundef %93, ptr noundef null) #18
+  %94 = load ptr, ptr %qcow, align 8
+  %call19 = tail call i32 @bdrv_make_empty(ptr noundef %94, ptr noundef null) #18
   %used_clusters = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 27
-  %94 = load ptr, ptr %used_clusters, align 8
+  %95 = load ptr, ptr %used_clusters, align 8
   %sector_count = getelementptr inbounds %struct.BDRVVVFATState, ptr %s, i64 0, i32 14
-  %95 = load i32, ptr %sector_count, align 4
-  %conv20 = zext i32 %95 to i64
-  %96 = getelementptr i8, ptr %s, i64 32924
-  %s.val = load i32, ptr %96, align 4
-  %97 = getelementptr i8, ptr %s, i64 32956
-  %s.val19 = load i32, ptr %97, align 4
-  %conv.i50 = zext i32 %s.val19 to i64
-  %sub.i51 = sub nsw i64 %conv20, %conv.i50
+  %96 = load i32, ptr %sector_count, align 4
+  %conv20 = zext i32 %96 to i64
+  %97 = getelementptr i8, ptr %s, i64 32924
+  %s.val = load i32, ptr %97, align 4
+  %98 = getelementptr i8, ptr %s, i64 32956
+  %s.val19 = load i32, ptr %98, align 4
+  %conv.i49 = zext i32 %s.val19 to i64
+  %sub.i50 = sub nsw i64 %conv20, %conv.i49
   %conv1.i = zext i32 %s.val to i64
-  %div.i = sdiv i64 %sub.i51, %conv1.i
+  %div.i = sdiv i64 %sub.i50, %conv1.i
   %sext = shl i64 %div.i, 32
   %conv22 = ashr exact i64 %sext, 32
-  tail call void @llvm.memset.p0.i64(ptr align 1 %94, i8 0, i64 %conv22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %95, i8 0, i64 %conv22, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end18
@@ -9034,7 +9033,7 @@ attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

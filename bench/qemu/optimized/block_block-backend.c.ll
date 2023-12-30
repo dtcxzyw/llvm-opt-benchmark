@@ -5566,17 +5566,16 @@ cond.true.i18:                                    ; preds = %blk_bs.exit
   %or.cond = icmp ult i64 %4, -2147483647
   %cond6 = select i1 %or.cond, i64 2147483647, i64 %3
   %conv = zext i32 %2 to i64
-  %cmp16 = icmp ult i64 %cond6, %conv
-  %or.cond16 = select i1 %cmp13, i1 true, i1 %cmp16
-  %cond23 = select i1 %or.cond16, i64 %cond6, i64 %conv
+  %5 = tail call i64 @llvm.umin.i64(i64 %cond6, i64 %conv)
+  %cond23 = select i1 %cmp13, i64 %cond6, i64 %5
   %bl.i = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 17
-  %5 = load i32, ptr %bl.i, align 8
-  %6 = zext i32 %5 to i64
+  %6 = load i32, ptr %bl.i, align 8
+  %7 = zext i32 %6 to i64
   br label %blk_get_request_alignment.exit
 
 blk_get_request_alignment.exit:                   ; preds = %blk_bs.exit, %entry, %cond.true.i18
   %max.024 = phi i64 [ %cond23, %cond.true.i18 ], [ 2147483647, %entry ], [ 2147483647, %blk_bs.exit ]
-  %cond.i19 = phi i64 [ %6, %cond.true.i18 ], [ 512, %entry ], [ 512, %blk_bs.exit ]
+  %cond.i19 = phi i64 [ %7, %cond.true.i18 ], [ 512, %entry ], [ 512, %blk_bs.exit ]
   %sub = sub nsw i64 0, %cond.i19
   %and = and i64 %max.024, %sub
   ret i64 %and
@@ -5624,9 +5623,8 @@ entry:
   %3 = load i32, ptr %max_iov, align 8
   %cmp = icmp eq i32 %2, 0
   %cmp4 = icmp eq i32 %3, 0
-  %cmp5 = icmp sgt i32 %3, %2
-  %or.cond = or i1 %cmp4, %cmp5
-  %spec.select = select i1 %or.cond, i32 %2, i32 %3
+  %4 = tail call i32 @llvm.smin.i32(i32 %3, i32 %2)
+  %spec.select = select i1 %cmp4, i32 %2, i32 %4
   %cond9 = select i1 %cmp, i32 %3, i32 %spec.select
   ret i32 %cond9
 }
@@ -7626,6 +7624,12 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

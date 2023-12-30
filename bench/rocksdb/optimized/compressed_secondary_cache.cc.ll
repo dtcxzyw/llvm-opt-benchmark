@@ -2366,8 +2366,8 @@ entry:
   %.pre = load i8, ptr %enable_custom_split_merge3.phi.trans.insert, align 8
   %0 = and i8 %.pre, 1
   %tobool.not = icmp eq i8 %0, 0
-  %or.cond91 = select i1 %cmp.not, i1 true, i1 %tobool.not
-  br i1 %or.cond91, label %if.end, label %if.then
+  %or.cond92 = select i1 %cmp.not, i1 true, i1 %tobool.not
+  br i1 %or.cond92, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
@@ -2570,7 +2570,7 @@ lpad27.loopexit:                                  ; preds = %if.end.i66
           cleanup
   br label %ehcleanup
 
-lpad27.loopexit.split-lp:                         ; preds = %invoke.cont90, %if.else, %invoke.cont98, %if.end35
+lpad27.loopexit.split-lp:                         ; preds = %invoke.cont90, %if.else, %invoke.cont98, %if.end35, %while.body.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -2811,13 +2811,26 @@ if.then87:                                        ; preds = %if.end83
 
 while.body.lr.ph.i:                               ; preds = %if.then87
   %cmp16.i = icmp eq i8 %65, 0
-  br label %while.body.i
+  br i1 %cmp16.i, label %while.body.us.i, label %while.body.i
 
-while.body.i:                                     ; preds = %call18.i.noexc, %while.body.lr.ph.i
-  %src_ptr.025.i = phi ptr [ %66, %while.body.lr.ph.i ], [ %add.ptr.i, %call18.i.noexc ]
-  %current_chunk.024.i = phi ptr [ %dummy_head.sroa.0.i, %while.body.lr.ph.i ], [ %call18.i68, %call18.i.noexc ]
-  %src_size.023.i = phi i64 [ %67, %while.body.lr.ph.i ], [ %sub22.i, %call18.i.noexc ]
-  %add232022.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add23.i, %call18.i.noexc ]
+while.body.us.i:                                  ; preds = %while.body.lr.ph.i
+  %add.us.i = add i64 %67, 23
+  %call18.us.i68 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add.us.i) #19
+          to label %call18.us.i.noexc unwind label %lpad27.loopexit.split-lp
+
+call18.us.i.noexc:                                ; preds = %while.body.us.i
+  store ptr %call18.us.i68, ptr %dummy_head.sroa.0.i, align 8
+  %data.us.i = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCache::CacheValueChunk", ptr %call18.us.i68, i64 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data.us.i, ptr align 1 %66, i64 %67, i1 false)
+  %size.us.i = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCache::CacheValueChunk", ptr %call18.us.i68, i64 0, i32 1
+  store i64 %67, ptr %size.us.i, align 8
+  br label %invoke.cont90
+
+while.body.i:                                     ; preds = %while.body.lr.ph.i, %call18.i.noexc
+  %src_ptr.025.i = phi ptr [ %add.ptr.i, %call18.i.noexc ], [ %66, %while.body.lr.ph.i ]
+  %current_chunk.024.i = phi ptr [ %call18.i69, %call18.i.noexc ], [ %dummy_head.sroa.0.i, %while.body.lr.ph.i ]
+  %src_size.023.i = phi i64 [ %sub22.i, %call18.i.noexc ], [ %67, %while.body.lr.ph.i ]
+  %add232022.i = phi i64 [ %add23.i, %call18.i.noexc ], [ 0, %while.body.lr.ph.i ]
   %add.i = add i64 %src_size.023.i, 23
   br label %while.body.i.i.i
 
@@ -2848,8 +2861,7 @@ lor.lhs.false10.i:                                ; preds = %_ZSt11upper_boundIP
   %conv.i = zext i16 %70 to i64
   %sub.i = sub i64 %conv.i, %add.i
   %cmp13.i = icmp ult i64 %sub.i, 128
-  %or.cond.i = or i1 %cmp16.i, %cmp13.i
-  br i1 %or.cond.i, label %if.end.i66, label %if.else.i65
+  br i1 %cmp13.i, label %if.end.i66, label %if.else.i65
 
 if.else.i65:                                      ; preds = %lor.lhs.false10.i
   %incdec.ptr.i = getelementptr inbounds i16, ptr %__first.addr.1.i.i.i, i64 -1
@@ -2859,15 +2871,15 @@ if.else.i65:                                      ; preds = %lor.lhs.false10.i
 
 if.end.i66:                                       ; preds = %if.else.i65, %lor.lhs.false10.i, %_ZSt11upper_boundIPKtmET_S2_S2_RKT0_.exit.i
   %tmp_size.0.i = phi i64 [ %conv17.i, %if.else.i65 ], [ %add.i, %lor.lhs.false10.i ], [ %add.i, %_ZSt11upper_boundIPKtmET_S2_S2_RKT0_.exit.i ]
-  %call18.i68 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %tmp_size.0.i) #19
+  %call18.i69 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %tmp_size.0.i) #19
           to label %call18.i.noexc unwind label %lpad27.loopexit
 
 call18.i.noexc:                                   ; preds = %if.end.i66
-  store ptr %call18.i68, ptr %current_chunk.024.i, align 8
+  store ptr %call18.i69, ptr %current_chunk.024.i, align 8
   %add21.i = add i64 %tmp_size.0.i, -23
-  %data.i = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCache::CacheValueChunk", ptr %call18.i68, i64 0, i32 2
+  %data.i = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCache::CacheValueChunk", ptr %call18.i69, i64 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data.i, ptr align 1 %src_ptr.025.i, i64 %add21.i, i1 false)
-  %size.i = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCache::CacheValueChunk", ptr %call18.i68, i64 0, i32 1
+  %size.i = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCache::CacheValueChunk", ptr %call18.i69, i64 0, i32 1
   store i64 %add21.i, ptr %size.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src_ptr.025.i, i64 %add21.i
   %sub22.i = sub i64 %src_size.023.i, %add21.i
@@ -2875,17 +2887,17 @@ call18.i.noexc:                                   ; preds = %if.end.i66
   %cmp.not.i67 = icmp eq i64 %sub22.i, 0
   br i1 %cmp.not.i67, label %invoke.cont90, label %while.body.i, !llvm.loop !34
 
-invoke.cont90:                                    ; preds = %call18.i.noexc, %if.then87
-  %charge.0 = phi i64 [ 0, %if.then87 ], [ %add23.i, %call18.i.noexc ]
-  %current_chunk.0.lcssa.i = phi ptr [ %dummy_head.sroa.0.i, %if.then87 ], [ %call18.i68, %call18.i.noexc ]
+invoke.cont90:                                    ; preds = %call18.i.noexc, %call18.us.i.noexc, %if.then87
+  %charge.0 = phi i64 [ 0, %if.then87 ], [ %add.us.i, %call18.us.i.noexc ], [ %add23.i, %call18.i.noexc ]
+  %current_chunk.0.lcssa.i = phi ptr [ %dummy_head.sroa.0.i, %if.then87 ], [ %call18.us.i68, %call18.us.i.noexc ], [ %call18.i69, %call18.i.noexc ]
   store ptr null, ptr %current_chunk.0.lcssa.i, align 8
   %dummy_head.sroa.0.i.0.dummy_head.sroa.0.i.0.dummy_head.sroa.0.i.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0..i = load ptr, ptr %dummy_head.sroa.0.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dummy_head.sroa.0.i)
   %cache_ = getelementptr inbounds %"class.rocksdb::CompressedSecondaryCache", ptr %this, i64 0, i32 1
   %72 = load ptr, ptr %cache_, align 8
   store ptr @.str.3, ptr %ref.tmp93, align 8
-  %size_.i69 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp93, i64 0, i32 1
-  store i64 0, ptr %size_.i69, align 8
+  %size_.i70 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp93, i64 0, i32 1
+  store i64 0, ptr %size_.i70, align 8
   %vtable = load ptr, ptr %72, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
   %73 = load ptr, ptr %vfn, align 8
@@ -2908,8 +2920,8 @@ invoke.cont98:                                    ; preds = %if.else
   %cache_100 = getelementptr inbounds %"class.rocksdb::CompressedSecondaryCache", ptr %this, i64 0, i32 1
   %78 = load ptr, ptr %cache_100, align 8
   store ptr @.str.3, ptr %ref.tmp102, align 8
-  %size_.i72 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp102, i64 0, i32 1
-  store i64 0, ptr %size_.i72, align 8
+  %size_.i73 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp102, i64 0, i32 1
+  store i64 0, ptr %size_.i73, align 8
   %vtable104 = load ptr, ptr %78, align 8
   %vfn105 = getelementptr inbounds ptr, ptr %vtable104, i64 3
   %79 = load ptr, ptr %vfn105, align 8
@@ -2923,16 +2935,16 @@ cleanup107:                                       ; preds = %invoke.cont98, %inv
 ehcleanup:                                        ; preds = %lpad27.loopexit, %lpad27.loopexit.split-lp, %lpad39
   %.pn = phi { ptr, i32 } [ %37, %lpad39 ], [ %lpad.loopexit, %lpad27.loopexit ], [ %lpad.loopexit.split-lp, %lpad27.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_val) #21
-  %state_.i85 = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
-  %80 = load ptr, ptr %state_.i85, align 8
-  %cmp.not.i.i86 = icmp eq ptr %80, null
-  br i1 %cmp.not.i.i86, label %_ZN7rocksdb6StatusD2Ev.exit88, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i87
+  %state_.i86 = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
+  %80 = load ptr, ptr %state_.i86, align 8
+  %cmp.not.i.i87 = icmp eq ptr %80, null
+  br i1 %cmp.not.i.i87, label %_ZN7rocksdb6StatusD2Ev.exit89, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i88
 
 cleanup108:                                       ; preds = %if.then16, %if.then.i.i, %cleanup107
   %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
   %81 = load ptr, ptr %state_.i, align 8
-  %cmp.not.i.i73 = icmp eq ptr %81, null
-  br i1 %cmp.not.i.i73, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+  %cmp.not.i.i74 = icmp eq ptr %81, null
+  br i1 %cmp.not.i.i74, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %cleanup108
   call void @_ZdaPv(ptr noundef nonnull %81) #20
@@ -2941,46 +2953,46 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %cleanup108, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %state_.i, align 8
   %82 = load ptr, ptr %10, align 8
-  %cmp.not.i75 = icmp eq ptr %82, null
-  br i1 %cmp.not.i75, label %return, label %if.then.i76
+  %cmp.not.i76 = icmp eq ptr %82, null
+  br i1 %cmp.not.i76, label %return, label %if.then.i77
 
-if.then.i76:                                      ; preds = %_ZN7rocksdb6StatusD2Ev.exit
+if.then.i77:                                      ; preds = %_ZN7rocksdb6StatusD2Ev.exit
   %83 = load ptr, ptr %ptr, align 8
-  %tobool.not.i.i77 = icmp eq ptr %83, null
-  br i1 %tobool.not.i.i77, label %delete.notnull.i.i83, label %if.then.i.i78
+  %tobool.not.i.i78 = icmp eq ptr %83, null
+  br i1 %tobool.not.i.i78, label %delete.notnull.i.i84, label %if.then.i.i79
 
-if.then.i.i78:                                    ; preds = %if.then.i76
-  %vtable.i.i79 = load ptr, ptr %83, align 8
-  %vfn.i.i80 = getelementptr inbounds ptr, ptr %vtable.i.i79, i64 20
-  %84 = load ptr, ptr %vfn.i.i80, align 8
+if.then.i.i79:                                    ; preds = %if.then.i77
+  %vtable.i.i80 = load ptr, ptr %83, align 8
+  %vfn.i.i81 = getelementptr inbounds ptr, ptr %vtable.i.i80, i64 20
+  %84 = load ptr, ptr %vfn.i.i81, align 8
   invoke void %84(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull %82)
-          to label %return unwind label %terminate.lpad.i81
+          to label %return unwind label %terminate.lpad.i82
 
-delete.notnull.i.i83:                             ; preds = %if.then.i76
+delete.notnull.i.i84:                             ; preds = %if.then.i77
   call void @_ZdaPv(ptr noundef nonnull %82) #20
   br label %return
 
-terminate.lpad.i81:                               ; preds = %if.then.i.i78
+terminate.lpad.i82:                               ; preds = %if.then.i.i79
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
   call void @__clang_call_terminate(ptr %86) #22
   unreachable
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i87: ; preds = %ehcleanup
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i88: ; preds = %ehcleanup
   call void @_ZdaPv(ptr noundef nonnull %80) #20
-  br label %_ZN7rocksdb6StatusD2Ev.exit88
+  br label %_ZN7rocksdb6StatusD2Ev.exit89
 
-_ZN7rocksdb6StatusD2Ev.exit88:                    ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i87
-  store ptr null, ptr %state_.i85, align 8
+_ZN7rocksdb6StatusD2Ev.exit89:                    ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i88
+  store ptr null, ptr %state_.i86, align 8
   br label %ehcleanup111
 
-ehcleanup111:                                     ; preds = %_ZN7rocksdb6StatusD2Ev.exit88, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7rocksdb6StatusD2Ev.exit88 ], [ %21, %lpad ]
+ehcleanup111:                                     ; preds = %_ZN7rocksdb6StatusD2Ev.exit89, %lpad
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7rocksdb6StatusD2Ev.exit89 ], [ %21, %lpad ]
   call void @_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ptr) #21
   resume { ptr, i32 } %.pn.pn.pn
 
-return:                                           ; preds = %delete.notnull.i.i83, %if.then.i.i78, %_ZN7rocksdb6StatusD2Ev.exit, %if.then
+return:                                           ; preds = %delete.notnull.i.i84, %if.then.i.i79, %_ZN7rocksdb6StatusD2Ev.exit, %if.then
   ret void
 }
 
@@ -3090,19 +3102,31 @@ entry:
   %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %value, i64 0, i32 1
   %1 = load i64, ptr %size_.i, align 8
   store ptr null, ptr %dummy_head.sroa.0, align 8
+  %charge.promoted = load i64, ptr %charge, align 8
   %cmp.not21 = icmp eq i64 %1, 0
   br i1 %cmp.not21, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %charge.promoted = load i64, ptr %charge, align 8
   %cmp16 = icmp eq i8 %compression_type, 0
-  br label %while.body
+  br i1 %cmp16, label %while.body.us, label %while.body
+
+while.body.us:                                    ; preds = %while.body.lr.ph
+  %add.us = add i64 %1, 23
+  %call18.us = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.us) #19
+  store ptr %call18.us, ptr %dummy_head.sroa.0, align 8
+  %data.us = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCache::CacheValueChunk", ptr %call18.us, i64 0, i32 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data.us, ptr align 1 %0, i64 %1, i1 false)
+  %size.us = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCache::CacheValueChunk", ptr %call18.us, i64 0, i32 1
+  store i64 %1, ptr %size.us, align 8
+  %add23.us = add i64 %charge.promoted, %add.us
+  store i64 %add23.us, ptr %charge, align 8
+  br label %while.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %src_ptr.025 = phi ptr [ %0, %while.body.lr.ph ], [ %add.ptr, %if.end ]
-  %current_chunk.024 = phi ptr [ %dummy_head.sroa.0, %while.body.lr.ph ], [ %call18, %if.end ]
-  %src_size.023 = phi i64 [ %1, %while.body.lr.ph ], [ %sub22, %if.end ]
-  %add232022 = phi i64 [ %charge.promoted, %while.body.lr.ph ], [ %add23, %if.end ]
+  %src_ptr.025 = phi ptr [ %add.ptr, %if.end ], [ %0, %while.body.lr.ph ]
+  %current_chunk.024 = phi ptr [ %call18, %if.end ], [ %dummy_head.sroa.0, %while.body.lr.ph ]
+  %src_size.023 = phi i64 [ %sub22, %if.end ], [ %1, %while.body.lr.ph ]
+  %add232022 = phi i64 [ %add23, %if.end ], [ %charge.promoted, %while.body.lr.ph ]
   %add = add i64 %src_size.023, 23
   br label %while.body.i.i
 
@@ -3133,8 +3157,7 @@ lor.lhs.false10:                                  ; preds = %_ZSt11upper_boundIP
   %conv = zext i16 %4 to i64
   %sub = sub i64 %conv, %add
   %cmp13 = icmp ult i64 %sub, 128
-  %or.cond = or i1 %cmp16, %cmp13
-  br i1 %or.cond, label %if.end, label %if.else
+  br i1 %cmp13, label %if.end, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false10
   %incdec.ptr = getelementptr inbounds i16, ptr %__first.addr.1.i.i, i64 -1
@@ -3158,8 +3181,8 @@ if.end:                                           ; preds = %_ZSt11upper_boundIP
   %cmp.not = icmp eq i64 %sub22, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !34
 
-while.end:                                        ; preds = %if.end, %entry
-  %current_chunk.0.lcssa = phi ptr [ %dummy_head.sroa.0, %entry ], [ %call18, %if.end ]
+while.end:                                        ; preds = %if.end, %while.body.us, %entry
+  %current_chunk.0.lcssa = phi ptr [ %dummy_head.sroa.0, %entry ], [ %call18.us, %while.body.us ], [ %call18, %if.end ]
   store ptr null, ptr %current_chunk.0.lcssa, align 8
   %dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0. = load ptr, ptr %dummy_head.sroa.0, align 8
   ret ptr %dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.dummy_head.sroa.0.0.

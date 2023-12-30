@@ -4271,17 +4271,17 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt10shared_ptrIK
   %48 = load ptr, ptr %max_bytes_for_level_multiplier_additional32, align 8
   %_M_finish.i = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 24, i32 0, i32 0, i32 0, i32 1
   %49 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not114 = icmp eq ptr %48, %49
-  br i1 %cmp.i.not114, label %for.end, label %for.body.lr.ph
+  %cmp.i.not115 = icmp eq ptr %48, %49
+  br i1 %cmp.i.not115, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
   %_M_end_of_storage.i = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 23, i32 0, i32 0, i32 0, i32 2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit
-  %50 = phi ptr [ %46, %for.body.lr.ph ], [ %55, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit ]
-  %__begin1.sroa.0.0115 = phi ptr [ %48, %for.body.lr.ph ], [ %incdec.ptr.i110, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit ]
-  %51 = load i32, ptr %__begin1.sroa.0.0115, align 4
+  %50 = phi ptr [ %46, %for.body.lr.ph ], [ %56, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit ]
+  %__begin1.sroa.0.0116 = phi ptr [ %48, %for.body.lr.ph ], [ %incdec.ptr.i111, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit ]
+  %51 = load i32, ptr %__begin1.sroa.0.0116, align 4
   %52 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %50, %52
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4299,9 +4299,9 @@ if.else.i:                                        ; preds = %for.body
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775804
-  br i1 %cmp.i.i.i, label %if.then.i.i.i109, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i110, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i.i109:                                 ; preds = %if.else.i
+if.then.i.i.i110:                                 ; preds = %if.else.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #23
   unreachable
 
@@ -4310,39 +4310,38 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 2305843009213693951
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 2305843009213693951, i64 %add.i.i.i
+  %55 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2305843009213693951)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2305843009213693951, i64 %55
   %cmp.not.i.i.i108 = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i108, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i108, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 2
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #26
   br label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 %51, ptr %add.ptr.i.i, align 4
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit19.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i109, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
 
-if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i109:                             ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i, ptr align 4 %54, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit19.i.i
+  br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i109, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i, i64 1
   %tobool.not.i.i.i = icmp eq ptr %54, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %if.then.i20.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit19.i.i
+if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %54) #24
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
-_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit19.i.i
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
   store ptr %cond.i10.i.i, ptr %max_bytes_for_level_multiplier_additional, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i, i64 %cond.i.i.i
@@ -4350,9 +4349,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPi
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit
 
 _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
-  %55 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
-  %incdec.ptr.i110 = getelementptr inbounds i32, ptr %__begin1.sroa.0.0115, i64 1
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i110, %49
+  %56 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
+  %incdec.ptr.i111 = getelementptr inbounds i32, ptr %__begin1.sroa.0.0116, i64 1
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i111, %49
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit, %_ZNSt6vectorIiSaIiEE5clearEv.exit
@@ -4366,97 +4365,97 @@ for.end:                                          ; preds = %_ZNSt6vectorIiSaIiE
   %compaction_options_universal43 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(26) %compaction_options_universal43, ptr noundef nonnull align 8 dereferenceable(26) %compaction_options_universal, i64 26, i1 false)
   %enable_blob_files = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 27
-  %56 = load i8, ptr %enable_blob_files, align 4
-  %57 = and i8 %56, 1
+  %57 = load i8, ptr %enable_blob_files, align 4
+  %58 = and i8 %57, 1
   %enable_blob_files45 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 50
-  store i8 %57, ptr %enable_blob_files45, align 8
+  store i8 %58, ptr %enable_blob_files45, align 8
   %min_blob_size = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 28
-  %58 = load i64, ptr %min_blob_size, align 8
+  %59 = load i64, ptr %min_blob_size, align 8
   %min_blob_size47 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 51
-  store i64 %58, ptr %min_blob_size47, align 8
+  store i64 %59, ptr %min_blob_size47, align 8
   %blob_file_size = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 29
-  %59 = load i64, ptr %blob_file_size, align 8
+  %60 = load i64, ptr %blob_file_size, align 8
   %blob_file_size48 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 52
-  store i64 %59, ptr %blob_file_size48, align 8
+  store i64 %60, ptr %blob_file_size48, align 8
   %blob_compression_type = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 30
-  %60 = load i8, ptr %blob_compression_type, align 8
+  %61 = load i8, ptr %blob_compression_type, align 8
   %blob_compression_type49 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 53
-  store i8 %60, ptr %blob_compression_type49, align 8
+  store i8 %61, ptr %blob_compression_type49, align 8
   %enable_blob_garbage_collection = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 31
-  %61 = load i8, ptr %enable_blob_garbage_collection, align 1
-  %62 = and i8 %61, 1
+  %62 = load i8, ptr %enable_blob_garbage_collection, align 1
+  %63 = and i8 %62, 1
   %enable_blob_garbage_collection51 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 54
-  store i8 %62, ptr %enable_blob_garbage_collection51, align 1
+  store i8 %63, ptr %enable_blob_garbage_collection51, align 1
   %blob_garbage_collection_age_cutoff = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 32
-  %63 = load double, ptr %blob_garbage_collection_age_cutoff, align 8
+  %64 = load double, ptr %blob_garbage_collection_age_cutoff, align 8
   %blob_garbage_collection_age_cutoff53 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 55
-  store double %63, ptr %blob_garbage_collection_age_cutoff53, align 8
+  store double %64, ptr %blob_garbage_collection_age_cutoff53, align 8
   %blob_garbage_collection_force_threshold = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 33
-  %64 = load double, ptr %blob_garbage_collection_force_threshold, align 8
+  %65 = load double, ptr %blob_garbage_collection_force_threshold, align 8
   %blob_garbage_collection_force_threshold54 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 56
-  store double %64, ptr %blob_garbage_collection_force_threshold54, align 8
+  store double %65, ptr %blob_garbage_collection_force_threshold54, align 8
   %blob_compaction_readahead_size = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 34
-  %65 = load i64, ptr %blob_compaction_readahead_size, align 8
+  %66 = load i64, ptr %blob_compaction_readahead_size, align 8
   %blob_compaction_readahead_size55 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 57
-  store i64 %65, ptr %blob_compaction_readahead_size55, align 8
+  store i64 %66, ptr %blob_compaction_readahead_size55, align 8
   %blob_file_starting_level = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 35
-  %66 = load i32, ptr %blob_file_starting_level, align 8
+  %67 = load i32, ptr %blob_file_starting_level, align 8
   %blob_file_starting_level56 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 58
-  store i32 %66, ptr %blob_file_starting_level56, align 8
+  store i32 %67, ptr %blob_file_starting_level56, align 8
   %prepopulate_blob_cache = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 36
-  %67 = load i8, ptr %prepopulate_blob_cache, align 4
+  %68 = load i8, ptr %prepopulate_blob_cache, align 4
   %prepopulate_blob_cache57 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 60
-  store i8 %67, ptr %prepopulate_blob_cache57, align 8
+  store i8 %68, ptr %prepopulate_blob_cache57, align 8
   %max_sequential_skip_in_iterations = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 37
-  %68 = load i64, ptr %max_sequential_skip_in_iterations, align 8
+  %69 = load i64, ptr %max_sequential_skip_in_iterations, align 8
   %max_sequential_skip_in_iterations58 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 33
-  store i64 %68, ptr %max_sequential_skip_in_iterations58, align 8
+  store i64 %69, ptr %max_sequential_skip_in_iterations58, align 8
   %check_flush_compaction_key_order = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 38
-  %69 = load i8, ptr %check_flush_compaction_key_order, align 8
-  %70 = and i8 %69, 1
+  %70 = load i8, ptr %check_flush_compaction_key_order, align 8
+  %71 = and i8 %70, 1
   %check_flush_compaction_key_order60 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 38
-  store i8 %70, ptr %check_flush_compaction_key_order60, align 1
+  store i8 %71, ptr %check_flush_compaction_key_order60, align 1
   %paranoid_file_checks = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 39
-  %71 = load i8, ptr %paranoid_file_checks, align 1
-  %72 = and i8 %71, 1
+  %72 = load i8, ptr %paranoid_file_checks, align 1
+  %73 = and i8 %72, 1
   %paranoid_file_checks63 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 39
-  store i8 %72, ptr %paranoid_file_checks63, align 2
+  store i8 %73, ptr %paranoid_file_checks63, align 2
   %report_bg_io_stats = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 40
-  %73 = load i8, ptr %report_bg_io_stats, align 2
-  %74 = and i8 %73, 1
+  %74 = load i8, ptr %report_bg_io_stats, align 2
+  %75 = and i8 %74, 1
   %report_bg_io_stats66 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 41
-  store i8 %74, ptr %report_bg_io_stats66, align 4
+  store i8 %75, ptr %report_bg_io_stats66, align 4
   %compression = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 41
-  %75 = load i8, ptr %compression, align 1
+  %76 = load i8, ptr %compression, align 1
   %compression68 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %cf_opts, i64 0, i32 6
-  store i8 %75, ptr %compression68, align 8
+  store i8 %76, ptr %compression68, align 8
   %compression_opts = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 44
   %compression_opts69 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %cf_opts, i64 0, i32 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %compression_opts69, ptr noundef nonnull align 8 dereferenceable(49) %compression_opts, i64 49, i1 false)
   %bottommost_compression = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 42
-  %76 = load i8, ptr %bottommost_compression, align 4
+  %77 = load i8, ptr %bottommost_compression, align 4
   %bottommost_compression70 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %cf_opts, i64 0, i32 7
-  store i8 %76, ptr %bottommost_compression70, align 1
+  store i8 %77, ptr %bottommost_compression70, align 1
   %bottommost_compression_opts = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 45
   %bottommost_compression_opts71 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %cf_opts, i64 0, i32 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %bottommost_compression_opts71, ptr noundef nonnull align 8 dereferenceable(49) %bottommost_compression_opts, i64 49, i1 false)
   %sample_for_compression = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 49
-  %77 = load i64, ptr %sample_for_compression, align 8
+  %78 = load i64, ptr %sample_for_compression, align 8
   %sample_for_compression72 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 44
-  store i64 %77, ptr %sample_for_compression72, align 8
+  store i64 %78, ptr %sample_for_compression72, align 8
   %compression_per_level = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 50
   %compression_per_level73 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 14
   %call74 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %compression_per_level73, ptr noundef nonnull align 8 dereferenceable(24) %compression_per_level)
   %last_level_temperature = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 46
-  %78 = load i8, ptr %last_level_temperature, align 8
+  %79 = load i8, ptr %last_level_temperature, align 8
   %last_level_temperature75 = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 46
-  store i8 %78, ptr %last_level_temperature75, align 1
+  store i8 %79, ptr %last_level_temperature75, align 1
   %bottommost_temperature = getelementptr inbounds %"struct.rocksdb::AdvancedColumnFamilyOptions", ptr %cf_opts, i64 0, i32 45
-  store i8 %78, ptr %bottommost_temperature, align 8
+  store i8 %79, ptr %bottommost_temperature, align 8
   %memtable_max_range_deletions = getelementptr inbounds %"struct.rocksdb::MutableCFOptions", ptr %moptions, i64 0, i32 51
-  %79 = load i32, ptr %memtable_max_range_deletions, align 8
+  %80 = load i32, ptr %memtable_max_range_deletions, align 8
   %memtable_max_range_deletions77 = getelementptr inbounds %"struct.rocksdb::ColumnFamilyOptions", ptr %cf_opts, i64 0, i32 22
-  store i32 %79, ptr %memtable_max_range_deletions77, align 8
+  store i32 %80, ptr %memtable_max_range_deletions77, align 8
   ret void
 }
 
@@ -31980,6 +31979,9 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19

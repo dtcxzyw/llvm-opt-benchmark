@@ -28,14 +28,14 @@ entry:
 define i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %rsa, ptr noundef %mHash, ptr noundef %Hash, ptr noundef %mgf1Hash, ptr noundef %EM, i32 noundef %sLen) local_unnamed_addr #0 {
 entry:
   %H_ = alloca [64 x i8], align 16
-  %call = tail call ptr @EVP_MD_CTX_new() #8
+  %call = tail call ptr @EVP_MD_CTX_new() #9
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp1 = icmp eq ptr %mgf1Hash, null
   %spec.select = select i1 %cmp1, ptr %Hash, ptr %mgf1Hash
-  %call4 = tail call i32 @EVP_MD_get_size(ptr noundef %Hash) #8
+  %call4 = tail call i32 @EVP_MD_get_size(ptr noundef %Hash) #9
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %err, label %if.end7
 
@@ -48,19 +48,19 @@ if.else:                                          ; preds = %if.end7
   br i1 %cmp10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.else
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 70, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 136, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 70, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 136, ptr noundef null) #9
   br label %err
 
 if.end13:                                         ; preds = %if.end7, %if.else
   %sLen.addr.0 = phi i32 [ %sLen, %if.else ], [ %call4, %if.end7 ]
   %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
   %0 = load ptr, ptr %n, align 8
-  %call14 = tail call i32 @BN_num_bits(ptr noundef %0) #8
+  %call14 = tail call i32 @BN_num_bits(ptr noundef %0) #9
   %sub = add i32 %call14, 7
   %and = and i32 %sub, 7
-  %call15 = tail call i32 @RSA_size(ptr noundef %rsa) #8
+  %call15 = tail call i32 @RSA_size(ptr noundef %rsa) #9
   %1 = load i8, ptr %EM, align 1
   %conv = zext i8 %1 to i32
   %shl = shl nuw nsw i32 255, %and
@@ -69,9 +69,9 @@ if.end13:                                         ; preds = %if.end7, %if.else
   br i1 %tobool.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end13
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 133, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 133, ptr noundef null) #9
   br label %err
 
 if.end18:                                         ; preds = %if.end13
@@ -85,9 +85,9 @@ if.end18:                                         ; preds = %if.end13
   br i1 %cmp23, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.end18
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 109, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 109, ptr noundef null) #9
   br label %err
 
 if.end26:                                         ; preds = %if.end18
@@ -101,9 +101,9 @@ if.else32:                                        ; preds = %if.end26
   br i1 %cmp35, label %if.then37, label %if.end39
 
 if.then37:                                        ; preds = %if.else32
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 91, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 109, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 91, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 109, ptr noundef null) #9
   br label %err
 
 if.end39:                                         ; preds = %if.end26, %if.else32
@@ -116,9 +116,9 @@ if.end39:                                         ; preds = %if.end26, %if.else3
   br i1 %cmp43.not, label %if.end46, label %if.then45
 
 if.then45:                                        ; preds = %if.end39
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 134, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 134, ptr noundef null) #9
   br label %err
 
 if.end46:                                         ; preds = %if.end39
@@ -126,13 +126,13 @@ if.end46:                                         ; preds = %if.end39
   %sub48 = add i32 %emLen.0, %5
   %idx.ext = sext i32 %sub48 to i64
   %add.ptr = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idx.ext
-  %call50 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %idx.ext, ptr noundef nonnull @.str, i32 noundef 100) #8
+  %call50 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %idx.ext, ptr noundef nonnull @.str, i32 noundef 100) #9
   %cmp51 = icmp eq ptr %call50, null
   br i1 %cmp51, label %err, label %if.end54
 
 if.end54:                                         ; preds = %if.end46
   %conv56 = zext nneg i32 %call4 to i64
-  %call57 = tail call i32 @PKCS1_MGF1(ptr noundef nonnull %call50, i64 noundef %idx.ext, ptr noundef nonnull %add.ptr, i64 noundef %conv56, ptr noundef %spec.select) #8
+  %call57 = tail call i32 @PKCS1_MGF1(ptr noundef nonnull %call50, i64 noundef %idx.ext, ptr noundef nonnull %add.ptr, i64 noundef %conv56, ptr noundef %spec.select) #9
   %cmp58 = icmp slt i32 %call57, 0
   br i1 %cmp58, label %err, label %for.cond.preheader
 
@@ -190,9 +190,9 @@ for.end91:                                        ; preds = %for.cond79
   br i1 %cmp96.not, label %if.end99, label %if.then98
 
 if.then98:                                        ; preds = %for.end91
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 111, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 135, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 111, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 135, ptr noundef null) #9
   br label %err
 
 if.end99:                                         ; preds = %for.end91
@@ -206,23 +206,23 @@ land.lhs.true104:                                 ; preds = %if.end99
   br i1 %cmp106.not, label %if.end110, label %if.then108
 
 if.then108:                                       ; preds = %land.lhs.true104
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 117, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 136, ptr noundef nonnull @.str.1, i32 noundef %sLen.addr.1, i32 noundef %sub105) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 117, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 136, ptr noundef nonnull @.str.1, i32 noundef %sLen.addr.1, i32 noundef %sub105) #9
   br label %err
 
 if.end110:                                        ; preds = %land.lhs.true104, %if.end99
-  %call111 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %Hash, ptr noundef null) #8
+  %call111 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %Hash, ptr noundef null) #9
   %tobool112.not = icmp eq i32 %call111, 0
   br i1 %tobool112.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end110
-  %call113 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull @zeroes, i64 noundef 8) #8
+  %call113 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull @zeroes, i64 noundef 8) #9
   %tobool114.not = icmp eq i32 %call113, 0
   br i1 %tobool114.not, label %err, label %lor.lhs.false115
 
 lor.lhs.false115:                                 ; preds = %lor.lhs.false
-  %call117 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef %mHash, i64 noundef %conv56) #8
+  %call117 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef %mHash, i64 noundef %conv56) #9
   %tobool118.not = icmp eq i32 %call117, 0
   br i1 %tobool118.not, label %err, label %if.end120
 
@@ -235,12 +235,12 @@ if.then123:                                       ; preds = %if.end120
   %idx.ext124 = zext nneg i32 %inc92 to i64
   %add.ptr125 = getelementptr inbounds i8, ptr %call50, i64 %idx.ext124
   %conv127 = sext i32 %sub121 to i64
-  %call128 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr125, i64 noundef %conv127) #8
+  %call128 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr125, i64 noundef %conv127) #9
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %err, label %if.end132
 
 if.end132:                                        ; preds = %if.then123, %if.end120
-  %call133 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call, ptr noundef nonnull %H_, ptr noundef null) #8
+  %call133 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call, ptr noundef nonnull %H_, ptr noundef null) #9
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %err, label %if.end136
 
@@ -250,16 +250,16 @@ if.end136:                                        ; preds = %if.end132
   br i1 %tobool140.not, label %err, label %if.then141
 
 if.then141:                                       ; preds = %if.end136
-  call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 104, ptr noundef null) #8
+  call void @ERR_new() #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @__func__.RSA_verify_PKCS1_PSS_mgf1) #9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 104, ptr noundef null) #9
   br label %err
 
 err:                                              ; preds = %if.end136, %if.then141, %if.end132, %if.then123, %if.end110, %lor.lhs.false, %lor.lhs.false115, %if.end54, %if.end46, %if.end, %entry, %if.then108, %if.then98, %if.then45, %if.then37, %if.then25, %if.then17, %if.then11
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.then17 ], [ 0, %if.then25 ], [ 0, %if.then45 ], [ 0, %if.end46 ], [ 0, %if.end54 ], [ 0, %if.then98 ], [ 0, %if.then108 ], [ 0, %if.then141 ], [ 0, %if.end132 ], [ 0, %if.then123 ], [ 0, %lor.lhs.false115 ], [ 0, %lor.lhs.false ], [ 0, %if.end110 ], [ 0, %if.then37 ], [ 0, %if.then11 ], [ 1, %if.end136 ]
   %DB.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.then17 ], [ null, %if.then25 ], [ null, %if.then45 ], [ null, %if.end46 ], [ %call50, %if.end54 ], [ %call50, %if.then98 ], [ %call50, %if.then108 ], [ %call50, %if.then141 ], [ %call50, %if.end132 ], [ %call50, %if.then123 ], [ %call50, %lor.lhs.false115 ], [ %call50, %lor.lhs.false ], [ %call50, %if.end110 ], [ null, %if.then37 ], [ null, %if.then11 ], [ %call50, %if.end136 ]
-  call void @CRYPTO_free(ptr noundef %DB.0, ptr noundef nonnull @.str, i32 noundef 140) #8
-  call void @EVP_MD_CTX_free(ptr noundef %call) #8
+  call void @CRYPTO_free(ptr noundef %DB.0, ptr noundef nonnull @.str, i32 noundef 140) #9
+  call void @EVP_MD_CTX_free(ptr noundef %call) #9
   ret i32 %ret.0
 }
 
@@ -303,7 +303,7 @@ define i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %rsa, ptr noundef %EM, pt
 entry:
   %cmp = icmp eq ptr %mgf1Hash, null
   %spec.select = select i1 %cmp, ptr %Hash, ptr %mgf1Hash
-  %call = tail call i32 @EVP_MD_get_size(ptr noundef %Hash) #8
+  %call = tail call i32 @EVP_MD_get_size(ptr noundef %Hash) #9
   %cmp1 = icmp slt i32 %call, 0
   br i1 %cmp1, label %err, label %if.end3
 
@@ -325,9 +325,9 @@ if.else12:                                        ; preds = %if.end3
   br i1 %cmp13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.else12
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @__func__.RSA_padding_add_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 136, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @__func__.RSA_padding_add_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 136, ptr noundef null) #9
   br label %err
 
 if.end18:                                         ; preds = %if.end3, %if.then8, %if.else12, %if.then11
@@ -335,10 +335,10 @@ if.end18:                                         ; preds = %if.end3, %if.then8,
   %sLenMax.0 = phi i32 [ -1, %if.then8 ], [ %call, %if.then11 ], [ -1, %if.else12 ], [ %sLen, %if.end3 ]
   %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
   %0 = load ptr, ptr %n, align 8
-  %call19 = tail call i32 @BN_num_bits(ptr noundef %0) #8
+  %call19 = tail call i32 @BN_num_bits(ptr noundef %0) #9
   %sub = add i32 %call19, 7
   %and = and i32 %sub, 7
-  %call20 = tail call i32 @RSA_size(ptr noundef %rsa) #8
+  %call20 = tail call i32 @RSA_size(ptr noundef %rsa) #9
   %cmp21 = icmp eq i32 %and, 0
   br i1 %cmp21, label %if.then22, label %if.end23
 
@@ -356,9 +356,9 @@ if.end23:                                         ; preds = %if.then22, %if.end1
   br i1 %cmp24, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.end23
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @__func__.RSA_padding_add_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 110, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @__func__.RSA_padding_add_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 110, ptr noundef null) #9
   br label %err
 
 if.end26:                                         ; preds = %if.end23
@@ -368,10 +368,9 @@ if.end26:                                         ; preds = %if.end23
   br i1 %cmp27, label %if.then28, label %if.else35
 
 if.then28:                                        ; preds = %if.end26
-  %cmp31 = icmp sgt i32 %sLenMax.0, -1
-  %cmp32 = icmp sgt i32 %sub30, %sLenMax.0
-  %or.cond = and i1 %cmp31, %cmp32
-  %spec.select63 = select i1 %or.cond, i32 %sLenMax.0, i32 %sub30
+  %1 = tail call i32 @llvm.smin.i32(i32 %sub30, i32 %sLenMax.0)
+  %cmp3164 = icmp slt i32 %sLenMax.0, 0
+  %spec.select63 = select i1 %cmp3164, i32 %sub30, i32 %1
   br label %if.end41
 
 if.else35:                                        ; preds = %if.end26
@@ -379,9 +378,9 @@ if.else35:                                        ; preds = %if.end26
   br i1 %cmp38, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %if.else35
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @__func__.RSA_padding_add_PKCS1_PSS_mgf1) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 110, ptr noundef null) #8
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @__func__.RSA_padding_add_PKCS1_PSS_mgf1) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 110, ptr noundef null) #9
   br label %err
 
 if.end41:                                         ; preds = %if.then28, %if.else35
@@ -391,40 +390,40 @@ if.end41:                                         ; preds = %if.then28, %if.else
 
 if.then43:                                        ; preds = %if.end41
   %conv = zext nneg i32 %sLen.addr.1 to i64
-  %call44 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 219) #8
+  %call44 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 219) #9
   %cmp45 = icmp eq ptr %call44, null
   br i1 %cmp45, label %err, label %if.end48
 
 if.end48:                                         ; preds = %if.then43
   %libctx = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
-  %1 = load ptr, ptr %libctx, align 8
-  %call50 = tail call i32 @RAND_bytes_ex(ptr noundef %1, ptr noundef nonnull %call44, i64 noundef %conv, i32 noundef 0) #8
+  %2 = load ptr, ptr %libctx, align 8
+  %call50 = tail call i32 @RAND_bytes_ex(ptr noundef %2, ptr noundef nonnull %call44, i64 noundef %conv, i32 noundef 0) #9
   %cmp51 = icmp slt i32 %call50, 1
   br i1 %cmp51, label %err, label %if.end55
 
 if.end55:                                         ; preds = %if.end48, %if.end41
   %salt.0 = phi ptr [ %call44, %if.end48 ], [ null, %if.end41 ]
-  %2 = xor i32 %call, -1
-  %sub57 = add i32 %emLen.0, %2
+  %3 = xor i32 %call, -1
+  %sub57 = add i32 %emLen.0, %3
   %idx.ext = sext i32 %sub57 to i64
   %add.ptr = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idx.ext
-  %call58 = tail call ptr @EVP_MD_CTX_new() #8
+  %call58 = tail call ptr @EVP_MD_CTX_new() #9
   %cmp59 = icmp eq ptr %call58, null
   br i1 %cmp59, label %err, label %if.end62
 
 if.end62:                                         ; preds = %if.end55
-  %call63 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call58, ptr noundef %Hash, ptr noundef null) #8
+  %call63 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call58, ptr noundef %Hash, ptr noundef null) #9
   %tobool.not = icmp eq i32 %call63, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %if.end62
-  %call65 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call58, ptr noundef nonnull @zeroes, i64 noundef 8) #8
+  %call65 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call58, ptr noundef nonnull @zeroes, i64 noundef 8) #9
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %err, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %lor.lhs.false64
   %conv68 = zext nneg i32 %call to i64
-  %call69 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call58, ptr noundef %mHash, i64 noundef %conv68) #8
+  %call69 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call58, ptr noundef %mHash, i64 noundef %conv68) #9
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %err, label %if.end72
 
@@ -434,29 +433,29 @@ if.end72:                                         ; preds = %lor.lhs.false67
 
 land.lhs.true74:                                  ; preds = %if.end72
   %conv75 = sext i32 %sLen.addr.1 to i64
-  %call76 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call58, ptr noundef %salt.0, i64 noundef %conv75) #8
+  %call76 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call58, ptr noundef %salt.0, i64 noundef %conv75) #9
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %err, label %if.end79
 
 if.end79:                                         ; preds = %land.lhs.true74, %if.end72
-  %call80 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call58, ptr noundef %add.ptr, ptr noundef null) #8
+  %call80 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call58, ptr noundef %add.ptr, ptr noundef null) #9
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %err, label %if.end83
 
 if.end83:                                         ; preds = %if.end79
-  %call86 = tail call i32 @PKCS1_MGF1(ptr noundef %EM.addr.0, i64 noundef %idx.ext, ptr noundef %add.ptr, i64 noundef %conv68, ptr noundef %spec.select) #8
+  %call86 = tail call i32 @PKCS1_MGF1(ptr noundef %EM.addr.0, i64 noundef %idx.ext, ptr noundef %add.ptr, i64 noundef %conv68, ptr noundef %spec.select) #9
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %if.end89, label %err
 
 if.end89:                                         ; preds = %if.end83
-  %3 = add i32 %emLen.0, -2
-  %4 = add i32 %call, %sLen.addr.1
-  %sub92 = sub i32 %3, %4
+  %4 = add i32 %emLen.0, -2
+  %5 = add i32 %call, %sLen.addr.1
+  %sub92 = sub i32 %4, %5
   %idx.ext93 = sext i32 %sub92 to i64
   %add.ptr94 = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idx.ext93
-  %5 = load i8, ptr %add.ptr94, align 1
-  %6 = xor i8 %5, 1
-  store i8 %6, ptr %add.ptr94, align 1
+  %6 = load i8, ptr %add.ptr94, align 1
+  %7 = xor i8 %6, 1
+  store i8 %7, ptr %add.ptr94, align 1
   br i1 %cmp42, label %for.body.preheader, label %if.end108
 
 for.body.preheader:                               ; preds = %if.end89
@@ -465,12 +464,12 @@ for.body.preheader:                               ; preds = %if.end89
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %add.ptr94.pn65 = phi ptr [ %add.ptr94, %for.body.preheader ], [ %p.0, %for.body ]
-  %p.0 = getelementptr inbounds i8, ptr %add.ptr94.pn65, i64 1
+  %add.ptr94.pn66 = phi ptr [ %add.ptr94, %for.body.preheader ], [ %p.0, %for.body ]
+  %p.0 = getelementptr inbounds i8, ptr %add.ptr94.pn66, i64 1
   %arrayidx = getelementptr inbounds i8, ptr %salt.0, i64 %indvars.iv
-  %7 = load i8, ptr %arrayidx, align 1
-  %8 = load i8, ptr %p.0, align 1
-  %xor10662 = xor i8 %8, %7
+  %8 = load i8, ptr %arrayidx, align 1
+  %9 = load i8, ptr %p.0, align 1
+  %xor10662 = xor i8 %9, %8
   store i8 %xor10662, ptr %p.0, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -482,9 +481,9 @@ if.end108:                                        ; preds = %for.body, %if.end89
 if.then110:                                       ; preds = %if.end108
   %sub111 = sub nuw nsw i32 8, %and
   %shr = lshr i32 255, %sub111
-  %9 = load i8, ptr %EM.addr.0, align 1
-  %10 = trunc i32 %shr to i8
-  %conv115 = and i8 %9, %10
+  %10 = load i8, ptr %EM.addr.0, align 1
+  %11 = trunc i32 %shr to i8
+  %conv115 = and i8 %10, %11
   store i8 %conv115, ptr %EM.addr.0, align 1
   br label %if.end116
 
@@ -500,9 +499,9 @@ err:                                              ; preds = %if.end83, %if.end79
   %sLen.addr.2 = phi i32 [ %sLen, %entry ], [ %sLen.addr.0, %if.then25 ], [ %sLen.addr.1, %if.then43 ], [ %sLen.addr.1, %if.end48 ], [ %sLen.addr.1, %if.end55 ], [ %sLen.addr.1, %if.end83 ], [ %sLen.addr.1, %if.end116 ], [ %sLen.addr.1, %if.end79 ], [ %sLen.addr.1, %land.lhs.true74 ], [ %sLen.addr.1, %lor.lhs.false67 ], [ %sLen.addr.1, %lor.lhs.false64 ], [ %sLen.addr.1, %if.end62 ], [ %sLen.addr.0, %if.then39 ], [ %sLen, %if.then14 ]
   %salt.1 = phi ptr [ null, %entry ], [ null, %if.then25 ], [ null, %if.then43 ], [ %call44, %if.end48 ], [ %salt.0, %if.end55 ], [ %salt.0, %if.end83 ], [ %salt.0, %if.end116 ], [ %salt.0, %if.end79 ], [ %salt.0, %land.lhs.true74 ], [ %salt.0, %lor.lhs.false67 ], [ %salt.0, %lor.lhs.false64 ], [ %salt.0, %if.end62 ], [ null, %if.then39 ], [ null, %if.then14 ]
   %ctx.0 = phi ptr [ null, %entry ], [ null, %if.then25 ], [ null, %if.then43 ], [ null, %if.end48 ], [ null, %if.end55 ], [ %call58, %if.end83 ], [ %call58, %if.end116 ], [ %call58, %if.end79 ], [ %call58, %land.lhs.true74 ], [ %call58, %lor.lhs.false67 ], [ %call58, %lor.lhs.false64 ], [ %call58, %if.end62 ], [ null, %if.then39 ], [ null, %if.then14 ]
-  tail call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #8
+  tail call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #9
   %conv120 = sext i32 %sLen.addr.2 to i64
-  tail call void @CRYPTO_clear_free(ptr noundef %salt.1, i64 noundef %conv120, ptr noundef nonnull @.str, i32 noundef 266) #8
+  tail call void @CRYPTO_clear_free(ptr noundef %salt.1, i64 noundef %conv120, ptr noundef nonnull @.str, i32 noundef 266) #9
   ret i32 %ret.0
 }
 
@@ -510,7 +509,7 @@ declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) l
 
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef writeonly %rsa_pss_params) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %rsa_pss_params, null
@@ -545,7 +544,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   ret i32 %lor.ext
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @ossl_rsa_pss_params_30_copy(ptr nocapture noundef writeonly %to, ptr nocapture noundef readonly %from) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %to, ptr noundef nonnull align 4 dereferenceable(20) %from, i64 20, i1 false)
@@ -697,15 +696,19 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -404,10 +404,9 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %name, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
-  %cmp2 = icmp slt i32 %call1, %loc
   %cmp4 = icmp slt i32 %loc, 0
-  %1 = or i1 %cmp4, %cmp2
-  %loc.addr.0 = select i1 %1, i32 %call1, i32 %loc
+  %1 = tail call i32 @llvm.smin.i32(i32 %call1, i32 %loc)
+  %loc.addr.0 = select i1 %cmp4, i32 %call1, i32 %1
   %cmp8 = icmp eq i32 %set, 0
   %modified = getelementptr inbounds %struct.X509_name_st, ptr %name, i64 0, i32 1
   store i32 1, ptr %modified, align 8
@@ -833,6 +832,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -80,22 +80,22 @@ entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %format, i64 1
   %0 = load i8, ptr %format, align 1
   %cmp3 = icmp eq ptr %buffer, null
-  %cmp1.i178 = icmp ne ptr %buffer, null
+  %cmp1.i177 = icmp ne ptr %buffer, null
   %overflow_arg_area_p423 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
   %1 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
   %fp_offset_p342 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 1
   br label %while.body
 
 while.body:                                       ; preds = %entry, %sw.epilog442
-  %cflags.0526 = phi i32 [ 0, %entry ], [ %cflags.3, %sw.epilog442 ]
-  %flags.0525 = phi i32 [ 0, %entry ], [ %flags.4, %sw.epilog442 ]
-  %state.0524 = phi i32 [ 0, %entry ], [ %state.3, %sw.epilog442 ]
-  %max.0523 = phi i32 [ -1, %entry ], [ %max.2, %sw.epilog442 ]
-  %min.0522 = phi i32 [ 0, %entry ], [ %min.1, %sw.epilog442 ]
-  %format.addr.0521 = phi ptr [ %incdec.ptr, %entry ], [ %format.addr.4, %sw.epilog442 ]
-  %ch.0520 = phi i8 [ %0, %entry ], [ %ch.2, %sw.epilog442 ]
-  %conv = sext i8 %ch.0520 to i32
-  %cmp1 = icmp eq i8 %ch.0520, 0
+  %cflags.0525 = phi i32 [ 0, %entry ], [ %cflags.3, %sw.epilog442 ]
+  %flags.0524 = phi i32 [ 0, %entry ], [ %flags.4, %sw.epilog442 ]
+  %state.0523 = phi i32 [ 0, %entry ], [ %state.3, %sw.epilog442 ]
+  %max.0522 = phi i32 [ -1, %entry ], [ %max.2, %sw.epilog442 ]
+  %min.0521 = phi i32 [ 0, %entry ], [ %min.1, %sw.epilog442 ]
+  %format.addr.0520 = phi ptr [ %incdec.ptr, %entry ], [ %format.addr.4, %sw.epilog442 ]
+  %ch.0519 = phi i8 [ %0, %entry ], [ %ch.2, %sw.epilog442 ]
+  %conv = sext i8 %ch.0519 to i32
+  %cmp1 = icmp eq i8 %ch.0519, 0
   br i1 %cmp1, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
@@ -108,12 +108,12 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %cmp5.not, label %if.end, label %while.end.thread
 
 while.end.thread:                                 ; preds = %land.lhs.true
-  %.pre544 = load i64, ptr %currlen, align 8
-  %.pre535545 = load i64, ptr %maxlen, align 8
+  %.pre543 = load i64, ptr %currlen, align 8
+  %.pre534544 = load i64, ptr %maxlen, align 8
   br label %if.then445
 
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
-  switch i32 %state.0524, label %sw.epilog442 [
+  switch i32 %state.0523, label %sw.epilog442 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb16
     i32 2, label %sw.bb32
@@ -124,13 +124,13 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %cmp8 = icmp eq i8 %ch.0520, 37
+  %cmp8 = icmp eq i8 %ch.0519, 37
   br i1 %cmp8, label %sw.epilog442.sink.split, label %if.else
 
 if.else:                                          ; preds = %sw.bb
   %4 = load ptr, ptr %sbuffer, align 8
   %cmp.i = icmp ne ptr %4, null
-  %5 = or i1 %cmp1.i178, %cmp.i
+  %5 = or i1 %cmp1.i177, %cmp.i
   br i1 %5, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.else
@@ -141,7 +141,7 @@ if.end.i:                                         ; preds = %if.else
 
 if.end15.i:                                       ; preds = %if.end.i
   %cmp17.i = icmp eq i64 %6, %7
-  %or.cond.i = and i1 %cmp1.i178, %cmp17.i
+  %or.cond.i = and i1 %cmp1.i177, %cmp17.i
   br i1 %or.cond.i, label %if.then19.i, label %if.end53.i
 
 if.then19.i:                                      ; preds = %if.end15.i
@@ -206,7 +206,7 @@ return.sink.split.i:                              ; preds = %if.else60.i, %if.th
   %inc62.i = add nuw i64 %6, 1
   store i64 %inc62.i, ptr %currlen, align 8
   %arrayidx63.i = getelementptr inbounds i8, ptr %.sink.i, i64 %6
-  store i8 %ch.0520, ptr %arrayidx63.i, align 1
+  store i8 %ch.0519, ptr %arrayidx63.i, align 1
   br label %sw.epilog442.sink.split
 
 sw.bb16:                                          ; preds = %if.end
@@ -219,23 +219,23 @@ sw.bb16:                                          ; preds = %if.end
   ]
 
 sw.bb18:                                          ; preds = %sw.bb16
-  %or = or i32 %flags.0525, 1
+  %or = or i32 %flags.0524, 1
   br label %sw.epilog442.sink.split
 
 sw.bb20:                                          ; preds = %sw.bb16
-  %or21 = or i32 %flags.0525, 2
+  %or21 = or i32 %flags.0524, 2
   br label %sw.epilog442.sink.split
 
 sw.bb23:                                          ; preds = %sw.bb16
-  %or24 = or i32 %flags.0525, 4
+  %or24 = or i32 %flags.0524, 4
   br label %sw.epilog442.sink.split
 
 sw.bb26:                                          ; preds = %sw.bb16
-  %or27 = or i32 %flags.0525, 8
+  %or27 = or i32 %flags.0524, 8
   br label %sw.epilog442.sink.split
 
 sw.bb29:                                          ; preds = %sw.bb16
-  %or30 = or i32 %flags.0525, 16
+  %or30 = or i32 %flags.0524, 16
   br label %sw.epilog442.sink.split
 
 sw.bb32:                                          ; preds = %if.end
@@ -244,13 +244,13 @@ sw.bb32:                                          ; preds = %if.end
   br i1 %tobool35.not, label %if.else39, label %if.then36
 
 if.then36:                                        ; preds = %sw.bb32
-  %mul = mul nsw i32 %min.0522, 10
+  %mul = mul nsw i32 %min.0521, 10
   %sub = add nsw i32 %conv, -48
   %add = add nsw i32 %sub, %mul
   br label %sw.epilog442.sink.split
 
 if.else39:                                        ; preds = %sw.bb32
-  %cmp41 = icmp eq i8 %ch.0520, 42
+  %cmp41 = icmp eq i8 %ch.0519, 42
   br i1 %cmp41, label %if.then43, label %sw.epilog442
 
 if.then43:                                        ; preds = %if.else39
@@ -278,7 +278,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   br label %sw.epilog442.sink.split
 
 sw.bb48:                                          ; preds = %if.end
-  %cmp50 = icmp eq i8 %ch.0520, 46
+  %cmp50 = icmp eq i8 %ch.0519, 46
   br i1 %cmp50, label %sw.epilog442.sink.split, label %sw.epilog442
 
 sw.bb56:                                          ; preds = %if.end
@@ -287,14 +287,14 @@ sw.bb56:                                          ; preds = %if.end
   br i1 %tobool59.not, label %if.else70, label %if.then60
 
 if.then60:                                        ; preds = %sw.bb56
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %max.0523, i32 0)
+  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %max.0522, i32 0)
   %mul65 = mul nsw i32 %spec.store.select, 10
   %sub67 = add nsw i32 %conv, -48
   %add68 = add nsw i32 %sub67, %mul65
   br label %sw.epilog442.sink.split
 
 if.else70:                                        ; preds = %sw.bb56
-  %cmp72 = icmp eq i8 %ch.0520, 42
+  %cmp72 = icmp eq i8 %ch.0519, 42
   br i1 %cmp72, label %if.then74, label %sw.epilog442
 
 if.then74:                                        ; preds = %if.else70
@@ -332,10 +332,10 @@ sw.bb90:                                          ; preds = %if.end
   ]
 
 sw.bb94:                                          ; preds = %sw.bb90
-  %21 = load i8, ptr %format.addr.0521, align 1
+  %21 = load i8, ptr %format.addr.0520, align 1
   %cmp96 = icmp eq i8 %21, 108
   %format.addr.1.idx = zext i1 %cmp96 to i64
-  %format.addr.1 = getelementptr inbounds i8, ptr %format.addr.0521, i64 %format.addr.1.idx
+  %format.addr.1 = getelementptr inbounds i8, ptr %format.addr.0520, i64 %format.addr.1.idx
   %cflags.1 = select i1 %cmp96, i32 4, i32 2
   br label %sw.epilog442.sink.split
 
@@ -372,7 +372,7 @@ sw.bb111:                                         ; preds = %if.end
 sw.bb113:                                         ; preds = %sw.bb111, %sw.bb111
   %gp_offset166 = load i32, ptr %args, align 8
   %fits_in_gp167 = icmp ult i32 %gp_offset166, 41
-  switch i32 %cflags.0526, label %sw.default164 [
+  switch i32 %cflags.0525, label %sw.default164 [
     i32 1, label %sw.bb114
     i32 2, label %sw.bb128
     i32 4, label %sw.bb140
@@ -495,20 +495,20 @@ vaarg.end174:                                     ; preds = %vaarg.in_mem170, %v
 
 sw.epilog177:                                     ; preds = %vaarg.end174, %vaarg.end162, %vaarg.end150, %vaarg.end138, %vaarg.end124
   %value.0 = phi i64 [ %conv176, %vaarg.end174 ], [ %37, %vaarg.end162 ], [ %33, %vaarg.end150 ], [ %29, %vaarg.end138 ], [ %conv127, %vaarg.end124 ]
-  %call178 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, i64 noundef %value.0, i32 noundef 10, i32 noundef %min.0522, i32 noundef %max.0523, i32 noundef %flags.0525), !range !4
+  %call178 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, i64 noundef %value.0, i32 noundef 10, i32 noundef %min.0521, i32 noundef %max.0522, i32 noundef %flags.0524), !range !4
   %tobool179.not = icmp eq i32 %call178, 0
   br i1 %tobool179.not, label %return, label %sw.epilog442.sink.split
 
 sw.bb182:                                         ; preds = %sw.bb111
-  %or183 = or i32 %flags.0525, 32
+  %or183 = or i32 %flags.0524, 32
   br label %sw.bb184
 
 sw.bb184:                                         ; preds = %sw.bb182, %sw.bb111, %sw.bb111, %sw.bb111
-  %flags.1 = phi i32 [ %flags.0525, %sw.bb111 ], [ %flags.0525, %sw.bb111 ], [ %flags.0525, %sw.bb111 ], [ %or183, %sw.bb182 ]
+  %flags.1 = phi i32 [ %flags.0524, %sw.bb111 ], [ %flags.0524, %sw.bb111 ], [ %flags.0524, %sw.bb111 ], [ %or183, %sw.bb182 ]
   %or185 = or i32 %flags.1, 64
   %gp_offset238 = load i32, ptr %args, align 8
   %fits_in_gp239 = icmp ult i32 %gp_offset238, 41
-  switch i32 %cflags.0526, label %sw.default236 [
+  switch i32 %cflags.0525, label %sw.default236 [
     i32 1, label %sw.bb186
     i32 2, label %sw.bb200
     i32 4, label %sw.bb212
@@ -630,16 +630,16 @@ vaarg.end246:                                     ; preds = %vaarg.in_mem242, %v
 
 sw.epilog249:                                     ; preds = %vaarg.end246, %vaarg.end234, %vaarg.end222, %vaarg.end210, %vaarg.end196
   %value.1 = phi i64 [ %conv248, %vaarg.end246 ], [ %58, %vaarg.end234 ], [ %54, %vaarg.end222 ], [ %50, %vaarg.end210 ], [ %conv199, %vaarg.end196 ]
-  %cmp251 = icmp eq i8 %ch.0520, 111
-  %cmp254 = icmp eq i8 %ch.0520, 117
+  %cmp251 = icmp eq i8 %ch.0519, 111
+  %cmp254 = icmp eq i8 %ch.0519, 117
   %cond = select i1 %cmp254, i32 10, i32 16
   %cond256 = select i1 %cmp251, i32 8, i32 %cond
-  %call257 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, i64 noundef %value.1, i32 noundef %cond256, i32 noundef %min.0522, i32 noundef %max.0523, i32 noundef %or185), !range !4
+  %call257 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, i64 noundef %value.1, i32 noundef %cond256, i32 noundef %min.0521, i32 noundef %max.0522, i32 noundef %or185), !range !4
   %tobool258.not = icmp eq i32 %call257, 0
   br i1 %tobool258.not, label %return, label %sw.epilog442.sink.split
 
 sw.bb261:                                         ; preds = %sw.bb111
-  %cmp262 = icmp eq i32 %cflags.0526, 3
+  %cmp262 = icmp eq i32 %cflags.0525, 3
   %fp_offset = load i32, ptr %fp_offset_p342, align 4
   %fits_in_fp = icmp ult i32 %fp_offset, 161
   br i1 %cmp262, label %if.then264, label %if.else273
@@ -681,17 +681,17 @@ vaarg.in_mem279:                                  ; preds = %if.else273
 if.end285:                                        ; preds = %vaarg.in_reg277, %vaarg.in_mem279, %vaarg.in_reg265, %vaarg.in_mem267
   %fvalue.0.in = phi ptr [ %64, %vaarg.in_reg265 ], [ %overflow_arg_area269, %vaarg.in_mem267 ], [ %67, %vaarg.in_reg277 ], [ %overflow_arg_area281, %vaarg.in_mem279 ]
   %fvalue.0 = load double, ptr %fvalue.0.in, align 8
-  %call286 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, double noundef %fvalue.0, i32 noundef %min.0522, i32 noundef %max.0523, i32 noundef %flags.0525, i32 noundef 0), !range !4
+  %call286 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, double noundef %fvalue.0, i32 noundef %min.0521, i32 noundef %max.0522, i32 noundef %flags.0524, i32 noundef 0), !range !4
   %tobool287.not = icmp eq i32 %call286, 0
   br i1 %tobool287.not, label %return, label %sw.epilog442.sink.split
 
 sw.bb290:                                         ; preds = %sw.bb111
-  %or291 = or i32 %flags.0525, 32
+  %or291 = or i32 %flags.0524, 32
   br label %sw.bb292
 
 sw.bb292:                                         ; preds = %sw.bb290, %sw.bb111
-  %flags.2 = phi i32 [ %flags.0525, %sw.bb111 ], [ %or291, %sw.bb290 ]
-  %cmp293 = icmp eq i32 %cflags.0526, 3
+  %flags.2 = phi i32 [ %flags.0524, %sw.bb111 ], [ %or291, %sw.bb290 ]
+  %cmp293 = icmp eq i32 %cflags.0525, 3
   %fp_offset297 = load i32, ptr %fp_offset_p342, align 4
   %fits_in_fp298 = icmp ult i32 %fp_offset297, 161
   br i1 %cmp293, label %if.then295, label %if.else307
@@ -733,17 +733,17 @@ vaarg.in_mem313:                                  ; preds = %if.else307
 if.end319:                                        ; preds = %vaarg.in_reg311, %vaarg.in_mem313, %vaarg.in_reg299, %vaarg.in_mem301
   %fvalue.1.in = phi ptr [ %70, %vaarg.in_reg299 ], [ %overflow_arg_area303, %vaarg.in_mem301 ], [ %73, %vaarg.in_reg311 ], [ %overflow_arg_area315, %vaarg.in_mem313 ]
   %fvalue.1 = load double, ptr %fvalue.1.in, align 8
-  %call320 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, double noundef %fvalue.1, i32 noundef %min.0522, i32 noundef %max.0523, i32 noundef %flags.2, i32 noundef 1), !range !4
+  %call320 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, double noundef %fvalue.1, i32 noundef %min.0521, i32 noundef %max.0522, i32 noundef %flags.2, i32 noundef 1), !range !4
   %tobool321.not = icmp eq i32 %call320, 0
   br i1 %tobool321.not, label %return, label %sw.epilog442.sink.split
 
 sw.bb324:                                         ; preds = %sw.bb111
-  %or325 = or i32 %flags.0525, 32
+  %or325 = or i32 %flags.0524, 32
   br label %sw.bb326
 
 sw.bb326:                                         ; preds = %sw.bb324, %sw.bb111
-  %flags.3 = phi i32 [ %flags.0525, %sw.bb111 ], [ %or325, %sw.bb324 ]
-  %cmp327 = icmp eq i32 %cflags.0526, 3
+  %flags.3 = phi i32 [ %flags.0524, %sw.bb111 ], [ %or325, %sw.bb324 ]
+  %cmp327 = icmp eq i32 %cflags.0525, 3
   %fp_offset331 = load i32, ptr %fp_offset_p342, align 4
   %fits_in_fp332 = icmp ult i32 %fp_offset331, 161
   br i1 %cmp327, label %if.then329, label %if.else341
@@ -785,7 +785,7 @@ vaarg.in_mem347:                                  ; preds = %if.else341
 if.end353:                                        ; preds = %vaarg.in_reg345, %vaarg.in_mem347, %vaarg.in_reg333, %vaarg.in_mem335
   %fvalue.2.in = phi ptr [ %76, %vaarg.in_reg333 ], [ %overflow_arg_area337, %vaarg.in_mem335 ], [ %79, %vaarg.in_reg345 ], [ %overflow_arg_area349, %vaarg.in_mem347 ]
   %fvalue.2 = load double, ptr %fvalue.2.in, align 8
-  %call354 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, double noundef %fvalue.2, i32 noundef %min.0522, i32 noundef %max.0523, i32 noundef %flags.3, i32 noundef 2), !range !4
+  %call354 = call fastcc i32 @fmtfp(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, double noundef %fvalue.2, i32 noundef %min.0521, i32 noundef %max.0522, i32 noundef %flags.3, i32 noundef 2), !range !4
   %tobool355.not = icmp eq i32 %call354, 0
   br i1 %tobool355.not, label %return, label %sw.epilog442.sink.split
 
@@ -813,7 +813,7 @@ vaarg.end368:                                     ; preds = %vaarg.in_mem364, %v
   %84 = load i32, ptr %vaarg.addr369, align 4
   %85 = load ptr, ptr %sbuffer, align 8
   %cmp.i135 = icmp ne ptr %85, null
-  %86 = or i1 %cmp1.i178, %cmp.i135
+  %86 = or i1 %cmp1.i177, %cmp.i135
   br i1 %86, label %if.end.i138, label %return
 
 if.end.i138:                                      ; preds = %vaarg.end368
@@ -824,7 +824,7 @@ if.end.i138:                                      ; preds = %vaarg.end368
 
 if.end15.i140:                                    ; preds = %if.end.i138
   %cmp17.i141 = icmp eq i64 %87, %88
-  %or.cond.i142 = and i1 %cmp1.i178, %cmp17.i141
+  %or.cond.i142 = and i1 %cmp1.i177, %cmp17.i141
   br i1 %or.cond.i142, label %if.then19.i152, label %if.end53.i143
 
 if.then19.i152:                                   ; preds = %if.end15.i140
@@ -915,9 +915,9 @@ vaarg.in_mem380:                                  ; preds = %sw.bb374
 vaarg.end384:                                     ; preds = %vaarg.in_mem380, %vaarg.in_reg378
   %vaarg.addr385 = phi ptr [ %95, %vaarg.in_reg378 ], [ %overflow_arg_area382, %vaarg.in_mem380 ]
   %97 = load ptr, ptr %vaarg.addr385, align 8
-  %cmp386 = icmp sgt i32 %max.0523, -1
-  %brmerge = or i1 %cmp386, %cmp1.i178
-  %max.0523.mux = select i1 %cmp386, i32 %max.0523, i32 2147483647
+  %cmp386 = icmp sgt i32 %max.0522, -1
+  %brmerge = or i1 %cmp386, %cmp1.i177
+  %max.0522.mux = select i1 %cmp386, i32 %max.0522, i32 2147483647
   br i1 %brmerge, label %if.end394, label %if.else391
 
 if.else391:                                       ; preds = %vaarg.end384
@@ -926,7 +926,7 @@ if.else391:                                       ; preds = %vaarg.end384
   br label %if.end394
 
 if.end394:                                        ; preds = %vaarg.end384, %if.else391
-  %max.1 = phi i32 [ %conv392, %if.else391 ], [ %max.0523.mux, %vaarg.end384 ]
+  %max.1 = phi i32 [ %conv392, %if.else391 ], [ %max.0522.mux, %vaarg.end384 ]
   %max.1.fr = freeze i32 %max.1
   %cmp.i171 = icmp eq ptr %97, null
   %spec.store.select.i = select i1 %cmp.i171, ptr @.str.7, ptr %97
@@ -934,19 +934,18 @@ if.end394:                                        ; preds = %vaarg.end384, %if.e
   %cond.i = sext i32 %narrow.i to i64
   %call.i172 = tail call i64 @OPENSSL_strnlen(ptr noundef nonnull %spec.store.select.i, i64 noundef %cond.i) #7
   %99 = trunc i64 %call.i172 to i32
-  %conv3.i = sub i32 %min.0522, %99
-  %cmp4.i = icmp slt i32 %min.0522, 0
-  %cmp6.i = icmp slt i32 %conv3.i, 0
-  %or.cond.i173 = select i1 %cmp4.i, i1 true, i1 %cmp6.i
-  %spec.store.select1.i = select i1 %or.cond.i173, i32 0, i32 %conv3.i
-  %sub13.i = sub nsw i32 2147483647, %spec.store.select1.i
+  %conv3.i = sub i32 %min.0521, %99
+  %cmp4.i = icmp slt i32 %min.0521, 0
+  %100 = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 0)
+  %spec.store.select1.i = select i1 %cmp4.i, i32 0, i32 %100
+  %sub13.i = xor i32 %spec.store.select1.i, 2147483647
   %cmp14.i = icmp sgt i32 %sub13.i, %max.1.fr
-  %add.i174 = add nsw i32 %spec.store.select1.i, %max.1.fr
-  %spec.select37.i = select i1 %cmp14.i, i32 %add.i174, i32 2147483647
+  %add.i173 = add nuw nsw i32 %spec.store.select1.i, %max.1.fr
+  %spec.select37.i = select i1 %cmp14.i, i32 %add.i173, i32 2147483647
   %cmp1038.i = icmp slt i32 %max.1.fr, 0
   %spec.select37.fr.i = freeze i32 %spec.select37.i
   %spec.select = select i1 %cmp1038.i, i32 %max.1.fr, i32 %spec.select37.fr.i
-  %and.i = and i32 %flags.0525, 1
+  %and.i = and i32 %flags.0524, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   %sub20.i = sub nsw i32 0, %spec.store.select1.i
   %spec.select.i = select i1 %tobool.not.i, i32 %spec.store.select1.i, i32 %sub20.i
@@ -954,212 +953,212 @@ if.end394:                                        ; preds = %vaarg.end384, %if.e
   br i1 %cmp2244.i, label %land.rhs.lr.ph.i, label %while.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end394
-  %cmp24.i176 = icmp slt i32 %spec.select, 0
-  br i1 %cmp24.i176, label %land.rhs.us.i.preheader, label %land.rhs.preheader.i
+  %cmp24.i175 = icmp slt i32 %spec.select, 0
+  br i1 %cmp24.i175, label %land.rhs.us.i.preheader, label %land.rhs.preheader.i
 
 land.rhs.us.i.preheader:                          ; preds = %land.rhs.lr.ph.i
-  %currlen.promoted503 = load i64, ptr %currlen, align 8
+  %currlen.promoted502 = load i64, ptr %currlen, align 8
   br label %land.rhs.us.i
 
 land.rhs.preheader.i:                             ; preds = %land.rhs.lr.ph.i
-  %100 = sub nsw i32 %spec.select.i, %spec.select
+  %101 = sub nsw i32 %spec.select.i, %spec.select
   %currlen.promoted = load i64, ptr %currlen, align 8
   br label %land.rhs.i
 
 land.rhs.us.i:                                    ; preds = %land.rhs.us.i.preheader, %if.end31.us.i
-  %inc62.i443505 = phi i64 [ %inc62.i443504, %if.end31.us.i ], [ %currlen.promoted503, %land.rhs.us.i.preheader ]
+  %inc62.i442504 = phi i64 [ %inc62.i442503, %if.end31.us.i ], [ %currlen.promoted502, %land.rhs.us.i.preheader ]
   %cnt.046.us.i = phi i32 [ %inc.us.i, %if.end31.us.i ], [ 0, %land.rhs.us.i.preheader ]
-  %101 = load ptr, ptr %sbuffer, align 8
-  %cmp.i429 = icmp ne ptr %101, null
-  %102 = or i1 %cmp1.i178, %cmp.i429
-  br i1 %102, label %if.end.i432, label %return
+  %102 = load ptr, ptr %sbuffer, align 8
+  %cmp.i428 = icmp ne ptr %102, null
+  %103 = or i1 %cmp1.i177, %cmp.i428
+  br i1 %103, label %if.end.i431, label %return
 
-if.end.i432:                                      ; preds = %land.rhs.us.i
-  %103 = load i64, ptr %maxlen, align 8
-  %cmp4.not.i433 = icmp ugt i64 %inc62.i443505, %103
-  br i1 %cmp4.not.i433, label %return, label %if.end15.i434
+if.end.i431:                                      ; preds = %land.rhs.us.i
+  %104 = load i64, ptr %maxlen, align 8
+  %cmp4.not.i432 = icmp ugt i64 %inc62.i442504, %104
+  br i1 %cmp4.not.i432, label %return, label %if.end15.i433
 
-if.end15.i434:                                    ; preds = %if.end.i432
-  %cmp17.i435 = icmp eq i64 %inc62.i443505, %103
-  %or.cond.i436 = and i1 %cmp1.i178, %cmp17.i435
-  br i1 %or.cond.i436, label %if.then19.i446, label %if.end53.i437
+if.end15.i433:                                    ; preds = %if.end.i431
+  %cmp17.i434 = icmp eq i64 %inc62.i442504, %104
+  %or.cond.i435 = and i1 %cmp1.i177, %cmp17.i434
+  br i1 %or.cond.i435, label %if.then19.i445, label %if.end53.i436
 
-if.then19.i446:                                   ; preds = %if.end15.i434
-  %cmp20.i447 = icmp ugt i64 %inc62.i443505, 2147482623
-  br i1 %cmp20.i447, label %return, label %if.end23.i448
+if.then19.i445:                                   ; preds = %if.end15.i433
+  %cmp20.i446 = icmp ugt i64 %inc62.i442504, 2147482623
+  br i1 %cmp20.i446, label %return, label %if.end23.i447
 
-if.end23.i448:                                    ; preds = %if.then19.i446
-  %add.i449 = add nuw nsw i64 %inc62.i443505, 1024
-  store i64 %add.i449, ptr %maxlen, align 8
-  %104 = load ptr, ptr %buffer, align 8
-  %cmp24.i450 = icmp eq ptr %104, null
-  br i1 %cmp24.i450, label %if.then26.i455, label %if.else.i451
+if.end23.i447:                                    ; preds = %if.then19.i445
+  %add.i448 = add nuw nsw i64 %inc62.i442504, 1024
+  store i64 %add.i448, ptr %maxlen, align 8
+  %105 = load ptr, ptr %buffer, align 8
+  %cmp24.i449 = icmp eq ptr %105, null
+  br i1 %cmp24.i449, label %if.then26.i454, label %if.else.i450
 
-if.then26.i455:                                   ; preds = %if.end23.i448
-  %call.i456 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i449, ptr noundef nonnull @.str, i32 noundef 848) #7
-  store ptr %call.i456, ptr %buffer, align 8
-  %cmp27.i457 = icmp eq ptr %call.i456, null
-  br i1 %cmp27.i457, label %return, label %if.end30.i458
+if.then26.i454:                                   ; preds = %if.end23.i447
+  %call.i455 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i448, ptr noundef nonnull @.str, i32 noundef 848) #7
+  store ptr %call.i455, ptr %buffer, align 8
+  %cmp27.i456 = icmp eq ptr %call.i455, null
+  br i1 %cmp27.i456, label %return, label %if.end30.i457
 
-if.end30.i458:                                    ; preds = %if.then26.i455
-  %cmp31.not.i459 = icmp eq i64 %inc62.i443505, 0
-  br i1 %cmp31.not.i459, label %if.end46.i463, label %if.then33.i460
+if.end30.i457:                                    ; preds = %if.then26.i454
+  %cmp31.not.i458 = icmp eq i64 %inc62.i442504, 0
+  br i1 %cmp31.not.i458, label %if.end46.i462, label %if.then33.i459
 
-if.then33.i460:                                   ; preds = %if.end30.i458
-  %105 = load ptr, ptr %sbuffer, align 8
-  %cmp34.not.i461 = icmp eq ptr %105, null
-  br i1 %cmp34.not.i461, label %return, label %if.end45.i462
+if.then33.i459:                                   ; preds = %if.end30.i457
+  %106 = load ptr, ptr %sbuffer, align 8
+  %cmp34.not.i460 = icmp eq ptr %106, null
+  br i1 %cmp34.not.i460, label %return, label %if.end45.i461
 
-if.end45.i462:                                    ; preds = %if.then33.i460
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i456, ptr nonnull align 1 %105, i64 %inc62.i443505, i1 false)
-  br label %if.end46.i463
+if.end45.i461:                                    ; preds = %if.then33.i459
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i455, ptr nonnull align 1 %106, i64 %inc62.i442504, i1 false)
+  br label %if.end46.i462
 
-if.end46.i463:                                    ; preds = %if.end45.i462, %if.end30.i458
+if.end46.i462:                                    ; preds = %if.end45.i461, %if.end30.i457
   store ptr null, ptr %sbuffer, align 8
-  br label %if.end53.i437
+  br label %if.end53.i436
 
-if.else.i451:                                     ; preds = %if.end23.i448
-  %call47.i452 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %104, i64 noundef %add.i449, ptr noundef nonnull @.str, i32 noundef 859) #7
-  %cmp48.i453 = icmp eq ptr %call47.i452, null
-  br i1 %cmp48.i453, label %return, label %if.end51.i454
+if.else.i450:                                     ; preds = %if.end23.i447
+  %call47.i451 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %105, i64 noundef %add.i448, ptr noundef nonnull @.str, i32 noundef 859) #7
+  %cmp48.i452 = icmp eq ptr %call47.i451, null
+  br i1 %cmp48.i452, label %return, label %if.end51.i453
 
-if.end51.i454:                                    ; preds = %if.else.i451
-  store ptr %call47.i452, ptr %buffer, align 8
-  br label %if.end53.i437
+if.end51.i453:                                    ; preds = %if.else.i450
+  store ptr %call47.i451, ptr %buffer, align 8
+  br label %if.end53.i436
 
-if.end53.i437:                                    ; preds = %if.end51.i454, %if.end46.i463, %if.end15.i434
-  %106 = load i64, ptr %maxlen, align 8
-  %cmp54.i438 = icmp ult i64 %inc62.i443505, %106
-  br i1 %cmp54.i438, label %if.then56.i439, label %if.end31.us.i
+if.end53.i436:                                    ; preds = %if.end51.i453, %if.end46.i462, %if.end15.i433
+  %107 = load i64, ptr %maxlen, align 8
+  %cmp54.i437 = icmp ult i64 %inc62.i442504, %107
+  br i1 %cmp54.i437, label %if.then56.i438, label %if.end31.us.i
 
-if.then56.i439:                                   ; preds = %if.end53.i437
-  %107 = load ptr, ptr %sbuffer, align 8
-  %tobool57.not.i440 = icmp eq ptr %107, null
-  br i1 %tobool57.not.i440, label %if.else60.i445, label %return.sink.split.i441
+if.then56.i438:                                   ; preds = %if.end53.i436
+  %108 = load ptr, ptr %sbuffer, align 8
+  %tobool57.not.i439 = icmp eq ptr %108, null
+  br i1 %tobool57.not.i439, label %if.else60.i444, label %return.sink.split.i440
 
-if.else60.i445:                                   ; preds = %if.then56.i439
-  %108 = load ptr, ptr %buffer, align 8
-  br label %return.sink.split.i441
+if.else60.i444:                                   ; preds = %if.then56.i438
+  %109 = load ptr, ptr %buffer, align 8
+  br label %return.sink.split.i440
 
-return.sink.split.i441:                           ; preds = %if.else60.i445, %if.then56.i439
-  %.sink.i442 = phi ptr [ %108, %if.else60.i445 ], [ %107, %if.then56.i439 ]
-  %inc62.i443 = add nuw i64 %inc62.i443505, 1
-  %arrayidx63.i444 = getelementptr inbounds i8, ptr %.sink.i442, i64 %inc62.i443505
-  store i8 32, ptr %arrayidx63.i444, align 1
+return.sink.split.i440:                           ; preds = %if.else60.i444, %if.then56.i438
+  %.sink.i441 = phi ptr [ %109, %if.else60.i444 ], [ %108, %if.then56.i438 ]
+  %inc62.i442 = add nuw i64 %inc62.i442504, 1
+  %arrayidx63.i443 = getelementptr inbounds i8, ptr %.sink.i441, i64 %inc62.i442504
+  store i8 32, ptr %arrayidx63.i443, align 1
   br label %if.end31.us.i
 
-if.end31.us.i:                                    ; preds = %return.sink.split.i441, %if.end53.i437
-  %inc62.i443504 = phi i64 [ %inc62.i443, %return.sink.split.i441 ], [ %inc62.i443505, %if.end53.i437 ]
+if.end31.us.i:                                    ; preds = %return.sink.split.i440, %if.end53.i436
+  %inc62.i442503 = phi i64 [ %inc62.i442, %return.sink.split.i440 ], [ %inc62.i442504, %if.end53.i436 ]
   %inc.us.i = add nuw nsw i32 %cnt.046.us.i, 1
   %exitcond75.not.i = icmp eq i32 %inc.us.i, %spec.select.i
   br i1 %exitcond75.not.i, label %while.end.i.loopexit, label %land.rhs.us.i, !llvm.loop !5
 
 land.rhs.i:                                       ; preds = %if.end31.i, %land.rhs.preheader.i
-  %inc62.i407501 = phi i64 [ %inc62.i407500, %if.end31.i ], [ %currlen.promoted, %land.rhs.preheader.i ]
+  %inc62.i406500 = phi i64 [ %inc62.i406499, %if.end31.i ], [ %currlen.promoted, %land.rhs.preheader.i ]
   %cnt.046.i = phi i32 [ %inc.i, %if.end31.i ], [ 0, %land.rhs.preheader.i ]
   %exitcond.not.i = icmp eq i32 %cnt.046.i, %spec.select
-  br i1 %exitcond.not.i, label %while.end.i.loopexit497, label %while.body.i
+  br i1 %exitcond.not.i, label %while.end.i.loopexit496, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %109 = load ptr, ptr %sbuffer, align 8
-  %cmp.i393 = icmp ne ptr %109, null
-  %110 = or i1 %cmp1.i178, %cmp.i393
-  br i1 %110, label %if.end.i396, label %return
+  %110 = load ptr, ptr %sbuffer, align 8
+  %cmp.i392 = icmp ne ptr %110, null
+  %111 = or i1 %cmp1.i177, %cmp.i392
+  br i1 %111, label %if.end.i395, label %return
 
-if.end.i396:                                      ; preds = %while.body.i
-  %111 = load i64, ptr %maxlen, align 8
-  %cmp4.not.i397 = icmp ugt i64 %inc62.i407501, %111
-  br i1 %cmp4.not.i397, label %return, label %if.end15.i398
+if.end.i395:                                      ; preds = %while.body.i
+  %112 = load i64, ptr %maxlen, align 8
+  %cmp4.not.i396 = icmp ugt i64 %inc62.i406500, %112
+  br i1 %cmp4.not.i396, label %return, label %if.end15.i397
 
-if.end15.i398:                                    ; preds = %if.end.i396
-  %cmp17.i399 = icmp eq i64 %inc62.i407501, %111
-  %or.cond.i400 = and i1 %cmp1.i178, %cmp17.i399
-  br i1 %or.cond.i400, label %if.then19.i410, label %if.end53.i401
+if.end15.i397:                                    ; preds = %if.end.i395
+  %cmp17.i398 = icmp eq i64 %inc62.i406500, %112
+  %or.cond.i399 = and i1 %cmp1.i177, %cmp17.i398
+  br i1 %or.cond.i399, label %if.then19.i409, label %if.end53.i400
 
-if.then19.i410:                                   ; preds = %if.end15.i398
-  %cmp20.i411 = icmp ugt i64 %inc62.i407501, 2147482623
-  br i1 %cmp20.i411, label %return, label %if.end23.i412
+if.then19.i409:                                   ; preds = %if.end15.i397
+  %cmp20.i410 = icmp ugt i64 %inc62.i406500, 2147482623
+  br i1 %cmp20.i410, label %return, label %if.end23.i411
 
-if.end23.i412:                                    ; preds = %if.then19.i410
-  %add.i413 = add nuw nsw i64 %inc62.i407501, 1024
-  store i64 %add.i413, ptr %maxlen, align 8
-  %112 = load ptr, ptr %buffer, align 8
-  %cmp24.i414 = icmp eq ptr %112, null
-  br i1 %cmp24.i414, label %if.then26.i419, label %if.else.i415
+if.end23.i411:                                    ; preds = %if.then19.i409
+  %add.i412 = add nuw nsw i64 %inc62.i406500, 1024
+  store i64 %add.i412, ptr %maxlen, align 8
+  %113 = load ptr, ptr %buffer, align 8
+  %cmp24.i413 = icmp eq ptr %113, null
+  br i1 %cmp24.i413, label %if.then26.i418, label %if.else.i414
 
-if.then26.i419:                                   ; preds = %if.end23.i412
-  %call.i420 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i413, ptr noundef nonnull @.str, i32 noundef 848) #7
-  store ptr %call.i420, ptr %buffer, align 8
-  %cmp27.i421 = icmp eq ptr %call.i420, null
-  br i1 %cmp27.i421, label %return, label %if.end30.i422
+if.then26.i418:                                   ; preds = %if.end23.i411
+  %call.i419 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i412, ptr noundef nonnull @.str, i32 noundef 848) #7
+  store ptr %call.i419, ptr %buffer, align 8
+  %cmp27.i420 = icmp eq ptr %call.i419, null
+  br i1 %cmp27.i420, label %return, label %if.end30.i421
 
-if.end30.i422:                                    ; preds = %if.then26.i419
-  %cmp31.not.i423 = icmp eq i64 %inc62.i407501, 0
-  br i1 %cmp31.not.i423, label %if.end46.i427, label %if.then33.i424
+if.end30.i421:                                    ; preds = %if.then26.i418
+  %cmp31.not.i422 = icmp eq i64 %inc62.i406500, 0
+  br i1 %cmp31.not.i422, label %if.end46.i426, label %if.then33.i423
 
-if.then33.i424:                                   ; preds = %if.end30.i422
-  %113 = load ptr, ptr %sbuffer, align 8
-  %cmp34.not.i425 = icmp eq ptr %113, null
-  br i1 %cmp34.not.i425, label %return, label %if.end45.i426
+if.then33.i423:                                   ; preds = %if.end30.i421
+  %114 = load ptr, ptr %sbuffer, align 8
+  %cmp34.not.i424 = icmp eq ptr %114, null
+  br i1 %cmp34.not.i424, label %return, label %if.end45.i425
 
-if.end45.i426:                                    ; preds = %if.then33.i424
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i420, ptr nonnull align 1 %113, i64 %inc62.i407501, i1 false)
-  br label %if.end46.i427
+if.end45.i425:                                    ; preds = %if.then33.i423
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i419, ptr nonnull align 1 %114, i64 %inc62.i406500, i1 false)
+  br label %if.end46.i426
 
-if.end46.i427:                                    ; preds = %if.end45.i426, %if.end30.i422
+if.end46.i426:                                    ; preds = %if.end45.i425, %if.end30.i421
   store ptr null, ptr %sbuffer, align 8
-  br label %if.end53.i401
+  br label %if.end53.i400
 
-if.else.i415:                                     ; preds = %if.end23.i412
-  %call47.i416 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %112, i64 noundef %add.i413, ptr noundef nonnull @.str, i32 noundef 859) #7
-  %cmp48.i417 = icmp eq ptr %call47.i416, null
-  br i1 %cmp48.i417, label %return, label %if.end51.i418
+if.else.i414:                                     ; preds = %if.end23.i411
+  %call47.i415 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %113, i64 noundef %add.i412, ptr noundef nonnull @.str, i32 noundef 859) #7
+  %cmp48.i416 = icmp eq ptr %call47.i415, null
+  br i1 %cmp48.i416, label %return, label %if.end51.i417
 
-if.end51.i418:                                    ; preds = %if.else.i415
-  store ptr %call47.i416, ptr %buffer, align 8
-  br label %if.end53.i401
+if.end51.i417:                                    ; preds = %if.else.i414
+  store ptr %call47.i415, ptr %buffer, align 8
+  br label %if.end53.i400
 
-if.end53.i401:                                    ; preds = %if.end51.i418, %if.end46.i427, %if.end15.i398
-  %114 = load i64, ptr %maxlen, align 8
-  %cmp54.i402 = icmp ult i64 %inc62.i407501, %114
-  br i1 %cmp54.i402, label %if.then56.i403, label %if.end31.i
+if.end53.i400:                                    ; preds = %if.end51.i417, %if.end46.i426, %if.end15.i397
+  %115 = load i64, ptr %maxlen, align 8
+  %cmp54.i401 = icmp ult i64 %inc62.i406500, %115
+  br i1 %cmp54.i401, label %if.then56.i402, label %if.end31.i
 
-if.then56.i403:                                   ; preds = %if.end53.i401
-  %115 = load ptr, ptr %sbuffer, align 8
-  %tobool57.not.i404 = icmp eq ptr %115, null
-  br i1 %tobool57.not.i404, label %if.else60.i409, label %return.sink.split.i405
+if.then56.i402:                                   ; preds = %if.end53.i400
+  %116 = load ptr, ptr %sbuffer, align 8
+  %tobool57.not.i403 = icmp eq ptr %116, null
+  br i1 %tobool57.not.i403, label %if.else60.i408, label %return.sink.split.i404
 
-if.else60.i409:                                   ; preds = %if.then56.i403
-  %116 = load ptr, ptr %buffer, align 8
-  br label %return.sink.split.i405
+if.else60.i408:                                   ; preds = %if.then56.i402
+  %117 = load ptr, ptr %buffer, align 8
+  br label %return.sink.split.i404
 
-return.sink.split.i405:                           ; preds = %if.else60.i409, %if.then56.i403
-  %.sink.i406 = phi ptr [ %116, %if.else60.i409 ], [ %115, %if.then56.i403 ]
-  %inc62.i407 = add nuw i64 %inc62.i407501, 1
-  %arrayidx63.i408 = getelementptr inbounds i8, ptr %.sink.i406, i64 %inc62.i407501
-  store i8 32, ptr %arrayidx63.i408, align 1
+return.sink.split.i404:                           ; preds = %if.else60.i408, %if.then56.i402
+  %.sink.i405 = phi ptr [ %117, %if.else60.i408 ], [ %116, %if.then56.i402 ]
+  %inc62.i406 = add nuw i64 %inc62.i406500, 1
+  %arrayidx63.i407 = getelementptr inbounds i8, ptr %.sink.i405, i64 %inc62.i406500
+  store i8 32, ptr %arrayidx63.i407, align 1
   br label %if.end31.i
 
-if.end31.i:                                       ; preds = %return.sink.split.i405, %if.end53.i401
-  %inc62.i407500 = phi i64 [ %inc62.i407, %return.sink.split.i405 ], [ %inc62.i407501, %if.end53.i401 ]
+if.end31.i:                                       ; preds = %return.sink.split.i404, %if.end53.i400
+  %inc62.i406499 = phi i64 [ %inc62.i406, %return.sink.split.i404 ], [ %inc62.i406500, %if.end53.i400 ]
   %inc.i = add nuw nsw i32 %cnt.046.i, 1
   %exitcond74.not.i = icmp eq i32 %inc.i, %spec.select.i
-  br i1 %exitcond74.not.i, label %while.end.i.loopexit497, label %land.rhs.i, !llvm.loop !5
+  br i1 %exitcond74.not.i, label %while.end.i.loopexit496, label %land.rhs.i, !llvm.loop !5
 
 while.end.i.loopexit:                             ; preds = %if.end31.us.i
-  store i64 %inc62.i443504, ptr %currlen, align 8
+  store i64 %inc62.i442503, ptr %currlen, align 8
   br label %while.end.i
 
-while.end.i.loopexit497:                          ; preds = %land.rhs.i, %if.end31.i
-  %inc62.i407502 = phi i64 [ %inc62.i407501, %land.rhs.i ], [ %inc62.i407500, %if.end31.i ]
-  %padlen.1.lcssa.i.ph = phi i32 [ %100, %land.rhs.i ], [ 0, %if.end31.i ]
+while.end.i.loopexit496:                          ; preds = %land.rhs.i, %if.end31.i
+  %inc62.i406501 = phi i64 [ %inc62.i406500, %land.rhs.i ], [ %inc62.i406499, %if.end31.i ]
+  %padlen.1.lcssa.i.ph = phi i32 [ %101, %land.rhs.i ], [ 0, %if.end31.i ]
   %cnt.0.lcssa.i.ph = phi i32 [ %spec.select, %land.rhs.i ], [ %spec.select.i, %if.end31.i ]
-  store i64 %inc62.i407502, ptr %currlen, align 8
+  store i64 %inc62.i406501, ptr %currlen, align 8
   br label %while.end.i
 
-while.end.i:                                      ; preds = %while.end.i.loopexit497, %while.end.i.loopexit, %if.end394
-  %padlen.1.lcssa.i = phi i32 [ %spec.select.i, %if.end394 ], [ 0, %while.end.i.loopexit ], [ %padlen.1.lcssa.i.ph, %while.end.i.loopexit497 ]
-  %cnt.0.lcssa.i = phi i32 [ 0, %if.end394 ], [ %spec.select.i, %while.end.i.loopexit ], [ %cnt.0.lcssa.i.ph, %while.end.i.loopexit497 ]
+while.end.i:                                      ; preds = %while.end.i.loopexit496, %while.end.i.loopexit, %if.end394
+  %padlen.1.lcssa.i = phi i32 [ %spec.select.i, %if.end394 ], [ 0, %while.end.i.loopexit ], [ %padlen.1.lcssa.i.ph, %while.end.i.loopexit496 ]
+  %cnt.0.lcssa.i = phi i32 [ 0, %if.end394 ], [ %spec.select.i, %while.end.i.loopexit ], [ %cnt.0.lcssa.i.ph, %while.end.i.loopexit496 ]
   %cmp33.not51.i = icmp eq i64 %call.i172, 0
   br i1 %cmp33.not51.i, label %while.end51.i, label %land.rhs35.lr.ph.i
 
@@ -1169,215 +1168,215 @@ land.rhs35.lr.ph.i:                               ; preds = %while.end.i
 
 land.rhs35.preheader.i:                           ; preds = %land.rhs35.lr.ph.i
   %smax.i = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 %cnt.0.lcssa.i)
-  %117 = add i32 %cnt.0.lcssa.i, %99
-  %currlen.promoted506 = load i64, ptr %currlen, align 8
+  %118 = add i32 %cnt.0.lcssa.i, %99
+  %currlen.promoted505 = load i64, ptr %currlen, align 8
   br label %land.rhs35.i
 
 land.rhs35.us.preheader.i:                        ; preds = %land.rhs35.lr.ph.i
-  %118 = add i32 %cnt.0.lcssa.i, %99
-  %currlen.promoted510 = load i64, ptr %currlen, align 8
+  %119 = add i32 %cnt.0.lcssa.i, %99
+  %currlen.promoted509 = load i64, ptr %currlen, align 8
   br label %land.rhs35.us.i
 
 land.rhs35.us.i:                                  ; preds = %if.end48.us.i, %land.rhs35.us.preheader.i
-  %inc62.i371512 = phi i64 [ %inc62.i371511, %if.end48.us.i ], [ %currlen.promoted510, %land.rhs35.us.preheader.i ]
+  %inc62.i370511 = phi i64 [ %inc62.i370510, %if.end48.us.i ], [ %currlen.promoted509, %land.rhs35.us.preheader.i ]
   %strln.053.us.i = phi i64 [ %dec49.us.i, %if.end48.us.i ], [ %call.i172, %land.rhs35.us.preheader.i ]
   %value.addr.052.us.i = phi ptr [ %incdec.ptr.us.i, %if.end48.us.i ], [ %spec.store.select.i, %land.rhs35.us.preheader.i ]
-  %119 = load i8, ptr %value.addr.052.us.i, align 1
-  %120 = load ptr, ptr %sbuffer, align 8
-  %cmp.i357 = icmp ne ptr %120, null
-  %121 = or i1 %cmp1.i178, %cmp.i357
-  br i1 %121, label %if.end.i360, label %return
+  %120 = load i8, ptr %value.addr.052.us.i, align 1
+  %121 = load ptr, ptr %sbuffer, align 8
+  %cmp.i356 = icmp ne ptr %121, null
+  %122 = or i1 %cmp1.i177, %cmp.i356
+  br i1 %122, label %if.end.i359, label %return
 
-if.end.i360:                                      ; preds = %land.rhs35.us.i
-  %122 = load i64, ptr %maxlen, align 8
-  %cmp4.not.i361 = icmp ugt i64 %inc62.i371512, %122
-  br i1 %cmp4.not.i361, label %return, label %if.end15.i362
+if.end.i359:                                      ; preds = %land.rhs35.us.i
+  %123 = load i64, ptr %maxlen, align 8
+  %cmp4.not.i360 = icmp ugt i64 %inc62.i370511, %123
+  br i1 %cmp4.not.i360, label %return, label %if.end15.i361
 
-if.end15.i362:                                    ; preds = %if.end.i360
-  %cmp17.i363 = icmp eq i64 %inc62.i371512, %122
-  %or.cond.i364 = and i1 %cmp1.i178, %cmp17.i363
-  br i1 %or.cond.i364, label %if.then19.i374, label %if.end53.i365
+if.end15.i361:                                    ; preds = %if.end.i359
+  %cmp17.i362 = icmp eq i64 %inc62.i370511, %123
+  %or.cond.i363 = and i1 %cmp1.i177, %cmp17.i362
+  br i1 %or.cond.i363, label %if.then19.i373, label %if.end53.i364
 
-if.then19.i374:                                   ; preds = %if.end15.i362
-  %cmp20.i375 = icmp ugt i64 %inc62.i371512, 2147482623
-  br i1 %cmp20.i375, label %return, label %if.end23.i376
+if.then19.i373:                                   ; preds = %if.end15.i361
+  %cmp20.i374 = icmp ugt i64 %inc62.i370511, 2147482623
+  br i1 %cmp20.i374, label %return, label %if.end23.i375
 
-if.end23.i376:                                    ; preds = %if.then19.i374
-  %add.i377 = add nuw nsw i64 %inc62.i371512, 1024
-  store i64 %add.i377, ptr %maxlen, align 8
-  %123 = load ptr, ptr %buffer, align 8
-  %cmp24.i378 = icmp eq ptr %123, null
-  br i1 %cmp24.i378, label %if.then26.i383, label %if.else.i379
+if.end23.i375:                                    ; preds = %if.then19.i373
+  %add.i376 = add nuw nsw i64 %inc62.i370511, 1024
+  store i64 %add.i376, ptr %maxlen, align 8
+  %124 = load ptr, ptr %buffer, align 8
+  %cmp24.i377 = icmp eq ptr %124, null
+  br i1 %cmp24.i377, label %if.then26.i382, label %if.else.i378
 
-if.then26.i383:                                   ; preds = %if.end23.i376
-  %call.i384 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i377, ptr noundef nonnull @.str, i32 noundef 848) #7
-  store ptr %call.i384, ptr %buffer, align 8
-  %cmp27.i385 = icmp eq ptr %call.i384, null
-  br i1 %cmp27.i385, label %return, label %if.end30.i386
+if.then26.i382:                                   ; preds = %if.end23.i375
+  %call.i383 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i376, ptr noundef nonnull @.str, i32 noundef 848) #7
+  store ptr %call.i383, ptr %buffer, align 8
+  %cmp27.i384 = icmp eq ptr %call.i383, null
+  br i1 %cmp27.i384, label %return, label %if.end30.i385
 
-if.end30.i386:                                    ; preds = %if.then26.i383
-  %cmp31.not.i387 = icmp eq i64 %inc62.i371512, 0
-  br i1 %cmp31.not.i387, label %if.end46.i391, label %if.then33.i388
+if.end30.i385:                                    ; preds = %if.then26.i382
+  %cmp31.not.i386 = icmp eq i64 %inc62.i370511, 0
+  br i1 %cmp31.not.i386, label %if.end46.i390, label %if.then33.i387
 
-if.then33.i388:                                   ; preds = %if.end30.i386
-  %124 = load ptr, ptr %sbuffer, align 8
-  %cmp34.not.i389 = icmp eq ptr %124, null
-  br i1 %cmp34.not.i389, label %return, label %if.end45.i390
+if.then33.i387:                                   ; preds = %if.end30.i385
+  %125 = load ptr, ptr %sbuffer, align 8
+  %cmp34.not.i388 = icmp eq ptr %125, null
+  br i1 %cmp34.not.i388, label %return, label %if.end45.i389
 
-if.end45.i390:                                    ; preds = %if.then33.i388
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i384, ptr nonnull align 1 %124, i64 %inc62.i371512, i1 false)
-  br label %if.end46.i391
+if.end45.i389:                                    ; preds = %if.then33.i387
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i383, ptr nonnull align 1 %125, i64 %inc62.i370511, i1 false)
+  br label %if.end46.i390
 
-if.end46.i391:                                    ; preds = %if.end45.i390, %if.end30.i386
+if.end46.i390:                                    ; preds = %if.end45.i389, %if.end30.i385
   store ptr null, ptr %sbuffer, align 8
-  br label %if.end53.i365
+  br label %if.end53.i364
 
-if.else.i379:                                     ; preds = %if.end23.i376
-  %call47.i380 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %123, i64 noundef %add.i377, ptr noundef nonnull @.str, i32 noundef 859) #7
-  %cmp48.i381 = icmp eq ptr %call47.i380, null
-  br i1 %cmp48.i381, label %return, label %if.end51.i382
+if.else.i378:                                     ; preds = %if.end23.i375
+  %call47.i379 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %124, i64 noundef %add.i376, ptr noundef nonnull @.str, i32 noundef 859) #7
+  %cmp48.i380 = icmp eq ptr %call47.i379, null
+  br i1 %cmp48.i380, label %return, label %if.end51.i381
 
-if.end51.i382:                                    ; preds = %if.else.i379
-  store ptr %call47.i380, ptr %buffer, align 8
-  br label %if.end53.i365
+if.end51.i381:                                    ; preds = %if.else.i378
+  store ptr %call47.i379, ptr %buffer, align 8
+  br label %if.end53.i364
 
-if.end53.i365:                                    ; preds = %if.end51.i382, %if.end46.i391, %if.end15.i362
-  %125 = load i64, ptr %maxlen, align 8
-  %cmp54.i366 = icmp ult i64 %inc62.i371512, %125
-  br i1 %cmp54.i366, label %if.then56.i367, label %if.end48.us.i
+if.end53.i364:                                    ; preds = %if.end51.i381, %if.end46.i390, %if.end15.i361
+  %126 = load i64, ptr %maxlen, align 8
+  %cmp54.i365 = icmp ult i64 %inc62.i370511, %126
+  br i1 %cmp54.i365, label %if.then56.i366, label %if.end48.us.i
 
-if.then56.i367:                                   ; preds = %if.end53.i365
-  %126 = load ptr, ptr %sbuffer, align 8
-  %tobool57.not.i368 = icmp eq ptr %126, null
-  br i1 %tobool57.not.i368, label %if.else60.i373, label %return.sink.split.i369
+if.then56.i366:                                   ; preds = %if.end53.i364
+  %127 = load ptr, ptr %sbuffer, align 8
+  %tobool57.not.i367 = icmp eq ptr %127, null
+  br i1 %tobool57.not.i367, label %if.else60.i372, label %return.sink.split.i368
 
-if.else60.i373:                                   ; preds = %if.then56.i367
-  %127 = load ptr, ptr %buffer, align 8
-  br label %return.sink.split.i369
+if.else60.i372:                                   ; preds = %if.then56.i366
+  %128 = load ptr, ptr %buffer, align 8
+  br label %return.sink.split.i368
 
-return.sink.split.i369:                           ; preds = %if.else60.i373, %if.then56.i367
-  %.sink.i370 = phi ptr [ %127, %if.else60.i373 ], [ %126, %if.then56.i367 ]
-  %inc62.i371 = add nuw i64 %inc62.i371512, 1
-  %arrayidx63.i372 = getelementptr inbounds i8, ptr %.sink.i370, i64 %inc62.i371512
-  store i8 %119, ptr %arrayidx63.i372, align 1
+return.sink.split.i368:                           ; preds = %if.else60.i372, %if.then56.i366
+  %.sink.i369 = phi ptr [ %128, %if.else60.i372 ], [ %127, %if.then56.i366 ]
+  %inc62.i370 = add nuw i64 %inc62.i370511, 1
+  %arrayidx63.i371 = getelementptr inbounds i8, ptr %.sink.i369, i64 %inc62.i370511
+  store i8 %120, ptr %arrayidx63.i371, align 1
   br label %if.end48.us.i
 
-if.end48.us.i:                                    ; preds = %return.sink.split.i369, %if.end53.i365
-  %inc62.i371511 = phi i64 [ %inc62.i371, %return.sink.split.i369 ], [ %inc62.i371512, %if.end53.i365 ]
+if.end48.us.i:                                    ; preds = %return.sink.split.i368, %if.end53.i364
+  %inc62.i370510 = phi i64 [ %inc62.i370, %return.sink.split.i368 ], [ %inc62.i370511, %if.end53.i364 ]
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %value.addr.052.us.i, i64 1
   %dec49.us.i = add i64 %strln.053.us.i, -1
   %cmp33.not.us.i = icmp eq i64 %dec49.us.i, 0
   br i1 %cmp33.not.us.i, label %while.end51.i.loopexit, label %land.rhs35.us.i, !llvm.loop !7
 
 land.rhs35.i:                                     ; preds = %if.end48.i, %land.rhs35.preheader.i
-  %inc62.i335508 = phi i64 [ %inc62.i335507, %if.end48.i ], [ %currlen.promoted506, %land.rhs35.preheader.i ]
+  %inc62.i334507 = phi i64 [ %inc62.i334506, %if.end48.i ], [ %currlen.promoted505, %land.rhs35.preheader.i ]
   %cnt.154.i = phi i32 [ %inc50.i, %if.end48.i ], [ %cnt.0.lcssa.i, %land.rhs35.preheader.i ]
   %strln.053.i = phi i64 [ %dec49.i, %if.end48.i ], [ %call.i172, %land.rhs35.preheader.i ]
   %value.addr.052.i = phi ptr [ %incdec.ptr.i, %if.end48.i ], [ %spec.store.select.i, %land.rhs35.preheader.i ]
   %exitcond76.not.i = icmp eq i32 %cnt.154.i, %smax.i
-  br i1 %exitcond76.not.i, label %while.end51.i.loopexit494, label %while.body43.i
+  br i1 %exitcond76.not.i, label %while.end51.i.loopexit493, label %while.body43.i
 
 while.body43.i:                                   ; preds = %land.rhs35.i
-  %128 = load i8, ptr %value.addr.052.i, align 1
-  %129 = load ptr, ptr %sbuffer, align 8
-  %cmp.i321 = icmp ne ptr %129, null
-  %130 = or i1 %cmp1.i178, %cmp.i321
-  br i1 %130, label %if.end.i324, label %return
+  %129 = load i8, ptr %value.addr.052.i, align 1
+  %130 = load ptr, ptr %sbuffer, align 8
+  %cmp.i320 = icmp ne ptr %130, null
+  %131 = or i1 %cmp1.i177, %cmp.i320
+  br i1 %131, label %if.end.i323, label %return
 
-if.end.i324:                                      ; preds = %while.body43.i
-  %131 = load i64, ptr %maxlen, align 8
-  %cmp4.not.i325 = icmp ugt i64 %inc62.i335508, %131
-  br i1 %cmp4.not.i325, label %return, label %if.end15.i326
+if.end.i323:                                      ; preds = %while.body43.i
+  %132 = load i64, ptr %maxlen, align 8
+  %cmp4.not.i324 = icmp ugt i64 %inc62.i334507, %132
+  br i1 %cmp4.not.i324, label %return, label %if.end15.i325
 
-if.end15.i326:                                    ; preds = %if.end.i324
-  %cmp17.i327 = icmp eq i64 %inc62.i335508, %131
-  %or.cond.i328 = and i1 %cmp1.i178, %cmp17.i327
-  br i1 %or.cond.i328, label %if.then19.i338, label %if.end53.i329
+if.end15.i325:                                    ; preds = %if.end.i323
+  %cmp17.i326 = icmp eq i64 %inc62.i334507, %132
+  %or.cond.i327 = and i1 %cmp1.i177, %cmp17.i326
+  br i1 %or.cond.i327, label %if.then19.i337, label %if.end53.i328
 
-if.then19.i338:                                   ; preds = %if.end15.i326
-  %cmp20.i339 = icmp ugt i64 %inc62.i335508, 2147482623
-  br i1 %cmp20.i339, label %return, label %if.end23.i340
+if.then19.i337:                                   ; preds = %if.end15.i325
+  %cmp20.i338 = icmp ugt i64 %inc62.i334507, 2147482623
+  br i1 %cmp20.i338, label %return, label %if.end23.i339
 
-if.end23.i340:                                    ; preds = %if.then19.i338
-  %add.i341 = add nuw nsw i64 %inc62.i335508, 1024
-  store i64 %add.i341, ptr %maxlen, align 8
-  %132 = load ptr, ptr %buffer, align 8
-  %cmp24.i342 = icmp eq ptr %132, null
-  br i1 %cmp24.i342, label %if.then26.i347, label %if.else.i343
+if.end23.i339:                                    ; preds = %if.then19.i337
+  %add.i340 = add nuw nsw i64 %inc62.i334507, 1024
+  store i64 %add.i340, ptr %maxlen, align 8
+  %133 = load ptr, ptr %buffer, align 8
+  %cmp24.i341 = icmp eq ptr %133, null
+  br i1 %cmp24.i341, label %if.then26.i346, label %if.else.i342
 
-if.then26.i347:                                   ; preds = %if.end23.i340
-  %call.i348 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i341, ptr noundef nonnull @.str, i32 noundef 848) #7
-  store ptr %call.i348, ptr %buffer, align 8
-  %cmp27.i349 = icmp eq ptr %call.i348, null
-  br i1 %cmp27.i349, label %return, label %if.end30.i350
+if.then26.i346:                                   ; preds = %if.end23.i339
+  %call.i347 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i340, ptr noundef nonnull @.str, i32 noundef 848) #7
+  store ptr %call.i347, ptr %buffer, align 8
+  %cmp27.i348 = icmp eq ptr %call.i347, null
+  br i1 %cmp27.i348, label %return, label %if.end30.i349
 
-if.end30.i350:                                    ; preds = %if.then26.i347
-  %cmp31.not.i351 = icmp eq i64 %inc62.i335508, 0
-  br i1 %cmp31.not.i351, label %if.end46.i355, label %if.then33.i352
+if.end30.i349:                                    ; preds = %if.then26.i346
+  %cmp31.not.i350 = icmp eq i64 %inc62.i334507, 0
+  br i1 %cmp31.not.i350, label %if.end46.i354, label %if.then33.i351
 
-if.then33.i352:                                   ; preds = %if.end30.i350
-  %133 = load ptr, ptr %sbuffer, align 8
-  %cmp34.not.i353 = icmp eq ptr %133, null
-  br i1 %cmp34.not.i353, label %return, label %if.end45.i354
+if.then33.i351:                                   ; preds = %if.end30.i349
+  %134 = load ptr, ptr %sbuffer, align 8
+  %cmp34.not.i352 = icmp eq ptr %134, null
+  br i1 %cmp34.not.i352, label %return, label %if.end45.i353
 
-if.end45.i354:                                    ; preds = %if.then33.i352
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i348, ptr nonnull align 1 %133, i64 %inc62.i335508, i1 false)
-  br label %if.end46.i355
+if.end45.i353:                                    ; preds = %if.then33.i351
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i347, ptr nonnull align 1 %134, i64 %inc62.i334507, i1 false)
+  br label %if.end46.i354
 
-if.end46.i355:                                    ; preds = %if.end45.i354, %if.end30.i350
+if.end46.i354:                                    ; preds = %if.end45.i353, %if.end30.i349
   store ptr null, ptr %sbuffer, align 8
-  br label %if.end53.i329
+  br label %if.end53.i328
 
-if.else.i343:                                     ; preds = %if.end23.i340
-  %call47.i344 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %132, i64 noundef %add.i341, ptr noundef nonnull @.str, i32 noundef 859) #7
-  %cmp48.i345 = icmp eq ptr %call47.i344, null
-  br i1 %cmp48.i345, label %return, label %if.end51.i346
+if.else.i342:                                     ; preds = %if.end23.i339
+  %call47.i343 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %133, i64 noundef %add.i340, ptr noundef nonnull @.str, i32 noundef 859) #7
+  %cmp48.i344 = icmp eq ptr %call47.i343, null
+  br i1 %cmp48.i344, label %return, label %if.end51.i345
 
-if.end51.i346:                                    ; preds = %if.else.i343
-  store ptr %call47.i344, ptr %buffer, align 8
-  br label %if.end53.i329
+if.end51.i345:                                    ; preds = %if.else.i342
+  store ptr %call47.i343, ptr %buffer, align 8
+  br label %if.end53.i328
 
-if.end53.i329:                                    ; preds = %if.end51.i346, %if.end46.i355, %if.end15.i326
-  %134 = load i64, ptr %maxlen, align 8
-  %cmp54.i330 = icmp ult i64 %inc62.i335508, %134
-  br i1 %cmp54.i330, label %if.then56.i331, label %if.end48.i
+if.end53.i328:                                    ; preds = %if.end51.i345, %if.end46.i354, %if.end15.i325
+  %135 = load i64, ptr %maxlen, align 8
+  %cmp54.i329 = icmp ult i64 %inc62.i334507, %135
+  br i1 %cmp54.i329, label %if.then56.i330, label %if.end48.i
 
-if.then56.i331:                                   ; preds = %if.end53.i329
-  %135 = load ptr, ptr %sbuffer, align 8
-  %tobool57.not.i332 = icmp eq ptr %135, null
-  br i1 %tobool57.not.i332, label %if.else60.i337, label %return.sink.split.i333
+if.then56.i330:                                   ; preds = %if.end53.i328
+  %136 = load ptr, ptr %sbuffer, align 8
+  %tobool57.not.i331 = icmp eq ptr %136, null
+  br i1 %tobool57.not.i331, label %if.else60.i336, label %return.sink.split.i332
 
-if.else60.i337:                                   ; preds = %if.then56.i331
-  %136 = load ptr, ptr %buffer, align 8
-  br label %return.sink.split.i333
+if.else60.i336:                                   ; preds = %if.then56.i330
+  %137 = load ptr, ptr %buffer, align 8
+  br label %return.sink.split.i332
 
-return.sink.split.i333:                           ; preds = %if.else60.i337, %if.then56.i331
-  %.sink.i334 = phi ptr [ %136, %if.else60.i337 ], [ %135, %if.then56.i331 ]
-  %inc62.i335 = add nuw i64 %inc62.i335508, 1
-  %arrayidx63.i336 = getelementptr inbounds i8, ptr %.sink.i334, i64 %inc62.i335508
-  store i8 %128, ptr %arrayidx63.i336, align 1
+return.sink.split.i332:                           ; preds = %if.else60.i336, %if.then56.i330
+  %.sink.i333 = phi ptr [ %137, %if.else60.i336 ], [ %136, %if.then56.i330 ]
+  %inc62.i334 = add nuw i64 %inc62.i334507, 1
+  %arrayidx63.i335 = getelementptr inbounds i8, ptr %.sink.i333, i64 %inc62.i334507
+  store i8 %129, ptr %arrayidx63.i335, align 1
   br label %if.end48.i
 
-if.end48.i:                                       ; preds = %return.sink.split.i333, %if.end53.i329
-  %inc62.i335507 = phi i64 [ %inc62.i335, %return.sink.split.i333 ], [ %inc62.i335508, %if.end53.i329 ]
+if.end48.i:                                       ; preds = %return.sink.split.i332, %if.end53.i328
+  %inc62.i334506 = phi i64 [ %inc62.i334, %return.sink.split.i332 ], [ %inc62.i334507, %if.end53.i328 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %value.addr.052.i, i64 1
   %dec49.i = add i64 %strln.053.i, -1
   %inc50.i = add i32 %cnt.154.i, 1
   %cmp33.not.i = icmp eq i64 %dec49.i, 0
-  br i1 %cmp33.not.i, label %while.end51.i.loopexit494, label %land.rhs35.i, !llvm.loop !7
+  br i1 %cmp33.not.i, label %while.end51.i.loopexit493, label %land.rhs35.i, !llvm.loop !7
 
 while.end51.i.loopexit:                           ; preds = %if.end48.us.i
-  store i64 %inc62.i371511, ptr %currlen, align 8
+  store i64 %inc62.i370510, ptr %currlen, align 8
   br label %while.end51.i
 
-while.end51.i.loopexit494:                        ; preds = %land.rhs35.i, %if.end48.i
-  %inc62.i335509 = phi i64 [ %inc62.i335508, %land.rhs35.i ], [ %inc62.i335507, %if.end48.i ]
-  %cnt.1.lcssa.i.ph = phi i32 [ %smax.i, %land.rhs35.i ], [ %117, %if.end48.i ]
-  store i64 %inc62.i335509, ptr %currlen, align 8
+while.end51.i.loopexit493:                        ; preds = %land.rhs35.i, %if.end48.i
+  %inc62.i334508 = phi i64 [ %inc62.i334507, %land.rhs35.i ], [ %inc62.i334506, %if.end48.i ]
+  %cnt.1.lcssa.i.ph = phi i32 [ %smax.i, %land.rhs35.i ], [ %118, %if.end48.i ]
+  store i64 %inc62.i334508, ptr %currlen, align 8
   br label %while.end51.i
 
-while.end51.i:                                    ; preds = %while.end51.i.loopexit494, %while.end51.i.loopexit, %while.end.i
-  %cnt.1.lcssa.i = phi i32 [ %cnt.0.lcssa.i, %while.end.i ], [ %118, %while.end51.i.loopexit ], [ %cnt.1.lcssa.i.ph, %while.end51.i.loopexit494 ]
+while.end51.i:                                    ; preds = %while.end51.i.loopexit493, %while.end51.i.loopexit, %while.end.i
+  %cnt.1.lcssa.i = phi i32 [ %cnt.0.lcssa.i, %while.end.i ], [ %119, %while.end51.i.loopexit ], [ %cnt.1.lcssa.i.ph, %while.end51.i.loopexit493 ]
   %cmp5358.i = icmp slt i32 %padlen.1.lcssa.i, 0
   br i1 %cmp5358.i, label %land.rhs55.lr.ph.i, label %sw.epilog442.sink.split
 
@@ -1386,195 +1385,195 @@ land.rhs55.lr.ph.i:                               ; preds = %while.end51.i
   br i1 %cmp56.i, label %land.rhs55.us.i.preheader, label %land.rhs55.preheader.i
 
 land.rhs55.us.i.preheader:                        ; preds = %land.rhs55.lr.ph.i
-  %currlen.promoted517 = load i64, ptr %currlen, align 8
+  %currlen.promoted516 = load i64, ptr %currlen, align 8
   br label %land.rhs55.us.i
 
 land.rhs55.preheader.i:                           ; preds = %land.rhs55.lr.ph.i
   %smax77.i = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 %cnt.1.lcssa.i)
-  %currlen.promoted513 = load i64, ptr %currlen, align 8
+  %currlen.promoted512 = load i64, ptr %currlen, align 8
   br label %land.rhs55.i
 
 land.rhs55.us.i:                                  ; preds = %land.rhs55.us.i.preheader, %if.end67.us.i
-  %inc62.i299519 = phi i64 [ %inc62.i299518, %if.end67.us.i ], [ %currlen.promoted517, %land.rhs55.us.i.preheader ]
+  %inc62.i298518 = phi i64 [ %inc62.i298517, %if.end67.us.i ], [ %currlen.promoted516, %land.rhs55.us.i.preheader ]
   %padlen.259.us.i = phi i32 [ %inc68.us.i, %if.end67.us.i ], [ %padlen.1.lcssa.i, %land.rhs55.us.i.preheader ]
-  %137 = load ptr, ptr %sbuffer, align 8
-  %cmp.i285 = icmp ne ptr %137, null
-  %138 = or i1 %cmp1.i178, %cmp.i285
-  br i1 %138, label %if.end.i288, label %return
+  %138 = load ptr, ptr %sbuffer, align 8
+  %cmp.i284 = icmp ne ptr %138, null
+  %139 = or i1 %cmp1.i177, %cmp.i284
+  br i1 %139, label %if.end.i287, label %return
 
-if.end.i288:                                      ; preds = %land.rhs55.us.i
-  %139 = load i64, ptr %maxlen, align 8
-  %cmp4.not.i289 = icmp ugt i64 %inc62.i299519, %139
-  br i1 %cmp4.not.i289, label %return, label %if.end15.i290
+if.end.i287:                                      ; preds = %land.rhs55.us.i
+  %140 = load i64, ptr %maxlen, align 8
+  %cmp4.not.i288 = icmp ugt i64 %inc62.i298518, %140
+  br i1 %cmp4.not.i288, label %return, label %if.end15.i289
 
-if.end15.i290:                                    ; preds = %if.end.i288
-  %cmp17.i291 = icmp eq i64 %inc62.i299519, %139
-  %or.cond.i292 = and i1 %cmp1.i178, %cmp17.i291
-  br i1 %or.cond.i292, label %if.then19.i302, label %if.end53.i293
+if.end15.i289:                                    ; preds = %if.end.i287
+  %cmp17.i290 = icmp eq i64 %inc62.i298518, %140
+  %or.cond.i291 = and i1 %cmp1.i177, %cmp17.i290
+  br i1 %or.cond.i291, label %if.then19.i301, label %if.end53.i292
 
-if.then19.i302:                                   ; preds = %if.end15.i290
-  %cmp20.i303 = icmp ugt i64 %inc62.i299519, 2147482623
-  br i1 %cmp20.i303, label %return, label %if.end23.i304
+if.then19.i301:                                   ; preds = %if.end15.i289
+  %cmp20.i302 = icmp ugt i64 %inc62.i298518, 2147482623
+  br i1 %cmp20.i302, label %return, label %if.end23.i303
 
-if.end23.i304:                                    ; preds = %if.then19.i302
-  %add.i305 = add nuw nsw i64 %inc62.i299519, 1024
-  store i64 %add.i305, ptr %maxlen, align 8
-  %140 = load ptr, ptr %buffer, align 8
-  %cmp24.i306 = icmp eq ptr %140, null
-  br i1 %cmp24.i306, label %if.then26.i311, label %if.else.i307
+if.end23.i303:                                    ; preds = %if.then19.i301
+  %add.i304 = add nuw nsw i64 %inc62.i298518, 1024
+  store i64 %add.i304, ptr %maxlen, align 8
+  %141 = load ptr, ptr %buffer, align 8
+  %cmp24.i305 = icmp eq ptr %141, null
+  br i1 %cmp24.i305, label %if.then26.i310, label %if.else.i306
 
-if.then26.i311:                                   ; preds = %if.end23.i304
-  %call.i312 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i305, ptr noundef nonnull @.str, i32 noundef 848) #7
-  store ptr %call.i312, ptr %buffer, align 8
-  %cmp27.i313 = icmp eq ptr %call.i312, null
-  br i1 %cmp27.i313, label %return, label %if.end30.i314
+if.then26.i310:                                   ; preds = %if.end23.i303
+  %call.i311 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i304, ptr noundef nonnull @.str, i32 noundef 848) #7
+  store ptr %call.i311, ptr %buffer, align 8
+  %cmp27.i312 = icmp eq ptr %call.i311, null
+  br i1 %cmp27.i312, label %return, label %if.end30.i313
 
-if.end30.i314:                                    ; preds = %if.then26.i311
-  %cmp31.not.i315 = icmp eq i64 %inc62.i299519, 0
-  br i1 %cmp31.not.i315, label %if.end46.i319, label %if.then33.i316
+if.end30.i313:                                    ; preds = %if.then26.i310
+  %cmp31.not.i314 = icmp eq i64 %inc62.i298518, 0
+  br i1 %cmp31.not.i314, label %if.end46.i318, label %if.then33.i315
 
-if.then33.i316:                                   ; preds = %if.end30.i314
-  %141 = load ptr, ptr %sbuffer, align 8
-  %cmp34.not.i317 = icmp eq ptr %141, null
-  br i1 %cmp34.not.i317, label %return, label %if.end45.i318
+if.then33.i315:                                   ; preds = %if.end30.i313
+  %142 = load ptr, ptr %sbuffer, align 8
+  %cmp34.not.i316 = icmp eq ptr %142, null
+  br i1 %cmp34.not.i316, label %return, label %if.end45.i317
 
-if.end45.i318:                                    ; preds = %if.then33.i316
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i312, ptr nonnull align 1 %141, i64 %inc62.i299519, i1 false)
-  br label %if.end46.i319
+if.end45.i317:                                    ; preds = %if.then33.i315
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i311, ptr nonnull align 1 %142, i64 %inc62.i298518, i1 false)
+  br label %if.end46.i318
 
-if.end46.i319:                                    ; preds = %if.end45.i318, %if.end30.i314
+if.end46.i318:                                    ; preds = %if.end45.i317, %if.end30.i313
   store ptr null, ptr %sbuffer, align 8
-  br label %if.end53.i293
+  br label %if.end53.i292
 
-if.else.i307:                                     ; preds = %if.end23.i304
-  %call47.i308 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %140, i64 noundef %add.i305, ptr noundef nonnull @.str, i32 noundef 859) #7
-  %cmp48.i309 = icmp eq ptr %call47.i308, null
-  br i1 %cmp48.i309, label %return, label %if.end51.i310
+if.else.i306:                                     ; preds = %if.end23.i303
+  %call47.i307 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %141, i64 noundef %add.i304, ptr noundef nonnull @.str, i32 noundef 859) #7
+  %cmp48.i308 = icmp eq ptr %call47.i307, null
+  br i1 %cmp48.i308, label %return, label %if.end51.i309
 
-if.end51.i310:                                    ; preds = %if.else.i307
-  store ptr %call47.i308, ptr %buffer, align 8
-  br label %if.end53.i293
+if.end51.i309:                                    ; preds = %if.else.i306
+  store ptr %call47.i307, ptr %buffer, align 8
+  br label %if.end53.i292
 
-if.end53.i293:                                    ; preds = %if.end51.i310, %if.end46.i319, %if.end15.i290
-  %142 = load i64, ptr %maxlen, align 8
-  %cmp54.i294 = icmp ult i64 %inc62.i299519, %142
-  br i1 %cmp54.i294, label %if.then56.i295, label %if.end67.us.i
+if.end53.i292:                                    ; preds = %if.end51.i309, %if.end46.i318, %if.end15.i289
+  %143 = load i64, ptr %maxlen, align 8
+  %cmp54.i293 = icmp ult i64 %inc62.i298518, %143
+  br i1 %cmp54.i293, label %if.then56.i294, label %if.end67.us.i
 
-if.then56.i295:                                   ; preds = %if.end53.i293
-  %143 = load ptr, ptr %sbuffer, align 8
-  %tobool57.not.i296 = icmp eq ptr %143, null
-  br i1 %tobool57.not.i296, label %if.else60.i301, label %return.sink.split.i297
+if.then56.i294:                                   ; preds = %if.end53.i292
+  %144 = load ptr, ptr %sbuffer, align 8
+  %tobool57.not.i295 = icmp eq ptr %144, null
+  br i1 %tobool57.not.i295, label %if.else60.i300, label %return.sink.split.i296
 
-if.else60.i301:                                   ; preds = %if.then56.i295
-  %144 = load ptr, ptr %buffer, align 8
-  br label %return.sink.split.i297
+if.else60.i300:                                   ; preds = %if.then56.i294
+  %145 = load ptr, ptr %buffer, align 8
+  br label %return.sink.split.i296
 
-return.sink.split.i297:                           ; preds = %if.else60.i301, %if.then56.i295
-  %.sink.i298 = phi ptr [ %144, %if.else60.i301 ], [ %143, %if.then56.i295 ]
-  %inc62.i299 = add nuw i64 %inc62.i299519, 1
-  %arrayidx63.i300 = getelementptr inbounds i8, ptr %.sink.i298, i64 %inc62.i299519
-  store i8 32, ptr %arrayidx63.i300, align 1
+return.sink.split.i296:                           ; preds = %if.else60.i300, %if.then56.i294
+  %.sink.i297 = phi ptr [ %145, %if.else60.i300 ], [ %144, %if.then56.i294 ]
+  %inc62.i298 = add nuw i64 %inc62.i298518, 1
+  %arrayidx63.i299 = getelementptr inbounds i8, ptr %.sink.i297, i64 %inc62.i298518
+  store i8 32, ptr %arrayidx63.i299, align 1
   br label %if.end67.us.i
 
-if.end67.us.i:                                    ; preds = %return.sink.split.i297, %if.end53.i293
-  %inc62.i299518 = phi i64 [ %inc62.i299, %return.sink.split.i297 ], [ %inc62.i299519, %if.end53.i293 ]
+if.end67.us.i:                                    ; preds = %return.sink.split.i296, %if.end53.i292
+  %inc62.i298517 = phi i64 [ %inc62.i298, %return.sink.split.i296 ], [ %inc62.i298518, %if.end53.i292 ]
   %inc68.us.i = add i32 %padlen.259.us.i, 1
   %exitcond80.not.i = icmp eq i32 %inc68.us.i, 0
   br i1 %exitcond80.not.i, label %sw.epilog438.loopexit, label %land.rhs55.us.i, !llvm.loop !8
 
 land.rhs55.i:                                     ; preds = %if.end67.i, %land.rhs55.preheader.i
-  %inc62.i263515 = phi i64 [ %inc62.i263514, %if.end67.i ], [ %currlen.promoted513, %land.rhs55.preheader.i ]
+  %inc62.i262514 = phi i64 [ %inc62.i262513, %if.end67.i ], [ %currlen.promoted512, %land.rhs55.preheader.i ]
   %cnt.260.i = phi i32 [ %inc69.i, %if.end67.i ], [ %cnt.1.lcssa.i, %land.rhs55.preheader.i ]
   %padlen.259.i = phi i32 [ %inc68.i, %if.end67.i ], [ %padlen.1.lcssa.i, %land.rhs55.preheader.i ]
   %exitcond78.not.i = icmp eq i32 %cnt.260.i, %smax77.i
-  br i1 %exitcond78.not.i, label %sw.epilog438.loopexit491, label %while.body63.i
+  br i1 %exitcond78.not.i, label %sw.epilog438.loopexit490, label %while.body63.i
 
 while.body63.i:                                   ; preds = %land.rhs55.i
-  %145 = load ptr, ptr %sbuffer, align 8
-  %cmp.i249 = icmp ne ptr %145, null
-  %146 = or i1 %cmp1.i178, %cmp.i249
-  br i1 %146, label %if.end.i252, label %return
+  %146 = load ptr, ptr %sbuffer, align 8
+  %cmp.i248 = icmp ne ptr %146, null
+  %147 = or i1 %cmp1.i177, %cmp.i248
+  br i1 %147, label %if.end.i251, label %return
 
-if.end.i252:                                      ; preds = %while.body63.i
-  %147 = load i64, ptr %maxlen, align 8
-  %cmp4.not.i253 = icmp ugt i64 %inc62.i263515, %147
-  br i1 %cmp4.not.i253, label %return, label %if.end15.i254
+if.end.i251:                                      ; preds = %while.body63.i
+  %148 = load i64, ptr %maxlen, align 8
+  %cmp4.not.i252 = icmp ugt i64 %inc62.i262514, %148
+  br i1 %cmp4.not.i252, label %return, label %if.end15.i253
 
-if.end15.i254:                                    ; preds = %if.end.i252
-  %cmp17.i255 = icmp eq i64 %inc62.i263515, %147
-  %or.cond.i256 = and i1 %cmp1.i178, %cmp17.i255
-  br i1 %or.cond.i256, label %if.then19.i266, label %if.end53.i257
+if.end15.i253:                                    ; preds = %if.end.i251
+  %cmp17.i254 = icmp eq i64 %inc62.i262514, %148
+  %or.cond.i255 = and i1 %cmp1.i177, %cmp17.i254
+  br i1 %or.cond.i255, label %if.then19.i265, label %if.end53.i256
 
-if.then19.i266:                                   ; preds = %if.end15.i254
-  %cmp20.i267 = icmp ugt i64 %inc62.i263515, 2147482623
-  br i1 %cmp20.i267, label %return, label %if.end23.i268
+if.then19.i265:                                   ; preds = %if.end15.i253
+  %cmp20.i266 = icmp ugt i64 %inc62.i262514, 2147482623
+  br i1 %cmp20.i266, label %return, label %if.end23.i267
 
-if.end23.i268:                                    ; preds = %if.then19.i266
-  %add.i269 = add nuw nsw i64 %inc62.i263515, 1024
-  store i64 %add.i269, ptr %maxlen, align 8
-  %148 = load ptr, ptr %buffer, align 8
-  %cmp24.i270 = icmp eq ptr %148, null
-  br i1 %cmp24.i270, label %if.then26.i275, label %if.else.i271
+if.end23.i267:                                    ; preds = %if.then19.i265
+  %add.i268 = add nuw nsw i64 %inc62.i262514, 1024
+  store i64 %add.i268, ptr %maxlen, align 8
+  %149 = load ptr, ptr %buffer, align 8
+  %cmp24.i269 = icmp eq ptr %149, null
+  br i1 %cmp24.i269, label %if.then26.i274, label %if.else.i270
 
-if.then26.i275:                                   ; preds = %if.end23.i268
-  %call.i276 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i269, ptr noundef nonnull @.str, i32 noundef 848) #7
-  store ptr %call.i276, ptr %buffer, align 8
-  %cmp27.i277 = icmp eq ptr %call.i276, null
-  br i1 %cmp27.i277, label %return, label %if.end30.i278
+if.then26.i274:                                   ; preds = %if.end23.i267
+  %call.i275 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i268, ptr noundef nonnull @.str, i32 noundef 848) #7
+  store ptr %call.i275, ptr %buffer, align 8
+  %cmp27.i276 = icmp eq ptr %call.i275, null
+  br i1 %cmp27.i276, label %return, label %if.end30.i277
 
-if.end30.i278:                                    ; preds = %if.then26.i275
-  %cmp31.not.i279 = icmp eq i64 %inc62.i263515, 0
-  br i1 %cmp31.not.i279, label %if.end46.i283, label %if.then33.i280
+if.end30.i277:                                    ; preds = %if.then26.i274
+  %cmp31.not.i278 = icmp eq i64 %inc62.i262514, 0
+  br i1 %cmp31.not.i278, label %if.end46.i282, label %if.then33.i279
 
-if.then33.i280:                                   ; preds = %if.end30.i278
-  %149 = load ptr, ptr %sbuffer, align 8
-  %cmp34.not.i281 = icmp eq ptr %149, null
-  br i1 %cmp34.not.i281, label %return, label %if.end45.i282
+if.then33.i279:                                   ; preds = %if.end30.i277
+  %150 = load ptr, ptr %sbuffer, align 8
+  %cmp34.not.i280 = icmp eq ptr %150, null
+  br i1 %cmp34.not.i280, label %return, label %if.end45.i281
 
-if.end45.i282:                                    ; preds = %if.then33.i280
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i276, ptr nonnull align 1 %149, i64 %inc62.i263515, i1 false)
-  br label %if.end46.i283
+if.end45.i281:                                    ; preds = %if.then33.i279
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i275, ptr nonnull align 1 %150, i64 %inc62.i262514, i1 false)
+  br label %if.end46.i282
 
-if.end46.i283:                                    ; preds = %if.end45.i282, %if.end30.i278
+if.end46.i282:                                    ; preds = %if.end45.i281, %if.end30.i277
   store ptr null, ptr %sbuffer, align 8
-  br label %if.end53.i257
+  br label %if.end53.i256
 
-if.else.i271:                                     ; preds = %if.end23.i268
-  %call47.i272 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %148, i64 noundef %add.i269, ptr noundef nonnull @.str, i32 noundef 859) #7
-  %cmp48.i273 = icmp eq ptr %call47.i272, null
-  br i1 %cmp48.i273, label %return, label %if.end51.i274
+if.else.i270:                                     ; preds = %if.end23.i267
+  %call47.i271 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %149, i64 noundef %add.i268, ptr noundef nonnull @.str, i32 noundef 859) #7
+  %cmp48.i272 = icmp eq ptr %call47.i271, null
+  br i1 %cmp48.i272, label %return, label %if.end51.i273
 
-if.end51.i274:                                    ; preds = %if.else.i271
-  store ptr %call47.i272, ptr %buffer, align 8
-  br label %if.end53.i257
+if.end51.i273:                                    ; preds = %if.else.i270
+  store ptr %call47.i271, ptr %buffer, align 8
+  br label %if.end53.i256
 
-if.end53.i257:                                    ; preds = %if.end51.i274, %if.end46.i283, %if.end15.i254
-  %150 = load i64, ptr %maxlen, align 8
-  %cmp54.i258 = icmp ult i64 %inc62.i263515, %150
-  br i1 %cmp54.i258, label %if.then56.i259, label %if.end67.i
+if.end53.i256:                                    ; preds = %if.end51.i273, %if.end46.i282, %if.end15.i253
+  %151 = load i64, ptr %maxlen, align 8
+  %cmp54.i257 = icmp ult i64 %inc62.i262514, %151
+  br i1 %cmp54.i257, label %if.then56.i258, label %if.end67.i
 
-if.then56.i259:                                   ; preds = %if.end53.i257
-  %151 = load ptr, ptr %sbuffer, align 8
-  %tobool57.not.i260 = icmp eq ptr %151, null
-  br i1 %tobool57.not.i260, label %if.else60.i265, label %return.sink.split.i261
+if.then56.i258:                                   ; preds = %if.end53.i256
+  %152 = load ptr, ptr %sbuffer, align 8
+  %tobool57.not.i259 = icmp eq ptr %152, null
+  br i1 %tobool57.not.i259, label %if.else60.i264, label %return.sink.split.i260
 
-if.else60.i265:                                   ; preds = %if.then56.i259
-  %152 = load ptr, ptr %buffer, align 8
-  br label %return.sink.split.i261
+if.else60.i264:                                   ; preds = %if.then56.i258
+  %153 = load ptr, ptr %buffer, align 8
+  br label %return.sink.split.i260
 
-return.sink.split.i261:                           ; preds = %if.else60.i265, %if.then56.i259
-  %.sink.i262 = phi ptr [ %152, %if.else60.i265 ], [ %151, %if.then56.i259 ]
-  %inc62.i263 = add nuw i64 %inc62.i263515, 1
-  %arrayidx63.i264 = getelementptr inbounds i8, ptr %.sink.i262, i64 %inc62.i263515
-  store i8 32, ptr %arrayidx63.i264, align 1
+return.sink.split.i260:                           ; preds = %if.else60.i264, %if.then56.i258
+  %.sink.i261 = phi ptr [ %153, %if.else60.i264 ], [ %152, %if.then56.i258 ]
+  %inc62.i262 = add nuw i64 %inc62.i262514, 1
+  %arrayidx63.i263 = getelementptr inbounds i8, ptr %.sink.i261, i64 %inc62.i262514
+  store i8 32, ptr %arrayidx63.i263, align 1
   br label %if.end67.i
 
-if.end67.i:                                       ; preds = %return.sink.split.i261, %if.end53.i257
-  %inc62.i263514 = phi i64 [ %inc62.i263, %return.sink.split.i261 ], [ %inc62.i263515, %if.end53.i257 ]
+if.end67.i:                                       ; preds = %return.sink.split.i260, %if.end53.i256
+  %inc62.i262513 = phi i64 [ %inc62.i262, %return.sink.split.i260 ], [ %inc62.i262514, %if.end53.i256 ]
   %inc68.i = add i32 %padlen.259.i, 1
   %inc69.i = add i32 %cnt.260.i, 1
   %exitcond79.not.i = icmp eq i32 %inc68.i, 0
-  br i1 %exitcond79.not.i, label %sw.epilog438.loopexit491, label %land.rhs55.i, !llvm.loop !8
+  br i1 %exitcond79.not.i, label %sw.epilog438.loopexit490, label %land.rhs55.i, !llvm.loop !8
 
 sw.bb399:                                         ; preds = %sw.bb111
   %gp_offset401 = load i32, ptr %args, align 8
@@ -1583,10 +1582,10 @@ sw.bb399:                                         ; preds = %sw.bb111
 
 vaarg.in_reg403:                                  ; preds = %sw.bb399
   %reg_save_area404 = load ptr, ptr %1, align 8
-  %153 = zext nneg i32 %gp_offset401 to i64
-  %154 = getelementptr i8, ptr %reg_save_area404, i64 %153
-  %155 = add nuw nsw i32 %gp_offset401, 8
-  store i32 %155, ptr %args, align 8
+  %154 = zext nneg i32 %gp_offset401 to i64
+  %155 = getelementptr i8, ptr %reg_save_area404, i64 %154
+  %156 = add nuw nsw i32 %gp_offset401, 8
+  store i32 %156, ptr %args, align 8
   br label %vaarg.end409
 
 vaarg.in_mem405:                                  ; preds = %sw.bb399
@@ -1596,11 +1595,11 @@ vaarg.in_mem405:                                  ; preds = %sw.bb399
   br label %vaarg.end409
 
 vaarg.end409:                                     ; preds = %vaarg.in_mem405, %vaarg.in_reg403
-  %vaarg.addr410 = phi ptr [ %154, %vaarg.in_reg403 ], [ %overflow_arg_area407, %vaarg.in_mem405 ]
-  %156 = load ptr, ptr %vaarg.addr410, align 8
-  %157 = ptrtoint ptr %156 to i64
-  %or411 = or i32 %flags.0525, 8
-  %call412 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, i64 noundef %157, i32 noundef 16, i32 noundef %min.0522, i32 noundef %max.0523, i32 noundef %or411), !range !4
+  %vaarg.addr410 = phi ptr [ %155, %vaarg.in_reg403 ], [ %overflow_arg_area407, %vaarg.in_mem405 ]
+  %157 = load ptr, ptr %vaarg.addr410, align 8
+  %158 = ptrtoint ptr %157 to i64
+  %or411 = or i32 %flags.0524, 8
+  %call412 = call fastcc i32 @fmtint(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef nonnull %currlen, ptr noundef %maxlen, i64 noundef %158, i32 noundef 16, i32 noundef %min.0521, i32 noundef %max.0522, i32 noundef %or411), !range !4
   %tobool413.not = icmp eq i32 %call412, 0
   br i1 %tobool413.not, label %return, label %sw.epilog442.sink.split
 
@@ -1611,10 +1610,10 @@ sw.bb416:                                         ; preds = %sw.bb111
 
 vaarg.in_reg420:                                  ; preds = %sw.bb416
   %reg_save_area421 = load ptr, ptr %1, align 8
-  %158 = zext nneg i32 %gp_offset418 to i64
-  %159 = getelementptr i8, ptr %reg_save_area421, i64 %158
-  %160 = add nuw nsw i32 %gp_offset418, 8
-  store i32 %160, ptr %args, align 8
+  %159 = zext nneg i32 %gp_offset418 to i64
+  %160 = getelementptr i8, ptr %reg_save_area421, i64 %159
+  %161 = add nuw nsw i32 %gp_offset418, 8
+  store i32 %161, ptr %args, align 8
   br label %vaarg.end426
 
 vaarg.in_mem422:                                  ; preds = %sw.bb416
@@ -1624,242 +1623,242 @@ vaarg.in_mem422:                                  ; preds = %sw.bb416
   br label %vaarg.end426
 
 vaarg.end426:                                     ; preds = %vaarg.in_mem422, %vaarg.in_reg420
-  %vaarg.addr427 = phi ptr [ %159, %vaarg.in_reg420 ], [ %overflow_arg_area424, %vaarg.in_mem422 ]
-  %161 = load ptr, ptr %vaarg.addr427, align 8
-  %162 = load i64, ptr %currlen, align 8
-  %conv428 = trunc i64 %162 to i32
-  store i32 %conv428, ptr %161, align 4
+  %vaarg.addr427 = phi ptr [ %160, %vaarg.in_reg420 ], [ %overflow_arg_area424, %vaarg.in_mem422 ]
+  %162 = load ptr, ptr %vaarg.addr427, align 8
+  %163 = load i64, ptr %currlen, align 8
+  %conv428 = trunc i64 %163 to i32
+  store i32 %conv428, ptr %162, align 4
   br label %sw.epilog442.sink.split
 
 sw.bb429:                                         ; preds = %sw.bb111
-  %163 = load ptr, ptr %sbuffer, align 8
-  %cmp.i177 = icmp ne ptr %163, null
-  %164 = or i1 %cmp1.i178, %cmp.i177
-  br i1 %164, label %if.end.i180, label %return
+  %164 = load ptr, ptr %sbuffer, align 8
+  %cmp.i176 = icmp ne ptr %164, null
+  %165 = or i1 %cmp1.i177, %cmp.i176
+  br i1 %165, label %if.end.i179, label %return
 
-if.end.i180:                                      ; preds = %sw.bb429
-  %165 = load i64, ptr %currlen, align 8
-  %166 = load i64, ptr %maxlen, align 8
-  %cmp4.not.i181 = icmp ugt i64 %165, %166
-  br i1 %cmp4.not.i181, label %return, label %if.end15.i182
+if.end.i179:                                      ; preds = %sw.bb429
+  %166 = load i64, ptr %currlen, align 8
+  %167 = load i64, ptr %maxlen, align 8
+  %cmp4.not.i180 = icmp ugt i64 %166, %167
+  br i1 %cmp4.not.i180, label %return, label %if.end15.i181
 
-if.end15.i182:                                    ; preds = %if.end.i180
-  %cmp17.i183 = icmp eq i64 %165, %166
-  %or.cond.i184 = and i1 %cmp1.i178, %cmp17.i183
-  br i1 %or.cond.i184, label %if.then19.i194, label %if.end53.i185
+if.end15.i181:                                    ; preds = %if.end.i179
+  %cmp17.i182 = icmp eq i64 %166, %167
+  %or.cond.i183 = and i1 %cmp1.i177, %cmp17.i182
+  br i1 %or.cond.i183, label %if.then19.i193, label %if.end53.i184
 
-if.then19.i194:                                   ; preds = %if.end15.i182
-  %cmp20.i195 = icmp ugt i64 %165, 2147482623
-  br i1 %cmp20.i195, label %return, label %if.end23.i196
+if.then19.i193:                                   ; preds = %if.end15.i181
+  %cmp20.i194 = icmp ugt i64 %166, 2147482623
+  br i1 %cmp20.i194, label %return, label %if.end23.i195
 
-if.end23.i196:                                    ; preds = %if.then19.i194
-  %add.i197 = add nuw nsw i64 %165, 1024
-  store i64 %add.i197, ptr %maxlen, align 8
-  %167 = load ptr, ptr %buffer, align 8
-  %cmp24.i198 = icmp eq ptr %167, null
-  br i1 %cmp24.i198, label %if.then26.i203, label %if.else.i199
+if.end23.i195:                                    ; preds = %if.then19.i193
+  %add.i196 = add nuw nsw i64 %166, 1024
+  store i64 %add.i196, ptr %maxlen, align 8
+  %168 = load ptr, ptr %buffer, align 8
+  %cmp24.i197 = icmp eq ptr %168, null
+  br i1 %cmp24.i197, label %if.then26.i202, label %if.else.i198
 
-if.then26.i203:                                   ; preds = %if.end23.i196
-  %call.i204 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i197, ptr noundef nonnull @.str, i32 noundef 848) #7
-  store ptr %call.i204, ptr %buffer, align 8
-  %cmp27.i205 = icmp eq ptr %call.i204, null
-  br i1 %cmp27.i205, label %return, label %if.end30.i206
+if.then26.i202:                                   ; preds = %if.end23.i195
+  %call.i203 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i196, ptr noundef nonnull @.str, i32 noundef 848) #7
+  store ptr %call.i203, ptr %buffer, align 8
+  %cmp27.i204 = icmp eq ptr %call.i203, null
+  br i1 %cmp27.i204, label %return, label %if.end30.i205
 
-if.end30.i206:                                    ; preds = %if.then26.i203
-  %cmp31.not.i207 = icmp eq i64 %165, 0
-  br i1 %cmp31.not.i207, label %if.end46.i211, label %if.then33.i208
+if.end30.i205:                                    ; preds = %if.then26.i202
+  %cmp31.not.i206 = icmp eq i64 %166, 0
+  br i1 %cmp31.not.i206, label %if.end46.i210, label %if.then33.i207
 
-if.then33.i208:                                   ; preds = %if.end30.i206
-  %168 = load ptr, ptr %sbuffer, align 8
-  %cmp34.not.i209 = icmp eq ptr %168, null
-  br i1 %cmp34.not.i209, label %return, label %if.end45.i210
+if.then33.i207:                                   ; preds = %if.end30.i205
+  %169 = load ptr, ptr %sbuffer, align 8
+  %cmp34.not.i208 = icmp eq ptr %169, null
+  br i1 %cmp34.not.i208, label %return, label %if.end45.i209
 
-if.end45.i210:                                    ; preds = %if.then33.i208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i204, ptr nonnull align 1 %168, i64 %165, i1 false)
-  br label %if.end46.i211
+if.end45.i209:                                    ; preds = %if.then33.i207
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i203, ptr nonnull align 1 %169, i64 %166, i1 false)
+  br label %if.end46.i210
 
-if.end46.i211:                                    ; preds = %if.end45.i210, %if.end30.i206
+if.end46.i210:                                    ; preds = %if.end45.i209, %if.end30.i205
   store ptr null, ptr %sbuffer, align 8
-  br label %if.end53.i185
+  br label %if.end53.i184
 
-if.else.i199:                                     ; preds = %if.end23.i196
-  %call47.i200 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %167, i64 noundef %add.i197, ptr noundef nonnull @.str, i32 noundef 859) #7
-  %cmp48.i201 = icmp eq ptr %call47.i200, null
-  br i1 %cmp48.i201, label %return, label %if.end51.i202
+if.else.i198:                                     ; preds = %if.end23.i195
+  %call47.i199 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %168, i64 noundef %add.i196, ptr noundef nonnull @.str, i32 noundef 859) #7
+  %cmp48.i200 = icmp eq ptr %call47.i199, null
+  br i1 %cmp48.i200, label %return, label %if.end51.i201
 
-if.end51.i202:                                    ; preds = %if.else.i199
-  store ptr %call47.i200, ptr %buffer, align 8
-  br label %if.end53.i185
+if.end51.i201:                                    ; preds = %if.else.i198
+  store ptr %call47.i199, ptr %buffer, align 8
+  br label %if.end53.i184
 
-if.end53.i185:                                    ; preds = %if.end51.i202, %if.end46.i211, %if.end15.i182
-  %169 = load i64, ptr %maxlen, align 8
-  %cmp54.i186 = icmp ult i64 %165, %169
-  br i1 %cmp54.i186, label %if.then56.i187, label %sw.epilog442.sink.split
+if.end53.i184:                                    ; preds = %if.end51.i201, %if.end46.i210, %if.end15.i181
+  %170 = load i64, ptr %maxlen, align 8
+  %cmp54.i185 = icmp ult i64 %166, %170
+  br i1 %cmp54.i185, label %if.then56.i186, label %sw.epilog442.sink.split
 
-if.then56.i187:                                   ; preds = %if.end53.i185
-  %170 = load ptr, ptr %sbuffer, align 8
-  %tobool57.not.i188 = icmp eq ptr %170, null
-  br i1 %tobool57.not.i188, label %if.else60.i193, label %return.sink.split.i189
+if.then56.i186:                                   ; preds = %if.end53.i184
+  %171 = load ptr, ptr %sbuffer, align 8
+  %tobool57.not.i187 = icmp eq ptr %171, null
+  br i1 %tobool57.not.i187, label %if.else60.i192, label %return.sink.split.i188
 
-if.else60.i193:                                   ; preds = %if.then56.i187
-  %171 = load ptr, ptr %buffer, align 8
-  br label %return.sink.split.i189
+if.else60.i192:                                   ; preds = %if.then56.i186
+  %172 = load ptr, ptr %buffer, align 8
+  br label %return.sink.split.i188
 
-return.sink.split.i189:                           ; preds = %if.else60.i193, %if.then56.i187
-  %.sink.i190 = phi ptr [ %171, %if.else60.i193 ], [ %170, %if.then56.i187 ]
-  %inc62.i191 = add nuw i64 %165, 1
-  store i64 %inc62.i191, ptr %currlen, align 8
-  %arrayidx63.i192 = getelementptr inbounds i8, ptr %.sink.i190, i64 %165
-  store i8 37, ptr %arrayidx63.i192, align 1
+return.sink.split.i188:                           ; preds = %if.else60.i192, %if.then56.i186
+  %.sink.i189 = phi ptr [ %172, %if.else60.i192 ], [ %171, %if.then56.i186 ]
+  %inc62.i190 = add nuw i64 %166, 1
+  store i64 %inc62.i190, ptr %currlen, align 8
+  %arrayidx63.i191 = getelementptr inbounds i8, ptr %.sink.i189, i64 %166
+  store i8 37, ptr %arrayidx63.i191, align 1
   br label %sw.epilog442.sink.split
 
 sw.bb435:                                         ; preds = %sw.bb111
-  %incdec.ptr436 = getelementptr inbounds i8, ptr %format.addr.0521, i64 1
+  %incdec.ptr436 = getelementptr inbounds i8, ptr %format.addr.0520, i64 1
   br label %sw.epilog442.sink.split
 
 sw.epilog438.loopexit:                            ; preds = %if.end67.us.i
-  store i64 %inc62.i299518, ptr %currlen, align 8
+  store i64 %inc62.i298517, ptr %currlen, align 8
   br label %sw.epilog442.sink.split
 
-sw.epilog438.loopexit491:                         ; preds = %land.rhs55.i, %if.end67.i
-  %inc62.i263516 = phi i64 [ %inc62.i263515, %land.rhs55.i ], [ %inc62.i263514, %if.end67.i ]
-  store i64 %inc62.i263516, ptr %currlen, align 8
+sw.epilog438.loopexit490:                         ; preds = %land.rhs55.i, %if.end67.i
+  %inc62.i262515 = phi i64 [ %inc62.i262514, %land.rhs55.i ], [ %inc62.i262513, %if.end67.i ]
+  store i64 %inc62.i262515, ptr %currlen, align 8
   br label %sw.epilog442.sink.split
 
-sw.epilog442.sink.split:                          ; preds = %vaarg.end426, %sw.bb435, %sw.epilog177, %sw.epilog249, %if.end285, %if.end319, %if.end353, %vaarg.end409, %sw.bb111, %if.end53.i143, %return.sink.split.i147, %while.end51.i, %if.end53.i185, %return.sink.split.i189, %sw.epilog438.loopexit, %sw.epilog438.loopexit491, %sw.bb90, %sw.bb48, %sw.bb, %if.end53.i, %return.sink.split.i, %sw.bb29, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb18, %vaarg.end, %if.then36, %vaarg.end84, %if.then60, %sw.bb107, %sw.bb105, %sw.bb103, %sw.bb94
-  %format.addr.0521.sink549 = phi ptr [ %format.addr.1, %sw.bb94 ], [ %format.addr.0521, %sw.bb103 ], [ %format.addr.0521, %sw.bb105 ], [ %format.addr.0521, %sw.bb107 ], [ %format.addr.0521, %if.then60 ], [ %format.addr.0521, %vaarg.end84 ], [ %format.addr.0521, %if.then36 ], [ %format.addr.0521, %vaarg.end ], [ %format.addr.0521, %sw.bb18 ], [ %format.addr.0521, %sw.bb20 ], [ %format.addr.0521, %sw.bb23 ], [ %format.addr.0521, %sw.bb26 ], [ %format.addr.0521, %sw.bb29 ], [ %format.addr.0521, %return.sink.split.i ], [ %format.addr.0521, %if.end53.i ], [ %format.addr.0521, %sw.bb ], [ %format.addr.0521, %sw.bb48 ], [ %format.addr.0521, %sw.bb90 ], [ %format.addr.0521, %sw.bb111 ], [ %incdec.ptr436, %sw.bb435 ], [ %format.addr.0521, %vaarg.end426 ], [ %format.addr.0521, %vaarg.end409 ], [ %format.addr.0521, %if.end353 ], [ %format.addr.0521, %if.end319 ], [ %format.addr.0521, %if.end285 ], [ %format.addr.0521, %sw.epilog249 ], [ %format.addr.0521, %sw.epilog177 ], [ %format.addr.0521, %if.end53.i143 ], [ %format.addr.0521, %return.sink.split.i147 ], [ %format.addr.0521, %while.end51.i ], [ %format.addr.0521, %if.end53.i185 ], [ %format.addr.0521, %return.sink.split.i189 ], [ %format.addr.0521, %sw.epilog438.loopexit ], [ %format.addr.0521, %sw.epilog438.loopexit491 ]
-  %min.1.ph = phi i32 [ %min.0522, %sw.bb94 ], [ %min.0522, %sw.bb103 ], [ %min.0522, %sw.bb105 ], [ %min.0522, %sw.bb107 ], [ %min.0522, %if.then60 ], [ %min.0522, %vaarg.end84 ], [ %add, %if.then36 ], [ %16, %vaarg.end ], [ %min.0522, %sw.bb18 ], [ %min.0522, %sw.bb20 ], [ %min.0522, %sw.bb23 ], [ %min.0522, %sw.bb26 ], [ %min.0522, %sw.bb29 ], [ %min.0522, %return.sink.split.i ], [ %min.0522, %if.end53.i ], [ %min.0522, %sw.bb ], [ %min.0522, %sw.bb48 ], [ %min.0522, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i185 ], [ 0, %return.sink.split.i189 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit491 ]
-  %max.2.ph = phi i32 [ %max.0523, %sw.bb94 ], [ %max.0523, %sw.bb103 ], [ %max.0523, %sw.bb105 ], [ %max.0523, %sw.bb107 ], [ %add68, %if.then60 ], [ %20, %vaarg.end84 ], [ %max.0523, %if.then36 ], [ %max.0523, %vaarg.end ], [ %max.0523, %sw.bb18 ], [ %max.0523, %sw.bb20 ], [ %max.0523, %sw.bb23 ], [ %max.0523, %sw.bb26 ], [ %max.0523, %sw.bb29 ], [ %max.0523, %return.sink.split.i ], [ %max.0523, %if.end53.i ], [ %max.0523, %sw.bb ], [ %max.0523, %sw.bb48 ], [ %max.0523, %sw.bb90 ], [ -1, %sw.bb111 ], [ -1, %sw.bb435 ], [ -1, %vaarg.end426 ], [ -1, %vaarg.end409 ], [ -1, %if.end353 ], [ -1, %if.end319 ], [ -1, %if.end285 ], [ -1, %sw.epilog249 ], [ -1, %sw.epilog177 ], [ -1, %if.end53.i143 ], [ -1, %return.sink.split.i147 ], [ -1, %while.end51.i ], [ -1, %if.end53.i185 ], [ -1, %return.sink.split.i189 ], [ -1, %sw.epilog438.loopexit ], [ -1, %sw.epilog438.loopexit491 ]
-  %state.3.ph = phi i32 [ 6, %sw.bb94 ], [ 6, %sw.bb103 ], [ 6, %sw.bb105 ], [ 6, %sw.bb107 ], [ 4, %if.then60 ], [ 5, %vaarg.end84 ], [ 2, %if.then36 ], [ 3, %vaarg.end ], [ 1, %sw.bb18 ], [ 1, %sw.bb20 ], [ 1, %sw.bb23 ], [ 1, %sw.bb26 ], [ 1, %sw.bb29 ], [ 0, %return.sink.split.i ], [ 0, %if.end53.i ], [ 1, %sw.bb ], [ 4, %sw.bb48 ], [ 6, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i185 ], [ 0, %return.sink.split.i189 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit491 ]
-  %flags.4.ph = phi i32 [ %flags.0525, %sw.bb94 ], [ %flags.0525, %sw.bb103 ], [ %flags.0525, %sw.bb105 ], [ %flags.0525, %sw.bb107 ], [ %flags.0525, %if.then60 ], [ %flags.0525, %vaarg.end84 ], [ %flags.0525, %if.then36 ], [ %flags.0525, %vaarg.end ], [ %or, %sw.bb18 ], [ %or21, %sw.bb20 ], [ %or24, %sw.bb23 ], [ %or27, %sw.bb26 ], [ %or30, %sw.bb29 ], [ %flags.0525, %return.sink.split.i ], [ %flags.0525, %if.end53.i ], [ %flags.0525, %sw.bb ], [ %flags.0525, %sw.bb48 ], [ %flags.0525, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i185 ], [ 0, %return.sink.split.i189 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit491 ]
-  %cflags.3.ph = phi i32 [ %cflags.1, %sw.bb94 ], [ 4, %sw.bb103 ], [ 3, %sw.bb105 ], [ 5, %sw.bb107 ], [ %cflags.0526, %if.then60 ], [ %cflags.0526, %vaarg.end84 ], [ %cflags.0526, %if.then36 ], [ %cflags.0526, %vaarg.end ], [ %cflags.0526, %sw.bb18 ], [ %cflags.0526, %sw.bb20 ], [ %cflags.0526, %sw.bb23 ], [ %cflags.0526, %sw.bb26 ], [ %cflags.0526, %sw.bb29 ], [ %cflags.0526, %return.sink.split.i ], [ %cflags.0526, %if.end53.i ], [ %cflags.0526, %sw.bb ], [ %cflags.0526, %sw.bb48 ], [ 1, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i185 ], [ 0, %return.sink.split.i189 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit491 ]
-  %incdec.ptr93 = getelementptr inbounds i8, ptr %format.addr.0521.sink549, i64 1
-  %172 = load i8, ptr %format.addr.0521.sink549, align 1
+sw.epilog442.sink.split:                          ; preds = %vaarg.end426, %sw.bb435, %sw.epilog177, %sw.epilog249, %if.end285, %if.end319, %if.end353, %vaarg.end409, %sw.bb111, %if.end53.i143, %return.sink.split.i147, %while.end51.i, %if.end53.i184, %return.sink.split.i188, %sw.epilog438.loopexit, %sw.epilog438.loopexit490, %sw.bb90, %sw.bb48, %sw.bb, %if.end53.i, %return.sink.split.i, %sw.bb29, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb18, %vaarg.end, %if.then36, %vaarg.end84, %if.then60, %sw.bb107, %sw.bb105, %sw.bb103, %sw.bb94
+  %format.addr.0520.sink548 = phi ptr [ %format.addr.1, %sw.bb94 ], [ %format.addr.0520, %sw.bb103 ], [ %format.addr.0520, %sw.bb105 ], [ %format.addr.0520, %sw.bb107 ], [ %format.addr.0520, %if.then60 ], [ %format.addr.0520, %vaarg.end84 ], [ %format.addr.0520, %if.then36 ], [ %format.addr.0520, %vaarg.end ], [ %format.addr.0520, %sw.bb18 ], [ %format.addr.0520, %sw.bb20 ], [ %format.addr.0520, %sw.bb23 ], [ %format.addr.0520, %sw.bb26 ], [ %format.addr.0520, %sw.bb29 ], [ %format.addr.0520, %return.sink.split.i ], [ %format.addr.0520, %if.end53.i ], [ %format.addr.0520, %sw.bb ], [ %format.addr.0520, %sw.bb48 ], [ %format.addr.0520, %sw.bb90 ], [ %format.addr.0520, %sw.bb111 ], [ %incdec.ptr436, %sw.bb435 ], [ %format.addr.0520, %vaarg.end426 ], [ %format.addr.0520, %vaarg.end409 ], [ %format.addr.0520, %if.end353 ], [ %format.addr.0520, %if.end319 ], [ %format.addr.0520, %if.end285 ], [ %format.addr.0520, %sw.epilog249 ], [ %format.addr.0520, %sw.epilog177 ], [ %format.addr.0520, %if.end53.i143 ], [ %format.addr.0520, %return.sink.split.i147 ], [ %format.addr.0520, %while.end51.i ], [ %format.addr.0520, %if.end53.i184 ], [ %format.addr.0520, %return.sink.split.i188 ], [ %format.addr.0520, %sw.epilog438.loopexit ], [ %format.addr.0520, %sw.epilog438.loopexit490 ]
+  %min.1.ph = phi i32 [ %min.0521, %sw.bb94 ], [ %min.0521, %sw.bb103 ], [ %min.0521, %sw.bb105 ], [ %min.0521, %sw.bb107 ], [ %min.0521, %if.then60 ], [ %min.0521, %vaarg.end84 ], [ %add, %if.then36 ], [ %16, %vaarg.end ], [ %min.0521, %sw.bb18 ], [ %min.0521, %sw.bb20 ], [ %min.0521, %sw.bb23 ], [ %min.0521, %sw.bb26 ], [ %min.0521, %sw.bb29 ], [ %min.0521, %return.sink.split.i ], [ %min.0521, %if.end53.i ], [ %min.0521, %sw.bb ], [ %min.0521, %sw.bb48 ], [ %min.0521, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i184 ], [ 0, %return.sink.split.i188 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit490 ]
+  %max.2.ph = phi i32 [ %max.0522, %sw.bb94 ], [ %max.0522, %sw.bb103 ], [ %max.0522, %sw.bb105 ], [ %max.0522, %sw.bb107 ], [ %add68, %if.then60 ], [ %20, %vaarg.end84 ], [ %max.0522, %if.then36 ], [ %max.0522, %vaarg.end ], [ %max.0522, %sw.bb18 ], [ %max.0522, %sw.bb20 ], [ %max.0522, %sw.bb23 ], [ %max.0522, %sw.bb26 ], [ %max.0522, %sw.bb29 ], [ %max.0522, %return.sink.split.i ], [ %max.0522, %if.end53.i ], [ %max.0522, %sw.bb ], [ %max.0522, %sw.bb48 ], [ %max.0522, %sw.bb90 ], [ -1, %sw.bb111 ], [ -1, %sw.bb435 ], [ -1, %vaarg.end426 ], [ -1, %vaarg.end409 ], [ -1, %if.end353 ], [ -1, %if.end319 ], [ -1, %if.end285 ], [ -1, %sw.epilog249 ], [ -1, %sw.epilog177 ], [ -1, %if.end53.i143 ], [ -1, %return.sink.split.i147 ], [ -1, %while.end51.i ], [ -1, %if.end53.i184 ], [ -1, %return.sink.split.i188 ], [ -1, %sw.epilog438.loopexit ], [ -1, %sw.epilog438.loopexit490 ]
+  %state.3.ph = phi i32 [ 6, %sw.bb94 ], [ 6, %sw.bb103 ], [ 6, %sw.bb105 ], [ 6, %sw.bb107 ], [ 4, %if.then60 ], [ 5, %vaarg.end84 ], [ 2, %if.then36 ], [ 3, %vaarg.end ], [ 1, %sw.bb18 ], [ 1, %sw.bb20 ], [ 1, %sw.bb23 ], [ 1, %sw.bb26 ], [ 1, %sw.bb29 ], [ 0, %return.sink.split.i ], [ 0, %if.end53.i ], [ 1, %sw.bb ], [ 4, %sw.bb48 ], [ 6, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i184 ], [ 0, %return.sink.split.i188 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit490 ]
+  %flags.4.ph = phi i32 [ %flags.0524, %sw.bb94 ], [ %flags.0524, %sw.bb103 ], [ %flags.0524, %sw.bb105 ], [ %flags.0524, %sw.bb107 ], [ %flags.0524, %if.then60 ], [ %flags.0524, %vaarg.end84 ], [ %flags.0524, %if.then36 ], [ %flags.0524, %vaarg.end ], [ %or, %sw.bb18 ], [ %or21, %sw.bb20 ], [ %or24, %sw.bb23 ], [ %or27, %sw.bb26 ], [ %or30, %sw.bb29 ], [ %flags.0524, %return.sink.split.i ], [ %flags.0524, %if.end53.i ], [ %flags.0524, %sw.bb ], [ %flags.0524, %sw.bb48 ], [ %flags.0524, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i184 ], [ 0, %return.sink.split.i188 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit490 ]
+  %cflags.3.ph = phi i32 [ %cflags.1, %sw.bb94 ], [ 4, %sw.bb103 ], [ 3, %sw.bb105 ], [ 5, %sw.bb107 ], [ %cflags.0525, %if.then60 ], [ %cflags.0525, %vaarg.end84 ], [ %cflags.0525, %if.then36 ], [ %cflags.0525, %vaarg.end ], [ %cflags.0525, %sw.bb18 ], [ %cflags.0525, %sw.bb20 ], [ %cflags.0525, %sw.bb23 ], [ %cflags.0525, %sw.bb26 ], [ %cflags.0525, %sw.bb29 ], [ %cflags.0525, %return.sink.split.i ], [ %cflags.0525, %if.end53.i ], [ %cflags.0525, %sw.bb ], [ %cflags.0525, %sw.bb48 ], [ 1, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i184 ], [ 0, %return.sink.split.i188 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit490 ]
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %format.addr.0520.sink548, i64 1
+  %173 = load i8, ptr %format.addr.0520.sink548, align 1
   br label %sw.epilog442
 
 sw.epilog442:                                     ; preds = %sw.epilog442.sink.split, %sw.bb90, %if.else70, %sw.bb48, %if.else39, %sw.bb16, %if.end
-  %ch.2 = phi i8 [ %ch.0520, %if.end ], [ %ch.0520, %sw.bb16 ], [ %ch.0520, %if.else39 ], [ %ch.0520, %sw.bb48 ], [ %ch.0520, %if.else70 ], [ %ch.0520, %sw.bb90 ], [ %172, %sw.epilog442.sink.split ]
-  %format.addr.4 = phi ptr [ %format.addr.0521, %if.end ], [ %format.addr.0521, %sw.bb16 ], [ %format.addr.0521, %if.else39 ], [ %format.addr.0521, %sw.bb48 ], [ %format.addr.0521, %if.else70 ], [ %format.addr.0521, %sw.bb90 ], [ %incdec.ptr93, %sw.epilog442.sink.split ]
-  %min.1 = phi i32 [ %min.0522, %if.end ], [ %min.0522, %sw.bb16 ], [ %min.0522, %if.else39 ], [ %min.0522, %sw.bb48 ], [ %min.0522, %if.else70 ], [ %min.0522, %sw.bb90 ], [ %min.1.ph, %sw.epilog442.sink.split ]
-  %max.2 = phi i32 [ %max.0523, %if.end ], [ %max.0523, %sw.bb16 ], [ %max.0523, %if.else39 ], [ %max.0523, %sw.bb48 ], [ %max.0523, %if.else70 ], [ %max.0523, %sw.bb90 ], [ %max.2.ph, %sw.epilog442.sink.split ]
-  %state.3 = phi i32 [ %state.0524, %if.end ], [ 2, %sw.bb16 ], [ 3, %if.else39 ], [ 5, %sw.bb48 ], [ 5, %if.else70 ], [ 6, %sw.bb90 ], [ %state.3.ph, %sw.epilog442.sink.split ]
-  %flags.4 = phi i32 [ %flags.0525, %if.end ], [ %flags.0525, %sw.bb16 ], [ %flags.0525, %if.else39 ], [ %flags.0525, %sw.bb48 ], [ %flags.0525, %if.else70 ], [ %flags.0525, %sw.bb90 ], [ %flags.4.ph, %sw.epilog442.sink.split ]
-  %cflags.3 = phi i32 [ %cflags.0526, %if.end ], [ %cflags.0526, %sw.bb16 ], [ %cflags.0526, %if.else39 ], [ %cflags.0526, %sw.bb48 ], [ %cflags.0526, %if.else70 ], [ %cflags.0526, %sw.bb90 ], [ %cflags.3.ph, %sw.epilog442.sink.split ]
+  %ch.2 = phi i8 [ %ch.0519, %if.end ], [ %ch.0519, %sw.bb16 ], [ %ch.0519, %if.else39 ], [ %ch.0519, %sw.bb48 ], [ %ch.0519, %if.else70 ], [ %ch.0519, %sw.bb90 ], [ %173, %sw.epilog442.sink.split ]
+  %format.addr.4 = phi ptr [ %format.addr.0520, %if.end ], [ %format.addr.0520, %sw.bb16 ], [ %format.addr.0520, %if.else39 ], [ %format.addr.0520, %sw.bb48 ], [ %format.addr.0520, %if.else70 ], [ %format.addr.0520, %sw.bb90 ], [ %incdec.ptr93, %sw.epilog442.sink.split ]
+  %min.1 = phi i32 [ %min.0521, %if.end ], [ %min.0521, %sw.bb16 ], [ %min.0521, %if.else39 ], [ %min.0521, %sw.bb48 ], [ %min.0521, %if.else70 ], [ %min.0521, %sw.bb90 ], [ %min.1.ph, %sw.epilog442.sink.split ]
+  %max.2 = phi i32 [ %max.0522, %if.end ], [ %max.0522, %sw.bb16 ], [ %max.0522, %if.else39 ], [ %max.0522, %sw.bb48 ], [ %max.0522, %if.else70 ], [ %max.0522, %sw.bb90 ], [ %max.2.ph, %sw.epilog442.sink.split ]
+  %state.3 = phi i32 [ %state.0523, %if.end ], [ 2, %sw.bb16 ], [ 3, %if.else39 ], [ 5, %sw.bb48 ], [ 5, %if.else70 ], [ 6, %sw.bb90 ], [ %state.3.ph, %sw.epilog442.sink.split ]
+  %flags.4 = phi i32 [ %flags.0524, %if.end ], [ %flags.0524, %sw.bb16 ], [ %flags.0524, %if.else39 ], [ %flags.0524, %sw.bb48 ], [ %flags.0524, %if.else70 ], [ %flags.0524, %sw.bb90 ], [ %flags.4.ph, %sw.epilog442.sink.split ]
+  %cflags.3 = phi i32 [ %cflags.0525, %if.end ], [ %cflags.0525, %sw.bb16 ], [ %cflags.0525, %if.else39 ], [ %cflags.0525, %sw.bb48 ], [ %cflags.0525, %if.else70 ], [ %cflags.0525, %sw.bb90 ], [ %cflags.3.ph, %sw.epilog442.sink.split ]
   %cmp.not = icmp eq i32 %state.3, 7
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %sw.epilog442
   %.pre = load i64, ptr %currlen, align 8
-  %.pre535 = load i64, ptr %maxlen, align 8
-  br i1 %cmp1.i178, label %if.end.i216, label %if.then445
+  %.pre534 = load i64, ptr %maxlen, align 8
+  br i1 %cmp1.i177, label %if.end.i215, label %if.then445
 
 if.then445:                                       ; preds = %while.end.thread, %while.end
-  %.pre535547 = phi i64 [ %.pre535545, %while.end.thread ], [ %.pre535, %while.end ]
-  %.pre546 = phi i64 [ %.pre544, %while.end.thread ], [ %.pre, %while.end ]
-  %sub446 = add i64 %.pre535547, -1
-  %cmp447 = icmp ugt i64 %.pre546, %sub446
+  %.pre534546 = phi i64 [ %.pre534544, %while.end.thread ], [ %.pre534, %while.end ]
+  %.pre545 = phi i64 [ %.pre543, %while.end.thread ], [ %.pre, %while.end ]
+  %sub446 = add i64 %.pre534546, -1
+  %cmp447 = icmp ugt i64 %.pre545, %sub446
   %conv448 = zext i1 %cmp447 to i32
   store i32 %conv448, ptr %truncated, align 4
   br i1 %cmp447, label %if.then450, label %if.end453
 
 if.then450:                                       ; preds = %if.then445
-  %173 = load i64, ptr %maxlen, align 8
-  %sub451 = add i64 %173, -1
+  %174 = load i64, ptr %maxlen, align 8
+  %sub451 = add i64 %174, -1
   br label %if.end453
 
 if.end453:                                        ; preds = %if.then445, %if.then450
-  %174 = phi i64 [ %.pre546, %if.then445 ], [ %sub451, %if.then450 ]
-  %175 = load ptr, ptr %sbuffer, align 8
-  %cmp.i213.not = icmp eq ptr %175, null
-  br i1 %cmp.i213.not, label %return, label %if.end453.if.end.i216_crit_edge
+  %175 = phi i64 [ %.pre545, %if.then445 ], [ %sub451, %if.then450 ]
+  %176 = load ptr, ptr %sbuffer, align 8
+  %cmp.i212.not = icmp eq ptr %176, null
+  br i1 %cmp.i212.not, label %return, label %if.end453.if.end.i215_crit_edge
 
-if.end453.if.end.i216_crit_edge:                  ; preds = %if.end453
-  %.pre534 = load i64, ptr %maxlen, align 8
-  br label %if.end.i216
+if.end453.if.end.i215_crit_edge:                  ; preds = %if.end453
+  %.pre533 = load i64, ptr %maxlen, align 8
+  br label %if.end.i215
 
-if.end.i216:                                      ; preds = %if.end453.if.end.i216_crit_edge, %while.end
-  %176 = phi i64 [ %.pre535, %while.end ], [ %.pre534, %if.end453.if.end.i216_crit_edge ]
-  %177 = phi i64 [ %.pre, %while.end ], [ %174, %if.end453.if.end.i216_crit_edge ]
-  %cmp4.not.i217 = icmp ugt i64 %177, %176
-  br i1 %cmp4.not.i217, label %return, label %if.end15.i218
+if.end.i215:                                      ; preds = %if.end453.if.end.i215_crit_edge, %while.end
+  %177 = phi i64 [ %.pre534, %while.end ], [ %.pre533, %if.end453.if.end.i215_crit_edge ]
+  %178 = phi i64 [ %.pre, %while.end ], [ %175, %if.end453.if.end.i215_crit_edge ]
+  %cmp4.not.i216 = icmp ugt i64 %178, %177
+  br i1 %cmp4.not.i216, label %return, label %if.end15.i217
 
-if.end15.i218:                                    ; preds = %if.end.i216
-  %cmp17.i219 = icmp eq i64 %177, %176
-  %or.cond.i220 = and i1 %cmp1.i178, %cmp17.i219
-  br i1 %or.cond.i220, label %if.then19.i230, label %if.end53.i221
+if.end15.i217:                                    ; preds = %if.end.i215
+  %cmp17.i218 = icmp eq i64 %178, %177
+  %or.cond.i219 = and i1 %cmp1.i177, %cmp17.i218
+  br i1 %or.cond.i219, label %if.then19.i229, label %if.end53.i220
 
-if.then19.i230:                                   ; preds = %if.end15.i218
-  %cmp20.i231 = icmp ugt i64 %176, 2147482623
-  br i1 %cmp20.i231, label %return, label %if.end23.i232
+if.then19.i229:                                   ; preds = %if.end15.i217
+  %cmp20.i230 = icmp ugt i64 %177, 2147482623
+  br i1 %cmp20.i230, label %return, label %if.end23.i231
 
-if.end23.i232:                                    ; preds = %if.then19.i230
-  %add.i233 = add nuw nsw i64 %176, 1024
-  store i64 %add.i233, ptr %maxlen, align 8
-  %178 = load ptr, ptr %buffer, align 8
-  %cmp24.i234 = icmp eq ptr %178, null
-  br i1 %cmp24.i234, label %if.then26.i239, label %if.else.i235
+if.end23.i231:                                    ; preds = %if.then19.i229
+  %add.i232 = add nuw nsw i64 %177, 1024
+  store i64 %add.i232, ptr %maxlen, align 8
+  %179 = load ptr, ptr %buffer, align 8
+  %cmp24.i233 = icmp eq ptr %179, null
+  br i1 %cmp24.i233, label %if.then26.i238, label %if.else.i234
 
-if.then26.i239:                                   ; preds = %if.end23.i232
-  %call.i240 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i233, ptr noundef nonnull @.str, i32 noundef 848) #7
-  store ptr %call.i240, ptr %buffer, align 8
-  %cmp27.i241 = icmp eq ptr %call.i240, null
-  br i1 %cmp27.i241, label %return, label %if.end30.i242
+if.then26.i238:                                   ; preds = %if.end23.i231
+  %call.i239 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i232, ptr noundef nonnull @.str, i32 noundef 848) #7
+  store ptr %call.i239, ptr %buffer, align 8
+  %cmp27.i240 = icmp eq ptr %call.i239, null
+  br i1 %cmp27.i240, label %return, label %if.end30.i241
 
-if.end30.i242:                                    ; preds = %if.then26.i239
-  %cmp31.not.i243 = icmp eq i64 %176, 0
-  br i1 %cmp31.not.i243, label %if.end46.i247, label %if.then33.i244
+if.end30.i241:                                    ; preds = %if.then26.i238
+  %cmp31.not.i242 = icmp eq i64 %177, 0
+  br i1 %cmp31.not.i242, label %if.end46.i246, label %if.then33.i243
 
-if.then33.i244:                                   ; preds = %if.end30.i242
-  %179 = load ptr, ptr %sbuffer, align 8
-  %cmp34.not.i245 = icmp eq ptr %179, null
-  br i1 %cmp34.not.i245, label %return, label %if.end45.i246
+if.then33.i243:                                   ; preds = %if.end30.i241
+  %180 = load ptr, ptr %sbuffer, align 8
+  %cmp34.not.i244 = icmp eq ptr %180, null
+  br i1 %cmp34.not.i244, label %return, label %if.end45.i245
 
-if.end45.i246:                                    ; preds = %if.then33.i244
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i240, ptr nonnull align 1 %179, i64 %176, i1 false)
-  br label %if.end46.i247
+if.end45.i245:                                    ; preds = %if.then33.i243
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i239, ptr nonnull align 1 %180, i64 %177, i1 false)
+  br label %if.end46.i246
 
-if.end46.i247:                                    ; preds = %if.end45.i246, %if.end30.i242
+if.end46.i246:                                    ; preds = %if.end45.i245, %if.end30.i241
   store ptr null, ptr %sbuffer, align 8
-  br label %if.end53.i221
+  br label %if.end53.i220
 
-if.else.i235:                                     ; preds = %if.end23.i232
-  %call47.i236 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %178, i64 noundef %add.i233, ptr noundef nonnull @.str, i32 noundef 859) #7
-  %cmp48.i237 = icmp eq ptr %call47.i236, null
-  br i1 %cmp48.i237, label %return, label %if.end51.i238
+if.else.i234:                                     ; preds = %if.end23.i231
+  %call47.i235 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %179, i64 noundef %add.i232, ptr noundef nonnull @.str, i32 noundef 859) #7
+  %cmp48.i236 = icmp eq ptr %call47.i235, null
+  br i1 %cmp48.i236, label %return, label %if.end51.i237
 
-if.end51.i238:                                    ; preds = %if.else.i235
-  store ptr %call47.i236, ptr %buffer, align 8
-  br label %if.end53.i221
+if.end51.i237:                                    ; preds = %if.else.i234
+  store ptr %call47.i235, ptr %buffer, align 8
+  br label %if.end53.i220
 
-if.end53.i221:                                    ; preds = %if.end51.i238, %if.end46.i247, %if.end15.i218
-  %180 = load i64, ptr %maxlen, align 8
-  %cmp54.i222 = icmp ult i64 %177, %180
-  br i1 %cmp54.i222, label %if.then56.i223, label %if.end457
+if.end53.i220:                                    ; preds = %if.end51.i237, %if.end46.i246, %if.end15.i217
+  %181 = load i64, ptr %maxlen, align 8
+  %cmp54.i221 = icmp ult i64 %178, %181
+  br i1 %cmp54.i221, label %if.then56.i222, label %if.end457
 
-if.then56.i223:                                   ; preds = %if.end53.i221
-  %181 = load ptr, ptr %sbuffer, align 8
-  %tobool57.not.i224 = icmp eq ptr %181, null
-  br i1 %tobool57.not.i224, label %if.else60.i229, label %return.sink.split.i225
+if.then56.i222:                                   ; preds = %if.end53.i220
+  %182 = load ptr, ptr %sbuffer, align 8
+  %tobool57.not.i223 = icmp eq ptr %182, null
+  br i1 %tobool57.not.i223, label %if.else60.i228, label %return.sink.split.i224
 
-if.else60.i229:                                   ; preds = %if.then56.i223
-  %182 = load ptr, ptr %buffer, align 8
-  br label %return.sink.split.i225
+if.else60.i228:                                   ; preds = %if.then56.i222
+  %183 = load ptr, ptr %buffer, align 8
+  br label %return.sink.split.i224
 
-return.sink.split.i225:                           ; preds = %if.else60.i229, %if.then56.i223
-  %.sink.i226 = phi ptr [ %182, %if.else60.i229 ], [ %181, %if.then56.i223 ]
-  %inc62.i227 = add nuw i64 %177, 1
-  %arrayidx63.i228 = getelementptr inbounds i8, ptr %.sink.i226, i64 %177
-  store i8 0, ptr %arrayidx63.i228, align 1
+return.sink.split.i224:                           ; preds = %if.else60.i228, %if.then56.i222
+  %.sink.i225 = phi ptr [ %183, %if.else60.i228 ], [ %182, %if.then56.i222 ]
+  %inc62.i226 = add nuw i64 %178, 1
+  %arrayidx63.i227 = getelementptr inbounds i8, ptr %.sink.i225, i64 %178
+  store i8 0, ptr %arrayidx63.i227, align 1
   br label %if.end457
 
-if.end457:                                        ; preds = %return.sink.split.i225, %if.end53.i221
-  %183 = phi i64 [ %inc62.i227, %return.sink.split.i225 ], [ %177, %if.end53.i221 ]
-  %sub458 = add i64 %183, -1
+if.end457:                                        ; preds = %return.sink.split.i224, %if.end53.i220
+  %184 = phi i64 [ %inc62.i226, %return.sink.split.i224 ], [ %178, %if.end53.i220 ]
+  %sub458 = add i64 %184, -1
   store i64 %sub458, ptr %retlen, align 8
   br label %return
 
-return:                                           ; preds = %if.else.i199, %if.then33.i208, %if.then26.i203, %if.then19.i194, %if.end.i180, %sw.bb429, %if.else.i157, %if.then33.i166, %if.then26.i161, %if.then19.i152, %if.end.i138, %vaarg.end368, %if.else.i, %if.then33.i, %if.then26.i, %if.then19.i, %if.end.i, %if.else, %vaarg.end409, %if.end353, %if.end319, %if.end285, %sw.epilog249, %sw.epilog177, %if.else.i415, %if.then33.i424, %if.then26.i419, %if.then19.i410, %if.end.i396, %while.body.i, %if.else.i451, %if.then33.i460, %if.then26.i455, %if.then19.i446, %if.end.i432, %land.rhs.us.i, %if.else.i343, %if.then33.i352, %if.then26.i347, %if.then19.i338, %if.end.i324, %while.body43.i, %if.else.i379, %if.then33.i388, %if.then26.i383, %if.then19.i374, %if.end.i360, %land.rhs35.us.i, %if.else.i271, %if.then33.i280, %if.then26.i275, %if.then19.i266, %if.end.i252, %while.body63.i, %if.else.i307, %if.then33.i316, %if.then26.i311, %if.then19.i302, %if.end.i288, %land.rhs55.us.i, %if.else.i235, %if.then33.i244, %if.then26.i239, %if.then19.i230, %if.end.i216, %if.end453, %if.end457
-  %retval.0 = phi i32 [ 1, %if.end457 ], [ 0, %if.end453 ], [ 0, %if.end.i216 ], [ 0, %if.then19.i230 ], [ 0, %if.then26.i239 ], [ 0, %if.then33.i244 ], [ 0, %if.else.i235 ], [ 0, %land.rhs55.us.i ], [ 0, %if.end.i288 ], [ 0, %if.then19.i302 ], [ 0, %if.then26.i311 ], [ 0, %if.then33.i316 ], [ 0, %if.else.i307 ], [ 0, %while.body63.i ], [ 0, %if.end.i252 ], [ 0, %if.then19.i266 ], [ 0, %if.then26.i275 ], [ 0, %if.then33.i280 ], [ 0, %if.else.i271 ], [ 0, %land.rhs35.us.i ], [ 0, %if.end.i360 ], [ 0, %if.then19.i374 ], [ 0, %if.then26.i383 ], [ 0, %if.then33.i388 ], [ 0, %if.else.i379 ], [ 0, %while.body43.i ], [ 0, %if.end.i324 ], [ 0, %if.then19.i338 ], [ 0, %if.then26.i347 ], [ 0, %if.then33.i352 ], [ 0, %if.else.i343 ], [ 0, %land.rhs.us.i ], [ 0, %if.end.i432 ], [ 0, %if.then19.i446 ], [ 0, %if.then26.i455 ], [ 0, %if.then33.i460 ], [ 0, %if.else.i451 ], [ 0, %while.body.i ], [ 0, %if.end.i396 ], [ 0, %if.then19.i410 ], [ 0, %if.then26.i419 ], [ 0, %if.then33.i424 ], [ 0, %if.else.i415 ], [ 0, %sw.epilog177 ], [ 0, %sw.epilog249 ], [ 0, %if.end285 ], [ 0, %if.end319 ], [ 0, %if.end353 ], [ 0, %vaarg.end409 ], [ 0, %if.else ], [ 0, %if.end.i ], [ 0, %if.then19.i ], [ 0, %if.then26.i ], [ 0, %if.then33.i ], [ 0, %if.else.i ], [ 0, %vaarg.end368 ], [ 0, %if.end.i138 ], [ 0, %if.then19.i152 ], [ 0, %if.then26.i161 ], [ 0, %if.then33.i166 ], [ 0, %if.else.i157 ], [ 0, %sw.bb429 ], [ 0, %if.end.i180 ], [ 0, %if.then19.i194 ], [ 0, %if.then26.i203 ], [ 0, %if.then33.i208 ], [ 0, %if.else.i199 ]
+return:                                           ; preds = %if.else.i198, %if.then33.i207, %if.then26.i202, %if.then19.i193, %if.end.i179, %sw.bb429, %if.else.i157, %if.then33.i166, %if.then26.i161, %if.then19.i152, %if.end.i138, %vaarg.end368, %if.else.i, %if.then33.i, %if.then26.i, %if.then19.i, %if.end.i, %if.else, %vaarg.end409, %if.end353, %if.end319, %if.end285, %sw.epilog249, %sw.epilog177, %if.else.i414, %if.then33.i423, %if.then26.i418, %if.then19.i409, %if.end.i395, %while.body.i, %if.else.i450, %if.then33.i459, %if.then26.i454, %if.then19.i445, %if.end.i431, %land.rhs.us.i, %if.else.i342, %if.then33.i351, %if.then26.i346, %if.then19.i337, %if.end.i323, %while.body43.i, %if.else.i378, %if.then33.i387, %if.then26.i382, %if.then19.i373, %if.end.i359, %land.rhs35.us.i, %if.else.i270, %if.then33.i279, %if.then26.i274, %if.then19.i265, %if.end.i251, %while.body63.i, %if.else.i306, %if.then33.i315, %if.then26.i310, %if.then19.i301, %if.end.i287, %land.rhs55.us.i, %if.else.i234, %if.then33.i243, %if.then26.i238, %if.then19.i229, %if.end.i215, %if.end453, %if.end457
+  %retval.0 = phi i32 [ 1, %if.end457 ], [ 0, %if.end453 ], [ 0, %if.end.i215 ], [ 0, %if.then19.i229 ], [ 0, %if.then26.i238 ], [ 0, %if.then33.i243 ], [ 0, %if.else.i234 ], [ 0, %land.rhs55.us.i ], [ 0, %if.end.i287 ], [ 0, %if.then19.i301 ], [ 0, %if.then26.i310 ], [ 0, %if.then33.i315 ], [ 0, %if.else.i306 ], [ 0, %while.body63.i ], [ 0, %if.end.i251 ], [ 0, %if.then19.i265 ], [ 0, %if.then26.i274 ], [ 0, %if.then33.i279 ], [ 0, %if.else.i270 ], [ 0, %land.rhs35.us.i ], [ 0, %if.end.i359 ], [ 0, %if.then19.i373 ], [ 0, %if.then26.i382 ], [ 0, %if.then33.i387 ], [ 0, %if.else.i378 ], [ 0, %while.body43.i ], [ 0, %if.end.i323 ], [ 0, %if.then19.i337 ], [ 0, %if.then26.i346 ], [ 0, %if.then33.i351 ], [ 0, %if.else.i342 ], [ 0, %land.rhs.us.i ], [ 0, %if.end.i431 ], [ 0, %if.then19.i445 ], [ 0, %if.then26.i454 ], [ 0, %if.then33.i459 ], [ 0, %if.else.i450 ], [ 0, %while.body.i ], [ 0, %if.end.i395 ], [ 0, %if.then19.i409 ], [ 0, %if.then26.i418 ], [ 0, %if.then33.i423 ], [ 0, %if.else.i414 ], [ 0, %sw.epilog177 ], [ 0, %sw.epilog249 ], [ 0, %if.end285 ], [ 0, %if.end319 ], [ 0, %if.end353 ], [ 0, %vaarg.end409 ], [ 0, %if.else ], [ 0, %if.end.i ], [ 0, %if.then19.i ], [ 0, %if.then26.i ], [ 0, %if.then33.i ], [ 0, %if.else.i ], [ 0, %vaarg.end368 ], [ 0, %if.end.i138 ], [ 0, %if.then19.i152 ], [ 0, %if.then26.i161 ], [ 0, %if.then33.i166 ], [ 0, %if.else.i157 ], [ 0, %sw.bb429 ], [ 0, %if.end.i179 ], [ 0, %if.then19.i193 ], [ 0, %if.then26.i202 ], [ 0, %if.then33.i207 ], [ 0, %if.else.i198 ]
   ret i32 %retval.0
 }
 

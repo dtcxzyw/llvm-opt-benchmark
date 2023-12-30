@@ -1350,22 +1350,21 @@ _ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 1152921504606846975
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 1152921504606846975, i64 %add.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %5
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+cond.true.i.i:                                    ; preds = %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 3
   %call5.i.i.i.i14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #23
           to label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i unwind label %_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i10
 
-_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
-  %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i14, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i ]
+_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+  %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i14, %cond.true.i.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %5 = ptrtoint ptr %call to i64
-  store i64 %5, ptr %add.ptr.i, align 8
+  %6 = ptrtoint ptr %call to i64
+  store i64 %6, ptr %add.ptr.i, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i.i
 
@@ -1374,8 +1373,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %6 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store i64 %6, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %7 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store i64 %7, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i.i, i64 1
@@ -1400,21 +1399,21 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %.noexc, %if.then.i.i.i
-  %7 = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %.noexc ], [ %3, %if.then.i.i.i ]
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %ref.tmp, align 8
+  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %.noexc ], [ %3, %if.then.i.i.i ]
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %ref.tmp, align 8
   %_M_finish.i.i.i2 = getelementptr inbounds %"class.YAML::Scanner", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 0, i32 3
-  %9 = load ptr, ptr %_M_finish.i.i.i2, align 8
+  %10 = load ptr, ptr %_M_finish.i.i.i2, align 8
   %_M_last.i.i.i = getelementptr inbounds %"class.YAML::Scanner", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 0, i32 3, i32 2
-  %10 = load ptr, ptr %_M_last.i.i.i, align 8
-  %add.ptr.i.i.i3 = getelementptr inbounds ptr, ptr %10, i64 -1
-  %cmp.not.i.i.i4 = icmp eq ptr %9, %add.ptr.i.i.i3
+  %11 = load ptr, ptr %_M_last.i.i.i, align 8
+  %add.ptr.i.i.i3 = getelementptr inbounds ptr, ptr %11, i64 -1
+  %cmp.not.i.i.i4 = icmp eq ptr %10, %add.ptr.i.i.i3
   br i1 %cmp.not.i.i.i4, label %if.else.i.i.i7, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %invoke.cont3
-  store ptr %8, ptr %9, align 8
-  %11 = load ptr, ptr %_M_finish.i.i.i2, align 8
-  %incdec.ptr.i.i.i6 = getelementptr inbounds ptr, ptr %11, i64 1
+  store ptr %9, ptr %10, align 8
+  %12 = load ptr, ptr %_M_finish.i.i.i2, align 8
+  %incdec.ptr.i.i.i6 = getelementptr inbounds ptr, ptr %12, i64 1
   store ptr %incdec.ptr.i.i.i6, ptr %_M_finish.i.i.i2, align 8
   br label %_ZNSt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS2_EED2Ev.exit
 
@@ -1426,7 +1425,7 @@ if.else.i.i.i7:                                   ; preds = %invoke.cont3
 _ZNSt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.else.i.i.i7, %if.then.i.i.i5
   ret void
 
-_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i10: ; preds = %if.then.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i
+_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i10: ; preds = %if.then.i.i, %cond.true.i.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #21
@@ -3704,7 +3703,7 @@ _ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit: ; pr
   %cmp = icmp sgt i32 %8, %column
   br i1 %cmp, label %_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24, label %if.end10
 
-lpad4:                                            ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i, %if.then.i.i, %if.else.i.i.i, %invoke.cont.i, %invoke.cont21
+lpad4:                                            ; preds = %cond.true.i.i, %if.then.i.i, %if.else.i.i.i, %invoke.cont.i, %invoke.cont21
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS2_EED2Ev.exit
@@ -3818,22 +3817,21 @@ _ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 1152921504606846975
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 1152921504606846975, i64 %add.i.i
+  %20 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %20
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+cond.true.i.i:                                    ; preds = %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 3
   %call5.i.i.i.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #23
           to label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i unwind label %lpad4
 
-_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
-  %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i28, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i ]
+_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+  %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i28, %cond.true.i.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %20 = ptrtoint ptr %call2 to i64
-  store i64 %20, ptr %add.ptr.i, align 8
+  %21 = ptrtoint ptr %call2 to i64
+  store i64 %21, ptr %add.ptr.i, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %19, %15
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i.i
 
@@ -3842,8 +3840,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %19, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %21 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !51, !noalias !48
-  store i64 %21, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !48, !noalias !51
+  %22 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !51, !noalias !48
+  store i64 %22, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !48, !noalias !51
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !51, !noalias !48
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i.i, i64 1
@@ -3868,8 +3866,8 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i17, %.noexc20
-  %22 = phi ptr [ %18, %if.then.i.i.i17 ], [ %__cur.0.lcssa.i.i.i.i.i, %.noexc20 ]
-  %23 = load ptr, ptr %22, align 8
+  %23 = phi ptr [ %18, %if.then.i.i.i17 ], [ %__cur.0.lcssa.i.i.i.i.i, %.noexc20 ]
+  %24 = load ptr, ptr %23, align 8
   br label %return
 
 _ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24: ; preds = %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit, %land.lhs.true16, %land.lhs.true
@@ -3877,7 +3875,7 @@ _ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24: ; preds =
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24, %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %23, %cleanup ], [ null, %_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24 ]
+  %retval.1 = phi ptr [ null, %entry ], [ %24, %cleanup ], [ null, %_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24 ]
   ret ptr %retval.1
 }
 
@@ -6615,6 +6613,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

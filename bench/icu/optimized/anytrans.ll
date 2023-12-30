@@ -679,10 +679,9 @@ invoke.cont27:                                    ; preds = %invoke.cont24
 invoke.cont29:                                    ; preds = %invoke.cont27
   %12 = load i32, ptr %ec, align 4
   %cmp.i31 = icmp sgt i32 %12, 0
-  %cmp35 = icmp eq ptr %call30, null
-  %cmp.i31.not = xor i1 %cmp.i31, true
-  %brmerge = or i1 %cmp35, %cmp.i31.not
-  br i1 %brmerge, label %if.end43, label %if.end63.sink.split
+  %cmp35 = icmp ne ptr %call30, null
+  %brmerge.not = and i1 %cmp35, %cmp.i31
+  br i1 %brmerge.not, label %if.end63.sink.split, label %if.end43
 
 lpad:                                             ; preds = %if.end
   %13 = landingpad { ptr, i32 }
@@ -714,8 +713,9 @@ lpad23:                                           ; preds = %invoke.cont24, %inv
   br label %ehcleanup
 
 if.end43:                                         ; preds = %invoke.cont29
-  %or.cond2 = or i1 %cmp35, %cmp.i31
-  br i1 %or.cond2, label %if.end63, label %if.then45
+  %cmp44.not49 = icmp eq ptr %call30, null
+  %cmp44.not = or i1 %cmp44.not49, %cmp.i31
+  br i1 %cmp44.not, label %if.end63, label %if.then45
 
 if.then45:                                        ; preds = %invoke.cont13, %if.end43
   %t.048 = phi ptr [ %call30, %if.end43 ], [ %call14, %invoke.cont13 ]
@@ -767,12 +767,12 @@ _ZN6icu_755MutexD2Ev.exit38:                      ; preds = %if.end57
   br i1 %isnull58, label %if.end63, label %if.end63.sink.split
 
 if.end63.sink.split:                              ; preds = %_ZN6icu_755MutexD2Ev.exit38, %invoke.cont29
-  %call30.sink49 = phi ptr [ %call30, %invoke.cont29 ], [ %rt.0, %_ZN6icu_755MutexD2Ev.exit38 ]
+  %call30.sink50 = phi ptr [ %call30, %invoke.cont29 ], [ %rt.0, %_ZN6icu_755MutexD2Ev.exit38 ]
   %t.2.ph = phi ptr [ null, %invoke.cont29 ], [ %t.1, %_ZN6icu_755MutexD2Ev.exit38 ]
-  %vtable39 = load ptr, ptr %call30.sink49, align 8
+  %vtable39 = load ptr, ptr %call30.sink50, align 8
   %vfn40 = getelementptr inbounds ptr, ptr %vtable39, i64 1
   %26 = load ptr, ptr %vfn40, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(84) %call30.sink49) #9
+  call void %26(ptr noundef nonnull align 8 dereferenceable(84) %call30.sink50) #9
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end63.sink.split, %_ZN6icu_755MutexD2Ev.exit38, %if.end43

@@ -447,7 +447,7 @@ if.else.i18:                                      ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 2
   %cmp.i.i = icmp slt i32 %0, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i18
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
@@ -456,11 +456,11 @@ if.then.i.i:                                      ; preds = %if.else.i18
 .noexc20:                                         ; preds = %if.then.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i: ; preds = %if.else.i18
+cond.true.i.i:                                    ; preds = %if.else.i18
   %call5.i.i.i.i21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %conv) #17
           to label %if.then.i.i.i21.i unwind label %lpad
 
-if.then.i.i.i21.i:                                ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i
+if.then.i.i.i21.i:                                ; preds = %cond.true.i.i
   store i8 0, ptr %call5.i.i.i.i21, align 1
   %sub.i.i.i23.i = add nsw i64 %conv, -1
   %cmp.i.i.i.i.i24.i = icmp eq i64 %sub.i.i.i23.i, 0
@@ -475,8 +475,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i21.i, 
   store ptr %call5.i.i.i.i21, ptr %buffer, align 8
   %add.ptr36.i = getelementptr inbounds i8, ptr %call5.i.i.i.i21, i64 %conv
   store ptr %add.ptr36.i, ptr %_M_finish.i.i, align 8
-  %add.ptr39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i21, i64 %conv
-  store ptr %add.ptr39.i, ptr %_M_end_of_storage.i, align 8
+  store ptr %add.ptr36.i, ptr %_M_end_of_storage.i, align 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %call5.i.i.i.i21, i64 noundef %conv)
           to label %invoke.cont3 unwind label %lpad
 
@@ -526,7 +525,7 @@ invoke.cont17:                                    ; preds = %.noexc10
   call void @_ZdaPv(ptr noundef nonnull %call11) #18
   br label %cleanup
 
-lpad:                                             ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i, %if.then.i.i, %invoke.cont10, %if.then7, %invoke.cont
+lpad:                                             ; preds = %cond.true.i.i, %if.then.i.i, %invoke.cont10, %if.then7, %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup

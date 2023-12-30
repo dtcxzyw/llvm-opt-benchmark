@@ -1227,19 +1227,18 @@ _ZNKSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ;
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 384307168202282325
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 384307168202282325, i64 %add.i.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %4
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaISt4pairIN4llvh9StringRefEjEEE8allocateERS4_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaISt4pairIN4llvh9StringRefEjEEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNKSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 24
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaISt4pairIN4llvh9StringRefEjEEE8allocateERS4_m.exit.i.i.i, %_ZNKSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIN4llvh9StringRefEjEEE8allocateERS4_m.exit.i.i.i ], [ null, %_ZNKSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__x, i64 24, i1 false)
   %cmp.not5.i.i.i.i.i = icmp eq ptr %3, %0
@@ -3972,39 +3971,38 @@ _ZNKSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
-  %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
-  %cond.i.i.i.i = select i1 %or.cond.i.i.i.i, i64 1152921504606846975, i64 %add.i.i.i.i
+  %8 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %8
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i, label %_ZNSt16allocator_traitsISaIPKN4llvh16FileCheckPatternEEE8allocateERS4_m.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
-_ZNSt16allocator_traitsISaIPKN4llvh16FileCheckPatternEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %_ZNKSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 3
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIPKN4llvh16FileCheckPatternEEE8allocateERS4_m.exit.i.i.i.i, %_ZNKSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIPKN4llvh16FileCheckPatternEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
+_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cond.i10.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %cond.true.i.i.i.i ], [ null, %_ZNKSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store ptr %PatItr.sroa.0.0201, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
+  %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
 
-if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i
+if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %7, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
+  br label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
 
-_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i
+_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPKN4llvh16FileCheckPatternESaIS3_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
   %tobool.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
-if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
+if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %7) #22
   br label %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
+_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
   store ptr %cond.i10.i.i.i, ptr %NotStrings, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i85, align 8
   %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
@@ -4030,20 +4028,20 @@ if.then21:                                        ; preds = %if.end11, %if.end11
   store ptr %add.ptr.i.lcssa, ptr %agg.tmp26, align 8
   %MatchBuffer.sroa.3.0.agg.tmp26.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp26, i64 8
   store i64 %sub.i.lcssa, ptr %MatchBuffer.sroa.3.0.agg.tmp26.sroa_idx, align 8
-  %8 = load i8, ptr %VerboseVerbose29, align 1
-  %9 = and i8 %8, 1
-  %tobool = icmp ne i8 %9, 0
+  %9 = load i8, ptr %VerboseVerbose29, align 1
+  %10 = and i8 %9, 1
+  %tobool = icmp ne i8 %10, 0
   call fastcc void @_ZL12PrintNoMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEb(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp22.sroa.0.0.copyload, i64 %agg.tmp22.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr noundef nonnull byval(%"class.llvh::StringRef") align 8 %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i1 noundef zeroext %tobool)
   br label %cleanup
 
 if.end28:                                         ; preds = %if.end11, %if.end115
   %call19194 = phi i64 [ %call19, %if.end115 ], [ %call19190, %if.end11 ]
   %MI.sroa.0.0193 = phi ptr [ %MI.sroa.0.0, %if.end115 ], [ %MI.sroa.0.0186, %if.end11 ]
-  %MatchPos.0192 = phi i64 [ %24, %if.end115 ], [ %StartPos.0205, %if.end11 ]
+  %MatchPos.0192 = phi i64 [ %25, %if.end115 ], [ %StartPos.0205, %if.end11 ]
   %add = add i64 %call19194, %MatchPos.0192
-  %10 = load i8, ptr %VerboseVerbose29, align 1
-  %11 = and i8 %10, 1
-  %tobool30.not = icmp eq i8 %11, 0
+  %11 = load i8, ptr %VerboseVerbose29, align 1
+  %12 = and i8 %11, 1
+  %tobool30.not = icmp eq i8 %12, 0
   %.pre = load i64, ptr %MatchLen, align 8
   br i1 %tobool30.not, label %if.end39, label %if.then31
 
@@ -4052,14 +4050,14 @@ if.then31:                                        ; preds = %if.end28
   %agg.tmp32.sroa.2.0.copyload = load i64, ptr %agg.tmp32.sroa.2.0.Prefix33.sroa_idx, align 8
   %retval.sroa.0.0.copyload.i61 = load ptr, ptr %PatItr.sroa.0.0201, align 8
   %Req.val = load i8, ptr %2, align 4
-  call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp32.sroa.0.0.copyload, i64 %agg.tmp32.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i61, ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %add, i64 noundef %.pre, i8 %Req.val, i8 %10)
+  call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp32.sroa.0.0.copyload, i64 %agg.tmp32.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i61, ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %add, i64 noundef %.pre, i8 %Req.val, i8 %11)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then31, %if.end28
   %add40 = add i64 %.pre, %add
-  %12 = load i8, ptr %AllowDeprecatedDagOverlap, align 1
-  %13 = and i8 %12, 1
-  %tobool41.not = icmp eq i8 %13, 0
+  %13 = load i8, ptr %AllowDeprecatedDagOverlap, align 1
+  %14 = and i8 %13, 1
+  %tobool41.not = icmp eq i8 %14, 0
   br i1 %tobool41.not, label %for.cond68.preheader, label %if.then42
 
 for.cond68.preheader:                             ; preds = %if.end39
@@ -4067,8 +4065,8 @@ for.cond68.preheader:                             ; preds = %if.end39
   br i1 %cmp.i70.not177, label %if.then83, label %for.body70
 
 if.then42:                                        ; preds = %if.end39
-  %14 = load ptr, ptr %MatchRanges, align 8
-  %cmp.i62 = icmp eq ptr %14, %MatchRanges
+  %15 = load ptr, ptr %MatchRanges, align 8
+  %cmp.i62 = icmp eq ptr %15, %MatchRanges
   br i1 %cmp.i62, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %if.then42
@@ -4078,39 +4076,39 @@ if.then44:                                        ; preds = %if.then42
   %M.sroa.6.0._M_storage.i.i.i.sroa_idx = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
   store i64 %add40, ptr %M.sroa.6.0._M_storage.i.i.i.sroa_idx, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i, ptr noundef nonnull %MatchRanges) #18
-  %15 = load i64, ptr %_M_size.i.i.i.i.i, align 8
-  %add.i.i = add i64 %15, 1
+  %16 = load i64, ptr %_M_size.i.i.i.i.i, align 8
+  %add.i.i = add i64 %16, 1
   store i64 %add.i.i, ptr %_M_size.i.i.i.i.i, align 8
   br label %for.end120
 
 if.else:                                          ; preds = %if.then42
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %14, i64 0, i32 1
-  %16 = load i64, ptr %_M_storage.i.i, align 8
-  %.sroa.speculated104 = call i64 @llvm.umin.i64(i64 %add, i64 %16)
+  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %15, i64 0, i32 1
+  %17 = load i64, ptr %_M_storage.i.i, align 8
+  %.sroa.speculated104 = call i64 @llvm.umin.i64(i64 %add, i64 %17)
   store i64 %.sroa.speculated104, ptr %_M_storage.i.i, align 8
-  %End61 = getelementptr inbounds %"struct.std::_List_node", ptr %14, i64 0, i32 1, i32 0, i64 8
-  %17 = load i64, ptr %End61, align 8
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %17, i64 %add40)
+  %End61 = getelementptr inbounds %"struct.std::_List_node", ptr %15, i64 0, i32 1, i32 0, i64 8
+  %18 = load i64, ptr %End61, align 8
+  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %18, i64 %add40)
   store i64 %.sroa.speculated, ptr %End61, align 8
   br label %for.end120
 
 for.body70:                                       ; preds = %for.cond68.preheader, %for.inc
-  %MI.sroa.0.1178 = phi ptr [ %20, %for.inc ], [ %MI.sroa.0.0193, %for.cond68.preheader ]
+  %MI.sroa.0.1178 = phi ptr [ %21, %for.inc ], [ %MI.sroa.0.0193, %for.cond68.preheader ]
   %End73 = getelementptr inbounds %"struct.std::_List_node", ptr %MI.sroa.0.1178, i64 0, i32 1, i32 0, i64 8
-  %18 = load i64, ptr %End73, align 8
-  %cmp74 = icmp ult i64 %add, %18
+  %19 = load i64, ptr %End73, align 8
+  %cmp74 = icmp ult i64 %add, %19
   br i1 %cmp74, label %if.then75, label %for.inc
 
 if.then75:                                        ; preds = %for.body70
   %End73.le = getelementptr inbounds %"struct.std::_List_node", ptr %MI.sroa.0.1178, i64 0, i32 1, i32 0, i64 8
   %_M_storage.i.i71 = getelementptr inbounds %"struct.std::_List_node", ptr %MI.sroa.0.1178, i64 0, i32 1
-  %19 = load i64, ptr %_M_storage.i.i71, align 8
-  %cmp79 = icmp ult i64 %19, %add40
+  %20 = load i64, ptr %_M_storage.i.i71, align 8
+  %cmp79 = icmp ult i64 %20, %add40
   br i1 %cmp79, label %if.end89, label %if.then83
 
 for.inc:                                          ; preds = %for.body70
-  %20 = load ptr, ptr %MI.sroa.0.1178, align 8
-  %cmp.i70.not = icmp eq ptr %20, %MatchRanges
+  %21 = load ptr, ptr %MI.sroa.0.1178, align 8
+  %cmp.i70.not = icmp eq ptr %21, %MatchRanges
   br i1 %cmp.i70.not, label %if.then83, label %for.body70, !llvm.loop !120
 
 if.then83:                                        ; preds = %if.then75, %for.cond68.preheader, %for.inc
@@ -4121,20 +4119,20 @@ if.then83:                                        ; preds = %if.then75, %for.con
   %M.sroa.6.0._M_storage.i.i.i74.sroa_idx = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i73, i64 0, i32 1, i32 0, i64 8
   store i64 %add40, ptr %M.sroa.6.0._M_storage.i.i.i74.sroa_idx, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i73, ptr noundef %MI.sroa.0.1156) #18
-  %21 = load i64, ptr %_M_size.i.i.i.i.i, align 8
-  %add.i.i76 = add i64 %21, 1
+  %22 = load i64, ptr %_M_size.i.i.i.i.i, align 8
+  %add.i.i76 = add i64 %22, 1
   store i64 %add.i.i76, ptr %_M_size.i.i.i.i.i, align 8
   br label %for.end120
 
 if.end89:                                         ; preds = %if.then75
-  %22 = load i8, ptr %VerboseVerbose29, align 1
-  %23 = and i8 %22, 1
-  %tobool91.not = icmp eq i8 %23, 0
+  %23 = load i8, ptr %VerboseVerbose29, align 1
+  %24 = and i8 %23, 1
+  %tobool91.not = icmp eq i8 %24, 0
   br i1 %tobool91.not, label %if.end115, label %if.then92
 
 if.then92:                                        ; preds = %if.end89
-  %add.ptr = getelementptr inbounds i8, ptr %Buffer.coerce0, i64 %19
-  %add.ptr101 = getelementptr inbounds i8, ptr %Buffer.coerce0, i64 %18
+  %add.ptr = getelementptr inbounds i8, ptr %Buffer.coerce0, i64 %20
+  %add.ptr101 = getelementptr inbounds i8, ptr %Buffer.coerce0, i64 %19
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.53, ptr %ref.tmp109, align 8
   store i8 3, ptr %LHSKind.i, align 8
@@ -4146,9 +4144,9 @@ if.then92:                                        ; preds = %if.end89
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then92, %if.end89
-  %24 = phi i64 [ %.pre228, %if.then92 ], [ %18, %if.end89 ]
+  %25 = phi i64 [ %.pre228, %if.then92 ], [ %19, %if.end89 ]
   %MI.sroa.0.0 = load ptr, ptr %MI.sroa.0.1178, align 8
-  %.sroa.speculated131 = call i64 @llvm.umin.i64(i64 %24, i64 %Buffer.coerce1)
+  %.sroa.speculated131 = call i64 @llvm.umin.i64(i64 %25, i64 %Buffer.coerce1)
   %add.ptr.i = getelementptr inbounds i8, ptr %Buffer.coerce0, i64 %.sroa.speculated131
   %sub.i = sub i64 %Buffer.coerce1, %.sroa.speculated131
   %call19 = call noundef i64 @_ZNK4llvh16FileCheckPattern5MatchENS_9StringRefERmRNS_9StringMapIS1_NS_15MallocAllocatorEEE(ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr %add.ptr.i, i64 %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %MatchLen, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable)
@@ -4156,18 +4154,18 @@ if.end115:                                        ; preds = %if.then92, %if.end8
   br i1 %cmp20, label %if.then21, label %if.end28, !llvm.loop !121
 
 for.end120:                                       ; preds = %if.then44, %if.else, %if.then83
-  %25 = load i8, ptr %VerboseVerbose29, align 1
-  %26 = and i8 %25, 1
-  %tobool122.not = icmp eq i8 %26, 0
+  %26 = load i8, ptr %VerboseVerbose29, align 1
+  %27 = and i8 %26, 1
+  %tobool122.not = icmp eq i8 %27, 0
   br i1 %tobool122.not, label %if.then123, label %if.end131
 
 if.then123:                                       ; preds = %for.end120
   %agg.tmp124.sroa.0.0.copyload = load ptr, ptr %Prefix33, align 8
   %agg.tmp124.sroa.2.0.copyload = load i64, ptr %agg.tmp32.sroa.2.0.Prefix33.sroa_idx, align 8
   %retval.sroa.0.0.copyload.i81 = load ptr, ptr %PatItr.sroa.0.0201, align 8
-  %27 = load i64, ptr %MatchLen, align 8
+  %28 = load i64, ptr %MatchLen, align 8
   %Req.val46 = load i8, ptr %2, align 4
-  call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp124.sroa.0.0.copyload, i64 %agg.tmp124.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i81, ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %add, i64 noundef %27, i8 %Req.val46, i8 %25)
+  call fastcc void @_ZL10PrintMatchbRKN4llvh9SourceMgrENS_9StringRefENS_5SMLocERKNS_16FileCheckPatternES3_RNS_9StringMapIS3_NS_15MallocAllocatorEEEmmRKNS_16FileCheckRequestE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %agg.tmp124.sroa.0.0.copyload, i64 %agg.tmp124.sroa.2.0.copyload, ptr %retval.sroa.0.0.copyload.i81, ptr noundef nonnull align 8 dereferenceable(136) %PatItr.sroa.0.0201, ptr %Buffer.coerce0, i64 %Buffer.coerce1, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, i64 noundef %add, i64 noundef %28, i8 %Req.val46, i8 %26)
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then123, %for.end120
@@ -4177,49 +4175,49 @@ if.end131:                                        ; preds = %if.then123, %for.en
 
 lor.rhs:                                          ; preds = %if.end131
   %CheckTy.i84 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %PatItr.sroa.0.0201, i64 1, i32 5
-  %28 = load i32, ptr %CheckTy.i84, align 8
-  %cmp145 = icmp eq i32 %28, 4
+  %29 = load i32, ptr %CheckTy.i84, align 8
+  %cmp145 = icmp eq i32 %29, 4
   br i1 %cmp145, label %if.then146, label %for.inc164
 
 if.then146:                                       ; preds = %if.end131, %lor.rhs
-  %29 = load ptr, ptr %NotStrings, align 8
-  %30 = load ptr, ptr %_M_finish.i.i85, align 8
-  %cmp.i.i86 = icmp eq ptr %29, %30
+  %30 = load ptr, ptr %NotStrings, align 8
+  %31 = load ptr, ptr %_M_finish.i.i85, align 8
+  %cmp.i.i86 = icmp eq ptr %30, %31
   br i1 %cmp.i.i86, label %if.end159, label %if.then148
 
 if.then148:                                       ; preds = %if.then146
   %MatchRanges.val42 = load ptr, ptr %MatchRanges, align 8
   %_M_storage.i.i87 = getelementptr inbounds %"struct.std::_List_node", ptr %MatchRanges.val42, i64 0, i32 1
-  %31 = load i64, ptr %_M_storage.i.i87, align 8
-  %.sroa.speculated146 = call i64 @llvm.umax.i64(i64 %.sroa.speculated131187, i64 %31)
+  %32 = load i64, ptr %_M_storage.i.i87, align 8
+  %.sroa.speculated146 = call i64 @llvm.umax.i64(i64 %.sroa.speculated131187, i64 %32)
   %.sroa.speculated125 = call i64 @llvm.umin.i64(i64 %.sroa.speculated146, i64 %Buffer.coerce1)
   %sub.i181 = sub i64 %.sroa.speculated125, %.sroa.speculated131187
   %call156 = call noundef zeroext i1 @_ZNK4llvh15FileCheckString8CheckNotERKNS_9SourceMgrENS_9StringRefERKSt6vectorIPKNS_16FileCheckPatternESaIS8_EERNS_9StringMapIS4_NS_15MallocAllocatorEEERKNS_16FileCheckRequestE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %add.ptr.i188, i64 %sub.i181, ptr noundef nonnull align 8 dereferenceable(24) %NotStrings, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, ptr noundef nonnull align 8 dereferenceable(86) %Req)
   br i1 %call156, label %cleanup, label %if.end158
 
 if.end158:                                        ; preds = %if.then148
-  %32 = load ptr, ptr %NotStrings, align 8
-  %33 = load ptr, ptr %_M_finish.i.i85, align 8
-  %tobool.not.i.i = icmp eq ptr %33, %32
+  %33 = load ptr, ptr %NotStrings, align 8
+  %34 = load ptr, ptr %_M_finish.i.i85, align 8
+  %tobool.not.i.i = icmp eq ptr %34, %33
   br i1 %tobool.not.i.i, label %if.end159, label %if.then.i.i95
 
 if.then.i.i95:                                    ; preds = %if.end158
-  store ptr %32, ptr %_M_finish.i.i85, align 8
+  store ptr %33, ptr %_M_finish.i.i85, align 8
   br label %if.end159
 
 if.end159:                                        ; preds = %if.then.i.i95, %if.end158, %if.then146
-  %34 = load ptr, ptr %_M_prev.i.i.i.i.i, align 8
-  %End162 = getelementptr inbounds %"struct.std::_List_node", ptr %34, i64 0, i32 1, i32 0, i64 8
-  %35 = load i64, ptr %End162, align 8
-  %36 = load ptr, ptr %MatchRanges, align 8
-  %cmp.not4.i.i = icmp eq ptr %36, %MatchRanges
+  %35 = load ptr, ptr %_M_prev.i.i.i.i.i, align 8
+  %End162 = getelementptr inbounds %"struct.std::_List_node", ptr %35, i64 0, i32 1, i32 0, i64 8
+  %36 = load i64, ptr %End162, align 8
+  %37 = load ptr, ptr %MatchRanges, align 8
+  %cmp.not4.i.i = icmp eq ptr %37, %MatchRanges
   br i1 %cmp.not4.i.i, label %_ZNSt7__cxx114listIZNK4llvh15FileCheckString8CheckDagERKNS1_9SourceMgrENS1_9StringRefERSt6vectorIPKNS1_16FileCheckPatternESaISA_EERNS1_9StringMapIS6_NS1_15MallocAllocatorEEERKNS1_16FileCheckRequestEE10MatchRangeSaISL_EE5clearEv.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end159, %while.body.i.i
-  %__cur.05.i.i = phi ptr [ %37, %while.body.i.i ], [ %36, %if.end159 ]
-  %37 = load ptr, ptr %__cur.05.i.i, align 8
+  %__cur.05.i.i = phi ptr [ %38, %while.body.i.i ], [ %37, %if.end159 ]
+  %38 = load ptr, ptr %__cur.05.i.i, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i) #22
-  %cmp.not.i.i96 = icmp eq ptr %37, %MatchRanges
+  %cmp.not.i.i96 = icmp eq ptr %38, %MatchRanges
   br i1 %cmp.not.i.i96, label %_ZNSt7__cxx114listIZNK4llvh15FileCheckString8CheckDagERKNS1_9SourceMgrENS1_9StringRefERSt6vectorIPKNS1_16FileCheckPatternESaISA_EERNS1_9StringMapIS6_NS1_15MallocAllocatorEEERKNS1_16FileCheckRequestEE10MatchRangeSaISL_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !122
 
 _ZNSt7__cxx114listIZNK4llvh15FileCheckString8CheckDagERKNS1_9SourceMgrENS1_9StringRefERSt6vectorIPKNS1_16FileCheckPatternESaISA_EERNS1_9StringMapIS6_NS1_15MallocAllocatorEEERKNS1_16FileCheckRequestEE10MatchRangeSaISL_EE5clearEv.exit: ; preds = %while.body.i.i, %if.end159
@@ -4229,22 +4227,22 @@ _ZNSt7__cxx114listIZNK4llvh15FileCheckString8CheckDagERKNS1_9SourceMgrENS1_9Stri
   br label %for.inc164
 
 for.inc164:                                       ; preds = %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.then.i.i, %lor.rhs, %_ZNSt7__cxx114listIZNK4llvh15FileCheckString8CheckDagERKNS1_9SourceMgrENS1_9StringRefERSt6vectorIPKNS1_16FileCheckPatternESaISA_EERNS1_9StringMapIS6_NS1_15MallocAllocatorEEERKNS1_16FileCheckRequestEE10MatchRangeSaISL_EE5clearEv.exit
-  %StartPos.1 = phi i64 [ %35, %_ZNSt7__cxx114listIZNK4llvh15FileCheckString8CheckDagERKNS1_9SourceMgrENS1_9StringRefERSt6vectorIPKNS1_16FileCheckPatternESaISA_EERNS1_9StringMapIS6_NS1_15MallocAllocatorEEERKNS1_16FileCheckRequestEE10MatchRangeSaISL_EE5clearEv.exit ], [ %StartPos.0205, %lor.rhs ], [ %StartPos.0205, %if.then.i.i ], [ %StartPos.0205, %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
+  %StartPos.1 = phi i64 [ %36, %_ZNSt7__cxx114listIZNK4llvh15FileCheckString8CheckDagERKNS1_9SourceMgrENS1_9StringRefERSt6vectorIPKNS1_16FileCheckPatternESaISA_EERNS1_9StringMapIS6_NS1_15MallocAllocatorEEERKNS1_16FileCheckRequestEE10MatchRangeSaISL_EE5clearEv.exit ], [ %StartPos.0205, %lor.rhs ], [ %StartPos.0205, %if.then.i.i ], [ %StartPos.0205, %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %incdec.ptr.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %PatItr.sroa.0.0201, i64 1
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %cleanup, label %for.body, !llvm.loop !123
 
 cleanup:                                          ; preds = %for.inc164, %if.then148, %if.then21
   %retval.0 = phi i64 [ -1, %if.then21 ], [ %StartPos.1, %for.inc164 ], [ -1, %if.then148 ]
-  %38 = load ptr, ptr %MatchRanges, align 8
-  %cmp.not4.i.i.i = icmp eq ptr %38, %MatchRanges
+  %39 = load ptr, ptr %MatchRanges, align 8
+  %cmp.not4.i.i.i = icmp eq ptr %39, %MatchRanges
   br i1 %cmp.not4.i.i.i, label %return, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %cleanup, %while.body.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %39, %while.body.i.i.i ], [ %38, %cleanup ]
-  %39 = load ptr, ptr %__cur.05.i.i.i, align 8
+  %__cur.05.i.i.i = phi ptr [ %40, %while.body.i.i.i ], [ %39, %cleanup ]
+  %40 = load ptr, ptr %__cur.05.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #22
-  %cmp.not.i.i.i = icmp eq ptr %39, %MatchRanges
+  %cmp.not.i.i.i = icmp eq ptr %40, %MatchRanges
   br i1 %cmp.not.i.i.i, label %return, label %while.body.i.i.i, !llvm.loop !122
 
 return:                                           ; preds = %while.body.i.i.i, %cleanup, %entry
@@ -5493,22 +5491,21 @@ _ZNKSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE12_M_check_lenEmPKc.exit: ; pre
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 384307168202282325
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 384307168202282325, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
+  %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4llvh9SourceMgr9SrcBufferEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4llvh9SourceMgr9SrcBufferEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4llvh9SourceMgr9SrcBufferEEE8allocateERS3_m.exit.i
-  %cond.i12 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4llvh9SourceMgr9SrcBufferEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i12 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.llvh::SourceMgr::SrcBuffer", ptr %cond.i12, i64 %sub.ptr.div.i
   tail call void @_ZN4llvh9SourceMgr9SrcBufferC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %__args) #18
   %cmp.i.i.not5.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -6595,22 +6592,21 @@ _ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 67818912035696880
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 67818912035696880, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 67818912035696880)
+  %cond.i = select i1 %cmp7.i, i64 67818912035696880, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 136
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 136
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE8allocateERS2_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %__args, i64 24, i1 false)
   %RegExStr.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
@@ -6618,49 +6614,49 @@ _ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit: ; pre
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %RegExStr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %RegExStr3.i.i.i) #18
   %VariableUses.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
   %VariableUses4.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__args, i64 0, i32 3
-  %2 = load <2 x ptr>, ptr %VariableUses4.i.i.i, align 8
-  store <2 x ptr> %2, ptr %VariableUses.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %VariableUses4.i.i.i, align 8
+  store <2 x ptr> %3, ptr %VariableUses.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__args, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %VariableUses4.i.i.i, i8 0, i64 24, i1 false)
-  %4 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 1
+  %5 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 1
-  %6 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 8
-  store i32 %6, ptr %4, align 8
+  %7 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 8
+  store i32 %7, ptr %5, align 8
   %_M_parent6.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %5, ptr %_M_parent6.i.i.i.i.i.i.i.i, align 8
+  store ptr %6, ptr %_M_parent6.i.i.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_left9.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  %7 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  store <2 x ptr> %7, ptr %_M_left9.i.i.i.i.i.i.i.i, align 8
-  %_M_parent16.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %5, i64 0, i32 1
-  store ptr %4, ptr %_M_parent16.i.i.i.i.i.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
+  store <2 x ptr> %8, ptr %_M_left9.i.i.i.i.i.i.i.i, align 8
+  %_M_parent16.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i64 0, i32 1
+  store ptr %5, ptr %_M_parent16.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
-  %8 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
+  %9 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
   %_M_node_count17.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 1, i32 1
-  store i64 %8, ptr %_M_node_count17.i.i.i.i.i.i.i.i, align 8
+  store i64 %9, ptr %_M_node_count17.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit
-  store i32 0, ptr %4, align 8
+  store i32 0, ptr %5, align 8
   %_M_parent.i2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i, align 8
   %_M_left.i3.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %4, ptr %_M_left.i3.i.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_left.i3.i.i.i.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %4, ptr %_M_right.i4.i.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_right.i4.i.i.i.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 1, i32 1
   br label %_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
@@ -6669,8 +6665,8 @@ _ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE9constructIS1_JS1_EEEvRS2_
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i, align 8
   %CheckTy.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i, i32 5
   %CheckTy6.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__args, i64 0, i32 5
-  %9 = load i64, ptr %CheckTy6.i.i.i, align 8
-  store i64 %9, ptr %CheckTy.i.i.i, align 8
+  %10 = load i64, ptr %CheckTy6.i.i.i, align 8
+  store i64 %10, ptr %CheckTy.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i
 
@@ -6995,22 +6991,21 @@ _ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 67818912035696880
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 67818912035696880, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 67818912035696880)
+  %cond.i = select i1 %cmp7.i, i64 67818912035696880, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 136
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 136
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE8allocateERS2_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4llvh16FileCheckPatternEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4llvh16FileCheckPatternESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZN4llvh16FileCheckPatternC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %add.ptr, ptr noundef nonnull align 8 dereferenceable(136) %__args)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -7079,22 +7074,21 @@ _ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit: ; preds 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 50127021939428129
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 50127021939428129, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 50127021939428129)
+  %cond.i = select i1 %cmp7.i, i64 50127021939428129, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 184
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4llvh15FileCheckStringEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4llvh15FileCheckStringEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 184
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4llvh15FileCheckStringEEE8allocateERS2_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4llvh15FileCheckStringEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %cond.i10, i64 %sub.ptr.div.i
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %__args1, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
@@ -7123,49 +7117,49 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %RegExStr.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %RegExStr3.i.i.i.i.i.i.i.i) #18
   %VariableUses.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 3
   %VariableUses4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %2 = load <2 x ptr>, ptr %VariableUses4.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
-  store <2 x ptr> %2, ptr %VariableUses.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  %3 = load <2 x ptr>, ptr %VariableUses4.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
+  store <2 x ptr> %3, ptr %VariableUses.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %VariableUses4.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !228, !noalias !225
-  %4 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1
+  %5 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1
-  %6 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
-  store i32 %6, ptr %4, align 8, !alias.scope !225, !noalias !228
+  %7 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
+  store i32 %7, ptr %5, align 8, !alias.scope !225, !noalias !228
   %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %5, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  store ptr %6, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  %7 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
-  store <2 x ptr> %7, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %5, i64 0, i32 1
-  store ptr %4, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
+  store <2 x ptr> %8, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i64 0, i32 1
+  store ptr %5, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
-  %8 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
+  %9 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
-  store i64 %8, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  store i64 %9, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
   br label %_ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i
-  store i32 0, ptr %4, align 8, !alias.scope !225, !noalias !228
+  store i32 0, ptr %5, align 8, !alias.scope !225, !noalias !228
   %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %4, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  store ptr %5, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %4, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  store ptr %5, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
   br label %_ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
@@ -7174,19 +7168,19 @@ _ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !230
   %CheckTy.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 5
   %CheckTy6.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 5
-  %9 = load i64, ptr %CheckTy6.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
-  store i64 %9, ptr %CheckTy.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  %10 = load i64, ptr %CheckTy6.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
+  store i64 %10, ptr %CheckTy.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   %Prefix.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i, i64 0, i32 1
   %Prefix3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Prefix.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %Prefix3.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !230
   %DagNotStrings.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i, i64 0, i32 3
   %DagNotStrings4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %10 = load <2 x ptr>, ptr %DagNotStrings4.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
-  store <2 x ptr> %10, ptr %DagNotStrings.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  %11 = load <2 x ptr>, ptr %DagNotStrings4.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
+  store <2 x ptr> %11, ptr %DagNotStrings.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
+  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !228, !noalias !225
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !225, !noalias !228
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %DagNotStrings4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !228, !noalias !225
   tail call void @_ZN4llvh15FileCheckStringD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %__first.addr.06.i.i.i) #18
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i, i64 1
@@ -7211,49 +7205,49 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4llvh
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %RegExStr.i.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %RegExStr3.i.i.i.i.i.i.i.i16) #18
   %VariableUses.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 3
   %VariableUses4.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %12 = load <2 x ptr>, ptr %VariableUses4.i.i.i.i.i.i.i.i18, align 8, !alias.scope !235, !noalias !232
-  store <2 x ptr> %12, ptr %VariableUses.i.i.i.i.i.i.i.i17, align 8, !alias.scope !232, !noalias !235
+  %13 = load <2 x ptr>, ptr %VariableUses4.i.i.i.i.i.i.i.i18, align 8, !alias.scope !235, !noalias !232
+  store <2 x ptr> %13, ptr %VariableUses.i.i.i.i.i.i.i.i17, align 8, !alias.scope !232, !noalias !235
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !235, !noalias !232
-  store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i21, align 8, !alias.scope !232, !noalias !235
+  %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !235, !noalias !232
+  store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i21, align 8, !alias.scope !232, !noalias !235
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %VariableUses4.i.i.i.i.i.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !235, !noalias !232
-  %14 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1
+  %15 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  %15 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !235, !noalias !232
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !235, !noalias !232
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i24, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i51, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i25
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i25:                ; preds = %for.body.i.i.i12
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1
-  %16 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !235, !noalias !232
-  store i32 %16, ptr %14, align 8, !alias.scope !232, !noalias !235
+  %17 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !235, !noalias !232
+  store i32 %17, ptr %15, align 8, !alias.scope !232, !noalias !235
   %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %15, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i27, align 8, !alias.scope !232, !noalias !235
+  store ptr %16, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i27, align 8, !alias.scope !232, !noalias !235
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  %17 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !235, !noalias !232
-  store <2 x ptr> %17, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !232, !noalias !235
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %15, i64 0, i32 1
-  store ptr %14, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i32, align 8
+  %18 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !235, !noalias !232
+  store <2 x ptr> %18, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !232, !noalias !235
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %16, i64 0, i32 1
+  store ptr %15, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i32, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
-  %18 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i33, align 8, !alias.scope !235, !noalias !232
+  %19 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i33, align 8, !alias.scope !235, !noalias !232
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i34 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
-  store i64 %18, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i34, align 8, !alias.scope !232, !noalias !235
+  store i64 %19, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i34, align 8, !alias.scope !232, !noalias !235
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !235, !noalias !232
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i26, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !235, !noalias !232
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i26, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i30, align 8, !alias.scope !235, !noalias !232
   br label %_ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i51:                ; preds = %for.body.i.i.i12
-  store i32 0, ptr %14, align 8, !alias.scope !232, !noalias !235
+  store i32 0, ptr %15, align 8, !alias.scope !232, !noalias !235
   %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i52 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i52, align 8, !alias.scope !232, !noalias !235
   %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i53 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %14, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i53, align 8, !alias.scope !232, !noalias !235
+  store ptr %15, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i53, align 8, !alias.scope !232, !noalias !235
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i54 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %14, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i54, align 8, !alias.scope !232, !noalias !235
+  store ptr %15, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i54, align 8, !alias.scope !232, !noalias !235
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i55 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
   br label %_ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35
 
@@ -7262,19 +7256,19 @@ _ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i36, align 8, !alias.scope !237
   %CheckTy.i.i.i.i.i.i.i.i37 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 5
   %CheckTy6.i.i.i.i.i.i.i.i38 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 5
-  %19 = load i64, ptr %CheckTy6.i.i.i.i.i.i.i.i38, align 8, !alias.scope !235, !noalias !232
-  store i64 %19, ptr %CheckTy.i.i.i.i.i.i.i.i37, align 8, !alias.scope !232, !noalias !235
+  %20 = load i64, ptr %CheckTy6.i.i.i.i.i.i.i.i38, align 8, !alias.scope !235, !noalias !232
+  store i64 %20, ptr %CheckTy.i.i.i.i.i.i.i.i37, align 8, !alias.scope !232, !noalias !235
   %Prefix.i.i.i.i.i.i.i39 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %Prefix3.i.i.i.i.i.i.i40 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Prefix.i.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(24) %Prefix3.i.i.i.i.i.i.i40, i64 24, i1 false), !alias.scope !237
   %DagNotStrings.i.i.i.i.i.i.i41 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i13, i64 0, i32 3
   %DagNotStrings4.i.i.i.i.i.i.i42 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %20 = load <2 x ptr>, ptr %DagNotStrings4.i.i.i.i.i.i.i42, align 8, !alias.scope !235, !noalias !232
-  store <2 x ptr> %20, ptr %DagNotStrings.i.i.i.i.i.i.i41, align 8, !alias.scope !232, !noalias !235
+  %21 = load <2 x ptr>, ptr %DagNotStrings4.i.i.i.i.i.i.i42, align 8, !alias.scope !235, !noalias !232
+  store <2 x ptr> %21, ptr %DagNotStrings.i.i.i.i.i.i.i41, align 8, !alias.scope !232, !noalias !235
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i45 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i46 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %21 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i46, align 8, !alias.scope !235, !noalias !232
-  store ptr %21, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i45, align 8, !alias.scope !232, !noalias !235
+  %22 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i46, align 8, !alias.scope !235, !noalias !232
+  store ptr %22, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i45, align 8, !alias.scope !232, !noalias !235
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %DagNotStrings4.i.i.i.i.i.i.i42, i8 0, i64 24, i1 false), !alias.scope !235, !noalias !232
   tail call void @_ZN4llvh15FileCheckStringD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %__first.addr.06.i.i.i14) #18
   %incdec.ptr.i.i.i47 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i14, i64 1
@@ -7824,22 +7818,21 @@ _ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit: ; preds 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 50127021939428129
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 50127021939428129, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 50127021939428129)
+  %cond.i = select i1 %cmp7.i, i64 50127021939428129, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 184
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4llvh15FileCheckStringEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4llvh15FileCheckStringEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 184
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4llvh15FileCheckStringEEE8allocateERS2_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4llvh15FileCheckStringEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4llvh15FileCheckStringESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %cond.i10, i64 %sub.ptr.div.i
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__args1) #18
   %call2.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__args1) #18
@@ -7867,49 +7860,49 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %RegExStr.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %RegExStr3.i.i.i.i.i.i.i.i) #18
   %VariableUses.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 3
   %VariableUses4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %2 = load <2 x ptr>, ptr %VariableUses4.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
-  store <2 x ptr> %2, ptr %VariableUses.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  %3 = load <2 x ptr>, ptr %VariableUses4.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
+  store <2 x ptr> %3, ptr %VariableUses.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %VariableUses4.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !246, !noalias !243
-  %4 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1
+  %5 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1
-  %6 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
-  store i32 %6, ptr %4, align 8, !alias.scope !243, !noalias !246
+  %7 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
+  store i32 %7, ptr %5, align 8, !alias.scope !243, !noalias !246
   %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %5, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  store ptr %6, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  %7 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
-  store <2 x ptr> %7, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %5, i64 0, i32 1
-  store ptr %4, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
+  store <2 x ptr> %8, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i64 0, i32 1
+  store ptr %5, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
-  %8 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
+  %9 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
-  store i64 %8, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  store i64 %9, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
   br label %_ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i
-  store i32 0, ptr %4, align 8, !alias.scope !243, !noalias !246
+  store i32 0, ptr %5, align 8, !alias.scope !243, !noalias !246
   %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %4, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  store ptr %5, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %4, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  store ptr %5, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
   br label %_ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
@@ -7918,19 +7911,19 @@ _ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !248
   %CheckTy.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i, i64 0, i32 5
   %CheckTy6.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i, i64 0, i32 5
-  %9 = load i64, ptr %CheckTy6.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
-  store i64 %9, ptr %CheckTy.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  %10 = load i64, ptr %CheckTy6.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
+  store i64 %10, ptr %CheckTy.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   %Prefix.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i, i64 0, i32 1
   %Prefix3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Prefix.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %Prefix3.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !248
   %DagNotStrings.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i, i64 0, i32 3
   %DagNotStrings4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %10 = load <2 x ptr>, ptr %DagNotStrings4.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
-  store <2 x ptr> %10, ptr %DagNotStrings.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  %11 = load <2 x ptr>, ptr %DagNotStrings4.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
+  store <2 x ptr> %11, ptr %DagNotStrings.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
+  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !243
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !243, !noalias !246
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %DagNotStrings4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !246, !noalias !243
   tail call void @_ZN4llvh15FileCheckStringD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %__first.addr.06.i.i.i) #18
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i, i64 1
@@ -7955,49 +7948,49 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4llvh
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %RegExStr.i.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %RegExStr3.i.i.i.i.i.i.i.i16) #18
   %VariableUses.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 3
   %VariableUses4.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %12 = load <2 x ptr>, ptr %VariableUses4.i.i.i.i.i.i.i.i18, align 8, !alias.scope !252, !noalias !249
-  store <2 x ptr> %12, ptr %VariableUses.i.i.i.i.i.i.i.i17, align 8, !alias.scope !249, !noalias !252
+  %13 = load <2 x ptr>, ptr %VariableUses4.i.i.i.i.i.i.i.i18, align 8, !alias.scope !252, !noalias !249
+  store <2 x ptr> %13, ptr %VariableUses.i.i.i.i.i.i.i.i17, align 8, !alias.scope !249, !noalias !252
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !252, !noalias !249
-  store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i21, align 8, !alias.scope !249, !noalias !252
+  %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !252, !noalias !249
+  store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i21, align 8, !alias.scope !249, !noalias !252
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %VariableUses4.i.i.i.i.i.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !252, !noalias !249
-  %14 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1
+  %15 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  %15 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !252, !noalias !249
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !252, !noalias !249
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i24, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i51, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i25
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i25:                ; preds = %for.body.i.i.i12
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1
-  %16 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !252, !noalias !249
-  store i32 %16, ptr %14, align 8, !alias.scope !249, !noalias !252
+  %17 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !252, !noalias !249
+  store i32 %17, ptr %15, align 8, !alias.scope !249, !noalias !252
   %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %15, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i27, align 8, !alias.scope !249, !noalias !252
+  store ptr %16, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i27, align 8, !alias.scope !249, !noalias !252
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  %17 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !252, !noalias !249
-  store <2 x ptr> %17, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !249, !noalias !252
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %15, i64 0, i32 1
-  store ptr %14, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i32, align 8
+  %18 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !252, !noalias !249
+  store <2 x ptr> %18, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !249, !noalias !252
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %16, i64 0, i32 1
+  store ptr %15, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i32, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
-  %18 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i33, align 8, !alias.scope !252, !noalias !249
+  %19 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i33, align 8, !alias.scope !252, !noalias !249
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i34 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
-  store i64 %18, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i34, align 8, !alias.scope !249, !noalias !252
+  store i64 %19, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i34, align 8, !alias.scope !249, !noalias !252
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !252, !noalias !249
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i26, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !252, !noalias !249
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i26, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i30, align 8, !alias.scope !252, !noalias !249
   br label %_ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i51:                ; preds = %for.body.i.i.i12
-  store i32 0, ptr %14, align 8, !alias.scope !249, !noalias !252
+  store i32 0, ptr %15, align 8, !alias.scope !249, !noalias !252
   %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i52 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i52, align 8, !alias.scope !249, !noalias !252
   %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i53 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %14, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i53, align 8, !alias.scope !249, !noalias !252
+  store ptr %15, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i53, align 8, !alias.scope !249, !noalias !252
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i54 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %14, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i54, align 8, !alias.scope !249, !noalias !252
+  store ptr %15, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i54, align 8, !alias.scope !249, !noalias !252
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i55 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 1, i32 1
   br label %_ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35
 
@@ -8006,19 +7999,19 @@ _ZSt19__relocate_object_aIN4llvh15FileCheckStringES1_SaIS1_EEvPT_PT0_RT1_.exit.i
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i36, align 8, !alias.scope !254
   %CheckTy.i.i.i.i.i.i.i.i37 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__cur.07.i.i.i13, i64 0, i32 5
   %CheckTy6.i.i.i.i.i.i.i.i38 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.addr.06.i.i.i14, i64 0, i32 5
-  %19 = load i64, ptr %CheckTy6.i.i.i.i.i.i.i.i38, align 8, !alias.scope !252, !noalias !249
-  store i64 %19, ptr %CheckTy.i.i.i.i.i.i.i.i37, align 8, !alias.scope !249, !noalias !252
+  %20 = load i64, ptr %CheckTy6.i.i.i.i.i.i.i.i38, align 8, !alias.scope !252, !noalias !249
+  store i64 %20, ptr %CheckTy.i.i.i.i.i.i.i.i37, align 8, !alias.scope !249, !noalias !252
   %Prefix.i.i.i.i.i.i.i39 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %Prefix3.i.i.i.i.i.i.i40 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Prefix.i.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(24) %Prefix3.i.i.i.i.i.i.i40, i64 24, i1 false), !alias.scope !254
   %DagNotStrings.i.i.i.i.i.i.i41 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i13, i64 0, i32 3
   %DagNotStrings4.i.i.i.i.i.i.i42 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %20 = load <2 x ptr>, ptr %DagNotStrings4.i.i.i.i.i.i.i42, align 8, !alias.scope !252, !noalias !249
-  store <2 x ptr> %20, ptr %DagNotStrings.i.i.i.i.i.i.i41, align 8, !alias.scope !249, !noalias !252
+  %21 = load <2 x ptr>, ptr %DagNotStrings4.i.i.i.i.i.i.i42, align 8, !alias.scope !252, !noalias !249
+  store <2 x ptr> %21, ptr %DagNotStrings.i.i.i.i.i.i.i41, align 8, !alias.scope !249, !noalias !252
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i45 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i46 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %21 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i46, align 8, !alias.scope !252, !noalias !249
-  store ptr %21, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i45, align 8, !alias.scope !249, !noalias !252
+  %22 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i46, align 8, !alias.scope !252, !noalias !249
+  store ptr %22, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i45, align 8, !alias.scope !249, !noalias !252
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %DagNotStrings4.i.i.i.i.i.i.i42, i8 0, i64 24, i1 false), !alias.scope !252, !noalias !249
   tail call void @_ZN4llvh15FileCheckStringD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %__first.addr.06.i.i.i14) #18
   %incdec.ptr.i.i.i47 = getelementptr inbounds %"struct.llvh::FileCheckString", ptr %__first.addr.06.i.i.i14, i64 1
@@ -8164,22 +8157,21 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #18
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce

@@ -2990,7 +2990,7 @@ return:                                           ; preds = %removeClientFromMem
 
 declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @getExpansiveClientsInfo(ptr nocapture noundef writeonly %in_usage, ptr nocapture noundef writeonly %out_usage) local_unnamed_addr #21 {
 entry:
   br label %for.body
@@ -3926,23 +3926,15 @@ if.then36:                                        ; preds = %if.end31
   %50 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 258), align 4
   %tobool40 = icmp ne i32 %50, 0
   %or.cond = select i1 %cmp37, i1 %tobool40, i1 false
-  br i1 %or.cond, label %if.end48, label %if.else
-
-if.else:                                          ; preds = %if.then36
   %cmp42 = icmp eq i32 %49, 15
   %51 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 259), align 8
-  %tobool45 = icmp ne i32 %51, 0
-  %or.cond1 = select i1 %cmp42, i1 %tobool45, i1 false
-  %spec.select = select i1 %or.cond1, i32 %51, i32 0
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.else, %if.then36
-  %shutdownFlags.0 = phi i32 [ %50, %if.then36 ], [ %spec.select, %if.else ]
+  %spec.select = select i1 %cmp42, i32 %51, i32 0
+  %shutdownFlags.0 = select i1 %or.cond, i32 %50, i32 %spec.select
   %call49 = tail call i32 @prepareForShutdown(i32 noundef %shutdownFlags.0), !range !16
   %cmp50 = icmp eq i32 %call49, 0
   br i1 %cmp50, label %if.then52, label %if.end71
 
-if.then52:                                        ; preds = %if.end48
+if.then52:                                        ; preds = %if.then36
   tail call void @exit(i32 noundef 0) #40
   unreachable
 
@@ -3997,7 +3989,7 @@ if.then67:                                        ; preds = %if.then63
   call void @exit(i32 noundef 0) #40
   unreachable
 
-if.end71:                                         ; preds = %isReadyToShutdown.exit, %if.else54, %if.then63, %if.end48
+if.end71:                                         ; preds = %isReadyToShutdown.exit, %if.else54, %if.then63, %if.then36
   %58 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp72 = icmp slt i32 %58, 2
   br i1 %cmp72, label %lor.lhs.false78, label %if.end105
@@ -18791,7 +18783,7 @@ attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

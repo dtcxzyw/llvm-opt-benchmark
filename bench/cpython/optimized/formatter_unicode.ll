@@ -174,9 +174,8 @@ if.then20.i:                                      ; preds = %land.lhs.true.i
 
 if.end22.i:                                       ; preds = %land.lhs.true.i, %if.end12.i
   %cmp24.i = icmp slt i64 %.pre.i, 0
-  %cmp27.not.i = icmp slt i64 %value.val.i, %.pre.i
-  %or.cond54.i = select i1 %cmp24.i, i1 true, i1 %cmp27.not.i
-  %len.0.i = select i1 %or.cond54.i, i64 %value.val.i, i64 %.pre.i
+  %15 = tail call i64 @llvm.smin.i64(i64 %value.val.i, i64 %.pre.i)
+  %len.0.i = select i1 %cmp24.i, i64 %value.val.i, i64 %15
   %nchars.width.i.i = tail call i64 @llvm.smax.i64(i64 %len.0.i, i64 %14)
   %cmp20.i.i = icmp slt i64 %14, 0
   %nchars.sink.i.i = select i1 %cmp20.i.i, i64 %len.0.i, i64 %nchars.width.i.i
@@ -195,27 +194,27 @@ if.then9.i.i:                                     ; preds = %if.end22.i
   br label %calc_padding.exit.i
 
 if.else11.i.i:                                    ; preds = %if.end22.i
-  %15 = and i32 %12, -2
-  %or.cond.i.i = icmp eq i32 %15, 60
+  %16 = and i32 %12, -2
+  %or.cond.i.i = icmp eq i32 %16, 60
   tail call void @llvm.assume(i1 %or.cond.i.i)
   br label %calc_padding.exit.i
 
 calc_padding.exit.i:                              ; preds = %if.else11.i.i, %if.then9.i.i, %if.then6.i.i
   %div.sink.i.i = phi i64 [ %div.i.i, %if.then9.i.i ], [ 0, %if.else11.i.i ], [ %sub.i.i, %if.then6.i.i ]
-  %16 = add i64 %div.sink.i.i, %len.0.i
-  %sub20.i.i = sub i64 %nchars.sink.i.i, %16
+  %17 = add i64 %div.sink.i.i, %len.0.i
+  %sub20.i.i = sub i64 %nchars.sink.i.i, %17
   %maxchar33.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 3
-  %17 = load i32, ptr %maxchar33.i, align 4
+  %18 = load i32, ptr %maxchar33.i, align 4
   %cmp34.i = icmp ne i64 %div.sink.i.i, 0
-  %cmp36.i = icmp ne i64 %nchars.sink.i.i, %16
+  %cmp36.i = icmp ne i64 %nchars.sink.i.i, %17
   %or.cond.i = select i1 %cmp34.i, i1 true, i1 %cmp36.i
-  %18 = load i32, ptr %format, align 8
-  %..i = tail call i32 @llvm.umax.i32(i32 %17, i32 %18)
-  %maxchar.0.i = select i1 %or.cond.i, i32 %..i, i32 %17
-  %19 = getelementptr i8, ptr %obj, i64 32
-  %value.val55.i = load i32, ptr %19, align 8
-  %20 = and i32 %value.val55.i, 64
-  %tobool.not.i.i = icmp eq i32 %20, 0
+  %19 = load i32, ptr %format, align 8
+  %..i = tail call i32 @llvm.umax.i32(i32 %18, i32 %19)
+  %maxchar.0.i = select i1 %or.cond.i, i32 %..i, i32 %18
+  %20 = getelementptr i8, ptr %obj, i64 32
+  %value.val55.i = load i32, ptr %20, align 8
+  %21 = and i32 %value.val55.i, 64
+  %tobool.not.i.i = icmp eq i32 %21, 0
   br i1 %tobool.not.i.i, label %if.end.i.i13, label %PyUnicode_MAX_CHAR_VALUE.exit.i
 
 if.end.i.i13:                                     ; preds = %calc_padding.exit.i
@@ -239,17 +238,17 @@ if.then43.i:                                      ; preds = %PyUnicode_MAX_CHAR_
   br label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then43.i, %PyUnicode_MAX_CHAR_VALUE.exit.i
-  %21 = phi i32 [ %.pre62.i, %if.then43.i ], [ %17, %PyUnicode_MAX_CHAR_VALUE.exit.i ]
+  %22 = phi i32 [ %.pre62.i, %if.then43.i ], [ %18, %PyUnicode_MAX_CHAR_VALUE.exit.i ]
   %maxchar.1.i = phi i32 [ %cond49.i, %if.then43.i ], [ %maxchar.0.i, %PyUnicode_MAX_CHAR_VALUE.exit.i ]
-  %cmp52.not.i = icmp ugt i32 %maxchar.1.i, %21
+  %cmp52.not.i = icmp ugt i32 %maxchar.1.i, %22
   br i1 %cmp52.not.i, label %cond.false56.i, label %land.lhs.true53.i
 
 land.lhs.true53.i:                                ; preds = %if.end50.i
   %size.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 4
-  %22 = load i64, ptr %size.i, align 8
+  %23 = load i64, ptr %size.i, align 8
   %pos.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 5
-  %23 = load i64, ptr %pos.i, align 8
-  %sub.i = sub i64 %22, %23
+  %24 = load i64, ptr %pos.i, align 8
+  %sub.i = sub i64 %23, %24
   %cmp54.i = icmp sle i64 %nchars.sink.i.i, %sub.i
   %cmp57.i = icmp eq i64 %nchars.sink.i.i, 0
   %or.cond1.i = or i1 %cmp57.i, %cmp54.i
@@ -261,39 +260,39 @@ cond.false56.i:                                   ; preds = %if.end50.i
 
 cond.false59.i:                                   ; preds = %cond.false56.i, %land.lhs.true53.i
   %call60.i = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef %nchars.sink.i.i, i32 noundef %maxchar.1.i) #12
-  %24 = icmp eq i32 %call60.i, -1
-  br i1 %24, label %return, label %if.end67.i
+  %25 = icmp eq i32 %call60.i, -1
+  br i1 %25, label %return, label %if.end67.i
 
 if.end67.i:                                       ; preds = %cond.false59.i, %cond.false56.i, %land.lhs.true53.i
-  tail call fastcc void @fill_padding(ptr noundef nonnull %writer, i64 noundef %len.0.i, i32 noundef %18, i64 noundef %div.sink.i.i, i64 noundef %sub20.i.i)
+  tail call fastcc void @fill_padding(ptr noundef nonnull %writer, i64 noundef %len.0.i, i32 noundef %19, i64 noundef %div.sink.i.i, i64 noundef %sub20.i.i)
   %tobool73.not.i = icmp eq i64 %len.0.i, 0
   br i1 %tobool73.not.i, label %if.end76.i, label %if.then74.i
 
 if.then74.i:                                      ; preds = %if.end67.i
-  %25 = load ptr, ptr %writer, align 8
+  %26 = load ptr, ptr %writer, align 8
   %pos75.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 5
-  %26 = load i64, ptr %pos75.i, align 8
-  tail call void @_PyUnicode_FastCopyCharacters(ptr noundef %25, i64 noundef %26, ptr noundef nonnull %obj, i64 noundef 0, i64 noundef %len.0.i) #12
+  %27 = load i64, ptr %pos75.i, align 8
+  tail call void @_PyUnicode_FastCopyCharacters(ptr noundef %26, i64 noundef %27, ptr noundef nonnull %obj, i64 noundef 0, i64 noundef %len.0.i) #12
   br label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.then74.i, %if.end67.i
   %add.i = add i64 %sub20.i.i, %len.0.i
   %pos77.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 5
-  %27 = load i64, ptr %pos77.i, align 8
-  %add78.i = add i64 %add.i, %27
+  %28 = load i64, ptr %pos77.i, align 8
+  %add78.i = add i64 %add.i, %28
   store i64 %add78.i, ptr %pos77.i, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end7
-  %28 = getelementptr i8, ptr %obj, i64 8
-  %obj.val = load ptr, ptr %28, align 8
+  %29 = getelementptr i8, ptr %obj, i64 8
+  %obj.val = load ptr, ptr %29, align 8
   %tp_name = getelementptr inbounds %struct._typeobject, ptr %obj.val, i64 0, i32 1
-  %29 = load ptr, ptr %tp_name, align 8
-  %30 = add i32 %3, -33
-  %or.cond.i14 = icmp ult i32 %30, 95
-  %31 = load ptr, ptr @PyExc_ValueError, align 8
+  %30 = load ptr, ptr %tp_name, align 8
+  %31 = add i32 %3, -33
+  %or.cond.i14 = icmp ult i32 %31, 95
+  %32 = load ptr, ptr @PyExc_ValueError, align 8
   %.str.11..str.12.i = select i1 %or.cond.i14, ptr @.str.11, ptr @.str.12
-  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull %.str.11..str.12.i, i32 noundef %3, ptr noundef %29) #12
+  %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull %.str.11..str.12.i, i32 noundef %3, ptr noundef %30) #12
   br label %return
 
 return:                                           ; preds = %if.end76.i, %cond.false59.i, %if.then20.i, %if.then11.i, %if.then8.i, %if.then5.i, %if.else.i, %if.then3.i, %if.then1.i.i, %if.end.i.i, %if.end.i, %if.else, %if.end, %sw.default, %if.then1
@@ -3620,6 +3619,9 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11

@@ -104,9 +104,9 @@ for.cond.preheader:                               ; preds = %_ZN8facebook4yoga16
   br i1 %cmp20141, label %for.body, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit77
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %5 = phi ptr [ %19, %for.inc ], [ %3, %for.cond.preheader ]
+  %5 = phi ptr [ %20, %for.inc ], [ %3, %for.cond.preheader ]
   %sub.ptr.rhs.cast.i42151 = phi i64 [ %sub.ptr.rhs.cast.i42, %for.inc ], [ %sub.ptr.rhs.cast.i42138, %for.cond.preheader ]
-  %6 = phi ptr [ %20, %for.inc ], [ %4, %for.cond.preheader ]
+  %6 = phi ptr [ %21, %for.inc ], [ %4, %for.cond.preheader ]
   %sizeConsumed.0150 = phi float [ %sizeConsumed.1, %for.inc ], [ 0.000000e+00, %for.cond.preheader ]
   %endOfLineIndex.0147 = phi i64 [ %inc78, %for.inc ], [ %startOfLineIndex, %for.cond.preheader ]
   %firstElementInLineIndex.0146 = phi i64 [ %firstElementInLineIndex.1, %for.inc ], [ %startOfLineIndex, %for.cond.preheader ]
@@ -114,7 +114,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %itemsInFlow.sroa.0.1144 = phi ptr [ %itemsInFlow.sroa.0.4, %for.inc ], [ %itemsInFlow.sroa.10.0, %for.cond.preheader ]
   %itemsInFlow.sroa.10.1143 = phi ptr [ %itemsInFlow.sroa.10.3, %for.inc ], [ %itemsInFlow.sroa.10.0, %for.cond.preheader ]
   %itemsInFlow.sroa.18.1142 = phi ptr [ %itemsInFlow.sroa.18.3, %for.inc ], [ %itemsInFlow.sroa.18.0, %for.cond.preheader ]
-  %7 = phi <2 x float> [ %18, %for.inc ], [ zeroinitializer, %for.cond.preheader ]
+  %7 = phi <2 x float> [ %19, %for.inc ], [ zeroinitializer, %for.cond.preheader ]
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i42151
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
@@ -146,7 +146,7 @@ if.then:                                          ; preds = %invoke.cont21
   %spec.select = add i64 %firstElementInLineIndex.0146, %inc
   br label %for.inc
 
-lpad.loopexit:                                    ; preds = %if.end35, %invoke.cont39, %if.end56, %if.then65, %invoke.cont66, %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i
+lpad.loopexit:                                    ; preds = %if.end35, %invoke.cont39, %if.end56, %if.then65, %invoke.cont66, %cond.true.i.i.i
   %lpad.loopexit112 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -253,39 +253,38 @@ _ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; pred
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i68, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i68
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i68
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %18 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %18
   %cmp.not.i.i.i69 = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i69, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i69, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i73 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #9
           to label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i73, %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i ]
+_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i73, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i68
   store ptr %8, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i67, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i67, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %itemsInFlow.sroa.0.1144, i64 %sub.ptr.sub.i.i.i.i67, i1 false)
-  br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+  br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i67
   %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
   %tobool.not.i.i.i70 = icmp eq ptr %itemsInFlow.sroa.0.1144, null
-  br i1 %tobool.not.i.i.i70, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i20.i.i
+  br i1 %tobool.not.i.i.i70, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %itemsInFlow.sroa.0.1144) #10
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
   br label %for.inc
 
@@ -296,12 +295,12 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPN8fac
   %sizeConsumedIncludingMinConstraint.1 = phi float [ %sizeConsumedIncludingMinConstraint.0145, %if.then ], [ %add59, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %add59, %if.then.i63 ]
   %firstElementInLineIndex.1 = phi i64 [ %spec.select, %if.then ], [ %firstElementInLineIndex.0146, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %firstElementInLineIndex.0146, %if.then.i63 ]
   %sizeConsumed.1 = phi float [ %sizeConsumed.0150, %if.then ], [ %add62, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %add62, %if.then.i63 ]
-  %18 = phi <2 x float> [ %7, %if.then ], [ %17, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %17, %if.then.i63 ]
+  %19 = phi <2 x float> [ %7, %if.then ], [ %17, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %17, %if.then.i63 ]
   %inc78 = add nuw i64 %endOfLineIndex.0147, 1
-  %19 = load ptr, ptr %_M_finish.i, align 8
-  %20 = load ptr, ptr %children_.i, align 8
-  %sub.ptr.lhs.cast.i41 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i42 = ptrtoint ptr %20 to i64
+  %20 = load ptr, ptr %_M_finish.i, align 8
+  %21 = load ptr, ptr %children_.i, align 8
+  %sub.ptr.lhs.cast.i41 = ptrtoint ptr %20 to i64
+  %sub.ptr.rhs.cast.i42 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i43 = sub i64 %sub.ptr.lhs.cast.i41, %sub.ptr.rhs.cast.i42
   %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i43, 3
   %cmp20 = icmp ult i64 %inc78, %sub.ptr.div.i44
@@ -313,9 +312,9 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit77: ; preds = %for.inc, %inv
   %itemsInFlow.sroa.0.1.lcssa = phi ptr [ %itemsInFlow.sroa.10.0, %for.cond.preheader ], [ %itemsInFlow.sroa.0.1144, %invoke.cont43 ], [ %itemsInFlow.sroa.0.4, %for.inc ]
   %endOfLineIndex.0.lcssa = phi i64 [ %startOfLineIndex, %for.cond.preheader ], [ %endOfLineIndex.0147, %invoke.cont43 ], [ %inc78, %for.inc ]
   %sizeConsumed.0.lcssa = phi float [ 0.000000e+00, %for.cond.preheader ], [ %sizeConsumed.0150, %invoke.cont43 ], [ %sizeConsumed.1, %for.inc ]
-  %21 = phi <2 x float> [ zeroinitializer, %for.cond.preheader ], [ %7, %invoke.cont43 ], [ %18, %for.inc ]
-  %22 = fcmp ogt <2 x float> %21, zeroinitializer
-  %23 = fcmp olt <2 x float> %21, <float 1.000000e+00, float 1.000000e+00>
+  %22 = phi <2 x float> [ zeroinitializer, %for.cond.preheader ], [ %7, %invoke.cont43 ], [ %19, %for.inc ]
+  %23 = fcmp ogt <2 x float> %22, zeroinitializer
+  %24 = fcmp olt <2 x float> %22, <float 1.000000e+00, float 1.000000e+00>
   store ptr %itemsInFlow.sroa.0.1.lcssa, ptr %agg.result, align 8
   %_M_finish.i.i.i.i74 = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
   store ptr %itemsInFlow.sroa.10.1.lcssa, ptr %_M_finish.i.i.i.i74, align 8
@@ -326,9 +325,9 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit77: ; preds = %for.inc, %inv
   %endOfLineIndex91 = getelementptr inbounds %"struct.facebook::yoga::FlexLine", ptr %agg.result, i64 0, i32 3
   store i64 %endOfLineIndex.0.lcssa, ptr %endOfLineIndex91, align 8
   %layout = getelementptr inbounds %"struct.facebook::yoga::FlexLine", ptr %agg.result, i64 0, i32 4
-  %24 = and <2 x i1> %22, %23
-  %25 = select <2 x i1> %24, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %21
-  store <2 x float> %25, ptr %layout, align 8
+  %25 = and <2 x i1> %23, %24
+  %26 = select <2 x i1> %25, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %22
+  store <2 x float> %26, ptr %layout, align 8
   %remainingFreeSpace = getelementptr inbounds %"struct.facebook::yoga::FlexLine", ptr %agg.result, i64 0, i32 4, i32 2
   store <2 x float> zeroinitializer, ptr %remainingFreeSpace, align 8
   %crossDim = getelementptr inbounds %"struct.facebook::yoga::FlexLine", ptr %agg.result, i64 0, i32 4, i32 4
@@ -600,6 +599,9 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

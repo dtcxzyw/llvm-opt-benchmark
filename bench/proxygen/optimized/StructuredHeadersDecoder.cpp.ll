@@ -2301,30 +2301,29 @@ _ZNKSt6vectorIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE8allocateERS3_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %cond.i17, i64 %sub.ptr.div.i
-  %2 = load i32, ptr %__args, align 8
-  store i32 %2, ptr %add.ptr, align 8
+  %3 = load i32, ptr %__args, align 8
+  store i32 %3, ptr %add.ptr, align 8
   %value3.i.i.i = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %__args, i64 0, i32 2
   %storage_.i.i.i.i = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %cond.i17, i64 %sub.ptr.div.i, i32 2, i32 2
-  %3 = load i32, ptr %value3.i.i.i, align 8
-  %.lobit.i.i.i.i.i = ashr i32 %3, 31
-  %retval.0.i.i.i.i.i = xor i32 %.lobit.i.i.i.i.i, %3
+  %4 = load i32, ptr %value3.i.i.i, align 8
+  %.lobit.i.i.i.i.i = ashr i32 %4, 31
+  %retval.0.i.i.i.i.i = xor i32 %.lobit.i.i.i.i.i, %4
   %storage_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %__args, i64 0, i32 2, i32 2
   switch i32 %retval.0.i.i.i.i.i, label %sw.default.i.i.i.i.i [
     i32 0, label %sw.bb.i.i.i.i.i
@@ -2334,19 +2333,19 @@ _ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE
   ]
 
 sw.bb.i.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit
-  %4 = load i8, ptr %storage_.i.i.i.i.i, align 8
-  %5 = and i8 %4, 1
-  store i8 %5, ptr %storage_.i.i.i.i, align 1
+  %5 = load i8, ptr %storage_.i.i.i.i.i, align 8
+  %6 = and i8 %5, 1
+  store i8 %6, ptr %storage_.i.i.i.i, align 1
   br label %invoke.cont
 
 sw.bb3.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit
-  %6 = load i64, ptr %storage_.i.i.i.i.i, align 8
-  store i64 %6, ptr %storage_.i.i.i.i, align 8
+  %7 = load i64, ptr %storage_.i.i.i.i.i, align 8
+  store i64 %7, ptr %storage_.i.i.i.i, align 8
   br label %invoke.cont
 
 sw.bb5.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit
-  %7 = load double, ptr %storage_.i.i.i.i.i, align 8
-  store double %7, ptr %storage_.i.i.i.i, align 8
+  %8 = load double, ptr %storage_.i.i.i.i.i, align 8
+  store double %8, ptr %storage_.i.i.i.i, align 8
   br label %invoke.cont
 
 sw.bb7.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_M_allocateEm.exit
@@ -2374,13 +2373,13 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN8proxygen17StructuredHeaders20StructuredHeaderItemES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %8 = load i32, ptr %__first.addr.07.i.i.i, align 8, !alias.scope !16, !noalias !13
-  store i32 %8, ptr %__cur.08.i.i.i, align 8, !alias.scope !13, !noalias !16
+  %9 = load i32, ptr %__first.addr.07.i.i.i, align 8, !alias.scope !16, !noalias !13
+  store i32 %9, ptr %__cur.08.i.i.i, align 8, !alias.scope !13, !noalias !16
   %value3.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %__first.addr.07.i.i.i, i64 0, i32 2
   %storage_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %__cur.08.i.i.i, i64 0, i32 2, i32 2
-  %9 = load i32, ptr %value3.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
-  %.lobit.i.i.i.i.i.i.i.i.i = ashr i32 %9, 31
-  %retval.0.i.i.i.i.i.i.i.i.i = xor i32 %.lobit.i.i.i.i.i.i.i.i.i, %9
+  %10 = load i32, ptr %value3.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
+  %.lobit.i.i.i.i.i.i.i.i.i = ashr i32 %10, 31
+  %retval.0.i.i.i.i.i.i.i.i.i = xor i32 %.lobit.i.i.i.i.i.i.i.i.i, %10
   %storage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %__first.addr.07.i.i.i, i64 0, i32 2, i32 2
   switch i32 %retval.0.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i.i [
     i32 0, label %sw.bb.i.i.i.i.i.i.i.i.i
@@ -2390,19 +2389,19 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   ]
 
 sw.bb.i.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  %10 = load i8, ptr %storage_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !16, !noalias !13
-  %11 = and i8 %10, 1
-  store i8 %11, ptr %storage_.i.i.i.i.i.i.i.i, align 1, !alias.scope !13, !noalias !16
+  %11 = load i8, ptr %storage_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !16, !noalias !13
+  %12 = and i8 %11, 1
+  store i8 %12, ptr %storage_.i.i.i.i.i.i.i.i, align 1, !alias.scope !13, !noalias !16
   br label %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.thread.i.i.i.i
 
 sw.bb3.i.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i
-  %12 = load i64, ptr %storage_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
-  store i64 %12, ptr %storage_.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !16
+  %13 = load i64, ptr %storage_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
+  store i64 %13, ptr %storage_.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !16
   br label %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.thread.i.i.i.i
 
 sw.bb5.i.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i
-  %13 = load double, ptr %storage_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
-  store double %13, ptr %storage_.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !16
+  %14 = load double, ptr %storage_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
+  store double %14, ptr %storage_.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !16
   br label %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.thread.i.i.i.i
 
 sw.default.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i
@@ -2444,13 +2443,13 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8prox
   %__first.addr.07.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i35, %_ZSt19__relocate_object_aIN8proxygen17StructuredHeaders20StructuredHeaderItemES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i34 ], [ %__position.coerce, %_ZNSt6vectorIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %14 = load i32, ptr %__first.addr.07.i.i.i21, align 8, !alias.scope !22, !noalias !19
-  store i32 %14, ptr %__cur.08.i.i.i20, align 8, !alias.scope !19, !noalias !22
+  %15 = load i32, ptr %__first.addr.07.i.i.i21, align 8, !alias.scope !22, !noalias !19
+  store i32 %15, ptr %__cur.08.i.i.i20, align 8, !alias.scope !19, !noalias !22
   %value3.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %__first.addr.07.i.i.i21, i64 0, i32 2
   %storage_.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %__cur.08.i.i.i20, i64 0, i32 2, i32 2
-  %15 = load i32, ptr %value3.i.i.i.i.i.i.i22, align 8, !alias.scope !22, !noalias !19
-  %.lobit.i.i.i.i.i.i.i.i.i24 = ashr i32 %15, 31
-  %retval.0.i.i.i.i.i.i.i.i.i25 = xor i32 %.lobit.i.i.i.i.i.i.i.i.i24, %15
+  %16 = load i32, ptr %value3.i.i.i.i.i.i.i22, align 8, !alias.scope !22, !noalias !19
+  %.lobit.i.i.i.i.i.i.i.i.i24 = ashr i32 %16, 31
+  %retval.0.i.i.i.i.i.i.i.i.i25 = xor i32 %.lobit.i.i.i.i.i.i.i.i.i24, %16
   %storage_.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.proxygen::StructuredHeaders::StructuredHeaderItem", ptr %__first.addr.07.i.i.i21, i64 0, i32 2, i32 2
   switch i32 %retval.0.i.i.i.i.i.i.i.i.i25, label %sw.default.i.i.i.i.i.i.i.i.i44 [
     i32 0, label %sw.bb.i.i.i.i.i.i.i.i.i43
@@ -2460,19 +2459,19 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8prox
   ]
 
 sw.bb.i.i.i.i.i.i.i.i.i43:                        ; preds = %for.body.i.i.i19
-  %16 = load i8, ptr %storage_.i.i.i.i.i.i.i.i.i26, align 1, !alias.scope !22, !noalias !19
-  %17 = and i8 %16, 1
-  store i8 %17, ptr %storage_.i.i.i.i.i.i.i.i23, align 1, !alias.scope !19, !noalias !22
+  %17 = load i8, ptr %storage_.i.i.i.i.i.i.i.i.i26, align 1, !alias.scope !22, !noalias !19
+  %18 = and i8 %17, 1
+  store i8 %18, ptr %storage_.i.i.i.i.i.i.i.i23, align 1, !alias.scope !19, !noalias !22
   br label %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.thread.i.i.i.i40
 
 sw.bb3.i.i.i.i.i.i.i.i.i42:                       ; preds = %for.body.i.i.i19
-  %18 = load i64, ptr %storage_.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !22, !noalias !19
-  store i64 %18, ptr %storage_.i.i.i.i.i.i.i.i23, align 8, !alias.scope !19, !noalias !22
+  %19 = load i64, ptr %storage_.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !22, !noalias !19
+  store i64 %19, ptr %storage_.i.i.i.i.i.i.i.i23, align 8, !alias.scope !19, !noalias !22
   br label %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.thread.i.i.i.i40
 
 sw.bb5.i.i.i.i.i.i.i.i.i39:                       ; preds = %for.body.i.i.i19
-  %19 = load double, ptr %storage_.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !22, !noalias !19
-  store double %19, ptr %storage_.i.i.i.i.i.i.i.i23, align 8, !alias.scope !19, !noalias !22
+  %20 = load double, ptr %storage_.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !22, !noalias !19
+  store double %20, ptr %storage_.i.i.i.i.i.i.i.i23, align 8, !alias.scope !19, !noalias !22
   br label %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders20StructuredHeaderItemEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.thread.i.i.i.i40
 
 sw.default.i.i.i.i.i.i.i.i.i44:                   ; preds = %for.body.i.i.i19
@@ -2521,28 +2520,28 @@ _ZNSt12_Vector_baseIN8proxygen17StructuredHeaders20StructuredHeaderItemESaIS2_EE
   ret void
 
 lpad17:                                           ; preds = %invoke.cont19
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 invoke.cont19:                                    ; preds = %sw.bb7.i.i.i.i.i
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  %23 = tail call ptr @__cxa_begin_catch(ptr %22) #18
+  %23 = extractvalue { ptr, i32 } %22, 0
+  %24 = tail call ptr @__cxa_begin_catch(ptr %23) #18
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #21
   invoke void @__cxa_rethrow() #23
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %21
 
 terminate.lpad:                                   ; preds = %lpad17
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #20
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #20
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -2574,22 +2573,21 @@ _ZNKSt6vectorIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE12_
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 104811045873349725
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 104811045873349725, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 104811045873349725)
+  %cond.i = select i1 %cmp7.i, i64 104811045873349725, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 88
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders23ParameterisedIdentifierEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders23ParameterisedIdentifierEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 88
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders23ParameterisedIdentifierEEE8allocateERS3_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8proxygen17StructuredHeaders23ParameterisedIdentifierEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %cond.i17, i64 %sub.ptr.div.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %.noexc unwind label %lpad.body
@@ -2601,14 +2599,14 @@ _ZNSt12_Vector_baseIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2
   store ptr null, ptr %parameterMap.i.i.i, align 8
   %_M_bucket_count.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 0, i32 1
   %_M_bucket_count2.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__args, i64 0, i32 1, i32 0, i32 1
-  %2 = load i64, ptr %_M_bucket_count2.i.i.i.i.i, align 8
-  store i64 %2, ptr %_M_bucket_count.i.i.i.i.i, align 8
+  %3 = load i64, ptr %_M_bucket_count2.i.i.i.i.i, align 8
+  store i64 %3, ptr %_M_bucket_count.i.i.i.i.i, align 8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 0, i32 2
   store ptr null, ptr %_M_before_begin.i.i.i.i.i, align 8
   %_M_element_count.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 0, i32 3
   %_M_element_count3.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__args, i64 0, i32 1, i32 0, i32 3
-  %3 = load i64, ptr %_M_element_count3.i.i.i.i.i, align 8
-  store i64 %3, ptr %_M_element_count.i.i.i.i.i, align 8
+  %4 = load i64, ptr %_M_element_count3.i.i.i.i.i, align 8
+  store i64 %4, ptr %_M_element_count.i.i.i.i.i, align 8
   %_M_rehash_policy.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 0, i32 4
   %_M_rehash_policy4.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__args, i64 0, i32 1, i32 0, i32 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy4.i.i.i.i.i, i64 16, i1 false)
@@ -2631,45 +2629,45 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #18
   %parameterMap.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i, i64 0, i32 1
   %parameterMap3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %4 = load ptr, ptr %parameterMap3.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !24
-  store ptr %4, ptr %parameterMap.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
+  %5 = load ptr, ptr %parameterMap3.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !24
+  store ptr %5, ptr %parameterMap.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
   %_M_bucket_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 1
   %_M_bucket_count3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 1
-  %5 = load i64, ptr %_M_bucket_count3.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !24
-  store i64 %5, ptr %_M_bucket_count.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
+  %6 = load i64, ptr %_M_bucket_count3.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !24
+  store i64 %6, ptr %_M_bucket_count.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
   %_M_before_begin.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 2
   %_M_before_begin4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 2
-  %6 = load ptr, ptr %_M_before_begin4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !24
-  store ptr %6, ptr %_M_before_begin.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
+  %7 = load ptr, ptr %_M_before_begin4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !24
+  store ptr %7, ptr %_M_before_begin.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
   %_M_element_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 3
   %_M_element_count5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 3
-  %7 = load i64, ptr %_M_element_count5.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !24
-  store i64 %7, ptr %_M_element_count.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
+  %8 = load i64, ptr %_M_element_count5.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !24
+  store i64 %8, ptr %_M_element_count.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
   %_M_rehash_policy.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 4
   %_M_rehash_policy6.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy6.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !29
   %_M_single_bucket.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 5
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
   %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 5
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i
   store ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, ptr %parameterMap.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
-  %8 = load ptr, ptr %4, align 8
-  store ptr %8, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !27
   br label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %9 = phi ptr [ %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %4, %for.body.i.i.i ]
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %10 = phi ptr [ %_M_single_bucket.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %5, %for.body.i.i.i ]
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN8proxygen17StructuredHeaders23ParameterisedIdentifierES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 88
-  %10 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i = urem i64 %10, %5
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 88
+  %11 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i = urem i64 %11, %6
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %_M_before_begin.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZSt19__relocate_object_aIN8proxygen17StructuredHeaders23ParameterisedIdentifierES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
@@ -2700,45 +2698,45 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8prox
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #18
   %parameterMap.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i20, i64 0, i32 1
   %parameterMap3.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i21, i64 0, i32 1
-  %11 = load ptr, ptr %parameterMap3.i.i.i.i.i.i.i23, align 8, !alias.scope !34, !noalias !31
-  store ptr %11, ptr %parameterMap.i.i.i.i.i.i.i22, align 8, !alias.scope !31, !noalias !34
+  %12 = load ptr, ptr %parameterMap3.i.i.i.i.i.i.i23, align 8, !alias.scope !34, !noalias !31
+  store ptr %12, ptr %parameterMap.i.i.i.i.i.i.i22, align 8, !alias.scope !31, !noalias !34
   %_M_bucket_count.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i20, i64 0, i32 1, i32 0, i32 1
   %_M_bucket_count3.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i21, i64 0, i32 1, i32 0, i32 1
-  %12 = load i64, ptr %_M_bucket_count3.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !34, !noalias !31
-  store i64 %12, ptr %_M_bucket_count.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !31, !noalias !34
+  %13 = load i64, ptr %_M_bucket_count3.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !34, !noalias !31
+  store i64 %13, ptr %_M_bucket_count.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !31, !noalias !34
   %_M_before_begin.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i20, i64 0, i32 1, i32 0, i32 2
   %_M_before_begin4.i.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i21, i64 0, i32 1, i32 0, i32 2
-  %13 = load ptr, ptr %_M_before_begin4.i.i.i.i.i.i.i.i.i.i27, align 8, !alias.scope !34, !noalias !31
-  store ptr %13, ptr %_M_before_begin.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !31, !noalias !34
+  %14 = load ptr, ptr %_M_before_begin4.i.i.i.i.i.i.i.i.i.i27, align 8, !alias.scope !34, !noalias !31
+  store ptr %14, ptr %_M_before_begin.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !31, !noalias !34
   %_M_element_count.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i20, i64 0, i32 1, i32 0, i32 3
   %_M_element_count5.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i21, i64 0, i32 1, i32 0, i32 3
-  %14 = load i64, ptr %_M_element_count5.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !34, !noalias !31
-  store i64 %14, ptr %_M_element_count.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !31, !noalias !34
+  %15 = load i64, ptr %_M_element_count5.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !34, !noalias !31
+  store i64 %15, ptr %_M_element_count.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !31, !noalias !34
   %_M_rehash_policy.i.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i20, i64 0, i32 1, i32 0, i32 4
   %_M_rehash_policy6.i.i.i.i.i.i.i.i.i.i31 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i21, i64 0, i32 1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i.i.i.i.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy6.i.i.i.i.i.i.i.i.i.i31, i64 16, i1 false), !alias.scope !36
   %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__cur.07.i.i.i20, i64 0, i32 1, i32 0, i32 5
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, align 8, !alias.scope !31, !noalias !34
   %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds %"struct.proxygen::StructuredHeaders::ParameterisedIdentifier", ptr %__first.addr.06.i.i.i21, i64 0, i32 1, i32 0, i32 5
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i34 = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i33, %11
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i34 = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i.i.i33, %12
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i.i.i.i.i47, label %if.end.i.i.i.i.i.i.i.i.i.i35
 
 if.then.i.i.i.i.i.i.i.i.i.i47:                    ; preds = %for.body.i.i.i19
   store ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, ptr %parameterMap.i.i.i.i.i.i.i22, align 8, !alias.scope !31, !noalias !34
-  %15 = load ptr, ptr %11, align 8
-  store ptr %15, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, align 8, !alias.scope !31, !noalias !34
+  %16 = load ptr, ptr %12, align 8
+  store ptr %16, ptr %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, align 8, !alias.scope !31, !noalias !34
   br label %if.end.i.i.i.i.i.i.i.i.i.i35
 
 if.end.i.i.i.i.i.i.i.i.i.i35:                     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i47, %for.body.i.i.i19
-  %16 = phi ptr [ %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, %if.then.i.i.i.i.i.i.i.i.i.i47 ], [ %11, %for.body.i.i.i19 ]
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i36 = icmp eq ptr %13, null
+  %17 = phi ptr [ %_M_single_bucket.i.i.i.i.i.i.i.i.i.i32, %if.then.i.i.i.i.i.i.i.i.i.i47 ], [ %12, %for.body.i.i.i19 ]
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i36 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i36, label %_ZSt19__relocate_object_aIN8proxygen17StructuredHeaders23ParameterisedIdentifierES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i41, label %if.then.i.i.i.i.i.i.i.i.i.i.i37
 
 if.then.i.i.i.i.i.i.i.i.i.i.i37:                  ; preds = %if.end.i.i.i.i.i.i.i.i.i.i35
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %13, i64 88
-  %17 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i38, align 8
-  %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i39 = urem i64 %17, %12
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds ptr, ptr %16, i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i39
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %14, i64 88
+  %18 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i38, align 8
+  %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i39 = urem i64 %18, %13
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds ptr, ptr %17, i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i.i.i39
   store ptr %_M_before_begin.i.i.i.i.i.i.i.i.i.i26, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i40, align 8
   br label %_ZSt19__relocate_object_aIN8proxygen17StructuredHeaders23ParameterisedIdentifierES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i41
 
@@ -2773,10 +2771,10 @@ _ZNSt12_Vector_baseIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2
   ret void
 
 lpad.body:                                        ; preds = %_ZNSt12_Vector_baseIN8proxygen17StructuredHeaders23ParameterisedIdentifierESaIS2_EE11_M_allocateEm.exit
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #18
+  %20 = extractvalue { ptr, i32 } %19, 0
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #18
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i52
 
@@ -2785,17 +2783,17 @@ if.end.thread:                                    ; preds = %lpad.body
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 if.end:                                           ; preds = %.noexc
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #18
-  %23 = extractvalue { ptr, i32 } %22, 0
-  %24 = call ptr @__cxa_begin_catch(ptr %23) #18
+  %24 = extractvalue { ptr, i32 } %23, 0
+  %25 = call ptr @__cxa_begin_catch(ptr %24) #18
   br label %if.then.i52
 
 if.then.i52:                                      ; preds = %lpad.body, %if.end
@@ -2807,13 +2805,13 @@ invoke.cont19:                                    ; preds = %if.then.i52, %if.en
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %22
 
 terminate.lpad:                                   ; preds = %lpad17
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #20
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #20
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -3832,6 +3830,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
