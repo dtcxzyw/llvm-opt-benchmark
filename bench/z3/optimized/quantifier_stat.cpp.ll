@@ -67,7 +67,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN1q15quantifier_statC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %this, i32 noundef %generation) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 4
@@ -267,8 +267,8 @@ _ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE9push_backEOS2_.exit: ; preds = 
   %inc.i = add i32 %8, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %9 = load ptr, ptr %m_todo, align 8
-  %cmp.i2487 = icmp eq ptr %9, null
-  br i1 %cmp.i2487, label %while.end86, label %_ZNK6vectorIN1q19quantifier_stat_gen5entryELb0EjE5emptyEv.exit.lr.ph
+  %cmp.i2486 = icmp eq ptr %9, null
+  br i1 %cmp.i2486, label %while.end86, label %_ZNK6vectorIN1q19quantifier_stat_gen5entryELb0EjE5emptyEv.exit.lr.ph
 
 _ZNK6vectorIN1q19quantifier_stat_gen5entryELb0EjE5emptyEv.exit.lr.ph: ; preds = %_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE9push_backEOS2_.exit
   %m_already_found = getelementptr inbounds %"class.q::quantifier_stat_gen", ptr %this, i64 0, i32 2
@@ -456,11 +456,11 @@ if.then50:                                        ; preds = %_ZNK11ast_manager6i
 
 sw.bb60:                                          ; preds = %_ZNK3app13get_decl_kindEv.exit
   %cmp61 = icmp eq i32 %bf.clear, 0
-  %.103 = select i1 %cmp61, i32 4, i32 9
+  %.102 = select i1 %cmp61, i32 4, i32 9
   br label %if.end70.sink.split
 
 if.end70.sink.split:                              ; preds = %sw.bb, %sw.bb60, %if.then50, %if.then42
-  %.sink = phi i32 [ %add43, %if.then42 ], [ %., %if.then50 ], [ %.103, %sw.bb60 ], [ %spec.select, %sw.bb ]
+  %.sink = phi i32 [ %add43, %if.then42 ], [ %., %if.then50 ], [ %.102, %sw.bb60 ], [ %spec.select, %sw.bb ]
   %call64 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN10approx_natmLEj(ptr noundef nonnull align 4 dereferenceable(4) %m_case_split_factor66, i32 noundef %.sink)
   br label %if.end70
 
@@ -474,8 +474,8 @@ if.end70:                                         ; preds = %if.end70.sink.split
 if.then72:                                        ; preds = %if.end70
   %m_num_args.i45 = getelementptr inbounds %class.app, ptr %14, i64 0, i32 2
   %33 = load i32, ptr %m_num_args.i45, align 8
-  %cmp76.not85 = icmp eq i32 %33, 0
-  br i1 %cmp76.not85, label %while.cond.backedge, label %while.body77.lr.ph
+  %cmp76.not84 = icmp eq i32 %33, 0
+  br i1 %cmp76.not84, label %while.cond.backedge, label %while.body77.lr.ph
 
 while.body77.lr.ph:                               ; preds = %if.then72
   %add82 = add i32 %bf.load, 1
@@ -492,7 +492,7 @@ while.body77:                                     ; preds = %while.body77.lr.ph,
   %36 = load ptr, ptr %arrayidx.i46, align 8
   %37 = load ptr, ptr %m_todo, align 8
   %cmp.i48 = icmp eq ptr %37, null
-  br i1 %cmp.i48, label %if.then.i66, label %lor.lhs.false.i49
+  br i1 %cmp.i48, label %if.then.i65, label %lor.lhs.false.i49
 
 lor.lhs.false.i49:                                ; preds = %while.body77
   %arrayidx.i50 = getelementptr inbounds i32, ptr %37, i64 -1
@@ -502,14 +502,14 @@ lor.lhs.false.i49:                                ; preds = %while.body77
   %cmp5.i52 = icmp eq i32 %38, %39
   br i1 %cmp5.i52, label %if.else.i, label %_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE9push_backEOS2_.exit61
 
-if.then.i66:                                      ; preds = %while.body77
+if.then.i65:                                      ; preds = %while.body77
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i62)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  %call.i67 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store i32 2, ptr %call.i67, align 4
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %call.i67, i64 1
+  %call.i66 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
+  store i32 2, ptr %call.i66, align 4
+  %incdec.ptr.i = getelementptr inbounds i32, ptr %call.i66, i64 1
   store i32 0, ptr %incdec.ptr.i, align 4
-  %incdec.ptr2.i = getelementptr inbounds i32, ptr %call.i67, i64 2
+  %incdec.ptr2.i = getelementptr inbounds i32, ptr %call.i66, i64 2
   store ptr %incdec.ptr2.i, ptr %m_todo, align 8
   br label %_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE13expand_vectorEv.exit
 
@@ -520,17 +520,13 @@ if.else.i:                                        ; preds = %lor.lhs.false.i49
   %add10.i = add i32 %mul9.i, 1
   %shr.i = lshr i32 %add10.i, 1
   %mul12.i = shl i32 %shr.i, 4
-  %add13.i = or disjoint i32 %mul12.i, 8
   %cmp15.not.i = icmp ugt i32 %shr.i, %38
-  br i1 %cmp15.not.i, label %lor.lhs.false.i65, label %if.then17.i
-
-lor.lhs.false.i65:                                ; preds = %if.else.i
   %mul6.i = shl i32 %38, 4
-  %add7.i = or disjoint i32 %mul6.i, 8
-  %cmp16.not.i = icmp ugt i32 %add13.i, %add7.i
-  br i1 %cmp16.not.i, label %if.end.i, label %if.then17.i
+  %cmp16.not.i = icmp ugt i32 %mul12.i, %mul6.i
+  %or.cond.i = and i1 %cmp15.not.i, %cmp16.not.i
+  br i1 %or.cond.i, label %if.end.i, label %if.then17.i
 
-if.then17.i:                                      ; preds = %lor.lhs.false.i65, %if.else.i
+if.then17.i:                                      ; preds = %if.else.i
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i62, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i)
@@ -557,7 +553,8 @@ cleanup.action.i:                                 ; preds = %if.then17.i
   call void @__cxa_free_exception(ptr %exception.i) #14
   br label %eh.resume.i
 
-if.end.i:                                         ; preds = %lor.lhs.false.i65
+if.end.i:                                         ; preds = %if.else.i
+  %add13.i = or disjoint i32 %mul12.i, 8
   %conv24.i = zext i32 %add13.i to i64
   %call25.i = call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx4.i51, i64 noundef %conv24.i)
   %add.ptr26.i = getelementptr inbounds i32, ptr %call25.i, i64 2
@@ -572,8 +569,8 @@ eh.resume.i:                                      ; preds = %cleanup.action.i, %
 unreachable.i:                                    ; preds = %invoke.cont.i
   unreachable
 
-_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE13expand_vectorEv.exit: ; preds = %if.then.i66, %if.end.i
-  %.pre.i58 = phi ptr [ %incdec.ptr2.i, %if.then.i66 ], [ %add.ptr26.i, %if.end.i ]
+_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE13expand_vectorEv.exit: ; preds = %if.then.i65, %if.end.i
+  %.pre.i58 = phi ptr [ %incdec.ptr2.i, %if.then.i65 ], [ %add.ptr26.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i62)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
   %arrayidx8.phi.trans.insert.i59 = getelementptr inbounds i32, ptr %.pre.i58, i64 -1
@@ -657,17 +654,13 @@ if.else:                                          ; preds = %entry
   %add10 = add i32 %mul9, 1
   %shr = lshr i32 %add10, 1
   %mul12 = shl i32 %shr, 4
-  %add13 = or disjoint i32 %mul12, 8
   %cmp15.not = icmp ugt i32 %shr, %1
-  br i1 %cmp15.not, label %lor.lhs.false, label %if.then17
-
-lor.lhs.false:                                    ; preds = %if.else
   %mul6 = shl i32 %1, 4
-  %add7 = or disjoint i32 %mul6, 8
-  %cmp16.not = icmp ugt i32 %add13, %add7
-  br i1 %cmp16.not, label %if.end, label %if.then17
+  %cmp16.not = icmp ugt i32 %mul12, %mul6
+  %or.cond = and i1 %cmp15.not, %cmp16.not
+  br i1 %or.cond, label %if.end, label %if.then17
 
-if.then17:                                        ; preds = %lor.lhs.false, %if.else
+if.then17:                                        ; preds = %if.else
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
@@ -694,7 +687,8 @@ cleanup.action:                                   ; preds = %if.then17
   call void @__cxa_free_exception(ptr %exception) #14
   br label %eh.resume
 
-if.end:                                           ; preds = %lor.lhs.false
+if.end:                                           ; preds = %if.else
+  %add13 = or disjoint i32 %mul12, 8
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
   %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
@@ -1144,7 +1138,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -746,8 +746,8 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %m_numHandles = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this, i64 0, i32 6
   %1 = load i16, ptr %m_numHandles, align 4
-  %cmp9.not = icmp eq i16 %1, 0
-  br i1 %cmp9.not, label %if.end17, label %for.body.lr.ph
+  %cmp.not8 = icmp eq i16 %1, 0
+  br i1 %cmp.not8, label %if.end17, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_pEdges = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this, i64 0, i32 10
@@ -763,9 +763,9 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %3 = phi i16 [ %1, %for.body.lr.ph ], [ %10, %for.inc ]
-  %i.010 = phi i16 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.09 = phi i16 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
   %4 = load ptr, ptr %m_pEdges, align 8
-  %idxprom4 = zext i16 %i.010 to i64
+  %idxprom4 = zext i16 %i.09 to i64
   %arrayidx5 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %4, i64 %idxprom4
   %5 = load i16, ptr %arrayidx5, align 2
   %6 = and i16 %5, 1
@@ -787,13 +787,12 @@ if.then7:                                         ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then7
   %10 = phi i16 [ %3, %for.body ], [ %.pre, %if.then7 ]
-  %inc = add i16 %i.010, 1
+  %inc = add i16 %i.09, 1
   %conv = zext i16 %inc to i32
   %conv3 = zext i16 %10 to i32
   %mul = shl nuw nsw i32 %conv3, 1
-  %add = or disjoint i32 %mul, 1
-  %cmp = icmp ugt i32 %add, %conv
-  br i1 %cmp, label %for.body, label %if.end17, !llvm.loop !12
+  %cmp.not = icmp ult i32 %mul, %conv
+  br i1 %cmp.not, label %if.end17, label %for.body, !llvm.loop !12
 
 if.end17:                                         ; preds = %for.inc, %for.cond.preheader, %if.then
   ret void
@@ -810,8 +809,8 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %m_numHandles = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this, i64 0, i32 6
   %1 = load i16, ptr %m_numHandles, align 4
-  %cmp14.not = icmp eq i16 %1, 0
-  br i1 %cmp14.not, label %if.end20, label %for.body.lr.ph
+  %cmp.not13 = icmp eq i16 %1, 0
+  br i1 %cmp.not13, label %if.end20, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_pEdges = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this, i64 0, i32 10
@@ -831,9 +830,9 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %3 = phi i16 [ %1, %for.body.lr.ph ], [ %22, %for.inc ]
-  %i.015 = phi i16 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.014 = phi i16 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
   %4 = load ptr, ptr %m_pEdges, align 8
-  %idxprom4 = zext i16 %i.015 to i64
+  %idxprom4 = zext i16 %i.014 to i64
   %arrayidx5 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %4, i64 %idxprom4
   %5 = load i16, ptr %arrayidx5, align 2
   %6 = and i16 %5, 1
@@ -906,13 +905,12 @@ if.then15:                                        ; preds = %lor.lhs.false21.i
 
 for.inc:                                          ; preds = %lor.lhs.false21.i, %cond.end15.i, %for.body, %if.then15
   %22 = phi i16 [ %3, %lor.lhs.false21.i ], [ %3, %cond.end15.i ], [ %3, %for.body ], [ %.pre, %if.then15 ]
-  %inc = add i16 %i.015, 1
+  %inc = add i16 %i.014, 1
   %conv = zext i16 %inc to i32
   %conv3 = zext i16 %22 to i32
   %mul = shl nuw nsw i32 %conv3, 1
-  %add = or disjoint i32 %mul, 1
-  %cmp = icmp ugt i32 %add, %conv
-  br i1 %cmp, label %for.body, label %if.end20, !llvm.loop !13
+  %cmp.not = icmp ult i32 %mul, %conv
+  br i1 %cmp.not, label %if.end20, label %for.body, !llvm.loop !13
 
 if.end20:                                         ; preds = %for.inc, %for.cond.preheader, %if.then
   ret void
@@ -1430,8 +1428,8 @@ for.cond.preheader:                               ; preds = %entry
   %m_numHandles = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this, i64 0, i32 6
   %1 = load i32, ptr %m_numHandles, align 8
   %mul6.mask = and i32 %1, 2147483647
-  %cmp8.not = icmp eq i32 %mul6.mask, 0
-  br i1 %cmp8.not, label %if.end16, label %for.body.lr.ph
+  %cmp.not7 = icmp eq i32 %mul6.mask, 0
+  br i1 %cmp.not7, label %if.end16, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_pEdges = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this, i64 0, i32 10
@@ -1472,10 +1470,9 @@ for.inc:                                          ; preds = %for.body, %if.then6
   %9 = phi i32 [ %3, %for.body ], [ %.pre, %if.then6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %mul = shl i32 %9, 1
-  %add = or disjoint i32 %mul, 1
-  %10 = zext i32 %add to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %10
-  br i1 %cmp, label %for.body, label %if.end16, !llvm.loop !19
+  %10 = zext i32 %mul to i64
+  %cmp.not.not = icmp ult i64 %indvars.iv, %10
+  br i1 %cmp.not.not, label %for.body, label %if.end16, !llvm.loop !19
 
 if.end16:                                         ; preds = %for.inc, %for.cond.preheader, %if.then
   ret void
@@ -1493,8 +1490,8 @@ for.cond.preheader:                               ; preds = %entry
   %m_numHandles = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this, i64 0, i32 6
   %1 = load i32, ptr %m_numHandles, align 8
   %mul11.mask = and i32 %1, 2147483647
-  %cmp13.not = icmp eq i32 %mul11.mask, 0
-  br i1 %cmp13.not, label %if.end19, label %for.body.lr.ph
+  %cmp.not12 = icmp eq i32 %mul11.mask, 0
+  br i1 %cmp.not12, label %if.end19, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_pEdges = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this, i64 0, i32 10
@@ -1590,10 +1587,9 @@ for.inc:                                          ; preds = %lor.lhs.false21.i, 
   %21 = phi i32 [ %3, %lor.lhs.false21.i ], [ %3, %cond.end15.i ], [ %3, %for.body ], [ %.pre, %if.then14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %mul = shl i32 %21, 1
-  %add = or disjoint i32 %mul, 1
-  %22 = zext i32 %add to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %22
-  br i1 %cmp, label %for.body, label %if.end19, !llvm.loop !20
+  %22 = zext i32 %mul to i64
+  %cmp.not.not = icmp ult i64 %indvars.iv, %22
+  br i1 %cmp.not.not, label %for.body, label %if.end19, !llvm.loop !20
 
 if.end19:                                         ; preds = %for.inc, %for.cond.preheader, %if.then
   ret void

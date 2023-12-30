@@ -1371,15 +1371,15 @@ lpad69.loopexit.split-lp:                         ; preds = %invoke.cont68, %inv
 
 lpad69:                                           ; preds = %lpad69.loopexit.split-lp, %lpad69.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad69.loopexit ], [ %lpad.loopexit.split-lp, %lpad69.loopexit.split-lp ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_userIndexMapping) #44
-  call void @_ZN20btAlignedObjectArrayIbED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_clusterConnectivity) #44
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_z) #44
-  call void @_ZN20btAlignedObjectArrayIS_IPKN10btSoftBody4NodeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesParents) #44
-  call void @_ZN20btAlignedObjectArrayI9btVector4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesInterpolationWeights) #44
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_X) #44
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_quads) #44
-  call void @_ZN20btAlignedObjectArrayIPN10btSoftBody7ClusterEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_clusters) #44
-  call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_cdbvt) #44
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_userIndexMapping) #39
+  call void @_ZN20btAlignedObjectArrayIbED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_clusterConnectivity) #39
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_z) #39
+  call void @_ZN20btAlignedObjectArrayIS_IPKN10btSoftBody4NodeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesParents) #39
+  call void @_ZN20btAlignedObjectArrayI9btVector4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesInterpolationWeights) #39
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_X) #39
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_quads) #39
+  call void @_ZN20btAlignedObjectArrayIPN10btSoftBody7ClusterEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_clusters) #39
+  call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_cdbvt) #39
   br label %ehcleanup125
 
 for.end:                                          ; preds = %invoke.cont110, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
@@ -1397,12 +1397,12 @@ invoke.cont117:                                   ; preds = %invoke.cont116
 
 ehcleanup125:                                     ; preds = %lpad69, %lpad50
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi, %lpad69 ], [ %26, %lpad50 ]
-  call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_fdbvt) #44
+  call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_fdbvt) #39
   br label %ehcleanup126
 
 ehcleanup126:                                     ; preds = %ehcleanup125, %lpad48
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup125 ], [ %25, %lpad48 ]
-  call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_ndbvt) #44
+  call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_ndbvt) #39
   br label %ehcleanup127
 
 ehcleanup127:                                     ; preds = %ehcleanup126, %lpad45
@@ -1428,29 +1428,29 @@ ehcleanup127:                                     ; preds = %ehcleanup126, %lpad
   %m_pose = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 7
   %m_cfg = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 4
   %m_collisionDisabledObjects = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 2
-  call void @_ZN20btAlignedObjectArrayIPN10btSoftBody8MaterialEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_materials) #44
-  call void @_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_joints) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody8SContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_scontacts) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceNodeContactsCCD) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceRigidContacts) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceNodeContacts) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_nodeRigidContacts) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rcontacts) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deformableAnchors) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody6AnchorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_anchors) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetraScratchesTn) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetraScratches) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody5TetraEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetras) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody10RenderFaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderFaces) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody4FaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faces) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody4LinkEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_links) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody10RenderNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodes) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_nodes) #44
-  call void @_ZN20btAlignedObjectArrayIN10btSoftBody4NoteEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_notes) #44
-  call void @_ZN10btSoftBody4PoseD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %m_pose) #44
-  call void @_ZN10btSoftBody6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %m_cfg) #44
-  call void @_ZN20btAlignedObjectArrayIPK17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionDisabledObjects) #44
-  call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #44
+  call void @_ZN20btAlignedObjectArrayIPN10btSoftBody8MaterialEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_materials) #39
+  call void @_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_joints) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody8SContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_scontacts) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceNodeContactsCCD) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceRigidContacts) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceNodeContacts) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_nodeRigidContacts) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rcontacts) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deformableAnchors) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody6AnchorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_anchors) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetraScratchesTn) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetraScratches) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody5TetraEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetras) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody10RenderFaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderFaces) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody4FaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faces) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody4LinkEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_links) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody10RenderNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodes) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_nodes) #39
+  call void @_ZN20btAlignedObjectArrayIN10btSoftBody4NoteEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_notes) #39
+  call void @_ZN10btSoftBody4PoseD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %m_pose) #39
+  call void @_ZN10btSoftBody6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %m_cfg) #39
+  call void @_ZN20btAlignedObjectArrayIPK17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionDisabledObjects) #39
+  call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #39
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -1590,7 +1590,7 @@ terminate.lpad.i:                                 ; preds = %lpad
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #45
+  tail call void @__clang_call_terminate(ptr %3) #40
   unreachable
 
 _ZN14btConcaveShapedlEPv.exit:                    ; preds = %lpad
@@ -1985,7 +1985,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2022,7 +2022,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2059,7 +2059,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2099,7 +2099,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #45
+  tail call void @__clang_call_terminate(ptr %6) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEED2Ev.exit.i.i: ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
@@ -2144,7 +2144,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #45
+  tail call void @__clang_call_terminate(ptr %12) #40
   unreachable
 }
 
@@ -2181,7 +2181,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2218,7 +2218,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2255,7 +2255,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2295,7 +2295,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2332,7 +2332,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2369,7 +2369,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2406,7 +2406,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2428,11 +2428,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %1 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %1, i64 %indvars.iv.i.i
   %jacobianData_t2.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i) #39
   %jacobianData_t1.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i) #39
   %jacobianData_normal.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i) #39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %2 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %2, label %_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !20
@@ -2467,7 +2467,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #45
+  tail call void @__clang_call_terminate(ptr %7) #40
   unreachable
 }
 
@@ -2489,11 +2489,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %1 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %1, i64 %indvars.iv.i.i
   %jacobianData_t2.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i) #39
   %jacobianData_t1.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i) #39
   %jacobianData_normal.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i) #39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %2 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %2, label %_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !21
@@ -2528,7 +2528,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #45
+  tail call void @__clang_call_terminate(ptr %7) #40
   unreachable
 }
 
@@ -2549,11 +2549,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %1 = load ptr, ptr %m_data.i.i, align 8
   %jacobianData_t2.i.i.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %1, i64 %indvars.iv.i.i, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #39
   %jacobianData_t1.i.i.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %1, i64 %indvars.iv.i.i, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #39
   %jacobianData_normal.i.i.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %1, i64 %indvars.iv.i.i, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %2 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %2, label %_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !22
@@ -2588,7 +2588,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #45
+  tail call void @__clang_call_terminate(ptr %7) #40
   unreachable
 }
 
@@ -2610,11 +2610,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %1 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidAnchor", ptr %1, i64 %indvars.iv.i.i
   %jacobianData_t2.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i) #39
   %jacobianData_t1.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i) #39
   %jacobianData_normal.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i) #39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %2 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %2, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !23
@@ -2649,7 +2649,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #45
+  tail call void @__clang_call_terminate(ptr %7) #40
   unreachable
 }
 
@@ -2686,7 +2686,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2723,7 +2723,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2760,7 +2760,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2797,7 +2797,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2834,7 +2834,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2871,7 +2871,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2908,7 +2908,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2945,7 +2945,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -2982,7 +2982,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -3009,7 +3009,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -3040,7 +3040,7 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #45
+  tail call void @__clang_call_terminate(ptr %9) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
@@ -3077,7 +3077,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody8ePSolver1_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -3108,7 +3108,7 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #45
+  tail call void @__clang_call_terminate(ptr %9) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody8ePSolver1_EED2Ev.exit11: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody8ePSolver1_EED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
@@ -3139,7 +3139,7 @@ terminate.lpad.i18:                               ; preds = %if.then3.i.i.i17
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #45
+  tail call void @__clang_call_terminate(ptr %14) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody8eVSolver1_EED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody8ePSolver1_EED2Ev.exit11, %if.then.i.i.i14, %if.then3.i.i.i17
@@ -3186,7 +3186,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -3513,25 +3513,25 @@ lpad69:                                           ; preds = %invoke.cont68
   %m_X = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 46
   %m_quads = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 41
   %m_clusters = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 36
-  tail call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_userIndexMapping) #44
-  tail call void @_ZN20btAlignedObjectArrayIbED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_clusterConnectivity) #44
-  tail call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_z) #44
-  tail call void @_ZN20btAlignedObjectArrayIS_IPKN10btSoftBody4NodeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesParents) #44
-  tail call void @_ZN20btAlignedObjectArrayI9btVector4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesInterpolationWeights) #44
-  tail call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_X) #44
-  tail call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_quads) #44
-  tail call void @_ZN20btAlignedObjectArrayIPN10btSoftBody7ClusterEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_clusters) #44
-  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_cdbvt) #44
+  tail call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_userIndexMapping) #39
+  tail call void @_ZN20btAlignedObjectArrayIbED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_clusterConnectivity) #39
+  tail call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_z) #39
+  tail call void @_ZN20btAlignedObjectArrayIS_IPKN10btSoftBody4NodeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesParents) #39
+  tail call void @_ZN20btAlignedObjectArrayI9btVector4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesInterpolationWeights) #39
+  tail call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_X) #39
+  tail call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_quads) #39
+  tail call void @_ZN20btAlignedObjectArrayIPN10btSoftBody7ClusterEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_clusters) #39
+  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_cdbvt) #39
   br label %ehcleanup78
 
 ehcleanup78:                                      ; preds = %lpad69, %lpad50
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad69 ], [ %2, %lpad50 ]
-  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_fdbvt) #44
+  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_fdbvt) #39
   br label %ehcleanup79
 
 ehcleanup79:                                      ; preds = %ehcleanup78, %lpad48
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup78 ], [ %1, %lpad48 ]
-  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_ndbvt) #44
+  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_ndbvt) #39
   br label %ehcleanup80
 
 ehcleanup80:                                      ; preds = %ehcleanup79, %lpad45
@@ -3558,29 +3558,29 @@ ehcleanup80:                                      ; preds = %ehcleanup79, %lpad4
   %m_pose = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 7
   %m_cfg = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 4
   %m_collisionDisabledObjects = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 2
-  tail call void @_ZN20btAlignedObjectArrayIPN10btSoftBody8MaterialEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_materials) #44
-  tail call void @_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_joints) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody8SContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_scontacts) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceNodeContactsCCD) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceRigidContacts) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceNodeContacts) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_nodeRigidContacts) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rcontacts) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deformableAnchors) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody6AnchorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_anchors) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetraScratchesTn) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetraScratches) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody5TetraEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetras) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody10RenderFaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderFaces) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody4FaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faces) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody4LinkEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_links) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody10RenderNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodes) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_nodes) #44
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody4NoteEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_notes) #44
-  tail call void @_ZN10btSoftBody4PoseD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %m_pose) #44
-  tail call void @_ZN10btSoftBody6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %m_cfg) #44
-  tail call void @_ZN20btAlignedObjectArrayIPK17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionDisabledObjects) #44
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #44
+  tail call void @_ZN20btAlignedObjectArrayIPN10btSoftBody8MaterialEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_materials) #39
+  tail call void @_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_joints) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody8SContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_scontacts) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceNodeContactsCCD) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceRigidContacts) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faceNodeContacts) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_nodeRigidContacts) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rcontacts) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deformableAnchors) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody6AnchorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_anchors) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetraScratchesTn) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetraScratches) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody5TetraEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tetras) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody10RenderFaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderFaces) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody4FaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faces) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody4LinkEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_links) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody10RenderNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodes) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_nodes) #39
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody4NoteEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_notes) #39
+  tail call void @_ZN10btSoftBody4PoseD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %m_pose) #39
+  tail call void @_ZN10btSoftBody6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %m_cfg) #39
+  tail call void @_ZN20btAlignedObjectArrayIPK17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionDisabledObjects) #39
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #39
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -4348,7 +4348,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #44
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #39
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -4375,7 +4375,7 @@ if.then.i.i:                                      ; preds = %while.body.i
           to label %if.end.i.i unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %while.body.i
-  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %4) #44
+  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %4) #39
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %4)
           to label %.noexc7 unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -4486,8 +4486,8 @@ for.end18:                                        ; preds = %for.inc16, %for.con
   br i1 %tobool.not, label %if.end, label %delete.notnull21
 
 delete.notnull21:                                 ; preds = %for.end18
-  tail call void @_ZN11btDbvntNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %25) #44
-  tail call void @_ZdlPv(ptr noundef nonnull %25) #46
+  tail call void @_ZN11btDbvntNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %25) #39
+  tail call void @_ZdlPv(ptr noundef nonnull %25) #41
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull21, %for.end18
@@ -4511,7 +4511,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #45
+  tail call void @__clang_call_terminate(ptr %30) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %if.end, %if.then.i.i.i, %if.then3.i.i.i
@@ -4542,7 +4542,7 @@ terminate.lpad.i19:                               ; preds = %if.then3.i.i.i18
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #45
+  tail call void @__clang_call_terminate(ptr %35) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIbED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i15, %if.then3.i.i.i18
@@ -4573,7 +4573,7 @@ terminate.lpad.i29:                               ; preds = %if.then3.i.i.i28
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #45
+  tail call void @__clang_call_terminate(ptr %40) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIbED2Ev.exit, %if.then.i.i.i25, %if.then3.i.i.i28
@@ -4585,7 +4585,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   %m_capacity.i.i.i32 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 49, i32 3
   store i32 0, ptr %m_capacity.i.i.i32, align 8
   %m_renderNodesParents = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 48
-  tail call void @_ZN20btAlignedObjectArrayIS_IPKN10btSoftBody4NodeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesParents) #44
+  tail call void @_ZN20btAlignedObjectArrayIS_IPKN10btSoftBody4NodeEEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_renderNodesParents) #39
   %m_data.i.i.i33 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 47, i32 5
   %41 = load ptr, ptr %m_data.i.i.i33, align 8
   %tobool.not.i.i.i34 = icmp eq ptr %41, null
@@ -4606,7 +4606,7 @@ terminate.lpad.i39:                               ; preds = %if.then3.i.i.i38
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #45
+  tail call void @__clang_call_terminate(ptr %45) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector4ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit, %if.then.i.i.i35, %if.then3.i.i.i38
@@ -4637,7 +4637,7 @@ terminate.lpad.i49:                               ; preds = %if.then3.i.i.i48
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #45
+  tail call void @__clang_call_terminate(ptr %50) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayI9btVector4ED2Ev.exit, %if.then.i.i.i45, %if.then3.i.i.i48
@@ -4668,7 +4668,7 @@ terminate.lpad.i59:                               ; preds = %if.then3.i.i.i58
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #45
+  tail call void @__clang_call_terminate(ptr %55) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit63: ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %if.then.i.i.i55, %if.then3.i.i.i58
@@ -4699,7 +4699,7 @@ terminate.lpad.i70:                               ; preds = %if.then3.i.i.i69
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  tail call void @__clang_call_terminate(ptr %60) #45
+  tail call void @__clang_call_terminate(ptr %60) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIPN10btSoftBody7ClusterEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit63, %if.then.i.i.i66, %if.then3.i.i.i69
@@ -4710,11 +4710,11 @@ _ZN20btAlignedObjectArrayIPN10btSoftBody7ClusterEED2Ev.exit: ; preds = %_ZN20btA
   %m_capacity.i.i.i73 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 36, i32 3
   store i32 0, ptr %m_capacity.i.i.i73, align 8
   %m_cdbvt = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 35
-  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_cdbvt) #44
+  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_cdbvt) #39
   %m_fdbvt = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 33
-  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_fdbvt) #44
+  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_fdbvt) #39
   %m_ndbvt = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 32
-  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_ndbvt) #44
+  tail call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_ndbvt) #39
   %m_data.i.i.i74 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 28, i32 5
   %61 = load ptr, ptr %m_data.i.i.i74, align 8
   %tobool.not.i.i.i75 = icmp eq ptr %61, null
@@ -4735,7 +4735,7 @@ terminate.lpad.i80:                               ; preds = %if.then3.i.i.i79
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  tail call void @__clang_call_terminate(ptr %65) #45
+  tail call void @__clang_call_terminate(ptr %65) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIPN10btSoftBody8MaterialEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIPN10btSoftBody7ClusterEED2Ev.exit, %if.then.i.i.i76, %if.then3.i.i.i79
@@ -4765,7 +4765,7 @@ terminate.lpad.i90:                               ; preds = %if.then3.i.i.i89
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #45
+  tail call void @__clang_call_terminate(ptr %70) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIPN10btSoftBody5JointEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIPN10btSoftBody8MaterialEED2Ev.exit, %if.then.i.i.i86, %if.then3.i.i.i89
@@ -4795,7 +4795,7 @@ terminate.lpad.i100:                              ; preds = %if.then3.i.i.i99
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  tail call void @__clang_call_terminate(ptr %75) #45
+  tail call void @__clang_call_terminate(ptr %75) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody8SContactEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEED2Ev.exit, %if.then.i.i.i96, %if.then3.i.i.i99
@@ -4826,7 +4826,7 @@ terminate.lpad.i110:                              ; preds = %if.then3.i.i.i109
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #45
+  tail call void @__clang_call_terminate(ptr %80) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody8SContactEED2Ev.exit, %if.then.i.i.i106, %if.then3.i.i.i109
@@ -4852,11 +4852,11 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %82 = load ptr, ptr %m_data.i.i.i122, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %82, i64 %indvars.iv.i.i.i
   %jacobianData_t2.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i.i, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i) #39
   %jacobianData_t1.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i.i, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i) #39
   %jacobianData_normal.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i.i, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i) #39
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %83 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
   br i1 %83, label %_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEE7destroyEii.exit.i.i, label %for.body.i.i.i, !llvm.loop !20
@@ -4882,7 +4882,7 @@ terminate.lpad.i120:                              ; preds = %if.then3.i.i.i119
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  tail call void @__clang_call_terminate(ptr %88) #45
+  tail call void @__clang_call_terminate(ptr %88) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEE7destroyEii.exit.i.i, %if.then.i.i.i116, %if.then3.i.i.i119
@@ -4912,7 +4912,7 @@ terminate.lpad.i129:                              ; preds = %if.then3.i.i.i128
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  tail call void @__clang_call_terminate(ptr %93) #45
+  tail call void @__clang_call_terminate(ptr %93) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEED2Ev.exit133: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEED2Ev.exit, %if.then.i.i.i125, %if.then3.i.i.i128
@@ -4938,11 +4938,11 @@ for.body.i.i.i148:                                ; preds = %for.body.i.i.i148, 
   %95 = load ptr, ptr %m_data.i.i.i146, align 8
   %arrayidx.i.i.i150 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %95, i64 %indvars.iv.i.i.i149
   %jacobianData_t2.i.i.i.i.i151 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i.i150, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i151) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i151) #39
   %jacobianData_t1.i.i.i.i.i152 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i.i150, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i152) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i152) #39
   %jacobianData_normal.i.i.i.i.i153 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i.i150, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i153) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i153) #39
   %indvars.iv.next.i.i.i154 = add nuw nsw i64 %indvars.iv.i.i.i149, 1
   %96 = icmp eq i64 %indvars.iv.next.i.i.i154, %zext.i.i147
   br i1 %96, label %_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEE7destroyEii.exit.i.i, label %for.body.i.i.i148, !llvm.loop !21
@@ -4968,7 +4968,7 @@ terminate.lpad.i142:                              ; preds = %if.then3.i.i.i141
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  tail call void @__clang_call_terminate(ptr %101) #45
+  tail call void @__clang_call_terminate(ptr %101) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEE7destroyEii.exit.i.i, %if.then.i.i.i138, %if.then3.i.i.i141
@@ -4979,7 +4979,7 @@ _ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEED2Ev.exit: 
   %m_capacity.i.i.i144 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 22, i32 3
   store i32 0, ptr %m_capacity.i.i.i144, align 8
   %m_rcontacts = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 21
-  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rcontacts) #44
+  tail call void @_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rcontacts) #39
   %m_size.i.i.i155 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 20, i32 2
   %102 = load i32, ptr %m_size.i.i.i155, align 4
   %cmp3.i.i.i156 = icmp sgt i32 %102, 0
@@ -4995,11 +4995,11 @@ for.body.i.i.i169:                                ; preds = %for.body.i.i.i169, 
   %103 = load ptr, ptr %m_data.i.i.i167, align 8
   %arrayidx.i.i.i171 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidAnchor", ptr %103, i64 %indvars.iv.i.i.i170
   %jacobianData_t2.i.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i.i171, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i.i) #39
   %jacobianData_t1.i.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i.i171, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i.i) #39
   %jacobianData_normal.i.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i.i171, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i.i) #39
   %indvars.iv.next.i.i.i172 = add nuw nsw i64 %indvars.iv.i.i.i170, 1
   %104 = icmp eq i64 %indvars.iv.next.i.i.i172, %zext.i.i168
   br i1 %104, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEE7destroyEii.exit.i.i, label %for.body.i.i.i169, !llvm.loop !23
@@ -5025,7 +5025,7 @@ terminate.lpad.i163:                              ; preds = %if.then3.i.i.i162
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #45
+  tail call void @__clang_call_terminate(ptr %109) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEE7destroyEii.exit.i.i, %if.then.i.i.i159, %if.then3.i.i.i162
@@ -5055,7 +5055,7 @@ terminate.lpad.i179:                              ; preds = %if.then3.i.i.i178
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  tail call void @__clang_call_terminate(ptr %114) #45
+  tail call void @__clang_call_terminate(ptr %114) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody6AnchorEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEED2Ev.exit, %if.then.i.i.i175, %if.then3.i.i.i178
@@ -5086,7 +5086,7 @@ terminate.lpad.i189:                              ; preds = %if.then3.i.i.i188
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  tail call void @__clang_call_terminate(ptr %119) #45
+  tail call void @__clang_call_terminate(ptr %119) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody6AnchorEED2Ev.exit, %if.then.i.i.i185, %if.then3.i.i.i188
@@ -5117,7 +5117,7 @@ terminate.lpad.i199:                              ; preds = %if.then3.i.i.i198
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  tail call void @__clang_call_terminate(ptr %124) #45
+  tail call void @__clang_call_terminate(ptr %124) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev.exit203: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev.exit, %if.then.i.i.i195, %if.then3.i.i.i198
@@ -5148,7 +5148,7 @@ terminate.lpad.i210:                              ; preds = %if.then3.i.i.i209
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  tail call void @__clang_call_terminate(ptr %129) #45
+  tail call void @__clang_call_terminate(ptr %129) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody5TetraEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody12TetraScratchEED2Ev.exit203, %if.then.i.i.i206, %if.then3.i.i.i209
@@ -5179,7 +5179,7 @@ terminate.lpad.i220:                              ; preds = %if.then3.i.i.i219
   %133 = landingpad { ptr, i32 }
           catch ptr null
   %134 = extractvalue { ptr, i32 } %133, 0
-  tail call void @__clang_call_terminate(ptr %134) #45
+  tail call void @__clang_call_terminate(ptr %134) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody10RenderFaceEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody5TetraEED2Ev.exit, %if.then.i.i.i216, %if.then3.i.i.i219
@@ -5210,7 +5210,7 @@ terminate.lpad.i230:                              ; preds = %if.then3.i.i.i229
   %138 = landingpad { ptr, i32 }
           catch ptr null
   %139 = extractvalue { ptr, i32 } %138, 0
-  tail call void @__clang_call_terminate(ptr %139) #45
+  tail call void @__clang_call_terminate(ptr %139) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody4FaceEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody10RenderFaceEED2Ev.exit, %if.then.i.i.i226, %if.then3.i.i.i229
@@ -5241,7 +5241,7 @@ terminate.lpad.i240:                              ; preds = %if.then3.i.i.i239
   %143 = landingpad { ptr, i32 }
           catch ptr null
   %144 = extractvalue { ptr, i32 } %143, 0
-  tail call void @__clang_call_terminate(ptr %144) #45
+  tail call void @__clang_call_terminate(ptr %144) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody4LinkEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody4FaceEED2Ev.exit, %if.then.i.i.i236, %if.then3.i.i.i239
@@ -5272,7 +5272,7 @@ terminate.lpad.i250:                              ; preds = %if.then3.i.i.i249
   %148 = landingpad { ptr, i32 }
           catch ptr null
   %149 = extractvalue { ptr, i32 } %148, 0
-  tail call void @__clang_call_terminate(ptr %149) #45
+  tail call void @__clang_call_terminate(ptr %149) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody10RenderNodeEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody4LinkEED2Ev.exit, %if.then.i.i.i246, %if.then3.i.i.i249
@@ -5303,7 +5303,7 @@ terminate.lpad.i260:                              ; preds = %if.then3.i.i.i259
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  tail call void @__clang_call_terminate(ptr %154) #45
+  tail call void @__clang_call_terminate(ptr %154) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody4NodeEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody10RenderNodeEED2Ev.exit, %if.then.i.i.i256, %if.then3.i.i.i259
@@ -5334,7 +5334,7 @@ terminate.lpad.i270:                              ; preds = %if.then3.i.i.i269
   %158 = landingpad { ptr, i32 }
           catch ptr null
   %159 = extractvalue { ptr, i32 } %158, 0
-  tail call void @__clang_call_terminate(ptr %159) #45
+  tail call void @__clang_call_terminate(ptr %159) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIN10btSoftBody4NoteEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody4NodeEED2Ev.exit, %if.then.i.i.i266, %if.then3.i.i.i269
@@ -5365,7 +5365,7 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   %163 = landingpad { ptr, i32 }
           catch ptr null
   %164 = extractvalue { ptr, i32 } %163, 0
-  tail call void @__clang_call_terminate(ptr %164) #45
+  tail call void @__clang_call_terminate(ptr %164) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i274, %_ZN20btAlignedObjectArrayIN10btSoftBody4NoteEED2Ev.exit
@@ -5396,7 +5396,7 @@ terminate.lpad.i7.i:                              ; preds = %if.then3.i.i.i6.i
   %168 = landingpad { ptr, i32 }
           catch ptr null
   %169 = extractvalue { ptr, i32 } %168, 0
-  tail call void @__clang_call_terminate(ptr %169) #45
+  tail call void @__clang_call_terminate(ptr %169) #40
   unreachable
 
 _ZN10btSoftBody4PoseD2Ev.exit:                    ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit.i, %if.then.i.i.i3.i, %if.then3.i.i.i6.i
@@ -5408,7 +5408,7 @@ _ZN10btSoftBody4PoseD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   %m_capacity.i.i.i10.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 7, i32 3, i32 3
   store i32 0, ptr %m_capacity.i.i.i10.i, align 8
   %m_cfg = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 4
-  tail call void @_ZN10btSoftBody6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %m_cfg) #44
+  tail call void @_ZN10btSoftBody6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %m_cfg) #39
   %m_data.i.i.i275 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 2, i32 5
   %170 = load ptr, ptr %m_data.i.i.i275, align 8
   %tobool.not.i.i.i276 = icmp eq ptr %170, null
@@ -5429,7 +5429,7 @@ terminate.lpad.i281:                              ; preds = %if.then3.i.i.i280
   %173 = landingpad { ptr, i32 }
           catch ptr null
   %174 = extractvalue { ptr, i32 } %173, 0
-  tail call void @__clang_call_terminate(ptr %174) #45
+  tail call void @__clang_call_terminate(ptr %174) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIPK17btCollisionObjectED2Ev.exit: ; preds = %_ZN10btSoftBody4PoseD2Ev.exit, %if.then.i.i.i277, %if.then3.i.i.i280
@@ -5440,7 +5440,7 @@ _ZN20btAlignedObjectArrayIPK17btCollisionObjectED2Ev.exit: ; preds = %_ZN10btSof
   store i32 0, ptr %m_size.i.i.i282, align 4
   %m_capacity.i.i.i284 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 2, i32 3
   store i32 0, ptr %m_capacity.i.i.i284, align 8
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #44
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #39
   ret void
 
 terminate.lpad.loopexit:                          ; preds = %for.body11
@@ -5461,7 +5461,7 @@ terminate.lpad.loopexit.split-lp.loopexit.split-lp: ; preds = %if.end.i.i, %if.t
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp.loopexit, %terminate.lpad.loopexit.split-lp.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit285, %terminate.lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp286, %terminate.lpad.loopexit.split-lp.loopexit.split-lp ]
   %175 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %175) #45
+  tail call void @__clang_call_terminate(ptr %175) #40
   unreachable
 }
 
@@ -5491,7 +5491,7 @@ if.then.i:                                        ; preds = %while.body
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body
-  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %2) #44
+  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %2) #39
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %2)
   %4 = load i32, ptr %m_size.i, align 4
   %cmp5.i.i.i = icmp sgt i32 %4, 0
@@ -5548,8 +5548,8 @@ while.end:                                        ; preds = %if.end.i, %_ZN10btS
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #44
-  tail call void @_ZSt9terminatev() #45
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #39
+  tail call void @_ZSt9terminatev() #40
   unreachable
 }
 
@@ -5568,8 +5568,8 @@ entry:
   br i1 %tobool.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN11btDbvntNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #44
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #46
+  tail call void @_ZN11btDbvntNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #39
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #41
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
@@ -5582,8 +5582,8 @@ common.ret2:                                      ; preds = %if.end, %delete.not
   ret void
 
 delete.notnull11:                                 ; preds = %if.end
-  tail call void @_ZN11btDbvntNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %1) #44
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #46
+  tail call void @_ZN11btDbvntNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %1) #39
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #41
   br label %common.ret2
 }
 
@@ -5593,7 +5593,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10btSoftBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) #44
+  tail call void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) #39
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %terminate.lpad.i
 
@@ -5601,7 +5601,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #45
+  tail call void @__clang_call_terminate(ptr %1) #40
   unreachable
 
 _ZN17btCollisionObjectdlEPv.exit:                 ; preds = %entry
@@ -7953,12 +7953,12 @@ invoke.cont19:                                    ; preds = %invoke.cont12
   br i1 %guard.uninitialized, label %init.check, label %invoke.cont49, !prof !68
 
 init.check:                                       ; preds = %invoke.cont19
-  %63 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10btSoftBody22appendDeformableAnchorEiP11btRigidBodyE9iwiStatic) #44
+  %63 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10btSoftBody22appendDeformableAnchorEiP11btRigidBodyE9iwiStatic) #39
   %tobool.not = icmp eq i32 %63, 0
   br i1 %tobool.not, label %invoke.cont49, label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %init.check
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN10btSoftBody22appendDeformableAnchorEiP11btRigidBodyE9iwiStatic) #44
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN10btSoftBody22appendDeformableAnchorEiP11btRigidBodyE9iwiStatic) #39
   br label %invoke.cont49
 
 invoke.cont49:                                    ; preds = %invoke.cont19, %init.check, %invoke.cont43
@@ -8044,17 +8044,17 @@ invoke.cont49:                                    ; preds = %invoke.cont19, %ini
 
 invoke.cont69:                                    ; preds = %invoke.cont49
   %jacobianData_t2.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 10
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #39
   %jacobianData_t1.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 9
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #39
   %jacobianData_normal.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 8
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #39
   ret void
 
 lpad:                                             ; preds = %invoke.cont49, %invoke.cont12
   %106 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10btSoftBody25DeformableNodeRigidAnchorD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %c) #44
+  call void @_ZN10btSoftBody25DeformableNodeRigidAnchorD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %c) #39
   resume { ptr, i32 } %106
 }
 
@@ -8254,7 +8254,7 @@ while.body.i:                                     ; preds = %for.body.i, %while.
   %pc.010.i = phi ptr [ %48, %while.body.i ], [ %47, %for.body.i ]
   %next.i = getelementptr inbounds %"struct.btSparseSdf<3>::Cell", ptr %pc.010.i, i64 0, i32 5
   %48 = load ptr, ptr %next.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %pc.010.i) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %pc.010.i) #41
   %tobool.not.i = icmp eq ptr %48, null
   br i1 %tobool.not.i, label %for.inc.i, label %while.body.i, !llvm.loop !76
 
@@ -8275,7 +8275,7 @@ _ZN11btSparseSdfILi3EE5ResetEv.exit:              ; preds = %for.inc.i, %if.then
   br label %if.end40
 
 if.end40:                                         ; preds = %_ZN11btSparseSdfILi3EE5ResetEv.exit, %if.then33
-  %call41 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #47
+  %call41 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(296) %call41, i8 0, i64 288, i1 false)
   %50 = load ptr, ptr %arrayidx.i144, align 8
   %next42 = getelementptr inbounds %"struct.btSparseSdf<3>::Cell", ptr %call41, i64 0, i32 5
@@ -8419,7 +8419,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @_ZL13ImpulseMatrixfffRK11btMatrix3x3RK9btVector3(ptr noalias nocapture writeonly align 4 %agg.result, float noundef %dt, float noundef %ima, float noundef %imb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iwi, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r) unnamed_addr #12 {
 entry:
   %ref.tmp2 = alloca %class.btMatrix3x3, align 4
@@ -8629,12 +8629,12 @@ lpad.i.i.i:                                       ; preds = %if.end
 lpad9.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #39
   br label %ehcleanup.i.i.i
 
 ehcleanup.i.i.i:                                  ; preds = %lpad9.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %5, %lpad9.i.i.i ], [ %4, %lpad.i.i.i ]
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #39
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZN10btSoftBody25DeformableNodeRigidAnchorC2ERKS0_.exit: ; preds = %invoke.cont.i.i.i
@@ -8658,11 +8658,11 @@ _ZN10btSoftBody25DeformableNodeRigidAnchorC2ERKS0_.exit: ; preds = %invoke.cont.
 define linkonce_odr dso_local void @_ZN10btSoftBody25DeformableNodeRigidAnchorD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #7 comdat align 2 {
 entry:
   %jacobianData_t2.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %this, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i) #39
   %jacobianData_t1.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %this, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #39
   %jacobianData_normal.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %this, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #39
   ret void
 }
 
@@ -8703,11 +8703,11 @@ _ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEE13removeAtIn
   %idxprom.i.i = sext i32 %dec.i.i to i64
   %arrayidx.i.i = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidAnchor", ptr %6, i64 %idxprom.i.i
   %jacobianData_t2.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i.i) #39
   %jacobianData_t1.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i.i) #39
   %jacobianData_normal.i.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i.i, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i.i) #39
   %.pre = load i32, ptr %m_size.i, align 4
   br label %if.end
 
@@ -9611,12 +9611,12 @@ invoke.cont133:                                   ; preds = %invoke.cont111
           to label %invoke.cont137 unwind label %lpad46
 
 invoke.cont137:                                   ; preds = %invoke.cont133
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2113) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1110) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal107) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2113) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1110) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal107) #39
   ret void
 
 lpad:                                             ; preds = %invoke.cont10
@@ -9627,18 +9627,18 @@ lpad:                                             ; preds = %invoke.cont10
 lpad46:                                           ; preds = %invoke.cont133, %invoke.cont111, %invoke.cont108, %invoke.cont104, %invoke.cont50, %invoke.cont47, %invoke.cont43
   %249 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #39
   br label %ehcleanup139
 
 ehcleanup139:                                     ; preds = %lpad46, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %249, %lpad46 ], [ %248, %lpad ]
-  call void @_ZN10btSoftBody25DeformableNodeRigidAnchorD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %c) #44
+  call void @_ZN10btSoftBody25DeformableNodeRigidAnchorD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %c) #39
   resume { ptr, i32 } %.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc { <2 x float>, <2 x float> } @_ZL28generateUnitOrthogonalVectorRK9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %u) unnamed_addr #13 {
 entry:
   %0 = load float, ptr %u, align 4
@@ -9949,7 +9949,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZL12OuterProductPKfS0_S0_S0_S0_S0_i(ptr noalias nocapture writeonly align 4 %agg.result, ptr nocapture noundef readonly %v1, ptr nocapture noundef readonly %v2, ptr nocapture noundef readonly %v3, ptr nocapture noundef readonly %u1, ptr nocapture noundef readonly %u2, ptr nocapture noundef readonly %u3, i32 noundef %ndof) unnamed_addr #14 {
 entry:
   %cmp5.i = icmp sgt i32 %ndof, 0
@@ -10443,7 +10443,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -10474,7 +10474,7 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #45
+  tail call void @__clang_call_terminate(ptr %9) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
@@ -10505,7 +10505,7 @@ terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #45
+  tail call void @__clang_call_terminate(ptr %14) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
@@ -10536,7 +10536,7 @@ terminate.lpad.i27:                               ; preds = %if.then3.i.i.i26
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #45
+  tail call void @__clang_call_terminate(ptr %19) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit31:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit, %if.then.i.i.i23, %if.then3.i.i.i26
@@ -10567,7 +10567,7 @@ terminate.lpad.i38:                               ; preds = %if.then3.i.i.i37
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #45
+  tail call void @__clang_call_terminate(ptr %24) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit42:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit31, %if.then.i.i.i34, %if.then3.i.i.i37
@@ -10598,7 +10598,7 @@ terminate.lpad.i49:                               ; preds = %if.then3.i.i.i48
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #45
+  tail call void @__clang_call_terminate(ptr %29) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit53:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit42, %if.then.i.i.i45, %if.then3.i.i.i48
@@ -10630,7 +10630,7 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZNK10btSoftBody4Body5xformEv.exit, !prof !68
 
 init.check.i:                                     ; preds = %entry
-  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %_ZNK10btSoftBody4Body5xformEv.exit, label %init.i
 
@@ -10646,12 +10646,12 @@ invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds %class.btTransform, ptr %call.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
 common.resume:                                    ; preds = %lpad.i29, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %43, %lpad.i29 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -10731,7 +10731,7 @@ _ZNK10btSoftBody4Body5xformEv.exit:               ; preds = %entry, %init.check.
   br i1 %guard.uninitialized.i17, label %init.check.i25, label %_ZNK10btSoftBody4Body5xformEv.exit34, !prof !68
 
 init.check.i25:                                   ; preds = %_ZNK10btSoftBody4Body5xformEv.exit
-  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i26 = icmp eq i32 %42, 0
   br i1 %tobool.not.i26, label %_ZNK10btSoftBody4Body5xformEv.exit34, label %init.i27
 
@@ -10747,7 +10747,7 @@ invoke.cont2.i30:                                 ; preds = %init.i27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i32, i64 16, i1 false)
   %m_origin3.i.i33 = getelementptr inbounds %class.btTransform, ptr %call.i28, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i33, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit34
 
 lpad.i29:                                         ; preds = %init.i27
@@ -10960,7 +10960,7 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZNK10btSoftBody4Body5xformEv.exit, !prof !68
 
 init.check.i:                                     ; preds = %entry
-  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %_ZNK10btSoftBody4Body5xformEv.exit, label %init.i
 
@@ -10976,12 +10976,12 @@ invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds %class.btTransform, ptr %call.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
 common.resume:                                    ; preds = %lpad.i29, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %28, %lpad.i29 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -11038,7 +11038,7 @@ _ZNK10btSoftBody4Body5xformEv.exit:               ; preds = %entry, %init.check.
   br i1 %guard.uninitialized.i17, label %init.check.i25, label %_ZNK10btSoftBody4Body5xformEv.exit34, !prof !68
 
 init.check.i25:                                   ; preds = %_ZNK10btSoftBody4Body5xformEv.exit
-  %27 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %27 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i26 = icmp eq i32 %27, 0
   br i1 %tobool.not.i26, label %_ZNK10btSoftBody4Body5xformEv.exit34, label %init.i27
 
@@ -11054,7 +11054,7 @@ invoke.cont2.i30:                                 ; preds = %init.i27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i32, i64 16, i1 false)
   %m_origin3.i.i33 = getelementptr inbounds %class.btTransform, ptr %call.i28, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i33, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit34
 
 lpad.i29:                                         ; preds = %init.i27
@@ -11435,7 +11435,7 @@ if.then54:                                        ; preds = %if.then28
   %mul61 = fmul float %mul60, %mul
   %neg = fneg float %37
   %43 = tail call float @llvm.fmuladd.f32(float %neg, float %37, float 1.000000e+00)
-  %call.i = tail call noundef float @sqrtf(float noundef %43) #44
+  %call.i = tail call noundef float @sqrtf(float noundef %43) #39
   %mul64 = fmul float %mul61, %call.i
   %44 = fneg float %36
   %45 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -11774,7 +11774,7 @@ if.then84:                                        ; preds = %if.then57
   %mul91 = fmul float %mul90, %mul
   %neg = fneg float %44
   %50 = tail call float @llvm.fmuladd.f32(float %neg, float %44, float 1.000000e+00)
-  %call.i = tail call noundef float @sqrtf(float noundef %50) #44
+  %call.i = tail call noundef float @sqrtf(float noundef %50) #39
   %mul94 = fmul float %mul91, %call.i
   %51 = fneg float %43
   %52 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -12125,8 +12125,8 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody11setVelocityERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) local_unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody11setVelocityERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) local_unnamed_addr #11 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -12163,7 +12163,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody7setMassEif(ptr nocapture noundef nonnull align 8 dereferenceable(2064) %this, i32 noundef %node, float noundef %mass) local_unnamed_addr #20 align 2 {
+define dso_local void @_ZN10btSoftBody7setMassEif(ptr nocapture noundef nonnull align 8 dereferenceable(2064) %this, i32 noundef %node, float noundef %mass) local_unnamed_addr #19 align 2 {
 entry:
   %cmp = fcmp ogt float %mass, 0.000000e+00
   %div = fdiv float 1.000000e+00, %mass
@@ -12224,8 +12224,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret float %mass.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody12setTotalMassEfb(ptr nocapture noundef nonnull align 8 dereferenceable(2064) %this, float noundef %mass, i1 noundef zeroext %fromfaces) local_unnamed_addr #21 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody12setTotalMassEfb(ptr nocapture noundef nonnull align 8 dereferenceable(2064) %this, float noundef %mass, i1 noundef zeroext %fromfaces) local_unnamed_addr #20 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -12407,8 +12407,8 @@ for.end56:                                        ; preds = %for.body49, %for.co
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody15setTotalDensityEf(ptr nocapture noundef nonnull align 8 dereferenceable(2064) %this, float noundef %density) local_unnamed_addr #21 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody15setTotalDensityEf(ptr nocapture noundef nonnull align 8 dereferenceable(2064) %this, float noundef %density) local_unnamed_addr #20 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -12500,8 +12500,8 @@ _ZNK10btSoftBody9getVolumeEv.exit:                ; preds = %entry, %for.end.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZNK10btSoftBody9getVolumeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #22 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define dso_local noundef float @_ZNK10btSoftBody9getVolumeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #21 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -12658,7 +12658,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 lpad:                                             ; preds = %if.then.i.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ranks) #44
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ranks) #39
   resume { ptr, i32 } %7
 
 for.cond38.preheader.loopexit:                    ; preds = %for.inc35
@@ -12791,7 +12791,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i49
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #45
+  tail call void @__clang_call_terminate(ptr %32) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %invoke.cont62, %if.then3.i.i.i49
@@ -12842,7 +12842,7 @@ for.end10:                                        ; preds = %for.inc8, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN10btSoftBody17getLinearVelocityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #23 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN10btSoftBody17getLinearVelocityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #21 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -12924,7 +12924,7 @@ cond.end22:                                       ; preds = %entry, %for.end, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody17setLinearVelocityERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVel) local_unnamed_addr #24 align 2 {
+define dso_local void @_ZN10btSoftBody17setLinearVelocityERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVel) local_unnamed_addr #20 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -13024,8 +13024,8 @@ for.end:                                          ; preds = %for.body, %_ZN10btS
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody18setAngularVelocityERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVel) local_unnamed_addr #21 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody18setAngularVelocityERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVel) local_unnamed_addr #20 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -14402,8 +14402,8 @@ for.end:                                          ; preds = %for.body, %entry
 
 declare void @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(32)) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody13updateNormalsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #21 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody13updateNormalsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #20 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -14853,8 +14853,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody19initializeDmInverseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #21 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody19initializeDmInverseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #20 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 16, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -15154,7 +15154,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN10btSoftBody18getRestLengthScaleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #25 align 2 {
+define dso_local noundef float @_ZN10btSoftBody18getRestLengthScaleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_restLengthScale = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 55
   %0 = load float, ptr %m_restLengthScale, align 8
@@ -15817,7 +15817,7 @@ for.end119:                                       ; preds = %for.end119.loopexit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK10btSoftBody11evaluateComEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #23 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK10btSoftBody11evaluateComEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #21 align 2 {
 entry:
   %m_bframe = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 7, i32 1
   %0 = load i8, ptr %m_bframe, align 1
@@ -15869,8 +15869,8 @@ if.end:                                           ; preds = %for.body, %if.then,
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody20resetLinkRestLengthsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #21 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody20resetLinkRestLengthsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #20 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 13, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -15922,7 +15922,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK10btSoftBody12clusterCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #25 align 2 {
+define dso_local noundef i32 @_ZNK10btSoftBody12clusterCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 36, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -15930,7 +15930,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN10btSoftBody10clusterComEPKNS_7ClusterE(ptr nocapture noundef readonly %cluster) local_unnamed_addr #23 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN10btSoftBody10clusterComEPKNS_7ClusterE(ptr nocapture noundef readonly %cluster) local_unnamed_addr #21 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %"struct.btSoftBody::Cluster", ptr %cluster, i64 0, i32 1, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -15986,7 +15986,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK10btSoftBody10clusterComEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, i32 noundef %cluster) local_unnamed_addr #23 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK10btSoftBody10clusterComEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, i32 noundef %cluster) local_unnamed_addr #21 align 2 {
 entry:
   %m_data.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 36, i32 5
   %0 = load ptr, ptr %m_data.i, align 8
@@ -16046,8 +16046,8 @@ _ZN10btSoftBody10clusterComEPKNS_7ClusterE.exit:  ; preds = %for.body.i, %entry
   ret { <2 x float>, <2 x float> } %.fca.1.insert.i23.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN10btSoftBody15clusterVelocityEPKNS_7ClusterERK9btVector3(ptr nocapture noundef readonly %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rpos) local_unnamed_addr #26 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { <2 x float>, <2 x float> } @_ZN10btSoftBody15clusterVelocityEPKNS_7ClusterERK9btVector3(ptr nocapture noundef readonly %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rpos) local_unnamed_addr #22 align 2 {
 entry:
   %m_lv = getelementptr inbounds %"struct.btSoftBody::Cluster", ptr %cluster, i64 0, i32 13
   %m_av = getelementptr inbounds %"struct.btSoftBody::Cluster", ptr %cluster, i64 0, i32 14
@@ -16082,8 +16082,8 @@ entry:
   ret { <2 x float>, <2 x float> } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody15clusterVImpulseEPNS_7ClusterERK9btVector3S4_(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rpos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN10btSoftBody15clusterVImpulseEPNS_7ClusterERK9btVector3S4_(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rpos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #23 align 2 {
 entry:
   %m_imass = getelementptr inbounds %"struct.btSoftBody::Cluster", ptr %cluster, i64 0, i32 5
   %0 = load float, ptr %m_imass, align 4
@@ -16185,8 +16185,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody15clusterDImpulseEPNS_7ClusterERK9btVector3S4_(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rpos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN10btSoftBody15clusterDImpulseEPNS_7ClusterERK9btVector3S4_(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rpos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #23 align 2 {
 entry:
   %m_imass = getelementptr inbounds %"struct.btSoftBody::Cluster", ptr %cluster, i64 0, i32 5
   %0 = load float, ptr %m_imass, align 4
@@ -16272,8 +16272,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody14clusterImpulseEPNS_7ClusterERK9btVector3RKNS_7ImpulseE(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rpos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(33) %impulse) local_unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN10btSoftBody14clusterImpulseEPNS_7ClusterERK9btVector3RKNS_7ImpulseE(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rpos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(33) %impulse) local_unnamed_addr #23 align 2 {
 entry:
   %m_asVelocity = getelementptr inbounds %"struct.btSoftBody::Impulse", ptr %impulse, i64 0, i32 2
   %bf.load = load i8, ptr %m_asVelocity, align 4
@@ -16477,8 +16477,8 @@ if.end7:                                          ; preds = %if.then6, %if.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody16clusterVAImpulseEPNS_7ClusterERK9btVector3(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN10btSoftBody16clusterVAImpulseEPNS_7ClusterERK9btVector3(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #23 align 2 {
 entry:
   %m_invwi = getelementptr inbounds %"struct.btSoftBody::Cluster", ptr %cluster, i64 0, i32 7
   %0 = load float, ptr %m_invwi, align 4
@@ -16544,8 +16544,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody16clusterDAImpulseEPNS_7ClusterERK9btVector3(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN10btSoftBody16clusterDAImpulseEPNS_7ClusterERK9btVector3(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #23 align 2 {
 entry:
   %m_invwi = getelementptr inbounds %"struct.btSoftBody::Cluster", ptr %cluster, i64 0, i32 7
   %0 = load float, ptr %m_invwi, align 4
@@ -16603,8 +16603,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody15clusterAImpulseEPNS_7ClusterERKNS_7ImpulseE(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(33) %impulse) local_unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN10btSoftBody15clusterAImpulseEPNS_7ClusterERKNS_7ImpulseE(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(33) %impulse) local_unnamed_addr #23 align 2 {
 entry:
   %m_asVelocity = getelementptr inbounds %"struct.btSoftBody::Impulse", ptr %impulse, i64 0, i32 2
   %bf.load = load i8, ptr %m_asVelocity, align 4
@@ -16745,7 +16745,7 @@ if.end7:                                          ; preds = %if.then6, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody16clusterDCImpulseEPNS_7ClusterERK9btVector3(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #28 align 2 {
+define dso_local void @_ZN10btSoftBody16clusterDCImpulseEPNS_7ClusterERK9btVector3(ptr nocapture noundef %cluster, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #23 align 2 {
 entry:
   %m_imass = getelementptr inbounds %"struct.btSoftBody::Cluster", ptr %cluster, i64 0, i32 5
   %0 = load float, ptr %m_imass, align 4
@@ -16785,7 +16785,7 @@ if.then:                                          ; preds = %entry
   %mul = mul nsw i32 %0, %0
   %conv = zext nneg i32 %mul to i64
   %1 = shl nuw nsw i64 %conv, 2
-  %call2 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #47
+  %call2 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #42
   %cmp3294 = icmp sgt i32 %0, 0
   br i1 %cmp3294, label %for.cond4.preheader.us.preheader, label %for.cond25.preheader
 
@@ -16984,7 +16984,7 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #45
+  call void @__clang_call_terminate(ptr %27) #40
   unreachable
 
 _ZN9NodeLinksD2Ev.exit:                           ; preds = %invoke.cont63, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -17156,7 +17156,7 @@ lpad:                                             ; preds = %if.then3.i.i.i205, 
 lpad62:                                           ; preds = %invoke.cont61
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9NodeLinksD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #44
+  call void @_ZN9NodeLinksD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #39
   br label %ehcleanup
 
 if.end114:                                        ; preds = %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit, %_ZNK20btAlignedObjectArrayIiE16findLinearSearchERKi.exit
@@ -17399,7 +17399,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then3.i.i.i.i.i.
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #45
+  call void @__clang_call_terminate(ptr %89) #40
   unreachable
 
 _ZN9NodeLinksD2Ev.exit.i.i.i:                     ; preds = %if.then3.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i252
@@ -17433,7 +17433,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i248
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #45
+  call void @__clang_call_terminate(ptr %95) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9NodeLinksED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayI9NodeLinksE7destroyEii.exit.i.i, %if.then.i.i.i245, %if.then3.i.i.i248
@@ -17445,7 +17445,7 @@ _ZN20btAlignedObjectArrayI9NodeLinksED2Ev.exit:   ; preds = %_ZN20btAlignedObjec
 
 ehcleanup:                                        ; preds = %lpad62, %lpad
   %.pn = phi { ptr, i32 } [ %51, %lpad ], [ %52, %lpad62 ]
-  call void @_ZN20btAlignedObjectArrayI9NodeLinksED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %nodeLinks) #44
+  call void @_ZN20btAlignedObjectArrayI9NodeLinksED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %nodeLinks) #39
   resume { ptr, i32 } %.pn
 
 if.end250:                                        ; preds = %for.cond209.for.inc247_crit_edge.us, %_ZN20btAlignedObjectArrayI9NodeLinksED2Ev.exit
@@ -17631,7 +17631,7 @@ for.inc270:                                       ; preds = %for.body257, %_ZN10
 
 delete.notnull:                                   ; preds = %for.cond251.loopexit, %for.cond206.preheader, %if.end250
   %nlinks.0.lcssa = phi i32 [ 0, %if.end250 ], [ 0, %for.cond206.preheader ], [ %nlinks.1.lcssa, %for.cond251.loopexit ]
-  call void @_ZdaPv(ptr noundef nonnull %call2) #46
+  call void @_ZdaPv(ptr noundef nonnull %call2) #41
   br label %return
 
 return:                                           ; preds = %entry, %delete.notnull
@@ -17640,7 +17640,7 @@ return:                                           ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #29
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9NodeLinksE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(32) %fillData) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17679,7 +17679,7 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #45
+  tail call void @__clang_call_terminate(ptr %7) #40
   unreachable
 
 _ZN9NodeLinksD2Ev.exit:                           ; preds = %for.body, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -17830,7 +17830,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -17881,7 +17881,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #45
+  tail call void @__clang_call_terminate(ptr %6) #40
   unreachable
 
 _ZN9NodeLinksD2Ev.exit.i.i:                       ; preds = %if.then3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i
@@ -17926,15 +17926,15 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #45
+  tail call void @__clang_call_terminate(ptr %12) #40
   unreachable
 }
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody20randomizeConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody20randomizeConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #11 align 2 {
 entry:
   %tmp.i20 = alloca %"struct.btSoftBody::Face", align 8
   %tmp.i = alloca %"struct.btSoftBody::Link", align 8
@@ -18002,8 +18002,8 @@ for.end23:                                        ; preds = %for.body10, %for.en
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody11updateStateERK20btAlignedObjectArrayI9btVector3ES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %q, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %v) local_unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody11updateStateERK20btAlignedObjectArrayI9btVector3ES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %q, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %v) local_unnamed_addr #11 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -18063,7 +18063,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %1) #44
+  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %1) #39
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %1)
   %m_size.i.i.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 36, i32 2
   %3 = load i32, ptr %m_size.i.i.i, align 4
@@ -18139,7 +18139,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -18170,7 +18170,7 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #45
+  tail call void @__clang_call_terminate(ptr %9) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
@@ -18201,7 +18201,7 @@ terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #45
+  tail call void @__clang_call_terminate(ptr %14) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
@@ -18243,7 +18243,7 @@ if.then.i.i:                                      ; preds = %while.body.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %while.body.i
-  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %2) #44
+  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %2) #39
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %2)
   %4 = load i32, ptr %m_size.i.i, align 4
   %cmp5.i.i.i.i = icmp sgt i32 %4, 0
@@ -19028,7 +19028,7 @@ lpad186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.the
 
 lpad186:                                          ; preds = %lpad186.loopexit.split-lp.loopexit, %lpad186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad186.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad186.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad186.loopexit ], [ %lpad.loopexit1099, %lpad186.loopexit.split-lp.loopexit ], [ %lpad.loopexit1102, %lpad186.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %cids) #44
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %cids) #39
   br label %ehcleanup
 
 for.inc222.loopexit:                              ; preds = %for.body206
@@ -19543,7 +19543,7 @@ if.then.i682:                                     ; preds = %if.then380
           to label %if.end.i683 unwind label %lpad186.loopexit
 
 if.end.i683:                                      ; preds = %if.then.i682, %if.then380
-  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %217) #44
+  tail call void @_ZN10btSoftBody7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %217) #39
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %217)
           to label %.noexc694 unwind label %lpad186.loopexit
 
@@ -19611,7 +19611,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i700
   %229 = landingpad { ptr, i32 }
           catch ptr null
   %230 = extractvalue { ptr, i32 } %229, 0
-  tail call void @__clang_call_terminate(ptr %230) #45
+  tail call void @__clang_call_terminate(ptr %230) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %for.end385, %if.then3.i.i.i700
@@ -19626,7 +19626,7 @@ terminate.lpad.i709:                              ; preds = %if.then3.i.i.i708
   %231 = landingpad { ptr, i32 }
           catch ptr null
   %232 = extractvalue { ptr, i32 } %231, 0
-  tail call void @__clang_call_terminate(ptr %232) #45
+  tail call void @__clang_call_terminate(ptr %232) #40
   unreachable
 
 ehcleanup:                                        ; preds = %lpad.loopexit1104, %lpad186
@@ -19643,7 +19643,7 @@ terminate.lpad.i719:                              ; preds = %if.then3.i.i.i718
   %233 = landingpad { ptr, i32 }
           catch ptr null
   %234 = extractvalue { ptr, i32 } %233, 0
-  call void @__clang_call_terminate(ptr %234) #45
+  call void @__clang_call_terminate(ptr %234) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit723: ; preds = %ehcleanup, %if.then3.i.i.i718
@@ -21028,7 +21028,7 @@ lpad:                                             ; preds = %init.end.i, %if.els
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %53, %lpad ], [ %56, %lpad.i ]
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   resume { ptr, i32 } %eh.lpad-body
 
 for.end:                                          ; preds = %invoke.cont79, %invoke.cont35
@@ -21037,7 +21037,7 @@ for.end:                                          ; preds = %invoke.cont79, %inv
   br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !68
 
 init.check.i:                                     ; preds = %for.end
-  %55 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #44
+  %55 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #39
   %tobool.not.i = icmp eq i32 %55, 0
   br i1 %tobool.not.i, label %init.end.i, label %init.i
 
@@ -21046,7 +21046,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #44
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #39
   br label %init.end.i
 
 init.end.i:                                       ; preds = %invoke.cont.i, %init.check.i, %for.end
@@ -21056,7 +21056,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 lpad.i:                                           ; preds = %init.i
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #44
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #39
   br label %lpad.body
 
 invoke.cont103:                                   ; preds = %init.end.i
@@ -21485,7 +21485,7 @@ for.inc266:                                       ; preds = %for.body, %invoke.c
   br i1 %cmp, label %for.body, label %for.end268, !llvm.loop !260
 
 for.end268:                                       ; preds = %for.inc266, %entry
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 }
 
@@ -21976,8 +21976,8 @@ if.then.i300:                                     ; preds = %if.end184
   %mul.i301 = shl nsw i32 %79, 1
   %add.i = or disjoint i32 %mul.i301, 1
   %80 = load i32, ptr %m_capacity.i.i, align 8
-  %cmp.i632 = icmp slt i32 %80, %add.i
-  br i1 %cmp.i632, label %if.then.i634, label %.noexc
+  %cmp.i632.not = icmp sgt i32 %80, %mul.i301
+  br i1 %cmp.i632.not, label %.noexc, label %if.then.i634
 
 if.then.i634:                                     ; preds = %if.then.i300
   %conv.i.i.i636 = sext i32 %add.i to i64
@@ -22884,8 +22884,8 @@ for.body665:                                      ; preds = %for.cond663.prehead
 lpad654:                                          ; preds = %if.then.i.i.i517
   %218 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %todelete) #44
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ranks) #44
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %todelete) #39
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ranks) #39
   br label %ehcleanup789
 
 for.inc683:                                       ; preds = %for.body665
@@ -23019,7 +23019,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i594
   %242 = landingpad { ptr, i32 }
           catch ptr null
   %243 = extractvalue { ptr, i32 } %242, 0
-  call void @__clang_call_terminate(ptr %243) #45
+  call void @__clang_call_terminate(ptr %243) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.thread:     ; preds = %for.end788, %if.then.i.i.i591, %if.then3.i.i.i594
@@ -23052,7 +23052,7 @@ terminate.lpad.i603:                              ; preds = %if.then3.i.i.i602
   %247 = landingpad { ptr, i32 }
           catch ptr null
   %248 = extractvalue { ptr, i32 } %247, 0
-  call void @__clang_call_terminate(ptr %248) #45
+  call void @__clang_call_terminate(ptr %248) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit607:         ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i599, %if.then3.i.i.i602
@@ -23078,7 +23078,7 @@ terminate.lpad.i614:                              ; preds = %if.then3.i.i.i613
   %252 = landingpad { ptr, i32 }
           catch ptr null
   %253 = extractvalue { ptr, i32 } %252, 0
-  call void @__clang_call_terminate(ptr %253) #45
+  call void @__clang_call_terminate(ptr %253) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit618:         ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit607, %if.then.i.i.i610, %if.then3.i.i.i613
@@ -23090,7 +23090,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit618:         ; preds = %_ZN20btAlignedObjec
 
 ehcleanup789:                                     ; preds = %lpad421.loopexit, %lpad421.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad421.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad421.loopexit.split-lp.loopexit, %lpad654
   %.pn200 = phi { ptr, i32 } [ %218, %lpad654 ], [ %lpad.loopexit, %lpad421.loopexit ], [ %lpad.loopexit698, %lpad421.loopexit.split-lp.loopexit ], [ %lpad.loopexit701, %lpad421.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad421.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %cnodes) #44
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %cnodes) #39
   br label %ehcleanup791
 
 if.end790:                                        ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit618, %for.end415
@@ -23116,7 +23116,7 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   %257 = landingpad { ptr, i32 }
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
-  call void @__clang_call_terminate(ptr %258) #45
+  call void @__clang_call_terminate(ptr %258) #40
   unreachable
 
 _ZN11btSymMatrixIiED2Ev.exit:                     ; preds = %if.end790, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -23124,7 +23124,7 @@ _ZN11btSymMatrixIiED2Ev.exit:                     ; preds = %if.end790, %if.then
 
 ehcleanup791:                                     ; preds = %lpad.loopexit703, %lpad.loopexit.split-lp704.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp704.loopexit, %ehcleanup789
   %.pn202 = phi { ptr, i32 } [ %.pn200, %ehcleanup789 ], [ %lpad.loopexit705, %lpad.loopexit703 ], [ %lpad.loopexit708, %lpad.loopexit.split-lp704.loopexit ], [ %lpad.loopexit711, %lpad.loopexit.split-lp704.loopexit.split-lp.loopexit ], [ %lpad.loopexit714, %lpad.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp715, %lpad.loopexit.split-lp704.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN11btSymMatrixIiED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %edges) #44
+  call void @_ZN11btSymMatrixIiED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %edges) #39
   resume { ptr, i32 } %.pn202
 }
 
@@ -23212,7 +23212,7 @@ invoke.cont:                                      ; preds = %for.body8.i.i, %ent
 lpad:                                             ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) #44
+  tail call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) #39
   resume { ptr, i32 } %7
 }
 
@@ -23239,7 +23239,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -24146,7 +24146,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i42
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #45
+  call void @__clang_call_terminate(ptr %41) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %invoke.cont26, %if.then.i.i.i39, %if.then3.i.i.i42
@@ -24224,7 +24224,7 @@ lpad20.loopexit.split-lp:                         ; preds = %for.end76, %if.end8
 lpad25:                                           ; preds = %invoke.cont24
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp23) #44
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp23) #39
   br label %ehcleanup
 
 for.end58:                                        ; preds = %for.cond41, %if.then
@@ -24435,8 +24435,8 @@ invoke.cont77:                                    ; preds = %for.end76
   br i1 %tobool.not, label %if.end82, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont77
-  call void @_ZN11btDbvntNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %78) #44
-  call void @_ZdlPv(ptr noundef nonnull %78) #46
+  call void @_ZN11btDbvntNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %78) #39
+  call void @_ZdlPv(ptr noundef nonnull %78) #41
   %.pre261 = load ptr, ptr %m_fdbvt, align 8
   br label %if.end82
 
@@ -24504,7 +24504,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i.
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #45
+  call void @__clang_call_terminate(ptr %88) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i:      ; preds = %if.then3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i152
@@ -24538,7 +24538,7 @@ terminate.lpad.i148:                              ; preds = %if.then3.i.i.i147
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #45
+  call void @__clang_call_terminate(ptr %94) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit:        ; preds = %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i, %if.then.i.i.i144, %if.then3.i.i.i147
@@ -24564,11 +24564,11 @@ terminate.lpad.i161:                              ; preds = %if.then3.i.i.i160
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #45
+  call void @__clang_call_terminate(ptr %99) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit, %if.then.i.i.i157, %if.then3.i.i.i160
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 
 ehcleanup:                                        ; preds = %lpad20.loopexit, %lpad20.loopexit.split-lp, %lpad25
@@ -24604,7 +24604,7 @@ terminate.lpad.i.i.i.i188:                        ; preds = %if.then3.i.i.i.i.i.
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #45
+  call void @__clang_call_terminate(ptr %106) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i189:   ; preds = %if.then3.i.i.i.i.i.i187, %if.then.i.i.i.i.i.i184, %for.body.i.i.i180
@@ -24638,7 +24638,7 @@ terminate.lpad.i174:                              ; preds = %if.then3.i.i.i173
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #45
+  call void @__clang_call_terminate(ptr %112) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit194:     ; preds = %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i167, %if.then.i.i.i170, %if.then3.i.i.i173
@@ -24669,12 +24669,12 @@ terminate.lpad.i201:                              ; preds = %if.then3.i.i.i200
   %116 = landingpad { ptr, i32 }
           catch ptr null
   %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #45
+  call void @__clang_call_terminate(ptr %117) #40
   unreachable
 
 ehcleanup91:                                      ; preds = %if.then3.i.i.i200, %if.then.i.i.i197, %ehcleanup90, %ehcleanup90.thread, %lpad
   %.pn18.pn = phi { ptr, i32 } [ %36, %lpad ], [ %lpad.loopexit.split-lp220, %ehcleanup90.thread ], [ %.pn18, %ehcleanup90 ], [ %.pn18, %if.then.i.i.i197 ], [ %.pn18, %if.then3.i.i.i200 ]
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   resume { ptr, i32 } %.pn18.pn
 }
 
@@ -25735,11 +25735,11 @@ if.end179:                                        ; preds = %for.inc176, %if.the
 
 invoke.cont:                                      ; preds = %if.end179
   %jacobianData_t2.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %ref.tmp180, i64 0, i32 10
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #39
   %jacobianData_t1.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %ref.tmp180, i64 0, i32 9
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #39
   %jacobianData_normal.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %ref.tmp180, i64 0, i32 8
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #39
   %m_size.i.i171 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 26, i32 2
   %167 = load i32, ptr %m_size.i.i171, align 4
   %cmp3.i173 = icmp slt i32 %167, 0
@@ -25801,7 +25801,7 @@ _ZN20btAlignedObjectArrayIN10btSoftBody8SContactEE6resizeEiRKS1_.exit: ; preds =
 lpad:                                             ; preds = %if.end179
   %174 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10btSoftBody8RContactD2Ev(ptr noundef nonnull align 8 dereferenceable(808) %ref.tmp180) #44
+  call void @_ZN10btSoftBody8RContactD2Ev(ptr noundef nonnull align 8 dereferenceable(808) %ref.tmp180) #39
   resume { ptr, i32 } %174
 }
 
@@ -26089,7 +26089,7 @@ for.body69:                                       ; preds = %for.body69.lr.ph, %
   br i1 %exitcond97.not, label %for.end74, label %for.body69, !llvm.loop !322
 
 for.end74:                                        ; preds = %for.body69, %for.end
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 }
 
@@ -26245,7 +26245,7 @@ for.end:                                          ; preds = %for.body, %_ZNK10bt
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZL14PolarDecomposeRK11btMatrix3x3RS_S2_.exit, !prof !68
 
 init.check.i:                                     ; preds = %for.end
-  %54 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #44
+  %54 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #39
   %tobool.not.i84 = icmp eq i32 %54, 0
   br i1 %tobool.not.i84, label %_ZL14PolarDecomposeRK11btMatrix3x3RS_S2_.exit, label %init.i
 
@@ -26254,13 +26254,13 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #39
   br label %_ZL14PolarDecomposeRK11btMatrix3x3RS_S2_.exit
 
 lpad.i:                                           ; preds = %init.i
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #44
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZL14PolarDecomposeRK11btMatrix3x3RS_S2_E5polar) #39
   resume { ptr, i32 } %55
 
 _ZL14PolarDecomposeRK11btMatrix3x3RS_S2_.exit:    ; preds = %for.end, %init.check.i, %invoke.cont.i
@@ -26475,11 +26475,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv30 = phi i64 [ %1, %for.cond.preheader ], [ %indvars.iv.next31, %for.body ]
   %2 = load ptr, ptr %m_data, align 8
   %jacobianData_t2.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %2, i64 %indvars.iv30, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #39
   %jacobianData_t1.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %2, i64 %indvars.iv30, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #39
   %jacobianData_normal.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %2, i64 %indvars.iv30, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #39
   %indvars.iv.next31 = add nsw i64 %indvars.iv30, 1
   %lftr.wideiv33 = trunc i64 %indvars.iv.next31 to i32
   %exitcond34.not = icmp eq i32 %0, %lftr.wideiv33
@@ -26535,12 +26535,12 @@ lpad.i:                                           ; preds = %for.body8
 lpad8.i:                                          ; preds = %invoke.cont.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i14) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i14) #39
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad8.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %6, %lpad8.i ], [ %5, %lpad.i ]
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i13) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i13) #39
   resume { ptr, i32 } %.pn.i
 
 _ZN10btSoftBody8RContactC2ERKS0_.exit:            ; preds = %invoke.cont.i
@@ -26560,11 +26560,11 @@ if.end15:                                         ; preds = %_ZN10btSoftBody8RCo
 define linkonce_odr dso_local void @_ZN10btSoftBody8RContactD2Ev(ptr noundef nonnull align 8 dereferenceable(808) %this) unnamed_addr #7 comdat align 2 {
 entry:
   %jacobianData_t2 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %this, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #39
   %jacobianData_t1 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %this, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #39
   %jacobianData_normal = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %this, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #39
   ret void
 }
 
@@ -27148,9 +27148,9 @@ if.then22:                                        ; preds = %for.body
 lpad4:                                            ; preds = %if.then.i.i.i61, %if.then.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %weights) #44
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %deltas) #44
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %weights) #39
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %deltas) #39
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   resume { ptr, i32 } %16
 
 for.inc:                                          ; preds = %for.body, %if.then22
@@ -27357,7 +27357,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i194
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #45
+  call void @__clang_call_terminate(ptr %88) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %for.end145, %if.then.i.i.i191, %if.then3.i.i.i194
@@ -27383,16 +27383,16 @@ terminate.lpad.i202:                              ; preds = %if.then3.i.i.i201
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #45
+  call void @__clang_call_terminate(ptr %93) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit, %if.then.i.i.i198, %if.then3.i.i.i201
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZN10btSoftBody9getSolverENS_8eVSolver1_E(i32 noundef %solver) local_unnamed_addr #30 align 2 {
+define dso_local noundef ptr @_ZN10btSoftBody9getSolverENS_8eVSolver1_E(i32 noundef %solver) local_unnamed_addr #25 align 2 {
 entry:
   %cond = icmp eq i32 %solver, 0
   %_ZN10btSoftBody12VSolve_LinksEPS_f. = select i1 %cond, ptr @_ZN10btSoftBody12VSolve_LinksEPS_f, ptr null
@@ -27400,7 +27400,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZN10btSoftBody9getSolverENS_8ePSolver1_E(i32 noundef %solver) local_unnamed_addr #30 align 2 {
+define dso_local noundef ptr @_ZN10btSoftBody9getSolverENS_8ePSolver1_E(i32 noundef %solver) local_unnamed_addr #25 align 2 {
 entry:
   %0 = icmp ult i32 %solver, 4
   br i1 %0, label %switch.lookup, label %return
@@ -27416,8 +27416,8 @@ return:                                           ; preds = %entry, %switch.look
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody12dampClustersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #21 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody12dampClustersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #20 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 36, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -27598,7 +27598,7 @@ for.end11:                                        ; preds = %for.inc9, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN10btSoftBody22solveCommonConstraintsEPPS_ii(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #30 align 2 {
+define dso_local void @_ZN10btSoftBody22solveCommonConstraintsEPPS_ii(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #25 align 2 {
 entry:
   ret void
 }
@@ -28003,15 +28003,15 @@ for.end:                                          ; preds = %for.inc, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody15integrateMotionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody15integrateMotionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #11 align 2 {
 entry:
   tail call void @_ZN10btSoftBody13updateNormalsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody15RayFromToCasterC2ERK9btVector3S3_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayTo, float noundef %mxt) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN10btSoftBody15RayFromToCasterC2ERK9btVector3S3_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayTo, float noundef %mxt) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %m_rayFrom = getelementptr inbounds %"struct.btSoftBody::RayFromToCaster", ptr %this, i64 0, i32 1
@@ -28040,8 +28040,8 @@ invoke.cont5:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody15RayFromToCaster7ProcessEPK10btDbvtNode(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef readonly %leaf) unnamed_addr #31 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody15RayFromToCaster7ProcessEPK10btDbvtNode(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef readonly %leaf) unnamed_addr #26 align 2 {
 entry:
   %0 = getelementptr inbounds %struct.btDbvtNode, ptr %leaf, i64 0, i32 2
   %1 = load ptr, ptr %0, align 8
@@ -28078,8 +28078,8 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, ptr nocapture nonnull readnone align 4 %rayTo, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayNormalizedDirection, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %c, float noundef %maxt) local_unnamed_addr #26 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef float @_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, ptr nocapture nonnull readnone align 4 %rayTo, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayNormalizedDirection, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %c, float noundef %maxt) local_unnamed_addr #22 align 2 {
 entry:
   %0 = load float, ptr %b, align 4
   %1 = load float, ptr %a, align 4
@@ -28452,7 +28452,7 @@ invoke.cont76:                                    ; preds = %for.body8.i, %if.th
 lpad:                                             ; preds = %if.then3.i.i.i43, %if.then.i.i.i40, %if.else
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %stack) #44
+  call void @_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %stack) #39
   resume { ptr, i32 } %62
 
 if.end:                                           ; preds = %invoke.cont76, %if.then70
@@ -28505,7 +28505,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i61
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #45
+  call void @__clang_call_terminate(ptr %78) #40
   unreachable
 
 if.end90:                                         ; preds = %if.then3.i.i.i61, %do.end, %entry
@@ -28556,7 +28556,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #45
+  tail call void @__clang_call_terminate(ptr %7) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %for.body, %if.then.i.i.i, %if.then3.i.i.i
@@ -29104,7 +29104,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i285
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #45
+  call void @__clang_call_terminate(ptr %29) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %invoke.cont84, %if.then.i.i.i282, %if.then3.i.i.i285
@@ -29172,7 +29172,7 @@ lor.lhs.false:                                    ; preds = %for.body105
 lpad83:                                           ; preds = %invoke.cont82
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp81) #44
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp81) #39
   br label %ehcleanup
 
 land.lhs.true:                                    ; preds = %for.cond101, %for.body96
@@ -29530,7 +29530,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #45
+  call void @__clang_call_terminate(ptr %89) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i:        ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
@@ -29592,7 +29592,7 @@ terminate.lpad.i441:                              ; preds = %if.then3.i.i.i440
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #45
+  call void @__clang_call_terminate(ptr %99) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit445:         ; preds = %invoke.cont181, %if.then.i.i.i437, %if.then3.i.i.i440
@@ -29725,7 +29725,7 @@ for.inc203:                                       ; preds = %_ZN20btAlignedObjec
 lpad180:                                          ; preds = %invoke.cont179
   %123 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp178) #44
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp178) #39
   br label %ehcleanup
 
 for.inc206.loopexit:                              ; preds = %for.inc203
@@ -29772,7 +29772,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i.
   %132 = landingpad { ptr, i32 }
           catch ptr null
   %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #45
+  call void @__clang_call_terminate(ptr %133) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i:      ; preds = %if.then3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i516
@@ -29807,7 +29807,7 @@ terminate.lpad.i512:                              ; preds = %if.then3.i.i.i511
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #45
+  call void @__clang_call_terminate(ptr %140) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit:        ; preds = %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i, %if.then.i.i.i508, %if.then3.i.i.i511
@@ -29826,7 +29826,7 @@ terminate.lpad.i525:                              ; preds = %if.then3.i.i.i524
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #45
+  call void @__clang_call_terminate(ptr %142) #40
   unreachable
 
 _ZN20btAlignedObjectArrayISt4pairIiiEED2Ev.exit:  ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit, %if.then3.i.i.i524
@@ -29841,7 +29841,7 @@ terminate.lpad.i535:                              ; preds = %if.then3.i.i.i534
   %143 = landingpad { ptr, i32 }
           catch ptr null
   %144 = extractvalue { ptr, i32 } %143, 0
-  call void @__clang_call_terminate(ptr %144) #45
+  call void @__clang_call_terminate(ptr %144) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayISt4pairIiiEED2Ev.exit, %if.then3.i.i.i534
@@ -29856,7 +29856,7 @@ terminate.lpad.i545:                              ; preds = %if.then3.i.i.i544
   %145 = landingpad { ptr, i32 }
           catch ptr null
   %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #45
+  call void @__clang_call_terminate(ptr %146) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIbED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev.exit, %if.then3.i.i.i544
@@ -29899,7 +29899,7 @@ terminate.lpad.i.i.i.i572:                        ; preds = %if.then3.i.i.i.i.i.
   %152 = landingpad { ptr, i32 }
           catch ptr null
   %153 = extractvalue { ptr, i32 } %152, 0
-  call void @__clang_call_terminate(ptr %153) #45
+  call void @__clang_call_terminate(ptr %153) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i573:   ; preds = %if.then3.i.i.i.i.i.i571, %if.then.i.i.i.i.i.i568, %for.body.i.i.i564
@@ -29933,7 +29933,7 @@ terminate.lpad.i558:                              ; preds = %if.then3.i.i.i557
   %158 = landingpad { ptr, i32 }
           catch ptr null
   %159 = extractvalue { ptr, i32 } %158, 0
-  call void @__clang_call_terminate(ptr %159) #45
+  call void @__clang_call_terminate(ptr %159) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit578:     ; preds = %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i551, %if.then.i.i.i554, %if.then3.i.i.i557
@@ -29952,7 +29952,7 @@ terminate.lpad.i585:                              ; preds = %if.then3.i.i.i584
   %160 = landingpad { ptr, i32 }
           catch ptr null
   %161 = extractvalue { ptr, i32 } %160, 0
-  call void @__clang_call_terminate(ptr %161) #45
+  call void @__clang_call_terminate(ptr %161) #40
   unreachable
 
 ehcleanup212:                                     ; preds = %if.then3.i.i.i584, %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit578
@@ -29967,7 +29967,7 @@ terminate.lpad.i596:                              ; preds = %if.then3.i.i.i595
   %162 = landingpad { ptr, i32 }
           catch ptr null
   %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #45
+  call void @__clang_call_terminate(ptr %163) #40
   unreachable
 
 ehcleanup213:                                     ; preds = %if.then3.i.i.i595, %ehcleanup212
@@ -29982,7 +29982,7 @@ terminate.lpad.i607:                              ; preds = %if.then3.i.i.i606
   %164 = landingpad { ptr, i32 }
           catch ptr null
   %165 = extractvalue { ptr, i32 } %164, 0
-  call void @__clang_call_terminate(ptr %165) #45
+  call void @__clang_call_terminate(ptr %165) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIbED2Ev.exit611:         ; preds = %ehcleanup213, %if.then3.i.i.i606
@@ -30006,7 +30006,7 @@ entry:
   br i1 %cmp, label %common.ret7, label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
-  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #47
+  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %n, i64 32, i1 false)
   %normal.i = getelementptr inbounds %struct.btDbvntNode, ptr %call, i64 0, i32 1
   %data.i = getelementptr inbounds %struct.btDbvntNode, ptr %call, i64 0, i32 4
@@ -30180,7 +30180,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i49
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #45
+  call void @__clang_call_terminate(ptr %13) #40
   unreachable
 
 invoke.cont24:                                    ; preds = %if.then3.i.i.i49, %if.then.i.i.i46, %invoke.cont23
@@ -30529,7 +30529,7 @@ terminate.lpad.i216:                              ; preds = %if.then3.i.i.i215
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #45
+  call void @__clang_call_terminate(ptr %67) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit220:         ; preds = %for.end107, %if.then3.i.i.i215
@@ -30568,7 +30568,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i.
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #45
+  call void @__clang_call_terminate(ptr %74) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i:      ; preds = %if.then3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i231
@@ -30602,7 +30602,7 @@ terminate.lpad.i227:                              ; preds = %if.then3.i.i.i226
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #45
+  call void @__clang_call_terminate(ptr %80) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit:        ; preds = %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i, %if.then.i.i.i223, %if.then3.i.i.i226
@@ -30628,7 +30628,7 @@ terminate.lpad.i240:                              ; preds = %if.then3.i.i.i239
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #45
+  call void @__clang_call_terminate(ptr %85) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit, %if.then.i.i.i236, %if.then3.i.i.i239
@@ -30637,13 +30637,13 @@ _ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev.exit: ; preds = %_ZN20btAlignedObje
 ehcleanup:                                        ; preds = %lpad26.loopexit, %lpad26.loopexit.split-lp, %lpad22
   %old_id.sink = phi ptr [ %ref.tmp20, %lpad22 ], [ %old_id, %lpad26.loopexit.split-lp ], [ %old_id, %lpad26.loopexit ]
   %.pn = phi { ptr, i32 } [ %19, %lpad22 ], [ %lpad.loopexit.split-lp, %lpad26.loopexit.split-lp ], [ %lpad.loopexit, %lpad26.loopexit ]
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %old_id.sink) #44
-  call void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %adj) #44
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %old_id.sink) #39
+  call void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %adj) #39
   br label %ehcleanup108
 
 ehcleanup108:                                     ; preds = %lpad.loopexit245, %lpad.loopexit.split-lp246, %ehcleanup
   %.pn26 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit247, %lpad.loopexit245 ], [ %lpad.loopexit.split-lp248, %lpad.loopexit.split-lp246 ]
-  call void @_ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %leafNodes) #44
+  call void @_ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %leafNodes) #39
   resume { ptr, i32 } %.pn26
 }
 
@@ -30683,7 +30683,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #45
+  tail call void @__clang_call_terminate(ptr %6) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i:        ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
@@ -30728,7 +30728,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #45
+  tail call void @__clang_call_terminate(ptr %12) #40
   unreachable
 }
 
@@ -30765,7 +30765,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
@@ -31538,7 +31538,7 @@ invoke.cont110:                                   ; preds = %invoke.cont104
 lpad108:                                          ; preds = %invoke.cont110, %invoke.cont104
   %132 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle2) #44
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle2) #39
   br label %ehcleanup
 
 invoke.cont148:                                   ; preds = %if.then42, %if.end
@@ -31714,7 +31714,7 @@ for.body173:                                      ; preds = %_ZL14getBarycentric
 lpad155:                                          ; preds = %for.end185, %invoke.cont151
   %216 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle2125) #44
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle2125) #39
   br label %ehcleanup
 
 for.end185:                                       ; preds = %for.body173
@@ -31739,16 +31739,16 @@ invoke.cont189:                                   ; preds = %for.end185
 
 cleanup.sink.split:                               ; preds = %invoke.cont110, %invoke.cont189
   %triangle2125.sink = phi ptr [ %triangle2125, %invoke.cont189 ], [ %triangle2, %invoke.cont110 ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle2125.sink) #44
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle2125.sink) #39
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont35
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle) #44
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle) #39
   ret i1 %cmp40
 
 ehcleanup:                                        ; preds = %lpad155, %lpad108, %lpad
   %.pn = phi { ptr, i32 } [ %132, %lpad108 ], [ %86, %lpad ], [ %216, %lpad155 ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle) #44
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %triangle) #39
   resume { ptr, i32 } %.pn
 }
 
@@ -31762,7 +31762,7 @@ declare noundef float @_ZN15btGjkEpaSolver214SignedDistanceERK9btVector3fPK13btC
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btTriangleShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #44
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #39
   ret void
 }
 
@@ -31885,7 +31885,7 @@ for.body18:                                       ; preds = %for.body18.lr.ph, %
 lpad:                                             ; preds = %if.then.i.i.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %counts) #44
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %counts) #39
   resume { ptr, i32 } %24
 
 for.end24:                                        ; preds = %for.body18, %if.then, %invoke.cont12
@@ -31985,7 +31985,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i75
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #45
+  tail call void @__clang_call_terminate(ptr %41) #40
   unreachable
 
 if.else83:                                        ; preds = %for.end
@@ -32139,7 +32139,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10btSoftBody16setGravityFactorEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, float noundef %gravFactor) local_unnamed_addr #32 align 2 {
+define dso_local void @_ZN10btSoftBody16setGravityFactorEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, float noundef %gravFactor) local_unnamed_addr #27 align 2 {
 entry:
   %m_gravityFactor = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 43
   store float %gravFactor, ptr %m_gravityFactor, align 4
@@ -32147,7 +32147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10btSoftBody18setCacheBarycenterEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, i1 noundef zeroext %cacheBarycenter) local_unnamed_addr #32 align 2 {
+define dso_local void @_ZN10btSoftBody18setCacheBarycenterEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, i1 noundef zeroext %cacheBarycenter) local_unnamed_addr #27 align 2 {
 entry:
   %frombool = zext i1 %cacheBarycenter to i8
   %m_cacheBarycenter = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 44
@@ -32727,8 +32727,8 @@ if.end:                                           ; preds = %for.body
   %div65 = fdiv float 1.000000e+00, %sqrt.i.i
   %mul8.i.i183 = fmul float %mul8.i173, %div65
   %mul.i.i184 = fmul float %sqrt.i.i, 5.000000e-01
-  %call.i.i.i = tail call noundef float @sinf(float noundef %mul.i.i184) #44
-  %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i184) #44
+  %call.i.i.i = tail call noundef float @sinf(float noundef %mul.i.i184) #39
+  %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i184) #39
   %87 = insertelement <2 x float> poison, float %div65, i64 0
   %88 = shufflevector <2 x float> %87, <2 x float> poison, <2 x i32> zeroinitializer
   %89 = fmul <2 x float> %82, %88
@@ -32943,7 +32943,7 @@ _ZN10btSoftBody5Joint7PrepareEfi.exit:            ; preds = %if.end.i4.i, %if.th
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZNK10btSoftBody4Body5xformEv.exit, !prof !68
 
 init.check.i:                                     ; preds = %_ZN10btSoftBody5Joint7PrepareEfi.exit
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %_ZNK10btSoftBody4Body5xformEv.exit, label %init.i
 
@@ -32959,12 +32959,12 @@ invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds %class.btTransform, ptr %call.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
 common.resume:                                    ; preds = %lpad.i90, %lpad.i68, %lpad.i14, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %6, %lpad.i ], [ %43, %lpad.i14 ], [ %98, %lpad.i68 ], [ %109, %lpad.i90 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -33039,7 +33039,7 @@ _ZNK10btSoftBody4Body5xformEv.exit:               ; preds = %_ZN10btSoftBody5Joi
   br i1 %guard.uninitialized.i2, label %init.check.i10, label %_ZNK10btSoftBody4Body5xformEv.exit19, !prof !68
 
 init.check.i10:                                   ; preds = %_ZNK10btSoftBody4Body5xformEv.exit
-  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i11 = icmp eq i32 %42, 0
   br i1 %tobool.not.i11, label %_ZNK10btSoftBody4Body5xformEv.exit19, label %init.i12
 
@@ -33055,7 +33055,7 @@ invoke.cont2.i15:                                 ; preds = %init.i12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i17, i64 16, i1 false)
   %m_origin3.i.i18 = getelementptr inbounds %class.btTransform, ptr %call.i13, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i18, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit19
 
 lpad.i14:                                         ; preds = %init.i12
@@ -33176,7 +33176,7 @@ _ZL5ClampRK9btVector3f.exit:                      ; preds = %_ZNK10btSoftBody4Bo
   br i1 %guard.uninitialized.i56, label %init.check.i64, label %_ZNK10btSoftBody4Body5xformEv.exit73, !prof !68
 
 init.check.i64:                                   ; preds = %_ZL5ClampRK9btVector3f.exit
-  %97 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %97 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i65 = icmp eq i32 %97, 0
   br i1 %tobool.not.i65, label %_ZNK10btSoftBody4Body5xformEv.exit73, label %init.i66
 
@@ -33192,7 +33192,7 @@ invoke.cont2.i69:                                 ; preds = %init.i66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i71, i64 16, i1 false)
   %m_origin3.i.i72 = getelementptr inbounds %class.btTransform, ptr %call.i67, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i72, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit73
 
 lpad.i68:                                         ; preds = %init.i66
@@ -33229,7 +33229,7 @@ _ZNK10btSoftBody4Body5xformEv.exit73:             ; preds = %_ZL5ClampRK9btVecto
   br i1 %guard.uninitialized.i78, label %init.check.i86, label %_ZNK10btSoftBody4Body5xformEv.exit95, !prof !68
 
 init.check.i86:                                   ; preds = %_ZNK10btSoftBody4Body5xformEv.exit73
-  %108 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %108 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i87 = icmp eq i32 %108, 0
   br i1 %tobool.not.i87, label %_ZNK10btSoftBody4Body5xformEv.exit95, label %init.i88
 
@@ -33245,7 +33245,7 @@ invoke.cont2.i91:                                 ; preds = %init.i88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i93, i64 16, i1 false)
   %m_origin3.i.i94 = getelementptr inbounds %class.btTransform, ptr %call.i89, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i94, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit95
 
 lpad.i90:                                         ; preds = %init.i88
@@ -33306,13 +33306,13 @@ _ZNK10btSoftBody4Body7invMassEv.exit:             ; preds = %if.end.i, %return.s
   br i1 %guard.uninitialized.i108, label %init.check.i112, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit, !prof !68
 
 init.check.i112:                                  ; preds = %_ZNK10btSoftBody4Body7invMassEv.exit
-  %122 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  %122 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   %tobool.not.i113 = icmp eq i32 %122, 0
   br i1 %tobool.not.i113, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %init.check.i112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZNK10btSoftBody4Body15invWorldInertiaEvE3iwi, i8 0, i64 48, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   br label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit
 
 _ZNK10btSoftBody4Body15invWorldInertiaEv.exit:    ; preds = %_ZNK10btSoftBody4Body7invMassEv.exit, %init.check.i112, %invoke.cont.i
@@ -33353,13 +33353,13 @@ _ZNK10btSoftBody4Body7invMassEv.exit125:          ; preds = %if.end.i121, %retur
   br i1 %guard.uninitialized.i126, label %init.check.i134, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit137, !prof !68
 
 init.check.i134:                                  ; preds = %_ZNK10btSoftBody4Body7invMassEv.exit125
-  %129 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  %129 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   %tobool.not.i135 = icmp eq i32 %129, 0
   br i1 %tobool.not.i135, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit137, label %invoke.cont.i136
 
 invoke.cont.i136:                                 ; preds = %init.check.i134
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZNK10btSoftBody4Body15invWorldInertiaEvE3iwi, i8 0, i64 48, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   br label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit137
 
 _ZNK10btSoftBody4Body15invWorldInertiaEv.exit137: ; preds = %_ZNK10btSoftBody4Body7invMassEv.exit125, %init.check.i134, %invoke.cont.i136
@@ -33461,7 +33461,7 @@ if.end:                                           ; preds = %_ZNK10btSoftBody4Bo
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @_ZL13ImpulseMatrixfRK11btMatrix3x3RK9btVector3fS1_S4_(ptr noalias nocapture writeonly align 4 %agg.result, float noundef %ima, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iia, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ra, float noundef %imb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iib, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rb) unnamed_addr #12 {
 entry:
   %ref.tmp = alloca %class.btMatrix3x3, align 4
@@ -34046,7 +34046,7 @@ _ZN10btSoftBody5Joint7PrepareEfi.exit:            ; preds = %if.end.i4.i, %if.th
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZNK10btSoftBody4Body5xformEv.exit, !prof !68
 
 init.check.i:                                     ; preds = %_ZN10btSoftBody5Joint7PrepareEfi.exit
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %_ZNK10btSoftBody4Body5xformEv.exit, label %init.i
 
@@ -34062,12 +34062,12 @@ invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds %class.btTransform, ptr %call.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
 common.resume:                                    ; preds = %lpad.i15, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i ], [ %42, %lpad.i15 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -34136,7 +34136,7 @@ _ZNK10btSoftBody4Body5xformEv.exit:               ; preds = %_ZN10btSoftBody5Joi
   br i1 %guard.uninitialized.i3, label %init.check.i11, label %_ZNK10btSoftBody4Body5xformEv.exit20, !prof !68
 
 init.check.i11:                                   ; preds = %_ZNK10btSoftBody4Body5xformEv.exit
-  %41 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %41 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i12 = icmp eq i32 %41, 0
   br i1 %tobool.not.i12, label %_ZNK10btSoftBody4Body5xformEv.exit20, label %init.i13
 
@@ -34152,7 +34152,7 @@ invoke.cont2.i16:                                 ; preds = %init.i13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i18, i64 16, i1 false)
   %m_origin3.i.i19 = getelementptr inbounds %class.btTransform, ptr %call.i14, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i19, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit20
 
 lpad.i15:                                         ; preds = %init.i13
@@ -34269,7 +34269,7 @@ _ZL12NormalizeAnyRK9btVector3.exit:               ; preds = %_ZNK10btSoftBody4Bo
   %cond5.i = select i1 %cmp.i49, float -1.000000e+00, float %..i
   %cmp.i50 = fcmp olt float %cond5.i, -1.000000e+00
   %x.addr.0.i = select i1 %cmp.i50, float -1.000000e+00, float %cond5.i
-  %call.i52 = tail call noundef float @acosf(float noundef %x.addr.0.i) #44
+  %call.i52 = tail call noundef float @acosf(float noundef %x.addr.0.i) #39
   %cmp.i53 = fcmp ogt float %call.i52, 0x3FC921FB60000000
   %.sroa.speculated127 = select i1 %cmp.i53, float 0x3FC921FB60000000, float %call.i52
   %101 = load float, ptr %ref.tmp17.sroa.2.0.m_drift.sroa_idx, align 4
@@ -34292,13 +34292,13 @@ _ZL12NormalizeAnyRK9btVector3.exit:               ; preds = %_ZNK10btSoftBody4Bo
   br i1 %guard.uninitialized.i59, label %init.check.i62, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit, !prof !68
 
 init.check.i62:                                   ; preds = %_ZL12NormalizeAnyRK9btVector3.exit
-  %111 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  %111 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   %tobool.not.i63 = icmp eq i32 %111, 0
   br i1 %tobool.not.i63, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %init.check.i62
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZNK10btSoftBody4Body15invWorldInertiaEvE3iwi, i8 0, i64 48, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   br label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit
 
 _ZNK10btSoftBody4Body15invWorldInertiaEv.exit:    ; preds = %_ZL12NormalizeAnyRK9btVector3.exit, %init.check.i62, %invoke.cont.i
@@ -34315,13 +34315,13 @@ _ZNK10btSoftBody4Body15invWorldInertiaEv.exit:    ; preds = %_ZL12NormalizeAnyRK
   br i1 %guard.uninitialized.i64, label %init.check.i72, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit75, !prof !68
 
 init.check.i72:                                   ; preds = %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit
-  %115 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  %115 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   %tobool.not.i73 = icmp eq i32 %115, 0
   br i1 %tobool.not.i73, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit75, label %invoke.cont.i74
 
 invoke.cont.i74:                                  ; preds = %init.check.i72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZNK10btSoftBody4Body15invWorldInertiaEvE3iwi, i8 0, i64 48, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   br label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit75
 
 _ZNK10btSoftBody4Body15invWorldInertiaEv.exit75:  ; preds = %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit, %init.check.i72, %invoke.cont.i74
@@ -35474,15 +35474,15 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10btSoftBody12setMaxStressEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, float noundef %maxStress) local_unnamed_addr #32 align 2 {
+define dso_local void @_ZN10btSoftBody12setMaxStressEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, float noundef %maxStress) local_unnamed_addr #27 align 2 {
 entry:
   %m_maxStress = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 4, i32 30
   store float %maxStress, ptr %m_maxStress, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody21interpolateRenderMeshEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #21 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody21interpolateRenderMeshEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #20 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 49, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -35880,11 +35880,11 @@ for.inc:                                          ; preds = %invoke.cont51
 lpad:                                             ; preds = %invoke.cont51
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   resume { ptr, i32 } %87
 
 for.end:                                          ; preds = %for.inc, %entry
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 }
 
@@ -36139,7 +36139,7 @@ lpad:                                             ; preds = %entry
 lpad4:                                            ; preds = %invoke.cont49, %if.then3.i.i.i95, %if.then.i.i.i82, %if.then3.i.i.i, %if.then.i.i.i, %if.then154, %invoke.cont54
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData) #39
   br label %ehcleanup
 
 if.then43:                                        ; preds = %if.then
@@ -36580,13 +36580,13 @@ for.inc177:                                       ; preds = %_Z7btClampIfEvRT_RK
   br i1 %exitcond301.not, label %for.end179, label %for.body, !llvm.loop !472
 
 for.end179:                                       ; preds = %for.inc177, %invoke.cont3
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData) #44
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData) #39
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 
 ehcleanup:                                        ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %31, %lpad4 ], [ %30, %lpad ]
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   resume { ptr, i32 } %.pn
 }
 
@@ -36811,7 +36811,7 @@ invoke.cont113:                                   ; preds = %invoke.cont51, %inv
   br i1 %exitcond.not, label %for.end, label %invoke.cont40, !llvm.loop !473
 
 for.end:                                          ; preds = %invoke.cont113, %entry
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 }
 
@@ -36901,7 +36901,7 @@ for.inc:                                          ; preds = %for.body, %invoke.c
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !474
 
 for.end:                                          ; preds = %for.inc, %entry
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 }
 
@@ -36990,12 +36990,12 @@ invoke.cont29:                                    ; preds = %invoke.cont29.lr.ph
   br i1 %exitcond.not, label %for.end, label %invoke.cont29, !llvm.loop !475
 
 for.end:                                          ; preds = %invoke.cont29, %entry
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10btSoftBody16setSelfCollisionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, i1 noundef zeroext %useSelfCollision) local_unnamed_addr #32 align 2 {
+define dso_local void @_ZN10btSoftBody16setSelfCollisionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, i1 noundef zeroext %useSelfCollision) local_unnamed_addr #27 align 2 {
 entry:
   %frombool = zext i1 %useSelfCollision to i8
   %m_useSelfCollision = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 50
@@ -37004,7 +37004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN10btSoftBody16useSelfCollisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #25 align 2 {
+define dso_local noundef zeroext i1 @_ZN10btSoftBody16useSelfCollisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_useSelfCollision = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 50
   %0 = load i8, ptr %m_useSelfCollision, align 8
@@ -37555,7 +37555,7 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit137: ; preds = %in
 lpad:                                             ; preds = %if.then3.i.i.i121, %if.then.i.i.i108, %if.then3.i.i.i76, %if.then.i.i.i63, %if.else
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %stack) #44
+  call void @_ZN20btAlignedObjectArrayIPK10btDbvtNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %stack) #39
   resume { ptr, i32 } %27
 
 if.else:                                          ; preds = %invoke.cont10
@@ -37588,7 +37588,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i144
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #45
+  call void @__clang_call_terminate(ptr %35) #40
   unreachable
 
 if.end19:                                         ; preds = %if.then3.i.i.i144, %do.end, %entry
@@ -37890,12 +37890,12 @@ lpad132:                                          ; preds = %invoke.cont137, %if
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont137, %invoke.cont102, %lor.lhs.false59, %lor.lhs.false59, %lor.lhs.false59, %invoke.cont35, %call6.i.noexc, %sw.bb10, %if.else128, %entry, %sw.bb, %sw.bb53
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   ret void
 
 ehcleanup:                                        ; preds = %lpad132, %lpad66, %lpad14, %lpad8
   %.pn = phi { ptr, i32 } [ %36, %lpad66 ], [ %48, %lpad132 ], [ %23, %lpad14 ], [ %14, %lpad8 ]
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #44
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #39
   resume { ptr, i32 } %.pn
 }
 
@@ -38015,7 +38015,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit151, %lpad.loopexit ], [ %lpad.loopexit.split-lp152, %lpad.loopexit.split-lp ]
-  call void @_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %stkStack) #44
+  call void @_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %stkStack) #39
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %invoke.cont14, %do.body
@@ -38202,7 +38202,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i148
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #45
+  tail call void @__clang_call_terminate(ptr %47) #40
   unreachable
 
 if.end146:                                        ; preds = %if.then3.i.i.i148, %do.end, %entry
@@ -38332,7 +38332,7 @@ _ZN9btVector313safeNormalizeEv.exit:              ; preds = %if.then.i, %if.else
   %shift = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %35 = fmul <2 x float> %34, %shift
   %mul.i.i = extractelement <2 x float> %35, i64 0
-  %call.i.i.i = tail call noundef float @sqrtf(float noundef %mul.i.i) #44
+  %call.i.i.i = tail call noundef float @sqrtf(float noundef %mul.i.i) #39
   %36 = fmul <2 x float> %14, %15
   %mul8.i.i.i23 = extractelement <2 x float> %36, i64 1
   %37 = tail call float @llvm.fmuladd.f32(float %28, float %29, float %mul8.i.i.i23)
@@ -38342,7 +38342,7 @@ _ZN9btVector313safeNormalizeEv.exit:              ; preds = %if.then.i, %if.else
   %x.addr.0.i.i.i = select i1 %cmp.i.i.i, float -1.000000e+00, float %div.i.i24
   %cmp1.i.i.i = fcmp ogt float %x.addr.0.i.i.i, 1.000000e+00
   %x.addr.1.i.i.i = select i1 %cmp1.i.i.i, float 1.000000e+00, float %x.addr.0.i.i.i
-  %call.i5.i.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i.i) #44
+  %call.i5.i.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i.i) #39
   %conv37 = fpext float %call.i5.i.i to double
   %39 = tail call double @llvm.fmuladd.f64(double %conv37, double 5.000000e-01, double %conv)
   %conv38 = fptrunc double %39 to float
@@ -38466,7 +38466,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit151, %lpad.loopexit ], [ %lpad.loopexit.split-lp152, %lpad.loopexit.split-lp ]
-  call void @_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %stkStack) #44
+  call void @_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %stkStack) #39
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %invoke.cont13, %do.body
@@ -38659,7 +38659,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i149
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #45
+  tail call void @__clang_call_terminate(ptr %44) #40
   unreachable
 
 if.end164:                                        ; preds = %if.then3.i.i.i149, %do.end, %entry
@@ -38778,8 +38778,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody15setWindVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) local_unnamed_addr #33 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN10btSoftBody15setWindVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) local_unnamed_addr #28 align 2 {
 entry:
   %m_windVelocity = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_windVelocity, ptr noundef nonnull align 4 dereferenceable(16) %velocity, i64 16, i1 false)
@@ -38787,14 +38787,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN10btSoftBody15getWindVelocityEv(ptr noundef nonnull readnone align 8 dereferenceable(2064) %this) local_unnamed_addr #30 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN10btSoftBody15getWindVelocityEv(ptr noundef nonnull readnone align 8 dereferenceable(2064) %this) local_unnamed_addr #25 align 2 {
 entry:
   %m_windVelocity = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 54
   ret ptr %m_windVelocity
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK10btSoftBody28calculateSerializeBufferSizeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #30 align 2 {
+define dso_local noundef i32 @_ZNK10btSoftBody28calculateSerializeBufferSizeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #25 align 2 {
 entry:
   ret i32 496
 }
@@ -38990,7 +38990,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit1013, %lpad.loopexit ], [ %lpad.loopexit1015, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit1018, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1021, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1024, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1027, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1030, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1033, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1034, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN9btHashMapI9btHashPtriED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_nodeIndexMap) #44
+  call void @_ZN9btHashMapI9btHashPtriED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_nodeIndexMap) #39
   resume { ptr, i32 } %lpad.phi
 
 for.inc:                                          ; preds = %invoke.cont29, %invoke.cont36
@@ -41145,7 +41145,7 @@ for.end1352:                                      ; preds = %for.inc1349, %invok
           to label %if.end1359 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1359:                                       ; preds = %cond.end1151.thread, %for.end1352, %cond.end1151
-  call void @_ZN9btHashMapI9btHashPtriED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_nodeIndexMap) #44
+  call void @_ZN9btHashMapI9btHashPtriED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_nodeIndexMap) #39
   ret ptr @.str.24
 }
 
@@ -41455,7 +41455,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 
 _ZN20btAlignedObjectArrayI9btHashPtrED2Ev.exit:   ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -41486,7 +41486,7 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #45
+  tail call void @__clang_call_terminate(ptr %9) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayI9btHashPtrED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
@@ -41517,7 +41517,7 @@ terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #45
+  tail call void @__clang_call_terminate(ptr %14) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit21:          ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
@@ -41548,7 +41548,7 @@ terminate.lpad.i28:                               ; preds = %if.then3.i.i.i27
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #45
+  tail call void @__clang_call_terminate(ptr %19) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit32:          ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit21, %if.then.i.i.i24, %if.then3.i.i.i27
@@ -41599,8 +41599,8 @@ if.end8:                                          ; preds = %entry, %entry, %if.
 
 declare void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372), i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody15setZeroVelocityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #34 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN10btSoftBody15setZeroVelocityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2064) %this) local_unnamed_addr #29 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 11, i32 2
   %0 = load i32, ptr %m_size.i, align 4
@@ -41670,7 +41670,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10btSoftBody5JointD0Ev(ptr noundef nonnull align 8 dereferenceable(181) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #45
+  tail call void @llvm.trap() #40
   unreachable
 }
 
@@ -41685,7 +41685,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10btSoftBody6CJointD0Ev(ptr noundef nonnull align 8 dereferenceable(244) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -41771,7 +41771,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10btSoftBody6LJointD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -41790,7 +41790,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10btSoftBody6AJointD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -41803,7 +41803,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10btSoftBody15RayFromToCasterD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -41846,14 +41846,14 @@ declare void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24btSoftBodyCollisionShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #44
+  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #39
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24btSoftBodyCollisionShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #44
+  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #39
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN14btConcaveShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -41861,7 +41861,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #45
+  tail call void @__clang_call_terminate(ptr %1) #40
   unreachable
 
 _ZN14btConcaveShapedlEPv.exit:                    ; preds = %entry
@@ -42128,13 +42128,13 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !68
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK24btSoftBodyCollisionShape15getLocalScalingEvE5dummy) #44
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK24btSoftBodyCollisionShape15getLocalScalingEvE5dummy) #39
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr @_ZZNK24btSoftBodyCollisionShape15getLocalScalingEvE5dummy, align 4
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK24btSoftBodyCollisionShape15getLocalScalingEvE5dummy) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK24btSoftBodyCollisionShape15getLocalScalingEvE5dummy) #39
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -42194,7 +42194,7 @@ entry:
 ; Function Attrs: nounwind
 declare void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @_ZL10MassMatrixfRK11btMatrix3x3RK9btVector3(ptr noalias nocapture writeonly align 4 %agg.result, float noundef %im, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %iwi, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r) unnamed_addr #12 {
 entry:
   %ref.tmp = alloca %class.btMatrix3x3, align 4
@@ -42573,7 +42573,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !68
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -42588,7 +42588,7 @@ invoke.cont5:                                     ; preds = %init
   %arrayidx10.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %call, i64 0, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1), i8 0, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont5, %init.check, %entry
@@ -42597,7 +42597,7 @@ init.end:                                         ; preds = %invoke.cont5, %init
 lpad:                                             ; preds = %init
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   resume { ptr, i32 } %2
 }
 
@@ -42609,7 +42609,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !68
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btMatrix3x311getIdentityEvE14identityMatrix) #44
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btMatrix3x311getIdentityEvE14identityMatrix) #39
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %invoke.cont
 
@@ -42619,7 +42619,7 @@ invoke.cont:                                      ; preds = %init.check
   store float 1.000000e+00, ptr getelementptr inbounds (%class.btMatrix3x3, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 0, i32 0, i64 1, i32 0, i64 1), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btMatrix3x3, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 0, i32 0, i64 1, i32 0, i64 2), i8 0, i64 16, i1 false)
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (%class.btMatrix3x3, ptr @_ZZN11btMatrix3x311getIdentityEvE14identityMatrix, i64 0, i32 0, i64 2, i32 0, i64 2), align 4
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btMatrix3x311getIdentityEvE14identityMatrix) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btMatrix3x311getIdentityEvE14identityMatrix) #39
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -42627,7 +42627,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #35
+declare float @sqrtf(float noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z9zeroChaseR11btMatrix3x3S0_S0_(ptr noundef nonnull align 4 dereferenceable(48) %H, ptr noundef nonnull align 4 dereferenceable(48) %U, ptr noundef nonnull align 4 dereferenceable(48) %V) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -43701,12 +43701,12 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #29
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN10btSoftBody10updateFaceI10btDbvtNodeEEvPT_bb(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef %node, i1 noundef zeroext %use_velocity, i1 noundef zeroext %margin) local_unnamed_addr #3 comdat align 2 {
@@ -44244,7 +44244,7 @@ declare void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btTriangleShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #44
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #39
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN15btTriangleShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -44252,7 +44252,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #45
+  tail call void @__clang_call_terminate(ptr %1) #40
   unreachable
 
 _ZN15btTriangleShapedlEPv.exit:                   ; preds = %entry
@@ -44829,10 +44829,10 @@ declare void @_ZN20btPolarDecompositionC1Efj(ptr noundef nonnull align 4 derefer
 declare noundef i32 @_ZNK20btPolarDecomposition9decomposeERK11btMatrix3x3RS0_S3_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #35
+declare float @sinf(float noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #35
+declare float @cosf(float noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10btSoftBody4Body13applyVImpulseERK9btVector3S3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse, ptr noundef nonnull align 4 dereferenceable(16) %rpos) local_unnamed_addr #3 comdat align 2 {
@@ -44956,7 +44956,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @acosf(float noundef) local_unnamed_addr #35
+declare float @acosf(float noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10btSoftBody4Body14applyVAImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse) local_unnamed_addr #3 comdat align 2 {
@@ -45102,7 +45102,7 @@ declare void @_ZNK11btMultiBody30fillConstraintJacobianMultiDofEiRK9btVector3S2_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btSoftColliders13CollideSDF_RSD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -45326,13 +45326,13 @@ cond.end21:                                       ; preds = %cond.end8.thread, %
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !68
 
 init.check:                                       ; preds = %cond.end21
-  %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK15btSoftColliders13CollideSDF_RS6DoNodeERN10btSoftBody4NodeEE9iwiStatic) #44
+  %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK15btSoftColliders13CollideSDF_RS6DoNodeERN10btSoftBody4NodeEE9iwiStatic) #39
   %tobool22.not = icmp eq i32 %10, 0
   br i1 %tobool22.not, label %init.end, label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %init.check
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZNK15btSoftColliders13CollideSDF_RS6DoNodeERN10btSoftBody4NodeEE9iwiStatic, i8 0, i64 48, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK15btSoftColliders13CollideSDF_RS6DoNodeERN10btSoftBody4NodeEE9iwiStatic) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK15btSoftColliders13CollideSDF_RS6DoNodeERN10btSoftBody4NodeEE9iwiStatic) #39
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont32, %init.check, %cond.end21
@@ -45498,16 +45498,16 @@ if.then121:                                       ; preds = %invoke.cont118
 lpad:                                             ; preds = %if.then121, %invoke.cont79, %land.lhs.true
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10btSoftBody8RContactD2Ev(ptr noundef nonnull align 8 dereferenceable(808) %c) #44
+  call void @_ZN10btSoftBody8RContactD2Ev(ptr noundef nonnull align 8 dereferenceable(808) %c) #39
   resume { ptr, i32 } %63
 
 if.end125:                                        ; preds = %cond.end8.thread, %cond.end8, %if.then121, %invoke.cont118, %invoke.cont, %entry
   %jacobianData_t2.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %c, i64 0, i32 10
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #39
   %jacobianData_t1.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %c, i64 0, i32 9
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #39
   %jacobianData_normal.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %c, i64 0, i32 8
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #39
   ret void
 }
 
@@ -45570,12 +45570,12 @@ lpad.i:                                           ; preds = %if.end
 lpad8.i:                                          ; preds = %invoke.cont.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #39
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad8.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %5, %lpad8.i ], [ %4, %lpad.i ]
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #39
   resume { ptr, i32 } %.pn.i
 
 _ZN10btSoftBody8RContactC2ERKS0_.exit:            ; preds = %invoke.cont.i
@@ -45624,11 +45624,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %3 = load ptr, ptr %m_data.i, align 8
   %jacobianData_t2.i.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %3, i64 %indvars.iv.i, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i) #39
   %jacobianData_t1.i.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %3, i64 %indvars.iv.i, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #39
   %jacobianData_normal.i.i = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %3, i64 %indvars.iv.i, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %4 = icmp eq i64 %indvars.iv.next.i, %zext
   br i1 %4, label %_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEE7destroyEii.exit, label %for.body.i, !llvm.loop !22
@@ -45712,12 +45712,12 @@ lpad.i:                                           ; preds = %for.body
 lpad8.i:                                          ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #39
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad8.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad8.i ], [ %2, %lpad.i ]
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #39
   resume { ptr, i32 } %.pn.i
 
 _ZN10btSoftBody8RContactC2ERKS0_.exit:            ; preds = %invoke.cont.i
@@ -46249,34 +46249,34 @@ lpad11:                                           ; preds = %if.then3.i.i.i.i162
 lpad14:                                           ; preds = %invoke.cont12
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %scratch_v) #44
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %scratch_v) #39
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad14, %lpad11
   %.pn = phi { ptr, i32 } [ %50, %lpad14 ], [ %49, %lpad11 ]
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %scratch_r) #44
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %scratch_r) #39
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %ehcleanup, %lpad8
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %48, %lpad8 ]
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaVelocities) #44
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaVelocities) #39
   br label %ehcleanup18
 
 ehcleanup18:                                      ; preds = %ehcleanup17, %lpad5
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup17 ], [ %47, %lpad5 ]
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaVelocitiesUnitImpulse) #44
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaVelocitiesUnitImpulse) #39
   br label %ehcleanup19
 
 ehcleanup19:                                      ; preds = %ehcleanup18, %lpad
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup18 ], [ %46, %lpad ]
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) #44
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) #39
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideCL_RSD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -46322,7 +46322,7 @@ invoke.cont:                                      ; preds = %entry, %land.lhs.tr
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont5, !prof !68
 
 init.check.i:                                     ; preds = %invoke.cont
-  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   %tobool.not.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i, label %invoke.cont5, label %init.i
 
@@ -46337,13 +46337,13 @@ invoke.cont5.i:                                   ; preds = %init.i
   %arrayidx10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %call.i, i64 0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1), i8 0, i64 16, i1 false)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %invoke.cont5
 
 lpad.i:                                           ; preds = %init.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %ehcleanup
 
 invoke.cont5:                                     ; preds = %invoke.cont5.i, %init.check.i, %invoke.cont
@@ -46548,12 +46548,12 @@ cleanup.sink.split:                               ; preds = %if.then36, %if.else
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont23, %invoke.cont13, %land.lhs.true
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cshape) #44
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cshape) #39
   ret void
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad17
   %.pn = phi { ptr, i32 } [ %39, %lpad17 ], [ %38, %lpad ], [ %10, %lpad.i ]
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cshape) #44
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cshape) #39
   resume { ptr, i32 } %.pn
 }
 
@@ -46592,7 +46592,7 @@ if.then:                                          ; preds = %entry
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZNK10btSoftBody4Body5xformEv.exit, !prof !68
 
 init.check.i:                                     ; preds = %if.then
-  %11 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %11 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i = icmp eq i32 %11, 0
   br i1 %tobool.not.i, label %_ZNK10btSoftBody4Body5xformEv.exit, label %init.i
 
@@ -46608,12 +46608,12 @@ invoke.cont2.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_origin3.i.i = getelementptr inbounds %class.btTransform, ptr %call.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit
 
 common.resume:                                    ; preds = %lpad.i174, %lpad.i151, %lpad.i34, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i ], [ %30, %lpad.i34 ], [ %114, %lpad.i151 ], [ %136, %lpad.i174 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -46657,7 +46657,7 @@ _ZNK10btSoftBody4Body5xformEv.exit:               ; preds = %if.then, %init.chec
   br i1 %guard.uninitialized.i22, label %init.check.i30, label %_ZNK10btSoftBody4Body5xformEv.exit39, !prof !68
 
 init.check.i30:                                   ; preds = %_ZNK10btSoftBody4Body5xformEv.exit
-  %29 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %29 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i31 = icmp eq i32 %29, 0
   br i1 %tobool.not.i31, label %_ZNK10btSoftBody4Body5xformEv.exit39, label %init.i32
 
@@ -46673,7 +46673,7 @@ invoke.cont2.i35:                                 ; preds = %init.i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i37, i64 16, i1 false)
   %m_origin3.i.i38 = getelementptr inbounds %class.btTransform, ptr %call.i33, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i38, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit39
 
 lpad.i34:                                         ; preds = %init.i32
@@ -46866,7 +46866,7 @@ _ZNK10btSoftBody4Body8velocityERK9btVector3.exit108: ; preds = %if.end.i.i90, %i
   br i1 %guard.uninitialized.i139, label %init.check.i147, label %_ZNK10btSoftBody4Body5xformEv.exit156, !prof !68
 
 init.check.i147:                                  ; preds = %_ZNK10btSoftBody4Body8velocityERK9btVector3.exit108
-  %113 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %113 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i148 = icmp eq i32 %113, 0
   br i1 %tobool.not.i148, label %_ZNK10btSoftBody4Body5xformEv.exit156, label %init.i149
 
@@ -46882,7 +46882,7 @@ invoke.cont2.i152:                                ; preds = %init.i149
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i154, i64 16, i1 false)
   %m_origin3.i.i155 = getelementptr inbounds %class.btTransform, ptr %call.i150, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i155, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit156
 
 lpad.i151:                                        ; preds = %init.i149
@@ -46932,7 +46932,7 @@ _ZNK10btSoftBody4Body5xformEv.exit156:            ; preds = %_ZNK10btSoftBody4Bo
   br i1 %guard.uninitialized.i162, label %init.check.i170, label %_ZNK10btSoftBody4Body5xformEv.exit179, !prof !68
 
 init.check.i170:                                  ; preds = %_ZNK10btSoftBody4Body5xformEv.exit156
-  %135 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  %135 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   %tobool.not.i171 = icmp eq i32 %135, 0
   br i1 %tobool.not.i171, label %_ZNK10btSoftBody4Body5xformEv.exit179, label %init.i172
 
@@ -46948,7 +46948,7 @@ invoke.cont2.i175:                                ; preds = %init.i172
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i177, i64 16, i1 false)
   %m_origin3.i.i178 = getelementptr inbounds %class.btTransform, ptr %call.i173, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZNK10btSoftBody4Body5xformEvE8identity, i64 0, i32 1), ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i.i178, i64 16, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body5xformEvE8identity) #39
   br label %_ZNK10btSoftBody4Body5xformEv.exit179
 
 lpad.i174:                                        ; preds = %init.i172
@@ -47067,13 +47067,13 @@ _ZNK10btSoftBody4Body7invMassEv.exit:             ; preds = %if.end.i, %return.s
   br i1 %guard.uninitialized.i209, label %init.check.i213, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit, !prof !68
 
 init.check.i213:                                  ; preds = %_ZNK10btSoftBody4Body7invMassEv.exit
-  %166 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  %166 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   %tobool.not.i214 = icmp eq i32 %166, 0
   br i1 %tobool.not.i214, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %init.check.i213
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZNK10btSoftBody4Body15invWorldInertiaEvE3iwi, i8 0, i64 48, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   br label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit
 
 _ZNK10btSoftBody4Body15invWorldInertiaEv.exit:    ; preds = %_ZNK10btSoftBody4Body7invMassEv.exit, %init.check.i213, %invoke.cont.i
@@ -47114,13 +47114,13 @@ _ZNK10btSoftBody4Body7invMassEv.exit226:          ; preds = %if.end.i222, %retur
   br i1 %guard.uninitialized.i227, label %init.check.i235, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit238, !prof !68
 
 init.check.i235:                                  ; preds = %_ZNK10btSoftBody4Body7invMassEv.exit226
-  %173 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  %173 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   %tobool.not.i236 = icmp eq i32 %173, 0
   br i1 %tobool.not.i236, label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit238, label %invoke.cont.i237
 
 invoke.cont.i237:                                 ; preds = %init.check.i235
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZNK10btSoftBody4Body15invWorldInertiaEvE3iwi, i8 0, i64 48, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #44
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK10btSoftBody4Body15invWorldInertiaEvE3iwi) #39
   br label %_ZNK10btSoftBody4Body15invWorldInertiaEv.exit238
 
 _ZNK10btSoftBody4Body15invWorldInertiaEv.exit238: ; preds = %_ZNK10btSoftBody4Body7invMassEv.exit226, %init.check.i235, %invoke.cont.i237
@@ -47150,7 +47150,7 @@ return:                                           ; preds = %entry, %_ZNK10btSof
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN27btSoftClusterCollisionShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #44
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #39
   ret void
 }
 
@@ -47159,7 +47159,7 @@ declare void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN27btSoftClusterCollisionShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #44
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #39
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN21btConvexInternalShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -47167,7 +47167,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #45
+  tail call void @__clang_call_terminate(ptr %1) #40
   unreachable
 
 _ZN21btConvexInternalShapedlEPv.exit:             ; preds = %entry
@@ -47319,7 +47319,7 @@ declare void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btSoftColliders13CollideSDF_RDD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -47715,13 +47715,13 @@ invoke.cont50:                                    ; preds = %if.then37, %cond.fa
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !68
 
 init.check:                                       ; preds = %invoke.cont50
-  %68 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK15btSoftColliders13CollideSDF_RD6DoNodeERN10btSoftBody4NodeEE9iwiStatic) #44
+  %68 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK15btSoftColliders13CollideSDF_RD6DoNodeERN10btSoftBody4NodeEE9iwiStatic) #39
   %tobool52.not = icmp eq i32 %68, 0
   br i1 %tobool52.not, label %init.end, label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %init.check
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZNK15btSoftColliders13CollideSDF_RD6DoNodeERN10btSoftBody4NodeEE9iwiStatic, i8 0, i64 48, i1 false)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZNK15btSoftColliders13CollideSDF_RD6DoNodeERN10btSoftBody4NodeEE9iwiStatic) #44
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZNK15btSoftColliders13CollideSDF_RD6DoNodeERN10btSoftBody4NodeEE9iwiStatic) #39
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont62, %init.check, %invoke.cont50
@@ -48122,9 +48122,9 @@ if.then144:                                       ; preds = %invoke.cont140
 lpad104:                                          ; preds = %invoke.cont170, %invoke.cont167, %invoke.cont163, %invoke.cont162, %invoke.cont161, %invoke.cont154, %if.else148, %invoke.cont108, %invoke.cont105, %if.then90
   %176 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #39
   br label %ehcleanup186
 
 if.else148:                                       ; preds = %invoke.cont140
@@ -48209,9 +48209,9 @@ invoke.cont173:                                   ; preds = %invoke.cont170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t1175, ptr noundef nonnull align 8 dereferenceable(16) %t1, i64 16, i1 false)
   %t2176 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t2176, ptr noundef nonnull align 8 dereferenceable(16) %t2, i64 16, i1 false)
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #39
   br label %if.end180
 
 if.end180:                                        ; preds = %invoke.cont16, %invoke.cont173, %if.end
@@ -48222,16 +48222,16 @@ if.end180:                                        ; preds = %invoke.cont16, %inv
 
 if.end185:                                        ; preds = %invoke.cont, %if.end180, %cond.end9, %entry
   %jacobianData_t2.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 10
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i) #39
   %jacobianData_t1.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 9
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #39
   %jacobianData_normal.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 8
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #39
   ret void
 
 ehcleanup186:                                     ; preds = %lpad104, %lpad
   %.pn33 = phi { ptr, i32 } [ %73, %lpad ], [ %176, %lpad104 ]
-  call void @_ZN10btSoftBody26DeformableNodeRigidContactD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %c) #44
+  call void @_ZN10btSoftBody26DeformableNodeRigidContactD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %c) #39
   resume { ptr, i32 } %.pn33
 }
 
@@ -48303,12 +48303,12 @@ lpad.i.i:                                         ; preds = %if.end
 lpad9.i.i:                                        ; preds = %invoke.cont.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #39
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad9.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %5, %lpad9.i.i ], [ %4, %lpad.i.i ]
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #39
   resume { ptr, i32 } %.pn.i.i
 
 _ZN10btSoftBody26DeformableNodeRigidContactC2ERKS0_.exit: ; preds = %invoke.cont.i.i
@@ -48329,11 +48329,11 @@ _ZN10btSoftBody26DeformableNodeRigidContactC2ERKS0_.exit: ; preds = %invoke.cont
 define linkonce_odr dso_local void @_ZN10btSoftBody26DeformableNodeRigidContactD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %this) unnamed_addr #7 comdat align 2 {
 entry:
   %jacobianData_t2.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %this, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #39
   %jacobianData_t1.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %this, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #39
   %jacobianData_normal.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %this, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #39
   ret void
 }
 
@@ -48374,11 +48374,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %3, i64 %indvars.iv.i
   %jacobianData_t2.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #39
   %jacobianData_t1.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #39
   %jacobianData_normal.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %4 = icmp eq i64 %indvars.iv.next.i, %zext
   br i1 %4, label %_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEE7destroyEii.exit, label %for.body.i, !llvm.loop !21
@@ -48471,12 +48471,12 @@ lpad.i.i:                                         ; preds = %for.body
 lpad9.i.i:                                        ; preds = %invoke.cont.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #39
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad9.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %3, %lpad9.i.i ], [ %2, %lpad.i.i ]
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #39
   resume { ptr, i32 } %.pn.i.i
 
 _ZN10btSoftBody26DeformableNodeRigidContactC2ERKS0_.exit: ; preds = %invoke.cont.i.i
@@ -48499,7 +48499,7 @@ for.end:                                          ; preds = %_ZN10btSoftBody26De
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btSoftColliders14CollideSDF_RDFD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -48837,13 +48837,13 @@ cond.end81:                                       ; preds = %if.then71, %cond.fa
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !68
 
 init.check:                                       ; preds = %cond.end81
-  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK15btSoftColliders14CollideSDF_RDF6DoNodeERN10btSoftBody4FaceEE9iwiStatic) #44
+  %40 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK15btSoftColliders14CollideSDF_RDF6DoNodeERN10btSoftBody4FaceEE9iwiStatic) #39
   %tobool82.not = icmp eq i32 %40, 0
   br i1 %tobool82.not, label %init.end, label %invoke.cont93
 
 invoke.cont93:                                    ; preds = %init.check
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZNK15btSoftColliders14CollideSDF_RDF6DoNodeERN10btSoftBody4FaceEE9iwiStatic, i8 0, i64 48, i1 false)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZNK15btSoftColliders14CollideSDF_RDF6DoNodeERN10btSoftBody4FaceEE9iwiStatic) #44
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZNK15btSoftColliders14CollideSDF_RDF6DoNodeERN10btSoftBody4FaceEE9iwiStatic) #39
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont93, %init.check, %cond.end81
@@ -49412,17 +49412,17 @@ invoke.cont182:                                   ; preds = %invoke.cont179
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t1184, ptr noundef nonnull align 8 dereferenceable(16) %t1, i64 16, i1 false)
   %t2185 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t2185, ptr noundef nonnull align 8 dereferenceable(16) %t2, i64 16, i1 false)
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #39
   br label %if.end188
 
 lpad128:                                          ; preds = %invoke.cont179, %invoke.cont176, %invoke.cont172, %invoke.cont130, %invoke.cont129, %invoke.cont127
   %192 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal) #39
   br label %ehcleanup195
 
 if.end188:                                        ; preds = %invoke.cont67, %invoke.cont182, %init.end
@@ -49435,16 +49435,16 @@ if.end192:                                        ; preds = %cond.end21, %if.end
   %arrayidx194 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %f, i64 0, i32 6, i32 0, i32 0, i64 3
   store float 0.000000e+00, ptr %arrayidx194, align 4
   %jacobianData_t2.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 10
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i) #39
   %jacobianData_t1.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 9
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #39
   %jacobianData_normal.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %c, i64 0, i32 8
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #39
   ret void
 
 ehcleanup195:                                     ; preds = %lpad128, %lpad
   %.pn28 = phi { ptr, i32 } [ %48, %lpad ], [ %192, %lpad128 ]
-  call void @_ZN10btSoftBody26DeformableFaceRigidContactD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %c) #44
+  call void @_ZN10btSoftBody26DeformableFaceRigidContactD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %c) #39
   resume { ptr, i32 } %.pn28
 }
 
@@ -49516,12 +49516,12 @@ lpad.i.i:                                         ; preds = %if.end
 lpad9.i.i:                                        ; preds = %invoke.cont.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #39
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad9.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %5, %lpad9.i.i ], [ %4, %lpad.i.i ]
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #39
   resume { ptr, i32 } %.pn.i.i
 
 _ZN10btSoftBody26DeformableFaceRigidContactC2ERKS0_.exit: ; preds = %invoke.cont.i.i
@@ -49541,11 +49541,11 @@ _ZN10btSoftBody26DeformableFaceRigidContactC2ERKS0_.exit: ; preds = %invoke.cont
 define linkonce_odr dso_local void @_ZN10btSoftBody26DeformableFaceRigidContactD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %this) unnamed_addr #7 comdat align 2 {
 entry:
   %jacobianData_t2.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %this, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i) #39
   %jacobianData_t1.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %this, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i) #39
   %jacobianData_normal.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %this, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i) #39
   ret void
 }
 
@@ -49586,11 +49586,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %3, i64 %indvars.iv.i
   %jacobianData_t2.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #39
   %jacobianData_t1.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #39
   %jacobianData_normal.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %4 = icmp eq i64 %indvars.iv.next.i, %zext
   br i1 %4, label %_ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEE7destroyEii.exit, label %for.body.i, !llvm.loop !20
@@ -49683,12 +49683,12 @@ lpad.i.i:                                         ; preds = %for.body
 lpad9.i.i:                                        ; preds = %invoke.cont.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i) #39
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad9.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %3, %lpad9.i.i ], [ %2, %lpad.i.i ]
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i) #39
   resume { ptr, i32 } %.pn.i.i
 
 _ZN10btSoftBody26DeformableFaceRigidContactC2ERKS0_.exit: ; preds = %invoke.cont.i.i
@@ -49710,7 +49710,7 @@ for.end:                                          ; preds = %_ZN10btSoftBody26De
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideCL_SSD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -49780,7 +49780,7 @@ invoke.cont18:                                    ; preds = %if.then16
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont19, !prof !68
 
 init.check.i:                                     ; preds = %invoke.cont18
-  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   %tobool.not.i = icmp eq i32 %14, 0
   br i1 %tobool.not.i, label %invoke.cont19, label %init.i
 
@@ -49795,13 +49795,13 @@ invoke.cont5.i:                                   ; preds = %init.i
   %arrayidx10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %call.i, i64 0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1), i8 0, i64 16, i1 false)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %invoke.cont19
 
 lpad.i:                                           ; preds = %init.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %ehcleanup
 
 invoke.cont19:                                    ; preds = %invoke.cont5.i, %init.check.i, %invoke.cont18
@@ -49810,7 +49810,7 @@ invoke.cont19:                                    ; preds = %invoke.cont5.i, %in
   br i1 %guard.uninitialized.i15, label %init.check.i16, label %invoke.cont24, !prof !68
 
 init.check.i16:                                   ; preds = %invoke.cont19
-  %17 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  %17 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   %tobool.not.i17 = icmp eq i32 %17, 0
   br i1 %tobool.not.i17, label %invoke.cont24, label %init.i18
 
@@ -49825,13 +49825,13 @@ invoke.cont5.i21:                                 ; preds = %init.i18
   %arrayidx10.i.i.i23 = getelementptr inbounds [3 x %class.btVector3], ptr %call.i19, i64 0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i23, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1), i8 0, i64 16, i1 false)
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %invoke.cont24
 
 lpad.i20:                                         ; preds = %init.i18
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #44
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #39
   br label %ehcleanup
 
 invoke.cont24:                                    ; preds = %invoke.cont19, %init.check.i16, %invoke.cont5.i21
@@ -50027,18 +50027,18 @@ lpad30:                                           ; preds = %if.then3.i.i.i, %if
   br label %ehcleanup
 
 if.end64:                                         ; preds = %invoke.cont34, %invoke.cont45, %invoke.cont26
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %csb) #44
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %csa) #44
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %csb) #39
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %csa) #39
   br label %if.end66
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad.i20, %lpad17, %lpad30
   %.pn = phi { ptr, i32 } [ %53, %lpad30 ], [ %15, %lpad.i ], [ %52, %lpad17 ], [ %18, %lpad.i20 ]
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %csb) #44
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %csb) #39
   br label %ehcleanup65
 
 ehcleanup65:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %51, %lpad ]
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %csa) #44
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %csa) #39
   resume { ptr, i32 } %.pn.pn
 
 if.else:                                          ; preds = %if.then
@@ -50054,7 +50054,7 @@ if.end66:                                         ; preds = %if.else, %if.end64
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideVF_SSD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -50433,7 +50433,7 @@ if.then23:                                        ; preds = %_ZL13ProjectOriginR
   br i1 %cmp61, label %if.then62, label %if.end90
 
 if.then62:                                        ; preds = %if.then23
-  %call.i = tail call noundef float @sqrtf(float noundef %d.2) #44
+  %call.i = tail call noundef float @sqrtf(float noundef %d.2) #39
   %div.i88 = fdiv float -1.000000e+00, %call.i
   %167 = insertelement <2 x float> poison, float %div.i88, i64 0
   %168 = shufflevector <2 x float> %167, <2 x float> poison, <2 x i32> zeroinitializer
@@ -50598,14 +50598,14 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideVF_DDD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -50821,7 +50821,7 @@ if.end67:                                         ; preds = %if.then, %_ZN20btAl
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal, float %mrg.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(16) %bary) unnamed_addr #36 {
+define internal fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal, float %mrg.0.val, ptr nocapture noundef nonnull align 4 dereferenceable(16) %bary) unnamed_addr #31 {
 entry:
   %0 = load float, ptr %x4, align 4
   %1 = load float, ptr %x3, align 4
@@ -50918,7 +50918,7 @@ if.end15:                                         ; preds = %if.end
   %61 = tail call noundef float @llvm.fabs.f32(float %retval.0.i)
   %conv26 = fpext float %61 to double
   %mul = fmul double %conv26, 5.000000e-01
-  %call27 = tail call double @sqrt(double noundef %mul) #44
+  %call27 = tail call double @sqrt(double noundef %mul) #39
   %div28 = fdiv double %conv, %call27
   %conv29 = fptrunc double %div28 to float
   %62 = insertelement <2 x float> poison, float %sub.i, i64 0
@@ -50967,12 +50967,12 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #35
+declare double @sqrt(double noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideFF_DDD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -51244,14 +51244,14 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #45
+  tail call void @__clang_call_terminate(ptr %4) #40
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btSoftColliders10CollideCCDD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #46
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
 }
 
@@ -52285,7 +52285,7 @@ for.end53:                                        ; preds = %for.body4, %for.inc
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #37
+declare void @llvm.trap() #32
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -52342,7 +52342,7 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #45
+  tail call void @__clang_call_terminate(ptr %8) #40
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %for.body.i
@@ -52727,11 +52727,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidAnchor", ptr %3, i64 %indvars.iv.i
   %jacobianData_t2.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i, i64 0, i32 10
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i.i) #39
   %jacobianData_t1.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i, i64 0, i32 9
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i.i) #39
   %jacobianData_normal.i.i.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %arrayidx.i, i64 0, i32 8
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i.i) #39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %4 = icmp eq i64 %indvars.iv.next.i, %zext
   br i1 %4, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEE7destroyEii.exit, label %for.body.i, !llvm.loop !23
@@ -52824,12 +52824,12 @@ lpad.i.i.i:                                       ; preds = %for.body
 lpad9.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #39
   br label %ehcleanup.i.i.i
 
 ehcleanup.i.i.i:                                  ; preds = %lpad9.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %3, %lpad9.i.i.i ], [ %2, %lpad.i.i.i ]
-  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #44
+  tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #39
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZN10btSoftBody25DeformableNodeRigidAnchorC2ERKS0_.exit: ; preds = %invoke.cont.i.i.i
@@ -52904,7 +52904,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad9.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #39
   br label %ehcleanup.i.i.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup.i.i.i
@@ -52913,7 +52913,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup.i.
 
 ehcleanup.i.i.i:                                  ; preds = %lpad9.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %2, %lpad9.i.i.i ], [ %1, %lpad.i.i.i ]
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #39
   br label %common.resume
 
 _ZN10btSoftBody25DeformableNodeRigidAnchorC2ERKS0_.exit: ; preds = %invoke.cont.i.i.i
@@ -53020,15 +53020,15 @@ invoke.cont11:                                    ; preds = %call10.i.i.i.noexc4
   store ptr %7, ptr %m_node2.i.i43, align 8
   %m_local.i44 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidAnchor", ptr %6, i64 %idxprom3, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_local.i44, ptr noundef nonnull align 8 dereferenceable(16) %m_local.i, i64 16, i1 false)
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #44
-  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #44
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2.i.i.i) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1.i.i.i) #39
+  call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal.i.i.i) #39
   ret void
 
 lpad:                                             ; preds = %call10.i.i.i.noexc48, %call8.i.i.i.noexc46, %invoke.cont, %call10.i.i.i.noexc, %call8.i.i.i.noexc, %_ZN10btSoftBody25DeformableNodeRigidAnchorC2ERKS0_.exit
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10btSoftBody25DeformableNodeRigidAnchorD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %temp) #44
+  call void @_ZN10btSoftBody25DeformableNodeRigidAnchorD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %temp) #39
   br label %common.resume
 }
 
@@ -53088,7 +53088,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #45
+  tail call void @__clang_call_terminate(ptr %8) #40
   unreachable
 
 _ZN9NodeLinksD2Ev.exit.i:                         ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i
@@ -53504,7 +53504,7 @@ if.end:                                           ; preds = %for.body20, %for.co
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_btSoftBody.cpp() #38 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_btSoftBody.cpp() #33 section ".text.startup" {
 entry:
   store float 1.000000e+00, ptr @_ZL3dop, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 0, i32 0, i64 1), i8 0, i64 16, i1 false)
@@ -53522,48 +53522,48 @@ entry:
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 11, i32 0, i64 2), align 8
   store <2 x float> <float -1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds ([13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 12, i32 0, i64 2), align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #44
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #39
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #39
+declare void @llvm.experimental.noalias.scope.decl(metadata) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #40
+declare float @llvm.sqrt.f32(float) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #41
+declare void @llvm.assume(i1 noundef) #36
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #42
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #43
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #43
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #40
+declare i32 @llvm.smin.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #40
+declare i32 @llvm.smax.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #40
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #40
+declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #40
+declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #40
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #40
+declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #35
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -53577,42 +53577,37 @@ attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #38 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #40 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #41 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #42 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #43 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #44 = { nounwind }
-attributes #45 = { noreturn nounwind }
-attributes #46 = { builtin nounwind }
-attributes #47 = { builtin allocsize(0) }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #33 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #35 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #36 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #37 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #38 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #39 = { nounwind }
+attributes #40 = { noreturn nounwind }
+attributes #41 = { builtin nounwind }
+attributes #42 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -30,7 +30,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @hexwave_create(ptr nocapture noundef %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(300) %hex, i8 0, i64 300, i1 false)
@@ -61,7 +61,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @hex_add_oversampled_bleplike(ptr nocapture noundef %output, float noundef %time_since_transition, float noundef %scale, ptr nocapture noundef readonly %data) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr @hexblep, align 8
@@ -112,7 +112,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @hex_blep(ptr nocapture noundef %output, float noundef %time_since_transition, float noundef %scale) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 2), align 8
@@ -161,7 +161,7 @@ hex_add_oversampled_bleplike.exit:                ; preds = %for.body.i, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @hex_blamp(ptr nocapture noundef %output, float noundef %time_since_transition, float noundef %scale) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i64 0, i32 3), align 8
@@ -210,7 +210,7 @@ hex_add_oversampled_bleplike.exit:                ; preds = %for.body.i, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @hexwave_generate_linesegs(ptr nocapture noundef %vert, ptr nocapture noundef readonly %hex, float noundef %dt) local_unnamed_addr #6 {
 entry:
   %div = fmul float %dt, 3.906250e-03
@@ -365,7 +365,7 @@ for.end147:                                       ; preds = %for.inc145
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @hexwave_generate_samples(ptr nocapture noundef %output, i32 noundef %num_samples, ptr nocapture noundef %hex, float noundef %freq) local_unnamed_addr #7 {
 entry:
   %vert = alloca [9 x %struct.hexvert], align 16
@@ -935,15 +935,16 @@ if.end24:                                         ; preds = %if.else, %if.then13
   %cond102 = phi ptr [ %call, %if.then13 ], [ %user_buffer, %if.else ]
   %blamp_buffer.0 = phi ptr [ %call19, %if.then13 ], [ %add.ptr23, %if.else ]
   %blep_buffer.0 = phi ptr [ %call16, %if.then13 ], [ %add.ptr21, %if.else ]
-  %cmp25112 = icmp sgt i32 %mul, -1
-  br i1 %cmp25112, label %for.cond27.preheader.lr.ph, label %for.cond103.preheader
+  %cmp25.not112 = icmp slt i32 %mul, 0
+  br i1 %cmp25.not112, label %for.cond103.preheader, label %for.cond27.preheader.lr.ph
 
 for.cond27.preheader.lr.ph:                       ; preds = %if.end24
   %conv48 = sitofp i32 %mul2 to float
   %conv33 = sitofp i32 %oversample to float
   %0 = zext nneg i32 %mul to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %add3, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %mul2, i32 0)
+  %1 = or disjoint i32 %smax, 1
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.cond27.preheader
 
 for.cond27.preheader:                             ; preds = %for.cond27.preheader.lr.ph, %for.end
@@ -951,8 +952,8 @@ for.cond27.preheader:                             ; preds = %for.cond27.preheade
   %integrate_impulse.0115 = phi double [ 0.000000e+00, %for.cond27.preheader.lr.ph ], [ %.us-phi111, %for.end ]
   %integrate_step.0114 = phi double [ 0.000000e+00, %for.cond27.preheader.lr.ph ], [ %.us-phi, %for.end ]
   %cmp35 = icmp eq i64 %indvars.iv, %0
-  %1 = trunc i64 %indvars.iv to i32
-  %conv45 = sitofp i32 %1 to float
+  %2 = trunc i64 %indvars.iv to i32
+  %conv45 = sitofp i32 %2 to float
   %mul46 = fmul float %conv45, 0x401921FB40000000
   %div49 = fdiv float %mul46, %conv48
   %conv50 = fpext float %div49 to double
@@ -960,9 +961,9 @@ for.cond27.preheader:                             ; preds = %for.cond27.preheade
   %conv54 = fpext float %mul53 to double
   %mul57 = fmul float %div49, 3.000000e+00
   %conv58 = fpext float %mul57 to double
-  %2 = trunc i64 %indvars.iv to i32
-  %3 = sub i32 %2, %mul
-  %conv31 = sitofp i32 %3 to float
+  %3 = trunc i64 %indvars.iv to i32
+  %4 = sub i32 %3, %mul
+  %conv31 = sitofp i32 %4 to float
   %mul32 = fmul float %conv31, 0x400921FB00000000
   %div34 = fdiv float %mul32, %conv33
   %conv39 = fpext float %div34 to double
@@ -973,12 +974,12 @@ for.body30.us:                                    ; preds = %for.cond27.preheade
   %integrate_step.1109.us = phi double [ %add67.us, %for.body30.us ], [ %integrate_step.0114, %for.cond27.preheader ]
   %j.0108.us = phi i32 [ %inc.us, %for.body30.us ], [ 0, %for.cond27.preheader ]
   %call51.us = tail call double @cos(double noundef %conv50) #14
-  %4 = tail call double @llvm.fmuladd.f64(double %call51.us, double -4.873960e-01, double 3.557680e-01)
+  %5 = tail call double @llvm.fmuladd.f64(double %call51.us, double -4.873960e-01, double 3.557680e-01)
   %call55.us = tail call double @cos(double noundef %conv54) #14
-  %5 = tail call double @llvm.fmuladd.f64(double %call55.us, double 1.442320e-01, double %4)
+  %6 = tail call double @llvm.fmuladd.f64(double %call55.us, double 1.442320e-01, double %5)
   %call59.us = tail call double @cos(double noundef %conv58) #14
-  %6 = tail call double @llvm.fmuladd.f64(double %call59.us, double -1.260400e-02, double %5)
-  %conv61.us = fptrunc double %6 to float
+  %7 = tail call double @llvm.fmuladd.f64(double %call59.us, double -1.260400e-02, double %6)
+  %conv61.us = fptrunc double %7 to float
   %conv63.us = fpext float %conv61.us to double
   %div64.us = fmul double %conv63.us, 6.250000e-02
   %add65.us = fadd double %integrate_impulse.1110.us, %div64.us
@@ -989,15 +990,16 @@ for.body30.us:                                    ; preds = %for.cond27.preheade
   br i1 %exitcond147.not, label %for.end, label %for.body30.us, !llvm.loop !16
 
 for.cond75.preheader:                             ; preds = %for.end
-  br i1 %cmp25112, label %for.body78.lr.ph, label %for.cond103.preheader
+  br i1 %cmp25.not112, label %for.cond103.preheader, label %for.body78.lr.ph
 
 for.body78.lr.ph:                                 ; preds = %for.cond75.preheader
   %idxprom82 = zext nneg i32 %mul2 to i64
   %arrayidx83 = getelementptr inbounds float, ptr %cond102, i64 %idxprom82
   %conv92 = sitofp i32 %div to float
   %arrayidx95 = getelementptr inbounds float, ptr %add.ptr9104, i64 %idxprom82
-  %smax154 = tail call i32 @llvm.smax.i32(i32 %add3, i32 1)
-  %wide.trip.count155 = zext nneg i32 %smax154 to i64
+  %smax154 = tail call i32 @llvm.smax.i32(i32 %mul2, i32 0)
+  %8 = or disjoint i32 %smax154, 1
+  %wide.trip.count155 = zext nneg i32 %8 to i64
   br label %for.body78
 
 for.body30:                                       ; preds = %for.cond27.preheader, %for.body30
@@ -1008,12 +1010,12 @@ for.body30:                                       ; preds = %for.cond27.preheade
   %conv41 = fptrunc double %call40 to float
   %div42 = fdiv float %conv41, %div34
   %call51 = tail call double @cos(double noundef %conv50) #14
-  %7 = tail call double @llvm.fmuladd.f64(double %call51, double -4.873960e-01, double 3.557680e-01)
+  %9 = tail call double @llvm.fmuladd.f64(double %call51, double -4.873960e-01, double 3.557680e-01)
   %call55 = tail call double @cos(double noundef %conv54) #14
-  %8 = tail call double @llvm.fmuladd.f64(double %call55, double 1.442320e-01, double %7)
+  %10 = tail call double @llvm.fmuladd.f64(double %call55, double 1.442320e-01, double %9)
   %call59 = tail call double @cos(double noundef %conv58) #14
-  %9 = tail call double @llvm.fmuladd.f64(double %call59, double -1.260400e-02, double %8)
-  %conv61 = fptrunc double %9 to float
+  %11 = tail call double @llvm.fmuladd.f64(double %call59, double -1.260400e-02, double %10)
+  %conv61 = fptrunc double %11 to float
   %mul62 = fmul float %div42, %conv61
   %conv63 = fpext float %mul62 to double
   %div64 = fmul double %conv63, 6.250000e-02
@@ -1046,31 +1048,31 @@ for.cond107.preheader.lr.ph:                      ; preds = %for.cond103.prehead
   br i1 %cmp108118, label %for.cond107.preheader.us.preheader, label %for.cond137.preheader.lr.ph
 
 for.cond107.preheader.us.preheader:               ; preds = %for.cond107.preheader.lr.ph
-  %10 = zext nneg i32 %oversample to i64
+  %12 = zext nneg i32 %oversample to i64
   %wide.trip.count169 = zext i32 %add to i64
   %wide.trip.count163 = zext nneg i32 %spec.store.select106 to i64
   br label %for.cond107.preheader.us
 
 for.cond107.preheader.us:                         ; preds = %for.cond107.preheader.us.preheader, %for.cond107.for.inc130_crit_edge.us
   %indvars.iv165 = phi i64 [ 0, %for.cond107.preheader.us.preheader ], [ %indvars.iv.next166, %for.cond107.for.inc130_crit_edge.us ]
-  %11 = trunc i64 %indvars.iv165 to i32
-  %12 = mul i32 %spec.store.select106, %11
-  %13 = zext i32 %12 to i64
+  %13 = trunc i64 %indvars.iv165 to i32
+  %14 = mul i32 %spec.store.select106, %13
+  %15 = zext i32 %14 to i64
   br label %for.body110.us
 
 for.body110.us:                                   ; preds = %for.cond107.preheader.us, %for.body110.us
   %indvars.iv157 = phi i64 [ 0, %for.cond107.preheader.us ], [ %indvars.iv.next158, %for.body110.us ]
-  %14 = mul nsw i64 %indvars.iv157, %10
-  %15 = add nuw nsw i64 %14, %indvars.iv165
-  %arrayidx114.us = getelementptr inbounds float, ptr %cond102, i64 %15
-  %16 = load float, ptr %arrayidx114.us, align 4
-  %17 = add nuw nsw i64 %indvars.iv157, %13
-  %arrayidx118.us = getelementptr inbounds float, ptr %blep_buffer.0, i64 %17
-  store float %16, ptr %arrayidx118.us, align 4
-  %arrayidx122.us = getelementptr inbounds float, ptr %add.ptr9104, i64 %15
-  %18 = load float, ptr %arrayidx122.us, align 4
-  %arrayidx126.us = getelementptr inbounds float, ptr %blamp_buffer.0, i64 %17
-  store float %18, ptr %arrayidx126.us, align 4
+  %16 = mul nsw i64 %indvars.iv157, %12
+  %17 = add nuw nsw i64 %16, %indvars.iv165
+  %arrayidx114.us = getelementptr inbounds float, ptr %cond102, i64 %17
+  %18 = load float, ptr %arrayidx114.us, align 4
+  %19 = add nuw nsw i64 %indvars.iv157, %15
+  %arrayidx118.us = getelementptr inbounds float, ptr %blep_buffer.0, i64 %19
+  store float %18, ptr %arrayidx118.us, align 4
+  %arrayidx122.us = getelementptr inbounds float, ptr %add.ptr9104, i64 %17
+  %20 = load float, ptr %arrayidx122.us, align 4
+  %arrayidx126.us = getelementptr inbounds float, ptr %blamp_buffer.0, i64 %19
+  store float %20, ptr %arrayidx126.us, align 4
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count163
   br i1 %exitcond164.not, label %for.cond107.for.inc130_crit_edge.us, label %for.body110.us, !llvm.loop !18
@@ -1083,16 +1085,16 @@ for.cond107.for.inc130_crit_edge.us:              ; preds = %for.body110.us
 for.body78:                                       ; preds = %for.body78.lr.ph, %for.body78
   %indvars.iv151 = phi i64 [ 0, %for.body78.lr.ph ], [ %indvars.iv.next152, %for.body78 ]
   %arrayidx80 = getelementptr inbounds float, ptr %cond102, i64 %indvars.iv151
-  %19 = load float, ptr %arrayidx80, align 4
-  %20 = load float, ptr %arrayidx83, align 4
-  %conv86 = fdiv float 1.000000e+00, %20
-  %mul87 = fmul float %19, %conv86
+  %21 = load float, ptr %arrayidx80, align 4
+  %22 = load float, ptr %arrayidx83, align 4
+  %conv86 = fdiv float 1.000000e+00, %22
+  %mul87 = fmul float %21, %conv86
   store float %mul87, ptr %arrayidx80, align 4
   %arrayidx91 = getelementptr inbounds float, ptr %add.ptr9104, i64 %indvars.iv151
-  %21 = load float, ptr %arrayidx91, align 4
-  %22 = load float, ptr %arrayidx95, align 4
-  %div96 = fdiv float %conv92, %22
-  %mul97 = fmul float %21, %div96
+  %23 = load float, ptr %arrayidx91, align 4
+  %24 = load float, ptr %arrayidx95, align 4
+  %div96 = fdiv float %conv92, %24
+  %mul97 = fmul float %23, %div96
   store float %mul97, ptr %arrayidx91, align 4
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count155
@@ -1108,46 +1110,46 @@ for.cond137.preheader.lr.ph:                      ; preds = %for.cond107.prehead
   br i1 %cmp138122, label %for.cond137.preheader.us.preheader, label %for.end169
 
 for.cond137.preheader.us.preheader:               ; preds = %for.cond137.preheader.lr.ph
-  %23 = sext i32 %div to i64
-  %24 = sext i32 %spec.store.select106 to i64
+  %25 = sext i32 %div to i64
+  %26 = sext i32 %spec.store.select106 to i64
   %wide.trip.count189 = zext i32 %add to i64
   br label %for.body140.lr.ph.us
 
 for.body152.us:                                   ; preds = %for.cond149.preheader.us, %for.body152.us
-  %indvars.iv177 = phi i64 [ %23, %for.cond149.preheader.us ], [ %indvars.iv.next178, %for.body152.us ]
-  %25 = trunc i64 %indvars.iv177 to i32
-  %26 = mul i32 %25, %oversample
-  %sub155.us = add i32 %add154.us, %26
+  %indvars.iv177 = phi i64 [ %25, %for.cond149.preheader.us ], [ %indvars.iv.next178, %for.body152.us ]
+  %27 = trunc i64 %indvars.iv177 to i32
+  %28 = mul i32 %27, %oversample
+  %sub155.us = add i32 %add154.us, %28
   %conv156.us = sitofp i32 %sub155.us to float
-  %27 = add nsw i64 %indvars.iv177, %33
-  %arrayidx163.us = getelementptr inbounds float, ptr %blamp_buffer.0, i64 %27
-  %28 = load float, ptr %arrayidx163.us, align 4
+  %29 = add nsw i64 %indvars.iv177, %35
+  %arrayidx163.us = getelementptr inbounds float, ptr %blamp_buffer.0, i64 %29
+  %30 = load float, ptr %arrayidx163.us, align 4
   %neg.us = fneg float %conv156.us
-  %29 = tail call float @llvm.fmuladd.f32(float %neg.us, float %div158, float %28)
-  store float %29, ptr %arrayidx163.us, align 4
+  %31 = tail call float @llvm.fmuladd.f32(float %neg.us, float %div158, float %30)
+  store float %31, ptr %arrayidx163.us, align 4
   %indvars.iv.next178 = add nsw i64 %indvars.iv177, 1
-  %exitcond183.not = icmp eq i64 %indvars.iv.next178, %24
+  %exitcond183.not = icmp eq i64 %indvars.iv.next178, %26
   br i1 %exitcond183.not, label %for.cond149.for.inc167_crit_edge.us, label %for.body152.us, !llvm.loop !21
 
 for.body140.us:                                   ; preds = %for.body140.lr.ph.us, %for.body140.us
-  %indvars.iv171 = phi i64 [ %23, %for.body140.lr.ph.us ], [ %indvars.iv.next172, %for.body140.us ]
-  %30 = add nsw i64 %indvars.iv171, %33
-  %arrayidx144.us = getelementptr inbounds float, ptr %blep_buffer.0, i64 %30
-  %31 = load float, ptr %arrayidx144.us, align 4
-  %sub145.us = fadd float %31, -1.000000e+00
+  %indvars.iv171 = phi i64 [ %25, %for.body140.lr.ph.us ], [ %indvars.iv.next172, %for.body140.us ]
+  %32 = add nsw i64 %indvars.iv171, %35
+  %arrayidx144.us = getelementptr inbounds float, ptr %blep_buffer.0, i64 %32
+  %33 = load float, ptr %arrayidx144.us, align 4
+  %sub145.us = fadd float %33, -1.000000e+00
   store float %sub145.us, ptr %arrayidx144.us, align 4
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, 1
-  %exitcond176.not = icmp eq i64 %indvars.iv.next172, %24
+  %exitcond176.not = icmp eq i64 %indvars.iv.next172, %26
   br i1 %exitcond176.not, label %for.cond149.preheader.us, label %for.body140.us, !llvm.loop !22
 
 for.cond149.preheader.us:                         ; preds = %for.body140.us
-  %32 = trunc i64 %indvars.iv184 to i32
-  %add154.us = sub i32 %32, %mul
+  %34 = trunc i64 %indvars.iv184 to i32
+  %add154.us = sub i32 %34, %mul
   br label %for.body152.us
 
 for.body140.lr.ph.us:                             ; preds = %for.cond149.for.inc167_crit_edge.us, %for.cond137.preheader.us.preheader
   %indvars.iv184 = phi i64 [ 0, %for.cond137.preheader.us.preheader ], [ %indvars.iv.next185, %for.cond149.for.inc167_crit_edge.us ]
-  %33 = mul nsw i64 %indvars.iv184, %24
+  %35 = mul nsw i64 %indvars.iv184, %26
   br label %for.body140.us
 
 for.cond149.for.inc167_crit_edge.us:              ; preds = %for.body152.us
@@ -1192,13 +1194,13 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -90,7 +90,7 @@ if.then2:                                         ; preds = %if.then
 
 do.body:                                          ; preds = %if.then2, %do.body
   %d.0 = phi ptr [ %incdec.ptr, %do.body ], [ %dest, %if.then2 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %d.0) #27, !srcloc !4
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %d.0) #24, !srcloc !4
   %arrayidx = getelementptr inbounds i8, ptr %d.0, i64 %sub.ptr.sub
   %0 = load i8, ptr %arrayidx, align 1
   store i8 %0, ptr %d.0, align 1
@@ -110,7 +110,7 @@ if.else:                                          ; preds = %if.then
 
 for.cond:                                         ; preds = %if.end14, %if.else
   %d.1 = phi ptr [ %3, %if.else ], [ %add.ptr17, %if.end14 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %d.1) #27, !srcloc !7
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %d.1) #24, !srcloc !7
   %cmp8 = icmp ugt ptr %d.1, %add.ptr7
   br i1 %cmp8, label %if.then9, label %if.end14
 
@@ -150,7 +150,7 @@ if.else19:                                        ; preds = %entry
 
 for.cond38:                                       ; preds = %if.end46, %if.else19
   %d.3 = phi ptr [ %10, %if.else19 ], [ %add.ptr63, %if.end46 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %d.3) #27, !srcloc !8
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %d.3) #24, !srcloc !8
   %cmp40 = icmp ugt ptr %d.3, %add.ptr39
   br i1 %cmp40, label %if.then41, label %if.end46
 
@@ -199,7 +199,7 @@ if.then:                                          ; preds = %entry
 
 do.body:                                          ; preds = %do.body, %if.then
   %sd.0 = phi ptr [ %src, %if.then ], [ %add.ptr3, %do.body ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.0) #27, !srcloc !9
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.0) #24, !srcloc !9
   %0 = load <4 x float>, ptr %sd.0, align 1
   %add.ptr2 = getelementptr inbounds i8, ptr %sd.0, i64 %sub.ptr.sub
   store <4 x float> %0, ptr %add.ptr2, align 1
@@ -217,7 +217,7 @@ do.body8.preheader:                               ; preds = %do.end, %entry
 
 do.body8:                                         ; preds = %do.body8.preheader, %do.body8
   %sd.2 = phi ptr [ %add.ptr10, %do.body8 ], [ %sd.2.ph, %do.body8.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.2) #27, !srcloc !11
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.2) #24, !srcloc !11
   %1 = load i32, ptr %sd.2, align 4
   %add.ptr9 = getelementptr inbounds i8, ptr %sd.2, i64 %sub.ptr.sub
   store i32 %1, ptr %add.ptr9, align 4
@@ -421,19 +421,19 @@ entry:
 
 if.then:                                          ; preds = %entry
   %div = fdiv float 1.000000e+00, %scale
-  %call = tail call float %support(float noundef %div, ptr noundef %user_data) #27
+  %call = tail call float %support(float noundef %div, ptr noundef %user_data) #24
   %mul = fmul float %call, 2.000000e+00
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call2 = tail call float %support(float noundef %scale, ptr noundef %user_data) #27
+  %call2 = tail call float %support(float noundef %scale, ptr noundef %user_data) #24
   %mul3 = fmul float %call2, 2.000000e+00
   %div4 = fdiv float %mul3, %scale
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %div4.sink = phi float [ %div4, %if.else ], [ %mul, %if.then ]
-  %call5 = tail call float @stbir_simd_ceilf(float noundef %div4.sink) #27
+  %call5 = tail call float @stbir_simd_ceilf(float noundef %div4.sink) #24
   %retval.0 = fptosi float %call5 to i32
   ret i32 %retval.0
 }
@@ -455,24 +455,24 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %div = fdiv float 1.000000e+00, %0
-  %call = tail call float %1(float noundef %div, ptr noundef %user_data) #27
+  %call = tail call float %1(float noundef %div, ptr noundef %user_data) #24
   %mul = fmul float %call, 2.000000e+00
   br label %return.sink.split
 
 sw.bb3:                                           ; preds = %entry
-  %call4 = tail call float %1(float noundef %0, ptr noundef %user_data) #27
+  %call4 = tail call float %1(float noundef %0, ptr noundef %user_data) #24
   %mul5 = fmul float %call4, 2.000000e+00
   %div6 = fdiv float %mul5, %0
   br label %return.sink.split
 
 sw.bb9:                                           ; preds = %entry
-  %call10 = tail call float %1(float noundef %0, ptr noundef %user_data) #27
+  %call10 = tail call float %1(float noundef %0, ptr noundef %user_data) #24
   %mul11 = fmul float %call10, 2.000000e+00
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %sw.bb, %sw.bb3, %sw.bb9
   %mul11.sink = phi float [ %mul11, %sw.bb9 ], [ %div6, %sw.bb3 ], [ %mul, %sw.bb ]
-  %call12 = tail call float @stbir_simd_ceilf(float noundef %mul11.sink) #27
+  %call12 = tail call float @stbir_simd_ceilf(float noundef %mul11.sink) #24
   %conv13 = fptosi float %call12 to i32
   br label %return
 
@@ -686,7 +686,7 @@ for.body66:                                       ; preds = %for.body66.preheade
   %j.2162 = phi i32 [ %inc74, %for.body66 ], [ %sub63, %for.body66.preheader ]
   %min_left.0161 = phi i32 [ %spec.select143, %for.body66 ], [ 2147483647, %for.body66.preheader ]
   %max_left.0160 = phi i32 [ %max_left.1, %for.body66 ], [ -2147483647, %for.body66.preheader ]
-  %call = tail call i32 @stbir__edge_wrap(i32 noundef %0, i32 noundef %j.2162, i32 noundef %3) #27
+  %call = tail call i32 @stbir__edge_wrap(i32 noundef %0, i32 noundef %j.2162, i32 noundef %3) #24
   %spec.select143 = tail call i32 @llvm.smin.i32(i32 %call, i32 %min_left.0161)
   %max_left.1 = tail call i32 @llvm.smax.i32(i32 %call, i32 %max_left.0160)
   %inc74 = add i32 %j.2162, 1
@@ -697,7 +697,7 @@ for.body79:                                       ; preds = %for.cond76.preheade
   %j.3168 = phi i32 [ %inc89, %for.body79 ], [ %3, %for.cond76.preheader ]
   %max_right.0167 = phi i32 [ %max_right.1, %for.body79 ], [ -2147483647, %for.cond76.preheader ]
   %min_right.0166 = phi i32 [ %spec.select144, %for.body79 ], [ 2147483647, %for.cond76.preheader ]
-  %call81 = tail call i32 @stbir__edge_wrap(i32 noundef %0, i32 noundef %j.3168, i32 noundef %3) #27
+  %call81 = tail call i32 @stbir__edge_wrap(i32 noundef %0, i32 noundef %j.3168, i32 noundef %3) #24
   %spec.select144 = tail call i32 @llvm.smin.i32(i32 %call81, i32 %min_right.0166)
   %max_right.1 = tail call i32 @llvm.smax.i32(i32 %call81, i32 %max_right.0167)
   %inc89 = add nsw i32 %j.3168, 1
@@ -725,9 +725,9 @@ lor.lhs.false:                                    ; preds = %if.then92
   br i1 %or.cond146, label %if.end113, label %if.then100
 
 if.then100:                                       ; preds = %lor.lhs.false, %if.then92
-  %call101 = tail call i32 @stbir__min(i32 noundef %spec.select141186, i32 noundef %min_left.0.lcssa) #27
+  %call101 = tail call i32 @stbir__min(i32 noundef %spec.select141186, i32 noundef %min_left.0.lcssa) #24
   store i32 %call101, ptr %spans, align 4
-  %call105 = tail call i32 @stbir__max(i32 noundef %max_n.2, i32 noundef %max_left.0.lcssa) #27
+  %call105 = tail call i32 @stbir__max(i32 noundef %max_n.2, i32 noundef %max_left.0.lcssa) #24
   store i32 %call105, ptr %n148, align 4
   store i32 %call101, ptr %pixel_offset_for_input, align 4
   br label %if.end113
@@ -755,9 +755,9 @@ lor.lhs.false120:                                 ; preds = %if.then115
   br i1 %or.cond148, label %if.end138, label %if.then125
 
 if.then125:                                       ; preds = %lor.lhs.false120, %if.then115
-  %call126 = tail call i32 @stbir__min(i32 noundef %min_n.3, i32 noundef %min_right.0.lcssa) #27
+  %call126 = tail call i32 @stbir__min(i32 noundef %min_n.3, i32 noundef %min_right.0.lcssa) #24
   store i32 %call126, ptr %spans, align 4
-  %call130 = tail call i32 @stbir__max(i32 noundef %max_n.3, i32 noundef %max_right.0.lcssa) #27
+  %call130 = tail call i32 @stbir__max(i32 noundef %max_n.3, i32 noundef %max_right.0.lcssa) #24
   store i32 %call130, ptr %n148, align 4
   store i32 %call126, ptr %pixel_offset_for_input, align 4
   br label %if.end138
@@ -846,10 +846,10 @@ entry:
   %add2 = fadd float %add, %out_shift
   %mul3 = fmul float %add2, %inv_scale
   %add4 = fadd float %mul, 5.000000e-01
-  %call = tail call float @stbir_simd_floorf(float noundef %add4) #27
+  %call = tail call float @stbir_simd_floorf(float noundef %add4) #24
   %conv = fptosi float %call to i32
   %sub5 = fadd float %mul3, -5.000000e-01
-  %call6 = tail call float @stbir_simd_floorf(float noundef %sub5) #27
+  %call6 = tail call float @stbir_simd_floorf(float noundef %sub5) #24
   %conv7 = fptosi float %call6 to i32
   %cmp = icmp eq i32 %edge, 2
   br i1 %cmp, label %if.then, label %if.end22
@@ -918,10 +918,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add2.i = fadd float %1, %add.i
   %mul3.i = fmul float %0, %add2.i
   %add4.i = fadd float %mul.i, 5.000000e-01
-  %call.i = tail call float @stbir_simd_floorf(float noundef %add4.i) #27
+  %call.i = tail call float @stbir_simd_floorf(float noundef %add4.i) #24
   %conv.i = fptosi float %call.i to i32
   %sub5.i = fadd float %mul3.i, -5.000000e-01
-  %call6.i = tail call float @stbir_simd_floorf(float noundef %sub5.i) #27
+  %call6.i = tail call float @stbir_simd_floorf(float noundef %sub5.i) #24
   %conv7.i = fptosi float %call6.i to i32
   %cmp10.not.i = icmp sgt i32 %conv.i, %sub9.i
   %spec.select.i = select i1 %cmp10.not.i, i32 %conv.i, i32 %sub14.i
@@ -940,7 +940,7 @@ for.body8:                                        ; preds = %for.body, %for.inc
   %conv10 = sitofp i32 %add9 to float
   %add11 = fadd float %conv10, 5.000000e-01
   %sub12 = fsub float %mul, %add11
-  %call = tail call float %kernel(float noundef %sub12, float noundef %0, ptr noundef %user_data) #27
+  %call = tail call float %kernel(float noundef %sub12, float noundef %0, ptr noundef %user_data) #24
   %cmp13 = fcmp olt float %call, 0x3870000000000000
   %cmp15 = fcmp ogt float %call, 0xB870000000000000
   %or.cond = and i1 %cmp13, %cmp15
@@ -988,7 +988,7 @@ for.end27:                                        ; preds = %for.end, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @stbir__insert_coeff(ptr nocapture noundef %contribs, ptr nocapture noundef %coeffs, i32 noundef %new_pixel, float noundef %new_coeff) local_unnamed_addr #5 {
 entry:
   %n1 = getelementptr inbounds %struct.stbir__contributors, ptr %contribs, i64 0, i32 1
@@ -1091,9 +1091,9 @@ entry:
   %mul2 = fmul float %add, %scale
   %sub3 = fsub float %mul2, %out_shift
   %add4 = fadd float %sub1, 5.000000e-01
-  %call = tail call float @stbir_simd_floorf(float noundef %add4) #27
+  %call = tail call float @stbir_simd_floorf(float noundef %add4) #24
   %sub5 = fadd float %sub3, -5.000000e-01
-  %call6 = tail call float @stbir_simd_floorf(float noundef %sub5) #27
+  %call6 = tail call float @stbir_simd_floorf(float noundef %sub5) #24
   %conv7 = fptosi float %call6 to i32
   %cmp9.not = icmp slt i32 %conv7, %out_size
   %sub12 = add nsw i32 %out_size, -1
@@ -1143,9 +1143,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul2.i = fmul float %0, %add.i
   %sub3.i = fsub float %mul2.i, %1
   %add4.i = fadd float %sub1.i, 5.000000e-01
-  %call.i = tail call float @stbir_simd_floorf(float noundef %add4.i) #27
+  %call.i = tail call float @stbir_simd_floorf(float noundef %add4.i) #24
   %sub5.i = fadd float %sub3.i, -5.000000e-01
-  %call6.i = tail call float @stbir_simd_floorf(float noundef %sub5.i) #27
+  %call6.i = tail call float @stbir_simd_floorf(float noundef %sub5.i) #24
   %conv7.i = fptosi float %call6.i to i32
   %cmp9.not.i = icmp sgt i32 %2, %conv7.i
   %spec.select.i = select i1 %cmp9.not.i, i32 %conv7.i, i32 %sub12.i
@@ -1187,7 +1187,7 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %conv23 = sitofp i32 %12 to float
   %add24 = fadd float %conv23, 5.000000e-01
   %sub25 = fadd float %7, %add24
-  %call = tail call float %kernel(float noundef %sub25, float noundef %0, ptr noundef %user_data) #27
+  %call = tail call float %kernel(float noundef %sub25, float noundef %0, ptr noundef %user_data) #24
   %mul26 = fmul float %0, %call
   %cmp27 = fcmp olt float %mul26, 0x3870000000000000
   %cmp29 = fcmp ogt float %mul26, 0xB870000000000000
@@ -1381,7 +1381,7 @@ if.then.i:                                        ; preds = %for.end46
 
 do.body.i:                                        ; preds = %do.body.i, %if.then.i
   %sd.0.i = phi ptr [ %coefficient_group, %if.then.i ], [ %add.ptr3.i, %do.body.i ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.0.i) #27, !srcloc !9
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.0.i) #24, !srcloc !9
   %15 = load <4 x float>, ptr %sd.0.i, align 1
   %add.ptr2.i = getelementptr inbounds i8, ptr %sd.0.i, i64 %add.ptr49.idx
   store <4 x float> %15, ptr %add.ptr2.i, align 1
@@ -1399,7 +1399,7 @@ do.body8.i.preheader:                             ; preds = %do.end.i, %for.end4
 
 do.body8.i:                                       ; preds = %do.body8.i.preheader, %do.body8.i
   %sd.2.i = phi ptr [ %add.ptr10.i, %do.body8.i ], [ %sd.2.i.ph, %do.body8.i.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.2.i) #27, !srcloc !11
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.2.i) #24, !srcloc !11
   %16 = load i32, ptr %sd.2.i, align 4
   %add.ptr9.i = getelementptr inbounds i8, ptr %sd.2.i, i64 %add.ptr49.idx
   store i32 %16, ptr %add.ptr9.i, align 4
@@ -1488,7 +1488,7 @@ for.body113:                                      ; preds = %if.then106, %stbir_
   %indvars.iv333 = phi i64 [ %17, %if.then106 ], [ %indvars.iv.next334, %stbir__insert_coeff.exit ]
   %27 = load ptr, ptr %arrayidx115, align 8
   %28 = trunc i64 %indvars.iv333 to i32
-  %call = tail call i32 %27(i32 noundef %28, i32 noundef %0) #27
+  %call = tail call i32 %27(i32 noundef %28, i32 noundef %0) #24
   %29 = sub nsw i64 %indvars.iv333, %25
   %arrayidx118 = getelementptr inbounds float, ptr %coeffs.1300, i64 %29
   %30 = load float, ptr %arrayidx118, align 4
@@ -1603,7 +1603,7 @@ for.body135:                                      ; preds = %if.then126, %stbir_
   %c.0290 = phi ptr [ %incdec.ptr139, %stbir__insert_coeff.exit191 ], [ %add.ptr130, %if.then126 ]
   %i58.1289 = phi i32 [ %dec, %stbir__insert_coeff.exit191 ], [ -1, %if.then126 ]
   %45 = load ptr, ptr %arrayidx115, align 8
-  %call138 = tail call i32 %45(i32 noundef %i58.1289, i32 noundef %0) #27
+  %call138 = tail call i32 %45(i32 noundef %i58.1289, i32 noundef %0) #24
   %incdec.ptr139 = getelementptr inbounds float, ptr %c.0290, i64 -1
   %46 = load float, ptr %c.0290, align 4
   %47 = load i32, ptr %n1103, align 4
@@ -1725,7 +1725,7 @@ for.body149:                                      ; preds = %for.body149.prehead
 
 for.end157:                                       ; preds = %for.body149, %for.end141
   %68 = load ptr, ptr %arrayidx115, align 8
-  %call160 = tail call i32 %68(i32 noundef %.lcssa, i32 noundef %0) #27
+  %call160 = tail call i32 %68(i32 noundef %.lcssa, i32 noundef %0) #24
   %69 = load i32, ptr %n1103, align 4
   %cmp.not.i193 = icmp slt i32 %69, %call160
   %70 = load i32, ptr %contribs.1299, align 4
@@ -1930,7 +1930,7 @@ do.body188.preheader:                             ; preds = %if.then
 do.body:                                          ; preds = %if.then, %do.body
   %coeffs.0 = phi ptr [ %add.ptr3, %do.body ], [ %coefficents, %if.then ]
   %pc.0 = phi ptr [ %incdec.ptr, %do.body ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.0) #27, !srcloc !32
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.0) #24, !srcloc !32
   %0 = load i32, ptr %coeffs.0, align 4
   store i32 %0, ptr %pc.0, align 4
   %incdec.ptr = getelementptr inbounds float, ptr %pc.0, i64 1
@@ -1941,7 +1941,7 @@ do.body:                                          ; preds = %if.then, %do.body
 do.body6:                                         ; preds = %if.then, %do.body6
   %coeffs.1 = phi ptr [ %add.ptr11, %do.body6 ], [ %coefficents, %if.then ]
   %pc.1 = phi ptr [ %add.ptr9, %do.body6 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.1) #27, !srcloc !34
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.1) #24, !srcloc !34
   %1 = load i64, ptr %coeffs.1, align 8
   store i64 %1, ptr %pc.1, align 8
   %add.ptr9 = getelementptr inbounds float, ptr %pc.1, i64 2
@@ -1952,11 +1952,11 @@ do.body6:                                         ; preds = %if.then, %do.body6
 do.body16:                                        ; preds = %if.then, %do.body16
   %coeffs.2 = phi ptr [ %add.ptr26, %do.body16 ], [ %coefficents, %if.then ]
   %pc.2 = phi ptr [ %add.ptr24, %do.body16 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.2) #27, !srcloc !36
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.2) #24, !srcloc !36
   %2 = load i64, ptr %coeffs.2, align 8
   store i64 %2, ptr %pc.2, align 8
   %add.ptr19 = getelementptr inbounds float, ptr %pc.2, i64 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #27, !srcloc !37
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #24, !srcloc !37
   %add.ptr20 = getelementptr inbounds float, ptr %coeffs.2, i64 2
   %3 = load i32, ptr %add.ptr20, align 4
   store i32 %3, ptr %add.ptr19, align 4
@@ -1968,7 +1968,7 @@ do.body16:                                        ; preds = %if.then, %do.body16
 do.body31:                                        ; preds = %if.then, %do.body31
   %coeffs.3 = phi ptr [ %add.ptr34, %do.body31 ], [ %coefficents, %if.then ]
   %pc.3 = phi ptr [ %add.ptr32, %do.body31 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.3) #27, !srcloc !39
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.3) #24, !srcloc !39
   %4 = load <4 x float>, ptr %coeffs.3, align 1
   store <4 x float> %4, ptr %pc.3, align 1
   %add.ptr32 = getelementptr inbounds float, ptr %pc.3, i64 4
@@ -1979,11 +1979,11 @@ do.body31:                                        ; preds = %if.then, %do.body31
 do.body39:                                        ; preds = %if.then, %do.body39
   %coeffs.4 = phi ptr [ %add.ptr49, %do.body39 ], [ %coefficents, %if.then ]
   %pc.4 = phi ptr [ %add.ptr47, %do.body39 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.4) #27, !srcloc !41
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.4) #24, !srcloc !41
   %5 = load <4 x float>, ptr %coeffs.4, align 1
   store <4 x float> %5, ptr %pc.4, align 1
   %add.ptr42 = getelementptr inbounds float, ptr %pc.4, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr42) #27, !srcloc !42
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr42) #24, !srcloc !42
   %add.ptr43 = getelementptr inbounds float, ptr %coeffs.4, i64 4
   %6 = load i32, ptr %add.ptr43, align 4
   store i32 %6, ptr %add.ptr42, align 4
@@ -1995,11 +1995,11 @@ do.body39:                                        ; preds = %if.then, %do.body39
 do.body54:                                        ; preds = %if.then, %do.body54
   %coeffs.5 = phi ptr [ %add.ptr64, %do.body54 ], [ %coefficents, %if.then ]
   %pc.5 = phi ptr [ %add.ptr62, %do.body54 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.5) #27, !srcloc !44
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.5) #24, !srcloc !44
   %7 = load <4 x float>, ptr %coeffs.5, align 1
   store <4 x float> %7, ptr %pc.5, align 1
   %add.ptr57 = getelementptr inbounds float, ptr %pc.5, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr57) #27, !srcloc !45
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr57) #24, !srcloc !45
   %add.ptr58 = getelementptr inbounds float, ptr %coeffs.5, i64 4
   %8 = load i64, ptr %add.ptr58, align 8
   store i64 %8, ptr %add.ptr57, align 8
@@ -2011,16 +2011,16 @@ do.body54:                                        ; preds = %if.then, %do.body54
 do.body69:                                        ; preds = %if.then, %do.body69
   %coeffs.6 = phi ptr [ %add.ptr84, %do.body69 ], [ %coefficents, %if.then ]
   %pc.6 = phi ptr [ %add.ptr82, %do.body69 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.6) #27, !srcloc !47
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.6) #24, !srcloc !47
   %9 = load <4 x float>, ptr %coeffs.6, align 1
   store <4 x float> %9, ptr %pc.6, align 1
   %add.ptr72 = getelementptr inbounds float, ptr %pc.6, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr72) #27, !srcloc !48
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr72) #24, !srcloc !48
   %add.ptr73 = getelementptr inbounds float, ptr %coeffs.6, i64 4
   %10 = load i64, ptr %add.ptr73, align 8
   store i64 %10, ptr %add.ptr72, align 8
   %add.ptr77 = getelementptr inbounds float, ptr %pc.6, i64 6
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr77) #27, !srcloc !49
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr77) #24, !srcloc !49
   %add.ptr78 = getelementptr inbounds float, ptr %coeffs.6, i64 6
   %11 = load i32, ptr %add.ptr78, align 4
   store i32 %11, ptr %add.ptr77, align 4
@@ -2032,11 +2032,11 @@ do.body69:                                        ; preds = %if.then, %do.body69
 do.body89:                                        ; preds = %if.then, %do.body89
   %coeffs.7 = phi ptr [ %add.ptr99, %do.body89 ], [ %coefficents, %if.then ]
   %pc.7 = phi ptr [ %add.ptr97, %do.body89 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.7) #27, !srcloc !51
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.7) #24, !srcloc !51
   %12 = load <4 x float>, ptr %coeffs.7, align 1
   store <4 x float> %12, ptr %pc.7, align 1
   %add.ptr93 = getelementptr inbounds float, ptr %pc.7, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr93) #27, !srcloc !52
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr93) #24, !srcloc !52
   %add.ptr94 = getelementptr inbounds float, ptr %coeffs.7, i64 4
   %13 = load <4 x float>, ptr %add.ptr94, align 1
   store <4 x float> %13, ptr %add.ptr93, align 1
@@ -2048,16 +2048,16 @@ do.body89:                                        ; preds = %if.then, %do.body89
 do.body104:                                       ; preds = %if.then, %do.body104
   %coeffs.8 = phi ptr [ %add.ptr119, %do.body104 ], [ %coefficents, %if.then ]
   %pc.8 = phi ptr [ %add.ptr117, %do.body104 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.8) #27, !srcloc !54
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.8) #24, !srcloc !54
   %14 = load <4 x float>, ptr %coeffs.8, align 1
   store <4 x float> %14, ptr %pc.8, align 1
   %add.ptr108 = getelementptr inbounds float, ptr %pc.8, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr108) #27, !srcloc !55
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr108) #24, !srcloc !55
   %add.ptr109 = getelementptr inbounds float, ptr %coeffs.8, i64 4
   %15 = load <4 x float>, ptr %add.ptr109, align 1
   store <4 x float> %15, ptr %add.ptr108, align 1
   %add.ptr112 = getelementptr inbounds float, ptr %pc.8, i64 8
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr112) #27, !srcloc !56
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr112) #24, !srcloc !56
   %add.ptr113 = getelementptr inbounds float, ptr %coeffs.8, i64 8
   %16 = load i32, ptr %add.ptr113, align 4
   store i32 %16, ptr %add.ptr112, align 4
@@ -2069,16 +2069,16 @@ do.body104:                                       ; preds = %if.then, %do.body10
 do.body124:                                       ; preds = %if.then, %do.body124
   %coeffs.9 = phi ptr [ %add.ptr139, %do.body124 ], [ %coefficents, %if.then ]
   %pc.9 = phi ptr [ %add.ptr137, %do.body124 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.9) #27, !srcloc !58
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.9) #24, !srcloc !58
   %17 = load <4 x float>, ptr %coeffs.9, align 1
   store <4 x float> %17, ptr %pc.9, align 1
   %add.ptr128 = getelementptr inbounds float, ptr %pc.9, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr128) #27, !srcloc !59
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr128) #24, !srcloc !59
   %add.ptr129 = getelementptr inbounds float, ptr %coeffs.9, i64 4
   %18 = load <4 x float>, ptr %add.ptr129, align 1
   store <4 x float> %18, ptr %add.ptr128, align 1
   %add.ptr132 = getelementptr inbounds float, ptr %pc.9, i64 8
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr132) #27, !srcloc !60
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr132) #24, !srcloc !60
   %add.ptr133 = getelementptr inbounds float, ptr %coeffs.9, i64 8
   %19 = load i64, ptr %add.ptr133, align 8
   store i64 %19, ptr %add.ptr132, align 8
@@ -2090,21 +2090,21 @@ do.body124:                                       ; preds = %if.then, %do.body12
 do.body144:                                       ; preds = %if.then, %do.body144
   %coeffs.10 = phi ptr [ %add.ptr164, %do.body144 ], [ %coefficents, %if.then ]
   %pc.10 = phi ptr [ %add.ptr162, %do.body144 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.10) #27, !srcloc !62
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.10) #24, !srcloc !62
   %20 = load <4 x float>, ptr %coeffs.10, align 1
   store <4 x float> %20, ptr %pc.10, align 1
   %add.ptr148 = getelementptr inbounds float, ptr %pc.10, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr148) #27, !srcloc !63
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr148) #24, !srcloc !63
   %add.ptr149 = getelementptr inbounds float, ptr %coeffs.10, i64 4
   %21 = load <4 x float>, ptr %add.ptr149, align 1
   store <4 x float> %21, ptr %add.ptr148, align 1
   %add.ptr152 = getelementptr inbounds float, ptr %pc.10, i64 8
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr152) #27, !srcloc !64
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr152) #24, !srcloc !64
   %add.ptr153 = getelementptr inbounds float, ptr %coeffs.10, i64 8
   %22 = load i64, ptr %add.ptr153, align 8
   store i64 %22, ptr %add.ptr152, align 8
   %add.ptr157 = getelementptr inbounds float, ptr %pc.10, i64 10
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr157) #27, !srcloc !65
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr157) #24, !srcloc !65
   %add.ptr158 = getelementptr inbounds float, ptr %coeffs.10, i64 10
   %23 = load i32, ptr %add.ptr158, align 4
   store i32 %23, ptr %add.ptr157, align 4
@@ -2116,16 +2116,16 @@ do.body144:                                       ; preds = %if.then, %do.body14
 do.body169:                                       ; preds = %if.then, %do.body169
   %coeffs.11 = phi ptr [ %add.ptr184, %do.body169 ], [ %coefficents, %if.then ]
   %pc.11 = phi ptr [ %add.ptr182, %do.body169 ], [ %coefficents, %if.then ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.11) #27, !srcloc !67
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.11) #24, !srcloc !67
   %24 = load <4 x float>, ptr %coeffs.11, align 1
   store <4 x float> %24, ptr %pc.11, align 1
   %add.ptr173 = getelementptr inbounds float, ptr %pc.11, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr173) #27, !srcloc !68
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr173) #24, !srcloc !68
   %add.ptr174 = getelementptr inbounds float, ptr %coeffs.11, i64 4
   %25 = load <4 x float>, ptr %add.ptr174, align 1
   store <4 x float> %25, ptr %add.ptr173, align 1
   %add.ptr178 = getelementptr inbounds float, ptr %pc.11, i64 8
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr178) #27, !srcloc !69
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr178) #24, !srcloc !69
   %add.ptr179 = getelementptr inbounds float, ptr %coeffs.11, i64 8
   %26 = load <4 x float>, ptr %add.ptr179, align 1
   store <4 x float> %26, ptr %add.ptr178, align 1
@@ -2144,8 +2144,8 @@ do.body188:                                       ; preds = %do.body188.preheade
 do.body192:                                       ; preds = %do.body192, %do.body188
   %c.0 = phi ptr [ %coeffs.12, %do.body188 ], [ %add.ptr196, %do.body192 ]
   %pc.13 = phi ptr [ %pc.12, %do.body188 ], [ %add.ptr195, %do.body192 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.13) #27, !srcloc !71
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.13) #27, !srcloc !72
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.13) #24, !srcloc !71
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %pc.13) #24, !srcloc !72
   %27 = load <4 x float>, ptr %c.0, align 1
   store <4 x float> %27, ptr %pc.13, align 1
   %add.ptr195 = getelementptr inbounds float, ptr %pc.13, i64 4
@@ -2160,7 +2160,7 @@ while.cond.preheader:                             ; preds = %do.body192
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %pc.14228 = phi ptr [ %incdec.ptr204, %while.body ], [ %add.ptr195, %while.cond.preheader ]
   %c.1227 = phi ptr [ %incdec.ptr205, %while.body ], [ %add.ptr196, %while.cond.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %pc.14228) #27, !srcloc !74
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %pc.14228) #24, !srcloc !74
   %28 = load i32, ptr %c.1227, align 4
   store i32 %28, ptr %pc.14228, align 4
   %incdec.ptr204 = getelementptr inbounds float, ptr %pc.14228, i64 1
@@ -2191,7 +2191,6 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   %mul222 = shl nsw i32 %widest, 1
   %cmp229 = icmp sgt i32 %widest, 12
   %and = and i32 %widest, 3
-  %add238 = or disjoint i32 %and, 8
   %idx.ext292 = sext i32 %widest to i64
   %idx.neg = sub nsw i64 0, %idx.ext292
   br label %land.rhs
@@ -2220,8 +2219,8 @@ if.then230:                                       ; preds = %if.then228
   %reass.sub = sub i32 %30, %31
   %32 = and i32 %reass.sub, -4
   %and236 = add i32 %32, 4
-  %add237 = or disjoint i32 %and236, %and
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %add237, i32 %add238)
+  %spec.select.v = tail call i32 @llvm.smax.i32(i32 %and236, i32 8)
+  %spec.select = or disjoint i32 %spec.select.v, %and
   %.pre = add nsw i32 %spec.select, %29
   br label %if.end243
 
@@ -2312,7 +2311,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call float %2(float noundef %3, ptr noundef %user_data) #27
+  %call = tail call float %2(float noundef %3, ptr noundef %user_data) #24
   %mul = fmul float %0, %call
   %edge = getelementptr inbounds %struct.stbir__sampler, ptr %samp, i64 0, i32 9
   %9 = load i32, ptr %edge, align 8
@@ -2324,7 +2323,7 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb9:                                           ; preds = %entry, %entry
   %11 = load i32, ptr %scale_info, align 8
-  %call10 = tail call float %2(float noundef %0, ptr noundef %user_data) #27
+  %call10 = tail call float %2(float noundef %0, ptr noundef %user_data) #24
   %mul11 = fmul float %3, %call10
   %filter_pixel_margin12 = getelementptr inbounds %struct.stbir__sampler, ptr %samp, i64 0, i32 12
   %12 = load i32, ptr %filter_pixel_margin12, align 4
@@ -2618,7 +2617,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !84
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !84
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i72 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -2671,7 +2670,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.157 = phi ptr [ %decode.1, %while.body ], [ %decode.153, %while.body.preheader ]
   %decodep.pn56 = phi ptr [ %decode.157, %while.body ], [ %decodep, %while.body.preheader ]
   %input.155 = phi ptr [ %add.ptr49, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.157) #27, !srcloc !85
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.157) #24, !srcloc !85
   %7 = load i8, ptr %input.155, align 1
   %conv = uitofp i8 %7 to float
   %mul = fmul float %conv, 0x3F70101020000000
@@ -2702,7 +2701,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body54:                                     ; preds = %while.cond51.preheader, %while.body54
   %decode.261 = phi ptr [ %add.ptr59, %while.body54 ], [ %decodep.pn.lcssa, %while.cond51.preheader ]
   %input.260 = phi ptr [ %add.ptr60, %while.body54 ], [ %input.1.lcssa, %while.cond51.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.261) #27, !srcloc !87
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.261) #24, !srcloc !87
   %11 = load i8, ptr %input.260, align 1
   %conv56 = uitofp i8 %11 to float
   %mul57 = fmul float %conv56, 0x3F70101020000000
@@ -2741,7 +2740,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !89
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !89
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i78 = fmul <4 x float> %0, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i86 = fadd <4 x float> %mul.i78, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -2784,7 +2783,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.149 = phi ptr [ %output.1, %while.body ], [ %output.145, %while.body.preheader ]
   %encode.addr.148 = phi ptr [ %add.ptr53, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn47 = phi ptr [ %output.149, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.148) #27, !srcloc !90
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.148) #24, !srcloc !90
   %11 = load <4 x float>, ptr %encode.addr.148, align 1
   %mul.i = fmul <4 x float> %11, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -2804,7 +2803,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body57:                                     ; preds = %while.cond55.preheader, %while.body57
   %encode.addr.253 = phi ptr [ %add.ptr69, %while.body57 ], [ %encode.addr.1.lcssa, %while.cond55.preheader ]
   %output.252 = phi ptr [ %add.ptr68, %while.body57 ], [ %outputp.pn.lcssa, %while.cond55.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.253) #27, !srcloc !92
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.253) #24, !srcloc !92
   %18 = load float, ptr %encode.addr.253, align 1
   %mul.i139 = fmul float %18, 2.550000e+02
   %add.i134 = fadd float %mul.i139, 5.000000e-01
@@ -2849,7 +2848,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !94
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !94
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i64 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -2898,7 +2897,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.153 = phi ptr [ %decode.1, %while.body ], [ %decode.149, %while.body.preheader ]
   %decodep.pn52 = phi ptr [ %decode.153, %while.body ], [ %decodep, %while.body.preheader ]
   %input.151 = phi ptr [ %add.ptr42, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.153) #27, !srcloc !95
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.153) #24, !srcloc !95
   %7 = load i8, ptr %input.151, align 1
   %conv = uitofp i8 %7 to float
   store float %conv, ptr %decodep.pn52, align 4
@@ -2925,7 +2924,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body47:                                     ; preds = %while.cond44.preheader, %while.body47
   %decode.257 = phi ptr [ %add.ptr51, %while.body47 ], [ %decodep.pn.lcssa, %while.cond44.preheader ]
   %input.256 = phi ptr [ %add.ptr52, %while.body47 ], [ %input.1.lcssa, %while.cond44.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.257) #27, !srcloc !97
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.257) #24, !srcloc !97
   %11 = load i8, ptr %input.256, align 1
   %conv49 = uitofp i8 %11 to float
   store float %conv49, ptr %decode.257, align 4
@@ -2963,7 +2962,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !99
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !99
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i72 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -3004,7 +3003,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.147 = phi ptr [ %output.1, %while.body ], [ %output.143, %while.body.preheader ]
   %encode.addr.146 = phi ptr [ %add.ptr50, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn45 = phi ptr [ %output.147, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.146) #27, !srcloc !100
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.146) #24, !srcloc !100
   %11 = load <4 x float>, ptr %encode.addr.146, align 1
   %add.i = fadd <4 x float> %11, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %12 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %add.i, <4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>)
@@ -3023,7 +3022,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body54:                                     ; preds = %while.cond52.preheader, %while.body54
   %encode.addr.251 = phi ptr [ %add.ptr63, %while.body54 ], [ %encode.addr.1.lcssa, %while.cond52.preheader ]
   %output.250 = phi ptr [ %add.ptr62, %while.body54 ], [ %outputp.pn.lcssa, %while.cond52.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.251) #27, !srcloc !102
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.251) #24, !srcloc !102
   %18 = load float, ptr %encode.addr.251, align 4
   %add = fadd float %18, 5.000000e-01
   %cmp55 = fcmp olt float %add, 0.000000e+00
@@ -3097,7 +3096,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
   %input.128 = phi ptr [ %add.ptr27, %while.body21 ], [ %input.0.lcssa, %while.cond19.preheader ]
   %decode.127 = phi ptr [ %add.ptr26, %while.body21 ], [ %decodep.pn.lcssa, %while.cond19.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.127) #27, !srcloc !105
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.127) #24, !srcloc !105
   %8 = load i8, ptr %input.128, align 1
   %idxprom23 = zext i8 %8 to i64
   %arrayidx24 = getelementptr inbounds [256 x float], ptr @stbir__srgb_uchar_to_linear_float, i64 0, i64 %idxprom23
@@ -3137,7 +3136,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !107
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !107
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -3309,23 +3308,23 @@ while.body:                                       ; preds = %while.body.preheade
   %output.1137 = phi ptr [ %output.1, %while.body ], [ %output.1133, %while.body.preheader ]
   %encode.addr.1136 = phi ptr [ %add.ptr163, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn135 = phi ptr [ %output.1137, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1136) #27, !srcloc !108
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1136) #24, !srcloc !108
   %67 = load float, ptr %encode.addr.1136, align 4
-  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #27
+  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #24
   store i8 %call151, ptr %outputp.pn135, align 1
   %arrayidx153 = getelementptr inbounds float, ptr %encode.addr.1136, i64 1
   %68 = load float, ptr %arrayidx153, align 4
-  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #27
+  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #24
   %arrayidx155 = getelementptr inbounds i8, ptr %outputp.pn135, i64 1
   store i8 %call154, ptr %arrayidx155, align 1
   %arrayidx156 = getelementptr inbounds float, ptr %encode.addr.1136, i64 2
   %69 = load float, ptr %arrayidx156, align 4
-  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #27
+  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #24
   %arrayidx158 = getelementptr inbounds i8, ptr %outputp.pn135, i64 2
   store i8 %call157, ptr %arrayidx158, align 1
   %arrayidx159 = getelementptr inbounds float, ptr %encode.addr.1136, i64 3
   %70 = load float, ptr %arrayidx159, align 4
-  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #27
+  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #24
   %arrayidx161 = getelementptr inbounds i8, ptr %outputp.pn135, i64 3
   store i8 %call160, ptr %arrayidx161, align 1
   %add.ptr163 = getelementptr inbounds float, ptr %encode.addr.1136, i64 4
@@ -3336,9 +3335,9 @@ while.body:                                       ; preds = %while.body.preheade
 while.body167:                                    ; preds = %while.cond165.preheader, %while.body167
   %encode.addr.2141 = phi ptr [ %add.ptr172, %while.body167 ], [ %encode.addr.1.lcssa, %while.cond165.preheader ]
   %output.2140 = phi ptr [ %add.ptr171, %while.body167 ], [ %outputp.pn.lcssa, %while.cond165.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.2141) #27, !srcloc !110
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.2141) #24, !srcloc !110
   %71 = load float, ptr %encode.addr.2141, align 4
-  %call169 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %71) #27
+  %call169 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %71) #24
   store i8 %call169, ptr %output.2140, align 1
   %add.ptr171 = getelementptr inbounds i8, ptr %output.2140, i64 1
   %add.ptr172 = getelementptr inbounds float, ptr %encode.addr.2141, i64 1
@@ -3412,7 +3411,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !113
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !113
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -3551,18 +3550,18 @@ if.end:                                           ; preds = %for.cond
 do.body:                                          ; preds = %entry, %do.body
   %output.1 = phi ptr [ %add.ptr143, %do.body ], [ %outputp, %entry ]
   %encode.addr.1 = phi ptr [ %add.ptr144, %do.body ], [ %encode, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #27, !srcloc !114
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #24, !srcloc !114
   %55 = load float, ptr %encode.addr.1, align 4
-  %call126 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %55) #27
+  %call126 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %55) #24
   store i8 %call126, ptr %output.1, align 1
   %arrayidx128 = getelementptr inbounds float, ptr %encode.addr.1, i64 1
   %56 = load float, ptr %arrayidx128, align 4
-  %call129 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %56) #27
+  %call129 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %56) #24
   %arrayidx130 = getelementptr inbounds i8, ptr %output.1, i64 1
   store i8 %call129, ptr %arrayidx130, align 1
   %arrayidx131 = getelementptr inbounds float, ptr %encode.addr.1, i64 2
   %57 = load float, ptr %arrayidx131, align 4
-  %call132 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %57) #27
+  %call132 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %57) #24
   %arrayidx133 = getelementptr inbounds i8, ptr %output.1, i64 2
   store i8 %call132, ptr %arrayidx133, align 1
   %arrayidx134 = getelementptr inbounds float, ptr %encode.addr.1, i64 3
@@ -3668,7 +3667,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !117
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !117
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -3781,9 +3780,9 @@ if.end:                                           ; preds = %for.cond
 do.body:                                          ; preds = %entry, %do.body
   %output.1 = phi ptr [ %add.ptr114, %do.body ], [ %outputp, %entry ]
   %encode.addr.1 = phi ptr [ %add.ptr115, %do.body ], [ %encode, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #27, !srcloc !118
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #24, !srcloc !118
   %43 = load float, ptr %encode.addr.1, align 4
-  %call103 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %43) #27
+  %call103 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %43) #24
   store i8 %call103, ptr %output.1, align 1
   %arrayidx105 = getelementptr inbounds float, ptr %encode.addr.1, i64 1
   %44 = load float, ptr %arrayidx105, align 4
@@ -3830,7 +3829,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !120
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !120
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i58 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -3867,7 +3866,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.145 = phi ptr [ %decode.1, %while.body ], [ %decode.141, %while.body.preheader ]
   %decodep.pn44 = phi ptr [ %decode.145, %while.body ], [ %decodep, %while.body.preheader ]
   %input.143 = phi ptr [ %add.ptr39, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.145) #27, !srcloc !121
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.145) #24, !srcloc !121
   %3 = load i16, ptr %input.143, align 2
   %conv = uitofp i16 %3 to float
   %mul = fmul float %conv, 0x3EF0001000000000
@@ -3898,7 +3897,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body44:                                     ; preds = %while.cond41.preheader, %while.body44
   %decode.249 = phi ptr [ %add.ptr49, %while.body44 ], [ %decodep.pn.lcssa, %while.cond41.preheader ]
   %input.248 = phi ptr [ %add.ptr50, %while.body44 ], [ %input.1.lcssa, %while.cond41.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.249) #27, !srcloc !123
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.249) #24, !srcloc !123
   %7 = load i16, ptr %input.248, align 2
   %conv46 = uitofp i16 %7 to float
   %mul47 = fmul float %conv46, 0x3EF0001000000000
@@ -3937,7 +3936,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !125
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !125
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i79 = fmul <4 x float> %0, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i87 = fadd <4 x float> %mul.i79, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -3982,7 +3981,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.147 = phi ptr [ %output.1, %while.body ], [ %output.143, %while.body.preheader ]
   %encode.addr.146 = phi ptr [ %add.ptr54, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn45 = phi ptr [ %output.147, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.146) #27, !srcloc !126
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.146) #24, !srcloc !126
   %11 = load <4 x float>, ptr %encode.addr.146, align 1
   %mul.i = fmul <4 x float> %11, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -4005,7 +4004,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body58:                                     ; preds = %while.cond56.preheader, %while.body58
   %encode.addr.251 = phi ptr [ %add.ptr70, %while.body58 ], [ %encode.addr.1.lcssa, %while.cond56.preheader ]
   %output.250 = phi ptr [ %add.ptr69, %while.body58 ], [ %outputp.pn.lcssa, %while.cond56.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.251) #27, !srcloc !128
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.251) #24, !srcloc !128
   %19 = load float, ptr %encode.addr.251, align 1
   %mul.i133 = fmul float %19, 6.553500e+04
   %add.i128 = fadd float %mul.i133, 5.000000e-01
@@ -4050,7 +4049,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !130
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !130
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i52 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -4085,7 +4084,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.143 = phi ptr [ %decode.1, %while.body ], [ %decode.139, %while.body.preheader ]
   %decodep.pn42 = phi ptr [ %decode.143, %while.body ], [ %decodep, %while.body.preheader ]
   %input.141 = phi ptr [ %add.ptr34, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.143) #27, !srcloc !131
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.143) #24, !srcloc !131
   %3 = load i16, ptr %input.141, align 2
   %conv = uitofp i16 %3 to float
   store float %conv, ptr %decodep.pn42, align 4
@@ -4112,7 +4111,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body39:                                     ; preds = %while.cond36.preheader, %while.body39
   %decode.247 = phi ptr [ %add.ptr43, %while.body39 ], [ %decodep.pn.lcssa, %while.cond36.preheader ]
   %input.246 = phi ptr [ %add.ptr44, %while.body39 ], [ %input.1.lcssa, %while.cond36.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.247) #27, !srcloc !133
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.247) #24, !srcloc !133
   %7 = load i16, ptr %input.246, align 2
   %conv41 = uitofp i16 %7 to float
   store float %conv41, ptr %decode.247, align 4
@@ -4150,7 +4149,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !135
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !135
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i73 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -4193,7 +4192,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.145 = phi ptr [ %output.1, %while.body ], [ %output.141, %while.body.preheader ]
   %encode.addr.144 = phi ptr [ %add.ptr51, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn43 = phi ptr [ %output.145, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.144) #27, !srcloc !136
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.144) #24, !srcloc !136
   %11 = load <4 x float>, ptr %encode.addr.144, align 1
   %add.i = fadd <4 x float> %11, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %12 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %add.i, <4 x float> <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>)
@@ -4215,7 +4214,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body55:                                     ; preds = %while.cond53.preheader, %while.body55
   %encode.addr.249 = phi ptr [ %add.ptr64, %while.body55 ], [ %encode.addr.1.lcssa, %while.cond53.preheader ]
   %output.248 = phi ptr [ %add.ptr63, %while.body55 ], [ %outputp.pn.lcssa, %while.cond53.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.249) #27, !srcloc !138
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.249) #24, !srcloc !138
   %19 = load float, ptr %encode.addr.249, align 4
   %add = fadd float %19, 5.000000e-01
   %cmp56 = fcmp olt float %add, 0.000000e+00
@@ -4258,8 +4257,8 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !140
-  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #27
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !140
+  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #24
   %add.ptr5 = getelementptr inbounds float, ptr %decode.0, i64 8
   %add.ptr6 = getelementptr inbounds %union.stbir__FP16, ptr %input.0, i64 8
   %cmp7.not = icmp ugt ptr %add.ptr5, %add.ptr4
@@ -4284,23 +4283,23 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.140 = phi ptr [ %decode.1, %while.body ], [ %decode.136, %while.body.preheader ]
   %decodep.pn39 = phi ptr [ %decode.140, %while.body ], [ %decodep, %while.body.preheader ]
   %input.138 = phi ptr [ %add.ptr30, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.140) #27, !srcloc !141
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.140) #24, !srcloc !141
   %0 = load i16, ptr %input.138, align 2
-  %call = tail call float @stbir__half_to_float(i16 %0) #27
+  %call = tail call float @stbir__half_to_float(i16 %0) #24
   store float %call, ptr %decodep.pn39, align 4
   %arrayidx17 = getelementptr inbounds %union.stbir__FP16, ptr %input.138, i64 1
   %1 = load i16, ptr %arrayidx17, align 2
-  %call19 = tail call float @stbir__half_to_float(i16 %1) #27
+  %call19 = tail call float @stbir__half_to_float(i16 %1) #24
   %arrayidx20 = getelementptr inbounds float, ptr %decodep.pn39, i64 1
   store float %call19, ptr %arrayidx20, align 4
   %arrayidx21 = getelementptr inbounds %union.stbir__FP16, ptr %input.138, i64 2
   %2 = load i16, ptr %arrayidx21, align 2
-  %call23 = tail call float @stbir__half_to_float(i16 %2) #27
+  %call23 = tail call float @stbir__half_to_float(i16 %2) #24
   %arrayidx24 = getelementptr inbounds float, ptr %decodep.pn39, i64 2
   store float %call23, ptr %arrayidx24, align 4
   %arrayidx25 = getelementptr inbounds %union.stbir__FP16, ptr %input.138, i64 3
   %3 = load i16, ptr %arrayidx25, align 2
-  %call27 = tail call float @stbir__half_to_float(i16 %3) #27
+  %call27 = tail call float @stbir__half_to_float(i16 %3) #24
   %arrayidx28 = getelementptr inbounds float, ptr %decodep.pn39, i64 3
   store float %call27, ptr %arrayidx28, align 4
   %add.ptr30 = getelementptr inbounds %union.stbir__FP16, ptr %input.138, i64 4
@@ -4311,9 +4310,9 @@ while.body:                                       ; preds = %while.body.preheade
 while.body34:                                     ; preds = %while.cond32.preheader, %while.body34
   %decode.244 = phi ptr [ %add.ptr39, %while.body34 ], [ %decodep.pn.lcssa, %while.cond32.preheader ]
   %input.243 = phi ptr [ %add.ptr40, %while.body34 ], [ %input.1.lcssa, %while.cond32.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.244) #27, !srcloc !143
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.244) #24, !srcloc !143
   %4 = load i16, ptr %input.243, align 2
-  %call37 = tail call float @stbir__half_to_float(i16 %4) #27
+  %call37 = tail call float @stbir__half_to_float(i16 %4) #24
   store float %call37, ptr %decode.244, align 4
   %add.ptr39 = getelementptr inbounds float, ptr %decode.244, i64 1
   %add.ptr40 = getelementptr inbounds %union.stbir__FP16, ptr %input.243, i64 1
@@ -4353,8 +4352,8 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !145
-  tail call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef %encode.addr.0) #27
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !145
+  tail call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef %encode.addr.0) #24
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 8
   %add.ptr6 = getelementptr inbounds %union.stbir__FP16, ptr %output.0, i64 8
   %cmp7.not = icmp ugt ptr %add.ptr6, %add.ptr4
@@ -4379,24 +4378,24 @@ while.body:                                       ; preds = %while.body.preheade
   %output.140 = phi ptr [ %output.1, %while.body ], [ %output.136, %while.body.preheader ]
   %encode.addr.139 = phi ptr [ %add.ptr33, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn38 = phi ptr [ %output.140, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.140) #27, !srcloc !146
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.140) #24, !srcloc !146
   %0 = load float, ptr %encode.addr.139, align 4
-  %call = tail call i16 @stbir__float_to_half(float noundef %0) #27
+  %call = tail call i16 @stbir__float_to_half(float noundef %0) #24
   store i16 %call, ptr %outputp.pn38, align 2
   %arrayidx17 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn38, i64 1
   %arrayidx19 = getelementptr inbounds float, ptr %encode.addr.139, i64 1
   %1 = load float, ptr %arrayidx19, align 4
-  %call20 = tail call i16 @stbir__float_to_half(float noundef %1) #27
+  %call20 = tail call i16 @stbir__float_to_half(float noundef %1) #24
   store i16 %call20, ptr %arrayidx17, align 2
   %arrayidx22 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn38, i64 2
   %arrayidx24 = getelementptr inbounds float, ptr %encode.addr.139, i64 2
   %2 = load float, ptr %arrayidx24, align 4
-  %call25 = tail call i16 @stbir__float_to_half(float noundef %2) #27
+  %call25 = tail call i16 @stbir__float_to_half(float noundef %2) #24
   store i16 %call25, ptr %arrayidx22, align 2
   %arrayidx27 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn38, i64 3
   %arrayidx29 = getelementptr inbounds float, ptr %encode.addr.139, i64 3
   %3 = load float, ptr %arrayidx29, align 4
-  %call30 = tail call i16 @stbir__float_to_half(float noundef %3) #27
+  %call30 = tail call i16 @stbir__float_to_half(float noundef %3) #24
   store i16 %call30, ptr %arrayidx27, align 2
   %add.ptr33 = getelementptr inbounds float, ptr %encode.addr.139, i64 4
   %output.1 = getelementptr inbounds %union.stbir__FP16, ptr %output.140, i64 4
@@ -4406,9 +4405,9 @@ while.body:                                       ; preds = %while.body.preheade
 while.body37:                                     ; preds = %while.cond35.preheader, %while.body37
   %encode.addr.244 = phi ptr [ %add.ptr44, %while.body37 ], [ %encode.addr.1.lcssa, %while.cond35.preheader ]
   %output.243 = phi ptr [ %add.ptr43, %while.body37 ], [ %outputp.pn.lcssa, %while.cond35.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.243) #27, !srcloc !148
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.243) #24, !srcloc !148
   %4 = load float, ptr %encode.addr.244, align 4
-  %call41 = tail call i16 @stbir__float_to_half(float noundef %4) #27
+  %call41 = tail call i16 @stbir__float_to_half(float noundef %4) #24
   store i16 %call41, ptr %output.243, align 2
   %add.ptr43 = getelementptr inbounds %union.stbir__FP16, ptr %output.243, i64 1
   %add.ptr44 = getelementptr inbounds float, ptr %encode.addr.244, i64 1
@@ -4426,7 +4425,7 @@ declare i16 @stbir__float_to_half(float noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @stbir__decode_float_linear(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr noundef readonly %inputp) #8 {
 entry:
   %cmp.not = icmp eq ptr %decodep, %inputp
@@ -4442,7 +4441,7 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @stbir__encode_float_linear(ptr noundef writeonly %outputp, i32 noundef %width_times_channels, ptr noundef readonly %encode) #8 {
 entry:
   %cmp.not = icmp eq ptr %outputp, %encode
@@ -4483,7 +4482,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !150
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !150
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i72 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -4534,7 +4533,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.154 = phi ptr [ %decode.1, %while.body ], [ %decode.150, %while.body.preheader ]
   %decodep.pn53 = phi ptr [ %decode.154, %while.body ], [ %decodep, %while.body.preheader ]
   %input.152 = phi ptr [ %add.ptr60, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.154) #27, !srcloc !151
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.154) #24, !srcloc !151
   %arrayidx = getelementptr inbounds i8, ptr %input.152, i64 2
   %11 = load i8, ptr %arrayidx, align 1
   %conv = uitofp i8 %11 to float
@@ -4591,7 +4590,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !153
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !153
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i70 = fmul <4 x float> %0, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i78 = fadd <4 x float> %mul.i70, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -4630,7 +4629,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.141 = phi ptr [ %output.1, %while.body ], [ %output.137, %while.body.preheader ]
   %encode.addr.140 = phi ptr [ %add.ptr61, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn39 = phi ptr [ %output.141, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #27, !srcloc !154
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #24, !srcloc !154
   %13 = load <4 x float>, ptr %encode.addr.140, align 1
   %mul.i = fmul <4 x float> %13, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -4677,7 +4676,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !156
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !156
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i65 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -4724,7 +4723,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.150 = phi ptr [ %decode.1, %while.body ], [ %decode.146, %while.body.preheader ]
   %decodep.pn49 = phi ptr [ %decode.150, %while.body ], [ %decodep, %while.body.preheader ]
   %input.148 = phi ptr [ %add.ptr53, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.150) #27, !srcloc !157
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.150) #24, !srcloc !157
   %arrayidx = getelementptr inbounds i8, ptr %input.148, i64 2
   %11 = load i8, ptr %arrayidx, align 1
   %conv = uitofp i8 %11 to float
@@ -4777,7 +4776,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !159
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !159
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i67 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -4814,7 +4813,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.141 = phi ptr [ %output.1, %while.body ], [ %output.137, %while.body.preheader ]
   %encode.addr.140 = phi ptr [ %add.ptr58, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn39 = phi ptr [ %output.141, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #27, !srcloc !160
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #24, !srcloc !160
   %13 = load <4 x float>, ptr %encode.addr.140, align 1
   %add.i = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %14 = shufflevector <4 x float> %add.i, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
@@ -4911,7 +4910,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !163
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !163
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -5077,23 +5076,23 @@ while.body:                                       ; preds = %while.body.preheade
   %output.1130 = phi ptr [ %output.1, %while.body ], [ %output.1126, %while.body.preheader ]
   %encode.addr.1129 = phi ptr [ %add.ptr163, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn128 = phi ptr [ %output.1130, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1129) #27, !srcloc !164
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1129) #24, !srcloc !164
   %arrayidx150 = getelementptr inbounds float, ptr %encode.addr.1129, i64 2
   %67 = load float, ptr %arrayidx150, align 4
-  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #27
+  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #24
   store i8 %call151, ptr %outputp.pn128, align 1
   %arrayidx153 = getelementptr inbounds float, ptr %encode.addr.1129, i64 1
   %68 = load float, ptr %arrayidx153, align 4
-  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #27
+  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #24
   %arrayidx155 = getelementptr inbounds i8, ptr %outputp.pn128, i64 1
   store i8 %call154, ptr %arrayidx155, align 1
   %69 = load float, ptr %encode.addr.1129, align 4
-  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #27
+  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #24
   %arrayidx158 = getelementptr inbounds i8, ptr %outputp.pn128, i64 2
   store i8 %call157, ptr %arrayidx158, align 1
   %arrayidx159 = getelementptr inbounds float, ptr %encode.addr.1129, i64 3
   %70 = load float, ptr %arrayidx159, align 4
-  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #27
+  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #24
   %arrayidx161 = getelementptr inbounds i8, ptr %outputp.pn128, i64 3
   store i8 %call160, ptr %arrayidx161, align 1
   %add.ptr163 = getelementptr inbounds float, ptr %encode.addr.1129, i64 4
@@ -5166,7 +5165,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !167
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !167
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -5305,19 +5304,19 @@ if.end:                                           ; preds = %for.cond
 do.body:                                          ; preds = %entry, %do.body
   %output.1 = phi ptr [ %add.ptr143, %do.body ], [ %outputp, %entry ]
   %encode.addr.1 = phi ptr [ %add.ptr144, %do.body ], [ %encode, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #27, !srcloc !168
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #24, !srcloc !168
   %55 = load float, ptr %encode.addr.1, align 4
-  %call126 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %55) #27
+  %call126 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %55) #24
   %arrayidx127 = getelementptr inbounds i8, ptr %output.1, i64 2
   store i8 %call126, ptr %arrayidx127, align 1
   %arrayidx128 = getelementptr inbounds float, ptr %encode.addr.1, i64 1
   %56 = load float, ptr %arrayidx128, align 4
-  %call129 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %56) #27
+  %call129 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %56) #24
   %arrayidx130 = getelementptr inbounds i8, ptr %output.1, i64 1
   store i8 %call129, ptr %arrayidx130, align 1
   %arrayidx131 = getelementptr inbounds float, ptr %encode.addr.1, i64 2
   %57 = load float, ptr %arrayidx131, align 4
-  %call132 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %57) #27
+  %call132 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %57) #24
   store i8 %call132, ptr %output.1, align 1
   %arrayidx134 = getelementptr inbounds float, ptr %encode.addr.1, i64 3
   %58 = load float, ptr %arrayidx134, align 4
@@ -5364,7 +5363,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !170
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !170
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i52 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -5397,7 +5396,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.140 = phi ptr [ %decode.1, %while.body ], [ %decode.136, %while.body.preheader ]
   %decodep.pn39 = phi ptr [ %decode.140, %while.body ], [ %decodep, %while.body.preheader ]
   %input.138 = phi ptr [ %add.ptr44, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.140) #27, !srcloc !171
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.140) #24, !srcloc !171
   %arrayidx = getelementptr inbounds i16, ptr %input.138, i64 2
   %5 = load i16, ptr %arrayidx, align 2
   %conv = uitofp i16 %5 to float
@@ -5454,7 +5453,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !173
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !173
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i71 = fmul <4 x float> %0, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i79 = fadd <4 x float> %mul.i71, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -5495,7 +5494,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.139 = phi ptr [ %output.1, %while.body ], [ %output.135, %while.body.preheader ]
   %encode.addr.138 = phi ptr [ %add.ptr62, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn37 = phi ptr [ %output.139, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #27, !srcloc !174
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #24, !srcloc !174
   %13 = load <4 x float>, ptr %encode.addr.138, align 1
   %mul.i = fmul <4 x float> %13, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -5545,7 +5544,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !176
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !176
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i47 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -5576,7 +5575,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.138 = phi ptr [ %decode.1, %while.body ], [ %decode.134, %while.body.preheader ]
   %decodep.pn37 = phi ptr [ %decode.138, %while.body ], [ %decodep, %while.body.preheader ]
   %input.136 = phi ptr [ %add.ptr39, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.138) #27, !srcloc !177
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.138) #24, !srcloc !177
   %arrayidx = getelementptr inbounds i16, ptr %input.136, i64 2
   %5 = load i16, ptr %arrayidx, align 2
   %conv = uitofp i16 %5 to float
@@ -5629,7 +5628,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !179
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !179
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i68 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -5668,7 +5667,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.139 = phi ptr [ %output.1, %while.body ], [ %output.135, %while.body.preheader ]
   %encode.addr.138 = phi ptr [ %add.ptr59, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn37 = phi ptr [ %output.139, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #27, !srcloc !180
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #24, !srcloc !180
   %13 = load <4 x float>, ptr %encode.addr.138, align 1
   %add.i = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %14 = shufflevector <4 x float> %add.i, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
@@ -5717,8 +5716,8 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !182
-  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #27
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !182
+  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #24
   %0 = load <4 x float>, ptr %decode.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %decode.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -5744,23 +5743,23 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.139 = phi ptr [ %decode.1, %while.body ], [ %decode.135, %while.body.preheader ]
   %decodep.pn38 = phi ptr [ %decode.139, %while.body ], [ %decodep, %while.body.preheader ]
   %input.137 = phi ptr [ %add.ptr39, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.139) #27, !srcloc !183
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.139) #24, !srcloc !183
   %arrayidx = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 2
   %4 = load i16, ptr %arrayidx, align 2
-  %call24 = tail call float @stbir__half_to_float(i16 %4) #27
+  %call24 = tail call float @stbir__half_to_float(i16 %4) #24
   store float %call24, ptr %decodep.pn38, align 4
   %arrayidx26 = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 1
   %5 = load i16, ptr %arrayidx26, align 2
-  %call28 = tail call float @stbir__half_to_float(i16 %5) #27
+  %call28 = tail call float @stbir__half_to_float(i16 %5) #24
   %arrayidx29 = getelementptr inbounds float, ptr %decodep.pn38, i64 1
   store float %call28, ptr %arrayidx29, align 4
   %6 = load i16, ptr %input.137, align 2
-  %call32 = tail call float @stbir__half_to_float(i16 %6) #27
+  %call32 = tail call float @stbir__half_to_float(i16 %6) #24
   %arrayidx33 = getelementptr inbounds float, ptr %decodep.pn38, i64 2
   store float %call32, ptr %arrayidx33, align 4
   %arrayidx34 = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 3
   %7 = load i16, ptr %arrayidx34, align 2
-  %call36 = tail call float @stbir__half_to_float(i16 %7) #27
+  %call36 = tail call float @stbir__half_to_float(i16 %7) #24
   %arrayidx37 = getelementptr inbounds float, ptr %decodep.pn38, i64 3
   store float %call36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 4
@@ -5799,7 +5798,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !185
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !185
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -5807,7 +5806,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   store <4 x float> %2, ptr %of, align 16
   %3 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
   store <4 x float> %3, ptr %arrayidx7, align 16
-  call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef nonnull %of) #27
+  call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef nonnull %of) #24
   %add.ptr17 = getelementptr inbounds float, ptr %encode.addr.0, i64 8
   %add.ptr18 = getelementptr inbounds %union.stbir__FP16, ptr %output.0, i64 8
   %cmp19.not = icmp ugt ptr %add.ptr18, %add.ptr4
@@ -5826,24 +5825,24 @@ while.body:                                       ; preds = %while.body.preheade
   %output.134 = phi ptr [ %output.1, %while.body ], [ %output.130, %while.body.preheader ]
   %encode.addr.133 = phi ptr [ %add.ptr47, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn32 = phi ptr [ %output.134, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.134) #27, !srcloc !186
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.134) #24, !srcloc !186
   %arrayidx29 = getelementptr inbounds float, ptr %encode.addr.133, i64 2
   %4 = load float, ptr %arrayidx29, align 4
-  %call30 = tail call i16 @stbir__float_to_half(float noundef %4) #27
+  %call30 = tail call i16 @stbir__float_to_half(float noundef %4) #24
   store i16 %call30, ptr %outputp.pn32, align 2
   %arrayidx31 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn32, i64 1
   %arrayidx33 = getelementptr inbounds float, ptr %encode.addr.133, i64 1
   %5 = load float, ptr %arrayidx33, align 4
-  %call34 = tail call i16 @stbir__float_to_half(float noundef %5) #27
+  %call34 = tail call i16 @stbir__float_to_half(float noundef %5) #24
   store i16 %call34, ptr %arrayidx31, align 2
   %arrayidx36 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn32, i64 2
   %6 = load float, ptr %encode.addr.133, align 4
-  %call39 = tail call i16 @stbir__float_to_half(float noundef %6) #27
+  %call39 = tail call i16 @stbir__float_to_half(float noundef %6) #24
   store i16 %call39, ptr %arrayidx36, align 2
   %arrayidx41 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn32, i64 3
   %arrayidx43 = getelementptr inbounds float, ptr %encode.addr.133, i64 3
   %7 = load float, ptr %arrayidx43, align 4
-  %call44 = tail call i16 @stbir__float_to_half(float noundef %7) #27
+  %call44 = tail call i16 @stbir__float_to_half(float noundef %7) #24
   store i16 %call44, ptr %arrayidx41, align 2
   %add.ptr47 = getelementptr inbounds float, ptr %encode.addr.133, i64 4
   %output.1 = getelementptr inbounds %union.stbir__FP16, ptr %output.134, i64 4
@@ -5879,7 +5878,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !188
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !188
   %0 = load <4 x float>, ptr %input.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %input.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -5916,7 +5915,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.143 = phi ptr [ %decode.1, %while.body ], [ %decode.139, %while.body.preheader ]
   %decodep.pn42 = phi ptr [ %decode.143, %while.body ], [ %decodep, %while.body.preheader ]
   %input.141 = phi ptr [ %add.ptr44, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.143) #27, !srcloc !189
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.143) #24, !srcloc !189
   %arrayidx = getelementptr inbounds float, ptr %input.141, i64 2
   %8 = load float, ptr %arrayidx, align 4
   store float %8, ptr %decodep.pn42, align 4
@@ -5965,7 +5964,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !191
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !191
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -5992,7 +5991,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.132 = phi ptr [ %output.1, %while.body ], [ %output.128, %while.body.preheader ]
   %encode.addr.131 = phi ptr [ %add.ptr31, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn30 = phi ptr [ %output.132, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.131) #27, !srcloc !192
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.131) #24, !srcloc !192
   %4 = load <4 x float>, ptr %encode.addr.131, align 1
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
   store <4 x float> %5, ptr %outputp.pn30, align 1
@@ -6030,7 +6029,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !194
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !194
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i72 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -6081,7 +6080,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.154 = phi ptr [ %decode.1, %while.body ], [ %decode.150, %while.body.preheader ]
   %decodep.pn53 = phi ptr [ %decode.154, %while.body ], [ %decodep, %while.body.preheader ]
   %input.152 = phi ptr [ %add.ptr60, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.154) #27, !srcloc !195
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.154) #24, !srcloc !195
   %arrayidx = getelementptr inbounds i8, ptr %input.152, i64 1
   %11 = load i8, ptr %arrayidx, align 1
   %conv = uitofp i8 %11 to float
@@ -6138,7 +6137,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !197
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !197
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i70 = fmul <4 x float> %0, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i78 = fadd <4 x float> %mul.i70, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -6177,7 +6176,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.141 = phi ptr [ %output.1, %while.body ], [ %output.137, %while.body.preheader ]
   %encode.addr.140 = phi ptr [ %add.ptr61, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn39 = phi ptr [ %output.141, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #27, !srcloc !198
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #24, !srcloc !198
   %13 = load <4 x float>, ptr %encode.addr.140, align 1
   %mul.i = fmul <4 x float> %13, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -6224,7 +6223,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !200
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !200
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i65 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -6271,7 +6270,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.150 = phi ptr [ %decode.1, %while.body ], [ %decode.146, %while.body.preheader ]
   %decodep.pn49 = phi ptr [ %decode.150, %while.body ], [ %decodep, %while.body.preheader ]
   %input.148 = phi ptr [ %add.ptr53, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.150) #27, !srcloc !201
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.150) #24, !srcloc !201
   %arrayidx = getelementptr inbounds i8, ptr %input.148, i64 1
   %11 = load i8, ptr %arrayidx, align 1
   %conv = uitofp i8 %11 to float
@@ -6324,7 +6323,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !203
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !203
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i67 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -6361,7 +6360,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.141 = phi ptr [ %output.1, %while.body ], [ %output.137, %while.body.preheader ]
   %encode.addr.140 = phi ptr [ %add.ptr58, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn39 = phi ptr [ %output.141, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #27, !srcloc !204
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #24, !srcloc !204
   %13 = load <4 x float>, ptr %encode.addr.140, align 1
   %add.i = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %14 = shufflevector <4 x float> %add.i, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -6458,7 +6457,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !207
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !207
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -6624,23 +6623,23 @@ while.body:                                       ; preds = %while.body.preheade
   %output.1130 = phi ptr [ %output.1, %while.body ], [ %output.1126, %while.body.preheader ]
   %encode.addr.1129 = phi ptr [ %add.ptr163, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn128 = phi ptr [ %output.1130, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1129) #27, !srcloc !208
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1129) #24, !srcloc !208
   %arrayidx150 = getelementptr inbounds float, ptr %encode.addr.1129, i64 3
   %67 = load float, ptr %arrayidx150, align 4
-  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #27
+  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #24
   store i8 %call151, ptr %outputp.pn128, align 1
   %68 = load float, ptr %encode.addr.1129, align 4
-  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #27
+  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #24
   %arrayidx155 = getelementptr inbounds i8, ptr %outputp.pn128, i64 1
   store i8 %call154, ptr %arrayidx155, align 1
   %arrayidx156 = getelementptr inbounds float, ptr %encode.addr.1129, i64 1
   %69 = load float, ptr %arrayidx156, align 4
-  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #27
+  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #24
   %arrayidx158 = getelementptr inbounds i8, ptr %outputp.pn128, i64 2
   store i8 %call157, ptr %arrayidx158, align 1
   %arrayidx159 = getelementptr inbounds float, ptr %encode.addr.1129, i64 2
   %70 = load float, ptr %arrayidx159, align 4
-  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #27
+  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #24
   %arrayidx161 = getelementptr inbounds i8, ptr %outputp.pn128, i64 3
   store i8 %call160, ptr %arrayidx161, align 1
   %add.ptr163 = getelementptr inbounds float, ptr %encode.addr.1129, i64 4
@@ -6713,7 +6712,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !211
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !211
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -6852,19 +6851,19 @@ if.end:                                           ; preds = %for.cond
 do.body:                                          ; preds = %entry, %do.body
   %output.1 = phi ptr [ %add.ptr143, %do.body ], [ %outputp, %entry ]
   %encode.addr.1 = phi ptr [ %add.ptr144, %do.body ], [ %encode, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #27, !srcloc !212
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #24, !srcloc !212
   %55 = load float, ptr %encode.addr.1, align 4
-  %call126 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %55) #27
+  %call126 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %55) #24
   %arrayidx127 = getelementptr inbounds i8, ptr %output.1, i64 1
   store i8 %call126, ptr %arrayidx127, align 1
   %arrayidx128 = getelementptr inbounds float, ptr %encode.addr.1, i64 1
   %56 = load float, ptr %arrayidx128, align 4
-  %call129 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %56) #27
+  %call129 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %56) #24
   %arrayidx130 = getelementptr inbounds i8, ptr %output.1, i64 2
   store i8 %call129, ptr %arrayidx130, align 1
   %arrayidx131 = getelementptr inbounds float, ptr %encode.addr.1, i64 2
   %57 = load float, ptr %arrayidx131, align 4
-  %call132 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %57) #27
+  %call132 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %57) #24
   %arrayidx133 = getelementptr inbounds i8, ptr %output.1, i64 3
   store i8 %call132, ptr %arrayidx133, align 1
   %arrayidx134 = getelementptr inbounds float, ptr %encode.addr.1, i64 3
@@ -6911,7 +6910,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !214
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !214
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i52 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -6944,7 +6943,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.140 = phi ptr [ %decode.1, %while.body ], [ %decode.136, %while.body.preheader ]
   %decodep.pn39 = phi ptr [ %decode.140, %while.body ], [ %decodep, %while.body.preheader ]
   %input.138 = phi ptr [ %add.ptr44, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.140) #27, !srcloc !215
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.140) #24, !srcloc !215
   %arrayidx = getelementptr inbounds i16, ptr %input.138, i64 1
   %5 = load i16, ptr %arrayidx, align 2
   %conv = uitofp i16 %5 to float
@@ -7001,7 +7000,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !217
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !217
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i71 = fmul <4 x float> %0, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i79 = fadd <4 x float> %mul.i71, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -7042,7 +7041,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.139 = phi ptr [ %output.1, %while.body ], [ %output.135, %while.body.preheader ]
   %encode.addr.138 = phi ptr [ %add.ptr62, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn37 = phi ptr [ %output.139, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #27, !srcloc !218
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #24, !srcloc !218
   %13 = load <4 x float>, ptr %encode.addr.138, align 1
   %mul.i = fmul <4 x float> %13, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -7092,7 +7091,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !220
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !220
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i47 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -7123,7 +7122,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.138 = phi ptr [ %decode.1, %while.body ], [ %decode.134, %while.body.preheader ]
   %decodep.pn37 = phi ptr [ %decode.138, %while.body ], [ %decodep, %while.body.preheader ]
   %input.136 = phi ptr [ %add.ptr39, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.138) #27, !srcloc !221
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.138) #24, !srcloc !221
   %arrayidx = getelementptr inbounds i16, ptr %input.136, i64 1
   %5 = load i16, ptr %arrayidx, align 2
   %conv = uitofp i16 %5 to float
@@ -7176,7 +7175,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !223
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !223
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i68 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -7215,7 +7214,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.139 = phi ptr [ %output.1, %while.body ], [ %output.135, %while.body.preheader ]
   %encode.addr.138 = phi ptr [ %add.ptr59, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn37 = phi ptr [ %output.139, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #27, !srcloc !224
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #24, !srcloc !224
   %13 = load <4 x float>, ptr %encode.addr.138, align 1
   %add.i = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %14 = shufflevector <4 x float> %add.i, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -7264,8 +7263,8 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !226
-  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #27
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !226
+  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #24
   %0 = load <4 x float>, ptr %decode.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %decode.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -7291,23 +7290,23 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.139 = phi ptr [ %decode.1, %while.body ], [ %decode.135, %while.body.preheader ]
   %decodep.pn38 = phi ptr [ %decode.139, %while.body ], [ %decodep, %while.body.preheader ]
   %input.137 = phi ptr [ %add.ptr39, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.139) #27, !srcloc !227
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.139) #24, !srcloc !227
   %arrayidx = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 1
   %4 = load i16, ptr %arrayidx, align 2
-  %call24 = tail call float @stbir__half_to_float(i16 %4) #27
+  %call24 = tail call float @stbir__half_to_float(i16 %4) #24
   store float %call24, ptr %decodep.pn38, align 4
   %arrayidx26 = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 2
   %5 = load i16, ptr %arrayidx26, align 2
-  %call28 = tail call float @stbir__half_to_float(i16 %5) #27
+  %call28 = tail call float @stbir__half_to_float(i16 %5) #24
   %arrayidx29 = getelementptr inbounds float, ptr %decodep.pn38, i64 1
   store float %call28, ptr %arrayidx29, align 4
   %arrayidx30 = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 3
   %6 = load i16, ptr %arrayidx30, align 2
-  %call32 = tail call float @stbir__half_to_float(i16 %6) #27
+  %call32 = tail call float @stbir__half_to_float(i16 %6) #24
   %arrayidx33 = getelementptr inbounds float, ptr %decodep.pn38, i64 2
   store float %call32, ptr %arrayidx33, align 4
   %7 = load i16, ptr %input.137, align 2
-  %call36 = tail call float @stbir__half_to_float(i16 %7) #27
+  %call36 = tail call float @stbir__half_to_float(i16 %7) #24
   %arrayidx37 = getelementptr inbounds float, ptr %decodep.pn38, i64 3
   store float %call36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 4
@@ -7346,7 +7345,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !229
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !229
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -7354,7 +7353,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   store <4 x float> %2, ptr %of, align 16
   %3 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   store <4 x float> %3, ptr %arrayidx7, align 16
-  call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef nonnull %of) #27
+  call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef nonnull %of) #24
   %add.ptr17 = getelementptr inbounds float, ptr %encode.addr.0, i64 8
   %add.ptr18 = getelementptr inbounds %union.stbir__FP16, ptr %output.0, i64 8
   %cmp19.not = icmp ugt ptr %add.ptr18, %add.ptr4
@@ -7373,24 +7372,24 @@ while.body:                                       ; preds = %while.body.preheade
   %output.134 = phi ptr [ %output.1, %while.body ], [ %output.130, %while.body.preheader ]
   %encode.addr.133 = phi ptr [ %add.ptr47, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn32 = phi ptr [ %output.134, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.134) #27, !srcloc !230
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.134) #24, !srcloc !230
   %arrayidx29 = getelementptr inbounds float, ptr %encode.addr.133, i64 3
   %4 = load float, ptr %arrayidx29, align 4
-  %call30 = tail call i16 @stbir__float_to_half(float noundef %4) #27
+  %call30 = tail call i16 @stbir__float_to_half(float noundef %4) #24
   store i16 %call30, ptr %outputp.pn32, align 2
   %arrayidx31 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn32, i64 1
   %5 = load float, ptr %encode.addr.133, align 4
-  %call34 = tail call i16 @stbir__float_to_half(float noundef %5) #27
+  %call34 = tail call i16 @stbir__float_to_half(float noundef %5) #24
   store i16 %call34, ptr %arrayidx31, align 2
   %arrayidx36 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn32, i64 2
   %arrayidx38 = getelementptr inbounds float, ptr %encode.addr.133, i64 1
   %6 = load float, ptr %arrayidx38, align 4
-  %call39 = tail call i16 @stbir__float_to_half(float noundef %6) #27
+  %call39 = tail call i16 @stbir__float_to_half(float noundef %6) #24
   store i16 %call39, ptr %arrayidx36, align 2
   %arrayidx41 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn32, i64 3
   %arrayidx43 = getelementptr inbounds float, ptr %encode.addr.133, i64 2
   %7 = load float, ptr %arrayidx43, align 4
-  %call44 = tail call i16 @stbir__float_to_half(float noundef %7) #27
+  %call44 = tail call i16 @stbir__float_to_half(float noundef %7) #24
   store i16 %call44, ptr %arrayidx41, align 2
   %add.ptr47 = getelementptr inbounds float, ptr %encode.addr.133, i64 4
   %output.1 = getelementptr inbounds %union.stbir__FP16, ptr %output.134, i64 4
@@ -7426,7 +7425,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !232
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !232
   %0 = load <4 x float>, ptr %input.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %input.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -7463,7 +7462,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.143 = phi ptr [ %decode.1, %while.body ], [ %decode.139, %while.body.preheader ]
   %decodep.pn42 = phi ptr [ %decode.143, %while.body ], [ %decodep, %while.body.preheader ]
   %input.141 = phi ptr [ %add.ptr44, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.143) #27, !srcloc !233
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.143) #24, !srcloc !233
   %arrayidx = getelementptr inbounds float, ptr %input.141, i64 1
   %8 = load float, ptr %arrayidx, align 4
   store float %8, ptr %decodep.pn42, align 4
@@ -7512,7 +7511,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !235
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !235
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -7539,7 +7538,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.132 = phi ptr [ %output.1, %while.body ], [ %output.128, %while.body.preheader ]
   %encode.addr.131 = phi ptr [ %add.ptr31, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn30 = phi ptr [ %output.132, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.131) #27, !srcloc !236
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.131) #24, !srcloc !236
   %4 = load <4 x float>, ptr %encode.addr.131, align 1
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   store <4 x float> %5, ptr %outputp.pn30, align 1
@@ -7577,7 +7576,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !238
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !238
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i72 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -7628,7 +7627,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.154 = phi ptr [ %decode.1, %while.body ], [ %decode.150, %while.body.preheader ]
   %decodep.pn53 = phi ptr [ %decode.154, %while.body ], [ %decodep, %while.body.preheader ]
   %input.152 = phi ptr [ %add.ptr60, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.154) #27, !srcloc !239
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.154) #24, !srcloc !239
   %arrayidx = getelementptr inbounds i8, ptr %input.152, i64 3
   %11 = load i8, ptr %arrayidx, align 1
   %conv = uitofp i8 %11 to float
@@ -7685,7 +7684,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !241
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !241
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i70 = fmul <4 x float> %0, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i78 = fadd <4 x float> %mul.i70, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -7724,7 +7723,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.141 = phi ptr [ %output.1, %while.body ], [ %output.137, %while.body.preheader ]
   %encode.addr.140 = phi ptr [ %add.ptr61, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn39 = phi ptr [ %output.141, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #27, !srcloc !242
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #24, !srcloc !242
   %13 = load <4 x float>, ptr %encode.addr.140, align 1
   %mul.i = fmul <4 x float> %13, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -7771,7 +7770,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !244
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !244
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i65 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -7818,7 +7817,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.150 = phi ptr [ %decode.1, %while.body ], [ %decode.146, %while.body.preheader ]
   %decodep.pn49 = phi ptr [ %decode.150, %while.body ], [ %decodep, %while.body.preheader ]
   %input.148 = phi ptr [ %add.ptr53, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.150) #27, !srcloc !245
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.150) #24, !srcloc !245
   %arrayidx = getelementptr inbounds i8, ptr %input.148, i64 3
   %11 = load i8, ptr %arrayidx, align 1
   %conv = uitofp i8 %11 to float
@@ -7871,7 +7870,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !247
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !247
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i67 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -7908,7 +7907,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.141 = phi ptr [ %output.1, %while.body ], [ %output.137, %while.body.preheader ]
   %encode.addr.140 = phi ptr [ %add.ptr58, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn39 = phi ptr [ %output.141, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #27, !srcloc !248
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.140) #24, !srcloc !248
   %13 = load <4 x float>, ptr %encode.addr.140, align 1
   %add.i = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %14 = shufflevector <4 x float> %add.i, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -8005,7 +8004,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !251
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !251
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -8171,23 +8170,23 @@ while.body:                                       ; preds = %while.body.preheade
   %output.1130 = phi ptr [ %output.1, %while.body ], [ %output.1126, %while.body.preheader ]
   %encode.addr.1129 = phi ptr [ %add.ptr163, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn128 = phi ptr [ %output.1130, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1129) #27, !srcloc !252
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1129) #24, !srcloc !252
   %arrayidx150 = getelementptr inbounds float, ptr %encode.addr.1129, i64 3
   %67 = load float, ptr %arrayidx150, align 4
-  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #27
+  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #24
   store i8 %call151, ptr %outputp.pn128, align 1
   %arrayidx153 = getelementptr inbounds float, ptr %encode.addr.1129, i64 2
   %68 = load float, ptr %arrayidx153, align 4
-  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #27
+  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #24
   %arrayidx155 = getelementptr inbounds i8, ptr %outputp.pn128, i64 1
   store i8 %call154, ptr %arrayidx155, align 1
   %arrayidx156 = getelementptr inbounds float, ptr %encode.addr.1129, i64 1
   %69 = load float, ptr %arrayidx156, align 4
-  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #27
+  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #24
   %arrayidx158 = getelementptr inbounds i8, ptr %outputp.pn128, i64 2
   store i8 %call157, ptr %arrayidx158, align 1
   %70 = load float, ptr %encode.addr.1129, align 4
-  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #27
+  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #24
   %arrayidx161 = getelementptr inbounds i8, ptr %outputp.pn128, i64 3
   store i8 %call160, ptr %arrayidx161, align 1
   %add.ptr163 = getelementptr inbounds float, ptr %encode.addr.1129, i64 4
@@ -8260,7 +8259,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !255
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !255
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -8399,19 +8398,19 @@ if.end:                                           ; preds = %for.cond
 do.body:                                          ; preds = %entry, %do.body
   %output.1 = phi ptr [ %add.ptr143, %do.body ], [ %outputp, %entry ]
   %encode.addr.1 = phi ptr [ %add.ptr144, %do.body ], [ %encode, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #27, !srcloc !256
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #24, !srcloc !256
   %55 = load float, ptr %encode.addr.1, align 4
-  %call126 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %55) #27
+  %call126 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %55) #24
   %arrayidx127 = getelementptr inbounds i8, ptr %output.1, i64 3
   store i8 %call126, ptr %arrayidx127, align 1
   %arrayidx128 = getelementptr inbounds float, ptr %encode.addr.1, i64 1
   %56 = load float, ptr %arrayidx128, align 4
-  %call129 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %56) #27
+  %call129 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %56) #24
   %arrayidx130 = getelementptr inbounds i8, ptr %output.1, i64 2
   store i8 %call129, ptr %arrayidx130, align 1
   %arrayidx131 = getelementptr inbounds float, ptr %encode.addr.1, i64 2
   %57 = load float, ptr %arrayidx131, align 4
-  %call132 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %57) #27
+  %call132 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %57) #24
   %arrayidx133 = getelementptr inbounds i8, ptr %output.1, i64 1
   store i8 %call132, ptr %arrayidx133, align 1
   %arrayidx134 = getelementptr inbounds float, ptr %encode.addr.1, i64 3
@@ -8458,7 +8457,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !258
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !258
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i52 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -8491,7 +8490,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.140 = phi ptr [ %decode.1, %while.body ], [ %decode.136, %while.body.preheader ]
   %decodep.pn39 = phi ptr [ %decode.140, %while.body ], [ %decodep, %while.body.preheader ]
   %input.138 = phi ptr [ %add.ptr44, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.140) #27, !srcloc !259
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.140) #24, !srcloc !259
   %arrayidx = getelementptr inbounds i16, ptr %input.138, i64 3
   %5 = load i16, ptr %arrayidx, align 2
   %conv = uitofp i16 %5 to float
@@ -8548,7 +8547,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !261
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !261
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i71 = fmul <4 x float> %0, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i79 = fadd <4 x float> %mul.i71, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -8589,7 +8588,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.139 = phi ptr [ %output.1, %while.body ], [ %output.135, %while.body.preheader ]
   %encode.addr.138 = phi ptr [ %add.ptr62, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn37 = phi ptr [ %output.139, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #27, !srcloc !262
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #24, !srcloc !262
   %13 = load <4 x float>, ptr %encode.addr.138, align 1
   %mul.i = fmul <4 x float> %13, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -8639,7 +8638,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !264
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !264
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i47 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -8670,7 +8669,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.138 = phi ptr [ %decode.1, %while.body ], [ %decode.134, %while.body.preheader ]
   %decodep.pn37 = phi ptr [ %decode.138, %while.body ], [ %decodep, %while.body.preheader ]
   %input.136 = phi ptr [ %add.ptr39, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.138) #27, !srcloc !265
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.138) #24, !srcloc !265
   %arrayidx = getelementptr inbounds i16, ptr %input.136, i64 3
   %5 = load i16, ptr %arrayidx, align 2
   %conv = uitofp i16 %5 to float
@@ -8723,7 +8722,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !267
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !267
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i68 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -8762,7 +8761,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.139 = phi ptr [ %output.1, %while.body ], [ %output.135, %while.body.preheader ]
   %encode.addr.138 = phi ptr [ %add.ptr59, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn37 = phi ptr [ %output.139, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #27, !srcloc !268
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.138) #24, !srcloc !268
   %13 = load <4 x float>, ptr %encode.addr.138, align 1
   %add.i = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %14 = shufflevector <4 x float> %add.i, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -8811,8 +8810,8 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !270
-  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #27
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !270
+  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #24
   %0 = load <4 x float>, ptr %decode.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %decode.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -8838,23 +8837,23 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.139 = phi ptr [ %decode.1, %while.body ], [ %decode.135, %while.body.preheader ]
   %decodep.pn38 = phi ptr [ %decode.139, %while.body ], [ %decodep, %while.body.preheader ]
   %input.137 = phi ptr [ %add.ptr39, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.139) #27, !srcloc !271
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.139) #24, !srcloc !271
   %arrayidx = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 3
   %4 = load i16, ptr %arrayidx, align 2
-  %call24 = tail call float @stbir__half_to_float(i16 %4) #27
+  %call24 = tail call float @stbir__half_to_float(i16 %4) #24
   store float %call24, ptr %decodep.pn38, align 4
   %arrayidx26 = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 2
   %5 = load i16, ptr %arrayidx26, align 2
-  %call28 = tail call float @stbir__half_to_float(i16 %5) #27
+  %call28 = tail call float @stbir__half_to_float(i16 %5) #24
   %arrayidx29 = getelementptr inbounds float, ptr %decodep.pn38, i64 1
   store float %call28, ptr %arrayidx29, align 4
   %arrayidx30 = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 1
   %6 = load i16, ptr %arrayidx30, align 2
-  %call32 = tail call float @stbir__half_to_float(i16 %6) #27
+  %call32 = tail call float @stbir__half_to_float(i16 %6) #24
   %arrayidx33 = getelementptr inbounds float, ptr %decodep.pn38, i64 2
   store float %call32, ptr %arrayidx33, align 4
   %7 = load i16, ptr %input.137, align 2
-  %call36 = tail call float @stbir__half_to_float(i16 %7) #27
+  %call36 = tail call float @stbir__half_to_float(i16 %7) #24
   %arrayidx37 = getelementptr inbounds float, ptr %decodep.pn38, i64 3
   store float %call36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds %union.stbir__FP16, ptr %input.137, i64 4
@@ -8893,7 +8892,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !273
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !273
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -8901,7 +8900,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   store <4 x float> %2, ptr %of, align 16
   %3 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x float> %3, ptr %arrayidx7, align 16
-  call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef nonnull %of) #27
+  call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef nonnull %of) #24
   %add.ptr17 = getelementptr inbounds float, ptr %encode.addr.0, i64 8
   %add.ptr18 = getelementptr inbounds %union.stbir__FP16, ptr %output.0, i64 8
   %cmp19.not = icmp ugt ptr %add.ptr18, %add.ptr4
@@ -8920,24 +8919,24 @@ while.body:                                       ; preds = %while.body.preheade
   %output.134 = phi ptr [ %output.1, %while.body ], [ %output.130, %while.body.preheader ]
   %encode.addr.133 = phi ptr [ %add.ptr47, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn32 = phi ptr [ %output.134, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.134) #27, !srcloc !274
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.134) #24, !srcloc !274
   %arrayidx29 = getelementptr inbounds float, ptr %encode.addr.133, i64 3
   %4 = load float, ptr %arrayidx29, align 4
-  %call30 = tail call i16 @stbir__float_to_half(float noundef %4) #27
+  %call30 = tail call i16 @stbir__float_to_half(float noundef %4) #24
   store i16 %call30, ptr %outputp.pn32, align 2
   %arrayidx31 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn32, i64 1
   %arrayidx33 = getelementptr inbounds float, ptr %encode.addr.133, i64 2
   %5 = load float, ptr %arrayidx33, align 4
-  %call34 = tail call i16 @stbir__float_to_half(float noundef %5) #27
+  %call34 = tail call i16 @stbir__float_to_half(float noundef %5) #24
   store i16 %call34, ptr %arrayidx31, align 2
   %arrayidx36 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn32, i64 2
   %arrayidx38 = getelementptr inbounds float, ptr %encode.addr.133, i64 1
   %6 = load float, ptr %arrayidx38, align 4
-  %call39 = tail call i16 @stbir__float_to_half(float noundef %6) #27
+  %call39 = tail call i16 @stbir__float_to_half(float noundef %6) #24
   store i16 %call39, ptr %arrayidx36, align 2
   %arrayidx41 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn32, i64 3
   %7 = load float, ptr %encode.addr.133, align 4
-  %call44 = tail call i16 @stbir__float_to_half(float noundef %7) #27
+  %call44 = tail call i16 @stbir__float_to_half(float noundef %7) #24
   store i16 %call44, ptr %arrayidx41, align 2
   %add.ptr47 = getelementptr inbounds float, ptr %encode.addr.133, i64 4
   %output.1 = getelementptr inbounds %union.stbir__FP16, ptr %output.134, i64 4
@@ -8973,7 +8972,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !276
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !276
   %0 = load <4 x float>, ptr %input.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %input.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -9010,7 +9009,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.143 = phi ptr [ %decode.1, %while.body ], [ %decode.139, %while.body.preheader ]
   %decodep.pn42 = phi ptr [ %decode.143, %while.body ], [ %decodep, %while.body.preheader ]
   %input.141 = phi ptr [ %add.ptr44, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.143) #27, !srcloc !277
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.143) #24, !srcloc !277
   %arrayidx = getelementptr inbounds float, ptr %input.141, i64 3
   %8 = load float, ptr %arrayidx, align 4
   store float %8, ptr %decodep.pn42, align 4
@@ -9059,7 +9058,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !279
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !279
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -9086,7 +9085,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.132 = phi ptr [ %output.1, %while.body ], [ %output.128, %while.body.preheader ]
   %encode.addr.131 = phi ptr [ %add.ptr31, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn30 = phi ptr [ %output.132, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.131) #27, !srcloc !280
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.131) #24, !srcloc !280
   %4 = load <4 x float>, ptr %encode.addr.131, align 1
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x float> %5, ptr %outputp.pn30, align 1
@@ -9124,7 +9123,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !282
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !282
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i87 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -9181,7 +9180,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.163 = phi ptr [ %decode.1, %while.body ], [ %decode.159, %while.body.preheader ]
   %decodep.pn62 = phi ptr [ %decode.163, %while.body ], [ %decodep, %while.body.preheader ]
   %input.161 = phi ptr [ %add.ptr60, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.163) #27, !srcloc !283
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.163) #24, !srcloc !283
   %arrayidx = getelementptr inbounds i8, ptr %input.161, i64 1
   %11 = load i8, ptr %arrayidx, align 1
   %conv = uitofp i8 %11 to float
@@ -9212,7 +9211,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body65:                                     ; preds = %while.cond62.preheader, %while.body65
   %decode.267 = phi ptr [ %add.ptr74, %while.body65 ], [ %decodep.pn.lcssa, %while.cond62.preheader ]
   %input.266 = phi ptr [ %add.ptr75, %while.body65 ], [ %input.1.lcssa, %while.cond62.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.267) #27, !srcloc !285
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.267) #24, !srcloc !285
   %arrayidx66 = getelementptr inbounds i8, ptr %input.266, i64 1
   %15 = load i8, ptr %arrayidx66, align 1
   %conv67 = uitofp i8 %15 to float
@@ -9257,7 +9256,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !287
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !287
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i97 = fmul <4 x float> %0, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i105 = fadd <4 x float> %mul.i97, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -9302,7 +9301,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.159 = phi ptr [ %output.1, %while.body ], [ %output.155, %while.body.preheader ]
   %encode.addr.158 = phi ptr [ %add.ptr61, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn57 = phi ptr [ %output.159, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.158) #27, !srcloc !288
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.158) #24, !srcloc !288
   %13 = load <4 x float>, ptr %encode.addr.158, align 1
   %mul.i = fmul <4 x float> %13, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -9323,7 +9322,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body65:                                     ; preds = %while.cond63.preheader, %while.body65
   %encode.addr.263 = phi ptr [ %add.ptr88, %while.body65 ], [ %encode.addr.1.lcssa, %while.cond63.preheader ]
   %output.262 = phi ptr [ %add.ptr87, %while.body65 ], [ %outputp.pn.lcssa, %while.cond63.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.263) #27, !srcloc !290
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.263) #24, !srcloc !290
   %add.ptr67 = getelementptr inbounds float, ptr %encode.addr.263, i64 1
   %21 = load float, ptr %add.ptr67, align 1
   %mul.i179 = fmul float %21, 2.550000e+02
@@ -9380,7 +9379,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !292
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !292
   %0 = load <16 x i8>, ptr %input.0, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i78 = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -9433,7 +9432,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.159 = phi ptr [ %decode.1, %while.body ], [ %decode.155, %while.body.preheader ]
   %decodep.pn58 = phi ptr [ %decode.159, %while.body ], [ %decodep, %while.body.preheader ]
   %input.157 = phi ptr [ %add.ptr53, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.159) #27, !srcloc !293
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.159) #24, !srcloc !293
   %arrayidx = getelementptr inbounds i8, ptr %input.157, i64 1
   %11 = load i8, ptr %arrayidx, align 1
   %conv = uitofp i8 %11 to float
@@ -9460,7 +9459,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body58:                                     ; preds = %while.cond55.preheader, %while.body58
   %decode.263 = phi ptr [ %add.ptr65, %while.body58 ], [ %decodep.pn.lcssa, %while.cond55.preheader ]
   %input.262 = phi ptr [ %add.ptr66, %while.body58 ], [ %input.1.lcssa, %while.cond55.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.263) #27, !srcloc !295
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.263) #24, !srcloc !295
   %arrayidx59 = getelementptr inbounds i8, ptr %input.262, i64 1
   %15 = load i8, ptr %arrayidx59, align 1
   %conv60 = uitofp i8 %15 to float
@@ -9503,7 +9502,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !297
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !297
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i94 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -9546,7 +9545,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.155 = phi ptr [ %output.1, %while.body ], [ %output.151, %while.body.preheader ]
   %encode.addr.154 = phi ptr [ %add.ptr58, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn53 = phi ptr [ %output.155, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.154) #27, !srcloc !298
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.154) #24, !srcloc !298
   %13 = load <4 x float>, ptr %encode.addr.154, align 1
   %add.i = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %14 = shufflevector <4 x float> %add.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
@@ -9566,7 +9565,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body62:                                     ; preds = %while.cond60.preheader, %while.body62
   %encode.addr.259 = phi ptr [ %add.ptr85, %while.body62 ], [ %encode.addr.1.lcssa, %while.cond60.preheader ]
   %output.258 = phi ptr [ %add.ptr84, %while.body62 ], [ %outputp.pn.lcssa, %while.cond60.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.259) #27, !srcloc !300
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.259) #24, !srcloc !300
   %arrayidx = getelementptr inbounds float, ptr %encode.addr.259, i64 1
   %21 = load float, ptr %arrayidx, align 4
   %add = fadd float %21, 5.000000e-01
@@ -9650,7 +9649,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
   %input.130 = phi ptr [ %add.ptr31, %while.body21 ], [ %input.0.lcssa, %while.cond19.preheader ]
   %decode.129 = phi ptr [ %add.ptr30, %while.body21 ], [ %decodep.pn.lcssa, %while.cond19.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.129) #27, !srcloc !303
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.129) #24, !srcloc !303
   %arrayidx22 = getelementptr inbounds i8, ptr %input.130, i64 1
   %8 = load i8, ptr %arrayidx22, align 1
   %idxprom23 = zext i8 %8 to i64
@@ -9697,7 +9696,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !305
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !305
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -9869,23 +9868,23 @@ while.body:                                       ; preds = %while.body.preheade
   %output.1139 = phi ptr [ %output.1, %while.body ], [ %output.1135, %while.body.preheader ]
   %encode.addr.1138 = phi ptr [ %add.ptr163, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn137 = phi ptr [ %output.1139, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1138) #27, !srcloc !306
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1138) #24, !srcloc !306
   %arrayidx150 = getelementptr inbounds float, ptr %encode.addr.1138, i64 1
   %67 = load float, ptr %arrayidx150, align 4
-  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #27
+  %call151 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %67) #24
   store i8 %call151, ptr %outputp.pn137, align 1
   %68 = load float, ptr %encode.addr.1138, align 4
-  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #27
+  %call154 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %68) #24
   %arrayidx155 = getelementptr inbounds i8, ptr %outputp.pn137, i64 1
   store i8 %call154, ptr %arrayidx155, align 1
   %arrayidx156 = getelementptr inbounds float, ptr %encode.addr.1138, i64 3
   %69 = load float, ptr %arrayidx156, align 4
-  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #27
+  %call157 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %69) #24
   %arrayidx158 = getelementptr inbounds i8, ptr %outputp.pn137, i64 2
   store i8 %call157, ptr %arrayidx158, align 1
   %arrayidx159 = getelementptr inbounds float, ptr %encode.addr.1138, i64 2
   %70 = load float, ptr %arrayidx159, align 4
-  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #27
+  %call160 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %70) #24
   %arrayidx161 = getelementptr inbounds i8, ptr %outputp.pn137, i64 3
   store i8 %call160, ptr %arrayidx161, align 1
   %add.ptr163 = getelementptr inbounds float, ptr %encode.addr.1138, i64 4
@@ -9896,13 +9895,13 @@ while.body:                                       ; preds = %while.body.preheade
 while.body167:                                    ; preds = %while.cond165.preheader, %while.body167
   %encode.addr.2143 = phi ptr [ %add.ptr175, %while.body167 ], [ %encode.addr.1.lcssa, %while.cond165.preheader ]
   %output.2142 = phi ptr [ %add.ptr174, %while.body167 ], [ %outputp.pn.lcssa, %while.cond165.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.2143) #27, !srcloc !308
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.2143) #24, !srcloc !308
   %arrayidx168 = getelementptr inbounds float, ptr %encode.addr.2143, i64 1
   %71 = load float, ptr %arrayidx168, align 4
-  %call169 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %71) #27
+  %call169 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %71) #24
   store i8 %call169, ptr %output.2142, align 1
   %72 = load float, ptr %encode.addr.2143, align 4
-  %call172 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %72) #27
+  %call172 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %72) #24
   %arrayidx173 = getelementptr inbounds i8, ptr %output.2142, i64 1
   store i8 %call172, ptr %arrayidx173, align 1
   %add.ptr174 = getelementptr inbounds i8, ptr %output.2142, i64 2
@@ -9996,7 +9995,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !311
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !311
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -10109,9 +10108,9 @@ if.end:                                           ; preds = %for.cond
 do.body:                                          ; preds = %entry, %do.body
   %output.1 = phi ptr [ %add.ptr114, %do.body ], [ %outputp, %entry ]
   %encode.addr.1 = phi ptr [ %add.ptr115, %do.body ], [ %encode, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #27, !srcloc !312
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.1) #24, !srcloc !312
   %43 = load float, ptr %encode.addr.1, align 4
-  %call103 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %43) #27
+  %call103 = tail call zeroext i8 @stbir__linear_to_srgb_uchar(float noundef %43) #24
   %arrayidx104 = getelementptr inbounds i8, ptr %output.1, i64 1
   store i8 %call103, ptr %arrayidx104, align 1
   %arrayidx105 = getelementptr inbounds float, ptr %encode.addr.1, i64 1
@@ -10158,7 +10157,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !314
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !314
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i67 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -10197,7 +10196,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.149 = phi ptr [ %decode.1, %while.body ], [ %decode.145, %while.body.preheader ]
   %decodep.pn48 = phi ptr [ %decode.149, %while.body ], [ %decodep, %while.body.preheader ]
   %input.147 = phi ptr [ %add.ptr44, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.149) #27, !srcloc !315
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.149) #24, !srcloc !315
   %arrayidx = getelementptr inbounds i16, ptr %input.147, i64 1
   %5 = load i16, ptr %arrayidx, align 2
   %conv = uitofp i16 %5 to float
@@ -10228,7 +10227,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body49:                                     ; preds = %while.cond46.preheader, %while.body49
   %decode.253 = phi ptr [ %add.ptr58, %while.body49 ], [ %decodep.pn.lcssa, %while.cond46.preheader ]
   %input.252 = phi ptr [ %add.ptr59, %while.body49 ], [ %input.1.lcssa, %while.cond46.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.253) #27, !srcloc !317
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.253) #24, !srcloc !317
   %arrayidx50 = getelementptr inbounds i16, ptr %input.252, i64 1
   %9 = load i16, ptr %arrayidx50, align 2
   %conv51 = uitofp i16 %9 to float
@@ -10273,7 +10272,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !319
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !319
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %mul.i98 = fmul <4 x float> %0, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i106 = fadd <4 x float> %mul.i98, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -10320,7 +10319,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.157 = phi ptr [ %output.1, %while.body ], [ %output.153, %while.body.preheader ]
   %encode.addr.156 = phi ptr [ %add.ptr62, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn55 = phi ptr [ %output.157, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.156) #27, !srcloc !320
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.156) #24, !srcloc !320
   %13 = load <4 x float>, ptr %encode.addr.156, align 1
   %mul.i = fmul <4 x float> %13, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
   %add.i = fadd <4 x float> %mul.i, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
@@ -10344,7 +10343,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body66:                                     ; preds = %while.cond64.preheader, %while.body66
   %encode.addr.261 = phi ptr [ %add.ptr89, %while.body66 ], [ %encode.addr.1.lcssa, %while.cond64.preheader ]
   %output.260 = phi ptr [ %add.ptr88, %while.body66 ], [ %outputp.pn.lcssa, %while.cond64.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.261) #27, !srcloc !322
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.261) #24, !srcloc !322
   %add.ptr68 = getelementptr inbounds float, ptr %encode.addr.261, i64 1
   %22 = load float, ptr %add.ptr68, align 1
   %mul.i173 = fmul float %22, 6.553500e+04
@@ -10401,7 +10400,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !324
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !324
   %0 = load <8 x i16>, ptr %input.0, align 1
   %shuffle.i = shufflevector <8 x i16> %0, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %shuffle.i60 = shufflevector <8 x i16> %0, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -10438,7 +10437,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.147 = phi ptr [ %decode.1, %while.body ], [ %decode.143, %while.body.preheader ]
   %decodep.pn46 = phi ptr [ %decode.147, %while.body ], [ %decodep, %while.body.preheader ]
   %input.145 = phi ptr [ %add.ptr39, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.147) #27, !srcloc !325
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.147) #24, !srcloc !325
   %arrayidx = getelementptr inbounds i16, ptr %input.145, i64 1
   %5 = load i16, ptr %arrayidx, align 2
   %conv = uitofp i16 %5 to float
@@ -10465,7 +10464,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body44:                                     ; preds = %while.cond41.preheader, %while.body44
   %decode.251 = phi ptr [ %add.ptr51, %while.body44 ], [ %decodep.pn.lcssa, %while.cond41.preheader ]
   %input.250 = phi ptr [ %add.ptr52, %while.body44 ], [ %input.1.lcssa, %while.cond41.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.251) #27, !srcloc !327
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.251) #24, !srcloc !327
   %arrayidx45 = getelementptr inbounds i16, ptr %input.250, i64 1
   %9 = load i16, ptr %arrayidx45, align 2
   %conv46 = uitofp i16 %9 to float
@@ -10508,7 +10507,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !329
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !329
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.i95 = fadd <4 x float> %0, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %add.ptr6 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
@@ -10553,7 +10552,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.153 = phi ptr [ %output.1, %while.body ], [ %output.149, %while.body.preheader ]
   %encode.addr.152 = phi ptr [ %add.ptr59, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn51 = phi ptr [ %output.153, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.152) #27, !srcloc !330
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.152) #24, !srcloc !330
   %13 = load <4 x float>, ptr %encode.addr.152, align 1
   %add.i = fadd <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %14 = shufflevector <4 x float> %add.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
@@ -10576,7 +10575,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body63:                                     ; preds = %while.cond61.preheader, %while.body63
   %encode.addr.257 = phi ptr [ %add.ptr86, %while.body63 ], [ %encode.addr.1.lcssa, %while.cond61.preheader ]
   %output.256 = phi ptr [ %add.ptr85, %while.body63 ], [ %outputp.pn.lcssa, %while.cond61.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.257) #27, !srcloc !332
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.257) #24, !srcloc !332
   %arrayidx = getelementptr inbounds float, ptr %encode.addr.257, i64 1
   %22 = load float, ptr %arrayidx, align 4
   %add = fadd float %22, 5.000000e-01
@@ -10629,8 +10628,8 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !334
-  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #27
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !334
+  tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #24
   %0 = load <4 x float>, ptr %decode.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %decode.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -10662,23 +10661,23 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.148 = phi ptr [ %decode.1, %while.body ], [ %decode.144, %while.body.preheader ]
   %decodep.pn47 = phi ptr [ %decode.148, %while.body ], [ %decodep, %while.body.preheader ]
   %input.146 = phi ptr [ %add.ptr39, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.148) #27, !srcloc !335
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.148) #24, !srcloc !335
   %arrayidx = getelementptr inbounds %union.stbir__FP16, ptr %input.146, i64 1
   %4 = load i16, ptr %arrayidx, align 2
-  %call24 = tail call float @stbir__half_to_float(i16 %4) #27
+  %call24 = tail call float @stbir__half_to_float(i16 %4) #24
   store float %call24, ptr %decodep.pn47, align 4
   %5 = load i16, ptr %input.146, align 2
-  %call28 = tail call float @stbir__half_to_float(i16 %5) #27
+  %call28 = tail call float @stbir__half_to_float(i16 %5) #24
   %arrayidx29 = getelementptr inbounds float, ptr %decodep.pn47, i64 1
   store float %call28, ptr %arrayidx29, align 4
   %arrayidx30 = getelementptr inbounds %union.stbir__FP16, ptr %input.146, i64 3
   %6 = load i16, ptr %arrayidx30, align 2
-  %call32 = tail call float @stbir__half_to_float(i16 %6) #27
+  %call32 = tail call float @stbir__half_to_float(i16 %6) #24
   %arrayidx33 = getelementptr inbounds float, ptr %decodep.pn47, i64 2
   store float %call32, ptr %arrayidx33, align 4
   %arrayidx34 = getelementptr inbounds %union.stbir__FP16, ptr %input.146, i64 2
   %7 = load i16, ptr %arrayidx34, align 2
-  %call36 = tail call float @stbir__half_to_float(i16 %7) #27
+  %call36 = tail call float @stbir__half_to_float(i16 %7) #24
   %arrayidx37 = getelementptr inbounds float, ptr %decodep.pn47, i64 3
   store float %call36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds %union.stbir__FP16, ptr %input.146, i64 4
@@ -10689,13 +10688,13 @@ while.body:                                       ; preds = %while.body.preheade
 while.body43:                                     ; preds = %while.cond41.preheader, %while.body43
   %decode.252 = phi ptr [ %add.ptr52, %while.body43 ], [ %decodep.pn.lcssa, %while.cond41.preheader ]
   %input.251 = phi ptr [ %add.ptr53, %while.body43 ], [ %input.1.lcssa, %while.cond41.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.252) #27, !srcloc !337
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.252) #24, !srcloc !337
   %arrayidx44 = getelementptr inbounds %union.stbir__FP16, ptr %input.251, i64 1
   %8 = load i16, ptr %arrayidx44, align 2
-  %call46 = tail call float @stbir__half_to_float(i16 %8) #27
+  %call46 = tail call float @stbir__half_to_float(i16 %8) #24
   store float %call46, ptr %decode.252, align 4
   %9 = load i16, ptr %input.251, align 2
-  %call50 = tail call float @stbir__half_to_float(i16 %9) #27
+  %call50 = tail call float @stbir__half_to_float(i16 %9) #24
   %arrayidx51 = getelementptr inbounds float, ptr %decode.252, i64 1
   store float %call50, ptr %arrayidx51, align 4
   %add.ptr52 = getelementptr inbounds float, ptr %decode.252, i64 2
@@ -10734,7 +10733,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !339
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !339
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -10742,7 +10741,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   store <4 x float> %2, ptr %of, align 16
   %3 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x float> %3, ptr %arrayidx7, align 16
-  call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef nonnull %of) #27
+  call void @stbir__float_to_half_SIMD(ptr noundef %output.0, ptr noundef nonnull %of) #24
   %add.ptr17 = getelementptr inbounds float, ptr %encode.addr.0, i64 8
   %add.ptr18 = getelementptr inbounds %union.stbir__FP16, ptr %output.0, i64 8
   %cmp19.not = icmp ugt ptr %add.ptr18, %add.ptr4
@@ -10767,24 +10766,24 @@ while.body:                                       ; preds = %while.body.preheade
   %output.143 = phi ptr [ %output.1, %while.body ], [ %output.139, %while.body.preheader ]
   %encode.addr.142 = phi ptr [ %add.ptr47, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn41 = phi ptr [ %output.143, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.143) #27, !srcloc !340
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %output.143) #24, !srcloc !340
   %arrayidx29 = getelementptr inbounds float, ptr %encode.addr.142, i64 1
   %4 = load float, ptr %arrayidx29, align 4
-  %call30 = tail call i16 @stbir__float_to_half(float noundef %4) #27
+  %call30 = tail call i16 @stbir__float_to_half(float noundef %4) #24
   store i16 %call30, ptr %outputp.pn41, align 2
   %arrayidx31 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn41, i64 1
   %5 = load float, ptr %encode.addr.142, align 4
-  %call34 = tail call i16 @stbir__float_to_half(float noundef %5) #27
+  %call34 = tail call i16 @stbir__float_to_half(float noundef %5) #24
   store i16 %call34, ptr %arrayidx31, align 2
   %arrayidx36 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn41, i64 2
   %arrayidx38 = getelementptr inbounds float, ptr %encode.addr.142, i64 3
   %6 = load float, ptr %arrayidx38, align 4
-  %call39 = tail call i16 @stbir__float_to_half(float noundef %6) #27
+  %call39 = tail call i16 @stbir__float_to_half(float noundef %6) #24
   store i16 %call39, ptr %arrayidx36, align 2
   %arrayidx41 = getelementptr inbounds %union.stbir__FP16, ptr %outputp.pn41, i64 3
   %arrayidx43 = getelementptr inbounds float, ptr %encode.addr.142, i64 2
   %7 = load float, ptr %arrayidx43, align 4
-  %call44 = tail call i16 @stbir__float_to_half(float noundef %7) #27
+  %call44 = tail call i16 @stbir__float_to_half(float noundef %7) #24
   store i16 %call44, ptr %arrayidx41, align 2
   %add.ptr47 = getelementptr inbounds float, ptr %encode.addr.142, i64 4
   %output.1 = getelementptr inbounds %union.stbir__FP16, ptr %output.143, i64 4
@@ -10794,14 +10793,14 @@ while.body:                                       ; preds = %while.body.preheade
 while.body51:                                     ; preds = %while.cond49.preheader, %while.body51
   %encode.addr.247 = phi ptr [ %add.ptr63, %while.body51 ], [ %encode.addr.1.lcssa, %while.cond49.preheader ]
   %output.246 = phi ptr [ %add.ptr62, %while.body51 ], [ %outputp.pn.lcssa, %while.cond49.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.246) #27, !srcloc !342
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.246) #24, !srcloc !342
   %arrayidx54 = getelementptr inbounds float, ptr %encode.addr.247, i64 1
   %8 = load float, ptr %arrayidx54, align 4
-  %call55 = tail call i16 @stbir__float_to_half(float noundef %8) #27
+  %call55 = tail call i16 @stbir__float_to_half(float noundef %8) #24
   store i16 %call55, ptr %output.246, align 2
   %arrayidx57 = getelementptr inbounds %union.stbir__FP16, ptr %output.246, i64 1
   %9 = load float, ptr %encode.addr.247, align 4
-  %call60 = tail call i16 @stbir__float_to_half(float noundef %9) #27
+  %call60 = tail call i16 @stbir__float_to_half(float noundef %9) #24
   store i16 %call60, ptr %arrayidx57, align 2
   %add.ptr62 = getelementptr inbounds %union.stbir__FP16, ptr %output.246, i64 2
   %add.ptr63 = getelementptr inbounds float, ptr %encode.addr.247, i64 2
@@ -10837,7 +10836,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #27, !srcloc !344
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !344
   %0 = load <4 x float>, ptr %input.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %input.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -10880,7 +10879,7 @@ while.body:                                       ; preds = %while.body.preheade
   %decode.152 = phi ptr [ %decode.1, %while.body ], [ %decode.148, %while.body.preheader ]
   %decodep.pn51 = phi ptr [ %decode.152, %while.body ], [ %decodep, %while.body.preheader ]
   %input.150 = phi ptr [ %add.ptr44, %while.body ], [ %inputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.152) #27, !srcloc !345
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.152) #24, !srcloc !345
   %arrayidx = getelementptr inbounds float, ptr %input.150, i64 1
   %8 = load float, ptr %arrayidx, align 4
   store float %8, ptr %decodep.pn51, align 4
@@ -10903,7 +10902,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body48:                                     ; preds = %while.cond46.preheader, %while.body48
   %decode.256 = phi ptr [ %add.ptr53, %while.body48 ], [ %decodep.pn.lcssa, %while.cond46.preheader ]
   %input.255 = phi ptr [ %add.ptr54, %while.body48 ], [ %input.1.lcssa, %while.cond46.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.256) #27, !srcloc !347
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.256) #24, !srcloc !347
   %arrayidx49 = getelementptr inbounds float, ptr %input.255, i64 1
   %12 = load float, ptr %arrayidx49, align 4
   store float %12, ptr %decode.256, align 4
@@ -10944,7 +10943,7 @@ if.then:                                          ; preds = %entry
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
   %output.0 = phi ptr [ %outputp, %if.then ], [ %output.0.be, %for.cond.backedge ]
   %encode.addr.0 = phi ptr [ %encode, %if.then ], [ %encode.addr.0.be, %for.cond.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #27, !srcloc !349
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.0) #24, !srcloc !349
   %0 = load <4 x float>, ptr %encode.addr.0, align 1
   %add.ptr5 = getelementptr inbounds float, ptr %encode.addr.0, i64 4
   %1 = load <4 x float>, ptr %add.ptr5, align 1
@@ -10977,7 +10976,7 @@ while.body:                                       ; preds = %while.body.preheade
   %output.142 = phi ptr [ %output.1, %while.body ], [ %output.138, %while.body.preheader ]
   %encode.addr.141 = phi ptr [ %add.ptr31, %while.body ], [ %encode, %while.body.preheader ]
   %outputp.pn40 = phi ptr [ %output.142, %while.body ], [ %outputp, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.141) #27, !srcloc !350
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.141) #24, !srcloc !350
   %4 = load <4 x float>, ptr %encode.addr.141, align 1
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x float> %5, ptr %outputp.pn40, align 1
@@ -10989,7 +10988,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body35:                                     ; preds = %while.cond33.preheader, %while.body35
   %encode.addr.246 = phi ptr [ %add.ptr40, %while.body35 ], [ %encode.addr.1.lcssa, %while.cond33.preheader ]
   %output.245 = phi ptr [ %add.ptr39, %while.body35 ], [ %outputp.pn.lcssa, %while.cond33.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.246) #27, !srcloc !352
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.addr.246) #24, !srcloc !352
   %arrayidx = getelementptr inbounds float, ptr %encode.addr.246, i64 1
   %6 = load float, ptr %arrayidx, align 4
   store float %6, ptr %output.245, align 4
@@ -11023,7 +11022,7 @@ while.body:                                       ; preds = %entry, %while.body
   %decode.031 = phi ptr [ %decode.0, %while.body ], [ %decode.027, %entry ]
   %out.030 = phi ptr [ %add.ptr20, %while.body ], [ %out_buffer, %entry ]
   %add.ptr2.pn29 = phi ptr [ %decode.031, %while.body ], [ %add.ptr2, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.031) #27, !srcloc !354
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.031) #24, !srcloc !354
   %0 = load <4 x float>, ptr %add.ptr2.pn29, align 1
   %add.ptr6 = getelementptr inbounds float, ptr %add.ptr2.pn29, i64 4
   %1 = load <4 x float>, ptr %add.ptr6, align 1
@@ -11079,7 +11078,7 @@ entry:
 do.body:                                          ; preds = %entry, %do.body
   %decode.0 = phi ptr [ %add.ptr30, %do.body ], [ %add.ptr3, %entry ]
   %out.0 = phi ptr [ %add.ptr31, %do.body ], [ %out_buffer, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.0) #27, !srcloc !356
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.0) #24, !srcloc !356
   %add.ptr4 = getelementptr inbounds float, ptr %decode.0, i64 -8
   %0 = load <4 x float>, ptr %add.ptr4, align 1
   %add.ptr6 = getelementptr inbounds float, ptr %decode.0, i64 -4
@@ -11124,7 +11123,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %out.240 = phi ptr [ %add.ptr40, %while.body ], [ %out.1, %if.end ]
   %decode.239 = phi ptr [ %add.ptr41, %while.body ], [ %10, %if.end ]
   %11 = load <2 x float>, ptr %decode.239, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.239) #27, !srcloc !358
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.239) #24, !srcloc !358
   store <2 x float> %11, ptr %out.240, align 4
   %shift = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %12 = fmul <2 x float> %11, %shift
@@ -11152,7 +11151,7 @@ do.body:                                          ; preds = %if.end, %entry
   %encode.0 = phi ptr [ %encode_buffer, %entry ], [ %add.ptr7, %if.end ]
   %arrayidx = getelementptr inbounds float, ptr %input.0, i64 3
   %0 = load float, ptr %arrayidx, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.0) #27, !srcloc !360
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.0) #24, !srcloc !360
   %cmp = fcmp olt float %0, 0x3870000000000000
   br i1 %cmp, label %if.then, label %if.else
 
@@ -11234,7 +11233,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %decode.024 = phi ptr [ %decode.0, %while.body ], [ %decode.021, %while.body.preheader ]
   %decode_buffer.pn23 = phi ptr [ %decode.024, %while.body ], [ %decode_buffer, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.024) #27, !srcloc !363
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.024) #24, !srcloc !363
   %0 = load <4 x float>, ptr %decode_buffer.pn23, align 1
   %add.ptr4 = getelementptr inbounds float, ptr %decode_buffer.pn23, i64 4
   %1 = load <4 x float>, ptr %add.ptr4, align 1
@@ -11287,7 +11286,7 @@ while.cond21.preheader:                           ; preds = %while.body, %entry
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %decode.023 = phi ptr [ %decode.0, %while.body ], [ %decode.020, %while.body.preheader ]
   %decode_buffer.pn22 = phi ptr [ %decode.023, %while.body ], [ %decode_buffer, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.023) #27, !srcloc !365
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.023) #24, !srcloc !365
   %0 = load <4 x float>, ptr %decode_buffer.pn22, align 1
   %add.ptr4 = getelementptr inbounds float, ptr %decode_buffer.pn22, i64 4
   %1 = load <4 x float>, ptr %add.ptr4, align 1
@@ -11313,7 +11312,7 @@ while.body23:                                     ; preds = %while.cond21.prehea
   %decode.125 = phi ptr [ %add.ptr25, %while.body23 ], [ %decode_buffer.pn.lcssa, %while.cond21.preheader ]
   %arrayidx = getelementptr inbounds float, ptr %decode.125, i64 1
   %10 = load float, ptr %arrayidx, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.125) #27, !srcloc !367
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.125) #24, !srcloc !367
   %11 = load float, ptr %decode.125, align 4
   %mul = fmul float %10, %11
   store float %mul, ptr %decode.125, align 4
@@ -11336,7 +11335,7 @@ do.body:                                          ; preds = %if.end, %entry
   %encode.0 = phi ptr [ %encode_buffer, %entry ], [ %add.ptr4, %if.end ]
   %arrayidx = getelementptr inbounds float, ptr %encode.0, i64 3
   %0 = load float, ptr %arrayidx, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.0) #27, !srcloc !369
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %encode.0) #24, !srcloc !369
   %cmp = fcmp ult float %0, 0x3870000000000000
   br i1 %cmp, label %if.end, label %if.then
 
@@ -11408,7 +11407,7 @@ while.cond19.preheader:                           ; preds = %while.body, %entry
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %decode.033 = phi ptr [ %decode.0, %while.body ], [ %decode.030, %while.body.preheader ]
   %decode_buffer.pn32 = phi ptr [ %decode.033, %while.body ], [ %decode_buffer, %while.body.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.033) #27, !srcloc !372
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.033) #24, !srcloc !372
   %0 = load float, ptr %decode.033, align 4
   %arrayidx2 = getelementptr inbounds float, ptr %decode_buffer.pn32, i64 15
   %1 = load float, ptr %arrayidx2, align 4
@@ -11439,7 +11438,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
   %decode.135 = phi ptr [ %add.ptr26, %while.body21 ], [ %decode_buffer.pn.lcssa, %while.cond19.preheader ]
   %8 = load float, ptr %decode.135, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.135) #27, !srcloc !374
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.135) #24, !srcloc !374
   %arrayidx23 = getelementptr inbounds float, ptr %decode.135, i64 2
   %9 = load float, ptr %arrayidx23, align 4
   store float %9, ptr %decode.135, align 4
@@ -11473,7 +11472,7 @@ entry:
   %5 = load i32, ptr %edge3, align 8
   %scale_info = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 1, i32 4
   %6 = load i32, ptr %scale_info, align 8
-  %call = tail call i32 @stbir__edge_wrap(i32 noundef %5, i32 noundef %n, i32 noundef %6) #27
+  %call = tail call i32 @stbir__edge_wrap(i32 noundef %5, i32 noundef %n, i32 noundef %6) #24
   %input_data = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 2
   %7 = load ptr, ptr %input_data, align 8
   %conv5 = sext i32 %call to i64
@@ -11528,7 +11527,7 @@ if.then30:                                        ; preds = %if.end
   %idx.neg34 = sub nsw i64 0, %idx.ext33
   %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr25, i64 %idx.neg34
   %14 = load ptr, ptr %user_data, align 8
-  %call37 = tail call ptr %13(ptr noundef %add.ptr35, ptr noundef %add.ptr, i32 noundef %sub, i32 noundef %12, i32 noundef %call, ptr noundef %14) #27
+  %call37 = tail call ptr %13(ptr noundef %add.ptr35, ptr noundef %add.ptr, i32 noundef %sub, i32 noundef %12, i32 noundef %call, ptr noundef %14) #24
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then30, %if.end
@@ -11537,13 +11536,13 @@ if.end38:                                         ; preds = %if.then30, %if.end
   %idx.ext39 = sext i32 %mul26 to i64
   %idx.neg40 = sub nsw i64 0, %idx.ext39
   %add.ptr41 = getelementptr inbounds float, ptr %add.ptr25, i64 %idx.neg40
-  tail call void %15(ptr noundef %add.ptr41, i32 noundef %mul26, ptr noundef %input_data12.0) #27
+  tail call void %15(ptr noundef %add.ptr41, i32 noundef %mul26, ptr noundef %input_data12.0) #24
   %16 = load ptr, ptr %alpha_weight, align 8
   %tobool42.not = icmp eq ptr %16, null
   br i1 %tobool42.not, label %if.end45, label %if.then43
 
 if.then43:                                        ; preds = %if.end38
-  tail call void %16(ptr noundef %add.ptr20, i32 noundef %mul26) #27
+  tail call void %16(ptr noundef %add.ptr20, i32 noundef %mul26) #24
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then43, %if.end38
@@ -11587,7 +11586,7 @@ if.then77:                                        ; preds = %for.body
   %mul80 = mul nsw i32 %21, %1
   %idx.ext81 = sext i32 %mul80 to i64
   %add.ptr82 = getelementptr inbounds float, ptr %add.ptr11, i64 %idx.ext81
-  %call83 = tail call i32 @stbir__edge_wrap(i32 noundef 2, i32 noundef %21, i32 noundef %19) #27
+  %call83 = tail call i32 @stbir__edge_wrap(i32 noundef 2, i32 noundef %21, i32 noundef %19) #24
   %mul84 = mul nsw i32 %call83, %1
   %idx.ext85 = sext i32 %mul84 to i64
   %add.ptr86 = getelementptr inbounds float, ptr %add.ptr11, i64 %idx.ext85
@@ -11619,7 +11618,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !378
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !378
   %1 = load float, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load float, ptr %add.ptr3, align 1
   %mul.i = fmul float %1, %2
@@ -11649,7 +11648,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !380
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !380
   %1 = load i64, ptr %horizontal_coefficients.addr.0, align 1
   %vecinit1.i26 = insertelement <2 x i64> poison, i64 %1, i64 0
   %2 = bitcast <2 x i64> %vecinit1.i26 to <4 x float>
@@ -11686,7 +11685,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !382
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !382
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i = fmul <4 x float> %1, %2
@@ -11721,7 +11720,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !384
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !384
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i = fmul <4 x float> %1, %2
@@ -11756,7 +11755,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !386
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !386
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i25 = fmul <4 x float> %1, %2
@@ -11798,7 +11797,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !388
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !388
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i27 = fmul <4 x float> %1, %2
@@ -11843,7 +11842,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !390
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !390
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i30 = fmul <4 x float> %1, %2
@@ -11886,11 +11885,11 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !392
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !392
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i27 = fmul <4 x float> %1, %2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !393
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !393
   %add.ptr6 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %3 = load <4 x float>, ptr %add.ptr6, align 1
   %add.ptr8 = getelementptr inbounds float, ptr %add.ptr3, i64 4
@@ -11928,11 +11927,11 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !395
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !395
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i36 = fmul <4 x float> %1, %2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !396
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !396
   %add.ptr6 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %3 = load <4 x float>, ptr %add.ptr6, align 1
   %add.ptr8 = getelementptr inbounds float, ptr %add.ptr3, i64 4
@@ -11977,11 +11976,11 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !398
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !398
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i38 = fmul <4 x float> %1, %2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !399
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !399
   %add.ptr6 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %3 = load <4 x float>, ptr %add.ptr6, align 1
   %add.ptr8 = getelementptr inbounds float, ptr %add.ptr3, i64 4
@@ -12029,11 +12028,11 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !401
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !401
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i41 = fmul <4 x float> %1, %2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !402
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !402
   %add.ptr7 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %3 = load <4 x float>, ptr %add.ptr7, align 1
   %add.ptr9 = getelementptr inbounds float, ptr %add.ptr3, i64 4
@@ -12079,18 +12078,18 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !404
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !404
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i38 = fmul <4 x float> %1, %2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !405
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !405
   %add.ptr6 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %3 = load <4 x float>, ptr %add.ptr6, align 1
   %add.ptr8 = getelementptr inbounds float, ptr %add.ptr3, i64 4
   %4 = load <4 x float>, ptr %add.ptr8, align 1
   %mul.i35 = fmul <4 x float> %3, %4
   %add.i46 = fadd <4 x float> %mul.i38, %mul.i35
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !406
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !406
   %add.ptr12 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %5 = load <4 x float>, ptr %add.ptr12, align 1
   %add.ptr14 = getelementptr inbounds float, ptr %add.ptr3, i64 8
@@ -12132,7 +12131,7 @@ do.body:                                          ; preds = %do.end, %entry
   %1 = load i32, ptr %n1, align 4
   %sub = sub nsw i32 %1, %0
   %shr = ashr i32 %sub, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !408
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !408
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i36 = fmul <4 x float> %2, %3
@@ -12145,7 +12144,7 @@ do.body9:                                         ; preds = %do.body9, %do.body
   %tot.0 = phi <4 x float> [ %mul.i36, %do.body ], [ %add.i41, %do.body9 ]
   %add.ptr10 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr11 = getelementptr inbounds float, ptr %decode.0, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr11) #27, !srcloc !409
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr11) #24, !srcloc !409
   %4 = load <4 x float>, ptr %add.ptr10, align 1
   %5 = load <4 x float>, ptr %add.ptr11, align 1
   %mul.i = fmul <4 x float> %4, %5
@@ -12191,7 +12190,7 @@ do.body:                                          ; preds = %do.end, %entry
   %2 = xor i32 %0, -1
   %add6 = add i32 %1, %2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !412
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !412
   %3 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %4 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i45 = fmul <4 x float> %3, %4
@@ -12204,7 +12203,7 @@ do.body9:                                         ; preds = %do.body9, %do.body
   %tot.0 = phi <4 x float> [ %mul.i45, %do.body ], [ %add.i53, %do.body9 ]
   %add.ptr10 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr11 = getelementptr inbounds float, ptr %decode.0, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr11) #27, !srcloc !413
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr11) #24, !srcloc !413
   %5 = load <4 x float>, ptr %add.ptr10, align 1
   %6 = load <4 x float>, ptr %add.ptr11, align 1
   %mul.i42 = fmul <4 x float> %5, %6
@@ -12257,7 +12256,7 @@ do.body:                                          ; preds = %do.end, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !416
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !416
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i47 = fmul <4 x float> %2, %3
@@ -12270,7 +12269,7 @@ do.body9:                                         ; preds = %do.body9, %do.body
   %tot.0 = phi <4 x float> [ %mul.i47, %do.body ], [ %add.i55, %do.body9 ]
   %add.ptr10 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr11 = getelementptr inbounds float, ptr %decode.0, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr11) #27, !srcloc !417
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr11) #24, !srcloc !417
   %4 = load <4 x float>, ptr %add.ptr10, align 1
   %5 = load <4 x float>, ptr %add.ptr11, align 1
   %mul.i44 = fmul <4 x float> %4, %5
@@ -12326,7 +12325,7 @@ do.body:                                          ; preds = %do.end, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -3
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !420
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !420
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = load <4 x float>, ptr %add.ptr3, align 1
   %mul.i50 = fmul <4 x float> %2, %3
@@ -12339,7 +12338,7 @@ do.body10:                                        ; preds = %do.body10, %do.body
   %tot.0 = phi <4 x float> [ %mul.i50, %do.body ], [ %add.i58, %do.body10 ]
   %add.ptr11 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr12 = getelementptr inbounds float, ptr %decode.0, i64 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr12) #27, !srcloc !421
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr12) #24, !srcloc !421
   %4 = load <4 x float>, ptr %add.ptr11, align 1
   %5 = load <4 x float>, ptr %add.ptr12, align 1
   %mul.i47 = fmul <4 x float> %4, %5
@@ -12390,7 +12389,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !424
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !424
   %1 = load float, ptr %horizontal_coefficients.addr.0, align 1
   %vecinit4.i = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %1, i64 0
   %2 = shufflevector <4 x float> %vecinit4.i, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -12430,7 +12429,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !426
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !426
   %1 = load i64, ptr %horizontal_coefficients.addr.0, align 1
   %vecinit1.i = insertelement <2 x i64> poison, i64 %1, i64 0
   %2 = bitcast <2 x i64> %vecinit1.i to <4 x float>
@@ -12469,7 +12468,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !428
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !428
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12513,7 +12512,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !430
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !430
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12555,7 +12554,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !432
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !432
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12607,7 +12606,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !434
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !434
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12658,7 +12657,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !436
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !436
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12714,7 +12713,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !438
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !438
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12723,7 +12722,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr11 = getelementptr inbounds float, ptr %add.ptr3, i64 4
   %5 = load <4 x float>, ptr %add.ptr11, align 1
   %mul.i50 = fmul <4 x float> %4, %5
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !439
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !439
   %add.ptr14 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %6 = load <4 x float>, ptr %add.ptr14, align 1
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -12769,7 +12768,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !441
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !441
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12778,7 +12777,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr11 = getelementptr inbounds float, ptr %add.ptr3, i64 4
   %5 = load <4 x float>, ptr %add.ptr11, align 1
   %mul.i63 = fmul <4 x float> %4, %5
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !442
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !442
   %add.ptr14 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %6 = load <4 x float>, ptr %add.ptr14, align 1
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -12834,7 +12833,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !444
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !444
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12843,7 +12842,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr11 = getelementptr inbounds float, ptr %add.ptr3, i64 4
   %5 = load <4 x float>, ptr %add.ptr11, align 1
   %mul.i64 = fmul <4 x float> %4, %5
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !445
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !445
   %add.ptr14 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %6 = load <4 x float>, ptr %add.ptr14, align 1
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -12898,7 +12897,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !447
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !447
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12907,7 +12906,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr11 = getelementptr inbounds float, ptr %add.ptr3, i64 4
   %5 = load <4 x float>, ptr %add.ptr11, align 1
   %mul.i76 = fmul <4 x float> %4, %5
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !448
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !448
   %add.ptr14 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %6 = load <4 x float>, ptr %add.ptr14, align 1
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -12967,7 +12966,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 1
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !450
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !450
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -12976,7 +12975,7 @@ do.body:                                          ; preds = %do.body, %entry
   %add.ptr11 = getelementptr inbounds float, ptr %add.ptr3, i64 4
   %5 = load <4 x float>, ptr %add.ptr11, align 1
   %mul.i76 = fmul <4 x float> %4, %5
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !451
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !451
   %add.ptr14 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %6 = load <4 x float>, ptr %add.ptr14, align 1
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -12989,7 +12988,7 @@ do.body:                                          ; preds = %do.body, %entry
   %10 = load <4 x float>, ptr %add.ptr27, align 1
   %mul.i70 = fmul <4 x float> %9, %10
   %add.i93 = fadd <4 x float> %mul.i76, %mul.i70
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !452
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !452
   %add.ptr31 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %11 = load <4 x float>, ptr %add.ptr31, align 1
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -13039,7 +13038,7 @@ do.body:                                          ; preds = %do.end, %entry
   %1 = load i32, ptr %n1, align 4
   %sub = sub nsw i32 %1, %0
   %shr = ashr i32 %sub, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !454
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !454
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13058,7 +13057,7 @@ do.body17:                                        ; preds = %do.body17, %do.body
   %tot1.0 = phi <4 x float> [ %mul.i59, %do.body ], [ %add.i70, %do.body17 ]
   %add.ptr18 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr19 = getelementptr inbounds float, ptr %decode.0, i64 8
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #27, !srcloc !455
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #24, !srcloc !455
   %7 = load <4 x float>, ptr %add.ptr18, align 1
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %9 = load <4 x float>, ptr %add.ptr19, align 1
@@ -13112,7 +13111,7 @@ do.body:                                          ; preds = %do.end, %entry
   %2 = xor i32 %0, -1
   %add6 = add i32 %1, %2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !458
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !458
   %3 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %4 = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %5 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13131,7 +13130,7 @@ do.body17:                                        ; preds = %do.body17, %do.body
   %tot1.0 = phi <4 x float> [ %mul.i72, %do.body ], [ %add.i86, %do.body17 ]
   %add.ptr18 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr19 = getelementptr inbounds float, ptr %decode.0, i64 8
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #27, !srcloc !459
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #24, !srcloc !459
   %8 = load <4 x float>, ptr %add.ptr18, align 1
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %10 = load <4 x float>, ptr %add.ptr19, align 1
@@ -13195,7 +13194,7 @@ do.body:                                          ; preds = %do.end, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !462
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !462
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13214,7 +13213,7 @@ do.body17:                                        ; preds = %do.body17, %do.body
   %tot1.0 = phi <4 x float> [ %mul.i73, %do.body ], [ %add.i87, %do.body17 ]
   %add.ptr18 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr19 = getelementptr inbounds float, ptr %decode.0, i64 8
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #27, !srcloc !463
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #24, !srcloc !463
   %7 = load <4 x float>, ptr %add.ptr18, align 1
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %9 = load <4 x float>, ptr %add.ptr19, align 1
@@ -13277,7 +13276,7 @@ do.body:                                          ; preds = %do.end, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -3
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !466
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !466
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13296,7 +13295,7 @@ do.body17:                                        ; preds = %do.body17, %do.body
   %tot1.0 = phi <4 x float> [ %mul.i85, %do.body ], [ %add.i102, %do.body17 ]
   %add.ptr18 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr19 = getelementptr inbounds float, ptr %decode.0, i64 8
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #27, !srcloc !467
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr19) #24, !srcloc !467
   %7 = load <4 x float>, ptr %add.ptr18, align 1
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %9 = load <4 x float>, ptr %add.ptr19, align 1
@@ -13359,7 +13358,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !470
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !470
   %1 = load float, ptr %horizontal_coefficients.addr.0, align 1
   %vecinit4.i = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %1, i64 0
   %2 = shufflevector <4 x float> %vecinit4.i, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -13398,7 +13397,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !472
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !472
   %1 = load i64, ptr %horizontal_coefficients.addr.0, align 1
   %vecinit1.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %1, i64 0
   %2 = bitcast <2 x i64> %vecinit1.i to <4 x float>
@@ -13443,7 +13442,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !474
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !474
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13491,7 +13490,7 @@ do.body:                                          ; preds = %if.then, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !476
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !476
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13549,7 +13548,7 @@ do.body:                                          ; preds = %if.then, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !477
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !477
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13562,7 +13561,7 @@ do.body:                                          ; preds = %if.then, %entry
   %add.ptr17 = getelementptr inbounds float, ptr %add.ptr3, i64 8
   %7 = load <4 x float>, ptr %add.ptr17, align 1
   %mul.i62 = fmul <4 x float> %6, %7
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !478
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !478
   %add.ptr20 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %8 = load float, ptr %add.ptr20, align 1
   %vecinit4.i = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %8, i64 0
@@ -13616,7 +13615,7 @@ do.body:                                          ; preds = %if.then, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !479
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !479
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13629,7 +13628,7 @@ do.body:                                          ; preds = %if.then, %entry
   %add.ptr17 = getelementptr inbounds float, ptr %add.ptr3, i64 8
   %7 = load <4 x float>, ptr %add.ptr17, align 1
   %mul.i75 = fmul <4 x float> %6, %7
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !480
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !480
   %add.ptr20 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %8 = load i64, ptr %add.ptr20, align 1
   %vecinit1.i126 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %8, i64 0
@@ -13691,7 +13690,7 @@ do.body:                                          ; preds = %if.then, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !481
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !481
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13704,7 +13703,7 @@ do.body:                                          ; preds = %if.then, %entry
   %add.ptr17 = getelementptr inbounds float, ptr %add.ptr3, i64 8
   %7 = load <4 x float>, ptr %add.ptr17, align 1
   %mul.i86 = fmul <4 x float> %6, %7
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !482
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !482
   %add.ptr20 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %8 = load <4 x float>, ptr %add.ptr20, align 1
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -13768,7 +13767,7 @@ do.body:                                          ; preds = %if.then, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !483
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !483
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13781,7 +13780,7 @@ do.body:                                          ; preds = %if.then, %entry
   %add.ptr17 = getelementptr inbounds float, ptr %add.ptr3, i64 8
   %7 = load <4 x float>, ptr %add.ptr17, align 1
   %mul.i87 = fmul <4 x float> %6, %7
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !484
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !484
   %add.ptr20 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %8 = load <4 x float>, ptr %add.ptr20, align 1
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -13844,7 +13843,7 @@ do.body:                                          ; preds = %if.then, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !485
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !485
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13857,7 +13856,7 @@ do.body:                                          ; preds = %if.then, %entry
   %add.ptr17 = getelementptr inbounds float, ptr %add.ptr3, i64 8
   %7 = load <4 x float>, ptr %add.ptr17, align 1
   %mul.i100 = fmul <4 x float> %6, %7
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !486
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !486
   %add.ptr20 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %8 = load <4 x float>, ptr %add.ptr20, align 1
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -13875,7 +13874,7 @@ do.body:                                          ; preds = %if.then, %entry
   %14 = load <4 x float>, ptr %add.ptr41, align 1
   %mul.i91 = fmul <4 x float> %13, %14
   %add.i120 = fadd <4 x float> %mul.i100, %mul.i91
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !487
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !487
   %add.ptr45 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %15 = load float, ptr %add.ptr45, align 1
   %vecinit4.i = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %15, i64 0
@@ -13929,7 +13928,7 @@ do.body:                                          ; preds = %if.then, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !488
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !488
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -13942,7 +13941,7 @@ do.body:                                          ; preds = %if.then, %entry
   %add.ptr17 = getelementptr inbounds float, ptr %add.ptr3, i64 8
   %7 = load <4 x float>, ptr %add.ptr17, align 1
   %mul.i113 = fmul <4 x float> %6, %7
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !489
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !489
   %add.ptr20 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %8 = load <4 x float>, ptr %add.ptr20, align 1
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -13960,7 +13959,7 @@ do.body:                                          ; preds = %if.then, %entry
   %14 = load <4 x float>, ptr %add.ptr41, align 1
   %mul.i104 = fmul <4 x float> %13, %14
   %add.i136 = fadd <4 x float> %mul.i113, %mul.i104
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !490
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !490
   %add.ptr45 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %15 = load i64, ptr %add.ptr45, align 1
   %vecinit1.i179 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %15, i64 0
@@ -14022,7 +14021,7 @@ do.body:                                          ; preds = %if.then, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !491
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !491
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14035,7 +14034,7 @@ do.body:                                          ; preds = %if.then, %entry
   %add.ptr17 = getelementptr inbounds float, ptr %add.ptr3, i64 8
   %7 = load <4 x float>, ptr %add.ptr17, align 1
   %mul.i124 = fmul <4 x float> %6, %7
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !492
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !492
   %add.ptr20 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %8 = load <4 x float>, ptr %add.ptr20, align 1
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -14053,7 +14052,7 @@ do.body:                                          ; preds = %if.then, %entry
   %14 = load <4 x float>, ptr %add.ptr41, align 1
   %mul.i115 = fmul <4 x float> %13, %14
   %add.i150 = fadd <4 x float> %mul.i124, %mul.i115
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !493
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !493
   %add.ptr45 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %15 = load <4 x float>, ptr %add.ptr45, align 1
   %16 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -14117,7 +14116,7 @@ do.body:                                          ; preds = %if.then, %entry
   %mul1 = mul nsw i32 %0, 3
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !494
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !494
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14130,7 +14129,7 @@ do.body:                                          ; preds = %if.then, %entry
   %add.ptr17 = getelementptr inbounds float, ptr %add.ptr3, i64 8
   %7 = load <4 x float>, ptr %add.ptr17, align 1
   %mul.i125 = fmul <4 x float> %6, %7
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !495
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !495
   %add.ptr20 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %8 = load <4 x float>, ptr %add.ptr20, align 1
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -14148,7 +14147,7 @@ do.body:                                          ; preds = %if.then, %entry
   %14 = load <4 x float>, ptr %add.ptr41, align 1
   %mul.i116 = fmul <4 x float> %13, %14
   %add.i151 = fadd <4 x float> %mul.i125, %mul.i116
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !496
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !496
   %add.ptr45 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %15 = load <4 x float>, ptr %add.ptr45, align 1
   %16 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -14215,7 +14214,7 @@ do.body:                                          ; preds = %if.then, %entry
   %1 = load i32, ptr %n1, align 4
   %sub = sub nsw i32 %1, %0
   %shr = ashr i32 %sub, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !497
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !497
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14239,7 +14238,7 @@ do.body23:                                        ; preds = %do.body23, %do.body
   %tot2.0 = phi <4 x float> [ %mul.i96, %do.body ], [ %add.i113, %do.body23 ]
   %add.ptr24 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr25 = getelementptr inbounds float, ptr %decode.0, i64 12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #27, !srcloc !498
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #24, !srcloc !498
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %10 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %11 = load <4 x float>, ptr %add.ptr25, align 1
@@ -14310,7 +14309,7 @@ do.body:                                          ; preds = %if.then, %entry
   %2 = xor i32 %0, -1
   %add6 = add i32 %1, %2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !500
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !500
   %3 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %4 = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %5 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14334,7 +14333,7 @@ do.body23:                                        ; preds = %do.body23, %do.body
   %tot2.0 = phi <4 x float> [ %mul.i109, %do.body ], [ %add.i129, %do.body23 ]
   %add.ptr24 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr25 = getelementptr inbounds float, ptr %decode.0, i64 12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #27, !srcloc !501
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #24, !srcloc !501
   %10 = load <4 x float>, ptr %add.ptr24, align 1
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %12 = load <4 x float>, ptr %add.ptr25, align 1
@@ -14355,7 +14354,7 @@ do.body23:                                        ; preds = %do.body23, %do.body
   br i1 %cmp, label %do.body23, label %do.end, !llvm.loop !502
 
 do.end:                                           ; preds = %do.body23
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #27, !srcloc !503
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #24, !srcloc !503
   %add.ptr51 = getelementptr inbounds float, ptr %hc.0, i64 8
   %17 = load float, ptr %add.ptr51, align 1
   %vecinit4.i = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %17, i64 0
@@ -14414,7 +14413,7 @@ do.body:                                          ; preds = %if.then, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !504
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !504
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14438,7 +14437,7 @@ do.body23:                                        ; preds = %do.body23, %do.body
   %tot2.0 = phi <4 x float> [ %mul.i122, %do.body ], [ %add.i145, %do.body23 ]
   %add.ptr24 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr25 = getelementptr inbounds float, ptr %decode.0, i64 12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #27, !srcloc !505
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #24, !srcloc !505
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %10 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %11 = load <4 x float>, ptr %add.ptr25, align 1
@@ -14459,7 +14458,7 @@ do.body23:                                        ; preds = %do.body23, %do.body
   br i1 %cmp, label %do.body23, label %do.end, !llvm.loop !506
 
 do.end:                                           ; preds = %do.body23
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #27, !srcloc !507
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #24, !srcloc !507
   %add.ptr51 = getelementptr inbounds float, ptr %hc.0, i64 8
   %16 = load i64, ptr %add.ptr51, align 1
   %vecinit1.i188 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %16, i64 0
@@ -14526,7 +14525,7 @@ do.body:                                          ; preds = %if.then, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -3
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !508
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !508
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14550,7 +14549,7 @@ do.body23:                                        ; preds = %do.body23, %do.body
   %tot2.0 = phi <4 x float> [ %mul.i133, %do.body ], [ %add.i159, %do.body23 ]
   %add.ptr24 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr25 = getelementptr inbounds float, ptr %decode.0, i64 12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #27, !srcloc !509
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #24, !srcloc !509
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %10 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %11 = load <4 x float>, ptr %add.ptr25, align 1
@@ -14571,7 +14570,7 @@ do.body23:                                        ; preds = %do.body23, %do.body
   br i1 %cmp, label %do.body23, label %do.end, !llvm.loop !510
 
 do.end:                                           ; preds = %do.body23
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #27, !srcloc !511
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr25) #24, !srcloc !511
   %add.ptr51 = getelementptr inbounds float, ptr %hc.0, i64 8
   %16 = load <4 x float>, ptr %add.ptr51, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -14635,7 +14634,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !512
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !512
   %1 = load float, ptr %horizontal_coefficients.addr.0, align 1
   %vecinit4.i = insertelement <4 x float> poison, float %1, i64 0
   %2 = shufflevector <4 x float> %vecinit4.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -14669,7 +14668,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !514
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !514
   %1 = load i64, ptr %horizontal_coefficients.addr.0, align 1
   %vecinit1.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %1, i64 0
   %2 = bitcast <2 x i64> %vecinit1.i to <4 x float>
@@ -14709,7 +14708,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !516
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !516
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14752,7 +14751,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !518
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !518
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14800,7 +14799,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !520
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !520
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14819,7 +14818,7 @@ do.body:                                          ; preds = %do.body, %entry
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %mul.i50 = fmul <4 x float> %8, %9
   %add.i67 = fadd <4 x float> %mul.i56, %mul.i50
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !521
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !521
   %add.ptr28 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %10 = load float, ptr %add.ptr28, align 1
   %vecinit4.i = insertelement <4 x float> poison, float %10, i64 0
@@ -14857,7 +14856,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !523
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !523
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14876,7 +14875,7 @@ do.body:                                          ; preds = %do.body, %entry
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %mul.i63 = fmul <4 x float> %8, %9
   %add.i83 = fadd <4 x float> %mul.i69, %mul.i63
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !524
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !524
   %add.ptr28 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %10 = load i64, ptr %add.ptr28, align 1
   %vecinit1.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %10, i64 0
@@ -14920,7 +14919,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !526
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !526
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -14939,7 +14938,7 @@ do.body:                                          ; preds = %do.body, %entry
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %mul.i75 = fmul <4 x float> %8, %9
   %add.i98 = fadd <4 x float> %mul.i81, %mul.i75
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !527
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !527
   %add.ptr28 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %10 = load <4 x float>, ptr %add.ptr28, align 1
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> zeroinitializer
@@ -14986,7 +14985,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !529
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !529
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15005,7 +15004,7 @@ do.body:                                          ; preds = %do.body, %entry
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %mul.i87 = fmul <4 x float> %8, %9
   %add.i113 = fadd <4 x float> %mul.i93, %mul.i87
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !530
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !530
   %add.ptr28 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %10 = load <4 x float>, ptr %add.ptr28, align 1
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> zeroinitializer
@@ -15057,7 +15056,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !532
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !532
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15076,7 +15075,7 @@ do.body:                                          ; preds = %do.body, %entry
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %mul.i100 = fmul <4 x float> %8, %9
   %add.i129 = fadd <4 x float> %mul.i106, %mul.i100
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !533
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !533
   %add.ptr28 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %10 = load <4 x float>, ptr %add.ptr28, align 1
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> zeroinitializer
@@ -15099,7 +15098,7 @@ do.body:                                          ; preds = %do.body, %entry
   %18 = load <4 x float>, ptr %add.ptr57, align 1
   %mul.i88 = fmul <4 x float> %17, %18
   %add.i117 = fadd <4 x float> %add.i123, %mul.i88
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !534
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !534
   %add.ptr61 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %19 = load float, ptr %add.ptr61, align 1
   %vecinit4.i = insertelement <4 x float> poison, float %19, i64 0
@@ -15137,7 +15136,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !536
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !536
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15156,7 +15155,7 @@ do.body:                                          ; preds = %do.body, %entry
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %mul.i113 = fmul <4 x float> %8, %9
   %add.i145 = fadd <4 x float> %mul.i119, %mul.i113
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !537
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !537
   %add.ptr28 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %10 = load <4 x float>, ptr %add.ptr28, align 1
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> zeroinitializer
@@ -15179,7 +15178,7 @@ do.body:                                          ; preds = %do.body, %entry
   %18 = load <4 x float>, ptr %add.ptr57, align 1
   %mul.i101 = fmul <4 x float> %17, %18
   %add.i133 = fadd <4 x float> %add.i139, %mul.i101
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !538
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !538
   %add.ptr61 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %19 = load i64, ptr %add.ptr61, align 1
   %vecinit1.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %19, i64 0
@@ -15223,7 +15222,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !540
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !540
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15242,7 +15241,7 @@ do.body:                                          ; preds = %do.body, %entry
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %mul.i125 = fmul <4 x float> %8, %9
   %add.i160 = fadd <4 x float> %mul.i131, %mul.i125
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !541
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !541
   %add.ptr28 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %10 = load <4 x float>, ptr %add.ptr28, align 1
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> zeroinitializer
@@ -15265,7 +15264,7 @@ do.body:                                          ; preds = %do.body, %entry
   %18 = load <4 x float>, ptr %add.ptr57, align 1
   %mul.i113 = fmul <4 x float> %17, %18
   %add.i148 = fadd <4 x float> %add.i154, %mul.i113
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !542
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !542
   %add.ptr61 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %19 = load <4 x float>, ptr %add.ptr61, align 1
   %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> zeroinitializer
@@ -15312,7 +15311,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = shl nsw i32 %0, 2
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !544
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !544
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15331,7 +15330,7 @@ do.body:                                          ; preds = %do.body, %entry
   %9 = load <4 x float>, ptr %add.ptr24, align 1
   %mul.i137 = fmul <4 x float> %8, %9
   %add.i175 = fadd <4 x float> %mul.i143, %mul.i137
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !545
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !545
   %add.ptr28 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %10 = load <4 x float>, ptr %add.ptr28, align 1
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> zeroinitializer
@@ -15354,7 +15353,7 @@ do.body:                                          ; preds = %do.body, %entry
   %18 = load <4 x float>, ptr %add.ptr57, align 1
   %mul.i125 = fmul <4 x float> %17, %18
   %add.i163 = fadd <4 x float> %add.i169, %mul.i125
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !546
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !546
   %add.ptr61 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %19 = load <4 x float>, ptr %add.ptr61, align 1
   %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> zeroinitializer
@@ -15410,7 +15409,7 @@ do.body:                                          ; preds = %do.end, %entry
   %1 = load i32, ptr %n1, align 4
   %sub = sub nsw i32 %1, %0
   %shr = ashr i32 %sub, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !548
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !548
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> zeroinitializer
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15439,7 +15438,7 @@ do.body31:                                        ; preds = %do.body31, %do.body
   %tot1.0 = phi <4 x float> [ %add.i122, %do.body ], [ %add.i110, %do.body31 ]
   %add.ptr32 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr33 = getelementptr inbounds float, ptr %decode.0, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #27, !srcloc !549
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #24, !srcloc !549
   %11 = load <4 x float>, ptr %add.ptr32, align 1
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = load <4 x float>, ptr %add.ptr33, align 1
@@ -15499,7 +15498,7 @@ do.body:                                          ; preds = %do.end, %entry
   %2 = xor i32 %0, -1
   %add6 = add i32 %1, %2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !552
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !552
   %3 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %4 = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> zeroinitializer
   %5 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15528,7 +15527,7 @@ do.body31:                                        ; preds = %do.body31, %do.body
   %tot1.0 = phi <4 x float> [ %add.i138, %do.body ], [ %add.i126, %do.body31 ]
   %add.ptr32 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr33 = getelementptr inbounds float, ptr %decode.0, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #27, !srcloc !553
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #24, !srcloc !553
   %12 = load <4 x float>, ptr %add.ptr32, align 1
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> zeroinitializer
   %14 = load <4 x float>, ptr %add.ptr33, align 1
@@ -15554,7 +15553,7 @@ do.body31:                                        ; preds = %do.body31, %do.body
   br i1 %cmp, label %do.body31, label %do.end, !llvm.loop !554
 
 do.end:                                           ; preds = %do.body31
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #27, !srcloc !555
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #24, !srcloc !555
   %add.ptr67 = getelementptr inbounds float, ptr %hc.0, i64 8
   %21 = load float, ptr %add.ptr67, align 1
   %vecinit4.i = insertelement <4 x float> poison, float %21, i64 0
@@ -15597,7 +15596,7 @@ do.body:                                          ; preds = %do.end, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !557
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !557
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> zeroinitializer
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15626,7 +15625,7 @@ do.body31:                                        ; preds = %do.body31, %do.body
   %tot1.0 = phi <4 x float> [ %add.i154, %do.body ], [ %add.i142, %do.body31 ]
   %add.ptr32 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr33 = getelementptr inbounds float, ptr %decode.0, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #27, !srcloc !558
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #24, !srcloc !558
   %11 = load <4 x float>, ptr %add.ptr32, align 1
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = load <4 x float>, ptr %add.ptr33, align 1
@@ -15652,7 +15651,7 @@ do.body31:                                        ; preds = %do.body31, %do.body
   br i1 %cmp, label %do.body31, label %do.end, !llvm.loop !559
 
 do.end:                                           ; preds = %do.body31
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #27, !srcloc !560
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #24, !srcloc !560
   %add.ptr67 = getelementptr inbounds float, ptr %hc.0, i64 8
   %20 = load i64, ptr %add.ptr67, align 1
   %vecinit1.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %20, i64 0
@@ -15701,7 +15700,7 @@ do.body:                                          ; preds = %do.end, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -3
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !562
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !562
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> zeroinitializer
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15730,7 +15729,7 @@ do.body31:                                        ; preds = %do.body31, %do.body
   %tot1.0 = phi <4 x float> [ %add.i169, %do.body ], [ %add.i157, %do.body31 ]
   %add.ptr32 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr33 = getelementptr inbounds float, ptr %decode.0, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #27, !srcloc !563
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #24, !srcloc !563
   %11 = load <4 x float>, ptr %add.ptr32, align 1
   %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = load <4 x float>, ptr %add.ptr33, align 1
@@ -15756,7 +15755,7 @@ do.body31:                                        ; preds = %do.body31, %do.body
   br i1 %cmp, label %do.body31, label %do.end, !llvm.loop !564
 
 do.end:                                           ; preds = %do.body31
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #27, !srcloc !565
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr33) #24, !srcloc !565
   %add.ptr67 = getelementptr inbounds float, ptr %hc.0, i64 8
   %20 = load <4 x float>, ptr %add.ptr67, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> zeroinitializer
@@ -15803,7 +15802,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !567
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !567
   %1 = load float, ptr %horizontal_coefficients.addr.0, align 1
   %vecinit4.i = insertelement <4 x float> poison, float %1, i64 0
   %2 = shufflevector <4 x float> %vecinit4.i, <4 x float> poison, <4 x i32> zeroinitializer
@@ -15842,7 +15841,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !569
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !569
   %1 = load i64, ptr %horizontal_coefficients.addr.0, align 1
   %vecinit1.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %1, i64 0
   %2 = bitcast <2 x i64> %vecinit1.i to <4 x float>
@@ -15891,7 +15890,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !571
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !571
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -15947,7 +15946,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !573
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !573
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16012,7 +16011,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !575
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !575
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16045,7 +16044,7 @@ do.body:                                          ; preds = %do.body, %entry
   %13 = load <4 x float>, ptr %add.ptr38, align 1
   %mul.i81 = fmul <4 x float> %11, %13
   %add.i116 = fadd <4 x float> %mul.i93, %mul.i81
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !576
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !576
   %add.ptr42 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %14 = load float, ptr %add.ptr42, align 1
   %vecinit4.i = insertelement <4 x float> poison, float %14, i64 0
@@ -16090,7 +16089,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !578
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !578
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16123,7 +16122,7 @@ do.body:                                          ; preds = %do.body, %entry
   %13 = load <4 x float>, ptr %add.ptr38, align 1
   %mul.i103 = fmul <4 x float> %11, %13
   %add.i144 = fadd <4 x float> %mul.i115, %mul.i103
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !579
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !579
   %add.ptr42 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %14 = load i64, ptr %add.ptr42, align 1
   %vecinit1.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %14, i64 0
@@ -16178,7 +16177,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !581
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !581
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16211,7 +16210,7 @@ do.body:                                          ; preds = %do.body, %entry
   %13 = load <4 x float>, ptr %add.ptr38, align 1
   %mul.i124 = fmul <4 x float> %11, %13
   %add.i171 = fadd <4 x float> %mul.i136, %mul.i124
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !582
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !582
   %add.ptr42 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %14 = load <4 x float>, ptr %add.ptr42, align 1
   %15 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> zeroinitializer
@@ -16273,7 +16272,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !584
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !584
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16306,7 +16305,7 @@ do.body:                                          ; preds = %do.body, %entry
   %13 = load <4 x float>, ptr %add.ptr38, align 1
   %mul.i145 = fmul <4 x float> %11, %13
   %add.i198 = fadd <4 x float> %mul.i157, %mul.i145
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !585
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !585
   %add.ptr42 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %14 = load <4 x float>, ptr %add.ptr42, align 1
   %15 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> zeroinitializer
@@ -16377,7 +16376,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !587
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !587
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16410,7 +16409,7 @@ do.body:                                          ; preds = %do.body, %entry
   %13 = load <4 x float>, ptr %add.ptr38, align 1
   %mul.i167 = fmul <4 x float> %11, %13
   %add.i226 = fadd <4 x float> %mul.i179, %mul.i167
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !588
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !588
   %add.ptr42 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %14 = load <4 x float>, ptr %add.ptr42, align 1
   %15 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> zeroinitializer
@@ -16449,7 +16448,7 @@ do.body:                                          ; preds = %do.body, %entry
   %26 = load <4 x float>, ptr %add.ptr91, align 1
   %mul.i143 = fmul <4 x float> %24, %26
   %add.i202 = fadd <4 x float> %add.i214, %mul.i143
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !589
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !589
   %add.ptr95 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %27 = load float, ptr %add.ptr95, align 1
   %vecinit4.i = insertelement <4 x float> poison, float %27, i64 0
@@ -16494,7 +16493,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !591
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !591
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16527,7 +16526,7 @@ do.body:                                          ; preds = %do.body, %entry
   %13 = load <4 x float>, ptr %add.ptr38, align 1
   %mul.i189 = fmul <4 x float> %11, %13
   %add.i254 = fadd <4 x float> %mul.i201, %mul.i189
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !592
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !592
   %add.ptr42 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %14 = load <4 x float>, ptr %add.ptr42, align 1
   %15 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> zeroinitializer
@@ -16566,7 +16565,7 @@ do.body:                                          ; preds = %do.body, %entry
   %26 = load <4 x float>, ptr %add.ptr91, align 1
   %mul.i165 = fmul <4 x float> %24, %26
   %add.i230 = fadd <4 x float> %add.i242, %mul.i165
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !593
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !593
   %add.ptr95 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %27 = load i64, ptr %add.ptr95, align 1
   %vecinit1.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %27, i64 0
@@ -16621,7 +16620,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !595
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !595
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16654,7 +16653,7 @@ do.body:                                          ; preds = %do.body, %entry
   %13 = load <4 x float>, ptr %add.ptr38, align 1
   %mul.i210 = fmul <4 x float> %11, %13
   %add.i281 = fadd <4 x float> %mul.i222, %mul.i210
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !596
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !596
   %add.ptr42 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %14 = load <4 x float>, ptr %add.ptr42, align 1
   %15 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> zeroinitializer
@@ -16693,7 +16692,7 @@ do.body:                                          ; preds = %do.body, %entry
   %26 = load <4 x float>, ptr %add.ptr91, align 1
   %mul.i186 = fmul <4 x float> %24, %26
   %add.i257 = fadd <4 x float> %add.i269, %mul.i186
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !597
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !597
   %add.ptr95 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %27 = load <4 x float>, ptr %add.ptr95, align 1
   %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> zeroinitializer
@@ -16755,7 +16754,7 @@ do.body:                                          ; preds = %do.body, %entry
   %mul1 = mul nsw i32 %0, 7
   %idx.ext2 = sext i32 %mul1 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !599
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !599
   %1 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
   %3 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16788,7 +16787,7 @@ do.body:                                          ; preds = %do.body, %entry
   %13 = load <4 x float>, ptr %add.ptr38, align 1
   %mul.i231 = fmul <4 x float> %11, %13
   %add.i308 = fadd <4 x float> %mul.i243, %mul.i231
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !600
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !600
   %add.ptr42 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 4
   %14 = load <4 x float>, ptr %add.ptr42, align 1
   %15 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> zeroinitializer
@@ -16827,7 +16826,7 @@ do.body:                                          ; preds = %do.body, %entry
   %26 = load <4 x float>, ptr %add.ptr91, align 1
   %mul.i207 = fmul <4 x float> %24, %26
   %add.i284 = fadd <4 x float> %add.i296, %mul.i207
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #27, !srcloc !601
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr3) #24, !srcloc !601
   %add.ptr95 = getelementptr inbounds float, ptr %horizontal_coefficients.addr.0, i64 8
   %27 = load <4 x float>, ptr %add.ptr95, align 1
   %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> zeroinitializer
@@ -16902,7 +16901,7 @@ do.body:                                          ; preds = %do.end, %entry
   %1 = load i32, ptr %n1, align 4
   %sub = sub nsw i32 %1, %0
   %shr = ashr i32 %sub, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !603
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !603
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> zeroinitializer
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -16947,7 +16946,7 @@ do.body45:                                        ; preds = %do.body45, %do.body
   %tot3.0 = phi <4 x float> [ %add.i207, %do.body ], [ %add.i183, %do.body45 ]
   %add.ptr46 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr47 = getelementptr inbounds float, ptr %decode.0, i64 28
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #27, !srcloc !604
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #24, !srcloc !604
   %15 = load <4 x float>, ptr %add.ptr46, align 1
   %16 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> zeroinitializer
   %17 = load <4 x float>, ptr %add.ptr47, align 1
@@ -17026,7 +17025,7 @@ do.body:                                          ; preds = %do.end, %entry
   %2 = xor i32 %0, -1
   %add6 = add i32 %1, %2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !607
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !607
   %3 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %4 = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> zeroinitializer
   %5 = load <4 x float>, ptr %add.ptr3, align 1
@@ -17071,7 +17070,7 @@ do.body45:                                        ; preds = %do.body45, %do.body
   %tot3.0 = phi <4 x float> [ %add.i235, %do.body ], [ %add.i211, %do.body45 ]
   %add.ptr46 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr47 = getelementptr inbounds float, ptr %decode.0, i64 28
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #27, !srcloc !608
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #24, !srcloc !608
   %16 = load <4 x float>, ptr %add.ptr46, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %add.ptr47, align 1
@@ -17113,7 +17112,7 @@ do.body45:                                        ; preds = %do.body45, %do.body
   br i1 %cmp, label %do.body45, label %do.end, !llvm.loop !609
 
 do.end:                                           ; preds = %do.body45
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #27, !srcloc !610
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #24, !srcloc !610
   %add.ptr101 = getelementptr inbounds float, ptr %hc.0, i64 8
   %29 = load float, ptr %add.ptr101, align 1
   %vecinit4.i = insertelement <4 x float> poison, float %29, i64 0
@@ -17163,7 +17162,7 @@ do.body:                                          ; preds = %do.end, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -2
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !612
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !612
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> zeroinitializer
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -17208,7 +17207,7 @@ do.body45:                                        ; preds = %do.body45, %do.body
   %tot3.0 = phi <4 x float> [ %add.i263, %do.body ], [ %add.i239, %do.body45 ]
   %add.ptr46 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr47 = getelementptr inbounds float, ptr %decode.0, i64 28
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #27, !srcloc !613
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #24, !srcloc !613
   %15 = load <4 x float>, ptr %add.ptr46, align 1
   %16 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> zeroinitializer
   %17 = load <4 x float>, ptr %add.ptr47, align 1
@@ -17250,7 +17249,7 @@ do.body45:                                        ; preds = %do.body45, %do.body
   br i1 %cmp, label %do.body45, label %do.end, !llvm.loop !614
 
 do.end:                                           ; preds = %do.body45
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #27, !srcloc !615
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #24, !srcloc !615
   %add.ptr101 = getelementptr inbounds float, ptr %hc.0, i64 8
   %28 = load i64, ptr %add.ptr101, align 1
   %vecinit1.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %28, i64 0
@@ -17310,7 +17309,7 @@ do.body:                                          ; preds = %do.end, %entry
   %reass.sub = sub i32 %1, %0
   %add6 = add i32 %reass.sub, -3
   %shr = ashr i32 %add6, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #27, !srcloc !617
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %add.ptr3) #24, !srcloc !617
   %2 = load <4 x float>, ptr %horizontal_coefficients.addr.0, align 1
   %3 = shufflevector <4 x float> %2, <4 x float> poison, <4 x i32> zeroinitializer
   %4 = load <4 x float>, ptr %add.ptr3, align 1
@@ -17355,7 +17354,7 @@ do.body45:                                        ; preds = %do.body45, %do.body
   %tot3.0 = phi <4 x float> [ %add.i290, %do.body ], [ %add.i266, %do.body45 ]
   %add.ptr46 = getelementptr inbounds float, ptr %hc.0, i64 4
   %add.ptr47 = getelementptr inbounds float, ptr %decode.0, i64 28
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #27, !srcloc !618
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #24, !srcloc !618
   %15 = load <4 x float>, ptr %add.ptr46, align 1
   %16 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> zeroinitializer
   %17 = load <4 x float>, ptr %add.ptr47, align 1
@@ -17397,7 +17396,7 @@ do.body45:                                        ; preds = %do.body45, %do.body
   br i1 %cmp, label %do.body45, label %do.end, !llvm.loop !619
 
 do.end:                                           ; preds = %do.body45
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #27, !srcloc !620
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %add.ptr47) #24, !srcloc !620
   %add.ptr101 = getelementptr inbounds float, ptr %hc.0, i64 8
   %28 = load <4 x float>, ptr %add.ptr101, align 1
   %29 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> zeroinitializer
@@ -17465,7 +17464,7 @@ while.cond17.preheader:                           ; preds = %while.body, %entry
 while.body:                                       ; preds = %entry, %while.body
   %input.addr.037 = phi ptr [ %add.ptr15, %while.body ], [ %input, %entry ]
   %output0.036 = phi ptr [ %add.ptr16, %while.body ], [ %0, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.036) #27, !srcloc !622
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.036) #24, !srcloc !622
   %2 = load <4 x float>, ptr %input.addr.037, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.037, i64 4
   %3 = load <4 x float>, ptr %add.ptr, align 1
@@ -17500,7 +17499,7 @@ while.cond30.preheader:                           ; preds = %while.body22, %whil
 while.body22:                                     ; preds = %while.cond17.preheader, %while.body22
   %input.addr.144 = phi ptr [ %add.ptr27, %while.body22 ], [ %input.addr.0.lcssa, %while.cond17.preheader ]
   %output0.143 = phi ptr [ %add.ptr28, %while.body22 ], [ %output0.0.lcssa, %while.cond17.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.143) #27, !srcloc !624
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.143) #24, !srcloc !624
   %6 = load <4 x float>, ptr %input.addr.144, align 1
   %mul.i = fmul <4 x float> %vecinit3.i, %6
   store <4 x float> %mul.i, ptr %output0.143, align 1
@@ -17515,7 +17514,7 @@ while.body32:                                     ; preds = %while.cond30.prehea
   %input.addr.249 = phi ptr [ %incdec.ptr, %while.body32 ], [ %input.addr.1.lcssa, %while.cond30.preheader ]
   %output0.248 = phi ptr [ %incdec.ptr35, %while.body32 ], [ %output0.1.lcssa, %while.cond30.preheader ]
   %7 = load float, ptr %input.addr.249, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.248) #27, !srcloc !626
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.248) #24, !srcloc !626
   %mul = fmul float %1, %7
   store float %mul, ptr %output0.248, align 4
   %incdec.ptr = getelementptr inbounds float, ptr %input.addr.249, i64 1
@@ -17563,7 +17562,7 @@ while.cond23.preheader:                           ; preds = %while.body, %if.end
 while.body:                                       ; preds = %if.end, %while.body
   %output.044 = phi ptr [ %add.ptr21, %while.body ], [ %outputp, %if.end ]
   %input0.043 = phi ptr [ %add.ptr22, %while.body ], [ %0, %if.end ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.044) #27, !srcloc !628
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.044) #24, !srcloc !628
   %add.ptr = getelementptr inbounds float, ptr %input0.043, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %2 = load <4 x float>, ptr %input0.043, align 1
@@ -17600,7 +17599,7 @@ while.cond36.preheader:                           ; preds = %while.body28, %whil
 while.body28:                                     ; preds = %while.cond23.preheader, %while.body28
   %output.151 = phi ptr [ %add.ptr33, %while.body28 ], [ %output.0.lcssa, %while.cond23.preheader ]
   %input0.150 = phi ptr [ %add.ptr34, %while.body28 ], [ %input0.0.lcssa, %while.cond23.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.151) #27, !srcloc !630
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.151) #24, !srcloc !630
   %6 = load <4 x float>, ptr %input0.150, align 1
   %mul.i = fmul <4 x float> %vecinit3.i, %6
   store <4 x float> %mul.i, ptr %output.151, align 1
@@ -17614,7 +17613,7 @@ while.body28:                                     ; preds = %while.cond23.prehea
 while.body38:                                     ; preds = %while.cond36.preheader, %while.body38
   %output.256 = phi ptr [ %incdec.ptr, %while.body38 ], [ %output.1.lcssa, %while.cond36.preheader ]
   %input0.255 = phi ptr [ %incdec.ptr42, %while.body38 ], [ %input0.1.lcssa, %while.cond36.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.256) #27, !srcloc !632
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.256) #24, !srcloc !632
   %7 = load float, ptr %input0.255, align 4
   %mul = fmul float %1, %7
   store float %mul, ptr %output.256, align 4
@@ -17653,7 +17652,7 @@ while.cond28.preheader:                           ; preds = %while.body, %entry
 while.body:                                       ; preds = %entry, %while.body
   %input.addr.047 = phi ptr [ %add.ptr26, %while.body ], [ %input, %entry ]
   %output0.046 = phi ptr [ %add.ptr27, %while.body ], [ %0, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.046) #27, !srcloc !634
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.046) #24, !srcloc !634
   %2 = load <4 x float>, ptr %input.addr.047, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.047, i64 4
   %3 = load <4 x float>, ptr %add.ptr, align 1
@@ -17696,7 +17695,7 @@ while.cond43.preheader:                           ; preds = %while.body33, %whil
 while.body33:                                     ; preds = %while.cond28.preheader, %while.body33
   %input.addr.154 = phi ptr [ %add.ptr40, %while.body33 ], [ %input.addr.0.lcssa, %while.cond28.preheader ]
   %output0.153 = phi ptr [ %add.ptr41, %while.body33 ], [ %output0.0.lcssa, %while.cond28.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.153) #27, !srcloc !636
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.153) #24, !srcloc !636
   %10 = load <4 x float>, ptr %input.addr.154, align 1
   %11 = load <4 x float>, ptr %output0.153, align 1
   %mul.i = fmul <4 x float> %vecinit3.i, %10
@@ -17713,7 +17712,7 @@ while.body45:                                     ; preds = %while.cond43.prehea
   %input.addr.259 = phi ptr [ %incdec.ptr, %while.body45 ], [ %input.addr.1.lcssa, %while.cond43.preheader ]
   %output0.258 = phi ptr [ %incdec.ptr48, %while.body45 ], [ %output0.1.lcssa, %while.cond43.preheader ]
   %12 = load float, ptr %input.addr.259, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.258) #27, !srcloc !638
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.258) #24, !srcloc !638
   %mul = fmul float %1, %12
   %13 = load float, ptr %output0.258, align 4
   %add = fadd float %mul, %13
@@ -17750,7 +17749,7 @@ while.cond29.preheader:                           ; preds = %while.body, %entry
 while.body:                                       ; preds = %entry, %while.body
   %output.049 = phi ptr [ %add.ptr27, %while.body ], [ %outputp, %entry ]
   %input0.048 = phi ptr [ %add.ptr28, %while.body ], [ %0, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.049) #27, !srcloc !640
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.049) #24, !srcloc !640
   %add.ptr = getelementptr inbounds float, ptr %input0.048, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %2 = load <4 x float>, ptr %output.049, align 1
@@ -17795,7 +17794,7 @@ while.cond44.preheader:                           ; preds = %while.body34, %whil
 while.body34:                                     ; preds = %while.cond29.preheader, %while.body34
   %output.156 = phi ptr [ %add.ptr41, %while.body34 ], [ %output.0.lcssa, %while.cond29.preheader ]
   %input0.155 = phi ptr [ %add.ptr42, %while.body34 ], [ %input0.0.lcssa, %while.cond29.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.156) #27, !srcloc !642
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.156) #24, !srcloc !642
   %10 = load <4 x float>, ptr %output.156, align 1
   %11 = load <4 x float>, ptr %input0.155, align 1
   %mul.i = fmul <4 x float> %vecinit3.i, %11
@@ -17811,7 +17810,7 @@ while.body34:                                     ; preds = %while.cond29.prehea
 while.body46:                                     ; preds = %while.cond44.preheader, %while.body46
   %output.261 = phi ptr [ %incdec.ptr, %while.body46 ], [ %output.1.lcssa, %while.cond44.preheader ]
   %input0.260 = phi ptr [ %incdec.ptr51, %while.body46 ], [ %input0.1.lcssa, %while.cond44.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.261) #27, !srcloc !644
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.261) #24, !srcloc !644
   %12 = load float, ptr %output.261, align 4
   %13 = load float, ptr %input0.260, align 4
   %mul = fmul float %1, %13
@@ -17857,7 +17856,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input.addr.067 = phi ptr [ %add.ptr25, %while.body ], [ %input, %entry ]
   %output0.066 = phi ptr [ %add.ptr26, %while.body ], [ %0, %entry ]
   %output1.065 = phi ptr [ %add.ptr27, %while.body ], [ %2, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.066) #27, !srcloc !646
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.066) #24, !srcloc !646
   %4 = load <4 x float>, ptr %input.addr.067, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.067, i64 4
   %5 = load <4 x float>, ptr %add.ptr, align 1
@@ -17906,7 +17905,7 @@ while.body33:                                     ; preds = %while.cond28.prehea
   %input.addr.176 = phi ptr [ %add.ptr39, %while.body33 ], [ %input.addr.0.lcssa, %while.cond28.preheader ]
   %output0.175 = phi ptr [ %add.ptr40, %while.body33 ], [ %output0.0.lcssa, %while.cond28.preheader ]
   %output1.174 = phi ptr [ %add.ptr41, %while.body33 ], [ %output1.0.lcssa, %while.cond28.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.175) #27, !srcloc !648
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.175) #24, !srcloc !648
   %8 = load <4 x float>, ptr %input.addr.176, align 1
   %mul.i79 = fmul <4 x float> %vecinit3.i, %8
   store <4 x float> %mul.i79, ptr %output0.175, align 1
@@ -17925,7 +17924,7 @@ while.body45:                                     ; preds = %while.cond43.prehea
   %output0.282 = phi ptr [ %incdec.ptr50, %while.body45 ], [ %output0.1.lcssa, %while.cond43.preheader ]
   %output1.281 = phi ptr [ %incdec.ptr51, %while.body45 ], [ %output1.1.lcssa, %while.cond43.preheader ]
   %9 = load float, ptr %input.addr.283, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.282) #27, !srcloc !650
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.282) #24, !srcloc !650
   %mul = fmul float %1, %9
   store float %mul, ptr %output0.282, align 4
   %mul48 = fmul float %3, %9
@@ -17967,7 +17966,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output.069 = phi ptr [ %add.ptr35, %while.body ], [ %outputp, %entry ]
   %input0.068 = phi ptr [ %add.ptr36, %while.body ], [ %0, %entry ]
   %input1.067 = phi ptr [ %add.ptr37, %while.body ], [ %1, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.069) #27, !srcloc !652
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.069) #24, !srcloc !652
   %add.ptr = getelementptr inbounds float, ptr %input0.068, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr5 = getelementptr inbounds float, ptr %input1.067, i64 64
@@ -18024,7 +18023,7 @@ while.body43:                                     ; preds = %while.cond38.prehea
   %output.178 = phi ptr [ %add.ptr51, %while.body43 ], [ %output.0.lcssa, %while.cond38.preheader ]
   %input0.177 = phi ptr [ %add.ptr52, %while.body43 ], [ %input0.0.lcssa, %while.cond38.preheader ]
   %input1.176 = phi ptr [ %add.ptr53, %while.body43 ], [ %input1.0.lcssa, %while.cond38.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.178) #27, !srcloc !654
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.178) #24, !srcloc !654
   %11 = load <4 x float>, ptr %input0.177, align 1
   %mul.i87 = fmul <4 x float> %vecinit3.i, %11
   %12 = load <4 x float>, ptr %input1.176, align 1
@@ -18043,7 +18042,7 @@ while.body57:                                     ; preds = %while.cond55.prehea
   %output.285 = phi ptr [ %incdec.ptr, %while.body57 ], [ %output.1.lcssa, %while.cond55.preheader ]
   %input0.284 = phi ptr [ %incdec.ptr63, %while.body57 ], [ %input0.1.lcssa, %while.cond55.preheader ]
   %input1.283 = phi ptr [ %incdec.ptr64, %while.body57 ], [ %input1.1.lcssa, %while.cond55.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.285) #27, !srcloc !656
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.285) #24, !srcloc !656
   %13 = load float, ptr %input0.284, align 4
   %14 = load float, ptr %input1.283, align 4
   %15 = insertelement <2 x float> poison, float %13, i64 0
@@ -18094,7 +18093,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input.addr.087 = phi ptr [ %add.ptr47, %while.body ], [ %input, %entry ]
   %output0.086 = phi ptr [ %add.ptr48, %while.body ], [ %0, %entry ]
   %output1.085 = phi ptr [ %add.ptr49, %while.body ], [ %2, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.086) #27, !srcloc !658
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.086) #24, !srcloc !658
   %4 = load <4 x float>, ptr %input.addr.087, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.087, i64 4
   %5 = load <4 x float>, ptr %add.ptr, align 1
@@ -18159,7 +18158,7 @@ while.body55:                                     ; preds = %while.cond50.prehea
   %input.addr.196 = phi ptr [ %add.ptr65, %while.body55 ], [ %input.addr.0.lcssa, %while.cond50.preheader ]
   %output0.195 = phi ptr [ %add.ptr66, %while.body55 ], [ %output0.0.lcssa, %while.cond50.preheader ]
   %output1.194 = phi ptr [ %add.ptr67, %while.body55 ], [ %output1.0.lcssa, %while.cond50.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.195) #27, !srcloc !660
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.195) #24, !srcloc !660
   %16 = load <4 x float>, ptr %input.addr.196, align 1
   %17 = load <4 x float>, ptr %output0.195, align 1
   %mul.i116 = fmul <4 x float> %vecinit3.i, %16
@@ -18182,7 +18181,7 @@ while.body71:                                     ; preds = %while.cond69.prehea
   %output0.2102 = phi ptr [ %incdec.ptr77, %while.body71 ], [ %output0.1.lcssa, %while.cond69.preheader ]
   %output1.2101 = phi ptr [ %incdec.ptr78, %while.body71 ], [ %output1.1.lcssa, %while.cond69.preheader ]
   %19 = load float, ptr %input.addr.2103, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2102) #27, !srcloc !662
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2102) #24, !srcloc !662
   %mul = fmul float %1, %19
   %20 = load float, ptr %output0.2102, align 4
   %add = fadd float %mul, %20
@@ -18228,7 +18227,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output.080 = phi ptr [ %add.ptr46, %while.body ], [ %outputp, %entry ]
   %input0.079 = phi ptr [ %add.ptr47, %while.body ], [ %0, %entry ]
   %input1.078 = phi ptr [ %add.ptr48, %while.body ], [ %1, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.080) #27, !srcloc !664
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.080) #24, !srcloc !664
   %add.ptr = getelementptr inbounds float, ptr %input0.079, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr5 = getelementptr inbounds float, ptr %input1.078, i64 64
@@ -18293,7 +18292,7 @@ while.body54:                                     ; preds = %while.cond49.prehea
   %output.189 = phi ptr [ %add.ptr64, %while.body54 ], [ %output.0.lcssa, %while.cond49.preheader ]
   %input0.188 = phi ptr [ %add.ptr65, %while.body54 ], [ %input0.0.lcssa, %while.cond49.preheader ]
   %input1.187 = phi ptr [ %add.ptr66, %while.body54 ], [ %input1.0.lcssa, %while.cond49.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.189) #27, !srcloc !666
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.189) #24, !srcloc !666
   %15 = load <4 x float>, ptr %output.189, align 1
   %16 = load <4 x float>, ptr %input0.188, align 1
   %mul.i107 = fmul <4 x float> %vecinit3.i, %16
@@ -18314,7 +18313,7 @@ while.body70:                                     ; preds = %while.cond68.prehea
   %output.296 = phi ptr [ %incdec.ptr, %while.body70 ], [ %output.1.lcssa, %while.cond68.preheader ]
   %input0.295 = phi ptr [ %incdec.ptr78, %while.body70 ], [ %input0.1.lcssa, %while.cond68.preheader ]
   %input1.294 = phi ptr [ %incdec.ptr79, %while.body70 ], [ %input1.1.lcssa, %while.cond68.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.296) #27, !srcloc !668
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.296) #24, !srcloc !668
   %18 = load float, ptr %output.296, align 4
   %19 = load float, ptr %input0.295, align 4
   %20 = load float, ptr %input1.294, align 4
@@ -18375,7 +18374,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output0.096 = phi ptr [ %add.ptr36, %while.body ], [ %0, %entry ]
   %output1.095 = phi ptr [ %add.ptr37, %while.body ], [ %2, %entry ]
   %output2.094 = phi ptr [ %add.ptr38, %while.body ], [ %4, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.096) #27, !srcloc !670
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.096) #24, !srcloc !670
   %6 = load <4 x float>, ptr %input.addr.097, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.097, i64 4
   %7 = load <4 x float>, ptr %add.ptr, align 1
@@ -18438,7 +18437,7 @@ while.body44:                                     ; preds = %while.cond39.prehea
   %output0.1107 = phi ptr [ %add.ptr52, %while.body44 ], [ %output0.0.lcssa, %while.cond39.preheader ]
   %output1.1106 = phi ptr [ %add.ptr53, %while.body44 ], [ %output1.0.lcssa, %while.cond39.preheader ]
   %output2.1105 = phi ptr [ %add.ptr54, %while.body44 ], [ %output2.0.lcssa, %while.cond39.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1107) #27, !srcloc !672
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1107) #24, !srcloc !672
   %10 = load <4 x float>, ptr %input.addr.1108, align 1
   %mul.i108 = fmul <4 x float> %vecinit3.i, %10
   store <4 x float> %mul.i108, ptr %output0.1107, align 1
@@ -18461,7 +18460,7 @@ while.body58:                                     ; preds = %while.cond56.prehea
   %output1.2115 = phi ptr [ %incdec.ptr66, %while.body58 ], [ %output1.1.lcssa, %while.cond56.preheader ]
   %output2.2114 = phi ptr [ %incdec.ptr67, %while.body58 ], [ %output2.1.lcssa, %while.cond56.preheader ]
   %11 = load float, ptr %input.addr.2117, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2116) #27, !srcloc !674
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2116) #24, !srcloc !674
   %mul = fmul float %1, %11
   store float %mul, ptr %output0.2116, align 4
   %mul61 = fmul float %3, %11
@@ -18514,7 +18513,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input0.099 = phi ptr [ %add.ptr55, %while.body ], [ %0, %entry ]
   %input1.098 = phi ptr [ %add.ptr56, %while.body ], [ %2, %entry ]
   %input2.097 = phi ptr [ %add.ptr57, %while.body ], [ %3, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0100) #27, !srcloc !676
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0100) #24, !srcloc !676
   %add.ptr = getelementptr inbounds float, ptr %input0.099, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr8 = getelementptr inbounds float, ptr %input1.098, i64 64
@@ -18591,7 +18590,7 @@ while.body63:                                     ; preds = %while.cond58.prehea
   %input0.1110 = phi ptr [ %add.ptr75, %while.body63 ], [ %input0.0.lcssa, %while.cond58.preheader ]
   %input1.1109 = phi ptr [ %add.ptr76, %while.body63 ], [ %input1.0.lcssa, %while.cond58.preheader ]
   %input2.1108 = phi ptr [ %add.ptr77, %while.body63 ], [ %input2.0.lcssa, %while.cond58.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1111) #27, !srcloc !678
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1111) #24, !srcloc !678
   %17 = load <4 x float>, ptr %input0.1110, align 1
   %mul.i123 = fmul <4 x float> %vecinit3.i, %17
   %18 = load <4 x float>, ptr %input1.1109, align 1
@@ -18615,7 +18614,7 @@ while.body81:                                     ; preds = %while.cond79.prehea
   %input0.2119 = phi ptr [ %incdec.ptr90, %while.body81 ], [ %input0.1.lcssa, %while.cond79.preheader ]
   %input1.2118 = phi ptr [ %incdec.ptr91, %while.body81 ], [ %input1.1.lcssa, %while.cond79.preheader ]
   %input2.2117 = phi ptr [ %incdec.ptr92, %while.body81 ], [ %input2.1.lcssa, %while.cond79.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2120) #27, !srcloc !680
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2120) #24, !srcloc !680
   %20 = load float, ptr %input0.2119, align 4
   %mul = fmul float %1, %20
   %21 = load float, ptr %input1.2118, align 4
@@ -18678,7 +18677,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output0.0126 = phi ptr [ %add.ptr69, %while.body ], [ %0, %entry ]
   %output1.0125 = phi ptr [ %add.ptr70, %while.body ], [ %2, %entry ]
   %output2.0124 = phi ptr [ %add.ptr71, %while.body ], [ %4, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0126) #27, !srcloc !682
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0126) #24, !srcloc !682
   %6 = load <4 x float>, ptr %input.addr.0127, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0127, i64 4
   %7 = load <4 x float>, ptr %add.ptr, align 1
@@ -18765,7 +18764,7 @@ while.body77:                                     ; preds = %while.cond72.prehea
   %output0.1137 = phi ptr [ %add.ptr91, %while.body77 ], [ %output0.0.lcssa, %while.cond72.preheader ]
   %output1.1136 = phi ptr [ %add.ptr92, %while.body77 ], [ %output1.0.lcssa, %while.cond72.preheader ]
   %output2.1135 = phi ptr [ %add.ptr93, %while.body77 ], [ %output2.0.lcssa, %while.cond72.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1137) #27, !srcloc !684
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1137) #24, !srcloc !684
   %22 = load <4 x float>, ptr %input.addr.1138, align 1
   %23 = load <4 x float>, ptr %output0.1137, align 1
   %mul.i164 = fmul <4 x float> %vecinit3.i, %22
@@ -18794,7 +18793,7 @@ while.body97:                                     ; preds = %while.cond95.prehea
   %output1.2145 = phi ptr [ %incdec.ptr107, %while.body97 ], [ %output1.1.lcssa, %while.cond95.preheader ]
   %output2.2144 = phi ptr [ %incdec.ptr108, %while.body97 ], [ %output2.1.lcssa, %while.cond95.preheader ]
   %26 = load float, ptr %input.addr.2147, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2146) #27, !srcloc !686
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2146) #24, !srcloc !686
   %mul = fmul float %1, %26
   %27 = load float, ptr %output0.2146, align 4
   %add = fadd float %mul, %27
@@ -18853,7 +18852,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input0.0110 = phi ptr [ %add.ptr66, %while.body ], [ %0, %entry ]
   %input1.0109 = phi ptr [ %add.ptr67, %while.body ], [ %2, %entry ]
   %input2.0108 = phi ptr [ %add.ptr68, %while.body ], [ %3, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0111) #27, !srcloc !688
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0111) #24, !srcloc !688
   %add.ptr = getelementptr inbounds float, ptr %input0.0110, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr8 = getelementptr inbounds float, ptr %input1.0109, i64 64
@@ -18938,7 +18937,7 @@ while.body74:                                     ; preds = %while.cond69.prehea
   %input0.1121 = phi ptr [ %add.ptr88, %while.body74 ], [ %input0.0.lcssa, %while.cond69.preheader ]
   %input1.1120 = phi ptr [ %add.ptr89, %while.body74 ], [ %input1.0.lcssa, %while.cond69.preheader ]
   %input2.1119 = phi ptr [ %add.ptr90, %while.body74 ], [ %input2.0.lcssa, %while.cond69.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1122) #27, !srcloc !690
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1122) #24, !srcloc !690
   %21 = load <4 x float>, ptr %output.1122, align 1
   %22 = load <4 x float>, ptr %input0.1121, align 1
   %mul.i143 = fmul <4 x float> %vecinit3.i, %22
@@ -18964,7 +18963,7 @@ while.body94:                                     ; preds = %while.cond92.prehea
   %input0.2130 = phi ptr [ %incdec.ptr105, %while.body94 ], [ %input0.1.lcssa, %while.cond92.preheader ]
   %input1.2129 = phi ptr [ %incdec.ptr106, %while.body94 ], [ %input1.1.lcssa, %while.cond92.preheader ]
   %input2.2128 = phi ptr [ %incdec.ptr107, %while.body94 ], [ %input2.1.lcssa, %while.cond92.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2131) #27, !srcloc !692
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2131) #24, !srcloc !692
   %25 = load float, ptr %output.2131, align 4
   %26 = load float, ptr %input0.2130, align 4
   %mul = fmul float %1, %26
@@ -19037,7 +19036,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output1.0125 = phi ptr [ %add.ptr47, %while.body ], [ %2, %entry ]
   %output2.0124 = phi ptr [ %add.ptr48, %while.body ], [ %4, %entry ]
   %output3.0123 = phi ptr [ %add.ptr49, %while.body ], [ %6, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0126) #27, !srcloc !694
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0126) #24, !srcloc !694
   %8 = load <4 x float>, ptr %input.addr.0127, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0127, i64 4
   %9 = load <4 x float>, ptr %add.ptr, align 1
@@ -19114,7 +19113,7 @@ while.body55:                                     ; preds = %while.cond50.prehea
   %output1.1138 = phi ptr [ %add.ptr65, %while.body55 ], [ %output1.0.lcssa, %while.cond50.preheader ]
   %output2.1137 = phi ptr [ %add.ptr66, %while.body55 ], [ %output2.0.lcssa, %while.cond50.preheader ]
   %output3.1136 = phi ptr [ %add.ptr67, %while.body55 ], [ %output3.0.lcssa, %while.cond50.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1139) #27, !srcloc !696
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1139) #24, !srcloc !696
   %12 = load <4 x float>, ptr %input.addr.1140, align 1
   %mul.i137 = fmul <4 x float> %vecinit3.i, %12
   store <4 x float> %mul.i137, ptr %output0.1139, align 1
@@ -19141,7 +19140,7 @@ while.body71:                                     ; preds = %while.cond69.prehea
   %output2.2148 = phi ptr [ %incdec.ptr82, %while.body71 ], [ %output2.1.lcssa, %while.cond69.preheader ]
   %output3.2147 = phi ptr [ %incdec.ptr83, %while.body71 ], [ %output3.1.lcssa, %while.cond69.preheader ]
   %13 = load float, ptr %input.addr.2151, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2150) #27, !srcloc !698
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2150) #24, !srcloc !698
   %mul = fmul float %1, %13
   store float %mul, ptr %output0.2150, align 4
   %mul74 = fmul float %3, %13
@@ -19201,7 +19200,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input1.0129 = phi ptr [ %add.ptr75, %while.body ], [ %1, %entry ]
   %input2.0128 = phi ptr [ %add.ptr76, %while.body ], [ %3, %entry ]
   %input3.0127 = phi ptr [ %add.ptr77, %while.body ], [ %4, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0131) #27, !srcloc !700
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0131) #24, !srcloc !700
   %add.ptr = getelementptr inbounds float, ptr %input0.0130, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr11 = getelementptr inbounds float, ptr %input1.0129, i64 64
@@ -19298,7 +19297,7 @@ while.body83:                                     ; preds = %while.cond78.prehea
   %input1.1142 = phi ptr [ %add.ptr99, %while.body83 ], [ %input1.0.lcssa, %while.cond78.preheader ]
   %input2.1141 = phi ptr [ %add.ptr100, %while.body83 ], [ %input2.0.lcssa, %while.cond78.preheader ]
   %input3.1140 = phi ptr [ %add.ptr101, %while.body83 ], [ %input3.0.lcssa, %while.cond78.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1144) #27, !srcloc !702
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1144) #24, !srcloc !702
   %22 = load <4 x float>, ptr %input0.1143, align 1
   %mul.i159 = fmul <4 x float> %vecinit3.i, %22
   %23 = load <4 x float>, ptr %input1.1142, align 1
@@ -19327,7 +19326,7 @@ while.body105:                                    ; preds = %while.cond103.prehe
   %input1.2153 = phi ptr [ %incdec.ptr118, %while.body105 ], [ %input1.1.lcssa, %while.cond103.preheader ]
   %input2.2152 = phi ptr [ %incdec.ptr119, %while.body105 ], [ %input2.1.lcssa, %while.cond103.preheader ]
   %input3.2151 = phi ptr [ %incdec.ptr120, %while.body105 ], [ %input3.1.lcssa, %while.cond103.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2155) #27, !srcloc !704
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2155) #24, !srcloc !704
   %26 = load float, ptr %input0.2154, align 4
   %27 = load float, ptr %input1.2153, align 4
   %28 = insertelement <2 x float> poison, float %26, i64 0
@@ -19404,7 +19403,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output1.0165 = phi ptr [ %add.ptr91, %while.body ], [ %2, %entry ]
   %output2.0164 = phi ptr [ %add.ptr92, %while.body ], [ %4, %entry ]
   %output3.0163 = phi ptr [ %add.ptr93, %while.body ], [ %6, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0166) #27, !srcloc !706
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0166) #24, !srcloc !706
   %8 = load <4 x float>, ptr %input.addr.0167, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0167, i64 4
   %9 = load <4 x float>, ptr %add.ptr, align 1
@@ -19513,7 +19512,7 @@ while.body99:                                     ; preds = %while.cond94.prehea
   %output1.1178 = phi ptr [ %add.ptr117, %while.body99 ], [ %output1.0.lcssa, %while.cond94.preheader ]
   %output2.1177 = phi ptr [ %add.ptr118, %while.body99 ], [ %output2.0.lcssa, %while.cond94.preheader ]
   %output3.1176 = phi ptr [ %add.ptr119, %while.body99 ], [ %output3.0.lcssa, %while.cond94.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1179) #27, !srcloc !708
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1179) #24, !srcloc !708
   %28 = load <4 x float>, ptr %input.addr.1180, align 1
   %29 = load <4 x float>, ptr %output0.1179, align 1
   %mul.i212 = fmul <4 x float> %vecinit3.i, %28
@@ -19548,7 +19547,7 @@ while.body123:                                    ; preds = %while.cond121.prehe
   %output2.2188 = phi ptr [ %incdec.ptr137, %while.body123 ], [ %output2.1.lcssa, %while.cond121.preheader ]
   %output3.2187 = phi ptr [ %incdec.ptr138, %while.body123 ], [ %output3.1.lcssa, %while.cond121.preheader ]
   %33 = load float, ptr %input.addr.2191, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2190) #27, !srcloc !710
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2190) #24, !srcloc !710
   %mul = fmul float %1, %33
   %34 = load float, ptr %output0.2190, align 4
   %add = fadd float %mul, %34
@@ -19616,7 +19615,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input1.0140 = phi ptr [ %add.ptr86, %while.body ], [ %1, %entry ]
   %input2.0139 = phi ptr [ %add.ptr87, %while.body ], [ %3, %entry ]
   %input3.0138 = phi ptr [ %add.ptr88, %while.body ], [ %4, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0142) #27, !srcloc !712
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0142) #24, !srcloc !712
   %add.ptr = getelementptr inbounds float, ptr %input0.0141, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr11 = getelementptr inbounds float, ptr %input1.0140, i64 64
@@ -19721,7 +19720,7 @@ while.body94:                                     ; preds = %while.cond89.prehea
   %input1.1153 = phi ptr [ %add.ptr112, %while.body94 ], [ %input1.0.lcssa, %while.cond89.preheader ]
   %input2.1152 = phi ptr [ %add.ptr113, %while.body94 ], [ %input2.0.lcssa, %while.cond89.preheader ]
   %input3.1151 = phi ptr [ %add.ptr114, %while.body94 ], [ %input3.0.lcssa, %while.cond89.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1155) #27, !srcloc !714
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1155) #24, !srcloc !714
   %26 = load <4 x float>, ptr %output.1155, align 1
   %27 = load <4 x float>, ptr %input0.1154, align 1
   %mul.i179 = fmul <4 x float> %vecinit3.i, %27
@@ -19752,7 +19751,7 @@ while.body118:                                    ; preds = %while.cond116.prehe
   %input1.2164 = phi ptr [ %incdec.ptr133, %while.body118 ], [ %input1.1.lcssa, %while.cond116.preheader ]
   %input2.2163 = phi ptr [ %incdec.ptr134, %while.body118 ], [ %input2.1.lcssa, %while.cond116.preheader ]
   %input3.2162 = phi ptr [ %incdec.ptr135, %while.body118 ], [ %input3.1.lcssa, %while.cond116.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2166) #27, !srcloc !716
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2166) #24, !srcloc !716
   %31 = load float, ptr %output.2166, align 4
   %32 = load float, ptr %input0.2165, align 4
   %33 = load float, ptr %input1.2164, align 4
@@ -19840,7 +19839,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output2.0154 = phi ptr [ %add.ptr58, %while.body ], [ %4, %entry ]
   %output3.0153 = phi ptr [ %add.ptr59, %while.body ], [ %6, %entry ]
   %output4.0152 = phi ptr [ %add.ptr60, %while.body ], [ %8, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0156) #27, !srcloc !718
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0156) #24, !srcloc !718
   %10 = load <4 x float>, ptr %input.addr.0157, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0157, i64 4
   %11 = load <4 x float>, ptr %add.ptr, align 1
@@ -19931,7 +19930,7 @@ while.body66:                                     ; preds = %while.cond61.prehea
   %output2.1169 = phi ptr [ %add.ptr78, %while.body66 ], [ %output2.0.lcssa, %while.cond61.preheader ]
   %output3.1168 = phi ptr [ %add.ptr79, %while.body66 ], [ %output3.0.lcssa, %while.cond61.preheader ]
   %output4.1167 = phi ptr [ %add.ptr80, %while.body66 ], [ %output4.0.lcssa, %while.cond61.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1171) #27, !srcloc !720
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1171) #24, !srcloc !720
   %14 = load <4 x float>, ptr %input.addr.1172, align 1
   %mul.i166 = fmul <4 x float> %vecinit3.i, %14
   store <4 x float> %mul.i166, ptr %output0.1171, align 1
@@ -19962,7 +19961,7 @@ while.body84:                                     ; preds = %while.cond82.prehea
   %output3.2181 = phi ptr [ %incdec.ptr98, %while.body84 ], [ %output3.1.lcssa, %while.cond82.preheader ]
   %output4.2180 = phi ptr [ %incdec.ptr99, %while.body84 ], [ %output4.1.lcssa, %while.cond82.preheader ]
   %15 = load float, ptr %input.addr.2185, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2184) #27, !srcloc !722
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2184) #24, !srcloc !722
   %mul = fmul float %1, %15
   store float %mul, ptr %output0.2184, align 4
   %mul87 = fmul float %3, %15
@@ -20033,7 +20032,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input2.0159 = phi ptr [ %add.ptr95, %while.body ], [ %3, %entry ]
   %input3.0158 = phi ptr [ %add.ptr96, %while.body ], [ %5, %entry ]
   %input4.0157 = phi ptr [ %add.ptr97, %while.body ], [ %6, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0162) #27, !srcloc !724
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0162) #24, !srcloc !724
   %add.ptr = getelementptr inbounds float, ptr %input0.0161, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr14 = getelementptr inbounds float, ptr %input1.0160, i64 64
@@ -20150,7 +20149,7 @@ while.body103:                                    ; preds = %while.cond98.prehea
   %input2.1174 = phi ptr [ %add.ptr123, %while.body103 ], [ %input2.0.lcssa, %while.cond98.preheader ]
   %input3.1173 = phi ptr [ %add.ptr124, %while.body103 ], [ %input3.0.lcssa, %while.cond98.preheader ]
   %input4.1172 = phi ptr [ %add.ptr125, %while.body103 ], [ %input4.0.lcssa, %while.cond98.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1177) #27, !srcloc !726
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1177) #24, !srcloc !726
   %28 = load <4 x float>, ptr %input0.1176, align 1
   %mul.i195 = fmul <4 x float> %vecinit3.i, %28
   %29 = load <4 x float>, ptr %input1.1175, align 1
@@ -20184,7 +20183,7 @@ while.body129:                                    ; preds = %while.cond127.prehe
   %input2.2187 = phi ptr [ %incdec.ptr146, %while.body129 ], [ %input2.1.lcssa, %while.cond127.preheader ]
   %input3.2186 = phi ptr [ %incdec.ptr147, %while.body129 ], [ %input3.1.lcssa, %while.cond127.preheader ]
   %input4.2185 = phi ptr [ %incdec.ptr148, %while.body129 ], [ %input4.1.lcssa, %while.cond127.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2190) #27, !srcloc !728
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2190) #24, !srcloc !728
   %33 = load float, ptr %input0.2189, align 4
   %mul = fmul float %1, %33
   %34 = load float, ptr %input1.2188, align 4
@@ -20274,7 +20273,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output2.0204 = phi ptr [ %add.ptr113, %while.body ], [ %4, %entry ]
   %output3.0203 = phi ptr [ %add.ptr114, %while.body ], [ %6, %entry ]
   %output4.0202 = phi ptr [ %add.ptr115, %while.body ], [ %8, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0206) #27, !srcloc !730
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0206) #24, !srcloc !730
   %10 = load <4 x float>, ptr %input.addr.0207, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0207, i64 4
   %11 = load <4 x float>, ptr %add.ptr, align 1
@@ -20405,7 +20404,7 @@ while.body121:                                    ; preds = %while.cond116.prehe
   %output2.1219 = phi ptr [ %add.ptr143, %while.body121 ], [ %output2.0.lcssa, %while.cond116.preheader ]
   %output3.1218 = phi ptr [ %add.ptr144, %while.body121 ], [ %output3.0.lcssa, %while.cond116.preheader ]
   %output4.1217 = phi ptr [ %add.ptr145, %while.body121 ], [ %output4.0.lcssa, %while.cond116.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1221) #27, !srcloc !732
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1221) #24, !srcloc !732
   %34 = load <4 x float>, ptr %input.addr.1222, align 1
   %35 = load <4 x float>, ptr %output0.1221, align 1
   %mul.i260 = fmul <4 x float> %vecinit3.i, %34
@@ -20446,7 +20445,7 @@ while.body149:                                    ; preds = %while.cond147.prehe
   %output3.2231 = phi ptr [ %incdec.ptr167, %while.body149 ], [ %output3.1.lcssa, %while.cond147.preheader ]
   %output4.2230 = phi ptr [ %incdec.ptr168, %while.body149 ], [ %output4.1.lcssa, %while.cond147.preheader ]
   %40 = load float, ptr %input.addr.2235, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2234) #27, !srcloc !734
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2234) #24, !srcloc !734
   %mul = fmul float %1, %40
   %41 = load float, ptr %output0.2234, align 4
   %add = fadd float %mul, %41
@@ -20527,7 +20526,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input2.0170 = phi ptr [ %add.ptr106, %while.body ], [ %3, %entry ]
   %input3.0169 = phi ptr [ %add.ptr107, %while.body ], [ %5, %entry ]
   %input4.0168 = phi ptr [ %add.ptr108, %while.body ], [ %6, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0173) #27, !srcloc !736
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0173) #24, !srcloc !736
   %add.ptr = getelementptr inbounds float, ptr %input0.0172, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr14 = getelementptr inbounds float, ptr %input1.0171, i64 64
@@ -20652,7 +20651,7 @@ while.body114:                                    ; preds = %while.cond109.prehe
   %input2.1185 = phi ptr [ %add.ptr136, %while.body114 ], [ %input2.0.lcssa, %while.cond109.preheader ]
   %input3.1184 = phi ptr [ %add.ptr137, %while.body114 ], [ %input3.0.lcssa, %while.cond109.preheader ]
   %input4.1183 = phi ptr [ %add.ptr138, %while.body114 ], [ %input4.0.lcssa, %while.cond109.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1188) #27, !srcloc !738
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1188) #24, !srcloc !738
   %32 = load <4 x float>, ptr %output.1188, align 1
   %33 = load <4 x float>, ptr %input0.1187, align 1
   %mul.i215 = fmul <4 x float> %vecinit3.i, %33
@@ -20688,7 +20687,7 @@ while.body142:                                    ; preds = %while.cond140.prehe
   %input2.2198 = phi ptr [ %incdec.ptr161, %while.body142 ], [ %input2.1.lcssa, %while.cond140.preheader ]
   %input3.2197 = phi ptr [ %incdec.ptr162, %while.body142 ], [ %input3.1.lcssa, %while.cond140.preheader ]
   %input4.2196 = phi ptr [ %incdec.ptr163, %while.body142 ], [ %input4.1.lcssa, %while.cond140.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2201) #27, !srcloc !740
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2201) #24, !srcloc !740
   %38 = load float, ptr %output.2201, align 4
   %39 = load float, ptr %input0.2200, align 4
   %mul = fmul float %1, %39
@@ -20788,7 +20787,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output3.0183 = phi ptr [ %add.ptr69, %while.body ], [ %6, %entry ]
   %output4.0182 = phi ptr [ %add.ptr70, %while.body ], [ %8, %entry ]
   %output5.0181 = phi ptr [ %add.ptr71, %while.body ], [ %10, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0186) #27, !srcloc !742
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0186) #24, !srcloc !742
   %12 = load <4 x float>, ptr %input.addr.0187, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0187, i64 4
   %13 = load <4 x float>, ptr %add.ptr, align 1
@@ -20893,7 +20892,7 @@ while.body77:                                     ; preds = %while.cond72.prehea
   %output3.1200 = phi ptr [ %add.ptr91, %while.body77 ], [ %output3.0.lcssa, %while.cond72.preheader ]
   %output4.1199 = phi ptr [ %add.ptr92, %while.body77 ], [ %output4.0.lcssa, %while.cond72.preheader ]
   %output5.1198 = phi ptr [ %add.ptr93, %while.body77 ], [ %output5.0.lcssa, %while.cond72.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1203) #27, !srcloc !744
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1203) #24, !srcloc !744
   %16 = load <4 x float>, ptr %input.addr.1204, align 1
   %mul.i195 = fmul <4 x float> %vecinit3.i, %16
   store <4 x float> %mul.i195, ptr %output0.1203, align 1
@@ -20928,7 +20927,7 @@ while.body97:                                     ; preds = %while.cond95.prehea
   %output4.2214 = phi ptr [ %incdec.ptr114, %while.body97 ], [ %output4.1.lcssa, %while.cond95.preheader ]
   %output5.2213 = phi ptr [ %incdec.ptr115, %while.body97 ], [ %output5.1.lcssa, %while.cond95.preheader ]
   %17 = load float, ptr %input.addr.2219, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2218) #27, !srcloc !746
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2218) #24, !srcloc !746
   %mul = fmul float %1, %17
   store float %mul, ptr %output0.2218, align 4
   %mul100 = fmul float %3, %17
@@ -21006,7 +21005,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input3.0189 = phi ptr [ %add.ptr115, %while.body ], [ %4, %entry ]
   %input4.0188 = phi ptr [ %add.ptr116, %while.body ], [ %6, %entry ]
   %input5.0187 = phi ptr [ %add.ptr117, %while.body ], [ %7, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0193) #27, !srcloc !748
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0193) #24, !srcloc !748
   %add.ptr = getelementptr inbounds float, ptr %input0.0192, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr17 = getelementptr inbounds float, ptr %input1.0191, i64 64
@@ -21143,7 +21142,7 @@ while.body123:                                    ; preds = %while.cond118.prehe
   %input3.1206 = phi ptr [ %add.ptr147, %while.body123 ], [ %input3.0.lcssa, %while.cond118.preheader ]
   %input4.1205 = phi ptr [ %add.ptr148, %while.body123 ], [ %input4.0.lcssa, %while.cond118.preheader ]
   %input5.1204 = phi ptr [ %add.ptr149, %while.body123 ], [ %input5.0.lcssa, %while.cond118.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1210) #27, !srcloc !750
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1210) #24, !srcloc !750
   %33 = load <4 x float>, ptr %input0.1209, align 1
   %mul.i231 = fmul <4 x float> %vecinit3.i, %33
   %34 = load <4 x float>, ptr %input1.1208, align 1
@@ -21182,7 +21181,7 @@ while.body153:                                    ; preds = %while.cond151.prehe
   %input3.2221 = phi ptr [ %incdec.ptr174, %while.body153 ], [ %input3.1.lcssa, %while.cond151.preheader ]
   %input4.2220 = phi ptr [ %incdec.ptr175, %while.body153 ], [ %input4.1.lcssa, %while.cond151.preheader ]
   %input5.2219 = phi ptr [ %incdec.ptr176, %while.body153 ], [ %input5.1.lcssa, %while.cond151.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2225) #27, !srcloc !752
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2225) #24, !srcloc !752
   %39 = load float, ptr %input0.2224, align 4
   %40 = load float, ptr %input1.2223, align 4
   %41 = insertelement <2 x float> poison, float %39, i64 0
@@ -21285,7 +21284,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output3.0243 = phi ptr [ %add.ptr135, %while.body ], [ %6, %entry ]
   %output4.0242 = phi ptr [ %add.ptr136, %while.body ], [ %8, %entry ]
   %output5.0241 = phi ptr [ %add.ptr137, %while.body ], [ %10, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0246) #27, !srcloc !754
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0246) #24, !srcloc !754
   %12 = load <4 x float>, ptr %input.addr.0247, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0247, i64 4
   %13 = load <4 x float>, ptr %add.ptr, align 1
@@ -21438,7 +21437,7 @@ while.body143:                                    ; preds = %while.cond138.prehe
   %output3.1260 = phi ptr [ %add.ptr169, %while.body143 ], [ %output3.0.lcssa, %while.cond138.preheader ]
   %output4.1259 = phi ptr [ %add.ptr170, %while.body143 ], [ %output4.0.lcssa, %while.cond138.preheader ]
   %output5.1258 = phi ptr [ %add.ptr171, %while.body143 ], [ %output5.0.lcssa, %while.cond138.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1263) #27, !srcloc !756
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1263) #24, !srcloc !756
   %40 = load <4 x float>, ptr %input.addr.1264, align 1
   %41 = load <4 x float>, ptr %output0.1263, align 1
   %mul.i308 = fmul <4 x float> %vecinit3.i, %40
@@ -21485,7 +21484,7 @@ while.body175:                                    ; preds = %while.cond173.prehe
   %output4.2274 = phi ptr [ %incdec.ptr197, %while.body175 ], [ %output4.1.lcssa, %while.cond173.preheader ]
   %output5.2273 = phi ptr [ %incdec.ptr198, %while.body175 ], [ %output5.1.lcssa, %while.cond173.preheader ]
   %47 = load float, ptr %input.addr.2279, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2278) #27, !srcloc !758
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2278) #24, !srcloc !758
   %mul = fmul float %1, %47
   %48 = load float, ptr %output0.2278, align 4
   %add = fadd float %mul, %48
@@ -21575,7 +21574,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input3.0200 = phi ptr [ %add.ptr126, %while.body ], [ %4, %entry ]
   %input4.0199 = phi ptr [ %add.ptr127, %while.body ], [ %6, %entry ]
   %input5.0198 = phi ptr [ %add.ptr128, %while.body ], [ %7, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0204) #27, !srcloc !760
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0204) #24, !srcloc !760
   %add.ptr = getelementptr inbounds float, ptr %input0.0203, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr17 = getelementptr inbounds float, ptr %input1.0202, i64 64
@@ -21720,7 +21719,7 @@ while.body134:                                    ; preds = %while.cond129.prehe
   %input3.1217 = phi ptr [ %add.ptr160, %while.body134 ], [ %input3.0.lcssa, %while.cond129.preheader ]
   %input4.1216 = phi ptr [ %add.ptr161, %while.body134 ], [ %input4.0.lcssa, %while.cond129.preheader ]
   %input5.1215 = phi ptr [ %add.ptr162, %while.body134 ], [ %input5.0.lcssa, %while.cond129.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1221) #27, !srcloc !762
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1221) #24, !srcloc !762
   %37 = load <4 x float>, ptr %output.1221, align 1
   %38 = load <4 x float>, ptr %input0.1220, align 1
   %mul.i251 = fmul <4 x float> %vecinit3.i, %38
@@ -21761,7 +21760,7 @@ while.body166:                                    ; preds = %while.cond164.prehe
   %input3.2232 = phi ptr [ %incdec.ptr189, %while.body166 ], [ %input3.1.lcssa, %while.cond164.preheader ]
   %input4.2231 = phi ptr [ %incdec.ptr190, %while.body166 ], [ %input4.1.lcssa, %while.cond164.preheader ]
   %input5.2230 = phi ptr [ %incdec.ptr191, %while.body166 ], [ %input5.1.lcssa, %while.cond164.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2236) #27, !srcloc !764
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2236) #24, !srcloc !764
   %44 = load float, ptr %output.2236, align 4
   %45 = load float, ptr %input0.2235, align 4
   %46 = load float, ptr %input1.2234, align 4
@@ -21876,7 +21875,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output4.0212 = phi ptr [ %add.ptr80, %while.body ], [ %8, %entry ]
   %output5.0211 = phi ptr [ %add.ptr81, %while.body ], [ %10, %entry ]
   %output6.0210 = phi ptr [ %add.ptr82, %while.body ], [ %12, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0216) #27, !srcloc !766
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0216) #24, !srcloc !766
   %14 = load <4 x float>, ptr %input.addr.0217, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0217, i64 4
   %15 = load <4 x float>, ptr %add.ptr, align 1
@@ -21995,7 +21994,7 @@ while.body88:                                     ; preds = %while.cond83.prehea
   %output4.1231 = phi ptr [ %add.ptr104, %while.body88 ], [ %output4.0.lcssa, %while.cond83.preheader ]
   %output5.1230 = phi ptr [ %add.ptr105, %while.body88 ], [ %output5.0.lcssa, %while.cond83.preheader ]
   %output6.1229 = phi ptr [ %add.ptr106, %while.body88 ], [ %output6.0.lcssa, %while.cond83.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1235) #27, !srcloc !768
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1235) #24, !srcloc !768
   %18 = load <4 x float>, ptr %input.addr.1236, align 1
   %mul.i224 = fmul <4 x float> %vecinit3.i, %18
   store <4 x float> %mul.i224, ptr %output0.1235, align 1
@@ -22034,7 +22033,7 @@ while.body110:                                    ; preds = %while.cond108.prehe
   %output5.2247 = phi ptr [ %incdec.ptr130, %while.body110 ], [ %output5.1.lcssa, %while.cond108.preheader ]
   %output6.2246 = phi ptr [ %incdec.ptr131, %while.body110 ], [ %output6.1.lcssa, %while.cond108.preheader ]
   %19 = load float, ptr %input.addr.2253, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2252) #27, !srcloc !770
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2252) #24, !srcloc !770
   %mul = fmul float %1, %19
   store float %mul, ptr %output0.2252, align 4
   %mul113 = fmul float %3, %19
@@ -22123,7 +22122,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input4.0219 = phi ptr [ %add.ptr135, %while.body ], [ %6, %entry ]
   %input5.0218 = phi ptr [ %add.ptr136, %while.body ], [ %8, %entry ]
   %input6.0217 = phi ptr [ %add.ptr137, %while.body ], [ %9, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0224) #27, !srcloc !772
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0224) #24, !srcloc !772
   %add.ptr = getelementptr inbounds float, ptr %input0.0223, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr20 = getelementptr inbounds float, ptr %input1.0222, i64 64
@@ -22280,7 +22279,7 @@ while.body143:                                    ; preds = %while.cond138.prehe
   %input4.1238 = phi ptr [ %add.ptr171, %while.body143 ], [ %input4.0.lcssa, %while.cond138.preheader ]
   %input5.1237 = phi ptr [ %add.ptr172, %while.body143 ], [ %input5.0.lcssa, %while.cond138.preheader ]
   %input6.1236 = phi ptr [ %add.ptr173, %while.body143 ], [ %input6.0.lcssa, %while.cond138.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1243) #27, !srcloc !774
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1243) #24, !srcloc !774
   %39 = load <4 x float>, ptr %input0.1242, align 1
   %mul.i267 = fmul <4 x float> %vecinit3.i, %39
   %40 = load <4 x float>, ptr %input1.1241, align 1
@@ -22324,7 +22323,7 @@ while.body177:                                    ; preds = %while.cond175.prehe
   %input4.2255 = phi ptr [ %incdec.ptr202, %while.body177 ], [ %input4.1.lcssa, %while.cond175.preheader ]
   %input5.2254 = phi ptr [ %incdec.ptr203, %while.body177 ], [ %input5.1.lcssa, %while.cond175.preheader ]
   %input6.2253 = phi ptr [ %incdec.ptr204, %while.body177 ], [ %input6.1.lcssa, %while.cond175.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2260) #27, !srcloc !776
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2260) #24, !srcloc !776
   %46 = load float, ptr %input0.2259, align 4
   %mul = fmul float %1, %46
   %47 = load float, ptr %input1.2258, align 4
@@ -22441,7 +22440,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output4.0282 = phi ptr [ %add.ptr157, %while.body ], [ %8, %entry ]
   %output5.0281 = phi ptr [ %add.ptr158, %while.body ], [ %10, %entry ]
   %output6.0280 = phi ptr [ %add.ptr159, %while.body ], [ %12, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0286) #27, !srcloc !778
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0286) #24, !srcloc !778
   %14 = load <4 x float>, ptr %input.addr.0287, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0287, i64 4
   %15 = load <4 x float>, ptr %add.ptr, align 1
@@ -22616,7 +22615,7 @@ while.body165:                                    ; preds = %while.cond160.prehe
   %output4.1301 = phi ptr [ %add.ptr195, %while.body165 ], [ %output4.0.lcssa, %while.cond160.preheader ]
   %output5.1300 = phi ptr [ %add.ptr196, %while.body165 ], [ %output5.0.lcssa, %while.cond160.preheader ]
   %output6.1299 = phi ptr [ %add.ptr197, %while.body165 ], [ %output6.0.lcssa, %while.cond160.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1305) #27, !srcloc !780
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1305) #24, !srcloc !780
   %46 = load <4 x float>, ptr %input.addr.1306, align 1
   %47 = load <4 x float>, ptr %output0.1305, align 1
   %mul.i356 = fmul <4 x float> %vecinit3.i, %46
@@ -22669,7 +22668,7 @@ while.body201:                                    ; preds = %while.cond199.prehe
   %output5.2317 = phi ptr [ %incdec.ptr227, %while.body201 ], [ %output5.1.lcssa, %while.cond199.preheader ]
   %output6.2316 = phi ptr [ %incdec.ptr228, %while.body201 ], [ %output6.1.lcssa, %while.cond199.preheader ]
   %54 = load float, ptr %input.addr.2323, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2322) #27, !srcloc !782
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2322) #24, !srcloc !782
   %mul = fmul float %1, %54
   %55 = load float, ptr %output0.2322, align 4
   %add = fadd float %mul, %55
@@ -22772,7 +22771,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input4.0230 = phi ptr [ %add.ptr146, %while.body ], [ %6, %entry ]
   %input5.0229 = phi ptr [ %add.ptr147, %while.body ], [ %8, %entry ]
   %input6.0228 = phi ptr [ %add.ptr148, %while.body ], [ %9, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0235) #27, !srcloc !784
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0235) #24, !srcloc !784
   %add.ptr = getelementptr inbounds float, ptr %input0.0234, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr20 = getelementptr inbounds float, ptr %input1.0233, i64 64
@@ -22937,7 +22936,7 @@ while.body154:                                    ; preds = %while.cond149.prehe
   %input4.1249 = phi ptr [ %add.ptr184, %while.body154 ], [ %input4.0.lcssa, %while.cond149.preheader ]
   %input5.1248 = phi ptr [ %add.ptr185, %while.body154 ], [ %input5.0.lcssa, %while.cond149.preheader ]
   %input6.1247 = phi ptr [ %add.ptr186, %while.body154 ], [ %input6.0.lcssa, %while.cond149.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1254) #27, !srcloc !786
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1254) #24, !srcloc !786
   %43 = load <4 x float>, ptr %output.1254, align 1
   %44 = load <4 x float>, ptr %input0.1253, align 1
   %mul.i287 = fmul <4 x float> %vecinit3.i, %44
@@ -22983,7 +22982,7 @@ while.body190:                                    ; preds = %while.cond188.prehe
   %input4.2266 = phi ptr [ %incdec.ptr217, %while.body190 ], [ %input4.1.lcssa, %while.cond188.preheader ]
   %input5.2265 = phi ptr [ %incdec.ptr218, %while.body190 ], [ %input5.1.lcssa, %while.cond188.preheader ]
   %input6.2264 = phi ptr [ %incdec.ptr219, %while.body190 ], [ %input6.1.lcssa, %while.cond188.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2271) #27, !srcloc !788
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2271) #24, !srcloc !788
   %51 = load float, ptr %output.2271, align 4
   %52 = load float, ptr %input0.2270, align 4
   %mul = fmul float %1, %52
@@ -23110,7 +23109,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output5.0241 = phi ptr [ %add.ptr91, %while.body ], [ %10, %entry ]
   %output6.0240 = phi ptr [ %add.ptr92, %while.body ], [ %12, %entry ]
   %output7.0239 = phi ptr [ %add.ptr93, %while.body ], [ %14, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0246) #27, !srcloc !790
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0246) #24, !srcloc !790
   %16 = load <4 x float>, ptr %input.addr.0247, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0247, i64 4
   %17 = load <4 x float>, ptr %add.ptr, align 1
@@ -23243,7 +23242,7 @@ while.body99:                                     ; preds = %while.cond94.prehea
   %output5.1262 = phi ptr [ %add.ptr117, %while.body99 ], [ %output5.0.lcssa, %while.cond94.preheader ]
   %output6.1261 = phi ptr [ %add.ptr118, %while.body99 ], [ %output6.0.lcssa, %while.cond94.preheader ]
   %output7.1260 = phi ptr [ %add.ptr119, %while.body99 ], [ %output7.0.lcssa, %while.cond94.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1267) #27, !srcloc !792
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1267) #24, !srcloc !792
   %20 = load <4 x float>, ptr %input.addr.1268, align 1
   %mul.i253 = fmul <4 x float> %vecinit3.i, %20
   store <4 x float> %mul.i253, ptr %output0.1267, align 1
@@ -23286,7 +23285,7 @@ while.body123:                                    ; preds = %while.cond121.prehe
   %output6.2280 = phi ptr [ %incdec.ptr146, %while.body123 ], [ %output6.1.lcssa, %while.cond121.preheader ]
   %output7.2279 = phi ptr [ %incdec.ptr147, %while.body123 ], [ %output7.1.lcssa, %while.cond121.preheader ]
   %21 = load float, ptr %input.addr.2287, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2286) #27, !srcloc !794
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2286) #24, !srcloc !794
   %mul = fmul float %1, %21
   store float %mul, ptr %output0.2286, align 4
   %mul126 = fmul float %3, %21
@@ -23382,7 +23381,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input5.0249 = phi ptr [ %add.ptr155, %while.body ], [ %7, %entry ]
   %input6.0248 = phi ptr [ %add.ptr156, %while.body ], [ %9, %entry ]
   %input7.0247 = phi ptr [ %add.ptr157, %while.body ], [ %10, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0255) #27, !srcloc !796
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0255) #24, !srcloc !796
   %add.ptr = getelementptr inbounds float, ptr %input0.0254, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr23 = getelementptr inbounds float, ptr %input1.0253, i64 64
@@ -23559,7 +23558,7 @@ while.body163:                                    ; preds = %while.cond158.prehe
   %input5.1270 = phi ptr [ %add.ptr195, %while.body163 ], [ %input5.0.lcssa, %while.cond158.preheader ]
   %input6.1269 = phi ptr [ %add.ptr196, %while.body163 ], [ %input6.0.lcssa, %while.cond158.preheader ]
   %input7.1268 = phi ptr [ %add.ptr197, %while.body163 ], [ %input7.0.lcssa, %while.cond158.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1276) #27, !srcloc !798
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1276) #24, !srcloc !798
   %44 = load <4 x float>, ptr %input0.1275, align 1
   %mul.i303 = fmul <4 x float> %vecinit3.i, %44
   %45 = load <4 x float>, ptr %input1.1274, align 1
@@ -23608,7 +23607,7 @@ while.body201:                                    ; preds = %while.cond199.prehe
   %input5.2289 = phi ptr [ %incdec.ptr230, %while.body201 ], [ %input5.1.lcssa, %while.cond199.preheader ]
   %input6.2288 = phi ptr [ %incdec.ptr231, %while.body201 ], [ %input6.1.lcssa, %while.cond199.preheader ]
   %input7.2287 = phi ptr [ %incdec.ptr232, %while.body201 ], [ %input7.1.lcssa, %while.cond199.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2295) #27, !srcloc !800
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2295) #24, !srcloc !800
   %52 = load float, ptr %input0.2294, align 4
   %53 = load float, ptr %input1.2293, align 4
   %54 = insertelement <2 x float> poison, float %52, i64 0
@@ -23737,7 +23736,7 @@ while.body:                                       ; preds = %entry, %while.body
   %output5.0321 = phi ptr [ %add.ptr179, %while.body ], [ %10, %entry ]
   %output6.0320 = phi ptr [ %add.ptr180, %while.body ], [ %12, %entry ]
   %output7.0319 = phi ptr [ %add.ptr181, %while.body ], [ %14, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0326) #27, !srcloc !802
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0326) #24, !srcloc !802
   %16 = load <4 x float>, ptr %input.addr.0327, align 1
   %add.ptr = getelementptr inbounds float, ptr %input.addr.0327, i64 4
   %17 = load <4 x float>, ptr %add.ptr, align 1
@@ -23934,7 +23933,7 @@ while.body187:                                    ; preds = %while.cond182.prehe
   %output5.1342 = phi ptr [ %add.ptr221, %while.body187 ], [ %output5.0.lcssa, %while.cond182.preheader ]
   %output6.1341 = phi ptr [ %add.ptr222, %while.body187 ], [ %output6.0.lcssa, %while.cond182.preheader ]
   %output7.1340 = phi ptr [ %add.ptr223, %while.body187 ], [ %output7.0.lcssa, %while.cond182.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1347) #27, !srcloc !804
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1347) #24, !srcloc !804
   %52 = load <4 x float>, ptr %input.addr.1348, align 1
   %53 = load <4 x float>, ptr %output0.1347, align 1
   %mul.i404 = fmul <4 x float> %vecinit3.i, %52
@@ -23993,7 +23992,7 @@ while.body227:                                    ; preds = %while.cond225.prehe
   %output6.2360 = phi ptr [ %incdec.ptr257, %while.body227 ], [ %output6.1.lcssa, %while.cond225.preheader ]
   %output7.2359 = phi ptr [ %incdec.ptr258, %while.body227 ], [ %output7.1.lcssa, %while.cond225.preheader ]
   %61 = load float, ptr %input.addr.2367, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2366) #27, !srcloc !806
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2366) #24, !srcloc !806
   %mul = fmul float %1, %61
   %62 = load float, ptr %output0.2366, align 4
   %add = fadd float %mul, %62
@@ -24105,7 +24104,7 @@ while.body:                                       ; preds = %entry, %while.body
   %input5.0260 = phi ptr [ %add.ptr166, %while.body ], [ %7, %entry ]
   %input6.0259 = phi ptr [ %add.ptr167, %while.body ], [ %9, %entry ]
   %input7.0258 = phi ptr [ %add.ptr168, %while.body ], [ %10, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0266) #27, !srcloc !808
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0266) #24, !srcloc !808
   %add.ptr = getelementptr inbounds float, ptr %input0.0265, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   %add.ptr23 = getelementptr inbounds float, ptr %input1.0264, i64 64
@@ -24290,7 +24289,7 @@ while.body174:                                    ; preds = %while.cond169.prehe
   %input5.1281 = phi ptr [ %add.ptr208, %while.body174 ], [ %input5.0.lcssa, %while.cond169.preheader ]
   %input6.1280 = phi ptr [ %add.ptr209, %while.body174 ], [ %input6.0.lcssa, %while.cond169.preheader ]
   %input7.1279 = phi ptr [ %add.ptr210, %while.body174 ], [ %input7.0.lcssa, %while.cond169.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1287) #27, !srcloc !810
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1287) #24, !srcloc !810
   %48 = load <4 x float>, ptr %output.1287, align 1
   %49 = load <4 x float>, ptr %input0.1286, align 1
   %mul.i323 = fmul <4 x float> %vecinit3.i, %49
@@ -24341,7 +24340,7 @@ while.body214:                                    ; preds = %while.cond212.prehe
   %input5.2300 = phi ptr [ %incdec.ptr245, %while.body214 ], [ %input5.1.lcssa, %while.cond212.preheader ]
   %input6.2299 = phi ptr [ %incdec.ptr246, %while.body214 ], [ %input6.1.lcssa, %while.cond212.preheader ]
   %input7.2298 = phi ptr [ %incdec.ptr247, %while.body214 ], [ %input7.1.lcssa, %while.cond212.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2306) #27, !srcloc !812
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2306) #24, !srcloc !812
   %57 = load float, ptr %output.2306, align 4
   %58 = load float, ptr %input0.2305, align 4
   %59 = load float, ptr %input1.2304, align 4
@@ -24410,7 +24409,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %2(ptr noundef %encode_buffer, i32 noundef %mul) #27
+  tail call void %2(ptr noundef %encode_buffer, i32 noundef %mul) #24
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -24420,7 +24419,7 @@ if.end:                                           ; preds = %if.then, %entry
   %spec.select = select i1 %tobool3.not, ptr %output_buffer_data, ptr %encode_buffer
   %encode_pixels = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 20
   %4 = load ptr, ptr %encode_pixels, align 8
-  tail call void %4(ptr noundef %spec.select, i32 noundef %mul, ptr noundef %encode_buffer) #27
+  tail call void %4(ptr noundef %spec.select, i32 noundef %mul, ptr noundef %encode_buffer) #24
   %5 = load ptr, ptr %out_pixels_cb, align 8
   %tobool7.not = icmp eq ptr %5, null
   br i1 %tobool7.not, label %if.end10, label %if.then8
@@ -24428,7 +24427,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then8:                                         ; preds = %if.end
   %user_data = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 11
   %6 = load ptr, ptr %user_data, align 8
-  tail call void %5(ptr noundef %output_buffer_data, i32 noundef %0, i32 noundef %row, ptr noundef %6) #27
+  tail call void %5(ptr noundef %output_buffer_data, i32 noundef %0, i32 noundef %row, ptr noundef %6) #24
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %if.end
@@ -24512,7 +24511,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   %8 = load ptr, ptr %coefficients, align 8
   %coefficient_width = getelementptr inbounds %struct.stbir__sampler, ptr %stbir_info, i64 0, i32 10
   %9 = load i32, ptr %coefficient_width, align 4
-  tail call void %5(ptr noundef %output_buffer, i32 noundef %6, ptr noundef %add.ptr, ptr noundef %7, ptr noundef %8, i32 noundef %9) #27
+  tail call void %5(ptr noundef %output_buffer, i32 noundef %6, ptr noundef %add.ptr, ptr noundef %7, ptr noundef %8, i32 noundef %9) #24
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -24605,7 +24604,7 @@ for.end:                                          ; preds = %for.body, %do.body
   %add.ptr = getelementptr inbounds float, ptr %vertical_coefficients, i64 %idx.ext
   %16 = load ptr, ptr %inputs, align 16
   %add.ptr22 = getelementptr inbounds float, ptr %16, i64 %idx.ext21
-  call void %15(ptr noundef %cond19, ptr noundef %add.ptr, ptr noundef nonnull %inputs, ptr noundef %add.ptr22) #27
+  call void %15(ptr noundef %cond19, ptr noundef %add.ptr, ptr noundef nonnull %inputs, ptr noundef %add.ptr22) #24
   %add23 = add nsw i32 %spec.store.select, %k.0
   %sub24 = sub nsw i32 %total.0, %spec.store.select
   %tobool25.not = icmp eq i32 %sub24, 0
@@ -24653,7 +24652,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
   %25 = load ptr, ptr %coefficients.i, align 8
   %coefficient_width.i = getelementptr inbounds %struct.stbir__sampler, ptr %stbir_info, i64 0, i32 10
   %26 = load i32, ptr %coefficient_width.i, align 4
-  call void %22(ptr noundef %0, i32 noundef %23, ptr noundef %add.ptr.i, ptr noundef %24, ptr noundef %25, i32 noundef %26) #27
+  call void %22(ptr noundef %0, i32 noundef %23, ptr noundef %add.ptr.i, ptr noundef %24, ptr noundef %25, i32 noundef %26) #24
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else.i, %if.then.i, %do.end
@@ -24676,7 +24675,7 @@ if.end28:                                         ; preds = %if.else.i, %if.then
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i33
 
 if.then.i33:                                      ; preds = %if.end28
-  call void %31(ptr noundef %0, i32 noundef %mul.i32) #27
+  call void %31(ptr noundef %0, i32 noundef %mul.i32) #24
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i33, %if.end28
@@ -24686,7 +24685,7 @@ if.end.i:                                         ; preds = %if.then.i33, %if.en
   %spec.select.i = select i1 %tobool3.not.i, ptr %add.ptr31, ptr %0
   %encode_pixels.i = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 20
   %33 = load ptr, ptr %encode_pixels.i, align 8
-  call void %33(ptr noundef %spec.select.i, i32 noundef %mul.i32, ptr noundef %0) #27
+  call void %33(ptr noundef %spec.select.i, i32 noundef %mul.i32, ptr noundef %0) #24
   %34 = load ptr, ptr %out_pixels_cb.i, align 8
   %tobool7.not.i = icmp eq ptr %34, null
   br i1 %tobool7.not.i, label %stbir__encode_scanline.exit, label %if.then8.i
@@ -24694,7 +24693,7 @@ if.end.i:                                         ; preds = %if.then.i33, %if.en
 if.then8.i:                                       ; preds = %if.end.i
   %user_data.i = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 11
   %35 = load ptr, ptr %user_data.i, align 8
-  call void %34(ptr noundef %add.ptr31, i32 noundef %29, i32 noundef %n, ptr noundef %35) #27
+  call void %34(ptr noundef %add.ptr31, i32 noundef %29, i32 noundef %n, ptr noundef %35) #24
   br label %stbir__encode_scanline.exit
 
 stbir__encode_scanline.exit:                      ; preds = %if.end.i, %if.then8.i
@@ -24764,7 +24763,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
   %15 = load ptr, ptr %coefficients.i, align 8
   %coefficient_width.i = getelementptr inbounds %struct.stbir__sampler, ptr %stbir_info, i64 0, i32 10
   %16 = load i32, ptr %coefficient_width.i, align 4
-  tail call void %12(ptr noundef %add.ptr.i, i32 noundef %13, ptr noundef %add.ptr.i13, ptr noundef %14, ptr noundef %15, i32 noundef %16) #27
+  tail call void %12(ptr noundef %add.ptr.i, i32 noundef %13, ptr noundef %add.ptr.i13, ptr noundef %14, ptr noundef %15, i32 noundef %16) #24
   br label %stbir__resample_horizontal_gather.exit
 
 stbir__resample_horizontal_gather.exit:           ; preds = %if.then.i, %if.else.i
@@ -24894,7 +24893,7 @@ if.then19:                                        ; preds = %if.end
   %25 = load i32, ptr %edge.i, align 8
   %26 = load i32, ptr %edge3.i, align 8
   %27 = load i32, ptr %scale_info.i, align 8
-  %call.i = tail call i32 @stbir__edge_wrap(i32 noundef %26, i32 noundef %sub14, i32 noundef %27) #27
+  %call.i = tail call i32 @stbir__edge_wrap(i32 noundef %26, i32 noundef %sub14, i32 noundef %27) #24
   %28 = load ptr, ptr %input_data.i, align 8
   %conv5.i = sext i32 %call.i to i64
   %29 = load i32, ptr %input_stride_bytes.i, align 8
@@ -24942,7 +24941,7 @@ if.then30.i:                                      ; preds = %if.end.i
   %idx.neg34.i = sub nsw i64 0, %idx.ext33.i
   %add.ptr35.i = getelementptr inbounds i8, ptr %add.ptr25.i, i64 %idx.neg34.i
   %35 = load ptr, ptr %user_data.i, align 8
-  %call37.i = tail call ptr %34(ptr noundef %add.ptr35.i, ptr noundef %add.ptr.i, i32 noundef %sub.i39, i32 noundef %33, i32 noundef %call.i, ptr noundef %35) #27
+  %call37.i = tail call ptr %34(ptr noundef %add.ptr35.i, ptr noundef %add.ptr.i, i32 noundef %sub.i39, i32 noundef %33, i32 noundef %call.i, ptr noundef %35) #24
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then30.i, %if.end.i
@@ -24951,13 +24950,13 @@ if.end38.i:                                       ; preds = %if.then30.i, %if.en
   %idx.ext39.i = sext i32 %mul26.i to i64
   %idx.neg40.i = sub nsw i64 0, %idx.ext39.i
   %add.ptr41.i = getelementptr inbounds float, ptr %add.ptr25.i, i64 %idx.neg40.i
-  tail call void %36(ptr noundef %add.ptr41.i, i32 noundef %mul26.i, ptr noundef %input_data12.0.i) #27
+  tail call void %36(ptr noundef %add.ptr41.i, i32 noundef %mul26.i, ptr noundef %input_data12.0.i) #24
   %37 = load ptr, ptr %alpha_weight.i, align 8
   %tobool42.not.i = icmp eq ptr %37, null
   br i1 %tobool42.not.i, label %if.end45.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end38.i
-  tail call void %37(ptr noundef %add.ptr20.i, i32 noundef %mul26.i) #27
+  tail call void %37(ptr noundef %add.ptr20.i, i32 noundef %mul26.i) #24
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then43.i, %if.end38.i
@@ -24997,7 +24996,7 @@ if.then77.i:                                      ; preds = %for.body.i
   %mul80.i = mul nsw i32 %42, %22
   %idx.ext81.i = sext i32 %mul80.i to i64
   %add.ptr82.i = getelementptr inbounds float, ptr %add.ptr11.i, i64 %idx.ext81.i
-  %call83.i = tail call i32 @stbir__edge_wrap(i32 noundef 2, i32 noundef %42, i32 noundef %40) #27
+  %call83.i = tail call i32 @stbir__edge_wrap(i32 noundef 2, i32 noundef %42, i32 noundef %40) #24
   %mul84.i = mul nsw i32 %call83.i, %22
   %idx.ext85.i = sext i32 %mul84.i to i64
   %add.ptr86.i = getelementptr inbounds float, ptr %add.ptr11.i, i64 %idx.ext85.i
@@ -25028,7 +25027,7 @@ if.else:                                          ; preds = %if.end
   %48 = load i32, ptr %edge.i, align 8
   %49 = load i32, ptr %edge3.i, align 8
   %50 = load i32, ptr %scale_info.i, align 8
-  %call.i62 = tail call i32 @stbir__edge_wrap(i32 noundef %49, i32 noundef %sub14, i32 noundef %50) #27
+  %call.i62 = tail call i32 @stbir__edge_wrap(i32 noundef %49, i32 noundef %sub14, i32 noundef %50) #24
   %51 = load ptr, ptr %input_data.i, align 8
   %conv5.i64 = sext i32 %call.i62 to i64
   %52 = load i32, ptr %input_stride_bytes.i, align 8
@@ -25076,7 +25075,7 @@ if.then30.i98:                                    ; preds = %if.end.i83
   %idx.neg34.i101 = sub nsw i64 0, %idx.ext33.i100
   %add.ptr35.i102 = getelementptr inbounds i8, ptr %add.ptr25.i91, i64 %idx.neg34.i101
   %58 = load ptr, ptr %user_data.i, align 8
-  %call37.i103 = tail call ptr %57(ptr noundef %add.ptr35.i102, ptr noundef %add.ptr.i68, i32 noundef %sub.i85, i32 noundef %56, i32 noundef %call.i62, ptr noundef %58) #27
+  %call37.i103 = tail call ptr %57(ptr noundef %add.ptr35.i102, ptr noundef %add.ptr.i68, i32 noundef %sub.i85, i32 noundef %56, i32 noundef %call.i62, ptr noundef %58) #24
   br label %if.end38.i104
 
 if.end38.i104:                                    ; preds = %if.then30.i98, %if.end.i83
@@ -25085,13 +25084,13 @@ if.end38.i104:                                    ; preds = %if.then30.i98, %if.
   %idx.ext39.i106 = sext i32 %mul26.i92 to i64
   %idx.neg40.i107 = sub nsw i64 0, %idx.ext39.i106
   %add.ptr41.i108 = getelementptr inbounds float, ptr %add.ptr25.i91, i64 %idx.neg40.i107
-  tail call void %59(ptr noundef %add.ptr41.i108, i32 noundef %mul26.i92, ptr noundef %input_data12.0.i105) #27
+  tail call void %59(ptr noundef %add.ptr41.i108, i32 noundef %mul26.i92, ptr noundef %input_data12.0.i105) #24
   %60 = load ptr, ptr %alpha_weight.i, align 8
   %tobool42.not.i109 = icmp eq ptr %60, null
   br i1 %tobool42.not.i109, label %if.end45.i111, label %if.then43.i110
 
 if.then43.i110:                                   ; preds = %if.end38.i104
-  tail call void %60(ptr noundef %add.ptr20.i88, i32 noundef %mul26.i92) #27
+  tail call void %60(ptr noundef %add.ptr20.i88, i32 noundef %mul26.i92) #24
   br label %if.end45.i111
 
 if.end45.i111:                                    ; preds = %if.then43.i110, %if.end38.i104
@@ -25131,7 +25130,7 @@ if.then77.i130:                                   ; preds = %for.body.i125
   %mul80.i132 = mul nsw i32 %65, %45
   %idx.ext81.i133 = sext i32 %mul80.i132 to i64
   %add.ptr82.i134 = getelementptr inbounds float, ptr %add.ptr11.i73, i64 %idx.ext81.i133
-  %call83.i135 = tail call i32 @stbir__edge_wrap(i32 noundef 2, i32 noundef %65, i32 noundef %63) #27
+  %call83.i135 = tail call i32 @stbir__edge_wrap(i32 noundef 2, i32 noundef %65, i32 noundef %63) #24
   %mul84.i136 = mul nsw i32 %call83.i135, %45
   %idx.ext85.i137 = sext i32 %mul84.i136 to i64
   %add.ptr86.i138 = getelementptr inbounds float, ptr %add.ptr11.i73, i64 %idx.ext85.i137
@@ -25189,7 +25188,7 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i.i, 
   %79 = load ptr, ptr %stbir_info, align 8
   %80 = load ptr, ptr %coefficients.i.i, align 8
   %81 = load i32, ptr %coefficient_width.i.i, align 4
-  tail call void %77(ptr noundef %add.ptr.i.i50, i32 noundef %78, ptr noundef %add.ptr.i13.i, ptr noundef %79, ptr noundef %80, i32 noundef %81) #27
+  tail call void %77(ptr noundef %add.ptr.i.i50, i32 noundef %78, ptr noundef %add.ptr.i13.i, ptr noundef %79, ptr noundef %80, i32 noundef %81) #24
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else.i.i, %if.then.i.i, %stbir__decode_scanline.exit
@@ -25244,7 +25243,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void %8(ptr noundef %add.ptr.i, i32 noundef %mul.i12) #27
+  tail call void %8(ptr noundef %add.ptr.i, i32 noundef %mul.i12) #24
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -25254,7 +25253,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %spec.select.i = select i1 %tobool3.not.i, ptr %add.ptr, ptr %add.ptr.i
   %encode_pixels.i = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 20
   %10 = load ptr, ptr %encode_pixels.i, align 8
-  tail call void %10(ptr noundef %spec.select.i, i32 noundef %mul.i12, ptr noundef %add.ptr.i) #27
+  tail call void %10(ptr noundef %spec.select.i, i32 noundef %mul.i12, ptr noundef %add.ptr.i) #24
   %11 = load ptr, ptr %out_pixels_cb.i, align 8
   %tobool7.not.i = icmp eq ptr %11, null
   br i1 %tobool7.not.i, label %stbir__encode_scanline.exit, label %if.then8.i
@@ -25262,7 +25261,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 if.then8.i:                                       ; preds = %if.end.i
   %user_data.i = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 11
   %12 = load ptr, ptr %user_data.i, align 8
-  tail call void %11(ptr noundef %add.ptr, i32 noundef %6, i32 noundef %4, ptr noundef %12) #27
+  tail call void %11(ptr noundef %add.ptr, i32 noundef %6, i32 noundef %4, ptr noundef %12) #24
   br label %stbir__encode_scanline.exit
 
 stbir__encode_scanline.exit:                      ; preds = %if.end.i, %if.then8.i
@@ -25334,7 +25333,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
   %12 = load ptr, ptr %coefficients.i, align 8
   %coefficient_width.i = getelementptr inbounds %struct.stbir__sampler, ptr %stbir_info, i64 0, i32 10
   %13 = load i32, ptr %coefficient_width.i, align 4
-  tail call void %9(ptr noundef %3, i32 noundef %10, ptr noundef %add.ptr.i17, ptr noundef %11, ptr noundef %12, i32 noundef %13) #27
+  tail call void %9(ptr noundef %3, i32 noundef %10, ptr noundef %add.ptr.i17, ptr noundef %11, ptr noundef %12, i32 noundef %13) #24
   br label %stbir__resample_horizontal_gather.exit
 
 stbir__resample_horizontal_gather.exit:           ; preds = %if.then.i, %if.else.i
@@ -25360,7 +25359,7 @@ stbir__resample_horizontal_gather.exit:           ; preds = %if.then.i, %if.else
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i20
 
 if.then.i20:                                      ; preds = %stbir__resample_horizontal_gather.exit
-  tail call void %20(ptr noundef %17, i32 noundef %mul.i19) #27
+  tail call void %20(ptr noundef %17, i32 noundef %mul.i19) #24
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i20, %stbir__resample_horizontal_gather.exit
@@ -25370,7 +25369,7 @@ if.end.i:                                         ; preds = %if.then.i20, %stbir
   %spec.select.i = select i1 %tobool3.not.i, ptr %add.ptr, ptr %17
   %encode_pixels.i = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 20
   %22 = load ptr, ptr %encode_pixels.i, align 8
-  tail call void %22(ptr noundef %spec.select.i, i32 noundef %mul.i19, ptr noundef %17) #27
+  tail call void %22(ptr noundef %spec.select.i, i32 noundef %mul.i19, ptr noundef %17) #24
   %23 = load ptr, ptr %out_pixels_cb.i, align 8
   %tobool7.not.i = icmp eq ptr %23, null
   br i1 %tobool7.not.i, label %stbir__encode_scanline.exit, label %if.then8.i
@@ -25378,7 +25377,7 @@ if.end.i:                                         ; preds = %if.then.i20, %stbir
 if.then8.i:                                       ; preds = %if.end.i
   %user_data.i = getelementptr inbounds %struct.stbir__info, ptr %stbir_info, i64 0, i32 11
   %24 = load ptr, ptr %user_data.i, align 8
-  tail call void %23(ptr noundef %add.ptr, i32 noundef %18, i32 noundef %15, ptr noundef %24) #27
+  tail call void %23(ptr noundef %add.ptr, i32 noundef %18, i32 noundef %15, ptr noundef %24) #24
   br label %stbir__encode_scanline.exit
 
 stbir__encode_scanline.exit:                      ; preds = %if.end.i, %if.then8.i
@@ -25468,7 +25467,7 @@ for.end:                                          ; preds = %for.inc, %land.lhs.
   %14 = load ptr, ptr %arrayidx22, align 8
   %idx.ext = sext i32 %k.0 to i64
   %add.ptr = getelementptr inbounds float, ptr %vertical_coefficients, i64 %idx.ext
-  call void %14(ptr noundef nonnull %outputs, ptr noundef %add.ptr, ptr noundef %vertical_buffer, ptr noundef %vertical_buffer_end) #27
+  call void %14(ptr noundef nonnull %outputs, ptr noundef %add.ptr, ptr noundef %vertical_buffer, ptr noundef %vertical_buffer_end) #24
   %add23 = add nsw i32 %n.0, %k.0
   %sub24 = sub nsw i32 %total.0, %n.0
   %tobool25.not = icmp eq i32 %sub24, 0
@@ -25684,7 +25683,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
   %33 = load ptr, ptr %stbir_info, align 8
   %34 = load ptr, ptr %coefficients.i, align 8
   %35 = load i32, ptr %coefficient_width.i, align 4
-  call void %31(ptr noundef %24, i32 noundef %32, ptr noundef %add.ptr.i107, ptr noundef %33, ptr noundef %34, i32 noundef %35) #27
+  call void %31(ptr noundef %24, i32 noundef %32, ptr noundef %add.ptr.i107, ptr noundef %33, ptr noundef %34, i32 noundef %35) #24
   br label %if.end80
 
 if.end80:                                         ; preds = %if.else.i, %if.then.i, %if.end73
@@ -25699,7 +25698,7 @@ if.end80:                                         ; preds = %if.else.i, %if.then
   br i1 %or.cond104, label %if.then92, label %if.end93
 
 if.then92:                                        ; preds = %if.end80
-  call void %handle_scanline_for_scatter.0(ptr noundef nonnull %stbir_info, ptr noundef nonnull %split_info) #27, !callees !821
+  call void %handle_scanline_for_scatter.0(ptr noundef nonnull %stbir_info, ptr noundef nonnull %split_info) #24, !callees !821
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then92, %if.end80
@@ -25766,7 +25765,7 @@ for.end.i:                                        ; preds = %for.inc.i, %land.lh
   %53 = load ptr, ptr %arrayidx22.i, align 8
   %idx.ext.i108 = sext i32 %k.0.i to i64
   %add.ptr.i109 = getelementptr inbounds float, ptr %vc.0, i64 %idx.ext.i108
-  call void %53(ptr noundef nonnull %outputs.i, ptr noundef %add.ptr.i109, ptr noundef %.sink, ptr noundef %add.ptr26) #27
+  call void %53(ptr noundef nonnull %outputs.i, ptr noundef %add.ptr.i109, ptr noundef %.sink, ptr noundef %add.ptr26) #24
   %add23.i = add nsw i32 %n.0.i, %k.0.i
   %sub24.i = sub nsw i32 %total.0.i, %n.0.i
   %tobool25.not.i = icmp eq i32 %sub24.i, 0
@@ -25794,7 +25793,7 @@ if.end100:                                        ; preds = %stbir__resample_ver
   br i1 %exitcond.not, label %while.cond.preheader, label %for.body32, !llvm.loop !822
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  call void %handle_scanline_for_scatter.0(ptr noundef %stbir_info, ptr noundef nonnull %split_info) #27, !callees !821
+  call void %handle_scanline_for_scatter.0(ptr noundef %stbir_info, ptr noundef nonnull %split_info) #24, !callees !821
   %56 = load i32, ptr %ring_buffer_first_scanline, align 8
   %cmp109 = icmp slt i32 %56, %5
   br i1 %cmp109, label %while.body, label %while.end, !llvm.loop !823
@@ -25847,7 +25846,7 @@ if.then2:                                         ; preds = %if.then
 land.lhs.true:                                    ; preds = %if.then2
   %pixel_shift = getelementptr inbounds %struct.stbir__scale_info, ptr %scale_info, i64 0, i32 4
   %1 = load float, ptr %pixel_shift, align 4
-  %call = tail call float @stbir_simd_ceilf(float noundef %1) #27
+  %call = tail call float @stbir_simd_ceilf(float noundef %1) #24
   %2 = load float, ptr %pixel_shift, align 4
   %cmp6 = fcmp oeq float %call, %2
   br i1 %cmp6, label %if.end9, label %if.else
@@ -25890,19 +25889,19 @@ if.end18:                                         ; preds = %if.then14, %if.end9
 
 if.then.i:                                        ; preds = %if.end18
   %div.i = fdiv float 1.000000e+00, %6
-  %call.i = tail call float %5(float noundef %div.i, ptr noundef %user_data) #27
+  %call.i = tail call float %5(float noundef %div.i, ptr noundef %user_data) #24
   %mul.i = fmul float %call.i, 2.000000e+00
   br label %stbir__get_filter_pixel_width.exit
 
 if.else.i:                                        ; preds = %if.end18
-  %call2.i = tail call float %5(float noundef %6, ptr noundef %user_data) #27
+  %call2.i = tail call float %5(float noundef %6, ptr noundef %user_data) #24
   %mul3.i = fmul float %call2.i, 2.000000e+00
   %div4.i = fdiv float %mul3.i, %6
   br label %stbir__get_filter_pixel_width.exit
 
 stbir__get_filter_pixel_width.exit:               ; preds = %if.then.i, %if.else.i
   %div4.sink.i = phi float [ %div4.i, %if.else.i ], [ %mul.i, %if.then.i ]
-  %call5.i = tail call float @stbir_simd_ceilf(float noundef %div4.sink.i) #27
+  %call5.i = tail call float @stbir_simd_ceilf(float noundef %div4.sink.i) #24
   %retval.0.i = fptosi float %call5.i to i32
   %filter_pixel_width = getelementptr inbounds %struct.stbir__sampler, ptr %samp, i64 0, i32 11
   store i32 %retval.0.i, ptr %filter_pixel_width, align 8
@@ -25924,7 +25923,7 @@ sw.bb.i:                                          ; preds = %stbir__get_filter_p
   %scale1.i65 = getelementptr inbounds %struct.stbir__sampler, ptr %samp, i64 0, i32 4, i32 2
   %9 = load float, ptr %scale1.i65, align 8
   %div.i55 = fdiv float 1.000000e+00, %9
-  %call.i56 = tail call float %8(float noundef %div.i55, ptr noundef %user_data) #27
+  %call.i56 = tail call float %8(float noundef %div.i55, ptr noundef %user_data) #24
   %mul.i57 = fmul float %call.i56, 2.000000e+00
   br label %stbir__get_coefficient_width.exit
 
@@ -25933,7 +25932,7 @@ sw.bb3.i:                                         ; preds = %if.else27
   %10 = load ptr, ptr %filter_support, align 8
   %scale1.i67 = getelementptr inbounds %struct.stbir__sampler, ptr %samp, i64 0, i32 4, i32 2
   %11 = load float, ptr %scale1.i67, align 8
-  %call4.i = tail call float %10(float noundef %11, ptr noundef %user_data) #27
+  %call4.i = tail call float %10(float noundef %11, ptr noundef %user_data) #24
   %mul5.i = fmul float %call4.i, 2.000000e+00
   %div6.i = fdiv float %mul5.i, %11
   br label %stbir__get_coefficient_width.exit
@@ -25942,13 +25941,13 @@ sw.bb9.i:                                         ; preds = %if.else27
   %12 = load ptr, ptr %filter_support, align 8
   %scale1.i = getelementptr inbounds %struct.stbir__sampler, ptr %samp, i64 0, i32 4, i32 2
   %13 = load float, ptr %scale1.i, align 8
-  %call10.i = tail call float %12(float noundef %13, ptr noundef %user_data) #27
+  %call10.i = tail call float %12(float noundef %13, ptr noundef %user_data) #24
   %mul11.i = fmul float %call10.i, 2.000000e+00
   br label %stbir__get_coefficient_width.exit
 
 stbir__get_coefficient_width.exit:                ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb9.i
   %mul11.sink.i = phi float [ %mul11.i, %sw.bb9.i ], [ %div6.i, %sw.bb3.i ], [ %mul.i57, %sw.bb.i ]
-  %call12.i = tail call float @stbir_simd_ceilf(float noundef %mul11.sink.i) #27
+  %call12.i = tail call float @stbir_simd_ceilf(float noundef %mul11.sink.i) #24
   %conv13.i = fptosi float %call12.i to i32
   %.pre.pre = load i32, ptr %filter_pixel_width, align 8
   %coefficient_width = getelementptr inbounds %struct.stbir__sampler, ptr %samp, i64 0, i32 10
@@ -26046,7 +26045,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %call = tail call float %2(float noundef %5, ptr noundef %user_data) #27
+  %call = tail call float %2(float noundef %5, ptr noundef %user_data) #24
   %mul = fmul float %0, %call
   %sub.i = fsub float 5.000000e-01, %mul
   %add.i = fadd float %mul, 5.000000e-01
@@ -26055,10 +26054,10 @@ if.then:                                          ; preds = %entry
   %add2.i = fadd float %1, %add.i
   %mul3.i = fmul float %5, %add2.i
   %add4.i = fadd float %mul.i, 5.000000e-01
-  %call.i = tail call float @stbir_simd_floorf(float noundef %add4.i) #27
+  %call.i = tail call float @stbir_simd_floorf(float noundef %add4.i) #24
   %conv.i = fptosi float %call.i to i32
   %sub5.i = fadd float %mul3.i, -5.000000e-01
-  %call6.i = tail call float @stbir_simd_floorf(float noundef %sub5.i) #27
+  %call6.i = tail call float @stbir_simd_floorf(float noundef %sub5.i) #24
   %cmp.i = icmp eq i32 %4, 2
   %sub9.i = sub nsw i32 0, %3
   %cmp10.not.i = icmp sgt i32 %conv.i, %sub9.i
@@ -26078,9 +26077,9 @@ if.then:                                          ; preds = %entry
   %add2.i91 = fadd float %1, %add.i88
   %mul3.i92 = fmul float %5, %add2.i91
   %add4.i93 = fadd float %mul.i90, 5.000000e-01
-  %call.i94 = tail call float @stbir_simd_floorf(float noundef %add4.i93) #27
+  %call.i94 = tail call float @stbir_simd_floorf(float noundef %add4.i93) #24
   %sub5.i96 = fadd float %mul3.i92, -5.000000e-01
-  %call6.i97 = tail call float @stbir_simd_floorf(float noundef %sub5.i96) #27
+  %call6.i97 = tail call float @stbir_simd_floorf(float noundef %sub5.i96) #24
   %conv7.i98 = fptosi float %call6.i97 to i32
   %mul15.i107 = shl nsw i32 %3, 1
   %cmp16.not.i108 = icmp sgt i32 %mul15.i107, %conv7.i98
@@ -26093,7 +26092,7 @@ if.then:                                          ; preds = %entry
 
 if.then12:                                        ; preds = %entry
   %sub9.i126 = sub i32 0, %3
-  %call13 = tail call float %2(float noundef %0, ptr noundef %user_data) #27
+  %call13 = tail call float %2(float noundef %0, ptr noundef %user_data) #24
   %mul14 = fmul float %5, %call13
   %filter_pixel_margin15 = getelementptr inbounds %struct.stbir__sampler, ptr %samp, i64 0, i32 12
   %8 = load i32, ptr %filter_pixel_margin15, align 4
@@ -26102,10 +26101,10 @@ if.then12:                                        ; preds = %entry
   %add1.i112 = fadd float %1, 0.000000e+00
   %mul.i113 = fmul float %add1.i112, %5
   %add4.i116 = fadd float %mul.i113, 5.000000e-01
-  %call.i117 = tail call float @stbir_simd_floorf(float noundef %add4.i116) #27
+  %call.i117 = tail call float @stbir_simd_floorf(float noundef %add4.i116) #24
   %conv.i118 = fptosi float %call.i117 to i32
   %sub5.i119 = fadd float %mul.i113, -5.000000e-01
-  %call6.i120 = tail call float @stbir_simd_floorf(float noundef %sub5.i119) #27
+  %call6.i120 = tail call float @stbir_simd_floorf(float noundef %sub5.i119) #24
   %cmp.i122 = icmp eq i32 %4, 2
   %cmp10.not.i127 = icmp sgt i32 %conv.i118, %sub9.i126
   %sub14.i128 = sub nsw i32 1, %3
@@ -26116,9 +26115,9 @@ if.then12:                                        ; preds = %entry
   %add1.i135 = fadd float %1, %conv22
   %mul.i136 = fmul float %5, %add1.i135
   %add4.i139 = fadd float %mul.i136, 5.000000e-01
-  %call.i140 = tail call float @stbir_simd_floorf(float noundef %add4.i139) #27
+  %call.i140 = tail call float @stbir_simd_floorf(float noundef %add4.i139) #24
   %sub5.i142 = fadd float %mul.i136, -5.000000e-01
-  %call6.i143 = tail call float @stbir_simd_floorf(float noundef %sub5.i142) #27
+  %call6.i143 = tail call float @stbir_simd_floorf(float noundef %sub5.i142) #24
   %conv7.i144 = fptosi float %call6.i143 to i32
   %mul15.i153 = shl nsw i32 %3, 1
   %cmp16.not.i154 = icmp sgt i32 %mul15.i153, %conv7.i144
@@ -26148,9 +26147,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %mul2.i = fmul float %0, %add.i159
   %sub3.i = fsub float %mul2.i, %1
   %add4.i161 = fadd float %sub1.i, 5.000000e-01
-  %call.i162 = tail call float @stbir_simd_floorf(float noundef %add4.i161) #27
+  %call.i162 = tail call float @stbir_simd_floorf(float noundef %add4.i161) #24
   %sub5.i163 = fadd float %sub3.i, -5.000000e-01
-  %call6.i164 = tail call float @stbir_simd_floorf(float noundef %sub5.i163) #27
+  %call6.i164 = tail call float @stbir_simd_floorf(float noundef %sub5.i163) #24
   %conv7.i165 = fptosi float %call6.i164 to i32
   %cmp9.not.i = icmp sgt i32 %9, %conv7.i165
   %spec.select.i166 = select i1 %cmp9.not.i, i32 %conv7.i165, i32 %sub12.i
@@ -26191,9 +26190,9 @@ while.body48:                                     ; preds = %while.body48.lr.ph,
   %mul2.i172 = fmul float %0, %add.i169
   %sub3.i173 = fsub float %mul2.i172, %1
   %add4.i174 = fadd float %sub1.i171, 5.000000e-01
-  %call.i175 = tail call float @stbir_simd_floorf(float noundef %add4.i174) #27
+  %call.i175 = tail call float @stbir_simd_floorf(float noundef %add4.i174) #24
   %sub5.i176 = fadd float %sub3.i173, -5.000000e-01
-  %call6.i177 = tail call float @stbir_simd_floorf(float noundef %sub5.i176) #27
+  %call6.i177 = tail call float @stbir_simd_floorf(float noundef %sub5.i176) #24
   %conv7.i178 = fptosi float %call6.i177 to i32
   %cmp9.not.i179 = icmp sgt i32 %9, %conv7.i178
   %spec.select.i181 = select i1 %cmp9.not.i179, i32 %conv7.i178, i32 %sub12.i180
@@ -26333,7 +26332,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   store ptr null, ptr %alloced_mem, align 8
-  tail call void @free(ptr noundef nonnull %0) #27
+  tail call void @free(ptr noundef nonnull %0) #24
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then, %if.then2, %entry
@@ -26343,7 +26342,7 @@ if.end5:                                          ; preds = %if.then, %if.then2,
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
-; Function Attrs: nofree nosync nounwind memory(none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define i32 @stbir__get_max_split(i32 noundef %splits, i32 noundef %height) local_unnamed_addr #13 {
 entry:
   %cmp8 = icmp sgt i32 %splits, 0
@@ -26367,7 +26366,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @stbir__should_do_vertical_first(ptr nocapture noundef readonly %weights_table, i32 noundef %horizontal_filter_pixel_width, float noundef %horizontal_scale, i32 noundef %horizontal_output_size, i32 noundef %vertical_filter_pixel_width, float noundef %vertical_scale, i32 noundef %vertical_output_size, i32 noundef %is_gather, ptr noundef %info) local_unnamed_addr #14 {
+define i32 @stbir__should_do_vertical_first(ptr nocapture noundef readonly %weights_table, i32 noundef %horizontal_filter_pixel_width, float noundef %horizontal_scale, i32 noundef %horizontal_output_size, i32 noundef %vertical_filter_pixel_width, float noundef %vertical_scale, i32 noundef %vertical_output_size, i32 noundef %is_gather, ptr noundef %info) local_unnamed_addr #8 {
 entry:
   %cmp = icmp slt i32 %vertical_output_size, 5
   %cmp1 = icmp slt i32 %horizontal_output_size, 5
@@ -27207,7 +27206,7 @@ if.then500:                                       ; preds = %no_vert_alloc
   %147 = trunc i64 %146 to i32
   %conv502 = add i32 %147, 15
   %conv503 = sext i32 %conv502 to i64
-  %call504 = tail call noalias ptr @malloc(i64 noundef %conv503) #28
+  %call504 = tail call noalias ptr @malloc(i64 noundef %conv503) #25
   %cmp505 = icmp eq ptr %call504, null
   br i1 %cmp505, label %return, label %for.cond
 
@@ -27217,7 +27216,7 @@ return:                                           ; preds = %if.then500, %for.in
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define i32 @stbir__perform_resize(ptr noundef %info, i32 noundef %split_start, i32 noundef %split_count) local_unnamed_addr #2 {
@@ -27244,7 +27243,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__update_info_from_resize(ptr nocapture noundef %info, ptr nocapture noundef readonly %resize) local_unnamed_addr #16 {
+define void @stbir__update_info_from_resize(ptr nocapture noundef %info, ptr nocapture noundef readonly %resize) local_unnamed_addr #15 {
 entry:
   %input_data_type = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 25
   %0 = load i32, ptr %input_data_type, align 8
@@ -27510,7 +27509,7 @@ if.end172:                                        ; preds = %if.then158, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbir__clip(ptr nocapture noundef %outx, ptr nocapture noundef %outsubw, i32 noundef %outw, ptr nocapture noundef %u0, ptr nocapture noundef %u1) local_unnamed_addr #14 {
+define void @stbir__clip(ptr nocapture noundef %outx, ptr nocapture noundef %outsubw, i32 noundef %outw, ptr nocapture noundef %u0, ptr nocapture noundef %u1) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %outx, align 4
   %cmp = icmp slt i32 %0, 0
@@ -27694,7 +27693,7 @@ return:                                           ; preds = %if.end38, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @stbir__calculate_region_transform(ptr nocapture noundef writeonly %scale_info, i32 noundef %output_full_range, ptr nocapture noundef %output_offset, i32 noundef %output_sub_range, i32 noundef %input_full_range, double noundef %input_s0, double noundef %input_s1) local_unnamed_addr #17 {
+define i32 @stbir__calculate_region_transform(ptr nocapture noundef writeonly %scale_info, i32 noundef %output_full_range, ptr nocapture noundef %output_offset, i32 noundef %output_sub_range, i32 noundef %input_full_range, double noundef %input_s0, double noundef %input_s1) local_unnamed_addr #5 {
 entry:
   %sub = fsub double %input_s1, %input_s0
   %cmp = icmp eq i32 %output_full_range, 0
@@ -27800,7 +27799,7 @@ return:                                           ; preds = %stbir__clip.exit, %
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @stbir__init_and_set_layout(ptr noundef %resize, i32 noundef %pixel_layout, i32 noundef %data_type) local_unnamed_addr #8 {
 entry:
   %input_cb = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 8
@@ -27837,8 +27836,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbir_resize_init(ptr noundef %resize, ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout, i32 noundef %data_type) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @stbir_resize_init(ptr noundef %resize, ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout, i32 noundef %data_type) local_unnamed_addr #16 {
 entry:
   %input_pixels1 = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 1
   store ptr %input_pixels, ptr %input_pixels1, align 8
@@ -27893,7 +27892,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbir_set_datatypes(ptr nocapture noundef %resize, i32 noundef %input_type, i32 noundef %output_type) local_unnamed_addr #19 {
+define void @stbir_set_datatypes(ptr nocapture noundef %resize, i32 noundef %input_type, i32 noundef %output_type) local_unnamed_addr #17 {
 entry:
   %input_data_type = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 25
   store i32 %input_type, ptr %input_data_type, align 8
@@ -27919,7 +27918,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir_set_pixel_callbacks(ptr nocapture noundef %resize, ptr noundef %input_cb, ptr noundef %output_cb) local_unnamed_addr #20 {
+define void @stbir_set_pixel_callbacks(ptr nocapture noundef %resize, ptr noundef %input_cb, ptr noundef %output_cb) local_unnamed_addr #18 {
 entry:
   %input_cb1 = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 8
   store ptr %input_cb, ptr %input_cb1, align 8
@@ -27949,7 +27948,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir_set_user_data(ptr nocapture noundef %resize, ptr noundef %user_data) local_unnamed_addr #20 {
+define void @stbir_set_user_data(ptr nocapture noundef %resize, ptr noundef %user_data) local_unnamed_addr #18 {
 entry:
   store ptr %user_data, ptr %resize, align 8
   %samplers = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 35
@@ -27973,7 +27972,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbir_set_buffer_ptrs(ptr nocapture noundef %resize, ptr noundef %input_pixels, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_stride_in_bytes) local_unnamed_addr #19 {
+define void @stbir_set_buffer_ptrs(ptr nocapture noundef %resize, ptr noundef %input_pixels, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_stride_in_bytes) local_unnamed_addr #17 {
 entry:
   %input_pixels1 = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 1
   store ptr %input_pixels, ptr %input_pixels1, align 8
@@ -28003,7 +28002,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @stbir_set_edgemodes(ptr nocapture noundef writeonly %resize, i32 noundef %horizontal_edge, i32 noundef %vertical_edge) local_unnamed_addr #21 {
+define i32 @stbir_set_edgemodes(ptr nocapture noundef writeonly %resize, i32 noundef %horizontal_edge, i32 noundef %vertical_edge) local_unnamed_addr #16 {
 entry:
   %horizontal_edge1 = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 29
   store i32 %horizontal_edge, ptr %horizontal_edge1, align 8
@@ -28015,7 +28014,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @stbir_set_filters(ptr nocapture noundef writeonly %resize, i32 noundef %horizontal_filter, i32 noundef %vertical_filter) local_unnamed_addr #21 {
+define i32 @stbir_set_filters(ptr nocapture noundef writeonly %resize, i32 noundef %horizontal_filter, i32 noundef %vertical_filter) local_unnamed_addr #16 {
 entry:
   %horizontal_filter1 = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 27
   store i32 %horizontal_filter, ptr %horizontal_filter1, align 8
@@ -28027,7 +28026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @stbir_set_filter_callbacks(ptr nocapture noundef writeonly %resize, ptr noundef %horizontal_filter, ptr noundef %horizontal_support, ptr noundef %vertical_filter, ptr noundef %vertical_support) local_unnamed_addr #21 {
+define i32 @stbir_set_filter_callbacks(ptr nocapture noundef writeonly %resize, ptr noundef %horizontal_filter, ptr noundef %horizontal_support, ptr noundef %vertical_filter, ptr noundef %vertical_support) local_unnamed_addr #16 {
 entry:
   %horizontal_filter_kernel = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 31
   store ptr %horizontal_filter, ptr %horizontal_filter_kernel, align 8
@@ -28043,7 +28042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @stbir_set_pixel_layouts(ptr nocapture noundef writeonly %resize, i32 noundef %input_pixel_layout, i32 noundef %output_pixel_layout) local_unnamed_addr #21 {
+define i32 @stbir_set_pixel_layouts(ptr nocapture noundef writeonly %resize, i32 noundef %input_pixel_layout, i32 noundef %output_pixel_layout) local_unnamed_addr #16 {
 entry:
   %input_pixel_layout_public = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 23
   store i32 %input_pixel_layout, ptr %input_pixel_layout_public, align 8
@@ -28055,7 +28054,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @stbir_set_non_pm_alpha_speed_over_quality(ptr nocapture noundef writeonly %resize, i32 noundef %non_pma_alpha_speed_over_quality) local_unnamed_addr #21 {
+define i32 @stbir_set_non_pm_alpha_speed_over_quality(ptr nocapture noundef writeonly %resize, i32 noundef %non_pma_alpha_speed_over_quality) local_unnamed_addr #16 {
 entry:
   %fast_alpha = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 20
   store i32 %non_pma_alpha_speed_over_quality, ptr %fast_alpha, align 4
@@ -28065,7 +28064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @stbir_set_input_subrect(ptr nocapture noundef writeonly %resize, double noundef %s0, double noundef %t0, double noundef %s1, double noundef %t1) local_unnamed_addr #21 {
+define i32 @stbir_set_input_subrect(ptr nocapture noundef writeonly %resize, double noundef %s0, double noundef %t0, double noundef %s1, double noundef %t1) local_unnamed_addr #16 {
 entry:
   %input_s0 = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 4
   store double %s0, ptr %input_s0, align 8
@@ -28104,7 +28103,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @stbir_set_output_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #14 {
+define i32 @stbir_set_output_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
 entry:
   %output_subx = getelementptr inbounds %struct.STBIR_RESIZE, ptr %resize, i64 0, i32 12
   store i32 %subx, ptr %output_subx, align 8
@@ -28147,7 +28146,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @stbir_set_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #14 {
+define i32 @stbir_set_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
 entry:
   %0 = insertelement <2 x i32> poison, i32 %subx, i64 0
   %1 = insertelement <2 x i32> %0, i32 %suby, i64 1
@@ -28338,7 +28337,7 @@ return:                                           ; preds = %if.end41, %if.end16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @stbir_free_samplers(ptr nocapture noundef %resize) local_unnamed_addr #11 {
@@ -28356,7 +28355,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.then.i
   store ptr null, ptr %alloced_mem.i, align 8
-  tail call void @free(ptr noundef nonnull %1) #27
+  tail call void @free(ptr noundef nonnull %1) #24
   br label %stbir__free_internal_mem.exit
 
 stbir__free_internal_mem.exit:                    ; preds = %if.then.i, %if.then2.i
@@ -28391,7 +28390,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
   store ptr null, ptr %alloced_mem.i.i, align 8
-  tail call void @free(ptr noundef nonnull %2) #27
+  tail call void @free(ptr noundef nonnull %2) #24
   br label %stbir_free_samplers.exit
 
 stbir_free_samplers.exit:                         ; preds = %if.then.i.i, %if.then2.i.i
@@ -28431,7 +28430,7 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   store ptr null, ptr %alloced_mem.i.i.i, align 8
-  tail call void @free(ptr noundef nonnull %2) #27
+  tail call void @free(ptr noundef nonnull %2) #24
   br label %stbir_free_samplers.exit.i
 
 stbir_free_samplers.exit.i:                       ; preds = %if.then2.i.i.i, %if.then.i.i.i
@@ -28478,7 +28477,7 @@ if.then.i:                                        ; preds = %lor.lhs.false
 
 if.then2.i:                                       ; preds = %if.then.i
   store ptr null, ptr %alloced_mem.i, align 8
-  tail call void @free(ptr noundef nonnull %4) #27
+  tail call void @free(ptr noundef nonnull %4) #24
   br label %stbir__free_internal_mem.exit
 
 stbir__free_internal_mem.exit:                    ; preds = %if.then.i, %if.then2.i
@@ -28537,7 +28536,7 @@ if.then.i.i:                                      ; preds = %if.then19
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
   store ptr null, ptr %alloced_mem.i.i, align 8
-  tail call void @free(ptr noundef nonnull %13) #27
+  tail call void @free(ptr noundef nonnull %13) #24
   br label %stbir__free_internal_mem.exit.i
 
 stbir__free_internal_mem.exit.i:                  ; preds = %if.then2.i.i, %if.then.i.i
@@ -28622,7 +28621,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: write, inaccessiblemem: readwrite) uwtable
-define i32 @stbir__check_output_stuff(ptr nocapture noundef writeonly %ret_ptr, ptr nocapture noundef writeonly %ret_pitch, ptr noundef readnone %output_pixels, i32 noundef %type_size, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #23 {
+define i32 @stbir__check_output_stuff(ptr nocapture noundef writeonly %ret_ptr, ptr nocapture noundef writeonly %ret_pitch, ptr noundef readnone %output_pixels, i32 noundef %type_size, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout) local_unnamed_addr #20 {
 entry:
   %mul = mul nsw i32 %output_w, %type_size
   %idxprom = zext i32 %pixel_layout to i64
@@ -28652,7 +28651,7 @@ if.end16:                                         ; preds = %if.end10
   br i1 %cmp17, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end16
-  %call = tail call noalias ptr @malloc(i64 noundef %conv12) #28
+  %call = tail call noalias ptr @malloc(i64 noundef %conv12) #25
   %cmp20 = icmp eq ptr %call, null
   br i1 %cmp20, label %return, label %if.end23
 
@@ -28698,7 +28697,7 @@ if.end16.i:                                       ; preds = %if.end10.i
   br i1 %cmp17.i, label %if.then19.i, label %if.end
 
 if.then19.i:                                      ; preds = %if.end16.i
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv12.i) #28
+  %call.i = tail call noalias ptr @malloc(i64 noundef %conv12.i) #25
   %cmp20.i = icmp eq ptr %call.i, null
   br i1 %cmp20.i, label %return, label %if.end
 
@@ -28763,7 +28762,7 @@ if.end:                                           ; preds = %if.then19.i, %if.en
   br i1 %brmerge, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  call void @free(ptr noundef nonnull %optr.0) #27
+  call void @free(ptr noundef nonnull %optr.0) #24
   br label %return
 
 return:                                           ; preds = %if.end, %if.then19.i, %if.end10.i, %if.end.i, %entry, %if.then6
@@ -28803,7 +28802,7 @@ if.end16.i:                                       ; preds = %if.end10.i
   br i1 %cmp17.i, label %if.then19.i, label %if.end
 
 if.then19.i:                                      ; preds = %if.end16.i
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv12.i) #28
+  %call.i = tail call noalias ptr @malloc(i64 noundef %conv12.i) #25
   %cmp20.i = icmp eq ptr %call.i, null
   br i1 %cmp20.i, label %return, label %if.end
 
@@ -28868,7 +28867,7 @@ if.end:                                           ; preds = %if.then19.i, %if.en
   br i1 %brmerge, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  call void @free(ptr noundef nonnull %optr.0) #27
+  call void @free(ptr noundef nonnull %optr.0) #24
   br label %return
 
 return:                                           ; preds = %if.end, %if.then19.i, %if.end10.i, %if.end.i, %entry, %if.then6
@@ -28909,7 +28908,7 @@ if.end16.i:                                       ; preds = %if.end10.i
   br i1 %cmp17.i, label %if.then19.i, label %if.end
 
 if.then19.i:                                      ; preds = %if.end16.i
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv12.i) #28
+  %call.i = tail call noalias ptr @malloc(i64 noundef %conv12.i) #25
   %cmp20.i = icmp eq ptr %call.i, null
   br i1 %cmp20.i, label %return, label %if.end
 
@@ -28974,7 +28973,7 @@ if.end:                                           ; preds = %if.then19.i, %if.en
   br i1 %brmerge, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  call void @free(ptr noundef nonnull %optr.0) #27
+  call void @free(ptr noundef nonnull %optr.0) #24
   br label %return
 
 return:                                           ; preds = %if.end, %if.then19.i, %if.end10.i, %if.end.i, %entry, %if.then6
@@ -29019,7 +29018,7 @@ if.end16.i:                                       ; preds = %if.end10.i
   br i1 %cmp17.i, label %if.then19.i, label %if.end
 
 if.then19.i:                                      ; preds = %if.end16.i
-  %call.i = tail call noalias ptr @malloc(i64 noundef %conv12.i) #28
+  %call.i = tail call noalias ptr @malloc(i64 noundef %conv12.i) #25
   %cmp20.i = icmp eq ptr %call.i, null
   br i1 %cmp20.i, label %return, label %if.end
 
@@ -29091,7 +29090,7 @@ if.end:                                           ; preds = %if.then19.i, %if.en
   br i1 %brmerge, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  call void @free(ptr noundef nonnull %optr.0) #27
+  call void @free(ptr noundef nonnull %optr.0) #24
   br label %return
 
 return:                                           ; preds = %if.end, %if.then19.i, %if.end10.i, %if.end.i, %entry, %if.then8
@@ -29100,64 +29099,61 @@ return:                                           ; preds = %if.end, %if.then19.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #24
+declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #24
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #24
+declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #24
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #24
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #24
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #25
+declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #25
+declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #10 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #23 = { mustprogress nofree nounwind willreturn memory(read, argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind allocsize(0) }
+attributes #13 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(read, argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

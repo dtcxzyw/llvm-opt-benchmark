@@ -91,8 +91,8 @@ _Z33grpc_base64_estimate_encoded_sizemi.exit.thread: ; preds = %entry
   %div.i72 = udiv i64 %add.i71, 3
   %mul.i73 = shl i64 %div.i72, 2
   %add3.i74 = add i64 %0, %mul.i73
-  %cmp6076 = icmp ugt i64 %data_size, 2
-  br i1 %cmp6076, label %while.body, label %while.end
+  %cmp6075 = icmp ugt i64 %data_size, 2
+  br i1 %cmp6075, label %while.body, label %while.end
 
 while.body.us:                                    ; preds = %_Z33grpc_base64_estimate_encoded_sizemi.exit, %while.body.us
   %i.064.us = phi i64 [ %add33.us, %while.body.us ], [ 0, %_Z33grpc_base64_estimate_encoded_sizemi.exit ]
@@ -206,11 +206,10 @@ if.end:                                           ; preds = %if.then, %while.bod
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end, %while.body.us, %_Z33grpc_base64_estimate_encoded_sizemi.exit.thread, %_Z33grpc_base64_estimate_encoded_sizemi.exit
-  %add4.i77.in = phi i64 [ %mul.i, %_Z33grpc_base64_estimate_encoded_sizemi.exit ], [ %add3.i74, %_Z33grpc_base64_estimate_encoded_sizemi.exit.thread ], [ %mul.i, %while.body.us ], [ %add3.i74, %if.end ]
+  %add3.i76 = phi i64 [ %mul.i, %_Z33grpc_base64_estimate_encoded_sizemi.exit ], [ %add3.i74, %_Z33grpc_base64_estimate_encoded_sizemi.exit.thread ], [ %mul.i, %while.body.us ], [ %add3.i74, %if.end ]
   %data_size.addr.0.lcssa = phi i64 [ %data_size, %_Z33grpc_base64_estimate_encoded_sizemi.exit ], [ %data_size, %_Z33grpc_base64_estimate_encoded_sizemi.exit.thread ], [ %sub.us, %while.body.us ], [ %sub, %if.end ]
   %current.0.lcssa = phi ptr [ %result, %_Z33grpc_base64_estimate_encoded_sizemi.exit ], [ %result, %_Z33grpc_base64_estimate_encoded_sizemi.exit.thread ], [ %incdec.ptr32.us, %while.body.us ], [ %current.1, %if.end ]
   %i.0.lcssa = phi i64 [ 0, %_Z33grpc_base64_estimate_encoded_sizemi.exit ], [ 0, %_Z33grpc_base64_estimate_encoded_sizemi.exit.thread ], [ %add33.us, %while.body.us ], [ %add33, %if.end ]
-  %add4.i77 = or disjoint i64 %add4.i77.in, 1
   switch i64 %data_size.addr.0.lcssa, label %do.body [
     i64 2, label %if.then39
     i64 1, label %if.then70
@@ -285,8 +284,8 @@ do.body93:                                        ; preds = %do.body
   %sub.ptr.lhs.cast = ptrtoint ptr %current.2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %result to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp94.not = icmp ult i64 %sub.ptr.sub, %add4.i77
-  br i1 %cmp94.not, label %do.end99, label %if.then97
+  %cmp94.not.not = icmp ugt i64 %sub.ptr.sub, %add3.i76
+  br i1 %cmp94.not.not, label %if.then97, label %do.end99
 
 if.then97:                                        ; preds = %do.body93
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 122, ptr noundef nonnull @.str.2) #6

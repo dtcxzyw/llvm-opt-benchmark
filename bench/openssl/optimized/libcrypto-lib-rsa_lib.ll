@@ -357,7 +357,7 @@ entry:
 
 declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nosync nounwind memory(none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %n) local_unnamed_addr #5 {
 entry:
   switch i32 %n, label %sw.epilog [
@@ -447,13 +447,13 @@ for.body.i14:                                     ; preds = %for.body.i14, %ilog
   %mul.i15 = mul i64 %r.010.i, 6
   %add.i16 = or disjoint i64 %shl.i, 1
   %mul1.i = mul i64 %mul.i15, %add.i16
-  %add2.i = or disjoint i64 %mul1.i, 1
   %shr.i17 = lshr i64 %x.addr.011.i, %indvars.iv.i
-  %cmp3.not.i = icmp ult i64 %shr.i17, %add2.i
-  %shl5.i = shl i64 %add2.i, %indvars.iv.i
-  %r.1.i = select i1 %cmp3.not.i, i64 %shl.i, i64 %add.i16
-  %sub.i = select i1 %cmp3.not.i, i64 0, i64 %shl5.i
-  %x.addr.1.i = sub i64 %x.addr.011.i, %sub.i
+  %cmp3.not.not.i = icmp ugt i64 %shr.i17, %mul1.i
+  %add2.neg.i = xor i64 %mul1.i, -1
+  %shl5.neg.i = shl i64 %add2.neg.i, %indvars.iv.i
+  %r.1.i = select i1 %cmp3.not.not.i, i64 %add.i16, i64 %shl.i
+  %sub.i = select i1 %cmp3.not.not.i, i64 %shl5.neg.i, i64 0
+  %x.addr.1.i = add i64 %sub.i, %x.addr.011.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -3
   %cmp.i18 = icmp ugt i64 %indvars.iv.i, 2
   br i1 %cmp.i18, label %for.body.i14, label %icbrt64.exit, !llvm.loop !7
@@ -2161,7 +2161,7 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
