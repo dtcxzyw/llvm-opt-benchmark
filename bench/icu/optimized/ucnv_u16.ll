@@ -1132,7 +1132,7 @@ do.body:                                          ; preds = %do.body, %if.else37
   %14 = load i8, ptr %s.0, align 1
   %incdec.ptr45 = getelementptr inbounds i8, ptr %bytes.0, i64 1
   store i8 %14, ptr %bytes.0, align 1
-  %exitcond.not = icmp eq ptr %incdec.ptr44, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr44, %4
   br i1 %exitcond.not, label %if.end49.thread46, label %do.body, !llvm.loop !10
 
 if.end49.thread46:                                ; preds = %do.body
@@ -2490,7 +2490,7 @@ do.body:                                          ; preds = %do.body, %if.else37
   %14 = load i8, ptr %s.0, align 1
   %incdec.ptr45 = getelementptr inbounds i8, ptr %bytes.0, i64 1
   store i8 %14, ptr %bytes.0, align 1
-  %exitcond.not = icmp eq ptr %incdec.ptr44, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr44, %4
   br i1 %exitcond.not, label %if.end49.thread46, label %do.body, !llvm.loop !18
 
 if.end49.thread46:                                ; preds = %do.body
@@ -2682,7 +2682,6 @@ if.else37.i:                                      ; preds = %if.then18.i
   %conv41.i = trunc i64 %sub.ptr.sub.i to i8
   %toULength43.i = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 12
   store i8 %conv41.i, ptr %toULength43.i, align 8
-  %scevgep.i = getelementptr i8, ptr %2, i64 %sub.ptr.sub.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.else37.i
@@ -2692,10 +2691,11 @@ do.body.i:                                        ; preds = %do.body.i, %if.else
   %14 = load i8, ptr %s.0.i, align 1
   %incdec.ptr45.i = getelementptr inbounds i8, ptr %bytes.0.i, i64 1
   store i8 %14, ptr %bytes.0.i, align 1
-  %exitcond.not.i = icmp eq ptr %incdec.ptr44.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr44.i, %4
   br i1 %exitcond.not.i, label %if.end49.thread46.i, label %do.body.i, !llvm.loop !10
 
 if.end49.thread46.i:                              ; preds = %do.body.i
+  %scevgep.i = getelementptr i8, ptr %2, i64 %sub.ptr.sub.i
   store i32 11, ptr %pErrorCode, align 4
   br label %if.end62.i
 
@@ -2794,7 +2794,6 @@ if.else37.i43:                                    ; preds = %if.then18.i32
   %conv41.i46 = trunc i64 %sub.ptr.sub.i45 to i8
   %toULength43.i47 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 12
   store i8 %conv41.i46, ptr %toULength43.i47, align 8
-  %scevgep.i48 = getelementptr i8, ptr %18, i64 %sub.ptr.sub.i45
   br label %do.body.i49
 
 do.body.i49:                                      ; preds = %do.body.i49, %if.else37.i43
@@ -2804,10 +2803,11 @@ do.body.i49:                                      ; preds = %do.body.i49, %if.el
   %30 = load i8, ptr %s.0.i50, align 1
   %incdec.ptr45.i53 = getelementptr inbounds i8, ptr %bytes.0.i51, i64 1
   store i8 %30, ptr %bytes.0.i51, align 1
-  %exitcond.not.i54 = icmp eq ptr %incdec.ptr44.i52, %scevgep.i48
+  %exitcond.not.i54 = icmp eq ptr %incdec.ptr44.i52, %20
   br i1 %exitcond.not.i54, label %if.end49.thread46.i55, label %do.body.i49, !llvm.loop !18
 
 if.end49.thread46.i55:                            ; preds = %do.body.i49
+  %scevgep.i48 = getelementptr i8, ptr %18, i64 %sub.ptr.sub.i45
   store i32 11, ptr %pErrorCode, align 4
   br label %if.end62.i23
 

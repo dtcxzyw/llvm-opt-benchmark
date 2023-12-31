@@ -558,8 +558,6 @@ $_ZN5boost16re_detail_10740014recursion_infoINS_13match_resultsIPKcSaINS_9sub_ma
 
 $_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE9match_impEv = comdat any
 
-$_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE8set_sizeEmS2_S2_ = comdat any
-
 $_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12match_prefixEv = comdat any
 
 $_ZN5boost16re_detail_10740015save_state_initD2Ev = comdat any
@@ -30751,8 +30749,9 @@ _ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit: ; preds = %_ZN5bo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE9match_impEv(ptr noundef nonnull align 8 dereferenceable(236) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %e.i.i39 = alloca %"class.std::logic_error", align 8
+  %e.i.i49 = alloca %"class.std::logic_error", align 8
   %e.i.i = alloca %"class.std::logic_error", align 8
+  %v.i = alloca %"struct.boost::sub_match", align 8
   %init = alloca %"struct.boost::re_detail_107400::save_state_init", align 8
   %m_stack_base = getelementptr inbounds %"class.boost::re_detail_107400::perl_matcher", ptr %this, i64 0, i32 27
   %m_backup_state = getelementptr inbounds %"class.boost::re_detail_107400::perl_matcher", ptr %this, i64 0, i32 28
@@ -30798,212 +30797,288 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi i64 [ 1, %entry ], [ %5, %cond.true.i ], [ 1, %cond.false ]
   %last = getelementptr inbounds %"class.boost::re_detail_107400::perl_matcher", ptr %this, i64 0, i32 4
   %6 = load ptr, ptr %last, align 8
-  invoke void @_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE8set_sizeEmS2_S2_(ptr noundef nonnull align 8 dereferenceable(77) %2, i64 noundef %cond, ptr noundef %0, ptr noundef %6)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i)
+  store ptr %6, ptr %v.i, align 8
+  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %v.i, i64 0, i32 1
+  store ptr %6, ptr %second.i.i.i, align 8
+  %matched.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %v.i, i64 0, i32 1
+  store i8 0, ptr %matched.i.i, align 8
+  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<boost::sub_match<const char *>, std::allocator<boost::sub_match<const char *>>>::_Vector_impl_data", ptr %2, i64 0, i32 1
+  %7 = load ptr, ptr %_M_finish.i.i, align 8
+  %8 = load ptr, ptr %2, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
+  %add.i = add i64 %cond, 2
+  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, %add.i
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %cond.end
+  %add.ptr.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %8, i64 %cond
+  %add.ptr.i6.i = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i.i, i64 2
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i6.i, %7
+  br i1 %cmp.i.not.i.i.i, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i, label %invoke.cont.i.i.i.i
+
+invoke.cont.i.i.i.i:                              ; preds = %if.then.i
+  store ptr %add.ptr.i6.i, ptr %_M_finish.i.i, align 8
+  br label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i
+
+_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i: ; preds = %invoke.cont.i.i.i.i, %if.then.i
+  %9 = phi ptr [ %7, %if.then.i ], [ %add.ptr.i6.i, %invoke.cont.i.i.i.i ]
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %8, %9
+  br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i
+
+for.body.i.i.i.i.i:                               ; preds = %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i, %for.body.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %8, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i ]
+  store ptr %6, ptr %__first.addr.04.i.i.i.i.i, align 8
+  %second3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  store ptr %6, ptr %second3.i.i.i.i.i.i, align 8
+  %matched4.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  store i8 0, ptr %matched4.i.i.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %9
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !266
+
+if.else.i:                                        ; preds = %cond.end
+  %cmp.not3.i.i.i.i10.i = icmp eq ptr %8, %7
+  br i1 %cmp.not3.i.i.i.i10.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20.i, label %for.body.i.i.i.i14.i
+
+for.body.i.i.i.i14.i:                             ; preds = %if.else.i, %for.body.i.i.i.i14.i
+  %__first.addr.04.i.i.i.i15.i = phi ptr [ %incdec.ptr.i.i.i.i18.i, %for.body.i.i.i.i14.i ], [ %8, %if.else.i ]
+  store ptr %6, ptr %__first.addr.04.i.i.i.i15.i, align 8
+  %second3.i.i.i.i.i16.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i.i15.i, i64 0, i32 1
+  store ptr %6, ptr %second3.i.i.i.i.i16.i, align 8
+  %matched4.i.i.i.i.i17.i = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i15.i, i64 0, i32 1
+  store i8 0, ptr %matched4.i.i.i.i.i17.i, align 8
+  %incdec.ptr.i.i.i.i18.i = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i15.i, i64 1
+  %cmp.not.i.i.i.i19.i = icmp eq ptr %incdec.ptr.i.i.i.i18.i, %7
+  br i1 %cmp.not.i.i.i.i19.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20.i, label %for.body.i.i.i.i14.i, !llvm.loop !266
+
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20.i: ; preds = %for.body.i.i.i.i14.i, %if.else.i
+  %cmp41.not.i = icmp eq i64 %add.i, %sub.ptr.div.i.i
+  br i1 %cmp41.not.i, label %invoke.cont7, label %if.then42.i
+
+if.then42.i:                                      ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20.i
+  %10 = load ptr, ptr %_M_finish.i.i, align 8
+  %sub.i = sub i64 %add.i, %sub.ptr.div.i.i
+  %11 = load ptr, ptr %2, align 8
+  %sub.ptr.lhs.cast.i.i22.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i23.i = ptrtoint ptr %11 to i64
+  %sub.ptr.sub.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i22.i, %sub.ptr.rhs.cast.i.i23.i
+  %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i24.i
+  invoke void @_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS4_S6_EEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %add.ptr.i.i25.i, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(17) %v.i)
           to label %invoke.cont7 unwind label %lpad
 
-invoke.cont7:                                     ; preds = %cond.end
-  %7 = load ptr, ptr %m_presult, align 8
-  %8 = load ptr, ptr %base, align 8
-  %m_base.i = getelementptr inbounds %"class.boost::match_results", ptr %7, i64 0, i32 1
-  store ptr %8, ptr %m_base.i, align 8
-  %9 = load ptr, ptr %m_presult, align 8
+invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20.i, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit.i, %if.then42.i
+  %12 = load ptr, ptr %2, align 8
+  %add.ptr.i26.i = getelementptr inbounds %"struct.boost::sub_match", ptr %12, i64 1
+  store ptr %0, ptr %add.ptr.i26.i, align 8
+  %m_last_closed_paren.i = getelementptr inbounds %"class.boost::match_results", ptr %2, i64 0, i32 4
+  store i32 0, ptr %m_last_closed_paren.i, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %v.i)
+  %13 = load ptr, ptr %m_presult, align 8
+  %14 = load ptr, ptr %base, align 8
+  %m_base.i = getelementptr inbounds %"class.boost::match_results", ptr %13, i64 0, i32 1
+  store ptr %14, ptr %m_base.i, align 8
+  %15 = load ptr, ptr %m_presult, align 8
   %re12 = getelementptr inbounds %"class.boost::re_detail_107400::perl_matcher", ptr %this, i64 0, i32 9
-  %10 = load ptr, ptr %re12, align 8
-  %11 = load <2 x ptr>, ptr %10, align 8, !noalias !266
-  %12 = extractelement <2 x ptr> %11, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %12, null
+  %16 = load ptr, ptr %re12, align 8
+  %17 = load <2 x ptr>, ptr %16, align 8, !noalias !267
+  %18 = extractelement <2 x ptr> %17, i64 1
+  %cmp.not.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont7
-  %use_count_.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %12, i64 0, i32 1
-  %13 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !266
-  %14 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4
+  %use_count_.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %18, i64 0, i32 1
+  %19 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !267
+  %20 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4
   br label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i
 
 _ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i: ; preds = %invoke.cont7, %if.then.i.i.i.i
-  %m_named_subs.i67 = getelementptr inbounds %"class.boost::match_results", ptr %9, i64 0, i32 3
-  %pn3.i2.i.i = getelementptr inbounds %"class.boost::match_results", ptr %9, i64 0, i32 3, i32 1
-  %15 = load ptr, ptr %pn3.i2.i.i, align 8
-  store <2 x ptr> %11, ptr %m_named_subs.i67, align 8
-  %cmp.not.i.i4.i.i = icmp eq ptr %15, null
+  %m_named_subs.i77 = getelementptr inbounds %"class.boost::match_results", ptr %15, i64 0, i32 3
+  %pn3.i2.i.i = getelementptr inbounds %"class.boost::match_results", ptr %15, i64 0, i32 3, i32 1
+  %21 = load ptr, ptr %pn3.i2.i.i, align 8
+  store <2 x ptr> %17, ptr %m_named_subs.i77, align 8
+  %cmp.not.i.i4.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i4.i.i, label %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE14set_named_subsENS_10shared_ptrINS_16re_detail_10740020named_subexpressionsEEE.exit, label %if.then.i.i5.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i
-  %use_count_.i.i.i6.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %15, i64 0, i32 1
-  %16 = atomicrmw sub ptr %use_count_.i.i.i6.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i = icmp eq i32 %16, 1
+  %use_count_.i.i.i6.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %21, i64 0, i32 1
+  %22 = atomicrmw sub ptr %use_count_.i.i.i6.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i = icmp eq i32 %22, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE14set_named_subsENS_10shared_ptrINS_16re_detail_10740020named_subexpressionsEEE.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i5.i.i
-  %vtable.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %21, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
-  %17 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %23 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %15, i64 0, i32 2
-  %18 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i = icmp eq i32 %18, 1
+  %weak_count_.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %21, i64 0, i32 2
+  %24 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i = icmp eq i32 %24, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE14set_named_subsENS_10shared_ptrINS_16re_detail_10740020named_subexpressionsEEE.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %21, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 3
-  %19 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %25 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE14set_named_subsENS_10shared_ptrINS_16re_detail_10740020named_subexpressionsEEE.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %20 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #23
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #23
   unreachable
 
 _ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE14set_named_subsENS_10shared_ptrINS_16re_detail_10740020named_subexpressionsEEE.exit: ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i, %if.then.i.i5.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE14set_named_subsENS_10shared_ptrINS_16re_detail_10740020named_subexpressionsEEE.exit
-  %use_count_.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %12, i64 0, i32 1
-  %22 = atomicrmw sub ptr %use_count_.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i = icmp eq i32 %22, 1
+  %use_count_.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %18, i64 0, i32 1
+  %28 = atomicrmw sub ptr %use_count_.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i = icmp eq i32 %28, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i1, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit
 
 if.then.i.i.i1:                                   ; preds = %if.then.i.i
-  %vtable.i.i.i = load ptr, ptr %12, align 8
+  %vtable.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
-  %23 = load ptr, ptr %vfn.i.i.i, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %29 = load ptr, ptr %vfn.i.i.i, align 8
+  invoke void %29(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %if.then.i.i.i1
-  %weak_count_.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %12, i64 0, i32 2
-  %24 = atomicrmw sub ptr %weak_count_.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i = icmp eq i32 %24, 1
+  %weak_count_.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %18, i64 0, i32 2
+  %30 = atomicrmw sub ptr %weak_count_.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i = icmp eq i32 %30, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i2, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit
 
 if.then.i.i.i.i2:                                 ; preds = %.noexc.i.i
-  %vtable.i.i.i.i = load ptr, ptr %12, align 8
+  %vtable.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
-  %25 = load ptr, ptr %vfn.i.i.i.i, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %31 = load ptr, ptr %vfn.i.i.i.i, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i2, %if.then.i.i.i1
-  %26 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #23
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #23
   unreachable
 
 _ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit: ; preds = %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE14set_named_subsENS_10shared_ptrINS_16re_detail_10740020named_subexpressionsEEE.exit, %if.then.i.i, %.noexc.i.i, %if.then.i.i.i.i2
-  %28 = load i32, ptr %m_match_flags, align 8
-  %and.i3 = and i32 %28, 131072
+  %34 = load i32, ptr %m_match_flags, align 8
+  %and.i3 = and i32 %34, 131072
   %tobool18.not = icmp eq i32 %and.i3, 0
   br i1 %tobool18.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit
-  %29 = load ptr, ptr %m_presult, align 8
-  %30 = load ptr, ptr %this, align 8
-  %call.i428 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EEaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %29)
+  %35 = load ptr, ptr %m_presult, align 8
+  %36 = load ptr, ptr %this, align 8
+  %call.i431 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EEaSERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35)
           to label %call.i4.noexc unwind label %lpad
 
 call.i4.noexc:                                    ; preds = %if.then
-  %m_named_subs.i5 = getelementptr inbounds %"class.boost::match_results", ptr %29, i64 0, i32 3
-  %m_named_subs3.i = getelementptr inbounds %"class.boost::match_results", ptr %30, i64 0, i32 3
-  %31 = load <2 x ptr>, ptr %m_named_subs.i5, align 8
-  %32 = extractelement <2 x ptr> %31, i64 1
-  %cmp.not.i.i.i.i7 = icmp eq ptr %32, null
+  %m_named_subs.i5 = getelementptr inbounds %"class.boost::match_results", ptr %35, i64 0, i32 3
+  %m_named_subs3.i = getelementptr inbounds %"class.boost::match_results", ptr %36, i64 0, i32 3
+  %37 = load <2 x ptr>, ptr %m_named_subs.i5, align 8
+  %38 = extractelement <2 x ptr> %37, i64 1
+  %cmp.not.i.i.i.i7 = icmp eq ptr %38, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i10, label %if.then.i.i.i.i8
 
 if.then.i.i.i.i8:                                 ; preds = %call.i4.noexc
-  %use_count_.i.i.i.i.i9 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %32, i64 0, i32 1
-  %33 = atomicrmw add ptr %use_count_.i.i.i.i.i9, i32 1 monotonic, align 4
+  %use_count_.i.i.i.i.i9 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %38, i64 0, i32 1
+  %39 = atomicrmw add ptr %use_count_.i.i.i.i.i9, i32 1 monotonic, align 4
   br label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i10
 
 _ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i10: ; preds = %if.then.i.i.i.i8, %call.i4.noexc
-  %pn3.i2.i.i11 = getelementptr inbounds %"class.boost::match_results", ptr %30, i64 0, i32 3, i32 1
-  %34 = load ptr, ptr %pn3.i2.i.i11, align 8
-  store <2 x ptr> %31, ptr %m_named_subs3.i, align 8
-  %cmp.not.i.i4.i.i12 = icmp eq ptr %34, null
+  %pn3.i2.i.i11 = getelementptr inbounds %"class.boost::match_results", ptr %36, i64 0, i32 3, i32 1
+  %40 = load ptr, ptr %pn3.i2.i.i11, align 8
+  store <2 x ptr> %37, ptr %m_named_subs3.i, align 8
+  %cmp.not.i.i4.i.i12 = icmp eq ptr %40, null
   br i1 %cmp.not.i.i4.i.i12, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i, label %if.then.i.i5.i.i13
 
 if.then.i.i5.i.i13:                               ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i10
-  %use_count_.i.i.i6.i.i14 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %34, i64 0, i32 1
-  %35 = atomicrmw sub ptr %use_count_.i.i.i6.i.i14, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i15 = icmp eq i32 %35, 1
-  br i1 %cmp.i.i.i.i.i15, label %if.then.i.i.i.i.i18, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i
+  %use_count_.i.i.i6.i.i14 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %40, i64 0, i32 1
+  %41 = atomicrmw sub ptr %use_count_.i.i.i6.i.i14, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i15 = icmp eq i32 %41, 1
+  br i1 %cmp.i.i.i.i.i15, label %if.then.i.i.i.i.i21, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i
 
-if.then.i.i.i.i.i18:                              ; preds = %if.then.i.i5.i.i13
-  %vtable.i.i.i.i.i19 = load ptr, ptr %34, align 8
-  %vfn.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i19, i64 2
-  %36 = load ptr, ptr %vfn.i.i.i.i.i20, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %34)
-          to label %.noexc.i.i.i.i22 unwind label %terminate.lpad.i.i.i.i21
+if.then.i.i.i.i.i21:                              ; preds = %if.then.i.i5.i.i13
+  %vtable.i.i.i.i.i22 = load ptr, ptr %40, align 8
+  %vfn.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i22, i64 2
+  %42 = load ptr, ptr %vfn.i.i.i.i.i23, align 8
+  invoke void %42(ptr noundef nonnull align 8 dereferenceable(16) %40)
+          to label %.noexc.i.i.i.i25 unwind label %terminate.lpad.i.i.i.i24
 
-.noexc.i.i.i.i22:                                 ; preds = %if.then.i.i.i.i.i18
-  %weak_count_.i.i.i.i.i.i23 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %34, i64 0, i32 2
-  %37 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i23, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i24 = icmp eq i32 %37, 1
-  br i1 %cmp.i.i.i.i.i.i24, label %if.then.i.i.i.i.i.i25, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i
+.noexc.i.i.i.i25:                                 ; preds = %if.then.i.i.i.i.i21
+  %weak_count_.i.i.i.i.i.i26 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %40, i64 0, i32 2
+  %43 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i26, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i27 = icmp eq i32 %43, 1
+  br i1 %cmp.i.i.i.i.i.i27, label %if.then.i.i.i.i.i.i28, label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i
 
-if.then.i.i.i.i.i.i25:                            ; preds = %.noexc.i.i.i.i22
-  %vtable.i.i.i.i.i.i26 = load ptr, ptr %34, align 8
-  %vfn.i.i.i.i.i.i27 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i26, i64 3
-  %38 = load ptr, ptr %vfn.i.i.i.i.i.i27, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %34)
-          to label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i unwind label %terminate.lpad.i.i.i.i21
+if.then.i.i.i.i.i.i28:                            ; preds = %.noexc.i.i.i.i25
+  %vtable.i.i.i.i.i.i29 = load ptr, ptr %40, align 8
+  %vfn.i.i.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i29, i64 3
+  %44 = load ptr, ptr %vfn.i.i.i.i.i.i30, align 8
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(16) %40)
+          to label %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i unwind label %terminate.lpad.i.i.i.i24
 
-terminate.lpad.i.i.i.i21:                         ; preds = %if.then.i.i.i.i.i.i25, %if.then.i.i.i.i.i18
-  %39 = landingpad { ptr, i32 }
+terminate.lpad.i.i.i.i24:                         ; preds = %if.then.i.i.i.i.i.i28, %if.then.i.i.i.i.i21
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #23
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #23
   unreachable
 
-_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i: ; preds = %if.then.i.i.i.i.i.i25, %.noexc.i.i.i.i22, %if.then.i.i5.i.i13, %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i10
-  %m_last_closed_paren.i = getelementptr inbounds %"class.boost::match_results", ptr %29, i64 0, i32 4
-  %41 = load i32, ptr %m_last_closed_paren.i, align 8
-  %m_last_closed_paren5.i = getelementptr inbounds %"class.boost::match_results", ptr %30, i64 0, i32 4
-  store i32 %41, ptr %m_last_closed_paren5.i, align 8
-  %m_is_singular.i = getelementptr inbounds %"class.boost::match_results", ptr %29, i64 0, i32 5
-  %42 = load i8, ptr %m_is_singular.i, align 4
-  %43 = and i8 %42, 1
-  %tobool.not.i16 = icmp eq i8 %43, 0
-  %m_is_singular6.i = getelementptr inbounds %"class.boost::match_results", ptr %30, i64 0, i32 5
-  store i8 %43, ptr %m_is_singular6.i, align 4
-  br i1 %tobool.not.i16, label %if.then.i, label %if.end
+_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i: ; preds = %if.then.i.i.i.i.i.i28, %.noexc.i.i.i.i25, %if.then.i.i5.i.i13, %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i10
+  %m_last_closed_paren.i16 = getelementptr inbounds %"class.boost::match_results", ptr %35, i64 0, i32 4
+  %47 = load i32, ptr %m_last_closed_paren.i16, align 8
+  %m_last_closed_paren5.i = getelementptr inbounds %"class.boost::match_results", ptr %36, i64 0, i32 4
+  store i32 %47, ptr %m_last_closed_paren5.i, align 8
+  %m_is_singular.i = getelementptr inbounds %"class.boost::match_results", ptr %35, i64 0, i32 5
+  %48 = load i8, ptr %m_is_singular.i, align 4
+  %49 = and i8 %48, 1
+  %tobool.not.i17 = icmp eq i8 %49, 0
+  %m_is_singular6.i = getelementptr inbounds %"class.boost::match_results", ptr %36, i64 0, i32 5
+  store i8 %49, ptr %m_is_singular6.i, align 4
+  br i1 %tobool.not.i17, label %if.then.i18, label %if.end
 
-if.then.i:                                        ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i
-  %m_base.i17 = getelementptr inbounds %"class.boost::match_results", ptr %29, i64 0, i32 1
-  %44 = load ptr, ptr %m_base.i17, align 8
-  %m_base9.i = getelementptr inbounds %"class.boost::match_results", ptr %30, i64 0, i32 1
-  store ptr %44, ptr %m_base9.i, align 8
-  %m_null.i = getelementptr inbounds %"class.boost::match_results", ptr %29, i64 0, i32 2
-  %m_null10.i = getelementptr inbounds %"class.boost::match_results", ptr %30, i64 0, i32 2
-  %45 = load ptr, ptr %m_null.i, align 8
-  store ptr %45, ptr %m_null10.i, align 8
-  %second.i.i = getelementptr inbounds %"class.boost::match_results", ptr %29, i64 0, i32 2, i32 0, i32 1
-  %46 = load ptr, ptr %second.i.i, align 8
-  %second3.i.i = getelementptr inbounds %"class.boost::match_results", ptr %30, i64 0, i32 2, i32 0, i32 1
-  store ptr %46, ptr %second3.i.i, align 8
-  %matched.i.i = getelementptr inbounds %"class.boost::match_results", ptr %29, i64 0, i32 2, i32 1
-  %47 = load i8, ptr %matched.i.i, align 8
-  %48 = and i8 %47, 1
-  %matched4.i.i = getelementptr inbounds %"class.boost::match_results", ptr %30, i64 0, i32 2, i32 1
-  store i8 %48, ptr %matched4.i.i, align 8
+if.then.i18:                                      ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i
+  %m_base.i19 = getelementptr inbounds %"class.boost::match_results", ptr %35, i64 0, i32 1
+  %50 = load ptr, ptr %m_base.i19, align 8
+  %m_base9.i = getelementptr inbounds %"class.boost::match_results", ptr %36, i64 0, i32 1
+  store ptr %50, ptr %m_base9.i, align 8
+  %m_null.i = getelementptr inbounds %"class.boost::match_results", ptr %35, i64 0, i32 2
+  %m_null10.i = getelementptr inbounds %"class.boost::match_results", ptr %36, i64 0, i32 2
+  %51 = load ptr, ptr %m_null.i, align 8
+  store ptr %51, ptr %m_null10.i, align 8
+  %second.i.i = getelementptr inbounds %"class.boost::match_results", ptr %35, i64 0, i32 2, i32 0, i32 1
+  %52 = load ptr, ptr %second.i.i, align 8
+  %second3.i.i = getelementptr inbounds %"class.boost::match_results", ptr %36, i64 0, i32 2, i32 0, i32 1
+  store ptr %52, ptr %second3.i.i, align 8
+  %matched.i.i20 = getelementptr inbounds %"class.boost::match_results", ptr %35, i64 0, i32 2, i32 1
+  %53 = load i8, ptr %matched.i.i20, align 8
+  %54 = and i8 %53, 1
+  %matched4.i.i = getelementptr inbounds %"class.boost::match_results", ptr %36, i64 0, i32 2, i32 1
+  store i8 %54, ptr %matched4.i.i, align 8
   br label %if.end
 
-lpad:                                             ; preds = %if.then.i54, %if.then.i38, %if.then, %invoke.cont26, %invoke.cont23, %cond.end
-  %49 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %if.then.i64, %if.then.i47, %if.then, %if.then42.i, %invoke.cont26, %invoke.cont23
+  %55 = landingpad { ptr, i32 }
           catch ptr null
   br label %lpad.body
 
-lpad.body:                                        ; preds = %lpad, %lpad.i.i55, %lpad.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %70, %lpad.i.i ], [ %49, %lpad ], [ %73, %lpad.i.i55 ]
-  %50 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %51 = call ptr @__cxa_begin_catch(ptr %50) #21
+lpad.body:                                        ; preds = %lpad, %lpad.i.i65, %lpad.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %76, %lpad.i.i ], [ %55, %lpad ], [ %79, %lpad.i.i65 ]
+  %56 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %57 = call ptr @__cxa_begin_catch(ptr %56) #21
   %m_recursive_result.i = getelementptr inbounds %"class.boost::re_detail_107400::perl_matcher", ptr %this, i64 0, i32 30
   %m_unwound_lookahead.i = getelementptr inbounds %"class.boost::re_detail_107400::perl_matcher", ptr %this, i64 0, i32 31
   %m_unwound_alt.i = getelementptr inbounds %"class.boost::re_detail_107400::perl_matcher", ptr %this, i64 0, i32 32
@@ -31016,21 +31091,21 @@ while.cond:                                       ; preds = %invoke.cont42, %lpa
   store i8 0, ptr %m_unwound_alt.i, align 2
   br label %do.body.i
 
-do.body.i:                                        ; preds = %call.i29.noexc, %while.cond
-  %52 = load ptr, ptr %m_backup_state, align 8
-  %53 = load i32, ptr %52, align 8
-  %idxprom.i = zext i32 %53 to i64
+do.body.i:                                        ; preds = %call.i32.noexc, %while.cond
+  %58 = load ptr, ptr %m_backup_state, align 8
+  %59 = load i32, ptr %58, align 8
+  %idxprom.i = zext i32 %59 to i64
   %arrayidx.i = getelementptr inbounds [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_table, i64 0, i64 %idxprom.i
   %.unpack.i = load i64, ptr %arrayidx.i, align 16
-  %54 = and i64 %.unpack.i, 1
-  %memptr.isvirtual.not.i = icmp eq i64 %54, 0
+  %60 = and i64 %.unpack.i, 1
+  %memptr.isvirtual.not.i = icmp eq i64 %60, 0
   br i1 %memptr.isvirtual.not.i, label %memptr.nonvirtual.i, label %memptr.virtual.i
 
 memptr.virtual.i:                                 ; preds = %do.body.i
   %vtable.i = load ptr, ptr %this, align 8
-  %55 = getelementptr i8, ptr %vtable.i, i64 %.unpack.i
-  %56 = getelementptr i8, ptr %55, i64 -1
-  %memptr.virtualfn.i = load ptr, ptr %56, align 8, !nosanitize !46
+  %61 = getelementptr i8, ptr %vtable.i, i64 %.unpack.i
+  %62 = getelementptr i8, ptr %61, i64 -1
+  %memptr.virtualfn.i = load ptr, ptr %62, align 8, !nosanitize !46
   br label %memptr.end.i
 
 memptr.nonvirtual.i:                              ; preds = %do.body.i
@@ -31038,36 +31113,36 @@ memptr.nonvirtual.i:                              ; preds = %do.body.i
   br label %memptr.end.i
 
 memptr.end.i:                                     ; preds = %memptr.nonvirtual.i, %memptr.virtual.i
-  %57 = phi ptr [ %memptr.virtualfn.i, %memptr.virtual.i ], [ %memptr.nonvirtualfn.i, %memptr.nonvirtual.i ]
-  %58 = load i8, ptr %m_recursive_result.i, align 4
-  %59 = and i8 %58, 1
-  %tobool4.i = icmp ne i8 %59, 0
-  %call.i2930 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(236) %this, i1 noundef zeroext %tobool4.i)
-          to label %call.i29.noexc unwind label %lpad41.loopexit
+  %63 = phi ptr [ %memptr.virtualfn.i, %memptr.virtual.i ], [ %memptr.nonvirtualfn.i, %memptr.nonvirtual.i ]
+  %64 = load i8, ptr %m_recursive_result.i, align 4
+  %65 = and i8 %64, 1
+  %tobool4.i = icmp ne i8 %65, 0
+  %call.i3233 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(236) %this, i1 noundef zeroext %tobool4.i)
+          to label %call.i32.noexc unwind label %lpad41.loopexit
 
-call.i29.noexc:                                   ; preds = %memptr.end.i
-  br i1 %call.i2930, label %do.body.i, label %invoke.cont42, !llvm.loop !269
+call.i32.noexc:                                   ; preds = %memptr.end.i
+  br i1 %call.i3233, label %do.body.i, label %invoke.cont42, !llvm.loop !270
 
-invoke.cont42:                                    ; preds = %call.i29.noexc
-  %60 = load ptr, ptr %pstate.i, align 8
-  %tobool7.i.not = icmp eq ptr %60, null
-  br i1 %tobool7.i.not, label %while.end, label %while.cond, !llvm.loop !270
+invoke.cont42:                                    ; preds = %call.i32.noexc
+  %66 = load ptr, ptr %pstate.i, align 8
+  %tobool7.i.not = icmp eq ptr %66, null
+  br i1 %tobool7.i.not, label %while.end, label %while.cond, !llvm.loop !271
 
-if.end:                                           ; preds = %if.then.i, %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i, %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit
-  %61 = load ptr, ptr %re12, align 8
-  %62 = load ptr, ptr %61, align 8
-  %tobool.not.i31 = icmp eq ptr %62, null
-  br i1 %tobool.not.i31, label %invoke.cont23, label %cond.true.i32
+if.end:                                           ; preds = %if.then.i18, %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i, %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEED2Ev.exit
+  %67 = load ptr, ptr %re12, align 8
+  %68 = load ptr, ptr %67, align 8
+  %tobool.not.i34 = icmp eq ptr %68, null
+  br i1 %tobool.not.i34, label %invoke.cont23, label %cond.true.i35
 
-cond.true.i32:                                    ; preds = %if.end
-  %m_flags.i.i = getelementptr inbounds %"struct.boost::re_detail_107400::regex_data", ptr %62, i64 0, i32 2
-  %63 = load i32, ptr %m_flags.i.i, align 8
+cond.true.i35:                                    ; preds = %if.end
+  %m_flags.i.i = getelementptr inbounds %"struct.boost::re_detail_107400::regex_data", ptr %68, i64 0, i32 2
+  %69 = load i32, ptr %m_flags.i.i, align 8
   br label %invoke.cont23
 
-invoke.cont23:                                    ; preds = %cond.true.i32, %if.end
-  %cond.i33 = phi i32 [ %63, %cond.true.i32 ], [ 0, %if.end ]
-  %64 = load i32, ptr %m_match_flags, align 8
-  invoke void @_ZN5boost16re_detail_10740014verify_optionsEjNS_15regex_constants12_match_flagsE(i32 noundef %cond.i33, i32 noundef %64)
+invoke.cont23:                                    ; preds = %cond.true.i35, %if.end
+  %cond.i36 = phi i32 [ %69, %cond.true.i35 ], [ 0, %if.end ]
+  %70 = load i32, ptr %m_match_flags, align 8
+  invoke void @_ZN5boost16re_detail_10740014verify_optionsEjNS_15regex_constants12_match_flagsE(i32 noundef %cond.i36, i32 noundef %70)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont23
@@ -31078,89 +31153,89 @@ invoke.cont27:                                    ; preds = %invoke.cont26
   br i1 %call28, label %if.end30, label %cleanup
 
 if.end30:                                         ; preds = %invoke.cont27
-  %65 = load ptr, ptr %this, align 8
-  %m_is_singular.i34 = getelementptr inbounds %"class.boost::match_results", ptr %65, i64 0, i32 5
-  %66 = load i8, ptr %m_is_singular.i34, align 4
-  %67 = and i8 %66, 1
-  %tobool.not.i35 = icmp ne i8 %67, 0
-  br i1 %tobool.not.i35, label %land.lhs.true.i, label %entry.if.end_crit_edge.i
+  %71 = load ptr, ptr %this, align 8
+  %m_is_singular.i37 = getelementptr inbounds %"class.boost::match_results", ptr %71, i64 0, i32 5
+  %72 = load i8, ptr %m_is_singular.i37, align 4
+  %73 = and i8 %72, 1
+  %tobool.not.i38 = icmp ne i8 %73, 0
+  br i1 %tobool.not.i38, label %land.lhs.true.i, label %entry.if.end_crit_edge.i
 
 entry.if.end_crit_edge.i:                         ; preds = %if.end30
-  %_M_finish.i.phi.trans.insert.i = getelementptr inbounds %"struct.std::_Vector_base<boost::sub_match<const char *>, std::allocator<boost::sub_match<const char *>>>::_Vector_impl_data", ptr %65, i64 0, i32 1
+  %_M_finish.i.phi.trans.insert.i = getelementptr inbounds %"struct.std::_Vector_base<boost::sub_match<const char *>, std::allocator<boost::sub_match<const char *>>>::_Vector_impl_data", ptr %71, i64 0, i32 1
   %.pre.i = load ptr, ptr %_M_finish.i.phi.trans.insert.i, align 8
-  %.pre4.i = load ptr, ptr %65, align 8
+  %.pre4.i = load ptr, ptr %71, align 8
   br label %invoke.cont32
 
 land.lhs.true.i:                                  ; preds = %if.end30
-  %68 = load ptr, ptr %65, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<boost::sub_match<const char *>, std::allocator<boost::sub_match<const char *>>>::_Vector_impl_data", ptr %65, i64 0, i32 1
-  %69 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.i.i36 = icmp eq ptr %68, %69
-  br i1 %cmp.i.i.i36, label %if.then.i38, label %invoke.cont32
+  %74 = load ptr, ptr %71, align 8
+  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<boost::sub_match<const char *>, std::allocator<boost::sub_match<const char *>>>::_Vector_impl_data", ptr %71, i64 0, i32 1
+  %75 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.i.i39 = icmp eq ptr %74, %75
+  br i1 %cmp.i.i.i39, label %if.then.i47, label %invoke.cont32
 
-if.then.i38:                                      ; preds = %land.lhs.true.i
+if.then.i47:                                      ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %e.i.i)
   invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %e.i.i, ptr noundef nonnull @.str.2)
-          to label %.noexc unwind label %lpad
+          to label %.noexc48 unwind label %lpad
 
-.noexc:                                           ; preds = %if.then.i38
+.noexc48:                                         ; preds = %if.then.i47
   invoke void @_ZN5boost15throw_exceptionISt11logic_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e.i.i) #22
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
-invoke.cont.i.i:                                  ; preds = %.noexc
+invoke.cont.i.i:                                  ; preds = %.noexc48
   unreachable
 
-lpad.i.i:                                         ; preds = %.noexc
-  %70 = landingpad { ptr, i32 }
+lpad.i.i:                                         ; preds = %.noexc48
+  %76 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %e.i.i) #21
   br label %lpad.body
 
 invoke.cont32:                                    ; preds = %land.lhs.true.i, %entry.if.end_crit_edge.i
-  %.pre4.i60 = phi ptr [ %.pre4.i, %entry.if.end_crit_edge.i ], [ %68, %land.lhs.true.i ]
-  %.pre.i59 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %69, %land.lhs.true.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.pre.i59 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %.pre4.i60 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
-  %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.i = icmp sgt i32 %conv.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %.pre4.i60, i64 2
-  %m_null.i37 = getelementptr inbounds %"class.boost::match_results", ptr %65, i64 0, i32 2
-  %retval.0.i = select i1 %cmp.i, ptr %add.ptr.i.i, ptr %m_null.i37
+  %.pre4.i70 = phi ptr [ %.pre4.i, %entry.if.end_crit_edge.i ], [ %74, %land.lhs.true.i ]
+  %.pre.i69 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %75, %land.lhs.true.i ]
+  %sub.ptr.lhs.cast.i.i40 = ptrtoint ptr %.pre.i69 to i64
+  %sub.ptr.rhs.cast.i.i41 = ptrtoint ptr %.pre4.i70 to i64
+  %sub.ptr.sub.i.i42 = sub i64 %sub.ptr.lhs.cast.i.i40, %sub.ptr.rhs.cast.i.i41
+  %sub.ptr.div.i.i43 = sdiv exact i64 %sub.ptr.sub.i.i42, 24
+  %conv.i = trunc i64 %sub.ptr.div.i.i43 to i32
+  %cmp.i44 = icmp sgt i32 %conv.i, 2
+  %add.ptr.i.i45 = getelementptr inbounds %"struct.boost::sub_match", ptr %.pre4.i70, i64 2
+  %m_null.i46 = getelementptr inbounds %"class.boost::match_results", ptr %71, i64 0, i32 2
+  %retval.0.i = select i1 %cmp.i44, ptr %add.ptr.i.i45, ptr %m_null.i46
   %second = getelementptr inbounds %"struct.std::pair", ptr %retval.0.i, i64 0, i32 1
-  %71 = load ptr, ptr %second, align 8
-  %72 = load ptr, ptr %last, align 8
-  %cmp35 = icmp eq ptr %71, %72
+  %77 = load ptr, ptr %second, align 8
+  %78 = load ptr, ptr %last, align 8
+  %cmp35 = icmp eq ptr %77, %78
   br i1 %cmp35, label %land.rhs, label %cleanup
 
 land.rhs:                                         ; preds = %invoke.cont32
-  %cmp.i.i.i44 = icmp eq ptr %.pre4.i60, %.pre.i59
-  %or.cond = and i1 %tobool.not.i35, %cmp.i.i.i44
-  br i1 %or.cond, label %if.then.i54, label %invoke.cont37
+  %cmp.i.i.i54 = icmp eq ptr %.pre4.i70, %.pre.i69
+  %or.cond = and i1 %tobool.not.i38, %cmp.i.i.i54
+  br i1 %or.cond, label %if.then.i64, label %invoke.cont37
 
-if.then.i54:                                      ; preds = %land.rhs
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %e.i.i39)
-  invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %e.i.i39, ptr noundef nonnull @.str.2)
-          to label %.noexc61 unwind label %lpad
+if.then.i64:                                      ; preds = %land.rhs
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %e.i.i49)
+  invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %e.i.i49, ptr noundef nonnull @.str.2)
+          to label %.noexc71 unwind label %lpad
 
-.noexc61:                                         ; preds = %if.then.i54
-  invoke void @_ZN5boost15throw_exceptionISt11logic_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e.i.i39) #22
-          to label %invoke.cont.i.i56 unwind label %lpad.i.i55
+.noexc71:                                         ; preds = %if.then.i64
+  invoke void @_ZN5boost15throw_exceptionISt11logic_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e.i.i49) #22
+          to label %invoke.cont.i.i66 unwind label %lpad.i.i65
 
-invoke.cont.i.i56:                                ; preds = %.noexc61
+invoke.cont.i.i66:                                ; preds = %.noexc71
   unreachable
 
-lpad.i.i55:                                       ; preds = %.noexc61
-  %73 = landingpad { ptr, i32 }
+lpad.i.i65:                                       ; preds = %.noexc71
+  %79 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %e.i.i39) #21
+  call void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %e.i.i49) #21
   br label %lpad.body
 
 invoke.cont37:                                    ; preds = %land.rhs
-  %74 = load ptr, ptr %retval.0.i, align 8
-  %75 = load ptr, ptr %base, align 8
-  %cmp40 = icmp eq ptr %74, %75
+  %80 = load ptr, ptr %retval.0.i, align 8
+  %81 = load ptr, ptr %base, align 8
+  %cmp40 = icmp eq ptr %80, %81
   br label %cleanup
 
 lpad41.loopexit:                                  ; preds = %memptr.end.i
@@ -31188,153 +31263,31 @@ invoke.cont44:                                    ; preds = %lpad41
 
 cleanup:                                          ; preds = %invoke.cont32, %invoke.cont37, %invoke.cont27
   %retval.0 = phi i1 [ false, %invoke.cont27 ], [ false, %invoke.cont32 ], [ %cmp40, %invoke.cont37 ]
-  %76 = load ptr, ptr %init, align 8
-  %77 = load ptr, ptr %76, align 8
-  invoke void @_ZN5boost16re_detail_10740013put_mem_blockEPv(ptr noundef %77)
+  %82 = load ptr, ptr %init, align 8
+  %83 = load ptr, ptr %82, align 8
+  invoke void @_ZN5boost16re_detail_10740013put_mem_blockEPv(ptr noundef %83)
           to label %_ZN5boost16re_detail_10740015save_state_initD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %78 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #23
+  %85 = extractvalue { ptr, i32 } %84, 0
+  call void @__clang_call_terminate(ptr %85) #23
   unreachable
 
 _ZN5boost16re_detail_10740015save_state_initD2Ev.exit: ; preds = %cleanup
-  store ptr null, ptr %76, align 8
+  store ptr null, ptr %82, align 8
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %lpad41
-  %80 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #23
+  %87 = extractvalue { ptr, i32 } %86, 0
+  call void @__clang_call_terminate(ptr %87) #23
   unreachable
 
 unreachable:                                      ; preds = %while.end
   unreachable
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE8set_sizeEmS2_S2_(ptr noundef nonnull align 8 dereferenceable(77) %this, i64 noundef %n, ptr noundef %i, ptr noundef %j) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %v = alloca %"struct.boost::sub_match", align 8
-  store ptr %j, ptr %v, align 8
-  %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %v, i64 0, i32 1
-  store ptr %j, ptr %second.i.i, align 8
-  %matched.i = getelementptr inbounds %"struct.boost::sub_match", ptr %v, i64 0, i32 1
-  store i8 0, ptr %matched.i, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<boost::sub_match<const char *>, std::allocator<boost::sub_match<const char *>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %add = add i64 %n, 2
-  %cmp = icmp ugt i64 %sub.ptr.div.i, %add
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %add.ptr.i = getelementptr inbounds %"struct.boost::sub_match", ptr %1, i64 %n
-  %add.ptr.i6 = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i, i64 2
-  %add.ptr.i5.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i
-  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i6, %0
-  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.then
-  %cmp.i1.not.i.i = icmp eq ptr %0, %add.ptr.i5.i
-  br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %if.then6.i.i
-
-if.then6.i.i:                                     ; preds = %if.then.i.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  %cmp6.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i, 0
-  br i1 %cmp6.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %if.end.i.i
-
-for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %if.then6.i.i
-  %2 = load ptr, ptr %add.ptr.i5.i, align 8
-  store ptr %2, ptr %add.ptr.i6, align 8
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i5.i, i64 0, i32 1
-  %3 = load ptr, ptr %second.i.i.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i, i64 2, i32 0, i32 1
-  store ptr %3, ptr %second3.i.i.i.i.i.i.i.i, align 8
-  %matched.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i5.i, i64 0, i32 1
-  %4 = load i8, ptr %matched.i.i.i.i.i.i.i.i, align 8
-  %5 = and i8 %4, 1
-  %matched4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i, i64 2, i32 1
-  store i8 %5, ptr %matched4.i.i.i.i.i.i.i.i, align 8
-  %.pre.i.i = load ptr, ptr %_M_finish.i, align 8
-  %.pre9.i.i = ptrtoint ptr %.pre.i.i to i64
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.preheader.i.i.i.i.i.i.i, %if.then6.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %for.body.preheader.i.i.i.i.i.i.i ], [ %sub.ptr.lhs.cast.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i, %if.then.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i, %if.then.i.i ]
-  %6 = phi ptr [ %.pre.i.i, %for.body.preheader.i.i.i.i.i.i.i ], [ %0, %if.then6.i.i ], [ %0, %if.then.i.i ]
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i
-  %add.ptr.i6.i = getelementptr inbounds i8, ptr %add.ptr.i6, i64 %sub.ptr.sub.i.i.i
-  %tobool.not.i.i.i = icmp eq ptr %6, %add.ptr.i6.i
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, label %invoke.cont.i.i.i
-
-invoke.cont.i.i.i:                                ; preds = %if.end.i.i
-  store ptr %add.ptr.i6.i, ptr %_M_finish.i, align 8
-  br label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit
-
-_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit: ; preds = %if.then, %if.end.i.i, %invoke.cont.i.i.i
-  %7 = phi ptr [ %0, %if.then ], [ %6, %if.end.i.i ], [ %add.ptr.i6.i, %invoke.cont.i.i.i ]
-  %8 = load ptr, ptr %this, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %8, %7
-  br i1 %cmp.not3.i.i.i.i, label %if.end54, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %8, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit ]
-  store ptr %j, ptr %__first.addr.04.i.i.i.i, align 8
-  %second3.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
-  store ptr %j, ptr %second3.i.i.i.i.i, align 8
-  %matched4.i.i.i.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
-  store i8 0, ptr %matched4.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %7
-  br i1 %cmp.not.i.i.i.i, label %if.end54, label %for.body.i.i.i.i, !llvm.loop !271
-
-if.else:                                          ; preds = %entry
-  %cmp.not3.i.i.i.i10 = icmp eq ptr %1, %0
-  br i1 %cmp.not3.i.i.i.i10, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20, label %for.body.i.i.i.i14
-
-for.body.i.i.i.i14:                               ; preds = %if.else, %for.body.i.i.i.i14
-  %__first.addr.04.i.i.i.i15 = phi ptr [ %incdec.ptr.i.i.i.i18, %for.body.i.i.i.i14 ], [ %1, %if.else ]
-  store ptr %j, ptr %__first.addr.04.i.i.i.i15, align 8
-  %second3.i.i.i.i.i16 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i.i15, i64 0, i32 1
-  store ptr %j, ptr %second3.i.i.i.i.i16, align 8
-  %matched4.i.i.i.i.i17 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i15, i64 0, i32 1
-  store i8 0, ptr %matched4.i.i.i.i.i17, align 8
-  %incdec.ptr.i.i.i.i18 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i.i15, i64 1
-  %cmp.not.i.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i.i18, %0
-  br i1 %cmp.not.i.i.i.i19, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20, label %for.body.i.i.i.i14, !llvm.loop !271
-
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20: ; preds = %for.body.i.i.i.i14, %if.else
-  %cmp41.not = icmp eq i64 %add, %sub.ptr.div.i
-  br i1 %cmp41.not, label %if.end54, label %if.then42
-
-if.then42:                                        ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20
-  %9 = load ptr, ptr %_M_finish.i, align 8
-  %sub = sub i64 %add, %sub.ptr.div.i
-  %10 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i22 = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i23 = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i22, %sub.ptr.rhs.cast.i.i23
-  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i.i24
-  call void @_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS4_S6_EEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %add.ptr.i.i25, i64 noundef %sub, ptr noundef nonnull align 8 dereferenceable(17) %v)
-  br label %if.end54
-
-if.end54:                                         ; preds = %for.body.i.i.i.i, %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN5boost9sub_matchIPKcEESt6vectorIS6_SaIS6_EEEES6_EvT_SC_RKT0_.exit20, %if.then42
-  %11 = load ptr, ptr %this, align 8
-  %add.ptr.i26 = getelementptr inbounds %"struct.boost::sub_match", ptr %11, i64 1
-  store ptr %i, ptr %add.ptr.i26, align 8
-  %m_last_closed_paren = getelementptr inbounds %"class.boost::match_results", ptr %this, i64 0, i32 4
-  store i32 0, ptr %m_last_closed_paren, align 8
-  ret void
 }
 
 declare void @_ZN5boost16re_detail_10740014verify_optionsEjNS_15regex_constants12_match_flagsE(i32 noundef, i32 noundef) local_unnamed_addr #7
@@ -31610,7 +31563,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   store i8 %3, ptr %matched4.i.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr24
-  br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !271
+  br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !266
 
 if.else:                                          ; preds = %if.then4
   %sub = sub i64 %__n, %sub.ptr.div.i
@@ -31670,7 +31623,7 @@ for.body.i.i.i67:                                 ; preds = %for.body.i.i.i67.pr
   store i8 %3, ptr %matched4.i.i.i.i70, align 8
   %incdec.ptr.i.i.i71 = getelementptr inbounds %"struct.boost::sub_match", ptr %__first.addr.04.i.i.i68, i64 1
   %cmp.not.i.i.i72 = icmp eq ptr %incdec.ptr.i.i.i71, %1
-  br i1 %cmp.not.i.i.i72, label %if.end94, label %for.body.i.i.i67, !llvm.loop !271
+  br i1 %cmp.not.i.i.i72, label %if.end94, label %for.body.i.i.i67, !llvm.loop !266
 
 if.else42:                                        ; preds = %if.then
   %15 = load ptr, ptr %this, align 8
@@ -32169,7 +32122,7 @@ memptr.end.i:                                     ; preds = %memptr.nonvirtual.i
           to label %call.i.noexc unwind label %lpad.loopexit
 
 call.i.noexc:                                     ; preds = %memptr.end.i
-  br i1 %call.i11, label %do.body.i, label %invoke.cont22, !llvm.loop !269
+  br i1 %call.i11, label %do.body.i, label %invoke.cont22, !llvm.loop !270
 
 invoke.cont22:                                    ; preds = %call.i.noexc
   %32 = load ptr, ptr %pstate, align 8
@@ -32236,7 +32189,7 @@ memptr.end.i25:                                   ; preds = %memptr.nonvirtual.i
           to label %call.i.noexc31 unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.noexc31:                                   ; preds = %memptr.end.i25
-  br i1 %call.i32, label %do.body.i17, label %invoke.cont44, !llvm.loop !269
+  br i1 %call.i32, label %do.body.i17, label %invoke.cont44, !llvm.loop !270
 
 invoke.cont44:                                    ; preds = %call.i.noexc31
   %46 = load ptr, ptr %pstate, align 8
@@ -32825,7 +32778,7 @@ memptr.end.i:                                     ; preds = %memptr.nonvirtual.i
           to label %call.i.noexc unwind label %lpad.loopexit133
 
 call.i.noexc:                                     ; preds = %memptr.end.i
-  br i1 %call.i13, label %do.body.i, label %invoke.cont32, !llvm.loop !269
+  br i1 %call.i13, label %do.body.i, label %invoke.cont32, !llvm.loop !270
 
 invoke.cont32:                                    ; preds = %call.i.noexc
   %32 = load ptr, ptr %pstate, align 8
@@ -32889,7 +32842,7 @@ memptr.end.i26:                                   ; preds = %memptr.nonvirtual.i
           to label %call.i.noexc32 unwind label %lpad36.loopexit
 
 call.i.noexc32:                                   ; preds = %memptr.end.i26
-  br i1 %call.i33, label %do.body.i18, label %invoke.cont37, !llvm.loop !269
+  br i1 %call.i33, label %do.body.i18, label %invoke.cont37, !llvm.loop !270
 
 invoke.cont37:                                    ; preds = %call.i.noexc32
   %43 = load ptr, ptr %pstate, align 8
@@ -33011,7 +32964,7 @@ memptr.end.i47:                                   ; preds = %memptr.nonvirtual.i
           to label %call.i.noexc53 unwind label %lpad96.loopexit
 
 call.i.noexc53:                                   ; preds = %memptr.end.i47
-  br i1 %call.i54, label %do.body.i39, label %invoke.cont97, !llvm.loop !269
+  br i1 %call.i54, label %do.body.i39, label %invoke.cont97, !llvm.loop !270
 
 invoke.cont97:                                    ; preds = %call.i.noexc53
   %65 = load ptr, ptr %pstate, align 8
@@ -40264,7 +40217,7 @@ memptr.end.i:                                     ; preds = %memptr.nonvirtual.i
   %13 = and i8 %12, 1
   %tobool4.i = icmp ne i8 %13, 0
   %call.i = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(236) %this, i1 noundef zeroext %tobool4.i)
-  br i1 %call.i, label %do.body.i, label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit, !llvm.loop !269
+  br i1 %call.i, label %do.body.i, label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit, !llvm.loop !270
 
 _ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit: ; preds = %memptr.end.i
   %14 = load ptr, ptr %pstate, align 8
@@ -42119,7 +42072,7 @@ memptr.end.i:                                     ; preds = %memptr.nonvirtual.i
   %8 = and i8 %7, 1
   %tobool4.i = icmp ne i8 %8, 0
   %call.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(236) %this, i1 noundef zeroext %tobool4.i)
-  br i1 %call.i, label %do.body.i, label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit, !llvm.loop !269
+  br i1 %call.i, label %do.body.i, label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit, !llvm.loop !270
 
 _ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit: ; preds = %memptr.end.i
   %9 = load ptr, ptr %pstate.i, align 8
@@ -42230,7 +42183,7 @@ memptr.end.i:                                     ; preds = %memptr.nonvirtual.i
   %8 = and i8 %7, 1
   %tobool4.i = icmp ne i8 %8, 0
   %call.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(236) %this, i1 noundef zeroext %tobool4.i)
-  br i1 %call.i, label %do.body.i, label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit, !llvm.loop !269
+  br i1 %call.i, label %do.body.i, label %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit, !llvm.loop !270
 
 _ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit: ; preds = %memptr.end.i
   %9 = load ptr, ptr %pstate.i, align 8
@@ -42276,7 +42229,7 @@ memptr.end.i15:                                   ; preds = %memptr.nonvirtual.i
   %19 = and i8 %18, 1
   %tobool4.i16 = icmp ne i8 %19, 0
   %call.i17 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(236) %this, i1 noundef zeroext %tobool4.i16)
-  br i1 %call.i17, label %do.body.i7, label %if.end, !llvm.loop !269
+  br i1 %call.i17, label %do.body.i7, label %if.end, !llvm.loop !270
 
 if.end:                                           ; preds = %_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEb.exit, %memptr.end.i15
   ret i1 false
@@ -42729,10 +42682,10 @@ attributes #26 = { nounwind willreturn memory(read) }
 !263 = distinct !{!263, !9}
 !264 = distinct !{!264, !9}
 !265 = distinct !{!265, !9}
-!266 = !{!267}
-!267 = distinct !{!267, !268, !"_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14get_named_subsEv: %agg.result"}
-!268 = distinct !{!268, !"_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14get_named_subsEv"}
-!269 = distinct !{!269, !9}
+!266 = distinct !{!266, !9}
+!267 = !{!268}
+!268 = distinct !{!268, !269, !"_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14get_named_subsEv: %agg.result"}
+!269 = distinct !{!269, !"_ZNK5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14get_named_subsEv"}
 !270 = distinct !{!270, !9}
 !271 = distinct !{!271, !9}
 !272 = distinct !{!272, !9}

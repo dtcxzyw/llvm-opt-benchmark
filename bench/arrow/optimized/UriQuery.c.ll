@@ -652,7 +652,7 @@ for.inc:                                          ; preds = %if.then41, %sw.bb38
   %valueFirst.1 = phi ptr [ %valueFirst.0146, %for.body ], [ %valueFirst.0146, %sw.bb38 ], [ %add.ptr42, %if.then41 ]
   %valueAfter.2 = phi ptr [ %valueAfter.0147, %for.body ], [ %valueAfter.0147, %sw.bb38 ], [ %add.ptr42, %if.then41 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %walk.0140, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %afterLast
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.inc.thread:                                   ; preds = %if.end25, %land.lhs.true
@@ -661,7 +661,7 @@ for.inc.thread:                                   ; preds = %if.end25, %land.lhs
   %cmp32 = icmp ult ptr %add.ptr, %afterLast
   %add.ptr. = select i1 %cmp32, ptr %add.ptr, ptr null
   %incdec.ptr176 = getelementptr inbounds i8, ptr %walk.0140, i64 1
-  %exitcond.not177 = icmp eq ptr %incdec.ptr176, %scevgep
+  %exitcond.not177 = icmp eq ptr %incdec.ptr176, %afterLast
   br i1 %exitcond.not177, label %if.else53.split, label %for.body.outer, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc

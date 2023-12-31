@@ -46,7 +46,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %begin.addr.0139, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %end
   br i1 %exitcond.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !5
 
 while.end.loopexit:                               ; preds = %while.body, %land.rhs
@@ -524,14 +524,10 @@ land.lhs.true28:                                  ; preds = %if.end22
 if.then31:                                        ; preds = %land.lhs.true28
   %add.ptr32 = getelementptr inbounds i8, ptr %begin, i64 4
   %cmp3333 = icmp ult ptr %add.ptr32, %end
-  br i1 %cmp3333, label %land.rhs.preheader, label %return
+  br i1 %cmp3333, label %land.rhs, label %return
 
-land.rhs.preheader:                               ; preds = %if.then31
-  %scevgep = getelementptr i8, ptr %begin, i64 %sub.ptr.sub
-  br label %land.rhs
-
-land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
-  %nan_begin.034 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr32, %land.rhs.preheader ]
+land.rhs:                                         ; preds = %if.then31, %while.body
+  %nan_begin.034 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr32, %if.then31 ]
   %2 = load i8, ptr %nan_begin.034, align 1
   %cmp.i = icmp eq i8 %2, 95
   %3 = add i8 %2, -48
@@ -545,7 +541,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %nan_begin.034, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %end
   br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !11
 
 land.lhs.true36:                                  ; preds = %land.rhs
@@ -702,7 +698,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %begin.addr.0145, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %end
   br i1 %exitcond.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !15
 
 while.end.loopexit:                               ; preds = %while.body, %land.rhs

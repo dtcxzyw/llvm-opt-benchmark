@@ -17220,7 +17220,6 @@ declare void @_Z9ImStrncpyPcPKcm(ptr noundef, ptr noundef, i64 noundef) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z32ImParseFormatSanitizeForPrintingPKcPcm(ptr noundef readonly %fmt_in, ptr nocapture noundef writeonly %fmt_out, i64 noundef %fmt_out_size) local_unnamed_addr #15 {
 entry:
-  %fmt_in16 = ptrtoint ptr %fmt_in to i64
   %0 = load i8, ptr %fmt_in, align 1
   %cmp.not.i = icmp eq i8 %0, 37
   br i1 %cmp.not.i, label %for.body.i, label %while.end
@@ -17270,20 +17269,14 @@ for.inc.i:                                        ; preds = %land.lhs.true17.i, 
 _Z20ImParseFormatFindEndPKc.exit:                 ; preds = %for.inc.i, %if.then10.i, %if.then23.i
   %retval.0.i = phi ptr [ %add.ptr.i, %if.then10.i ], [ %add.ptr24.i, %if.then23.i ], [ %incdec.ptr.i, %for.inc.i ]
   %cmp10 = icmp ugt ptr %retval.0.i, %fmt_in
-  br i1 %cmp10, label %while.body.preheader, label %while.end
+  br i1 %cmp10, label %while.body, label %while.end
 
-while.body.preheader:                             ; preds = %_Z20ImParseFormatFindEndPKc.exit
-  %retval.0.i15 = ptrtoint ptr %retval.0.i to i64
-  %4 = sub i64 %retval.0.i15, %fmt_in16
-  %scevgep = getelementptr i8, ptr %fmt_in, i64 %4
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.preheader, %if.end
-  %fmt_in.addr.012 = phi ptr [ %incdec.ptr, %if.end ], [ %fmt_in, %while.body.preheader ]
-  %fmt_out.addr.011 = phi ptr [ %fmt_out.addr.1, %if.end ], [ %fmt_out, %while.body.preheader ]
+while.body:                                       ; preds = %_Z20ImParseFormatFindEndPKc.exit, %if.end
+  %fmt_in.addr.012 = phi ptr [ %incdec.ptr, %if.end ], [ %fmt_in, %_Z20ImParseFormatFindEndPKc.exit ]
+  %fmt_out.addr.011 = phi ptr [ %fmt_out.addr.1, %if.end ], [ %fmt_out, %_Z20ImParseFormatFindEndPKc.exit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %fmt_in.addr.012, i64 1
-  %5 = load i8, ptr %fmt_in.addr.012, align 1
-  switch i8 %5, label %if.then [
+  %4 = load i8, ptr %fmt_in.addr.012, align 1
+  switch i8 %4, label %if.then [
     i8 95, label %if.end
     i8 39, label %if.end
     i8 36, label %if.end
@@ -17291,12 +17284,12 @@ while.body:                                       ; preds = %while.body.preheade
 
 if.then:                                          ; preds = %while.body
   %incdec.ptr7 = getelementptr inbounds i8, ptr %fmt_out.addr.011, i64 1
-  store i8 %5, ptr %fmt_out.addr.011, align 1
+  store i8 %4, ptr %fmt_out.addr.011, align 1
   br label %if.end
 
 if.end:                                           ; preds = %while.body, %while.body, %while.body, %if.then
   %fmt_out.addr.1 = phi ptr [ %incdec.ptr7, %if.then ], [ %fmt_out.addr.011, %while.body ], [ %fmt_out.addr.011, %while.body ], [ %fmt_out.addr.011, %while.body ]
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %retval.0.i
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !28
 
 while.end:                                        ; preds = %if.end, %entry, %_Z20ImParseFormatFindEndPKc.exit
@@ -38597,7 +38590,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   %arrayidx1.i = getelementptr inbounds i8, ptr %fmt.addr.09.i, i64 1
   %1 = load i8, ptr %arrayidx1.i, align 1
   %cmp3.not.i = icmp eq i8 %1, 37
-  br i1 %cmp3.not.i, label %if.else.i, label %if.end
+  br i1 %cmp3.not.i, label %if.else.i, label %for.body.i.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %while.body.i
   %spec.select.idx.i = zext i1 %cmp.i to i64
@@ -38607,14 +38600,10 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %w
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !23
 
-if.end:                                           ; preds = %land.lhs.true.i
-  %fmt_in16.i = ptrtoint ptr %fmt.addr.09.i to i64
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %if.end, %for.inc.i.i
-  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %if.end ]
-  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %if.end ]
-  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %if.end ]
+for.body.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
+  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
+  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %land.lhs.true.i ]
+  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
   %4 = add i8 %3, -65
   %or.cond.i.i = icmp ult i8 %4, 26
   br i1 %or.cond.i.i, label %land.lhs.true7.i.i, label %if.end11.i.i
@@ -38656,20 +38645,14 @@ for.inc.i.i:                                      ; preds = %land.lhs.true17.i.i
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %for.inc.i.i, %if.then23.i.i, %if.then10.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then10.i.i ], [ %add.ptr24.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
   %cmp10.i = icmp ugt ptr %retval.0.i.i, %fmt.addr.09.i
-  br i1 %cmp10.i, label %while.body.preheader.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
+  br i1 %cmp10.i, label %while.body.i8, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
-while.body.preheader.i:                           ; preds = %_Z20ImParseFormatFindEndPKc.exit.i
-  %retval.0.i15.i = ptrtoint ptr %retval.0.i.i to i64
-  %6 = sub i64 %retval.0.i15.i, %fmt_in16.i
-  %scevgep.i = getelementptr i8, ptr %fmt.addr.09.i, i64 %6
-  br label %while.body.i8
-
-while.body.i8:                                    ; preds = %if.end.i, %while.body.preheader.i
-  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %while.body.preheader.i ]
-  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %while.body.preheader.i ]
+while.body.i8:                                    ; preds = %_Z20ImParseFormatFindEndPKc.exit.i, %if.end.i
+  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %_Z20ImParseFormatFindEndPKc.exit.i ]
+  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %_Z20ImParseFormatFindEndPKc.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %fmt_in.addr.012.i, i64 1
-  %7 = load i8, ptr %fmt_in.addr.012.i, align 1
-  switch i8 %7, label %if.then.i [
+  %6 = load i8, ptr %fmt_in.addr.012.i, align 1
+  switch i8 %6, label %if.then.i [
     i8 95, label %if.end.i
     i8 39, label %if.end.i
     i8 36, label %if.end.i
@@ -38677,12 +38660,12 @@ while.body.i8:                                    ; preds = %if.end.i, %while.bo
 
 if.then.i:                                        ; preds = %while.body.i8
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %fmt_out.addr.011.i, i64 1
-  store i8 %7, ptr %fmt_out.addr.011.i, align 1
+  store i8 %6, ptr %fmt_out.addr.011.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i8, %while.body.i8, %while.body.i8
   %fmt_out.addr.1.i = phi ptr [ %incdec.ptr7.i, %if.then.i ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ]
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %retval.0.i.i
   br i1 %exitcond.not.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit, label %while.body.i8, !llvm.loop !28
 
 _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImParseFormatFindEndPKc.exit.i
@@ -38693,8 +38676,8 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImPa
 
 while.cond:                                       ; preds = %while.cond, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
   %p.0 = phi ptr [ %v_str, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit ], [ %incdec.ptr, %while.cond ]
-  %8 = load i8, ptr %p.0, align 1
-  %cmp9 = icmp eq i8 %8, 32
+  %7 = load i8, ptr %p.0, align 1
+  %cmp9 = icmp eq i8 %7, 32
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br i1 %cmp9, label %while.cond, label %while.end, !llvm.loop !93
 
@@ -38736,7 +38719,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   %arrayidx1.i = getelementptr inbounds i8, ptr %fmt.addr.09.i, i64 1
   %1 = load i8, ptr %arrayidx1.i, align 1
   %cmp3.not.i = icmp eq i8 %1, 37
-  br i1 %cmp3.not.i, label %if.else.i, label %if.end
+  br i1 %cmp3.not.i, label %if.else.i, label %for.body.i.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %while.body.i
   %spec.select.idx.i = zext i1 %cmp.i to i64
@@ -38746,14 +38729,10 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %w
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !23
 
-if.end:                                           ; preds = %land.lhs.true.i
-  %fmt_in16.i = ptrtoint ptr %fmt.addr.09.i to i64
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %if.end, %for.inc.i.i
-  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %if.end ]
-  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %if.end ]
-  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %if.end ]
+for.body.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
+  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
+  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %land.lhs.true.i ]
+  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
   %4 = add i8 %3, -65
   %or.cond.i.i = icmp ult i8 %4, 26
   br i1 %or.cond.i.i, label %land.lhs.true7.i.i, label %if.end11.i.i
@@ -38795,20 +38774,14 @@ for.inc.i.i:                                      ; preds = %land.lhs.true17.i.i
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %for.inc.i.i, %if.then23.i.i, %if.then10.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then10.i.i ], [ %add.ptr24.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
   %cmp10.i = icmp ugt ptr %retval.0.i.i, %fmt.addr.09.i
-  br i1 %cmp10.i, label %while.body.preheader.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
+  br i1 %cmp10.i, label %while.body.i8, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
-while.body.preheader.i:                           ; preds = %_Z20ImParseFormatFindEndPKc.exit.i
-  %retval.0.i15.i = ptrtoint ptr %retval.0.i.i to i64
-  %6 = sub i64 %retval.0.i15.i, %fmt_in16.i
-  %scevgep.i = getelementptr i8, ptr %fmt.addr.09.i, i64 %6
-  br label %while.body.i8
-
-while.body.i8:                                    ; preds = %if.end.i, %while.body.preheader.i
-  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %while.body.preheader.i ]
-  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %while.body.preheader.i ]
+while.body.i8:                                    ; preds = %_Z20ImParseFormatFindEndPKc.exit.i, %if.end.i
+  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %_Z20ImParseFormatFindEndPKc.exit.i ]
+  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %_Z20ImParseFormatFindEndPKc.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %fmt_in.addr.012.i, i64 1
-  %7 = load i8, ptr %fmt_in.addr.012.i, align 1
-  switch i8 %7, label %if.then.i [
+  %6 = load i8, ptr %fmt_in.addr.012.i, align 1
+  switch i8 %6, label %if.then.i [
     i8 95, label %if.end.i
     i8 39, label %if.end.i
     i8 36, label %if.end.i
@@ -38816,12 +38789,12 @@ while.body.i8:                                    ; preds = %if.end.i, %while.bo
 
 if.then.i:                                        ; preds = %while.body.i8
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %fmt_out.addr.011.i, i64 1
-  store i8 %7, ptr %fmt_out.addr.011.i, align 1
+  store i8 %6, ptr %fmt_out.addr.011.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i8, %while.body.i8, %while.body.i8
   %fmt_out.addr.1.i = phi ptr [ %incdec.ptr7.i, %if.then.i ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ]
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %retval.0.i.i
   br i1 %exitcond.not.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit, label %while.body.i8, !llvm.loop !28
 
 _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImParseFormatFindEndPKc.exit.i
@@ -38832,8 +38805,8 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImPa
 
 while.cond:                                       ; preds = %while.cond, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
   %p.0 = phi ptr [ %v_str, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit ], [ %incdec.ptr, %while.cond ]
-  %8 = load i8, ptr %p.0, align 1
-  %cmp9 = icmp eq i8 %8, 32
+  %7 = load i8, ptr %p.0, align 1
+  %cmp9 = icmp eq i8 %7, 32
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br i1 %cmp9, label %while.cond, label %while.end, !llvm.loop !94
 
@@ -39196,7 +39169,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   %arrayidx1.i = getelementptr inbounds i8, ptr %fmt.addr.09.i, i64 1
   %1 = load i8, ptr %arrayidx1.i, align 1
   %cmp3.not.i = icmp eq i8 %1, 37
-  br i1 %cmp3.not.i, label %if.else.i, label %if.end
+  br i1 %cmp3.not.i, label %if.else.i, label %for.body.i.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %while.body.i
   %spec.select.idx.i = zext i1 %cmp.i to i64
@@ -39206,14 +39179,10 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %w
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !23
 
-if.end:                                           ; preds = %land.lhs.true.i
-  %fmt_in16.i = ptrtoint ptr %fmt.addr.09.i to i64
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %if.end, %for.inc.i.i
-  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %if.end ]
-  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %if.end ]
-  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %if.end ]
+for.body.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
+  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
+  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %land.lhs.true.i ]
+  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
   %4 = add i8 %3, -65
   %or.cond.i.i = icmp ult i8 %4, 26
   br i1 %or.cond.i.i, label %land.lhs.true7.i.i, label %if.end11.i.i
@@ -39255,20 +39224,14 @@ for.inc.i.i:                                      ; preds = %land.lhs.true17.i.i
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %for.inc.i.i, %if.then23.i.i, %if.then10.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then10.i.i ], [ %add.ptr24.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
   %cmp10.i = icmp ugt ptr %retval.0.i.i, %fmt.addr.09.i
-  br i1 %cmp10.i, label %while.body.preheader.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
+  br i1 %cmp10.i, label %while.body.i8, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
-while.body.preheader.i:                           ; preds = %_Z20ImParseFormatFindEndPKc.exit.i
-  %retval.0.i15.i = ptrtoint ptr %retval.0.i.i to i64
-  %6 = sub i64 %retval.0.i15.i, %fmt_in16.i
-  %scevgep.i = getelementptr i8, ptr %fmt.addr.09.i, i64 %6
-  br label %while.body.i8
-
-while.body.i8:                                    ; preds = %if.end.i, %while.body.preheader.i
-  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %while.body.preheader.i ]
-  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %while.body.preheader.i ]
+while.body.i8:                                    ; preds = %_Z20ImParseFormatFindEndPKc.exit.i, %if.end.i
+  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %_Z20ImParseFormatFindEndPKc.exit.i ]
+  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %_Z20ImParseFormatFindEndPKc.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %fmt_in.addr.012.i, i64 1
-  %7 = load i8, ptr %fmt_in.addr.012.i, align 1
-  switch i8 %7, label %if.then.i [
+  %6 = load i8, ptr %fmt_in.addr.012.i, align 1
+  switch i8 %6, label %if.then.i [
     i8 95, label %if.end.i
     i8 39, label %if.end.i
     i8 36, label %if.end.i
@@ -39276,12 +39239,12 @@ while.body.i8:                                    ; preds = %if.end.i, %while.bo
 
 if.then.i:                                        ; preds = %while.body.i8
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %fmt_out.addr.011.i, i64 1
-  store i8 %7, ptr %fmt_out.addr.011.i, align 1
+  store i8 %6, ptr %fmt_out.addr.011.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i8, %while.body.i8, %while.body.i8
   %fmt_out.addr.1.i = phi ptr [ %incdec.ptr7.i, %if.then.i ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ]
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %retval.0.i.i
   br i1 %exitcond.not.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit, label %while.body.i8, !llvm.loop !28
 
 _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImParseFormatFindEndPKc.exit.i
@@ -39292,8 +39255,8 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImPa
 
 while.cond:                                       ; preds = %while.cond, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
   %p.0 = phi ptr [ %v_str, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit ], [ %incdec.ptr, %while.cond ]
-  %8 = load i8, ptr %p.0, align 1
-  %cmp9 = icmp eq i8 %8, 32
+  %7 = load i8, ptr %p.0, align 1
+  %cmp9 = icmp eq i8 %7, 32
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br i1 %cmp9, label %while.cond, label %while.end, !llvm.loop !95
 
@@ -39335,7 +39298,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   %arrayidx1.i = getelementptr inbounds i8, ptr %fmt.addr.09.i, i64 1
   %1 = load i8, ptr %arrayidx1.i, align 1
   %cmp3.not.i = icmp eq i8 %1, 37
-  br i1 %cmp3.not.i, label %if.else.i, label %if.end
+  br i1 %cmp3.not.i, label %if.else.i, label %for.body.i.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %while.body.i
   %spec.select.idx.i = zext i1 %cmp.i to i64
@@ -39345,14 +39308,10 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %w
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !23
 
-if.end:                                           ; preds = %land.lhs.true.i
-  %fmt_in16.i = ptrtoint ptr %fmt.addr.09.i to i64
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %if.end, %for.inc.i.i
-  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %if.end ]
-  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %if.end ]
-  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %if.end ]
+for.body.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
+  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
+  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %land.lhs.true.i ]
+  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
   %4 = add i8 %3, -65
   %or.cond.i.i = icmp ult i8 %4, 26
   br i1 %or.cond.i.i, label %land.lhs.true7.i.i, label %if.end11.i.i
@@ -39394,20 +39353,14 @@ for.inc.i.i:                                      ; preds = %land.lhs.true17.i.i
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %for.inc.i.i, %if.then23.i.i, %if.then10.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then10.i.i ], [ %add.ptr24.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
   %cmp10.i = icmp ugt ptr %retval.0.i.i, %fmt.addr.09.i
-  br i1 %cmp10.i, label %while.body.preheader.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
+  br i1 %cmp10.i, label %while.body.i8, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
-while.body.preheader.i:                           ; preds = %_Z20ImParseFormatFindEndPKc.exit.i
-  %retval.0.i15.i = ptrtoint ptr %retval.0.i.i to i64
-  %6 = sub i64 %retval.0.i15.i, %fmt_in16.i
-  %scevgep.i = getelementptr i8, ptr %fmt.addr.09.i, i64 %6
-  br label %while.body.i8
-
-while.body.i8:                                    ; preds = %if.end.i, %while.body.preheader.i
-  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %while.body.preheader.i ]
-  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %while.body.preheader.i ]
+while.body.i8:                                    ; preds = %_Z20ImParseFormatFindEndPKc.exit.i, %if.end.i
+  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %_Z20ImParseFormatFindEndPKc.exit.i ]
+  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %_Z20ImParseFormatFindEndPKc.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %fmt_in.addr.012.i, i64 1
-  %7 = load i8, ptr %fmt_in.addr.012.i, align 1
-  switch i8 %7, label %if.then.i [
+  %6 = load i8, ptr %fmt_in.addr.012.i, align 1
+  switch i8 %6, label %if.then.i [
     i8 95, label %if.end.i
     i8 39, label %if.end.i
     i8 36, label %if.end.i
@@ -39415,12 +39368,12 @@ while.body.i8:                                    ; preds = %if.end.i, %while.bo
 
 if.then.i:                                        ; preds = %while.body.i8
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %fmt_out.addr.011.i, i64 1
-  store i8 %7, ptr %fmt_out.addr.011.i, align 1
+  store i8 %6, ptr %fmt_out.addr.011.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i8, %while.body.i8, %while.body.i8
   %fmt_out.addr.1.i = phi ptr [ %incdec.ptr7.i, %if.then.i ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ]
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %retval.0.i.i
   br i1 %exitcond.not.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit, label %while.body.i8, !llvm.loop !28
 
 _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImParseFormatFindEndPKc.exit.i
@@ -39431,8 +39384,8 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImPa
 
 while.cond:                                       ; preds = %while.cond, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
   %p.0 = phi ptr [ %v_str, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit ], [ %incdec.ptr, %while.cond ]
-  %8 = load i8, ptr %p.0, align 1
-  %cmp9 = icmp eq i8 %8, 32
+  %7 = load i8, ptr %p.0, align 1
+  %cmp9 = icmp eq i8 %7, 32
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br i1 %cmp9, label %while.cond, label %while.end, !llvm.loop !96
 
@@ -39758,7 +39711,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   %arrayidx1.i = getelementptr inbounds i8, ptr %fmt.addr.09.i, i64 1
   %1 = load i8, ptr %arrayidx1.i, align 1
   %cmp3.not.i = icmp eq i8 %1, 37
-  br i1 %cmp3.not.i, label %if.else.i, label %if.end
+  br i1 %cmp3.not.i, label %if.else.i, label %for.body.i.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %while.body.i
   %spec.select.idx.i = zext i1 %cmp.i to i64
@@ -39768,14 +39721,10 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %w
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !23
 
-if.end:                                           ; preds = %land.lhs.true.i
-  %fmt_in16.i = ptrtoint ptr %fmt.addr.09.i to i64
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %if.end, %for.inc.i.i
-  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %if.end ]
-  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %if.end ]
-  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %if.end ]
+for.body.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
+  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
+  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %land.lhs.true.i ]
+  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
   %4 = add i8 %3, -65
   %or.cond.i.i = icmp ult i8 %4, 26
   br i1 %or.cond.i.i, label %land.lhs.true7.i.i, label %if.end11.i.i
@@ -39817,20 +39766,14 @@ for.inc.i.i:                                      ; preds = %land.lhs.true17.i.i
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %for.inc.i.i, %if.then23.i.i, %if.then10.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then10.i.i ], [ %add.ptr24.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
   %cmp10.i = icmp ugt ptr %retval.0.i.i, %fmt.addr.09.i
-  br i1 %cmp10.i, label %while.body.preheader.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
+  br i1 %cmp10.i, label %while.body.i8, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
-while.body.preheader.i:                           ; preds = %_Z20ImParseFormatFindEndPKc.exit.i
-  %retval.0.i15.i = ptrtoint ptr %retval.0.i.i to i64
-  %6 = sub i64 %retval.0.i15.i, %fmt_in16.i
-  %scevgep.i = getelementptr i8, ptr %fmt.addr.09.i, i64 %6
-  br label %while.body.i8
-
-while.body.i8:                                    ; preds = %if.end.i, %while.body.preheader.i
-  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %while.body.preheader.i ]
-  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %while.body.preheader.i ]
+while.body.i8:                                    ; preds = %_Z20ImParseFormatFindEndPKc.exit.i, %if.end.i
+  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %_Z20ImParseFormatFindEndPKc.exit.i ]
+  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %_Z20ImParseFormatFindEndPKc.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %fmt_in.addr.012.i, i64 1
-  %7 = load i8, ptr %fmt_in.addr.012.i, align 1
-  switch i8 %7, label %if.then.i [
+  %6 = load i8, ptr %fmt_in.addr.012.i, align 1
+  switch i8 %6, label %if.then.i [
     i8 95, label %if.end.i
     i8 39, label %if.end.i
     i8 36, label %if.end.i
@@ -39838,12 +39781,12 @@ while.body.i8:                                    ; preds = %if.end.i, %while.bo
 
 if.then.i:                                        ; preds = %while.body.i8
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %fmt_out.addr.011.i, i64 1
-  store i8 %7, ptr %fmt_out.addr.011.i, align 1
+  store i8 %6, ptr %fmt_out.addr.011.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i8, %while.body.i8, %while.body.i8
   %fmt_out.addr.1.i = phi ptr [ %incdec.ptr7.i, %if.then.i ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ]
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %retval.0.i.i
   br i1 %exitcond.not.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit, label %while.body.i8, !llvm.loop !28
 
 _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImParseFormatFindEndPKc.exit.i
@@ -39855,8 +39798,8 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImPa
 
 while.cond:                                       ; preds = %while.cond, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
   %p.0 = phi ptr [ %v_str, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit ], [ %incdec.ptr, %while.cond ]
-  %8 = load i8, ptr %p.0, align 1
-  %cmp10 = icmp eq i8 %8, 32
+  %7 = load i8, ptr %p.0, align 1
+  %cmp10 = icmp eq i8 %7, 32
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br i1 %cmp10, label %while.cond, label %while.end, !llvm.loop !97
 
@@ -40207,7 +40150,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   %arrayidx1.i = getelementptr inbounds i8, ptr %fmt.addr.09.i, i64 1
   %1 = load i8, ptr %arrayidx1.i, align 1
   %cmp3.not.i = icmp eq i8 %1, 37
-  br i1 %cmp3.not.i, label %if.else.i, label %if.end
+  br i1 %cmp3.not.i, label %if.else.i, label %for.body.i.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %while.body.i
   %spec.select.idx.i = zext i1 %cmp.i to i64
@@ -40217,14 +40160,10 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %w
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %return, label %while.body.i, !llvm.loop !23
 
-if.end:                                           ; preds = %land.lhs.true.i
-  %fmt_in16.i = ptrtoint ptr %fmt.addr.09.i to i64
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %if.end, %for.inc.i.i
-  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %if.end ]
-  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %if.end ]
-  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %if.end ]
+for.body.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
+  %conv117.i.i = phi i32 [ %conv1.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
+  %fmt.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %fmt.addr.09.i, %land.lhs.true.i ]
+  %3 = phi i8 [ %.pr.i.i, %for.inc.i.i ], [ 37, %land.lhs.true.i ]
   %4 = add i8 %3, -65
   %or.cond.i.i = icmp ult i8 %4, 26
   br i1 %or.cond.i.i, label %land.lhs.true7.i.i, label %if.end11.i.i
@@ -40266,20 +40205,14 @@ for.inc.i.i:                                      ; preds = %land.lhs.true17.i.i
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %for.inc.i.i, %if.then23.i.i, %if.then10.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then10.i.i ], [ %add.ptr24.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
   %cmp10.i = icmp ugt ptr %retval.0.i.i, %fmt.addr.09.i
-  br i1 %cmp10.i, label %while.body.preheader.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
+  br i1 %cmp10.i, label %while.body.i8, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
-while.body.preheader.i:                           ; preds = %_Z20ImParseFormatFindEndPKc.exit.i
-  %retval.0.i15.i = ptrtoint ptr %retval.0.i.i to i64
-  %6 = sub i64 %retval.0.i15.i, %fmt_in16.i
-  %scevgep.i = getelementptr i8, ptr %fmt.addr.09.i, i64 %6
-  br label %while.body.i8
-
-while.body.i8:                                    ; preds = %if.end.i, %while.body.preheader.i
-  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %while.body.preheader.i ]
-  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %while.body.preheader.i ]
+while.body.i8:                                    ; preds = %_Z20ImParseFormatFindEndPKc.exit.i, %if.end.i
+  %fmt_in.addr.012.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %fmt.addr.09.i, %_Z20ImParseFormatFindEndPKc.exit.i ]
+  %fmt_out.addr.011.i = phi ptr [ %fmt_out.addr.1.i, %if.end.i ], [ %fmt_sanitized, %_Z20ImParseFormatFindEndPKc.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %fmt_in.addr.012.i, i64 1
-  %7 = load i8, ptr %fmt_in.addr.012.i, align 1
-  switch i8 %7, label %if.then.i [
+  %6 = load i8, ptr %fmt_in.addr.012.i, align 1
+  switch i8 %6, label %if.then.i [
     i8 95, label %if.end.i
     i8 39, label %if.end.i
     i8 36, label %if.end.i
@@ -40287,12 +40220,12 @@ while.body.i8:                                    ; preds = %if.end.i, %while.bo
 
 if.then.i:                                        ; preds = %while.body.i8
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %fmt_out.addr.011.i, i64 1
-  store i8 %7, ptr %fmt_out.addr.011.i, align 1
+  store i8 %6, ptr %fmt_out.addr.011.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i8, %while.body.i8, %while.body.i8
   %fmt_out.addr.1.i = phi ptr [ %incdec.ptr7.i, %if.then.i ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ], [ %fmt_out.addr.011.i, %while.body.i8 ]
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %retval.0.i.i
   br i1 %exitcond.not.i, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit, label %while.body.i8, !llvm.loop !28
 
 _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImParseFormatFindEndPKc.exit.i
@@ -40303,8 +40236,8 @@ _Z32ImParseFormatSanitizeForPrintingPKcPcm.exit:  ; preds = %if.end.i, %_Z20ImPa
 
 while.cond:                                       ; preds = %while.cond, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
   %p.0 = phi ptr [ %v_str, %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit ], [ %incdec.ptr, %while.cond ]
-  %8 = load i8, ptr %p.0, align 1
-  %cmp9 = icmp eq i8 %8, 32
+  %7 = load i8, ptr %p.0, align 1
+  %cmp9 = icmp eq i8 %7, 32
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br i1 %cmp9, label %while.cond, label %while.end, !llvm.loop !98
 

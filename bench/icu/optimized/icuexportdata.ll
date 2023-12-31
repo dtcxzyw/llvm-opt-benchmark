@@ -6699,13 +6699,12 @@ if.else:                                          ; preds = %if.then
   %incdec.ptr.i = getelementptr inbounds i16, ptr %6, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr9.i = getelementptr inbounds i16, ptr %6, i64 -1
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %add.ptr.i
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorItSaItEE13_M_insert_auxItEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEOT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 1
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i16, ptr %6, i64 %.pre.i.i.i.i.i.i
@@ -6736,7 +6735,6 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else21
   %cmp9.i.i = icmp ugt i64 %add.i.i, 4611686018427387903
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
   %cond.i.i = select i1 %or.cond.i.i, i64 4611686018427387903, i64 %add.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i7 to i64
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i, 1
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaItEE8allocateERS0_m.exit.i.i
@@ -6761,7 +6759,7 @@ if.then.i.i.i12.i:                                ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i: ; preds = %if.then.i.i.i12.i, %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i, i64 %sub.ptr.sub.i
   %incdec.ptr.i9 = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i, i64 1
-  %sub.ptr.sub.i.i.i15.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i
+  %sub.ptr.sub.i.i.i15.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i
   %cmp.i.i.i16.i = icmp sgt i64 %sub.ptr.sub.i.i.i15.i, 0
   br i1 %cmp.i.i.i16.i, label %if.then.i.i.i18.i, label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit19.i
 

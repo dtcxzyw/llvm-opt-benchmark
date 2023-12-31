@@ -912,11 +912,11 @@ entry:
   %0 = load ptr, ptr %ptr_.i.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, ptrtoint (ptr @.str.4 to i64)
-  %add.ptr.i.ptr = getelementptr inbounds i8, ptr @.str.4, i64 %sub.ptr.sub.i
+  %add.ptr.i = getelementptr inbounds i8, ptr @.str.4, i64 %sub.ptr.sub.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  store ptr %add.ptr.i.ptr, ptr %end, align 8
+  store ptr %add.ptr.i, ptr %end, align 8
   store ptr getelementptr inbounds ([4 x i8], ptr @.str.4, i64 0, i64 3), ptr %ref.tmp, align 8
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i, 3
+  %cmp.i.i = icmp eq ptr %0, getelementptr inbounds ([4 x i8], ptr @.str.4, i64 0, i64 3)
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry

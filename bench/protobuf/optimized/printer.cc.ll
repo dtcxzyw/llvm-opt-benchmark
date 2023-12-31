@@ -3265,7 +3265,6 @@ invoke.cont138:                                   ; preds = %_ZSt11find_if_notIP
   %add.ptr.i4.i = getelementptr inbounds i8, ptr %chunk.sroa.7.0.copyload, i64 %sub.ptr.sub.i121
   store i64 %sub.i.i123, ptr %var, align 8
   store ptr %add.ptr.i4.i, ptr %chunk.sroa.7.0.var.sroa_idx, align 8
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i4.i to i64
   %shr.i.i.i.i126 = ashr i64 %sub.i.i123, 2
   %cmp35.i.i.i.i = icmp sgt i64 %shr.i.i.i.i126, 0
   br i1 %cmp35.i.i.i.i, label %for.body.i.i.i.preheader.i134, label %for.end.i.i.i.i127
@@ -3329,7 +3328,7 @@ for.end.i.i.i.i127.loopexit:                      ; preds = %if.end16.i.i.i.i
 for.end.i.i.i.i127:                               ; preds = %for.end.i.i.i.i127.loopexit, %invoke.cont138
   %sub.ptr.lhs.cast.i14.pre-phi.i.i.i.i.pre-phi = phi i64 [ %.pre1135, %for.end.i.i.i.i127.loopexit ], [ %sub.ptr.lhs.cast.i.i.i.i, %invoke.cont138 ]
   %agg.tmp.sroa.0.1.i.i.i = phi ptr [ %scevgep.i135, %for.end.i.i.i.i127.loopexit ], [ %add.ptr.i.i118, %invoke.cont138 ]
-  %sub.ptr.sub.i16.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i14.pre-phi.i.i.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i
+  %sub.ptr.sub.i16.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i14.pre-phi.i.i.i.i.pre-phi, %sub.ptr.lhs.cast.i120
   switch i64 %sub.ptr.sub.i16.i.i.i.i, label %invoke.cont142 [
     i64 3, label %sw.bb.i.i.i.i133
     i64 2, label %sw.bb24.i.i.i.i
@@ -3384,7 +3383,7 @@ invoke.cont142.loopexit.split.loop.exit1551:      ; preds = %if.end11.i.i.i.i138
 invoke.cont142:                                   ; preds = %for.body.i.i.i.i136, %invoke.cont142.loopexit.split.loop.exit, %invoke.cont142.loopexit.split.loop.exit1549, %invoke.cont142.loopexit.split.loop.exit1551, %sw.bb30.i.i.i.i, %sw.bb24.i.i.i.i, %sw.bb.i.i.i.i133, %for.end.i.i.i.i127
   %.sink.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i, %sw.bb.i.i.i.i133 ], [ %agg.tmp.sroa.0.2.i.i.i, %sw.bb24.i.i.i.i ], [ %add.ptr.i4.i, %for.end.i.i.i.i127 ], [ %spec.select.i.i.i, %sw.bb30.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.le, %invoke.cont142.loopexit.split.loop.exit ], [ %incdec.ptr.i.i2.i.i.i.i.le, %invoke.cont142.loopexit.split.loop.exit1549 ], [ %incdec.ptr.i.i6.i.i.i.i.le, %invoke.cont142.loopexit.split.loop.exit1551 ], [ %agg.tmp.sroa.0.0.i.i.i, %for.body.i.i.i.i136 ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.sink.i.i.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i120
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i123, i64 %sub.ptr.sub.i.i)
   store i64 %.sroa.speculated.i.i, ptr %var, align 8
   store ptr %add.ptr.i4.i, ptr %chunk.sroa.7.0.var.sroa_idx, align 8

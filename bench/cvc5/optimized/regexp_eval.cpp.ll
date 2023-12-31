@@ -4003,13 +4003,17 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIPN4cvc58internal6theory7strin
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIPN4cvc58internal6theory7strings8NfaStateENS4_12NodeTemplateILb1EEEESt6vectorISB_SaISB_EEEENS1_IPSB_SG_EEET0_T_SL_SK_.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIPN4cvc58internal6theory7strings8NfaStateENS4_12NodeTemplateILb1EEEESt6vectorISB_SaISB_EEEENS1_IPSB_SG_EEET0_T_SL_SK_.exit.loopexit, %if.then27
   %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre100, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIPN4cvc58internal6theory7strings8NfaStateENS4_12NodeTemplateILb1EEEESt6vectorISB_SaISB_EEEENS1_IPSB_SG_EEET0_T_SL_SK_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %if.then27 ]
   %18 = phi ptr [ %.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIPN4cvc58internal6theory7strings8NfaStateENS4_12NodeTemplateILb1EEEESt6vectorISB_SaISB_EEEENS1_IPSB_SG_EEET0_T_SL_SK_.exit.loopexit ], [ %11, %if.then27 ]
+  %__result.addr.0.lcssa.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIPN4cvc58internal6theory7strings8NfaStateENS4_12NodeTemplateILb1EEEESt6vectorISB_SaISB_EEEENS1_IPSB_SG_EEET0_T_SL_SK_.exit.loopexit ], [ %3, %if.then27 ]
+  %cmp.i.not3.i.i.i = icmp eq ptr %__result.addr.0.lcssa.i.i.i.i.i, %18
+  br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i28.preheader
+
+for.body.i.i.i28.preheader:                       ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIPN4cvc58internal6theory7strings8NfaStateENS4_12NodeTemplateILb1EEEESt6vectorISB_SaISB_EEEENS1_IPSB_SG_EEET0_T_SL_SK_.exit
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i15
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
-  %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %18
-  br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i28
+  br label %for.body.i.i.i28
 
-for.body.i.i.i28:                                 ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIPN4cvc58internal6theory7strings8NfaStateENS4_12NodeTemplateILb1EEEESt6vectorISB_SaISB_EEEENS1_IPSB_SG_EEET0_T_SL_SK_.exit, %_ZSt8_DestroyISt4pairIPN4cvc58internal6theory7strings8NfaStateENS2_12NodeTemplateILb1EEEEEvPT_.exit.i.i.i38
-  %__first.sroa.0.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt4pairIPN4cvc58internal6theory7strings8NfaStateENS2_12NodeTemplateILb1EEEEEvPT_.exit.i.i.i38 ], [ %add.ptr.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIPN4cvc58internal6theory7strings8NfaStateENS4_12NodeTemplateILb1EEEESt6vectorISB_SaISB_EEEENS1_IPSB_SG_EEET0_T_SL_SK_.exit ]
+for.body.i.i.i28:                                 ; preds = %for.body.i.i.i28.preheader, %_ZSt8_DestroyISt4pairIPN4cvc58internal6theory7strings8NfaStateENS2_12NodeTemplateILb1EEEEEvPT_.exit.i.i.i38
+  %__first.sroa.0.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt4pairIPN4cvc58internal6theory7strings8NfaStateENS2_12NodeTemplateILb1EEEEEvPT_.exit.i.i.i38 ], [ %add.ptr.i.i.i.i, %for.body.i.i.i28.preheader ]
   %second.i.i.i.i.i29 = getelementptr inbounds %"struct.std::pair.55", ptr %__first.sroa.0.04.i.i.i, i64 0, i32 1
   %19 = load ptr, ptr %second.i.i.i.i.i29, align 8
   %bf.load.i.i.i.i.i.i.i30 = load i64, ptr %19, align 8

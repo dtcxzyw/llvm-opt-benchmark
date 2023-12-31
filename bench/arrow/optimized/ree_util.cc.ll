@@ -740,17 +740,17 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %id_.i = getelementptr inbounds %"class.arrow::DataType", ptr %1, i64 0, i32 2
   %2 = load i32, ptr %id_.i, align 8
-  %offset.i.i.i63 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 3
-  %3 = load i64, ptr %offset.i.i.i63, align 8
-  %arrayidx.i.i.i.i64 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 4, i64 1
-  %4 = load ptr, ptr %arrayidx.i.i.i.i64, align 8
-  %length.i66 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 1
-  %5 = load i64, ptr %length.i66, align 8
-  %length2.i67 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 1
-  %6 = load i64, ptr %length2.i67, align 8
-  %offset.i68 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 3
-  %7 = load i64, ptr %offset.i68, align 8
-  %cmp11.i.i.i.i.i.i69 = icmp sgt i64 %5, 0
+  %offset.i.i.i62 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 3
+  %3 = load i64, ptr %offset.i.i.i62, align 8
+  %arrayidx.i.i.i.i63 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 4, i64 1
+  %4 = load ptr, ptr %arrayidx.i.i.i.i63, align 8
+  %length.i65 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 1
+  %5 = load i64, ptr %length.i65, align 8
+  %length2.i66 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 1
+  %6 = load i64, ptr %length2.i66, align 8
+  %offset.i67 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 3
+  %7 = load i64, ptr %offset.i67, align 8
+  %cmp11.i.i.i.i.i.i68 = icmp sgt i64 %5, 0
   switch i32 %2, label %while.end12 [
     i32 5, label %if.then
     i32 7, label %if.then4
@@ -758,7 +758,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %4, i64 %3
-  br i1 %cmp11.i.i.i.i.i.i69, label %while.body.i.i.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i.i.i
+  br i1 %cmp11.i.i.i.i.i.i68, label %while.body.i.i.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.then, %while.body.i.i.i.i.i.i
   %__first.addr.013.i.i.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then ]
@@ -778,11 +778,11 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then, %while.bod
 
 _ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then
   %__first.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.then ], [ %__first.addr.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i.i.i to i64
   %cmp.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 1
@@ -811,137 +811,134 @@ while.body.i.i.i11.i.i.i:                         ; preds = %if.end.i.i.i, %whil
 
 _ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i.i.i: ; preds = %while.body.i.i.i11.i.i.i, %if.end.i.i.i
   %__first.addr.0.lcssa.i.i.i6.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i ], [ %__first.addr.1.i.i.i24.i.i.i, %while.body.i.i.i11.i.i.i ]
-  %sub.ptr.rhs.cast.i.i.i.i.i7.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.lhs.cast.i.i.i8.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i.i.i to i64
-  %sub.ptr.sub.i.i.i9.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i8.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i7.i.i.i
+  %sub.ptr.sub.i.i.i9.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i8.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i10.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i9.i.i.i, 1
   %add.i.i.i = add nsw i64 %sub.ptr.div.i.i.i10.i.i.i, 1
   br label %return
 
 if.then4:                                         ; preds = %entry
   %add.ptr.i.i.i.i8 = getelementptr inbounds i32, ptr %4, i64 %3
-  br i1 %cmp11.i.i.i.i.i.i69, label %while.body.i.i.i.i.i.i47, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i
+  br i1 %cmp11.i.i.i.i.i.i68, label %while.body.i.i.i.i.i.i46, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i
 
-while.body.i.i.i.i.i.i47:                         ; preds = %if.then4, %while.body.i.i.i.i.i.i47
-  %__first.addr.013.i.i.i.i.i.i48 = phi ptr [ %__first.addr.1.i.i.i.i.i.i60, %while.body.i.i.i.i.i.i47 ], [ %add.ptr.i.i.i.i8, %if.then4 ]
-  %__len.012.i.i.i.i.i.i49 = phi i64 [ %__len.1.i.i.i.i.i.i59, %while.body.i.i.i.i.i.i47 ], [ %5, %if.then4 ]
-  %shr.i.i.i.i.i.i50 = lshr i64 %__len.012.i.i.i.i.i.i49, 1
-  %incdec.ptr4.sink.i.i.i.i.i.i.i.i54 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i.i.i.i48, i64 %shr.i.i.i.i.i.i50
-  %12 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i.i.i54, align 4
-  %conv.i.i.i.i.i.i.i55 = sext i32 %12 to i64
-  %cmp.i.i.i.i.i.i.i56 = icmp slt i64 %7, %conv.i.i.i.i.i.i.i55
-  %incdec.ptr.i.i.i.i.i.i57 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i.i.i54, i64 1
-  %13 = xor i64 %shr.i.i.i.i.i.i50, -1
-  %sub2.i.i.i.i.i.i58 = add nsw i64 %__len.012.i.i.i.i.i.i49, %13
-  %__len.1.i.i.i.i.i.i59 = select i1 %cmp.i.i.i.i.i.i.i56, i64 %shr.i.i.i.i.i.i50, i64 %sub2.i.i.i.i.i.i58
-  %__first.addr.1.i.i.i.i.i.i60 = select i1 %cmp.i.i.i.i.i.i.i56, ptr %__first.addr.013.i.i.i.i.i.i48, ptr %incdec.ptr.i.i.i.i.i.i57
-  %cmp.i.i.i.i.i.i61 = icmp sgt i64 %__len.1.i.i.i.i.i.i59, 0
-  br i1 %cmp.i.i.i.i.i.i61, label %while.body.i.i.i.i.i.i47, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i, !llvm.loop !14
+while.body.i.i.i.i.i.i46:                         ; preds = %if.then4, %while.body.i.i.i.i.i.i46
+  %__first.addr.013.i.i.i.i.i.i47 = phi ptr [ %__first.addr.1.i.i.i.i.i.i59, %while.body.i.i.i.i.i.i46 ], [ %add.ptr.i.i.i.i8, %if.then4 ]
+  %__len.012.i.i.i.i.i.i48 = phi i64 [ %__len.1.i.i.i.i.i.i58, %while.body.i.i.i.i.i.i46 ], [ %5, %if.then4 ]
+  %shr.i.i.i.i.i.i49 = lshr i64 %__len.012.i.i.i.i.i.i48, 1
+  %incdec.ptr4.sink.i.i.i.i.i.i.i.i53 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i.i.i.i47, i64 %shr.i.i.i.i.i.i49
+  %12 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i.i.i53, align 4
+  %conv.i.i.i.i.i.i.i54 = sext i32 %12 to i64
+  %cmp.i.i.i.i.i.i.i55 = icmp slt i64 %7, %conv.i.i.i.i.i.i.i54
+  %incdec.ptr.i.i.i.i.i.i56 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i.i.i53, i64 1
+  %13 = xor i64 %shr.i.i.i.i.i.i49, -1
+  %sub2.i.i.i.i.i.i57 = add nsw i64 %__len.012.i.i.i.i.i.i48, %13
+  %__len.1.i.i.i.i.i.i58 = select i1 %cmp.i.i.i.i.i.i.i55, i64 %shr.i.i.i.i.i.i49, i64 %sub2.i.i.i.i.i.i57
+  %__first.addr.1.i.i.i.i.i.i59 = select i1 %cmp.i.i.i.i.i.i.i55, ptr %__first.addr.013.i.i.i.i.i.i47, ptr %incdec.ptr.i.i.i.i.i.i56
+  %cmp.i.i.i.i.i.i60 = icmp sgt i64 %__len.1.i.i.i.i.i.i58, 0
+  br i1 %cmp.i.i.i.i.i.i60, label %while.body.i.i.i.i.i.i46, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i, !llvm.loop !14
 
-_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i: ; preds = %while.body.i.i.i.i.i.i47, %if.then4
-  %__first.addr.0.lcssa.i.i.i.i.i.i13 = phi ptr [ %add.ptr.i.i.i.i8, %if.then4 ], [ %__first.addr.1.i.i.i.i.i.i60, %while.body.i.i.i.i.i.i47 ]
-  %cmp.i.i.i14 = icmp eq i64 %6, 0
-  br i1 %cmp.i.i.i14, label %return, label %if.end.i.i.i15
+_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i: ; preds = %while.body.i.i.i.i.i.i46, %if.then4
+  %__first.addr.0.lcssa.i.i.i.i.i.i13 = phi ptr [ %add.ptr.i.i.i.i8, %if.then4 ], [ %__first.addr.1.i.i.i.i.i.i59, %while.body.i.i.i.i.i.i46 ]
+  %sub.ptr.lhs.cast.i.i.i.i.i.i14 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i.i.i13 to i64
+  %cmp.i.i.i15 = icmp eq i64 %6, 0
+  br i1 %cmp.i.i.i15, label %return, label %if.end.i.i.i16
 
-if.end.i.i.i15:                                   ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i16 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i.i.i13 to i64
+if.end.i.i.i16:                                   ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i17 = ptrtoint ptr %add.ptr.i.i.i.i8 to i64
-  %sub.ptr.sub.i.i.i.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i16, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i17
+  %sub.ptr.sub.i.i.i.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i14, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i17
   %sub.ptr.div.i.i.i.i.i.i19 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i18, 2
   %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i.i.i18
   %sub.i.i.i21 = sub nsw i64 %5, %sub.ptr.div.i.i.i.i.i.i19
   %sub1.i.i.i22 = add nsw i64 %6, -1
   %add.i.i.i.i23 = add nsw i64 %sub1.i.i.i22, %7
   %cmp11.i.i.i5.i.i.i24 = icmp sgt i64 %sub.i.i.i21, 0
-  br i1 %cmp11.i.i.i5.i.i.i24, label %while.body.i.i.i11.i.i.i32, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i.i.i
+  br i1 %cmp11.i.i.i5.i.i.i24, label %while.body.i.i.i11.i.i.i31, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i.i.i
 
-while.body.i.i.i11.i.i.i32:                       ; preds = %if.end.i.i.i15, %while.body.i.i.i11.i.i.i32
-  %__first.addr.013.i.i.i12.i.i.i33 = phi ptr [ %__first.addr.1.i.i.i24.i.i.i45, %while.body.i.i.i11.i.i.i32 ], [ %add.ptr.i.i.i20, %if.end.i.i.i15 ]
-  %__len.012.i.i.i13.i.i.i34 = phi i64 [ %__len.1.i.i.i23.i.i.i44, %while.body.i.i.i11.i.i.i32 ], [ %sub.i.i.i21, %if.end.i.i.i15 ]
-  %shr.i.i.i14.i.i.i35 = lshr i64 %__len.012.i.i.i13.i.i.i34, 1
-  %incdec.ptr4.sink.i.i.i.i.i18.i.i.i39 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i12.i.i.i33, i64 %shr.i.i.i14.i.i.i35
-  %14 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i18.i.i.i39, align 4
-  %conv.i.i.i.i19.i.i.i40 = sext i32 %14 to i64
-  %cmp.i.i.i.i20.i.i.i41 = icmp slt i64 %add.i.i.i.i23, %conv.i.i.i.i19.i.i.i40
-  %incdec.ptr.i.i.i21.i.i.i42 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i18.i.i.i39, i64 1
-  %15 = xor i64 %shr.i.i.i14.i.i.i35, -1
-  %sub2.i.i.i22.i.i.i43 = add nsw i64 %__len.012.i.i.i13.i.i.i34, %15
-  %__len.1.i.i.i23.i.i.i44 = select i1 %cmp.i.i.i.i20.i.i.i41, i64 %shr.i.i.i14.i.i.i35, i64 %sub2.i.i.i22.i.i.i43
-  %__first.addr.1.i.i.i24.i.i.i45 = select i1 %cmp.i.i.i.i20.i.i.i41, ptr %__first.addr.013.i.i.i12.i.i.i33, ptr %incdec.ptr.i.i.i21.i.i.i42
-  %cmp.i.i.i25.i.i.i46 = icmp sgt i64 %__len.1.i.i.i23.i.i.i44, 0
-  br i1 %cmp.i.i.i25.i.i.i46, label %while.body.i.i.i11.i.i.i32, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i.i.i, !llvm.loop !14
+while.body.i.i.i11.i.i.i31:                       ; preds = %if.end.i.i.i16, %while.body.i.i.i11.i.i.i31
+  %__first.addr.013.i.i.i12.i.i.i32 = phi ptr [ %__first.addr.1.i.i.i24.i.i.i44, %while.body.i.i.i11.i.i.i31 ], [ %add.ptr.i.i.i20, %if.end.i.i.i16 ]
+  %__len.012.i.i.i13.i.i.i33 = phi i64 [ %__len.1.i.i.i23.i.i.i43, %while.body.i.i.i11.i.i.i31 ], [ %sub.i.i.i21, %if.end.i.i.i16 ]
+  %shr.i.i.i14.i.i.i34 = lshr i64 %__len.012.i.i.i13.i.i.i33, 1
+  %incdec.ptr4.sink.i.i.i.i.i18.i.i.i38 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i12.i.i.i32, i64 %shr.i.i.i14.i.i.i34
+  %14 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i18.i.i.i38, align 4
+  %conv.i.i.i.i19.i.i.i39 = sext i32 %14 to i64
+  %cmp.i.i.i.i20.i.i.i40 = icmp slt i64 %add.i.i.i.i23, %conv.i.i.i.i19.i.i.i39
+  %incdec.ptr.i.i.i21.i.i.i41 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i18.i.i.i38, i64 1
+  %15 = xor i64 %shr.i.i.i14.i.i.i34, -1
+  %sub2.i.i.i22.i.i.i42 = add nsw i64 %__len.012.i.i.i13.i.i.i33, %15
+  %__len.1.i.i.i23.i.i.i43 = select i1 %cmp.i.i.i.i20.i.i.i40, i64 %shr.i.i.i14.i.i.i34, i64 %sub2.i.i.i22.i.i.i42
+  %__first.addr.1.i.i.i24.i.i.i44 = select i1 %cmp.i.i.i.i20.i.i.i40, ptr %__first.addr.013.i.i.i12.i.i.i32, ptr %incdec.ptr.i.i.i21.i.i.i41
+  %cmp.i.i.i25.i.i.i45 = icmp sgt i64 %__len.1.i.i.i23.i.i.i43, 0
+  br i1 %cmp.i.i.i25.i.i.i45, label %while.body.i.i.i11.i.i.i31, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i.i.i, !llvm.loop !14
 
-_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i.i.i: ; preds = %while.body.i.i.i11.i.i.i32, %if.end.i.i.i15
-  %__first.addr.0.lcssa.i.i.i6.i.i.i25 = phi ptr [ %add.ptr.i.i.i20, %if.end.i.i.i15 ], [ %__first.addr.1.i.i.i24.i.i.i45, %while.body.i.i.i11.i.i.i32 ]
-  %sub.ptr.rhs.cast.i.i.i.i.i7.i.i.i26 = ptrtoint ptr %add.ptr.i.i.i20 to i64
-  %sub.ptr.lhs.cast.i.i.i8.i.i.i27 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i.i.i25 to i64
-  %sub.ptr.sub.i.i.i9.i.i.i28 = sub i64 %sub.ptr.lhs.cast.i.i.i8.i.i.i27, %sub.ptr.rhs.cast.i.i.i.i.i7.i.i.i26
-  %sub.ptr.div.i.i.i10.i.i.i29 = ashr exact i64 %sub.ptr.sub.i.i.i9.i.i.i28, 2
-  %add.i.i.i30 = add nsw i64 %sub.ptr.div.i.i.i10.i.i.i29, 1
+_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i.i.i: ; preds = %while.body.i.i.i11.i.i.i31, %if.end.i.i.i16
+  %__first.addr.0.lcssa.i.i.i6.i.i.i25 = phi ptr [ %add.ptr.i.i.i20, %if.end.i.i.i16 ], [ %__first.addr.1.i.i.i24.i.i.i44, %while.body.i.i.i11.i.i.i31 ]
+  %sub.ptr.lhs.cast.i.i.i8.i.i.i26 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i.i.i25 to i64
+  %sub.ptr.sub.i.i.i9.i.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i.i8.i.i.i26, %sub.ptr.lhs.cast.i.i.i.i.i.i14
+  %sub.ptr.div.i.i.i10.i.i.i28 = ashr exact i64 %sub.ptr.sub.i.i.i9.i.i.i27, 2
+  %add.i.i.i29 = add nsw i64 %sub.ptr.div.i.i.i10.i.i.i28, 1
   br label %return
 
 while.end12:                                      ; preds = %entry
-  %add.ptr.i.i.i.i65 = getelementptr inbounds i64, ptr %4, i64 %3
-  br i1 %cmp11.i.i.i.i.i.i69, label %while.body.i.i.i.i.i.i97, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i
+  %add.ptr.i.i.i.i64 = getelementptr inbounds i64, ptr %4, i64 %3
+  br i1 %cmp11.i.i.i.i.i.i68, label %while.body.i.i.i.i.i.i95, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i
 
-while.body.i.i.i.i.i.i97:                         ; preds = %while.end12, %while.body.i.i.i.i.i.i97
-  %__first.addr.013.i.i.i.i.i.i98 = phi ptr [ %__first.addr.1.i.i.i.i.i.i109, %while.body.i.i.i.i.i.i97 ], [ %add.ptr.i.i.i.i65, %while.end12 ]
-  %__len.012.i.i.i.i.i.i99 = phi i64 [ %__len.1.i.i.i.i.i.i108, %while.body.i.i.i.i.i.i97 ], [ %5, %while.end12 ]
-  %shr.i.i.i.i.i.i100 = lshr i64 %__len.012.i.i.i.i.i.i99, 1
-  %incdec.ptr4.sink.i.i.i.i.i.i.i.i104 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i.i.i.i98, i64 %shr.i.i.i.i.i.i100
-  %16 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i.i.i104, align 8
-  %cmp.i.i.i.i.i.i.i105 = icmp sgt i64 %16, %7
-  %incdec.ptr.i.i.i.i.i.i106 = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i.i.i104, i64 1
-  %17 = xor i64 %shr.i.i.i.i.i.i100, -1
-  %sub2.i.i.i.i.i.i107 = add nsw i64 %__len.012.i.i.i.i.i.i99, %17
-  %__len.1.i.i.i.i.i.i108 = select i1 %cmp.i.i.i.i.i.i.i105, i64 %shr.i.i.i.i.i.i100, i64 %sub2.i.i.i.i.i.i107
-  %__first.addr.1.i.i.i.i.i.i109 = select i1 %cmp.i.i.i.i.i.i.i105, ptr %__first.addr.013.i.i.i.i.i.i98, ptr %incdec.ptr.i.i.i.i.i.i106
-  %cmp.i.i.i.i.i.i110 = icmp sgt i64 %__len.1.i.i.i.i.i.i108, 0
-  br i1 %cmp.i.i.i.i.i.i110, label %while.body.i.i.i.i.i.i97, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i, !llvm.loop !19
+while.body.i.i.i.i.i.i95:                         ; preds = %while.end12, %while.body.i.i.i.i.i.i95
+  %__first.addr.013.i.i.i.i.i.i96 = phi ptr [ %__first.addr.1.i.i.i.i.i.i107, %while.body.i.i.i.i.i.i95 ], [ %add.ptr.i.i.i.i64, %while.end12 ]
+  %__len.012.i.i.i.i.i.i97 = phi i64 [ %__len.1.i.i.i.i.i.i106, %while.body.i.i.i.i.i.i95 ], [ %5, %while.end12 ]
+  %shr.i.i.i.i.i.i98 = lshr i64 %__len.012.i.i.i.i.i.i97, 1
+  %incdec.ptr4.sink.i.i.i.i.i.i.i.i102 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i.i.i.i96, i64 %shr.i.i.i.i.i.i98
+  %16 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i.i.i102, align 8
+  %cmp.i.i.i.i.i.i.i103 = icmp sgt i64 %16, %7
+  %incdec.ptr.i.i.i.i.i.i104 = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i.i.i102, i64 1
+  %17 = xor i64 %shr.i.i.i.i.i.i98, -1
+  %sub2.i.i.i.i.i.i105 = add nsw i64 %__len.012.i.i.i.i.i.i97, %17
+  %__len.1.i.i.i.i.i.i106 = select i1 %cmp.i.i.i.i.i.i.i103, i64 %shr.i.i.i.i.i.i98, i64 %sub2.i.i.i.i.i.i105
+  %__first.addr.1.i.i.i.i.i.i107 = select i1 %cmp.i.i.i.i.i.i.i103, ptr %__first.addr.013.i.i.i.i.i.i96, ptr %incdec.ptr.i.i.i.i.i.i104
+  %cmp.i.i.i.i.i.i108 = icmp sgt i64 %__len.1.i.i.i.i.i.i106, 0
+  br i1 %cmp.i.i.i.i.i.i108, label %while.body.i.i.i.i.i.i95, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i, !llvm.loop !19
 
-_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i: ; preds = %while.body.i.i.i.i.i.i97, %while.end12
-  %__first.addr.0.lcssa.i.i.i.i.i.i70 = phi ptr [ %add.ptr.i.i.i.i65, %while.end12 ], [ %__first.addr.1.i.i.i.i.i.i109, %while.body.i.i.i.i.i.i97 ]
+_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i: ; preds = %while.body.i.i.i.i.i.i95, %while.end12
+  %__first.addr.0.lcssa.i.i.i.i.i.i69 = phi ptr [ %add.ptr.i.i.i.i64, %while.end12 ], [ %__first.addr.1.i.i.i.i.i.i107, %while.body.i.i.i.i.i.i95 ]
+  %sub.ptr.lhs.cast.i.i.i.i.i.i70 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i.i.i69 to i64
   %cmp.i.i.i71 = icmp eq i64 %6, 0
   br i1 %cmp.i.i.i71, label %return, label %if.end.i.i.i72
 
 if.end.i.i.i72:                                   ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i73 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i.i.i70 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i74 = ptrtoint ptr %add.ptr.i.i.i.i65 to i64
-  %sub.ptr.sub.i.i.i.i.i.i75 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i73, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i74
-  %sub.ptr.div.i.i.i.i.i.i76 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i75, 3
-  %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i65, i64 %sub.ptr.sub.i.i.i.i.i.i75
-  %sub.i.i.i78 = sub nsw i64 %5, %sub.ptr.div.i.i.i.i.i.i76
-  %sub1.i.i.i79 = add nsw i64 %6, -1
-  %add.i.i.i.i80 = add nsw i64 %sub1.i.i.i79, %7
-  %cmp11.i.i.i5.i.i.i81 = icmp sgt i64 %sub.i.i.i78, 0
-  br i1 %cmp11.i.i.i5.i.i.i81, label %while.body.i.i.i11.i.i.i89, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i.i.i
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i73 = ptrtoint ptr %add.ptr.i.i.i.i64 to i64
+  %sub.ptr.sub.i.i.i.i.i.i74 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i70, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i73
+  %sub.ptr.div.i.i.i.i.i.i75 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i74, 3
+  %add.ptr.i.i.i76 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i64, i64 %sub.ptr.sub.i.i.i.i.i.i74
+  %sub.i.i.i77 = sub nsw i64 %5, %sub.ptr.div.i.i.i.i.i.i75
+  %sub1.i.i.i78 = add nsw i64 %6, -1
+  %add.i.i.i.i79 = add nsw i64 %sub1.i.i.i78, %7
+  %cmp11.i.i.i5.i.i.i80 = icmp sgt i64 %sub.i.i.i77, 0
+  br i1 %cmp11.i.i.i5.i.i.i80, label %while.body.i.i.i11.i.i.i87, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i.i.i
 
-while.body.i.i.i11.i.i.i89:                       ; preds = %if.end.i.i.i72, %while.body.i.i.i11.i.i.i89
-  %__first.addr.013.i.i.i12.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i23.i.i.i, %while.body.i.i.i11.i.i.i89 ], [ %add.ptr.i.i.i77, %if.end.i.i.i72 ]
-  %__len.012.i.i.i13.i.i.i91 = phi i64 [ %__len.1.i.i.i22.i.i.i, %while.body.i.i.i11.i.i.i89 ], [ %sub.i.i.i78, %if.end.i.i.i72 ]
-  %shr.i.i.i14.i.i.i92 = lshr i64 %__len.012.i.i.i13.i.i.i91, 1
-  %incdec.ptr4.sink.i.i.i.i.i18.i.i.i96 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i12.i.i.i90, i64 %shr.i.i.i14.i.i.i92
-  %18 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i18.i.i.i96, align 8
-  %cmp.i.i.i.i19.i.i.i = icmp slt i64 %add.i.i.i.i80, %18
-  %incdec.ptr.i.i.i20.i.i.i = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i18.i.i.i96, i64 1
-  %19 = xor i64 %shr.i.i.i14.i.i.i92, -1
-  %sub2.i.i.i21.i.i.i = add nsw i64 %__len.012.i.i.i13.i.i.i91, %19
-  %__len.1.i.i.i22.i.i.i = select i1 %cmp.i.i.i.i19.i.i.i, i64 %shr.i.i.i14.i.i.i92, i64 %sub2.i.i.i21.i.i.i
-  %__first.addr.1.i.i.i23.i.i.i = select i1 %cmp.i.i.i.i19.i.i.i, ptr %__first.addr.013.i.i.i12.i.i.i90, ptr %incdec.ptr.i.i.i20.i.i.i
+while.body.i.i.i11.i.i.i87:                       ; preds = %if.end.i.i.i72, %while.body.i.i.i11.i.i.i87
+  %__first.addr.013.i.i.i12.i.i.i88 = phi ptr [ %__first.addr.1.i.i.i23.i.i.i, %while.body.i.i.i11.i.i.i87 ], [ %add.ptr.i.i.i76, %if.end.i.i.i72 ]
+  %__len.012.i.i.i13.i.i.i89 = phi i64 [ %__len.1.i.i.i22.i.i.i, %while.body.i.i.i11.i.i.i87 ], [ %sub.i.i.i77, %if.end.i.i.i72 ]
+  %shr.i.i.i14.i.i.i90 = lshr i64 %__len.012.i.i.i13.i.i.i89, 1
+  %incdec.ptr4.sink.i.i.i.i.i18.i.i.i94 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i12.i.i.i88, i64 %shr.i.i.i14.i.i.i90
+  %18 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i18.i.i.i94, align 8
+  %cmp.i.i.i.i19.i.i.i = icmp slt i64 %add.i.i.i.i79, %18
+  %incdec.ptr.i.i.i20.i.i.i = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i18.i.i.i94, i64 1
+  %19 = xor i64 %shr.i.i.i14.i.i.i90, -1
+  %sub2.i.i.i21.i.i.i = add nsw i64 %__len.012.i.i.i13.i.i.i89, %19
+  %__len.1.i.i.i22.i.i.i = select i1 %cmp.i.i.i.i19.i.i.i, i64 %shr.i.i.i14.i.i.i90, i64 %sub2.i.i.i21.i.i.i
+  %__first.addr.1.i.i.i23.i.i.i = select i1 %cmp.i.i.i.i19.i.i.i, ptr %__first.addr.013.i.i.i12.i.i.i88, ptr %incdec.ptr.i.i.i20.i.i.i
   %cmp.i.i.i24.i.i.i = icmp sgt i64 %__len.1.i.i.i22.i.i.i, 0
-  br i1 %cmp.i.i.i24.i.i.i, label %while.body.i.i.i11.i.i.i89, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i.i.i, !llvm.loop !19
+  br i1 %cmp.i.i.i24.i.i.i, label %while.body.i.i.i11.i.i.i87, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i.i.i, !llvm.loop !19
 
-_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i.i.i: ; preds = %while.body.i.i.i11.i.i.i89, %if.end.i.i.i72
-  %__first.addr.0.lcssa.i.i.i6.i.i.i82 = phi ptr [ %add.ptr.i.i.i77, %if.end.i.i.i72 ], [ %__first.addr.1.i.i.i23.i.i.i, %while.body.i.i.i11.i.i.i89 ]
-  %sub.ptr.rhs.cast.i.i.i.i.i7.i.i.i83 = ptrtoint ptr %add.ptr.i.i.i77 to i64
-  %sub.ptr.lhs.cast.i.i.i8.i.i.i84 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i.i.i82 to i64
-  %sub.ptr.sub.i.i.i9.i.i.i85 = sub i64 %sub.ptr.lhs.cast.i.i.i8.i.i.i84, %sub.ptr.rhs.cast.i.i.i.i.i7.i.i.i83
-  %sub.ptr.div.i.i.i10.i.i.i86 = ashr exact i64 %sub.ptr.sub.i.i.i9.i.i.i85, 3
-  %add.i.i.i87 = add nsw i64 %sub.ptr.div.i.i.i10.i.i.i86, 1
+_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i.i.i: ; preds = %while.body.i.i.i11.i.i.i87, %if.end.i.i.i72
+  %__first.addr.0.lcssa.i.i.i6.i.i.i81 = phi ptr [ %add.ptr.i.i.i76, %if.end.i.i.i72 ], [ %__first.addr.1.i.i.i23.i.i.i, %while.body.i.i.i11.i.i.i87 ]
+  %sub.ptr.lhs.cast.i.i.i8.i.i.i82 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i.i.i81 to i64
+  %sub.ptr.sub.i.i.i9.i.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i.i8.i.i.i82, %sub.ptr.lhs.cast.i.i.i.i.i.i70
+  %sub.ptr.div.i.i.i10.i.i.i84 = ashr exact i64 %sub.ptr.sub.i.i.i9.i.i.i83, 3
+  %add.i.i.i85 = add nsw i64 %sub.ptr.div.i.i.i10.i.i.i84, 1
   br label %return
 
 return:                                           ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i.i.i
-  %retval.0 = phi i64 [ %add.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i.i.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i.i.i ], [ %add.i.i.i30, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i.i.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i ], [ %add.i.i.i87, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i.i.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i ]
+  %retval.0 = phi i64 [ %add.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i.i.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i.i.i ], [ %add.i.i.i29, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i.i.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i ], [ %add.i.i.i85, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i.i.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i ]
   ret i64 %retval.0
 }
 
@@ -953,13 +950,13 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %id_.i = getelementptr inbounds %"class.arrow::DataType", ptr %1, i64 0, i32 2
   %2 = load i32, ptr %id_.i, align 8
-  %offset.i68 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 3
-  %3 = load i64, ptr %offset.i68, align 8
-  %arrayidx.i.i69 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 4, i64 1
-  %4 = load ptr, ptr %arrayidx.i.i69, align 8
+  %offset.i67 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 3
+  %3 = load i64, ptr %offset.i67, align 8
+  %arrayidx.i.i68 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 4, i64 1
+  %4 = load ptr, ptr %arrayidx.i.i68, align 8
   %length20 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %0, i64 0, i32 1
   %5 = load i64, ptr %length20, align 8
-  %cmp11.i.i.i.i71 = icmp sgt i64 %5, 0
+  %cmp11.i.i.i.i70 = icmp sgt i64 %5, 0
   switch i32 %2, label %while.end17 [
     i32 5, label %if.then
     i32 7, label %if.then6
@@ -967,7 +964,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i16, ptr %4, i64 %3
-  br i1 %cmp11.i.i.i.i71, label %while.body.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i
+  br i1 %cmp11.i.i.i.i70, label %while.body.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
   %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i, %if.then ]
@@ -1020,35 +1017,34 @@ while.body.i.i.i11.i:                             ; preds = %if.end.i, %while.bo
 
 _ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i: ; preds = %while.body.i.i.i11.i, %if.end.i
   %__first.addr.0.lcssa.i.i.i6.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %__first.addr.1.i.i.i24.i, %while.body.i.i.i11.i ]
-  %sub.ptr.rhs.cast.i.i.i.i.i7.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.lhs.cast.i.i.i8.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i to i64
-  %sub.ptr.sub.i.i.i9.i = sub i64 %sub.ptr.lhs.cast.i.i.i8.i, %sub.ptr.rhs.cast.i.i.i.i.i7.i
+  %sub.ptr.sub.i.i.i9.i = sub i64 %sub.ptr.lhs.cast.i.i.i8.i, %sub.ptr.lhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i10.i = ashr exact i64 %sub.ptr.sub.i.i.i9.i, 1
   %add.i = add nsw i64 %sub.ptr.div.i.i.i10.i, 1
   br label %return
 
 if.then6:                                         ; preds = %entry
   %add.ptr.i.i15 = getelementptr inbounds i32, ptr %4, i64 %3
-  br i1 %cmp11.i.i.i.i71, label %while.body.i.i.i.i53, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i
+  br i1 %cmp11.i.i.i.i70, label %while.body.i.i.i.i52, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i
 
-while.body.i.i.i.i53:                             ; preds = %if.then6, %while.body.i.i.i.i53
-  %__first.addr.013.i.i.i.i54 = phi ptr [ %__first.addr.1.i.i.i.i66, %while.body.i.i.i.i53 ], [ %add.ptr.i.i15, %if.then6 ]
-  %__len.012.i.i.i.i55 = phi i64 [ %__len.1.i.i.i.i65, %while.body.i.i.i.i53 ], [ %5, %if.then6 ]
-  %shr.i.i.i.i56 = lshr i64 %__len.012.i.i.i.i55, 1
-  %incdec.ptr4.sink.i.i.i.i.i.i60 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i.i54, i64 %shr.i.i.i.i56
-  %10 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i60, align 4
-  %conv.i.i.i.i.i61 = sext i32 %10 to i64
-  %cmp.i.i.i.i.i62 = icmp sgt i64 %conv.i.i.i.i.i61, %offset
-  %incdec.ptr.i.i.i.i63 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i60, i64 1
-  %11 = xor i64 %shr.i.i.i.i56, -1
-  %sub2.i.i.i.i64 = add nsw i64 %__len.012.i.i.i.i55, %11
-  %__len.1.i.i.i.i65 = select i1 %cmp.i.i.i.i.i62, i64 %shr.i.i.i.i56, i64 %sub2.i.i.i.i64
-  %__first.addr.1.i.i.i.i66 = select i1 %cmp.i.i.i.i.i62, ptr %__first.addr.013.i.i.i.i54, ptr %incdec.ptr.i.i.i.i63
-  %cmp.i.i.i.i67 = icmp sgt i64 %__len.1.i.i.i.i65, 0
-  br i1 %cmp.i.i.i.i67, label %while.body.i.i.i.i53, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i, !llvm.loop !14
+while.body.i.i.i.i52:                             ; preds = %if.then6, %while.body.i.i.i.i52
+  %__first.addr.013.i.i.i.i53 = phi ptr [ %__first.addr.1.i.i.i.i65, %while.body.i.i.i.i52 ], [ %add.ptr.i.i15, %if.then6 ]
+  %__len.012.i.i.i.i54 = phi i64 [ %__len.1.i.i.i.i64, %while.body.i.i.i.i52 ], [ %5, %if.then6 ]
+  %shr.i.i.i.i55 = lshr i64 %__len.012.i.i.i.i54, 1
+  %incdec.ptr4.sink.i.i.i.i.i.i59 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i.i53, i64 %shr.i.i.i.i55
+  %10 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i59, align 4
+  %conv.i.i.i.i.i60 = sext i32 %10 to i64
+  %cmp.i.i.i.i.i61 = icmp sgt i64 %conv.i.i.i.i.i60, %offset
+  %incdec.ptr.i.i.i.i62 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i.i59, i64 1
+  %11 = xor i64 %shr.i.i.i.i55, -1
+  %sub2.i.i.i.i63 = add nsw i64 %__len.012.i.i.i.i54, %11
+  %__len.1.i.i.i.i64 = select i1 %cmp.i.i.i.i.i61, i64 %shr.i.i.i.i55, i64 %sub2.i.i.i.i63
+  %__first.addr.1.i.i.i.i65 = select i1 %cmp.i.i.i.i.i61, ptr %__first.addr.013.i.i.i.i53, ptr %incdec.ptr.i.i.i.i62
+  %cmp.i.i.i.i66 = icmp sgt i64 %__len.1.i.i.i.i64, 0
+  br i1 %cmp.i.i.i.i66, label %while.body.i.i.i.i52, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i, !llvm.loop !14
 
-_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i: ; preds = %while.body.i.i.i.i53, %if.then6
-  %__first.addr.0.lcssa.i.i.i.i17 = phi ptr [ %add.ptr.i.i15, %if.then6 ], [ %__first.addr.1.i.i.i.i66, %while.body.i.i.i.i53 ]
+_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i: ; preds = %while.body.i.i.i.i52, %if.then6
+  %__first.addr.0.lcssa.i.i.i.i17 = phi ptr [ %add.ptr.i.i15, %if.then6 ], [ %__first.addr.1.i.i.i.i65, %while.body.i.i.i.i52 ]
   %sub.ptr.rhs.cast.i.i.i.i.i.i18 = ptrtoint ptr %add.ptr.i.i15 to i64
   %sub.ptr.lhs.cast.i.i.i.i19 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i17 to i64
   %sub.ptr.sub.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i19, %sub.ptr.rhs.cast.i.i.i.i.i.i18
@@ -1062,96 +1058,94 @@ if.end.i23:                                       ; preds = %_ZN5arrow8ree_util8
   %sub1.i26 = add i64 %offset, -1
   %add.i.i27 = add i64 %sub1.i26, %length
   %cmp11.i.i.i5.i28 = icmp sgt i64 %sub.i25, 0
-  br i1 %cmp11.i.i.i5.i28, label %while.body.i.i.i11.i38, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i
+  br i1 %cmp11.i.i.i5.i28, label %while.body.i.i.i11.i37, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i
 
-while.body.i.i.i11.i38:                           ; preds = %if.end.i23, %while.body.i.i.i11.i38
-  %__first.addr.013.i.i.i12.i39 = phi ptr [ %__first.addr.1.i.i.i24.i51, %while.body.i.i.i11.i38 ], [ %add.ptr.i24, %if.end.i23 ]
-  %__len.012.i.i.i13.i40 = phi i64 [ %__len.1.i.i.i23.i50, %while.body.i.i.i11.i38 ], [ %sub.i25, %if.end.i23 ]
-  %shr.i.i.i14.i41 = lshr i64 %__len.012.i.i.i13.i40, 1
-  %incdec.ptr4.sink.i.i.i.i.i18.i45 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i12.i39, i64 %shr.i.i.i14.i41
-  %12 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i18.i45, align 4
-  %conv.i.i.i.i19.i46 = sext i32 %12 to i64
-  %cmp.i.i.i.i20.i47 = icmp slt i64 %add.i.i27, %conv.i.i.i.i19.i46
-  %incdec.ptr.i.i.i21.i48 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i18.i45, i64 1
-  %13 = xor i64 %shr.i.i.i14.i41, -1
-  %sub2.i.i.i22.i49 = add nsw i64 %__len.012.i.i.i13.i40, %13
-  %__len.1.i.i.i23.i50 = select i1 %cmp.i.i.i.i20.i47, i64 %shr.i.i.i14.i41, i64 %sub2.i.i.i22.i49
-  %__first.addr.1.i.i.i24.i51 = select i1 %cmp.i.i.i.i20.i47, ptr %__first.addr.013.i.i.i12.i39, ptr %incdec.ptr.i.i.i21.i48
-  %cmp.i.i.i25.i52 = icmp sgt i64 %__len.1.i.i.i23.i50, 0
-  br i1 %cmp.i.i.i25.i52, label %while.body.i.i.i11.i38, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i, !llvm.loop !14
+while.body.i.i.i11.i37:                           ; preds = %if.end.i23, %while.body.i.i.i11.i37
+  %__first.addr.013.i.i.i12.i38 = phi ptr [ %__first.addr.1.i.i.i24.i50, %while.body.i.i.i11.i37 ], [ %add.ptr.i24, %if.end.i23 ]
+  %__len.012.i.i.i13.i39 = phi i64 [ %__len.1.i.i.i23.i49, %while.body.i.i.i11.i37 ], [ %sub.i25, %if.end.i23 ]
+  %shr.i.i.i14.i40 = lshr i64 %__len.012.i.i.i13.i39, 1
+  %incdec.ptr4.sink.i.i.i.i.i18.i44 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i12.i38, i64 %shr.i.i.i14.i40
+  %12 = load i32, ptr %incdec.ptr4.sink.i.i.i.i.i18.i44, align 4
+  %conv.i.i.i.i19.i45 = sext i32 %12 to i64
+  %cmp.i.i.i.i20.i46 = icmp slt i64 %add.i.i27, %conv.i.i.i.i19.i45
+  %incdec.ptr.i.i.i21.i47 = getelementptr inbounds i32, ptr %incdec.ptr4.sink.i.i.i.i.i18.i44, i64 1
+  %13 = xor i64 %shr.i.i.i14.i40, -1
+  %sub2.i.i.i22.i48 = add nsw i64 %__len.012.i.i.i13.i39, %13
+  %__len.1.i.i.i23.i49 = select i1 %cmp.i.i.i.i20.i46, i64 %shr.i.i.i14.i40, i64 %sub2.i.i.i22.i48
+  %__first.addr.1.i.i.i24.i50 = select i1 %cmp.i.i.i.i20.i46, ptr %__first.addr.013.i.i.i12.i38, ptr %incdec.ptr.i.i.i21.i47
+  %cmp.i.i.i25.i51 = icmp sgt i64 %__len.1.i.i.i23.i49, 0
+  br i1 %cmp.i.i.i25.i51, label %while.body.i.i.i11.i37, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i, !llvm.loop !14
 
-_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i: ; preds = %while.body.i.i.i11.i38, %if.end.i23
-  %__first.addr.0.lcssa.i.i.i6.i29 = phi ptr [ %add.ptr.i24, %if.end.i23 ], [ %__first.addr.1.i.i.i24.i51, %while.body.i.i.i11.i38 ]
-  %sub.ptr.rhs.cast.i.i.i.i.i7.i30 = ptrtoint ptr %add.ptr.i24 to i64
-  %sub.ptr.lhs.cast.i.i.i8.i31 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i29 to i64
-  %sub.ptr.sub.i.i.i9.i32 = sub i64 %sub.ptr.lhs.cast.i.i.i8.i31, %sub.ptr.rhs.cast.i.i.i.i.i7.i30
-  %sub.ptr.div.i.i.i10.i33 = ashr exact i64 %sub.ptr.sub.i.i.i9.i32, 2
-  %add.i34 = add nsw i64 %sub.ptr.div.i.i.i10.i33, 1
+_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i: ; preds = %while.body.i.i.i11.i37, %if.end.i23
+  %__first.addr.0.lcssa.i.i.i6.i29 = phi ptr [ %add.ptr.i24, %if.end.i23 ], [ %__first.addr.1.i.i.i24.i50, %while.body.i.i.i11.i37 ]
+  %sub.ptr.lhs.cast.i.i.i8.i30 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i29 to i64
+  %sub.ptr.sub.i.i.i9.i31 = sub i64 %sub.ptr.lhs.cast.i.i.i8.i30, %sub.ptr.lhs.cast.i.i.i.i19
+  %sub.ptr.div.i.i.i10.i32 = ashr exact i64 %sub.ptr.sub.i.i.i9.i31, 2
+  %add.i33 = add nsw i64 %sub.ptr.div.i.i.i10.i32, 1
   br label %return
 
 while.end17:                                      ; preds = %entry
-  %add.ptr.i.i70 = getelementptr inbounds i64, ptr %4, i64 %3
-  br i1 %cmp11.i.i.i.i71, label %while.body.i.i.i.i101, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i
+  %add.ptr.i.i69 = getelementptr inbounds i64, ptr %4, i64 %3
+  br i1 %cmp11.i.i.i.i70, label %while.body.i.i.i.i99, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i
 
-while.body.i.i.i.i101:                            ; preds = %while.end17, %while.body.i.i.i.i101
-  %__first.addr.013.i.i.i.i102 = phi ptr [ %__first.addr.1.i.i.i.i113, %while.body.i.i.i.i101 ], [ %add.ptr.i.i70, %while.end17 ]
-  %__len.012.i.i.i.i103 = phi i64 [ %__len.1.i.i.i.i112, %while.body.i.i.i.i101 ], [ %5, %while.end17 ]
-  %shr.i.i.i.i104 = lshr i64 %__len.012.i.i.i.i103, 1
-  %incdec.ptr4.sink.i.i.i.i.i.i108 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i.i102, i64 %shr.i.i.i.i104
-  %14 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i108, align 8
-  %cmp.i.i.i.i.i109 = icmp sgt i64 %14, %offset
-  %incdec.ptr.i.i.i.i110 = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i108, i64 1
-  %15 = xor i64 %shr.i.i.i.i104, -1
-  %sub2.i.i.i.i111 = add nsw i64 %__len.012.i.i.i.i103, %15
-  %__len.1.i.i.i.i112 = select i1 %cmp.i.i.i.i.i109, i64 %shr.i.i.i.i104, i64 %sub2.i.i.i.i111
-  %__first.addr.1.i.i.i.i113 = select i1 %cmp.i.i.i.i.i109, ptr %__first.addr.013.i.i.i.i102, ptr %incdec.ptr.i.i.i.i110
-  %cmp.i.i.i.i114 = icmp sgt i64 %__len.1.i.i.i.i112, 0
-  br i1 %cmp.i.i.i.i114, label %while.body.i.i.i.i101, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i, !llvm.loop !19
+while.body.i.i.i.i99:                             ; preds = %while.end17, %while.body.i.i.i.i99
+  %__first.addr.013.i.i.i.i100 = phi ptr [ %__first.addr.1.i.i.i.i111, %while.body.i.i.i.i99 ], [ %add.ptr.i.i69, %while.end17 ]
+  %__len.012.i.i.i.i101 = phi i64 [ %__len.1.i.i.i.i110, %while.body.i.i.i.i99 ], [ %5, %while.end17 ]
+  %shr.i.i.i.i102 = lshr i64 %__len.012.i.i.i.i101, 1
+  %incdec.ptr4.sink.i.i.i.i.i.i106 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i.i100, i64 %shr.i.i.i.i102
+  %14 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i106, align 8
+  %cmp.i.i.i.i.i107 = icmp sgt i64 %14, %offset
+  %incdec.ptr.i.i.i.i108 = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i.i106, i64 1
+  %15 = xor i64 %shr.i.i.i.i102, -1
+  %sub2.i.i.i.i109 = add nsw i64 %__len.012.i.i.i.i101, %15
+  %__len.1.i.i.i.i110 = select i1 %cmp.i.i.i.i.i107, i64 %shr.i.i.i.i102, i64 %sub2.i.i.i.i109
+  %__first.addr.1.i.i.i.i111 = select i1 %cmp.i.i.i.i.i107, ptr %__first.addr.013.i.i.i.i100, ptr %incdec.ptr.i.i.i.i108
+  %cmp.i.i.i.i112 = icmp sgt i64 %__len.1.i.i.i.i110, 0
+  br i1 %cmp.i.i.i.i112, label %while.body.i.i.i.i99, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i, !llvm.loop !19
 
-_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i: ; preds = %while.body.i.i.i.i101, %while.end17
-  %__first.addr.0.lcssa.i.i.i.i72 = phi ptr [ %add.ptr.i.i70, %while.end17 ], [ %__first.addr.1.i.i.i.i113, %while.body.i.i.i.i101 ]
-  %sub.ptr.rhs.cast.i.i.i.i.i.i73 = ptrtoint ptr %add.ptr.i.i70 to i64
-  %sub.ptr.lhs.cast.i.i.i.i74 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i72 to i64
-  %sub.ptr.sub.i.i.i.i75 = sub i64 %sub.ptr.lhs.cast.i.i.i.i74, %sub.ptr.rhs.cast.i.i.i.i.i.i73
-  %sub.ptr.div.i.i.i.i76 = ashr exact i64 %sub.ptr.sub.i.i.i.i75, 3
-  %cmp.i77 = icmp eq i64 %length, 0
-  br i1 %cmp.i77, label %return, label %if.end.i78
+_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i: ; preds = %while.body.i.i.i.i99, %while.end17
+  %__first.addr.0.lcssa.i.i.i.i71 = phi ptr [ %add.ptr.i.i69, %while.end17 ], [ %__first.addr.1.i.i.i.i111, %while.body.i.i.i.i99 ]
+  %sub.ptr.rhs.cast.i.i.i.i.i.i72 = ptrtoint ptr %add.ptr.i.i69 to i64
+  %sub.ptr.lhs.cast.i.i.i.i73 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i71 to i64
+  %sub.ptr.sub.i.i.i.i74 = sub i64 %sub.ptr.lhs.cast.i.i.i.i73, %sub.ptr.rhs.cast.i.i.i.i.i.i72
+  %sub.ptr.div.i.i.i.i75 = ashr exact i64 %sub.ptr.sub.i.i.i.i74, 3
+  %cmp.i76 = icmp eq i64 %length, 0
+  br i1 %cmp.i76, label %return, label %if.end.i77
 
-if.end.i78:                                       ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i
-  %add.ptr.i79 = getelementptr inbounds i8, ptr %add.ptr.i.i70, i64 %sub.ptr.sub.i.i.i.i75
-  %sub.i80 = sub nsw i64 %5, %sub.ptr.div.i.i.i.i76
-  %sub1.i81 = add i64 %offset, -1
-  %add.i.i82 = add i64 %sub1.i81, %length
-  %cmp11.i.i.i5.i83 = icmp sgt i64 %sub.i80, 0
-  br i1 %cmp11.i.i.i5.i83, label %while.body.i.i.i11.i93, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i
+if.end.i77:                                       ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i
+  %add.ptr.i78 = getelementptr inbounds i8, ptr %add.ptr.i.i69, i64 %sub.ptr.sub.i.i.i.i74
+  %sub.i79 = sub nsw i64 %5, %sub.ptr.div.i.i.i.i75
+  %sub1.i80 = add i64 %offset, -1
+  %add.i.i81 = add i64 %sub1.i80, %length
+  %cmp11.i.i.i5.i82 = icmp sgt i64 %sub.i79, 0
+  br i1 %cmp11.i.i.i5.i82, label %while.body.i.i.i11.i91, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i
 
-while.body.i.i.i11.i93:                           ; preds = %if.end.i78, %while.body.i.i.i11.i93
-  %__first.addr.013.i.i.i12.i94 = phi ptr [ %__first.addr.1.i.i.i23.i, %while.body.i.i.i11.i93 ], [ %add.ptr.i79, %if.end.i78 ]
-  %__len.012.i.i.i13.i95 = phi i64 [ %__len.1.i.i.i22.i, %while.body.i.i.i11.i93 ], [ %sub.i80, %if.end.i78 ]
-  %shr.i.i.i14.i96 = lshr i64 %__len.012.i.i.i13.i95, 1
-  %incdec.ptr4.sink.i.i.i.i.i18.i100 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i12.i94, i64 %shr.i.i.i14.i96
-  %16 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i18.i100, align 8
-  %cmp.i.i.i.i19.i = icmp slt i64 %add.i.i82, %16
-  %incdec.ptr.i.i.i20.i = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i18.i100, i64 1
-  %17 = xor i64 %shr.i.i.i14.i96, -1
-  %sub2.i.i.i21.i = add nsw i64 %__len.012.i.i.i13.i95, %17
-  %__len.1.i.i.i22.i = select i1 %cmp.i.i.i.i19.i, i64 %shr.i.i.i14.i96, i64 %sub2.i.i.i21.i
-  %__first.addr.1.i.i.i23.i = select i1 %cmp.i.i.i.i19.i, ptr %__first.addr.013.i.i.i12.i94, ptr %incdec.ptr.i.i.i20.i
+while.body.i.i.i11.i91:                           ; preds = %if.end.i77, %while.body.i.i.i11.i91
+  %__first.addr.013.i.i.i12.i92 = phi ptr [ %__first.addr.1.i.i.i23.i, %while.body.i.i.i11.i91 ], [ %add.ptr.i78, %if.end.i77 ]
+  %__len.012.i.i.i13.i93 = phi i64 [ %__len.1.i.i.i22.i, %while.body.i.i.i11.i91 ], [ %sub.i79, %if.end.i77 ]
+  %shr.i.i.i14.i94 = lshr i64 %__len.012.i.i.i13.i93, 1
+  %incdec.ptr4.sink.i.i.i.i.i18.i98 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i12.i92, i64 %shr.i.i.i14.i94
+  %16 = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i18.i98, align 8
+  %cmp.i.i.i.i19.i = icmp slt i64 %add.i.i81, %16
+  %incdec.ptr.i.i.i20.i = getelementptr inbounds i64, ptr %incdec.ptr4.sink.i.i.i.i.i18.i98, i64 1
+  %17 = xor i64 %shr.i.i.i14.i94, -1
+  %sub2.i.i.i21.i = add nsw i64 %__len.012.i.i.i13.i93, %17
+  %__len.1.i.i.i22.i = select i1 %cmp.i.i.i.i19.i, i64 %shr.i.i.i14.i94, i64 %sub2.i.i.i21.i
+  %__first.addr.1.i.i.i23.i = select i1 %cmp.i.i.i.i19.i, ptr %__first.addr.013.i.i.i12.i92, ptr %incdec.ptr.i.i.i20.i
   %cmp.i.i.i24.i = icmp sgt i64 %__len.1.i.i.i22.i, 0
-  br i1 %cmp.i.i.i24.i, label %while.body.i.i.i11.i93, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i, !llvm.loop !19
+  br i1 %cmp.i.i.i24.i, label %while.body.i.i.i11.i91, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i, !llvm.loop !19
 
-_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i: ; preds = %while.body.i.i.i11.i93, %if.end.i78
-  %__first.addr.0.lcssa.i.i.i6.i84 = phi ptr [ %add.ptr.i79, %if.end.i78 ], [ %__first.addr.1.i.i.i23.i, %while.body.i.i.i11.i93 ]
-  %sub.ptr.rhs.cast.i.i.i.i.i7.i85 = ptrtoint ptr %add.ptr.i79 to i64
-  %sub.ptr.lhs.cast.i.i.i8.i86 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i84 to i64
-  %sub.ptr.sub.i.i.i9.i87 = sub i64 %sub.ptr.lhs.cast.i.i.i8.i86, %sub.ptr.rhs.cast.i.i.i.i.i7.i85
-  %sub.ptr.div.i.i.i10.i88 = ashr exact i64 %sub.ptr.sub.i.i.i9.i87, 3
-  %add.i89 = add nsw i64 %sub.ptr.div.i.i.i10.i88, 1
+_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i: ; preds = %while.body.i.i.i11.i91, %if.end.i77
+  %__first.addr.0.lcssa.i.i.i6.i83 = phi ptr [ %add.ptr.i78, %if.end.i77 ], [ %__first.addr.1.i.i.i23.i, %while.body.i.i.i11.i91 ]
+  %sub.ptr.lhs.cast.i.i.i8.i84 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i6.i83 to i64
+  %sub.ptr.sub.i.i.i9.i85 = sub i64 %sub.ptr.lhs.cast.i.i.i8.i84, %sub.ptr.lhs.cast.i.i.i.i73
+  %sub.ptr.div.i.i.i10.i86 = ashr exact i64 %sub.ptr.sub.i.i.i9.i85, 3
+  %add.i87 = add nsw i64 %sub.ptr.div.i.i.i10.i86, 1
   br label %return
 
 return:                                           ; preds = %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i
-  %sub.ptr.div.i.i.i.i.pn = phi i64 [ %sub.ptr.div.i.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i ], [ %sub.ptr.div.i.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i ], [ %sub.ptr.div.i.i.i.i21, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i ], [ %sub.ptr.div.i.i.i.i21, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i ], [ %sub.ptr.div.i.i.i.i76, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i ], [ %sub.ptr.div.i.i.i.i76, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i ]
-  %retval.sroa.3.0.i.pn = phi i64 [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i ], [ %add.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i ], [ %add.i34, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i ], [ %add.i89, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i ]
+  %sub.ptr.div.i.i.i.i.pn = phi i64 [ %sub.ptr.div.i.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i ], [ %sub.ptr.div.i.i.i.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i ], [ %sub.ptr.div.i.i.i.i21, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i ], [ %sub.ptr.div.i.i.i.i21, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i ], [ %sub.ptr.div.i.i.i.i75, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i ], [ %sub.ptr.div.i.i.i.i75, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i ]
+  %retval.sroa.3.0.i.pn = phi i64 [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i ], [ %add.i, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit26.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i ], [ %add.i33, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit26.i ], [ 0, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i ], [ %add.i87, %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit25.i ]
   %.fca.0.insert.i.pn = insertvalue { i64, i64 } undef, i64 %sub.ptr.div.i.i.i.i.pn, 0
   %call4.pn = insertvalue { i64, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.3.0.i.pn, 1
   ret { i64, i64 } %call4.pn

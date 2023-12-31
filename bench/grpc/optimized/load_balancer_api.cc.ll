@@ -1014,13 +1014,12 @@ if.else:                                          ; preds = %if.then
   %incdec.ptr.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %4, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr9.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %4, i64 -1
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %add.ptr.i
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -76
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %4, i64 %sub.ptr.div.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i, ptr align 4 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
@@ -1049,7 +1048,6 @@ _ZNKSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pr
   %cmp9.i.i = icmp ugt i64 %add.i.i, 121360158379668102
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
   %cond.i.i = select i1 %or.cond.i.i, i64 121360158379668102, i64 %add.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i6 to i64
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i, 76
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN9grpc_core12GrpcLbServerEEE8allocateERS2_m.exit.i.i
@@ -1073,7 +1071,7 @@ if.then.i.i.i12.i:                                ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %if.then.i.i.i12.i, %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i, i64 %sub.ptr.sub.i
   %incdec.ptr.i8 = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %add.ptr.i.i.i.i, i64 1
-  %sub.ptr.sub.i.i.i15.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i
+  %sub.ptr.sub.i.i.i15.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i
   %cmp.i.i.i16.i = icmp sgt i64 %sub.ptr.sub.i.i.i15.i, 0
   br i1 %cmp.i.i.i16.i, label %if.then.i.i.i18.i, label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i
 

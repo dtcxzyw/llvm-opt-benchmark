@@ -1529,39 +1529,14 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %add.ptr.i2.i = getelementptr inbounds ptr, ptr %3, i64 %0
   %_M_finish.i.i = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
-  %sub.ptr.lhs.cast.i1.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i3.i.i
   %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %4
-  br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EE12truncateListEm.exit, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EE12truncateListEm.exit, label %invoke.cont.i.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.end.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %4, %add.ptr.i5.i.i
-  br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i: ; preds = %if.then.i.i.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i2.i, ptr align 8 %add.ptr.i5.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
-  %.pre.i.i.i = load ptr, ptr %_M_finish.i.i, align 8
-  %.pre9.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
-  br label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i, %if.then.i.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i.i = phi i64 [ %.pre9.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i, %if.then.i.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i, %if.then.i.i.i ]
-  %5 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i ], [ %4, %if.then.i.i.i ]
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i
-  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %5, %add.ptr.i6.i.i
-  br i1 %tobool.not.i.i.i.i, label %_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EE12truncateListEm.exit, label %invoke.cont.i.i.i.i
-
-invoke.cont.i.i.i.i:                              ; preds = %if.end.i.i.i
-  store ptr %add.ptr.i6.i.i, ptr %_M_finish.i.i, align 8
+invoke.cont.i.i.i.i:                              ; preds = %if.end.i
+  store ptr %add.ptr.i2.i, ptr %_M_finish.i.i, align 8
   br label %_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EE12truncateListEm.exit
 
-_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EE12truncateListEm.exit: ; preds = %if.end.i, %if.end.i.i.i, %invoke.cont.i.i.i.i
+_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EE12truncateListEm.exit: ; preds = %if.end.i, %invoke.cont.i.i.i.i
   ret void
 }
 
@@ -1577,7 +1552,12 @@ invoke.cont:                                      ; preds = %entry
   %0 = load i8, ptr %d_callCleanup, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  br i1 %tobool.not, label %invoke.cont.if.end_crit_edge, label %if.then
+
+invoke.cont.if.end_crit_edge:                     ; preds = %invoke.cont
+  %d_list.phi.trans.insert = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this, i64 0, i32 1
+  %.pre = load ptr, ptr %d_list.phi.trans.insert, align 8
+  br label %if.end
 
 if.then:                                          ; preds = %invoke.cont
   %d_size4.i = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this, i64 0, i32 2
@@ -1594,56 +1574,30 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %2 = load ptr, ptr %d_list5.i, align 8
   %_M_finish.i.i = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.lhs.cast.i1.i.i = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i3.i.i
   %cmp.i.not.i.i.i = icmp eq ptr %2, %3
-  br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %if.end, label %invoke.cont.i.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.end.i
-  %cmp.i1.not.i.i.i = icmp eq ptr %3, %add.ptr.i5.i.i
-  br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i: ; preds = %if.then.i.i.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 8 %add.ptr.i5.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
-  %.pre.i.i.i = load ptr, ptr %_M_finish.i.i, align 8
-  %.pre9.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
-  br label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i, %if.then.i.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i.i = phi i64 [ %.pre9.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i, %if.then.i.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i, %if.then.i.i.i ]
-  %4 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i ], [ %3, %if.then.i.i.i ]
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i
-  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %4, %add.ptr.i6.i.i
-  br i1 %tobool.not.i.i.i.i, label %if.end, label %invoke.cont.i.i.i.i
-
-invoke.cont.i.i.i.i:                              ; preds = %if.end.i.i.i
-  store ptr %add.ptr.i6.i.i, ptr %_M_finish.i.i, align 8
+invoke.cont.i.i.i.i:                              ; preds = %if.end.i
+  store ptr %2, ptr %_M_finish.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %invoke.cont.i.i.i.i, %if.end.i.i.i, %if.end.i, %invoke.cont
-  %d_list = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this, i64 0, i32 1
-  %5 = load ptr, ptr %d_list, align 8
-  %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN4cvc58internal6theory16DecisionStrategyESaIS4_EED2Ev.exit, label %if.then.i.i.i1
+if.end:                                           ; preds = %invoke.cont.if.end_crit_edge, %invoke.cont.i.i.i.i, %if.end.i
+  %4 = phi ptr [ %.pre, %invoke.cont.if.end_crit_edge ], [ %2, %invoke.cont.i.i.i.i ], [ %2, %if.end.i ]
+  %tobool.not.i.i.i = icmp eq ptr %4, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN4cvc58internal6theory16DecisionStrategyESaIS4_EED2Ev.exit, label %if.then.i.i.i
 
-if.then.i.i.i1:                                   ; preds = %if.end
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+if.then.i.i.i:                                    ; preds = %if.end
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
   br label %_ZNSt6vectorIPN4cvc58internal6theory16DecisionStrategyESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPN4cvc58internal6theory16DecisionStrategyESaIS4_EED2Ev.exit: ; preds = %if.end, %if.then.i.i.i1
+_ZNSt6vectorIPN4cvc58internal6theory16DecisionStrategyESaIS4_EED2Ev.exit: ; preds = %if.end, %if.then.i.i.i
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #19
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #19
   unreachable
 }
 
@@ -1659,7 +1613,12 @@ invoke.cont.i:                                    ; preds = %entry
   %0 = load i8, ptr %d_callCleanup.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  br i1 %tobool.not.i, label %invoke.cont.if.end_crit_edge.i, label %if.then.i
+
+invoke.cont.if.end_crit_edge.i:                   ; preds = %invoke.cont.i
+  %d_list.phi.trans.insert.i = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this, i64 0, i32 1
+  %.pre.i = load ptr, ptr %d_list.phi.trans.insert.i, align 8
+  br label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %d_size4.i.i = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this, i64 0, i32 2
@@ -1676,56 +1635,30 @@ if.end.i.i:                                       ; preds = %if.end.sink.split.i
   %2 = load ptr, ptr %d_list5.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.lhs.cast.i1.i.i.i = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %add.ptr.i5.i.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i3.i.i.i
   %cmp.i.not.i.i.i.i = icmp eq ptr %2, %3
-  br i1 %cmp.i.not.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %if.end.i, label %invoke.cont.i.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %cmp.i1.not.i.i.i.i = icmp eq ptr %3, %add.ptr.i5.i.i.i
-  br i1 %cmp.i1.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 8 %add.ptr.i5.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
-  %.pre.i.i.i.i = load ptr, ptr %_M_finish.i.i.i, align 8
-  %.pre9.i.i.i.i = ptrtoint ptr %.pre.i.i.i.i to i64
-  br label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i, %if.then.i.i.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i = phi i64 [ %.pre9.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i.i, %if.then.i.i.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i.i, %if.then.i.i.i.i ]
-  %4 = phi ptr [ %.pre.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4cvc58internal6theory16DecisionStrategyESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i ], [ %3, %if.then.i.i.i.i ]
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i.i.i
-  %add.ptr.i6.i.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i.i.i.i
-  %tobool.not.i.i.i.i.i = icmp eq ptr %4, %add.ptr.i6.i.i.i
-  br i1 %tobool.not.i.i.i.i.i, label %if.end.i, label %invoke.cont.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i
-  store ptr %add.ptr.i6.i.i.i, ptr %_M_finish.i.i.i, align 8
+invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i.i
+  store ptr %2, ptr %_M_finish.i.i.i, align 8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %invoke.cont.i.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i, %invoke.cont.i
-  %d_list.i = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this, i64 0, i32 1
-  %5 = load ptr, ptr %d_list.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EED2Ev.exit, label %if.then.i.i.i1.i
+if.end.i:                                         ; preds = %invoke.cont.i.i.i.i.i, %if.end.i.i, %invoke.cont.if.end_crit_edge.i
+  %4 = phi ptr [ %.pre.i, %invoke.cont.if.end_crit_edge.i ], [ %2, %invoke.cont.i.i.i.i.i ], [ %2, %if.end.i.i ]
+  %tobool.not.i.i.i.i = icmp eq ptr %4, null
+  br i1 %tobool.not.i.i.i.i, label %_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EED2Ev.exit, label %if.then.i.i.i.i
 
-if.then.i.i.i1.i:                                 ; preds = %if.end.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+if.then.i.i.i.i:                                  ; preds = %if.end.i
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
   br label %_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EED2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #19
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #19
   unreachable
 
-_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EED2Ev.exit: ; preds = %if.end.i, %if.then.i.i.i1.i
+_ZN4cvc57context6CDListIPNS_8internal6theory16DecisionStrategyENS0_14DefaultCleanUpIS5_EESaIS5_EED2Ev.exit: ; preds = %if.end.i, %if.then.i.i.i.i
   tail call void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef nonnull %this) #18
   ret void
 }

@@ -558,7 +558,7 @@ if.then.i:                                        ; preds = %while.bodythread-pr
   %mul.i = mul i32 %t.041.i123, 10
   %sub.i = add i32 %mul.i, -48
   %add.i = add i32 %sub.i, %conv5.i
-  %exitcond.not.i = icmp eq ptr %incdec.ptr.i125, %scevgep.i
+  %exitcond.not.i = icmp eq ptr %incdec.ptr.i125, %call
   br i1 %exitcond.not.i, label %while.end.split.i, label %while.bodythread-pre-split.i, !llvm.loop !10
 
 if.else.i:                                        ; preds = %while.bodythread-pre-split.i, %while.body.us.i

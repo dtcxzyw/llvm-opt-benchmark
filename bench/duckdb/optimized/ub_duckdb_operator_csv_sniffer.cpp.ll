@@ -31958,36 +31958,16 @@ if.end48:                                         ; preds = %if.then45, %if.else
   %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i20.i = sub i64 %sub.ptr.lhs.cast.i18.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i21.i = ashr exact i64 %sub.ptr.sub.i20.i, 3
-  %add.ptr.i22.i = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i20.i
   %cmp.i.not.i.i = icmp eq i64 %14, %sub.ptr.div.i21.i
-  br i1 %cmp.i.not.i.i, label %return, label %if.then.i.i
+  %tobool.not.i.i.i = icmp eq ptr %15, %add.ptr.i
+  %or.cond5 = select i1 %cmp.i.not.i.i, i1 true, i1 %tobool.not.i.i.i
+  br i1 %or.cond5, label %return, label %invoke.cont.i.i.i
 
-if.then.i.i:                                      ; preds = %if.end48
-  %cmp.i23.not.i.i = icmp eq ptr %15, %add.ptr.i22.i
-  br i1 %cmp.i23.not.i.i, label %if.end.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %if.then.i.i
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i22.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i18.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 8 %add.ptr.i22.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
-  %.pre.i.i = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %.pre31.i.i = ptrtoint ptr %.pre.i.i to i64
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i, %if.then.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre31.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %sub.ptr.lhs.cast.i18.i, %if.then.i.i ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %sub.ptr.lhs.cast.i18.i, %if.then.i.i ]
-  %16 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %15, %if.then.i.i ]
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i
-  %add.ptr.i23.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub.i.i.i
-  %tobool.not.i.i.i = icmp eq ptr %16, %add.ptr.i23.i
-  br i1 %tobool.not.i.i.i, label %return, label %invoke.cont.i.i.i
-
-invoke.cont.i.i.i:                                ; preds = %if.end.i.i
-  store ptr %add.ptr.i23.i, ptr %_M_finish.i, align 8, !tbaa !574
+invoke.cont.i.i.i:                                ; preds = %if.end48
+  store ptr %add.ptr.i, ptr %_M_finish.i, align 8, !tbaa !574
   br label %return
 
-return:                                           ; preds = %invoke.cont.i.i.i, %if.end.i.i, %if.end48, %entry
+return:                                           ; preds = %invoke.cont.i.i.i, %if.end48, %entry
   ret void
 }
 

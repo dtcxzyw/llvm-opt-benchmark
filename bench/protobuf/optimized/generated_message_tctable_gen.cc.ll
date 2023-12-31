@@ -5740,7 +5740,7 @@ invoke.cont27:                                    ; preds = %for.end
   br i1 %cmp.i.i.i.i10, label %invoke.cont34.thread79, label %while.cond.i.i.i
 
 invoke.cont34.thread79:                           ; preds = %invoke.cont27
-  %sub.ptr.rhs.cast.i.i82 = ptrtoint ptr %enum_values.sroa.0.1 to i64
+  %sub.ptr.rhs.cast.i.i81 = ptrtoint ptr %enum_values.sroa.0.1 to i64
   br label %invoke.cont40
 
 while.cond.i.i.i:                                 ; preds = %invoke.cont27, %while.body.i.i.i
@@ -5785,35 +5785,20 @@ if.end20.i.i:                                     ; preds = %if.then16.i.i, %whi
 
 invoke.cont34:                                    ; preds = %if.end20.i.i, %if.end.i.i
   %__dest.sroa.0.0.lcssa.i.i = phi ptr [ %__first.sroa.0.0.i.i.i, %if.end.i.i ], [ %__dest.sroa.0.1.i.i, %if.end20.i.i ]
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %enum_values.sroa.0.1 to i64
+  %cmp.i.not.i.i = icmp eq ptr %__dest.sroa.0.0.lcssa.i.i, %add.ptr.i.i.i.i.i.i.pn
+  br i1 %cmp.i.not.i.i, label %invoke.cont40, label %if.end.i.i12
+
+if.end.i.i12:                                     ; preds = %invoke.cont34
   %incdec.ptr.i6.i.i = getelementptr inbounds i32, ptr %__dest.sroa.0.0.lcssa.i.i, i64 1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %incdec.ptr.i6.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %enum_values.sroa.0.1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %enum_values.sroa.0.1, i64 %sub.ptr.sub.i.i
-  %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %enum_values.sroa.14.1 to i64
-  %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i5.i = getelementptr inbounds i8, ptr %enum_values.sroa.0.1, i64 %sub.ptr.sub.i3.i
-  %cmp.i.not.i.i = icmp eq ptr %__dest.sroa.0.0.lcssa.i.i, %add.ptr.i.i.i.i.i.i.pn
-  br i1 %cmp.i.not.i.i, label %invoke.cont40, label %if.then.i.i11
-
-if.then.i.i11:                                    ; preds = %invoke.cont34
-  %cmp.i1.not.i.i = icmp eq ptr %enum_values.sroa.14.1, %add.ptr.i5.i
-  br i1 %cmp.i1.not.i.i, label %if.end.i.i12, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %if.then.i.i11
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i5.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i, ptr align 4 %add.ptr.i5.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
-  br label %if.end.i.i12
-
-if.end.i.i12:                                     ; preds = %if.then.i.i11, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i
-  %sub.ptr.sub.i.i.i.pre-phi = phi i64 [ %sub.ptr.sub.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i ], [ 0, %if.then.i.i11 ]
-  %add.ptr.i6.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i.pre-phi
   br label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %invoke.cont34.thread79, %if.end.i.i12, %invoke.cont34, %invoke.cont34.thread
-  %sub.ptr.rhs.cast.i.i60 = phi i64 [ %sub.ptr.rhs.cast.i.i, %invoke.cont34 ], [ %sub.ptr.rhs.cast.i.i53, %invoke.cont34.thread ], [ %sub.ptr.rhs.cast.i.i, %if.end.i.i12 ], [ %sub.ptr.rhs.cast.i.i82, %invoke.cont34.thread79 ]
-  %enum_values.sroa.14.2 = phi ptr [ %enum_values.sroa.14.1, %invoke.cont34 ], [ %enum_values.sroa.14.1, %invoke.cont34.thread ], [ %add.ptr.i6.i, %if.end.i.i12 ], [ %enum_values.sroa.14.1, %invoke.cont34.thread79 ]
+  %sub.ptr.rhs.cast.i.i60 = phi i64 [ %sub.ptr.rhs.cast.i.i, %invoke.cont34 ], [ %sub.ptr.rhs.cast.i.i53, %invoke.cont34.thread ], [ %sub.ptr.rhs.cast.i.i, %if.end.i.i12 ], [ %sub.ptr.rhs.cast.i.i81, %invoke.cont34.thread79 ]
+  %enum_values.sroa.14.2 = phi ptr [ %enum_values.sroa.14.1, %invoke.cont34 ], [ %enum_values.sroa.14.1, %invoke.cont34.thread ], [ %add.ptr.i.i, %if.end.i.i12 ], [ %enum_values.sroa.14.1, %invoke.cont34.thread79 ]
   %11 = load i32, ptr %enum_values.sroa.0.1, align 4
   %12 = add i32 %11, -32768
   %or.cond = icmp ult i32 %12, -65536

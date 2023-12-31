@@ -12783,7 +12783,7 @@ cleanup.cont410:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp419) #21
   %240 = load ptr, ptr %_M_finish.i.i.i.i.i.i7.i.i.i.i.i, align 16, !tbaa !33
   store ptr %240, ptr %ref.tmp419, align 8
-  %cmp.i.i.i.i.i1475 = icmp eq ptr %add.ptr.i.i.i.i1473, %240
+  %cmp.i.i.i.i.i1475 = icmp eq ptr %238, %240
   br i1 %cmp.i.i.i.i.i1475, label %if.then.i.i1477, label %if.end.i.i1476
 
 if.then.i.i1477:                                  ; preds = %cleanup.cont410
@@ -16842,7 +16842,7 @@ cleanup.cont410:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp419) #21
   %240 = load ptr, ptr %_M_finish.i.i.i.i.i.i7.i.i.i.i.i, align 16, !tbaa !33
   store ptr %240, ptr %ref.tmp419, align 8
-  %cmp.i.i.i.i.i1475 = icmp eq ptr %add.ptr.i.i.i.i1473, %240
+  %cmp.i.i.i.i.i1475 = icmp eq ptr %238, %240
   br i1 %cmp.i.i.i.i.i1475, label %if.then.i.i1477, label %if.end.i.i1476
 
 if.then.i.i1477:                                  ; preds = %cleanup.cont410
@@ -36290,13 +36290,17 @@ _ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4entt8int
 _ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEPS8_EET0_T_SD_SC_.exit: ; preds = %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEPS8_EET0_T_SD_SC_.exit.loopexit, %if.then27
   %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre74, %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEPS8_EET0_T_SD_SC_.exit.loopexit ], [ %sub.ptr.rhs.cast.i90, %if.then27 ]
   %37 = phi ptr [ %.pre66, %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEPS8_EET0_T_SD_SC_.exit.loopexit ], [ %21, %if.then27 ]
+  %__result.addr.0.lcssa.i = phi ptr [ %incdec.ptr1.i, %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEPS8_EET0_T_SD_SC_.exit.loopexit ], [ %3, %if.then27 ]
+  %cmp.i.not6.i.i.i = icmp eq ptr %__result.addr.0.lcssa.i, %37
+  br i1 %cmp.i.not6.i.i.i, label %if.end69, label %for.body.i.i.i101.preheader
+
+for.body.i.i.i101.preheader:                      ; preds = %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEPS8_EET0_T_SD_SC_.exit
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i90
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
-  %cmp.i.not6.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %37
-  br i1 %cmp.i.not6.i.i.i, label %if.end69, label %for.body.i.i.i101
+  br label %for.body.i.i.i101
 
-for.body.i.i.i101:                                ; preds = %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEPS8_EET0_T_SD_SC_.exit, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEEvPT_.exit.i.i.i114
-  %__first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEEvPT_.exit.i.i.i114 ], [ %add.ptr.i.i.i.i, %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEPS8_EET0_T_SD_SC_.exit ]
+for.body.i.i.i101:                                ; preds = %for.body.i.i.i101.preheader, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEEvPT_.exit.i.i.i114
+  %__first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEEvPT_.exit.i.i.i114 ], [ %add.ptr.i.i.i.i, %for.body.i.i.i101.preheader ]
   %_M_refcount.i.i.i.i.i.i.i102 = getelementptr inbounds %"struct.entt::internal::dense_map_node.132", ptr %__first.sroa.0.07.i.i.i, i64 0, i32 1, i32 1, i32 0, i32 1
   %38 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i102, align 8, !tbaa !60
   %cmp.not.i.i.i.i.i.i.i.i103 = icmp eq ptr %38, null

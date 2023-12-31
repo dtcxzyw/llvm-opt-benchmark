@@ -303,7 +303,7 @@ entry:
   ret i64 0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i64 @ZSTDv02_resetDCtx(ptr nocapture noundef writeonly %dctx) local_unnamed_addr #5 {
 entry:
   %expected.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %dctx, i64 0, i32 5
@@ -1087,9 +1087,8 @@ ZSTD_decodeSeqHeaders.exit.i:                     ; preds = %for.body.i81.i.i, %
 if.end.i24:                                       ; preds = %ZSTD_decodeSeqHeaders.exit.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i11 to i64
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.ptr.sub110.i.i
-  %sub.ptr.rhs.cast12.i = ptrtoint ptr %add.ptr8.i to i64
-  %sub.ptr.sub13.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast12.i
-  %cmp.i35.i = icmp eq i64 %sub.ptr.sub110.i.i, %sub
+  %sub.ptr.sub13.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast108.i.i
+  %cmp.i35.i = icmp eq ptr %add.ptr.i.i11, %ip.3.i.i
   br i1 %cmp.i35.i, label %return, label %if.end.i36.i
 
 if.end.i36.i:                                     ; preds = %if.end.i24
@@ -1222,7 +1221,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %BIT_reloadDStream.exit.sink.split.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
-  %cmp13.i.i.i = icmp eq ptr %seqState.sroa.40239.0289.i, %add.ptr8.i
+  %cmp13.i.i.i = icmp eq ptr %seqState.sroa.40239.0289.i, %ip.3.i.i
   br i1 %cmp13.i.i.i, label %FSE_initDState.exit.i, label %if.end22.i.i.i
 
 if.end22.i.i.i:                                   ; preds = %if.end10.i.i.i
@@ -1230,9 +1229,9 @@ if.end22.i.i.i:                                   ; preds = %if.end10.i.i.i
   %idx.ext26.i.i.i = zext nneg i32 %shr24.i.i.i to i64
   %idx.neg27.i.i.i = sub nsw i64 0, %idx.ext26.i.i.i
   %add.ptr28.i.i.i = getelementptr inbounds i8, ptr %seqState.sroa.40239.0289.i, i64 %idx.neg27.i.i.i
-  %cmp30.i.i.i = icmp ult ptr %add.ptr28.i.i.i, %add.ptr8.i
+  %cmp30.i.i.i = icmp ult ptr %add.ptr28.i.i.i, %ip.3.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %seqState.sroa.40239.0289.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast12.i
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast108.i.i
   %conv35.i.i.i = trunc i64 %sub.ptr.sub.i.i.i to i32
   %nbBytes.0.i.i.i = select i1 %cmp30.i.i.i, i32 %conv35.i.i.i, i32 %shr24.i.i.i
   %mul.i.i.i30 = shl i32 %nbBytes.0.i.i.i, 3
@@ -1251,7 +1250,7 @@ BIT_reloadDStream.exit.sink.split.i.i:            ; preds = %if.end22.i.i.i, %if
 FSE_initDState.exit.i:                            ; preds = %BIT_reloadDStream.exit.sink.split.i.i, %if.end10.i.i.i, %if.end18.i
   %seqState.sroa.0.2.i = phi i64 [ %seqState.sroa.0.1287.i, %if.end18.i ], [ %seqState.sroa.0.1287.i, %if.end10.i.i.i ], [ %add.ptr7.val.i.i.i, %BIT_reloadDStream.exit.sink.split.i.i ]
   %seqState.sroa.18.1.i = phi i32 [ %add.i.i.i.i, %if.end18.i ], [ %add.i.i.i.i, %if.end10.i.i.i ], [ %and.i.sink.i.i, %BIT_reloadDStream.exit.sink.split.i.i ]
-  %seqState.sroa.40239.2.i = phi ptr [ %seqState.sroa.40239.0289.i, %if.end18.i ], [ %add.ptr8.i, %if.end10.i.i.i ], [ %seqState.sroa.40239.1.i, %BIT_reloadDStream.exit.sink.split.i.i ]
+  %seqState.sroa.40239.2.i = phi ptr [ %seqState.sroa.40239.0289.i, %if.end18.i ], [ %ip.3.i.i, %if.end10.i.i.i ], [ %seqState.sroa.40239.1.i, %BIT_reloadDStream.exit.sink.split.i.i ]
   %add.ptr.i50.i = getelementptr inbounds i32, ptr %ctx, i64 1
   %DTableH.sroa.0.0.copyload.i51.i = load i16, ptr %OffTable.i, align 4
   %conv.i52.i = zext i16 %DTableH.sroa.0.0.copyload.i51.i to i32
@@ -1278,7 +1277,7 @@ if.then4.i.i70.i:                                 ; preds = %if.end.i.i65.i
   br label %BIT_reloadDStream.exit.sink.split.i76.i
 
 if.end10.i.i82.i:                                 ; preds = %if.end.i.i65.i
-  %cmp13.i.i83.i = icmp eq ptr %seqState.sroa.40239.2.i, %add.ptr8.i
+  %cmp13.i.i83.i = icmp eq ptr %seqState.sroa.40239.2.i, %ip.3.i.i
   br i1 %cmp13.i.i83.i, label %FSE_initDState.exit100.i, label %if.end22.i.i84.i
 
 if.end22.i.i84.i:                                 ; preds = %if.end10.i.i82.i
@@ -1286,9 +1285,9 @@ if.end22.i.i84.i:                                 ; preds = %if.end10.i.i82.i
   %idx.ext26.i.i86.i = zext nneg i32 %shr24.i.i85.i to i64
   %idx.neg27.i.i87.i = sub nsw i64 0, %idx.ext26.i.i86.i
   %add.ptr28.i.i88.i = getelementptr inbounds i8, ptr %seqState.sroa.40239.2.i, i64 %idx.neg27.i.i87.i
-  %cmp30.i.i89.i = icmp ult ptr %add.ptr28.i.i88.i, %add.ptr8.i
+  %cmp30.i.i89.i = icmp ult ptr %add.ptr28.i.i88.i, %ip.3.i.i
   %sub.ptr.lhs.cast.i.i90.i = ptrtoint ptr %seqState.sroa.40239.2.i to i64
-  %sub.ptr.sub.i.i92.i = sub i64 %sub.ptr.lhs.cast.i.i90.i, %sub.ptr.rhs.cast12.i
+  %sub.ptr.sub.i.i92.i = sub i64 %sub.ptr.lhs.cast.i.i90.i, %sub.ptr.lhs.cast108.i.i
   %conv35.i.i93.i = trunc i64 %sub.ptr.sub.i.i92.i to i32
   %nbBytes.0.i.i94.i = select i1 %cmp30.i.i89.i, i32 %conv35.i.i93.i, i32 %shr24.i.i85.i
   %mul.i.i98.i = shl i32 %nbBytes.0.i.i94.i, 3
@@ -1307,7 +1306,7 @@ BIT_reloadDStream.exit.sink.split.i76.i:          ; preds = %if.end22.i.i84.i, %
 FSE_initDState.exit100.i:                         ; preds = %BIT_reloadDStream.exit.sink.split.i76.i, %if.end10.i.i82.i, %FSE_initDState.exit.i
   %seqState.sroa.0.3.i = phi i64 [ %seqState.sroa.0.2.i, %FSE_initDState.exit.i ], [ %seqState.sroa.0.2.i, %if.end10.i.i82.i ], [ %add.ptr7.val.i.i79.i, %BIT_reloadDStream.exit.sink.split.i76.i ]
   %seqState.sroa.18.2.i = phi i32 [ %add.i.i.i63.i, %FSE_initDState.exit.i ], [ %add.i.i.i63.i, %if.end10.i.i82.i ], [ %and.i.sink.i77.i, %BIT_reloadDStream.exit.sink.split.i76.i ]
-  %seqState.sroa.40239.4.i = phi ptr [ %seqState.sroa.40239.2.i, %FSE_initDState.exit.i ], [ %add.ptr8.i, %if.end10.i.i82.i ], [ %seqState.sroa.40239.3.i, %BIT_reloadDStream.exit.sink.split.i76.i ]
+  %seqState.sroa.40239.4.i = phi ptr [ %seqState.sroa.40239.2.i, %FSE_initDState.exit.i ], [ %ip.3.i.i, %if.end10.i.i82.i ], [ %seqState.sroa.40239.3.i, %BIT_reloadDStream.exit.sink.split.i76.i ]
   %add.ptr.i80.i = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %ctx, i64 0, i32 1, i64 1
   %DTableH.sroa.0.0.copyload.i101.i = load i16, ptr %MLTable.i, align 4
   %conv.i102.i = zext i16 %DTableH.sroa.0.0.copyload.i101.i to i32
@@ -1343,7 +1342,7 @@ FSE_initDState.exit150.i.thread128:               ; preds = %if.end.i.i115.i
   br label %if.end.i153.i.preheader
 
 if.end10.i.i132.i:                                ; preds = %if.end.i.i115.i
-  %cmp13.i.i133.i = icmp eq ptr %seqState.sroa.40239.4.i, %add.ptr8.i
+  %cmp13.i.i133.i = icmp eq ptr %seqState.sroa.40239.4.i, %ip.3.i.i
   br i1 %cmp13.i.i133.i, label %FSE_initDState.exit150.i.thread102, label %FSE_initDState.exit150.i
 
 FSE_initDState.exit150.i.thread102:               ; preds = %if.end10.i.i132.i
@@ -1355,9 +1354,9 @@ FSE_initDState.exit150.i:                         ; preds = %if.end10.i.i132.i
   %idx.ext26.i.i136.i = zext nneg i32 %shr24.i.i135.i to i64
   %idx.neg27.i.i137.i = sub nsw i64 0, %idx.ext26.i.i136.i
   %add.ptr28.i.i138.i = getelementptr inbounds i8, ptr %seqState.sroa.40239.4.i, i64 %idx.neg27.i.i137.i
-  %cmp30.i.i139.i = icmp ult ptr %add.ptr28.i.i138.i, %add.ptr8.i
+  %cmp30.i.i139.i = icmp ult ptr %add.ptr28.i.i138.i, %ip.3.i.i
   %sub.ptr.lhs.cast.i.i140.i = ptrtoint ptr %seqState.sroa.40239.4.i to i64
-  %sub.ptr.sub.i.i142.i = sub i64 %sub.ptr.lhs.cast.i.i140.i, %sub.ptr.rhs.cast12.i
+  %sub.ptr.sub.i.i142.i = sub i64 %sub.ptr.lhs.cast.i.i140.i, %sub.ptr.lhs.cast108.i.i
   %conv35.i.i143.i = trunc i64 %sub.ptr.sub.i.i142.i to i32
   %nbBytes.0.i.i144.i = select i1 %cmp30.i.i139.i, i32 %conv35.i.i143.i, i32 %shr24.i.i135.i
   %mul.i.i148.i = shl i32 %nbBytes.0.i.i144.i, 3
@@ -1372,7 +1371,7 @@ FSE_initDState.exit150.i:                         ; preds = %if.end10.i.i132.i
 
 if.end.i153.i.preheader:                          ; preds = %FSE_initDState.exit150.i.thread128, %FSE_initDState.exit150.i.thread102, %FSE_initDState.exit150.i
   %sub.ptr.lhs.cast10.i.i124 = phi i64 [ %sub.ptr.lhs.cast10.i.i111, %FSE_initDState.exit150.i.thread102 ], [ %sub.ptr.lhs.cast10.i.i, %FSE_initDState.exit150.i ], [ %sub.ptr.lhs.cast10.i.i140, %FSE_initDState.exit150.i.thread128 ]
-  %seqState.sroa.40239.6.i118 = phi ptr [ %add.ptr8.i, %FSE_initDState.exit150.i.thread102 ], [ %seqState.sroa.40239.5.i, %FSE_initDState.exit150.i ], [ %seqState.sroa.40239.5.i133, %FSE_initDState.exit150.i.thread128 ]
+  %seqState.sroa.40239.6.i118 = phi ptr [ %ip.3.i.i, %FSE_initDState.exit150.i.thread102 ], [ %seqState.sroa.40239.5.i, %FSE_initDState.exit150.i ], [ %seqState.sroa.40239.5.i133, %FSE_initDState.exit150.i.thread128 ]
   %seqState.sroa.18.3.i117 = phi i32 [ %add.i.i.i113.i, %FSE_initDState.exit150.i.thread102 ], [ %sub.i.i149.i, %FSE_initDState.exit150.i ], [ %and.i.i125.i, %FSE_initDState.exit150.i.thread128 ]
   %seqState.sroa.0.4.i116 = phi i64 [ %seqState.sroa.0.3.i, %FSE_initDState.exit150.i.thread102 ], [ %add.ptr7.val.i.i129.i, %FSE_initDState.exit150.i ], [ %add.ptr7.val.i.i129.i134, %FSE_initDState.exit150.i.thread128 ]
   %add.ptr.i130.i119 = getelementptr inbounds %struct.ZSTD_DCtx_s, ptr %ctx, i64 0, i32 2, i64 1
@@ -1407,7 +1406,7 @@ if.then4.i.i:                                     ; preds = %if.end.i153.i
   br label %BIT_reloadDStream.exit.sink.split.i
 
 if.end10.i.i:                                     ; preds = %if.end.i153.i
-  %cmp13.i.i = icmp eq ptr %seqState.sroa.40239.7.i67, %add.ptr8.i
+  %cmp13.i.i = icmp eq ptr %seqState.sroa.40239.7.i67, %ip.3.i.i
   br i1 %cmp13.i.i, label %BIT_reloadDStream.exit.i, label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end10.i.i
@@ -1415,9 +1414,9 @@ if.end22.i.i:                                     ; preds = %if.end10.i.i
   %idx.ext26.i.i = zext nneg i32 %shr24.i.i to i64
   %idx.neg27.i.i = sub nsw i64 0, %idx.ext26.i.i
   %add.ptr28.i.i = getelementptr inbounds i8, ptr %seqState.sroa.40239.7.i67, i64 %idx.neg27.i.i
-  %cmp30.i.i = icmp ult ptr %add.ptr28.i.i, %add.ptr8.i
+  %cmp30.i.i = icmp ult ptr %add.ptr28.i.i, %ip.3.i.i
   %sub.ptr.lhs.cast.i160.i = ptrtoint ptr %seqState.sroa.40239.7.i67 to i64
-  %sub.ptr.sub.i162.i = sub i64 %sub.ptr.lhs.cast.i160.i, %sub.ptr.rhs.cast12.i
+  %sub.ptr.sub.i162.i = sub i64 %sub.ptr.lhs.cast.i160.i, %sub.ptr.lhs.cast108.i.i
   %conv35.i.i = trunc i64 %sub.ptr.sub.i162.i to i32
   %nbBytes.0.i.i = select i1 %cmp30.i.i, i32 %conv35.i.i, i32 %shr24.i.i
   %mul.i.i = shl i32 %nbBytes.0.i.i, 3
@@ -1436,7 +1435,7 @@ BIT_reloadDStream.exit.sink.split.i:              ; preds = %if.end22.i.i, %if.t
 BIT_reloadDStream.exit.i:                         ; preds = %BIT_reloadDStream.exit.sink.split.i, %if.end10.i.i
   %seqState.sroa.0.6.i = phi i64 [ %seqState.sroa.0.5.i65, %if.end10.i.i ], [ %add.ptr7.val.i.i, %BIT_reloadDStream.exit.sink.split.i ]
   %seqState.sroa.18.5.i = phi i32 [ %seqState.sroa.18.4.i66, %if.end10.i.i ], [ %seqState.sroa.18.5.ph.i, %BIT_reloadDStream.exit.sink.split.i ]
-  %seqState.sroa.40239.8.i = phi ptr [ %add.ptr8.i, %if.end10.i.i ], [ %add.ptr7.i.sink.i, %BIT_reloadDStream.exit.sink.split.i ]
+  %seqState.sroa.40239.8.i = phi ptr [ %ip.3.i.i, %if.end10.i.i ], [ %add.ptr7.i.sink.i, %BIT_reloadDStream.exit.sink.split.i ]
   %cmp24.i = icmp sgt i32 %nbSeq.1.i70, 0
   br i1 %cmp24.i, label %for.body.i, label %for.end.i.loopexit
 
@@ -1708,25 +1707,21 @@ if.end67.i.i:                                     ; preds = %if.else.i198.i, %if
 
 if.then73.i.i:                                    ; preds = %if.end67.i.i
   %cmp74.i.i = icmp ult ptr %add.ptr68.i.i, %add.ptr4.i.i122
-  br i1 %cmp74.i.i, label %if.then76.i.i, label %if.end84.i201.i
+  br i1 %cmp74.i.i, label %do.body.i54.i.i, label %if.end84.i201.i
 
-if.then76.i.i:                                    ; preds = %if.then73.i.i
-  %sub.ptr.rhs.cast78.i.i = ptrtoint ptr %add.ptr68.i.i to i64
-  %sub.ptr.sub79.i.i = sub i64 %sub.ptr.lhs.cast77.i.i127, %sub.ptr.rhs.cast78.i.i
-  %add.ptr.i53.i.i = getelementptr inbounds i8, ptr %add.ptr68.i.i, i64 %sub.ptr.sub79.i.i
-  br label %do.body.i54.i.i
-
-do.body.i54.i.i:                                  ; preds = %do.body.i54.i.i, %if.then76.i.i
-  %op.0.i55.i.i = phi ptr [ %add.ptr68.i.i, %if.then76.i.i ], [ %add.ptr1.i58.i.i, %do.body.i54.i.i ]
-  %ip.0.i56.i.i = phi ptr [ %add.ptr69.i.i, %if.then76.i.i ], [ %add.ptr2.i59.i.i, %do.body.i54.i.i ]
+do.body.i54.i.i:                                  ; preds = %if.then73.i.i, %do.body.i54.i.i
+  %op.0.i55.i.i = phi ptr [ %add.ptr1.i58.i.i, %do.body.i54.i.i ], [ %add.ptr68.i.i, %if.then73.i.i ]
+  %ip.0.i56.i.i = phi ptr [ %add.ptr2.i59.i.i, %do.body.i54.i.i ], [ %add.ptr69.i.i, %if.then73.i.i ]
   %ip.0.val.i57.i.i = load i64, ptr %ip.0.i56.i.i, align 1
   store i64 %ip.0.val.i57.i.i, ptr %op.0.i55.i.i, align 1
   %add.ptr1.i58.i.i = getelementptr inbounds i8, ptr %op.0.i55.i.i, i64 8
   %add.ptr2.i59.i.i = getelementptr inbounds i8, ptr %ip.0.i56.i.i, i64 8
-  %cmp.i60.i.i = icmp ult ptr %add.ptr1.i58.i.i, %add.ptr.i53.i.i
+  %cmp.i60.i.i = icmp ult ptr %add.ptr1.i58.i.i, %add.ptr4.i.i122
   br i1 %cmp.i60.i.i, label %do.body.i54.i.i, label %ZSTD_wildcopy.exit61.i.i, !llvm.loop !13
 
 ZSTD_wildcopy.exit61.i.i:                         ; preds = %do.body.i54.i.i
+  %sub.ptr.rhs.cast78.i.i = ptrtoint ptr %add.ptr68.i.i to i64
+  %sub.ptr.sub79.i.i = sub i64 %sub.ptr.lhs.cast77.i.i127, %sub.ptr.rhs.cast78.i.i
   %add.ptr83.i.i = getelementptr inbounds i8, ptr %add.ptr69.i.i, i64 %sub.ptr.sub79.i.i
   br label %if.end84.i201.i
 
@@ -1776,7 +1771,7 @@ for.end.i:                                        ; preds = %FSE_initDState.exit
   %op.0.i.lcssa = phi ptr [ %dst, %FSE_initDState.exit150.i ], [ %op.0.i.lcssa.ph, %for.end.i.loopexit ], [ %dst, %FSE_initDState.exit150.i.thread ]
   %seqState.sroa.40239.8298.i = phi ptr [ %seqState.sroa.40239.5.i, %FSE_initDState.exit150.i ], [ %seqState.sroa.40239.8.i, %for.end.i.loopexit ], [ %seqState.sroa.40239.4.i, %FSE_initDState.exit150.i.thread ]
   %seqState.sroa.18.5297.i = phi i1 [ true, %FSE_initDState.exit150.i ], [ %72, %for.end.i.loopexit ], [ true, %FSE_initDState.exit150.i.thread ]
-  %cmp.i210.i = icmp ne ptr %seqState.sroa.40239.8298.i, %add.ptr8.i
+  %cmp.i210.i = icmp ne ptr %seqState.sroa.40239.8298.i, %ip.3.i.i
   %brmerge = select i1 %cmp.i210.i, i1 true, i1 %seqState.sroa.18.5297.i
   br i1 %brmerge, label %return, label %if.end38.i
 
@@ -1818,7 +1813,7 @@ return:                                           ; preds = %ZSTD_wildcopy.exit.
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal i64 @HUF_decompress4X2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #9 {
 entry:
   %bitD1.i = alloca %struct.BIT_DStream_t, align 8
@@ -2873,7 +2868,7 @@ return:                                           ; preds = %HUF_readDTableX2.ex
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal i64 @HUF_decompress4X4(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #9 {
 if.end.i:
   %bitD1.i = alloca %struct.BIT_DStream_t, align 8
@@ -4200,7 +4195,7 @@ return:                                           ; preds = %HUF_readDTableX4.ex
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @HUF_decompress4X6(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #9 {
+define internal i64 @HUF_decompress4X6(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #10 {
 if.end.i:
   %bitD1.i = alloca %struct.BIT_DStream_t, align 8
   %bitD2.i = alloca %struct.BIT_DStream_t, align 8
@@ -5381,7 +5376,7 @@ return:                                           ; preds = %HUF_readDTableX6.ex
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUF_readStats(ptr nocapture noundef %huffWeight, ptr nocapture noundef %rankStats, ptr nocapture noundef writeonly %nbSymbolsPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #9 {
 entry:
   %symbolNext.i.i = alloca [256 x i16], align 16
@@ -6774,8 +6769,8 @@ return:                                           ; preds = %for.body54, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @FSE_readNCount(ptr nocapture noundef writeonly %normalizedCounter, ptr nocapture noundef %maxSVPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize) unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc i64 @FSE_readNCount(ptr nocapture noundef writeonly %normalizedCounter, ptr nocapture noundef %maxSVPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize) unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %headerBuffer, i64 %hbSize
   %cmp = icmp ult i64 %hbSize, 4
@@ -7016,7 +7011,7 @@ return:                                           ; preds = %land.rhs, %while.en
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @FSE_buildDTable(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) unnamed_addr #11 {
 entry:
   %symbolNext = alloca [256 x i16], align 16
@@ -7157,7 +7152,7 @@ return:                                           ; preds = %for.end59, %entry, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc i64 @BIT_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #12 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
@@ -7361,7 +7356,7 @@ return:                                           ; preds = %if.then15, %entry, 
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUF_decodeStreamX2(ptr noundef %p, ptr nocapture noundef %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef readonly %dt, i32 noundef %dtLog) unnamed_addr #15 {
+define internal fastcc void @HUF_decodeStreamX2(ptr noundef %p, ptr nocapture noundef %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef readonly %dt, i32 noundef %dtLog) unnamed_addr #9 {
 entry:
   %bitsConsumed.i = getelementptr inbounds %struct.BIT_DStream_t, ptr %bitDPtr, i64 0, i32 1
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -4
@@ -7607,7 +7602,7 @@ while.end33:                                      ; preds = %while.body30, %BIT_
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @HUF_decodeStreamX4(ptr noundef %p, ptr nocapture noundef %bitDPtr, ptr noundef readnone %pEnd, ptr nocapture noundef readonly %dt, i32 noundef %dtLog) unnamed_addr #9 {
 entry:
   %bitsConsumed.i = getelementptr inbounds %struct.BIT_DStream_t, ptr %bitDPtr, i64 0, i32 1
@@ -7915,7 +7910,7 @@ if.end47:                                         ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @HUF_fillDTableX6LevelN(ptr nocapture noundef writeonly %DDescription, ptr nocapture noundef writeonly %DSequence, i32 noundef %sizeLog, ptr nocapture noundef readonly %rankValOrigin, i32 noundef %consumed, i32 noundef %minWeight, i32 noundef %maxWeight, ptr nocapture noundef readonly %sortedSymbols, i32 noundef %sortedListSize, ptr nocapture noundef readonly %rankStart, i32 noundef %nbBitsBaseline, i32 %baseSeq.coerce, i16 %DDesc.coerce) unnamed_addr #11 {
+define internal fastcc void @HUF_fillDTableX6LevelN(ptr nocapture noundef writeonly %DDescription, ptr nocapture noundef writeonly %DSequence, i32 noundef %sizeLog, ptr nocapture noundef readonly %rankValOrigin, i32 noundef %consumed, i32 noundef %minWeight, i32 noundef %maxWeight, ptr nocapture noundef readonly %sortedSymbols, i32 noundef %sortedListSize, ptr nocapture noundef readonly %rankStart, i32 noundef %nbBitsBaseline, i32 %baseSeq.coerce, i16 %DDesc.coerce) unnamed_addr #15 {
 entry:
   %baseSeq = alloca %union.HUF_DSeqX6, align 4
   %rankVal = alloca [17 x i32], align 16
@@ -8085,7 +8080,7 @@ for.end69:                                        ; preds = %if.end63, %if.end63
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @HUF_decodeStreamX6(ptr noundef %p, ptr nocapture noundef %bitDPtr, ptr noundef %pEnd, ptr nocapture noundef readonly %DTable, i32 noundef %dtLog) unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i32, ptr %DTable, i64 1
@@ -8446,17 +8441,17 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

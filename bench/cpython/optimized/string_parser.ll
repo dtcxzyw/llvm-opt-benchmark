@@ -119,7 +119,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %incdec.ptr.i.i = getelementptr i8, ptr %s.08.i.i, i64 1
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr.i.i, %scevgep.i.i
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %exitcond.not.i.i, label %while.end.loopexit.i.i, label %land.rhs.i.i, !llvm.loop !5
 
 while.end.loopexit.i.i:                           ; preds = %while.body.i.i, %land.rhs.i.i

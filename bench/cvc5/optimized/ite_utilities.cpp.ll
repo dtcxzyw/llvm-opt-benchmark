@@ -17872,7 +17872,7 @@ if.else.i321:                                     ; preds = %invoke.cont144
 
 if.then5.i:                                       ; preds = %if.else.i321
   %add.ptr.i322 = getelementptr inbounds i8, ptr %108, i64 %sub.ptr.sub.i317
-  %tobool.not.i.i = icmp eq ptr %109, %add.ptr.i322
+  %tobool.not.i.i = icmp eq ptr %109, %call.i314
   br i1 %tobool.not.i.i, label %invoke.cont151, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then5.i, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i.i
@@ -25110,7 +25110,7 @@ if.else.i:                                        ; preds = %invoke.cont93
 
 if.then5.i221:                                    ; preds = %if.else.i
   %add.ptr.i222 = getelementptr inbounds i8, ptr %37, i64 %sub.ptr.sub.i217
-  %tobool.not.i.i = icmp eq ptr %38, %add.ptr.i222
+  %tobool.not.i.i = icmp eq ptr %38, %call.i214
   br i1 %tobool.not.i.i, label %invoke.cont100, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then5.i221, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i.i
@@ -25151,7 +25151,7 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN4cvc
   br label %invoke.cont100
 
 invoke.cont100:                                   ; preds = %if.then.i223.invoke.cont100_crit_edge, %invoke.cont.i.i, %if.then5.i221, %if.else.i
-  %43 = phi ptr [ %.pre, %if.then.i223.invoke.cont100_crit_edge ], [ %add.ptr.i222, %invoke.cont.i.i ], [ %38, %if.then5.i221 ], [ %38, %if.else.i ]
+  %43 = phi ptr [ %.pre, %if.then.i223.invoke.cont100_crit_edge ], [ %add.ptr.i222, %invoke.cont.i.i ], [ %call.i214, %if.then5.i221 ], [ %38, %if.else.i ]
   %44 = load ptr, ptr %intersection, align 8
   %cmp.i.i226 = icmp eq ptr %44, %43
   br i1 %cmp.i.i226, label %if.then102, label %if.else

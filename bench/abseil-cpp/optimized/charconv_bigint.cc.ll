@@ -302,7 +302,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %begin.addr.0166, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %end
   br i1 %exitcond.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !7
 
 while.end.loopexit:                               ; preds = %while.body, %land.rhs
@@ -2545,7 +2545,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %begin.addr.0166, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %end
   br i1 %exitcond.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !23
 
 while.end.loopexit:                               ; preds = %while.body, %land.rhs

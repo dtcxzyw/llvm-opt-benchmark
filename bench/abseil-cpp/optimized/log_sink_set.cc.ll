@@ -136,10 +136,6 @@ invoke.cont.i1:                                   ; preds = %if.then.i
   store i8 1, ptr %5, align 1
   %11 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 8), align 8
   %12 = load ptr, ptr getelementptr inbounds (%"class.absl::NoDestructor", ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 0, i32 0, i32 0, i64 16), align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i.i
   %cmp.not5.i6.i = icmp eq ptr %12, %11
   br i1 %cmp.not5.i6.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i, label %for.body.i7.i
 
@@ -154,7 +150,7 @@ for.body.i7.i:                                    ; preds = %invoke.cont.i1, %.n
 
 .noexc.i:                                         ; preds = %for.body.i7.i
   %incdec.ptr.i11.i = getelementptr inbounds ptr, ptr %__begin3.06.i8.i, i64 1
-  %cmp.not.i12.i = icmp eq ptr %incdec.ptr.i11.i, %add.ptr.i.i5.i
+  %cmp.not.i12.i = icmp eq ptr %incdec.ptr.i11.i, %12
   br i1 %cmp.not.i12.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i, label %for.body.i7.i
 
 _ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i: ; preds = %.noexc.i, %invoke.cont.i1

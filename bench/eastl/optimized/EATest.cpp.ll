@@ -721,32 +721,32 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i, label %while.cond.i.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i:          ; preds = %while.cond.i.i.i
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %pCurrent.0.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %pTestName to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 23
+  %sub.ptr.lhs.cast.i3.i.i = ptrtoint ptr %pCurrent.0.i.i.i to i64
+  %sub.ptr.sub.i5.i.i = sub i64 %sub.ptr.lhs.cast.i3.i.i, %sub.ptr.rhs.cast.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i5.i.i, 23
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i
-  %add.i.i.i.i = add i64 %sub.ptr.sub.i.i.i, 1
+  %add.i.i.i.i = add i64 %sub.ptr.sub.i5.i.i, 1
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i.i.i.i, ptr %msTestName, align 8
-  %or.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i, -9223372036854775808
+  %or.i.i.i.i.i = or i64 %sub.ptr.sub.i5.i.i, -9223372036854775808
   %mnCapacity.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   store i64 %or.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i, align 8
   %mnSize.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %sub.ptr.sub.i.i.i, ptr %mnSize.i.i.i.i.i, align 8
+  store i64 %sub.ptr.sub.i5.i.i, ptr %mnSize.i.i.i.i.i, align 8
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i
-  %1 = trunc i64 %sub.ptr.sub.i.i.i to i8
+  %1 = trunc i64 %sub.ptr.sub.i5.i.i to i8
   %conv.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit
 
 _ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %tobool.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %msTestName, %if.else.i.i.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i, ptr align 1 %pTestName, i64 %sub.ptr.sub.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i, ptr align 1 %pTestName, i64 %sub.ptr.sub.i5.i.i, i1 false)
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName, align 8
@@ -1103,32 +1103,32 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i:        ; preds = %while.cond.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %pCurrent.0.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %pTestName to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 23
+  %sub.ptr.lhs.cast.i3.i.i.i = ptrtoint ptr %pCurrent.0.i.i.i.i to i64
+  %sub.ptr.sub.i5.i.i.i = sub i64 %sub.ptr.lhs.cast.i3.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i5.i.i.i, 23
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i
-  %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i, 1
+  %add.i.i.i.i.i = add i64 %sub.ptr.sub.i5.i.i.i, 1
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i.i.i.i.i, ptr %msTestName.i, align 8
-  %or.i.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i.i, -9223372036854775808
+  %or.i.i.i.i.i.i = or i64 %sub.ptr.sub.i5.i.i.i, -9223372036854775808
   %mnCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   store i64 %or.i.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i.i, align 8
   %mnSize.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %sub.ptr.sub.i.i.i.i, ptr %mnSize.i.i.i.i.i.i, align 8
+  store i64 %sub.ptr.sub.i5.i.i.i, ptr %mnSize.i.i.i.i.i.i, align 8
   br label %_ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i
-  %1 = trunc i64 %sub.ptr.sub.i.i.i.i to i8
+  %1 = trunc i64 %sub.ptr.sub.i5.i.i.i to i8
   %conv.i.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   br label %_ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit
 
 _ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit:           ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %tobool.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %msTestName.i, %if.else.i.i.i.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i.i, ptr align 1 %pTestName, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i.i, ptr align 1 %pTestName, i64 %sub.ptr.sub.i5.i.i.i, i1 false)
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName.i, align 8
@@ -1404,35 +1404,35 @@ while.cond.i.i.i.i.i:                             ; preds = %while.cond.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i:      ; preds = %while.cond.i.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %pCurrent.0.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %pTestName to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 23
+  %sub.ptr.lhs.cast.i3.i.i.i.i = ptrtoint ptr %pCurrent.0.i.i.i.i.i to i64
+  %sub.ptr.sub.i5.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i3.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i5.i.i.i.i, 23
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i
-  %add.i.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i, 1
+  %add.i.i.i.i.i.i = add i64 %sub.ptr.sub.i5.i.i.i.i, 1
   %call.i.i.i.i.i.i.i.i1 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.i.i.noexc:                       ; preds = %if.then.i.i.i.i.i.i
   store ptr %call.i.i.i.i.i.i.i.i1, ptr %msTestName.i.i, align 8
-  %or.i.i.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i.i.i, -9223372036854775808
+  %or.i.i.i.i.i.i.i = or i64 %sub.ptr.sub.i5.i.i.i.i, -9223372036854775808
   %mnCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   store i64 %or.i.i.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i.i.i, align 8
   %mnSize.i.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %sub.ptr.sub.i.i.i.i.i, ptr %mnSize.i.i.i.i.i.i.i, align 8
+  store i64 %sub.ptr.sub.i5.i.i.i.i, ptr %mnSize.i.i.i.i.i.i.i, align 8
   br label %invoke.cont
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i
-  %1 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i8
+  %1 = trunc i64 %sub.ptr.sub.i5.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.i.noexc
   %tobool.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i1, %call.i.i.i.i.i.i.i.i.noexc ], [ %msTestName.i.i, %if.else.i.i.i.i.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i.i.i, ptr align 1 %pTestName, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i.i.i, ptr align 1 %pTestName, i64 %sub.ptr.sub.i5.i.i.i.i, i1 false)
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName.i.i, align 8
@@ -1779,12 +1779,12 @@ _ZN5eastl10CharStrlenIcEEmPKT_.exit.i:            ; preds = %while.cond.i.i
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %5, ptr %sNameCurrent
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %6
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %pCurrent.0.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.lhs.cast.i5.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i6.i = ptrtoint ptr %spec.select.i.i to i64
   %sub.ptr.sub.i7.i = sub i64 %sub.ptr.lhs.cast.i5.i, %sub.ptr.rhs.cast.i6.i
-  %cond.i.i.i = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i, i64 %sub.ptr.sub.i7.i)
+  %sub.ptr.lhs.cast1.i.i = ptrtoint ptr %pCurrent.0.i.i to i64
+  %sub.ptr.sub3.i.i = sub i64 %sub.ptr.lhs.cast1.i.i, %sub.ptr.rhs.cast.i.i
+  %cond.i.i.i = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub3.i.i, i64 %sub.ptr.sub.i7.i)
   %cmp.not9.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not9.i.i.i, label %_ZN5eastl8CompareIIcEEiPKT_S3_m.exit.thread.i.i, label %for.body.i.i.i
 
@@ -1811,7 +1811,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN5eastl8CompareIIcEEiPKT_S3_m.exit.thread.i.i, label %for.body.i.i.i, !llvm.loop !14
 
 _ZN5eastl8CompareIIcEEiPKT_S3_m.exit.thread.i.i:  ; preds = %for.inc.i.i.i, %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i
-  %or.cond = icmp eq i64 %sub.ptr.sub.i7.i, %sub.ptr.sub.i.i
+  %or.cond = icmp eq i64 %sub.ptr.sub.i7.i, %sub.ptr.sub3.i.i
   br i1 %or.cond, label %cleanup, label %for.inc
 
 lpad.loopexit:                                    ; preds = %for.body
@@ -2048,32 +2048,32 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i:        ; preds = %while.cond.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %pCurrent.0.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %pTestName to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 23
+  %sub.ptr.lhs.cast.i3.i.i.i = ptrtoint ptr %pCurrent.0.i.i.i.i to i64
+  %sub.ptr.sub.i5.i.i.i = sub i64 %sub.ptr.lhs.cast.i3.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i5.i.i.i, 23
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i
-  %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i, 1
+  %add.i.i.i.i.i = add i64 %sub.ptr.sub.i5.i.i.i, 1
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i.i.i.i.i, ptr %msTestName.i, align 8
-  %or.i.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i.i, -9223372036854775808
+  %or.i.i.i.i.i.i = or i64 %sub.ptr.sub.i5.i.i.i, -9223372036854775808
   %mnCapacity.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   store i64 %or.i.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i.i, align 8
   %mnSize.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %sub.ptr.sub.i.i.i.i, ptr %mnSize.i.i.i.i.i.i, align 8
+  store i64 %sub.ptr.sub.i5.i.i.i, ptr %mnSize.i.i.i.i.i.i, align 8
   br label %invoke.cont3
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i
-  %1 = trunc i64 %sub.ptr.sub.i.i.i.i to i8
+  %1 = trunc i64 %sub.ptr.sub.i5.i.i.i to i8
   %conv.i.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %tobool.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %msTestName.i, %if.else.i.i.i.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i.i, ptr align 1 %pTestName, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i.i, ptr align 1 %pTestName, i64 %sub.ptr.sub.i5.i.i.i, i1 false)
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName.i, align 8
@@ -3174,32 +3174,32 @@ while.cond.i.i.i.i.i:                             ; preds = %while.cond.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i:      ; preds = %while.cond.i.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %pCurrent.0.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %pTestApplicationName to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 23
+  %sub.ptr.lhs.cast.i3.i.i.i.i = ptrtoint ptr %pCurrent.0.i.i.i.i.i to i64
+  %sub.ptr.sub.i5.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i3.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i5.i.i.i.i, 23
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i
-  %add.i.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i, 1
+  %add.i.i.i.i.i.i = add i64 %sub.ptr.sub.i5.i.i.i.i, 1
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i.i.i.i.i.i, ptr %msTestName.i.i, align 8
-  %or.i.i.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i.i.i, -9223372036854775808
+  %or.i.i.i.i.i.i.i = or i64 %sub.ptr.sub.i5.i.i.i.i, -9223372036854775808
   %mnCapacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
   store i64 %or.i.i.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i.i.i, align 8
   %mnSize.i.i.i.i.i.i.i = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %sub.ptr.sub.i.i.i.i.i, ptr %mnSize.i.i.i.i.i.i.i, align 8
+  store i64 %sub.ptr.sub.i5.i.i.i.i, ptr %mnSize.i.i.i.i.i.i.i, align 8
   br label %_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i
-  %1 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i8
+  %1 = trunc i64 %sub.ptr.sub.i5.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   br label %_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit
 
 _ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit:      ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %tobool.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %msTestName.i.i, %if.else.i.i.i.i.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i.i.i, ptr align 1 %pTestApplicationName, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i.i.i, ptr align 1 %pTestApplicationName, i64 %sub.ptr.sub.i5.i.i.i.i, i1 false)
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i.i.i = icmp slt i8 %2, 0
   %3 = load ptr, ptr %msTestName.i.i, align 8

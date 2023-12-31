@@ -2836,120 +2836,49 @@ _ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit:
   %24 = load ptr, ptr %case_checks, align 8, !tbaa !3
   %add.ptr.i103 = getelementptr inbounds %"struct.duckdb::BoundCaseCheck", ptr %24, i64 %i.0122
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %24 to i64
-  %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %25 to i64
-  %sub.ptr.sub.i20.i = sub i64 %sub.ptr.lhs.cast.i18.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i22.i = getelementptr inbounds i8, ptr %24, i64 %sub.ptr.sub.i20.i
   %cmp.i.not.i.i6 = icmp eq ptr %add.ptr.i103, %25
-  br i1 %cmp.i.not.i.i6, label %cleanup, label %if.then.i.i7
+  br i1 %cmp.i.not.i.i6, label %cleanup, label %for.body.i.i.i.i.i.i
 
-if.then.i.i7:                                     ; preds = %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit
-  %cmp.i23.not.i.i = icmp eq ptr %25, %add.ptr.i22.i
-  br i1 %cmp.i23.not.i.i, label %if.end.i.i13, label %if.then6.i.i
-
-if.then6.i.i:                                     ; preds = %if.then.i.i7
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i9 = ptrtoint ptr %add.ptr.i22.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i10 = sub i64 %sub.ptr.lhs.cast.i18.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i9
-  %sub.ptr.div.i.i.i.i.i.i.i11 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i10, 4
-  %cmp7.i.i.i.i.i.i.i12 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i11, 0
-  br i1 %cmp7.i.i.i.i.i.i.i12, label %for.body.i.i.i.i.i.i.i15, label %if.end.i.i13
-
-for.body.i.i.i.i.i.i.i15:                         ; preds = %if.then6.i.i, %_ZN6duckdb14BoundCaseCheckaSEOS0_.exit.i.i.i.i.i.i.i30
-  %__n.010.i.i.i.i.i.i.i16 = phi i64 [ %dec.i.i.i.i.i.i.i33, %_ZN6duckdb14BoundCaseCheckaSEOS0_.exit.i.i.i.i.i.i.i30 ], [ %sub.ptr.div.i.i.i.i.i.i.i11, %if.then6.i.i ]
-  %__result.addr.09.i.i.i.i.i.i.i17 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i32, %_ZN6duckdb14BoundCaseCheckaSEOS0_.exit.i.i.i.i.i.i.i30 ], [ %add.ptr.i103, %if.then6.i.i ]
-  %__first.addr.08.i.i.i.i.i.i.i18 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i31, %_ZN6duckdb14BoundCaseCheckaSEOS0_.exit.i.i.i.i.i.i.i30 ], [ %add.ptr.i22.i, %if.then6.i.i ]
-  %26 = load ptr, ptr %__first.addr.08.i.i.i.i.i.i.i18, align 8, !tbaa !3
-  store ptr null, ptr %__first.addr.08.i.i.i.i.i.i.i18, align 8, !tbaa !3
-  %27 = load ptr, ptr %__result.addr.09.i.i.i.i.i.i.i17, align 8, !tbaa !3
-  store ptr %26, ptr %__result.addr.09.i.i.i.i.i.i.i17, align 8, !tbaa !3
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i19 = icmp eq ptr %27, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i19, label %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit.i.i.i.i.i.i.i.i23, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i20
-
-_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i20: ; preds = %for.body.i.i.i.i.i.i.i15
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i21 = load ptr, ptr %27, align 8, !tbaa !9
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i21, i64 1
-  %28 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i22, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(80) %27) #20
-  br label %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit.i.i.i.i.i.i.i.i23
-
-_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit.i.i.i.i.i.i.i.i23: ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i20, %for.body.i.i.i.i.i.i.i15
-  %then_expr.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.duckdb::BoundCaseCheck", ptr %__result.addr.09.i.i.i.i.i.i.i17, i64 0, i32 1
-  %then_expr3.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.duckdb::BoundCaseCheck", ptr %__first.addr.08.i.i.i.i.i.i.i18, i64 0, i32 1
-  %29 = load ptr, ptr %then_expr3.i.i.i.i.i.i.i.i25, align 8, !tbaa !3
-  store ptr null, ptr %then_expr3.i.i.i.i.i.i.i.i25, align 8, !tbaa !3
-  %30 = load ptr, ptr %then_expr.i.i.i.i.i.i.i.i24, align 8, !tbaa !3
-  store ptr %29, ptr %then_expr.i.i.i.i.i.i.i.i24, align 8, !tbaa !3
-  %tobool.not.i.i.i.i.i6.i.i.i.i.i.i.i.i26 = icmp eq ptr %30, null
-  br i1 %tobool.not.i.i.i.i.i6.i.i.i.i.i.i.i.i26, label %_ZN6duckdb14BoundCaseCheckaSEOS0_.exit.i.i.i.i.i.i.i30, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i7.i.i.i.i.i.i.i.i27
-
-_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i7.i.i.i.i.i.i.i.i27: ; preds = %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit.i.i.i.i.i.i.i.i23
-  %vtable.i.i.i.i.i.i8.i.i.i.i.i.i.i.i28 = load ptr, ptr %30, align 8, !tbaa !9
-  %vfn.i.i.i.i.i.i9.i.i.i.i.i.i.i.i29 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i8.i.i.i.i.i.i.i.i28, i64 1
-  %31 = load ptr, ptr %vfn.i.i.i.i.i.i9.i.i.i.i.i.i.i.i29, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(80) %30) #20
-  br label %_ZN6duckdb14BoundCaseCheckaSEOS0_.exit.i.i.i.i.i.i.i30
-
-_ZN6duckdb14BoundCaseCheckaSEOS0_.exit.i.i.i.i.i.i.i30: ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i7.i.i.i.i.i.i.i.i27, %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit.i.i.i.i.i.i.i.i23
-  %incdec.ptr.i.i.i.i.i.i.i31 = getelementptr inbounds %"struct.duckdb::BoundCaseCheck", ptr %__first.addr.08.i.i.i.i.i.i.i18, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i32 = getelementptr inbounds %"struct.duckdb::BoundCaseCheck", ptr %__result.addr.09.i.i.i.i.i.i.i17, i64 1
-  %dec.i.i.i.i.i.i.i33 = add nsw i64 %__n.010.i.i.i.i.i.i.i16, -1
-  %cmp.i.i.i.i.i.i.i34 = icmp sgt i64 %__n.010.i.i.i.i.i.i.i16, 1
-  br i1 %cmp.i.i.i.i.i.i.i34, label %for.body.i.i.i.i.i.i.i15, label %if.end.loopexit.i.i35, !llvm.loop !143
-
-if.end.loopexit.i.i35:                            ; preds = %_ZN6duckdb14BoundCaseCheckaSEOS0_.exit.i.i.i.i.i.i.i30
-  %.pre.i.i36 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %.pre32.i.i = ptrtoint ptr %.pre.i.i36 to i64
-  br label %if.end.i.i13
-
-if.end.i.i13:                                     ; preds = %if.then.i.i7, %if.end.loopexit.i.i35, %if.then6.i.i
-  %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre32.i.i, %if.end.loopexit.i.i35 ], [ %sub.ptr.lhs.cast.i18.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i18.i, %if.then.i.i7 ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i9, %if.end.loopexit.i.i35 ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i9, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i18.i, %if.then.i.i7 ]
-  %32 = phi ptr [ %.pre.i.i36, %if.end.loopexit.i.i35 ], [ %25, %if.then6.i.i ], [ %25, %if.then.i.i7 ]
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.rhs.cast.i.pre-phi.i.i
-  %add.ptr.i23.i = getelementptr inbounds i8, ptr %add.ptr.i103, i64 %sub.ptr.sub.i.i.i
-  %tobool.not.i.i.i = icmp eq ptr %32, %add.ptr.i23.i
-  br i1 %tobool.not.i.i.i, label %cleanup, label %for.body.i.i.i.i.i.i
-
-for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i13, %_ZSt8_DestroyIN6duckdb14BoundCaseCheckEEvPT_.exit.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN6duckdb14BoundCaseCheckEEvPT_.exit.i.i.i.i.i.i ], [ %add.ptr.i23.i, %if.end.i.i13 ]
+for.body.i.i.i.i.i.i:                             ; preds = %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit, %_ZSt8_DestroyIN6duckdb14BoundCaseCheckEEvPT_.exit.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN6duckdb14BoundCaseCheckEEvPT_.exit.i.i.i.i.i.i ], [ %add.ptr.i103, %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit ]
   %then_expr.i.i.i.i.i.i27.i.i = getelementptr inbounds %"struct.duckdb::BoundCaseCheck", ptr %__first.addr.04.i.i.i.i.i.i, i64 0, i32 1
-  %33 = load ptr, ptr %then_expr.i.i.i.i.i.i27.i.i, align 8, !tbaa !3
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
+  %26 = load ptr, ptr %then_expr.i.i.i.i.i.i27.i.i, align 8, !tbaa !3
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %33, align 8, !tbaa !9
+  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %26, align 8, !tbaa !9
   %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 1
-  %34 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(80) %33) #20
+  %27 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(80) %26) #20
   br label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store ptr null, ptr %then_expr.i.i.i.i.i.i27.i.i, align 8, !tbaa !3
-  %35 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i, align 8, !tbaa !3
-  %cmp.not.i2.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
+  %28 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i, align 8, !tbaa !3
+  %cmp.not.i2.i.i.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %cmp.not.i2.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6duckdb14BoundCaseCheckEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i3.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i3.i.i.i.i.i.i.i.i: ; preds = %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i
-  %vtable.i.i4.i.i.i.i.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !9
+  %vtable.i.i4.i.i.i.i.i.i.i.i = load ptr, ptr %28, align 8, !tbaa !9
   %vfn.i.i5.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i.i.i.i.i.i.i.i, i64 1
-  %36 = load ptr, ptr %vfn.i.i5.i.i.i.i.i.i.i.i, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(80) %35) #20
+  %29 = load ptr, ptr %vfn.i.i5.i.i.i.i.i.i.i.i, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(80) %28) #20
   br label %_ZSt8_DestroyIN6duckdb14BoundCaseCheckEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN6duckdb14BoundCaseCheckEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i3.i.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i, align 8, !tbaa !3
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::BoundCaseCheck", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i14 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %32
-  br i1 %cmp.not.i.i.i.i.i.i14, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !146
+  %cmp.not.i.i.i.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %25
+  br i1 %cmp.not.i.i.i.i.i.i13, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !146
 
 invoke.cont.i.i.i:                                ; preds = %_ZSt8_DestroyIN6duckdb14BoundCaseCheckEEvPT_.exit.i.i.i.i.i.i
-  store ptr %add.ptr.i23.i, ptr %_M_finish.i, align 8, !tbaa !144
+  store ptr %add.ptr.i103, ptr %_M_finish.i, align 8, !tbaa !144
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont.i.i.i, %if.end.i.i13, %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit, %invoke.cont29
-  %cond81 = phi i1 [ true, %invoke.cont29 ], [ false, %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit ], [ false, %if.end.i.i13 ], [ false, %invoke.cont.i.i.i ]
-  %i.1 = phi i64 [ %dec, %invoke.cont29 ], [ %i.0122, %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit ], [ %i.0122, %if.end.i.i13 ], [ %i.0122, %invoke.cont.i.i.i ]
+cleanup:                                          ; preds = %invoke.cont.i.i.i, %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit, %invoke.cont29
+  %cond81 = phi i1 [ true, %invoke.cont29 ], [ false, %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit ], [ false, %invoke.cont.i.i.i ]
+  %i.1 = phi i64 [ %dec, %invoke.cont29 ], [ %i.0122, %_ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEaSEOS4_.exit ], [ %i.0122, %invoke.cont.i.i.i ]
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %condition) #20
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %condition) #20
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %constant_value) #20
@@ -2971,30 +2900,30 @@ ehcleanup61:                                      ; preds = %lpad14, %ehcleanup
 for.inc:                                          ; preds = %cleanup, %for.body
   %i.3108 = phi i64 [ %i.0122, %for.body ], [ %i.1, %cleanup ]
   %inc = add i64 %i.3108, 1
-  %37 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %38 = load ptr, ptr %case_checks, align 8, !tbaa !3
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %37 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %38 to i64
+  %30 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
+  %31 = load ptr, ptr %case_checks, align 8, !tbaa !3
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp, label %for.body, label %cleanup71, !llvm.loop !147
 
 cleanup71:                                        ; preds = %for.inc, %cleanup.cleanup71.loopexit_crit_edge
-  %39 = phi ptr [ %.pre126.pre, %cleanup.cleanup71.loopexit_crit_edge ], [ %37, %for.inc ]
-  %40 = phi ptr [ %.pre.pre, %cleanup.cleanup71.loopexit_crit_edge ], [ %38, %for.inc ]
-  %cmp.i.i = icmp eq ptr %40, %39
+  %32 = phi ptr [ %.pre126.pre, %cleanup.cleanup71.loopexit_crit_edge ], [ %30, %for.inc ]
+  %33 = phi ptr [ %.pre.pre, %cleanup.cleanup71.loopexit_crit_edge ], [ %31, %for.inc ]
+  %cmp.i.i = icmp eq ptr %33, %32
   br i1 %cmp.i.i, label %if.then75, label %cleanup78
 
 if.then75:                                        ; preds = %cleanup71, %entry
   %else_expr76 = getelementptr inbounds %"class.duckdb::BoundCaseExpression", ptr %call3, i64 0, i32 2
-  %41 = load i64, ptr %else_expr76, align 8, !tbaa !3
-  %42 = inttoptr i64 %41 to ptr
+  %34 = load i64, ptr %else_expr76, align 8, !tbaa !3
+  %35 = inttoptr i64 %34 to ptr
   store ptr null, ptr %else_expr76, align 8, !tbaa !3
   br label %cleanup78
 
 cleanup78:                                        ; preds = %if.then75, %cleanup71
-  %.sink = phi ptr [ %42, %if.then75 ], [ null, %cleanup71 ]
+  %.sink = phi ptr [ %35, %if.then75 ], [ null, %cleanup71 ]
   store ptr %.sink, ptr %agg.result, align 8
   ret void
 }

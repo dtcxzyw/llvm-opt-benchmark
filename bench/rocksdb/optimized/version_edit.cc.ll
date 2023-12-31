@@ -624,16 +624,14 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %cmp.i28.not, label %if.else32, label %land.lhs.true25
 
 land.lhs.true25:                                  ; preds = %land.lhs.true
-  %sub.ptr.lhs.cast.i30 = ptrtoint ptr %add.ptr.i26 to i64
   %sub.ptr.rhs.cast.i31 = ptrtoint ptr %call2.i27 to i64
-  %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i31
+  %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i21, %sub.ptr.rhs.cast.i31
   %size_ = getelementptr inbounds %"class.rocksdb::BlobIndex", ptr %this, i64 0, i32 6
   %add.ptr.i35 = getelementptr inbounds i8, ptr %call2.i27, i64 %sub.ptr.sub.i32
   %call2.i36 = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %call2.i27, ptr noundef nonnull %add.ptr.i35, ptr noundef nonnull %size_)
   %cmp.i37 = icmp ne ptr %call2.i36, null
-  %sub.ptr.lhs.cast.i39 = ptrtoint ptr %add.ptr.i35 to i64
   %sub.ptr.rhs.cast.i40 = ptrtoint ptr %call2.i36 to i64
-  %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
+  %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i21, %sub.ptr.rhs.cast.i40
   %cmp29 = icmp eq i64 %sub.ptr.sub.i41, 1
   %or.cond = and i1 %cmp.i37, %cmp29
   br i1 %or.cond, label %if.then30, label %if.else32
@@ -2962,9 +2960,8 @@ call2.i.noexc24:                                  ; preds = %land.lhs.true4
   br i1 %cmp.i19.not, label %cleanup, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %call2.i.noexc24
-  %sub.ptr.lhs.cast.i21 = ptrtoint ptr %add.ptr.i18 to i64
   %sub.ptr.rhs.cast.i22 = ptrtoint ptr %call2.i25 to i64
-  %sub.ptr.sub.i23 = sub i64 %sub.ptr.lhs.cast.i21, %sub.ptr.rhs.cast.i22
+  %sub.ptr.sub.i23 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i22
   store ptr %call2.i25, ptr %input, align 8
   store i64 %sub.ptr.sub.i23, ptr %size_.i.i.i, align 8
   %smallest = getelementptr inbounds %"struct.rocksdb::FileMetaData", ptr %f, i64 0, i32 1
@@ -3008,9 +3005,8 @@ call2.i.noexc44:                                  ; preds = %land.lhs.true16
   br i1 %cmp.i39.not, label %cleanup, label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %call2.i.noexc44
-  %sub.ptr.lhs.cast.i41 = ptrtoint ptr %add.ptr.i38 to i64
   %sub.ptr.rhs.cast.i42 = ptrtoint ptr %call2.i45 to i64
-  %sub.ptr.sub.i43 = sub i64 %sub.ptr.lhs.cast.i41, %sub.ptr.rhs.cast.i42
+  %sub.ptr.sub.i43 = sub i64 %sub.ptr.lhs.cast.i31, %sub.ptr.rhs.cast.i42
   store ptr %call2.i45, ptr %input, align 8
   store i64 %sub.ptr.sub.i43, ptr %size_.i.i.i, align 8
   %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %field, i64 0, i32 1
@@ -4343,9 +4339,8 @@ call2.i.noexc216:                                 ; preds = %land.lhs.true92
   br i1 %cmp.i211.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %land.lhs.true95
 
 land.lhs.true95:                                  ; preds = %call2.i.noexc216
-  %sub.ptr.lhs.cast.i213 = ptrtoint ptr %add.ptr.i210 to i64
   %sub.ptr.rhs.cast.i214 = ptrtoint ptr %call2.i217 to i64
-  %sub.ptr.sub.i215 = sub i64 %sub.ptr.lhs.cast.i213, %sub.ptr.rhs.cast.i214
+  %sub.ptr.sub.i215 = sub i64 %sub.ptr.lhs.cast.i203, %sub.ptr.rhs.cast.i214
   store ptr %call2.i217, ptr %input, align 8
   store i64 %sub.ptr.sub.i215, ptr %size_.i.i, align 8
   %call97 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %smallest173)
@@ -4465,9 +4460,8 @@ call2.i.noexc263:                                 ; preds = %land.lhs.true123
   br i1 %cmp.i258.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %land.lhs.true126
 
 land.lhs.true126:                                 ; preds = %call2.i.noexc263
-  %sub.ptr.lhs.cast.i260 = ptrtoint ptr %add.ptr.i257 to i64
   %sub.ptr.rhs.cast.i261 = ptrtoint ptr %call2.i264 to i64
-  %sub.ptr.sub.i262 = sub i64 %sub.ptr.lhs.cast.i260, %sub.ptr.rhs.cast.i261
+  %sub.ptr.sub.i262 = sub i64 %sub.ptr.lhs.cast.i250, %sub.ptr.rhs.cast.i261
   store ptr %call2.i264, ptr %input, align 8
   store i64 %sub.ptr.sub.i262, ptr %size_.i.i, align 8
   %call129 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %smallest173)
@@ -4509,9 +4503,8 @@ call2.i.noexc283:                                 ; preds = %land.lhs.true137
   br i1 %cmp.i278.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %if.then140
 
 if.then140:                                       ; preds = %call2.i.noexc283
-  %sub.ptr.lhs.cast.i280 = ptrtoint ptr %add.ptr.i277 to i64
   %sub.ptr.rhs.cast.i281 = ptrtoint ptr %call2.i284 to i64
-  %sub.ptr.sub.i282 = sub i64 %sub.ptr.lhs.cast.i280, %sub.ptr.rhs.cast.i281
+  %sub.ptr.sub.i282 = sub i64 %sub.ptr.lhs.cast.i270, %sub.ptr.rhs.cast.i281
   store ptr %call2.i284, ptr %input, align 8
   store i64 %sub.ptr.sub.i282, ptr %size_.i.i, align 8
   %40 = load i64, ptr %number116, align 8
@@ -4636,9 +4629,8 @@ call.i.i.noexc353:                                ; preds = %_ZN7rocksdb14GetVar
 
 land.lhs.true169:                                 ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i350, %call.i.i.noexc353
   %retval.0.i10.i343 = phi ptr [ %add.ptr.i.i352, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i350 ], [ %call.i.i354, %call.i.i.noexc353 ]
-  %sub.ptr.lhs.cast.i344 = ptrtoint ptr %add.ptr.i338 to i64
   %sub.ptr.rhs.cast.i345 = ptrtoint ptr %retval.0.i10.i343 to i64
-  %sub.ptr.sub.i346 = sub i64 %sub.ptr.lhs.cast.i344, %sub.ptr.rhs.cast.i345
+  %sub.ptr.sub.i346 = sub i64 %sub.ptr.lhs.cast.i331, %sub.ptr.rhs.cast.i345
   store ptr %retval.0.i10.i343, ptr %input, align 8
   store i64 %sub.ptr.sub.i346, ptr %size_.i.i, align 8
   %add.ptr.i357 = getelementptr inbounds i8, ptr %retval.0.i10.i343, i64 %sub.ptr.sub.i346
@@ -4694,9 +4686,8 @@ call2.i.noexc383:                                 ; preds = %land.lhs.true183
   br i1 %cmp.i378.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %if.then186
 
 if.then186:                                       ; preds = %call2.i.noexc383
-  %sub.ptr.lhs.cast.i380 = ptrtoint ptr %add.ptr.i377 to i64
   %sub.ptr.rhs.cast.i381 = ptrtoint ptr %call2.i384 to i64
-  %sub.ptr.sub.i382 = sub i64 %sub.ptr.lhs.cast.i380, %sub.ptr.rhs.cast.i381
+  %sub.ptr.sub.i382 = sub i64 %sub.ptr.lhs.cast.i370, %sub.ptr.rhs.cast.i381
   store ptr %call2.i384, ptr %input, align 8
   store i64 %sub.ptr.sub.i382, ptr %size_.i.i, align 8
   %52 = load i64, ptr %number157, align 8

@@ -5036,18 +5036,21 @@ if.then:                                          ; preds = %land.lhs.true
   %6 = load ptr, ptr %ptr.i, align 8
   %tobool.not.i.i8 = icmp eq ptr %6, null
   %cond.i.i9 = select i1 %tobool.not.i.i8, ptr %0, ptr %6
+  %7 = load i64, ptr %nStored.i, align 8
+  %add.ptr.i17.i = getelementptr inbounds ptr, ptr %cond.i.i9, i64 %7
+  %add.ptr418.i = getelementptr inbounds ptr, ptr %add.ptr.i17.i, i64 -1
+  %cmp.not19.i = icmp eq ptr %add.ptr418.i, %iter.018
+  br i1 %cmp.not19.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE5eraseEPKS2_.exit, label %while.body.preheader.i
+
+while.body.preheader.i:                           ; preds = %if.then
   %sub.ptr.lhs.cast.i = ptrtoint ptr %iter.018 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i.i9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.ptr.i10 = getelementptr inbounds i8, ptr %cond.i.i9, i64 %sub.ptr.sub.i
-  %7 = load i64, ptr %nStored.i, align 8
-  %add.ptr.i17.i = getelementptr inbounds ptr, ptr %cond.i.i9, i64 %7
-  %add.ptr418.i = getelementptr inbounds ptr, ptr %add.ptr.i17.i, i64 -1
-  %cmp.not19.i = icmp eq ptr %add.ptr.i10, %add.ptr418.i
-  br i1 %cmp.not19.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE5eraseEPKS2_.exit, label %while.body.i
+  br label %while.body.i
 
-while.body.i:                                     ; preds = %if.then, %while.body.i
-  %pos.020.i = phi ptr [ %add.ptr5.i, %while.body.i ], [ %add.ptr.i10, %if.then ]
+while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
+  %pos.020.i = phi ptr [ %add.ptr5.i, %while.body.i ], [ %add.ptr.i10, %while.body.preheader.i ]
   %add.ptr5.i = getelementptr inbounds ptr, ptr %pos.020.i, i64 1
   %8 = load ptr, ptr %add.ptr5.i, align 8
   store ptr %8, ptr %pos.020.i, align 8

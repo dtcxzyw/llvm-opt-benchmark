@@ -1111,7 +1111,7 @@ invoke.cont58:                                    ; preds = %while.body
 
 invoke.cont62:                                    ; preds = %invoke.cont58
   %incdec.ptr = getelementptr inbounds i8, ptr %inFilename.addr.067, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep
+  %exitcond.not = icmp eq ptr %incdec.ptr, %call1
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %invoke.cont62, %if.else50

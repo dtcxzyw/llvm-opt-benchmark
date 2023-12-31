@@ -3729,13 +3729,17 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, %if.then27
   %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre73, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit ], [ %sub.ptr.rhs.cast.i15, %if.then27 ]
   %10 = phi ptr [ %.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit ], [ %9, %if.then27 ]
+  %__result.addr.0.lcssa.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit ], [ %3, %if.then27 ]
+  %cmp.i.not3.i.i.i = icmp eq ptr %__result.addr.0.lcssa.i.i.i.i.i, %10
+  br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i28.preheader
+
+for.body.i.i.i28.preheader:                       ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i15
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i
-  %cmp.i.not3.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %10
-  br i1 %cmp.i.not3.i.i.i, label %if.end69, label %for.body.i.i.i28
+  br label %for.body.i.i.i28
 
-for.body.i.i.i28:                                 ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, %_ZSt8_DestroyIN4llvh16FileCheckPatternEEvPT_.exit.i.i.i34
-  %__first.sroa.0.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4llvh16FileCheckPatternEEvPT_.exit.i.i.i34 ], [ %add.ptr.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvh16FileCheckPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit ]
+for.body.i.i.i28:                                 ; preds = %for.body.i.i.i28.preheader, %_ZSt8_DestroyIN4llvh16FileCheckPatternEEvPT_.exit.i.i.i34
+  %__first.sroa.0.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4llvh16FileCheckPatternEEvPT_.exit.i.i.i34 ], [ %add.ptr.i.i.i.i, %for.body.i.i.i28.preheader ]
   %VariableDefs.i.i.i.i.i29 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.sroa.0.04.i.i.i, i64 0, i32 4
   %_M_parent.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds %"class.llvh::FileCheckPattern", ptr %__first.sroa.0.04.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
   %11 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i30, align 8

@@ -7542,14 +7542,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i
 
 _ZNSt6vectorISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESaISB_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSB_SD_EE.exit: ; preds = %if.end.i.i, %if.then.i.i.i.i.i.i.i
   %14 = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %.pre, %if.then.i.i.i.i.i.i.i ]
-  %cmp.i = icmp eq ptr %add.ptr.i.i, %14
+  %cmp.i = icmp eq ptr %14, %Iterator.coerce
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNSt6vectorISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESaISB_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSB_SD_EE.exit
   %15 = load ptr, ptr %Vector, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %NumEntries.i.i.i.i4 = getelementptr inbounds %"class.llvh::DenseMap.73", ptr %this, i64 0, i32 1
   %16 = load i32, ptr %NumEntries.i.i.i.i4, align 8

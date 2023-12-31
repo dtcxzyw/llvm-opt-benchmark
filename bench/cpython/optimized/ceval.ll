@@ -19415,7 +19415,7 @@ land.rhs.i.i:                                     ; preds = %while.body.i95.i, %
 
 while.body.i95.i:                                 ; preds = %land.rhs.i.i
   %incdec.ptr.i96.i = getelementptr i8, ptr %p.addr.05.i.i, i64 1
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr.i96.i, %scevgep.i.i
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr.i96.i, %end.2.i
   br i1 %exitcond.not.i.i, label %skip_to_next_entry.exit.i, label %land.rhs.i.i, !llvm.loop !40
 
 skip_to_next_entry.exit.i:                        ; preds = %while.body.i95.i, %land.rhs.i.i, %if.end31.i8655

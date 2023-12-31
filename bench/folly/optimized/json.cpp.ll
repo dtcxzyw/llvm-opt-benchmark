@@ -433,7 +433,7 @@ $_ZTVN5folly4json11parse_errorE = comdat any
 @.str.85 = private unnamed_addr constant [20 x i8] c"9223372036854775807\00", align 1
 @.str.86 = private unnamed_addr constant [21 x i8] c"-9223372036854775808\00", align 1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define { i64, i64 } @_ZN5folly4json29buildExtraAsciiToEscapeBitmapENS_5RangeIPKcEE(ptr readonly %chars.coerce0, ptr readnone %chars.coerce1) local_unnamed_addr #0 {
 entry:
   %retval = alloca %"struct.std::array", align 8
@@ -9069,16 +9069,11 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %jsonC.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp269.not = icmp eq ptr %jsonC.coerce1, %jsonC.coerce0
-  br i1 %cmp269.not, label %nrvo.skipdtor, label %invoke.cont.lr.ph
+  br i1 %cmp269.not, label %nrvo.skipdtor, label %invoke.cont
 
-invoke.cont.lr.ph:                                ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %jsonC.coerce0, i64 %sub.ptr.sub.i
-  %sub.ptr.lhs.cast.i.i204 = ptrtoint ptr %add.ptr.i.i to i64
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %cleanup, %invoke.cont.lr.ph
-  %i.0271 = phi i64 [ 0, %invoke.cont.lr.ph ], [ %inc84, %cleanup ]
-  %state.0270 = phi i32 [ 0, %invoke.cont.lr.ph ], [ %state.4, %cleanup ]
+invoke.cont:                                      ; preds = %entry, %cleanup
+  %i.0271 = phi i64 [ %inc84, %cleanup ], [ 0, %entry ]
+  %state.0270 = phi i32 [ %state.4, %cleanup ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds i8, ptr %jsonC.coerce0, i64 %i.0271
   switch i32 %state.0270, label %sw.default [
     i32 0, label %sw.bb
@@ -9099,7 +9094,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont34.invok
 
 sw.bb:                                            ; preds = %invoke.cont
   %sub.ptr.rhs.cast.i.i106 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i107 = sub i64 %sub.ptr.lhs.cast.i.i204, %sub.ptr.rhs.cast.i.i106
+  %sub.ptr.sub.i.i107 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i106
   %cmp.not.i = icmp ugt i64 %sub.ptr.sub.i.i107, 1
   %.pre.pre = load i8, ptr %add.ptr.i, align 1, !tbaa !7
   %cmp.i.i.i = icmp eq i8 %.pre.pre, 47
@@ -9167,7 +9162,7 @@ sw.bb23:                                          ; preds = %invoke.cont
 
 if.then28:                                        ; preds = %sw.bb23
   %sub.ptr.rhs.cast.i139 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i140 = sub i64 %sub.ptr.lhs.cast.i.i204, %sub.ptr.rhs.cast.i139
+  %sub.ptr.sub.i140 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i139
   %cmp30 = icmp eq i64 %sub.ptr.sub.i140, 1
   br i1 %cmp30, label %if.then32, label %if.end35, !prof !109
 
@@ -9343,7 +9338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit199: ; pre
 
 if.else61:                                        ; preds = %sw.bb54
   %sub.ptr.rhs.cast.i.i205 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i206 = sub i64 %sub.ptr.lhs.cast.i.i204, %sub.ptr.rhs.cast.i.i205
+  %sub.ptr.sub.i.i206 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i205
   %cmp.not.i211 = icmp ugt i64 %sub.ptr.sub.i.i206, 1
   %cmp.i.i.i220 = icmp eq i8 %26, 42
   %or.cond273 = and i1 %cmp.not.i211, %cmp.i.i.i220
@@ -16716,7 +16711,7 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #21
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

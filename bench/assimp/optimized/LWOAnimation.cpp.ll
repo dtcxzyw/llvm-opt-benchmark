@@ -181,20 +181,20 @@ for.end78:                                        ; preds = %for.inc76, %entry
 define hidden void @_ZN6Assimp3LWO12AnimResolver19ClearAnimRangeSetupEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %it.sroa.0.046 = load ptr, ptr %0, align 8
-  %cmp.i.not47 = icmp eq ptr %it.sroa.0.046, %0
-  br i1 %cmp.i.not47, label %for.end, label %for.body
+  %it.sroa.0.042 = load ptr, ptr %0, align 8
+  %cmp.i.not43 = icmp eq ptr %it.sroa.0.042, %0
+  br i1 %cmp.i.not43, label %for.end, label %for.body
 
-for.body:                                         ; preds = %entry, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit36
-  %it.sroa.0.048 = phi ptr [ %it.sroa.0.0, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit36 ], [ %it.sroa.0.046, %entry ]
-  %keys = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.048, i64 0, i32 1, i32 0, i64 16
+for.body:                                         ; preds = %entry, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit32
+  %it.sroa.0.044 = phi ptr [ %it.sroa.0.0, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit32 ], [ %it.sroa.0.042, %entry ]
+  %keys = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.044, i64 0, i32 1, i32 0, i64 16
   %1 = load ptr, ptr %keys, align 8
-  %old_first = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.048, i64 0, i32 1, i32 0, i64 40
+  %old_first = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.044, i64 0, i32 1, i32 0, i64 40
   %2 = load i64, ptr %old_first, align 8
   %add.ptr.i = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %1, i64 %2
   %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %add.ptr.i to i64
   %cmp.i.not.i.i = icmp eq i64 %2, 0
-  %_M_finish.i.phi.trans.insert = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.048, i64 0, i32 1, i32 0, i64 24
+  %_M_finish.i.phi.trans.insert = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.044, i64 0, i32 1, i32 0, i64 24
   %.pre = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.then.i.i
 
@@ -210,7 +210,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EE
   %.pre9.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
+if.end.i.i:                                       ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i, %if.then.i.i
   %3 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %add.ptr.i, %if.then.i.i ]
   %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %sub.ptr.lhs.cast.i1.i, %if.then.i.i ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.lhs.cast.i1.i
@@ -225,50 +225,25 @@ invoke.cont.i.i.i:                                ; preds = %if.end.i.i
 _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit: ; preds = %for.body, %if.end.i.i, %invoke.cont.i.i.i
   %4 = phi ptr [ %3, %if.end.i.i ], [ %add.ptr.i6.i, %invoke.cont.i.i.i ], [ %.pre, %for.body ]
   %5 = load ptr, ptr %keys, align 8
-  %old_last = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.048, i64 0, i32 1, i32 0, i64 48
+  %old_last = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.044, i64 0, i32 1, i32 0, i64 48
   %6 = load i64, ptr %old_last, align 8
   %add.ptr.i7 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %5, i64 %6
   %add.ptr.i8 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %add.ptr.i7, i64 1
-  %_M_finish.i = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.048, i64 0, i32 1, i32 0, i64 24
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %5 to i64
-  %sub.ptr.lhs.cast.i1.i14 = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i3.i15 = sub i64 %sub.ptr.lhs.cast.i1.i14, %sub.ptr.rhs.cast.i.i11
-  %add.ptr.i5.i16 = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i3.i15
   %cmp.i.not.i.i17 = icmp eq ptr %add.ptr.i8, %4
-  br i1 %cmp.i.not.i.i17, label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit36, label %if.then.i.i18
+  br i1 %cmp.i.not.i.i17, label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit32, label %invoke.cont.i.i.i31
 
-if.then.i.i18:                                    ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
-  %cmp.i1.not.i.i20 = icmp eq ptr %4, %add.ptr.i5.i16
-  br i1 %cmp.i1.not.i.i20, label %if.end.i.i27, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i21
+invoke.cont.i.i.i31:                              ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
+  %_M_finish.i = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.044, i64 0, i32 1, i32 0, i64 24
+  store ptr %add.ptr.i8, ptr %_M_finish.i, align 8
+  br label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit32
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i21: ; preds = %if.then.i.i18
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i23 = ptrtoint ptr %add.ptr.i5.i16 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i1.i14, %sub.ptr.rhs.cast.i.i.i.i.i.i.i23
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i8, ptr align 8 %add.ptr.i5.i16, i64 %sub.ptr.sub.i.i.i.i.i.i.i24, i1 false)
-  %.pre.i.i25 = load ptr, ptr %_M_finish.i, align 8
-  %.pre9.i.i26 = ptrtoint ptr %.pre.i.i25 to i64
-  br label %if.end.i.i27
-
-if.end.i.i27:                                     ; preds = %if.then.i.i18, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i21
-  %sub.ptr.lhs.cast.i.pre-phi.i.i28 = phi i64 [ %.pre9.i.i26, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i21 ], [ %sub.ptr.lhs.cast.i1.i14, %if.then.i.i18 ]
-  %sub.ptr.rhs.cast.i.pre-phi.i.i29 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i21 ], [ %sub.ptr.lhs.cast.i1.i14, %if.then.i.i18 ]
-  %7 = phi ptr [ %.pre.i.i25, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i21 ], [ %4, %if.then.i.i18 ]
-  %sub.ptr.sub.i.i.i30 = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i28, %sub.ptr.rhs.cast.i.pre-phi.i.i29
-  %add.ptr.i6.i31 = getelementptr inbounds i8, ptr %add.ptr.i8, i64 %sub.ptr.sub.i.i.i30
-  %tobool.not.i.i.i32 = icmp eq ptr %7, %add.ptr.i6.i31
-  br i1 %tobool.not.i.i.i32, label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit36, label %invoke.cont.i.i.i33
-
-invoke.cont.i.i.i33:                              ; preds = %if.end.i.i27
-  store ptr %add.ptr.i6.i31, ptr %_M_finish.i, align 8
-  br label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit36
-
-_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit36: ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, %if.end.i.i27, %invoke.cont.i.i.i33
-  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.048, align 8
-  %8 = load ptr, ptr %this, align 8
-  %cmp.i.not = icmp eq ptr %it.sroa.0.0, %8
+_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit32: ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, %invoke.cont.i.i.i31
+  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.044, align 8
+  %7 = load ptr, ptr %this, align 8
+  %cmp.i.not = icmp eq ptr %it.sroa.0.0, %7
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !7
 
-for.end:                                          ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit36, %entry
+for.end:                                          ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit32, %entry
   ret void
 }
 

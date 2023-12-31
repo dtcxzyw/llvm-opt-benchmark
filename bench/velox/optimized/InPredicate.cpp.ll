@@ -3322,7 +3322,7 @@ if.else.i28.i.i:                                  ; preds = %invoke.cont34.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i28.i.i
   %add.ptr.i29.i.i = getelementptr inbounds i8, ptr %87, i64 %sub.ptr.sub.i.i.i20.i.i
-  %tobool.not.i.i30.i.i = icmp eq ptr %88, %add.ptr.i29.i.i
+  %tobool.not.i.i30.i.i = icmp eq ptr %88, %call.i17.i.i
   br i1 %tobool.not.i.i30.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.then5.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -3337,7 +3337,7 @@ invoke.cont.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i: ; preds = %invoke.cont.i.i.i.i, %if.then5.i.i.i, %if.else.i28.i.i, %if.then.i31.invoke.cont36_crit_edge.i.i
-  %89 = phi ptr [ %.pre10.i.i, %if.then.i31.invoke.cont36_crit_edge.i.i ], [ %add.ptr.i29.i.i, %invoke.cont.i.i.i.i ], [ %88, %if.then5.i.i.i ], [ %88, %if.else.i28.i.i ]
+  %89 = phi ptr [ %.pre10.i.i, %if.then.i31.invoke.cont36_crit_edge.i.i ], [ %add.ptr.i29.i.i, %invoke.cont.i.i.i.i ], [ %call.i17.i.i, %if.then5.i.i.i ], [ %88, %if.else.i28.i.i ]
   %90 = load ptr, ptr %values.i.i, align 8, !noalias !25
   store ptr %90, ptr %valuesPair.i, align 8, !alias.scope !19, !noalias !22
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %valuesPair.i, i64 0, i32 1
@@ -7183,13 +7183,15 @@ if.then.i26._ZNSt6vectorInSaInEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %tobool.not.i.i25.i = icmp eq ptr %16, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i25.i, %cmp4.i.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i.i.i.i
-  %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %16
+  %spec.select.i = select i1 %or.cond.i, ptr %16, ptr %add.ptr.i24.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.else.i23.i, %if.then.i26._ZNSt6vectorInSaInEED2Ev.exit30_crit_edge.i
-  %21 = phi ptr [ %.pre12.i, %if.then.i26._ZNSt6vectorInSaInEED2Ev.exit30_crit_edge.i ], [ %spec.select, %if.else.i23.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i26._ZNSt6vectorInSaInEED2Ev.exit30_crit_edge.i, %if.else.i23.i
+  %21 = phi ptr [ %.pre12.i, %if.then.i26._ZNSt6vectorInSaInEED2Ev.exit30_crit_edge.i ], [ %spec.select.i, %if.else.i23.i ]
   %22 = phi ptr [ %.pre11.i, %if.then.i26._ZNSt6vectorInSaInEED2Ev.exit30_crit_edge.i ], [ %15, %if.else.i23.i ]
   store ptr %22, ptr %valuesPair, align 8, !alias.scope !87
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<__int128, std::allocator<__int128>>::_Vector_impl_data", ptr %valuesPair, i64 0, i32 1
@@ -7528,13 +7530,15 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %tobool.not.i.i25.i = icmp eq ptr %19, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i25.i, %cmp4.i.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i.i.i
-  %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
+  %spec.select.i = select i1 %or.cond.i, ptr %19, ptr %add.ptr.i24.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.else.i23.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i
-  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select, %if.else.i23.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i, %if.else.i23.i
+  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select.i, %if.else.i23.i ]
   %21 = phi ptr [ %.pre12.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %13, %if.else.i23.i ]
   store ptr %21, ptr %valuesPair, align 8, !alias.scope !96
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data", ptr %valuesPair, i64 0, i32 1
@@ -7893,13 +7897,15 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %tobool.not.i.i25.i = icmp eq ptr %19, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i25.i, %cmp4.i.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i.i.i
-  %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
+  %spec.select.i = select i1 %or.cond.i, ptr %19, ptr %add.ptr.i24.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.else.i23.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i
-  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select, %if.else.i23.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i, %if.else.i23.i
+  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select.i, %if.else.i23.i ]
   %21 = phi ptr [ %.pre12.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %13, %if.else.i23.i ]
   store ptr %21, ptr %valuesPair, align 8, !alias.scope !105
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data", ptr %valuesPair, i64 0, i32 1
@@ -8258,13 +8264,15 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %tobool.not.i.i25.i = icmp eq ptr %19, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i25.i, %cmp4.i.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i.i.i
-  %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
+  %spec.select.i = select i1 %or.cond.i, ptr %19, ptr %add.ptr.i24.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.else.i23.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i
-  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select, %if.else.i23.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i, %if.else.i23.i
+  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select.i, %if.else.i23.i ]
   %21 = phi ptr [ %.pre12.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %13, %if.else.i23.i ]
   store ptr %21, ptr %valuesPair, align 8, !alias.scope !112
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data", ptr %valuesPair, i64 0, i32 1
@@ -8623,13 +8631,15 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %tobool.not.i.i25.i = icmp eq ptr %19, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i25.i, %cmp4.i.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i.i.i
-  %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
+  %spec.select.i = select i1 %or.cond.i, ptr %19, ptr %add.ptr.i24.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.else.i23.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i
-  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select, %if.else.i23.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i, %if.else.i23.i
+  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select.i, %if.else.i23.i ]
   %21 = phi ptr [ %.pre12.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %13, %if.else.i23.i ]
   store ptr %21, ptr %valuesPair, align 8, !alias.scope !119
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data", ptr %valuesPair, i64 0, i32 1
@@ -8989,13 +8999,15 @@ if.then.i26._ZNSt6vectorIfSaIfEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %tobool.not.i.i25.i = icmp eq ptr %20, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i25.i, %cmp4.i.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub.i.i.i.i
-  %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %20
+  %spec.select.i = select i1 %or.cond.i, ptr %20, ptr %add.ptr.i24.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.else.i23.i, %if.then.i26._ZNSt6vectorIfSaIfEED2Ev.exit30_crit_edge.i
-  %22 = phi ptr [ %.pre14.i, %if.then.i26._ZNSt6vectorIfSaIfEED2Ev.exit30_crit_edge.i ], [ %spec.select, %if.else.i23.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i26._ZNSt6vectorIfSaIfEED2Ev.exit30_crit_edge.i, %if.else.i23.i
+  %22 = phi ptr [ %.pre14.i, %if.then.i26._ZNSt6vectorIfSaIfEED2Ev.exit30_crit_edge.i ], [ %spec.select.i, %if.else.i23.i ]
   %23 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIfSaIfEED2Ev.exit30_crit_edge.i ], [ %21, %if.else.i23.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %values.i)
   %cmp.i.i17 = icmp eq ptr %23, %22
@@ -9411,13 +9423,15 @@ if.then.i26._ZNSt6vectorIdSaIdEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %tobool.not.i.i25.i = icmp eq ptr %20, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i25.i, %cmp4.i.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i.i.i
-  %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %20
+  %spec.select.i = select i1 %or.cond.i, ptr %20, ptr %add.ptr.i24.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.else.i23.i, %if.then.i26._ZNSt6vectorIdSaIdEED2Ev.exit30_crit_edge.i
-  %21 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIdSaIdEED2Ev.exit30_crit_edge.i ], [ %spec.select, %if.else.i23.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i26._ZNSt6vectorIdSaIdEED2Ev.exit30_crit_edge.i, %if.else.i23.i
+  %21 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIdSaIdEED2Ev.exit30_crit_edge.i ], [ %spec.select.i, %if.else.i23.i ]
   %22 = phi ptr [ %.pre12.i, %if.then.i26._ZNSt6vectorIdSaIdEED2Ev.exit30_crit_edge.i ], [ %13, %if.else.i23.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %values.i)
   %cmp.i.i17 = icmp eq ptr %22, %21
@@ -9830,13 +9844,15 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %tobool.not.i.i25.i = icmp eq ptr %19, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i25.i, %cmp4.i.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i.i.i
-  %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
+  %spec.select.i = select i1 %or.cond.i, ptr %19, ptr %add.ptr.i24.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.else.i23.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i
-  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select, %if.else.i23.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i, %if.else.i23.i
+  %20 = phi ptr [ %.pre13.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %spec.select.i, %if.else.i23.i ]
   %21 = phi ptr [ %.pre12.i, %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i ], [ %13, %if.else.i23.i ]
   store ptr %21, ptr %valuesPair, align 8, !alias.scope !146
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data", ptr %valuesPair, i64 0, i32 1
@@ -10210,13 +10226,15 @@ if.then.i28._ZNSt6vectorIlSaIlEED2Ev.exit32_crit_edge.i: ; preds = %if.then.i28.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i25.i:                                    ; preds = %invoke.cont36.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i23.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ule i64 %sub.ptr.div.i.i23.i, %sub.ptr.div.i.i.i.i
+  %tobool.not.i.i27.i = icmp eq ptr %22, %retval.sroa.0.0.in.sroa.speculated.i.i.i
+  %or.cond.i = or i1 %tobool.not.i.i27.i, %cmp4.i.i
   %add.ptr.i26.i = getelementptr inbounds i8, ptr %16, i64 %sub.ptr.sub.i.i.i.i
-  %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i26.i, ptr %22
+  %spec.select.i = select i1 %or.cond.i, ptr %22, ptr %add.ptr.i26.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.else.i25.i, %if.then.i28._ZNSt6vectorIlSaIlEED2Ev.exit32_crit_edge.i
-  %23 = phi ptr [ %.pre14.i, %if.then.i28._ZNSt6vectorIlSaIlEED2Ev.exit32_crit_edge.i ], [ %spec.select, %if.else.i25.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i28._ZNSt6vectorIlSaIlEED2Ev.exit32_crit_edge.i, %if.else.i25.i
+  %23 = phi ptr [ %.pre14.i, %if.then.i28._ZNSt6vectorIlSaIlEED2Ev.exit32_crit_edge.i ], [ %spec.select.i, %if.else.i25.i ]
   %24 = phi ptr [ %.pre13.i, %if.then.i28._ZNSt6vectorIlSaIlEED2Ev.exit32_crit_edge.i ], [ %16, %if.else.i25.i ]
   store ptr %24, ptr %valuesPair, align 8, !alias.scope !153
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data", ptr %valuesPair, i64 0, i32 1

@@ -18810,10 +18810,6 @@ entry:
   %3 = load ptr, ptr %packed.i.i.i.i.i, align 8, !tbaa !21
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.entt::basic_sparse_set", ptr %2, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !59
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i.i.i.i
   %cmp.not24.i.i.i.i = icmp eq ptr %4, %3
   br i1 %cmp.not24.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4entt8internal13group_handlerINS1_7owned_tIJNS1_16basic_sigh_mixinINS1_13basic_storageIdNS1_6entityESaIdEvEENS1_14basic_registryIS7_SaIS7_EEEEEEEENS1_5get_tIJNS5_INS6_IcS7_SaIcEvEESC_EEEEENS1_9exclude_tIJNS5_INS6_IiS7_SaIiEvEESC_EEEEEEESB_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %for.body.i.i.i.i
 
@@ -18825,7 +18821,7 @@ for.body.i.i.i.i:                                 ; preds = %.noexc22, %.noexc23
 
 .noexc23:                                         ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i32, ptr %first.025.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4entt8internal13group_handlerINS1_7owned_tIJNS1_16basic_sigh_mixinINS1_13basic_storageIdNS1_6entityESaIdEvEENS1_14basic_registryIS7_SaIS7_EEEEEEEENS1_5get_tIJNS5_INS6_IcS7_SaIcEvEESC_EEEEENS1_9exclude_tIJNS5_INS6_IiS7_SaIiEvEESC_EEEEEEESB_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %for.body.i.i.i.i, !llvm.loop !490
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4entt8internal13group_handlerINS1_7owned_tIJNS1_16basic_sigh_mixinINS1_13basic_storageIdNS1_6entityESaIdEvEENS1_14basic_registryIS7_SaIS7_EEEEEEEENS1_5get_tIJNS5_INS6_IcS7_SaIcEvEESC_EEEEENS1_9exclude_tIJNS5_INS6_IiS7_SaIiEvEESC_EEEEEEESB_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %.noexc23, %.noexc22
