@@ -1166,7 +1166,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end
-  %curr.055 = phi ptr [ %self, %land.rhs.lr.ph ], [ %6, %if.end ]
+  %curr.055 = phi ptr [ %self, %land.rhs.lr.ph ], [ %7, %if.end ]
   %properties.sroa.0.054 = phi ptr [ null, %land.rhs.lr.ph ], [ %properties.sroa.0.2, %if.end ]
   %properties.sroa.5.053 = phi ptr [ null, %land.rhs.lr.ph ], [ %properties.sroa.5.2, %if.end ]
   %properties.sroa.10.052 = phi ptr [ null, %land.rhs.lr.ph ], [ %properties.sroa.10.2, %if.end ]
@@ -1222,16 +1222,15 @@ _ZNKSt6vectorISt4pairIN6hermes2vm8SymbolIDENS2_23NamedPropertyDescriptorEESaIS5_
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 768614336404564650
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 768614336404564650, i64 %add.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 768614336404564650)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 768614336404564650, i64 %5
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 12
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %5 = load i32, ptr %symbolID_, align 4
-  store i32 %5, ptr %add.ptr.i.i, align 4
+  %6 = load i32, ptr %symbolID_, align 4
+  store i32 %6, ptr %add.ptr.i.i, align 4
   %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
   %ref.tmp.sroa.4.0.insert.ext35 = zext i32 %sub to i64
   %ref.tmp.sroa.4.0.insert.shift36 = shl nuw i64 %ref.tmp.sroa.4.0.insert.ext35, 32
@@ -1273,7 +1272,7 @@ if.end:                                           ; preds = %_ZNSt6vectorISt4pai
   %cmp.i.not.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i, 0
   %conv.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %0
-  %6 = inttoptr i64 %add.i.i.i.i.i to ptr
+  %7 = inttoptr i64 %add.i.i.i.i.i to ptr
   %tobool.not79 = icmp eq i64 %add.i.i.i.i.i, 0
   %tobool.not = or i1 %cmp.i.not.i.i.i.i, %tobool.not79
   br i1 %tobool.not, label %if.end13, label %land.rhs
@@ -1281,24 +1280,24 @@ if.end:                                           ; preds = %_ZNSt6vectorISt4pai
 if.then10:                                        ; preds = %land.rhs
   %conv.i.i.i = zext i32 %1 to i64
   %add.i.i.i12 = add i64 %conv.i.i.i, %0
-  %7 = inttoptr i64 %add.i.i.i12 to ptr
-  %numDescriptors_.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %7, i64 0, i32 3
-  %8 = load atomic i32, ptr %numDescriptors_.i monotonic, align 4
-  %cmp.not7.i = icmp eq i32 %8, 0
+  %8 = inttoptr i64 %add.i.i.i12 to ptr
+  %numDescriptors_.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %8, i64 0, i32 3
+  %9 = load atomic i32, ptr %numDescriptors_.i monotonic, align 4
+  %cmp.not7.i = icmp eq i32 %9, 0
   br i1 %cmp.not7.i, label %if.end13, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then10
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %7, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::vm::DictPropertyMap", ptr %8, i64 1
   %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
   %_M_invoker.i.i = getelementptr inbounds %"class.std::function.166", ptr %callback, i64 0, i32 1
-  %9 = zext i32 %8 to i64
+  %10 = zext i32 %9 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %add.ptr.i = getelementptr inbounds %"struct.std::pair.177", ptr %add.ptr.i.i.i.i, i64 %indvars.iv.i
-  %10 = load i32, ptr %add.ptr.i, align 4
-  %cmp.i.i13 = icmp ult i32 %10, 536870910
+  %11 = load i32, ptr %add.ptr.i, align 4
+  %cmp.i.i13 = icmp ult i32 %11, 536870910
   br i1 %cmp.i.i13, label %if.then.i15, label %for.inc.i
 
 if.then.i15:                                      ; preds = %for.body.i
@@ -1306,10 +1305,10 @@ if.then.i15:                                      ; preds = %for.body.i
   %agg.tmp4.sroa.0.0.copyload.i = load i64, ptr %second.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args4.i.i)
-  store i32 %10, ptr %__args.i.i, align 4
+  store i32 %11, ptr %__args.i.i, align 4
   store i64 %agg.tmp4.sroa.0.0.copyload.i, ptr %__args4.i.i, align 8
-  %11 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i16 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i16 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i16, label %if.then.i.i, label %_ZNKSt8functionIFvN6hermes2vm8SymbolIDENS1_23NamedPropertyDescriptorEEEclES2_S3_.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i15
@@ -1317,15 +1316,15 @@ if.then.i.i:                                      ; preds = %if.then.i15
   unreachable
 
 _ZNKSt8functionIFvN6hermes2vm8SymbolIDENS1_23NamedPropertyDescriptorEEEclES2_S3_.exit.i: ; preds = %if.then.i15
-  %12 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.i.i, ptr noundef nonnull align 4 dereferenceable(8) %__args4.i.i) #13
+  %13 = load ptr, ptr %_M_invoker.i.i, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.i.i, ptr noundef nonnull align 4 dereferenceable(8) %__args4.i.i) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args4.i.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZNKSt8functionIFvN6hermes2vm8SymbolIDENS1_23NamedPropertyDescriptorEEEclES2_S3_.exit.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.not.i14 = icmp eq i64 %indvars.iv.next.i, %9
+  %cmp.not.i14 = icmp eq i64 %indvars.iv.next.i, %10
   br i1 %cmp.not.i14, label %if.end13, label %for.body.i, !llvm.loop !19
 
 if.end13:                                         ; preds = %if.end, %for.inc.i, %if.then10
@@ -1349,8 +1348,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args4.i)
   store i32 %agg.tmp16.sroa.0.0.copyload, ptr %__args.i, align 4
   store i64 %agg.tmp18.sroa.0.0.copyload, ptr %__args4.i, align 8
-  %13 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %if.then.i20, label %_ZNKSt8functionIFvN6hermes2vm8SymbolIDENS1_23NamedPropertyDescriptorEEEclES2_S3_.exit
 
 if.then.i20:                                      ; preds = %for.body
@@ -1358,8 +1357,8 @@ if.then.i20:                                      ; preds = %for.body
   unreachable
 
 _ZNKSt8functionIFvN6hermes2vm8SymbolIDENS1_23NamedPropertyDescriptorEEEclES2_S3_.exit: ; preds = %for.body
-  %14 = load ptr, ptr %_M_invoker.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.i, ptr noundef nonnull align 4 dereferenceable(8) %__args4.i) #13
+  %15 = load ptr, ptr %_M_invoker.i, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.i, ptr noundef nonnull align 4 dereferenceable(8) %__args4.i) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args4.i)
   %cmp.i.i.i17.not = icmp eq ptr %incdec.ptr.i.i18, %properties.sroa.0.046
@@ -4696,6 +4695,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

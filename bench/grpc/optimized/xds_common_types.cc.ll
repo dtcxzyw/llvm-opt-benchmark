@@ -4112,22 +4112,21 @@ _ZNKSt6vectorIN9grpc_core13StringMatcherESaIS1_EE12_M_check_lenEmPKc.exit: ; pre
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 164703072086692425
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 164703072086692425, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
+  %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core13StringMatcherESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN9grpc_core13StringMatcherEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core13StringMatcherESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core13StringMatcherEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core13StringMatcherESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core13StringMatcherESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 56
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %_ZNSt12_Vector_baseIN9grpc_core13StringMatcherESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN9grpc_core13StringMatcherESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core13StringMatcherESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN9grpc_core13StringMatcherEEE8allocateERS2_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core13StringMatcherEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core13StringMatcherESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN9grpc_core13StringMatcherESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core13StringMatcherESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core13StringMatcherESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.grpc_core::StringMatcher", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZN9grpc_core13StringMatcherC1EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr, ptr noundef nonnull align 8 dereferenceable(49) %__args) #20
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -4138,13 +4137,13 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core13StringMatcherES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN9grpc_core13StringMatcherESaIS1_EE11_M_allocateEm.exit ]
   tail call void @_ZN9grpc_core13StringMatcherC1EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.06.i.i.i) #20
   %regex_matcher_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::StringMatcher", ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %2 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i, align 8, !alias.scope !74, !noalias !77
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i, align 8, !alias.scope !74, !noalias !77
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core13StringMatcherES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i
-  tail call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %3) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
   br label %_ZSt19__relocate_object_aIN9grpc_core13StringMatcherES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN9grpc_core13StringMatcherES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i
@@ -4167,13 +4166,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN9grpc
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i20, %_ZSt19__relocate_object_aIN9grpc_core13StringMatcherES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i18 ], [ %__position.coerce, %_ZNSt6vectorIN9grpc_core13StringMatcherESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @_ZN9grpc_core13StringMatcherC1EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.06.i.i.i14) #20
   %regex_matcher_.i.i.i.i.i.i.i15 = getelementptr inbounds %"class.grpc_core::StringMatcher", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %3 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i15, align 8, !alias.scope !80, !noalias !83
-  %cmp.not.i.i.i.i.i.i.i.i16 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i15, align 8, !alias.scope !80, !noalias !83
+  %cmp.not.i.i.i.i.i.i.i.i16 = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i16, label %_ZSt19__relocate_object_aIN9grpc_core13StringMatcherES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i18, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i17
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i17: ; preds = %for.body.i.i.i12
-  tail call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %3) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %4) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   br label %_ZSt19__relocate_object_aIN9grpc_core13StringMatcherES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i18
 
 _ZSt19__relocate_object_aIN9grpc_core13StringMatcherES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i18: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i17, %for.body.i.i.i12
@@ -4939,22 +4938,21 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #20
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -5108,29 +5106,28 @@ _ZNKSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE12_M_check_lenE
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN9grpc_core16ValidationErrors11ScopedFieldEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core16ValidationErrors11ScopedFieldEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %_ZNSt12_Vector_baseIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN9grpc_core16ValidationErrors11ScopedFieldEEE8allocateERS3_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core16ValidationErrors11ScopedFieldEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.grpc_core::ValidationErrors::ScopedField", ptr %cond.i17, i64 %sub.ptr.div.i
-  %2 = load ptr, ptr %__args, align 8
+  %3 = load ptr, ptr %__args, align 8
   %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__args1) #20
-  %3 = extractvalue { i64, ptr } %call.i.i, 0
-  %4 = extractvalue { i64, ptr } %call.i.i, 1
-  store ptr %2, ptr %add.ptr, align 8
-  invoke void @_ZN9grpc_core16ValidationErrors9PushFieldESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %2, i64 %3, ptr %4)
+  %4 = extractvalue { i64, ptr } %call.i.i, 0
+  %5 = extractvalue { i64, ptr } %call.i.i, 1
+  store ptr %3, ptr %add.ptr, align 8
+  invoke void @_ZN9grpc_core16ValidationErrors9PushFieldESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %3, i64 %4, ptr %5)
           to label %invoke.cont unwind label %invoke.cont21
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE11_M_allocateEm.exit
@@ -5142,9 +5139,9 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !93, !noalias !90
+  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !93, !noalias !90
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !93, !noalias !90
-  store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !90, !noalias !93
+  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !90, !noalias !93
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::ValidationErrors::ScopedField", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.grpc_core::ValidationErrors::ScopedField", ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -5161,9 +5158,9 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN9grpc
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i22, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %6 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !99, !noalias !96
+  %7 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !99, !noalias !96
   store ptr null, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !99, !noalias !96
-  store ptr %6, ptr %__cur.07.i.i.i20, align 8, !alias.scope !96, !noalias !99
+  store ptr %7, ptr %__cur.07.i.i.i20, align 8, !alias.scope !96, !noalias !99
   %incdec.ptr.i.i.i22 = getelementptr inbounds %"class.grpc_core::ValidationErrors::ScopedField", ptr %__first.addr.06.i.i.i21, i64 1
   %incdec.ptr1.i.i.i23 = getelementptr inbounds %"class.grpc_core::ValidationErrors::ScopedField", ptr %__cur.07.i.i.i20, i64 1
   %cmp.not.i.i.i24 = icmp eq ptr %incdec.ptr.i.i.i22, %0
@@ -5187,28 +5184,28 @@ _ZNSt12_Vector_baseIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE13_M_deal
   ret void
 
 lpad19:                                           ; preds = %invoke.cont21
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 invoke.cont21:                                    ; preds = %_ZNSt12_Vector_baseIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EE11_M_allocateEm.exit
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #20
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #20
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #23
   invoke void @__cxa_rethrow() #21
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %8
 
 terminate.lpad:                                   ; preds = %lpad19
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #19
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #19
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -5708,6 +5705,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

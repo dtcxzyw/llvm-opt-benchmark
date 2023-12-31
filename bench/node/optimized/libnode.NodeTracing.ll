@@ -2580,22 +2580,21 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #13
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #12
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -2688,7 +2687,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit
-  %3 = phi ptr [ null, %for.body.lr.ph ], [ %14, %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit ]
+  %3 = phi ptr [ null, %for.body.lr.ph ], [ %15, %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit ]
   %i.034 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit ]
   %conv = trunc i64 %i.034 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %conv) #12
@@ -2757,22 +2756,21 @@ _ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14defa
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 1152921504606846975
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 1152921504606846975, i64 %add.i.i
+  %12 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %12
   %cmp.not.i.i21 = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i21, label %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i
+  br i1 %cmp.not.i.i21, label %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
+cond.true.i.i:                                    ; preds = %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 3
   %call5.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #13
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
-  %cond.i10.i = phi ptr [ %call5.i.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
+_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
+  %cond.i10.i = phi ptr [ %call5.i.i.i.i, %cond.true.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.18", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %12 = ptrtoint ptr %retval.0.i.i.i to i64
-  store i64 %12, ptr %add.ptr.i, align 8
+  %13 = ptrtoint ptr %retval.0.i.i.i to i64
+  store i64 %13, ptr %add.ptr.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %11, %3
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i, label %for.body.i.i.i.i
 
@@ -2781,8 +2779,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %11, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  %13 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !98, !noalias !95
-  store i64 %13, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !95, !noalias !98
+  %14 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !98, !noalias !95
+  store i64 %14, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !95, !noalias !98
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !98, !noalias !95
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.18", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.18", ptr %__cur.07.i.i.i.i, i64 1
@@ -2807,51 +2805,51 @@ _ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14defau
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, %if.then.i.i
-  %14 = phi ptr [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %15 = phi ptr [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %incdec.ptr.i.i, %if.then.i.i ]
   %inc = add nuw i64 %i.034, 1
-  %15 = load ptr, ptr %_M_finish.i.i, align 8
-  %16 = load ptr, ptr %m_data.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %16 to i64
+  %16 = load ptr, ptr %_M_finish.i.i, align 8
+  %17 = load ptr, ptr %m_data.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !101
 
 for.end:                                          ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit, %if.end
-  %17 = phi ptr [ null, %if.end ], [ %14, %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit ]
+  %18 = phi ptr [ null, %if.end ], [ %15, %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit ]
   call void @_ZN4node9inspector8protocol12ErrorSupport3popEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #12
   %call5 = call noundef zeroext i1 @_ZN4node9inspector8protocol12ErrorSupport9hasErrorsEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #12
   br i1 %call5, label %delete.notnull.i.i, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %for.end
-  %18 = ptrtoint ptr %call1 to i64
-  store i64 %18, ptr %agg.result, align 8
+  %19 = ptrtoint ptr %call1 to i64
+  store i64 %19, ptr %agg.result, align 8
   br label %return
 
 delete.notnull.i.i:                               ; preds = %for.end
   store ptr null, ptr %agg.result, align 8
-  %19 = load ptr, ptr %call1, align 8
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %19, %17
+  %20 = load ptr, ptr %call1, align 8
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %20, %18
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %delete.notnull.i.i, %_ZSt8_DestroyISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i ], [ %19, %delete.notnull.i.i ]
-  %20 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %20, null
+  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i ], [ %20, %delete.notnull.i.i ]
+  %21 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector8protocol15DictionaryValueEEclEPS3_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol15DictionaryValueEEclEPS3_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %20, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %21, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 3
-  %21 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(96) %20) #12
+  %22 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(96) %21) #12
   br label %_ZSt8_DestroyISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol15DictionaryValueEEclEPS3_.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.18", ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %17
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %18
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !34
 
 _ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i
@@ -2859,12 +2857,12 @@ _ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14def
   br label %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i, %delete.notnull.i.i
-  %22 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %17, %delete.notnull.i.i ]
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %22, null
+  %23 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %18, %delete.notnull.i.i ]
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector8protocol5ArrayINS2_15DictionaryValueEEEEclEPS5_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %22) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #14
   br label %_ZNKSt14default_deleteIN4node9inspector8protocol5ArrayINS2_15DictionaryValueEEEEclEPS5_.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol5ArrayINS2_15DictionaryValueEEEEclEPS5_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i
@@ -2951,6 +2949,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11

@@ -36437,9 +36437,8 @@ _ZNKSt6vectorIN2lp13implied_boundE13std_allocatorIS1_EE12_M_check_lenEmPKc.exit:
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 128102389400760775
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 128102389400760775, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 128102389400760775)
+  %cond.i = select i1 %cmp7.i, i64 128102389400760775, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 72
@@ -36447,44 +36446,44 @@ _ZNKSt6vectorIN2lp13implied_boundE13std_allocatorIS1_EE12_M_check_lenEmPKc.exit:
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN2lp13implied_boundE13std_allocatorIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorIN2lp13implied_boundE13std_allocatorIS1_EE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = mul i64 %cond.i, 72
+  %mul.i.i.i = mul nuw nsw i64 %cond.i, 72
   %call.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %mul.i.i.i)
   br label %_ZNSt12_Vector_baseIN2lp13implied_boundE13std_allocatorIS1_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN2lp13implied_boundE13std_allocatorIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2lp13implied_boundE13std_allocatorIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN2lp13implied_boundE13std_allocatorIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.lp::implied_bound", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = load i32, ptr %__args, align 8
-  store i32 %2, ptr %add.ptr, align 8
+  %3 = load i32, ptr %__args, align 8
+  store i32 %3, ptr %add.ptr, align 8
   %m_kind.i.i.i.i.i.i = getelementptr inbounds %class.mpz, ptr %add.ptr, i64 0, i32 1
   %m_kind3.i.i.i.i.i.i = getelementptr inbounds %class.mpz, ptr %__args, i64 0, i32 1
   %bf.load.i.i.i.i.i.i = load i8, ptr %m_kind3.i.i.i.i.i.i, align 4
   %bf.load4.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i, align 4
   %bf.clear5.i.i.i.i.i.i = and i8 %bf.load4.i.i.i.i.i.i, -4
-  %3 = and i8 %bf.load.i.i.i.i.i.i, 3
-  %bf.set13.i.i.i.i.i.i = or disjoint i8 %bf.clear5.i.i.i.i.i.i, %3
+  %4 = and i8 %bf.load.i.i.i.i.i.i, 3
+  %bf.set13.i.i.i.i.i.i = or disjoint i8 %bf.clear5.i.i.i.i.i.i, %4
   store i8 %bf.set13.i.i.i.i.i.i, ptr %m_kind.i.i.i.i.i.i, align 4
   %m_ptr.i.i.i.i.i.i = getelementptr inbounds %class.mpz, ptr %add.ptr, i64 0, i32 2
   %m_ptr15.i.i.i.i.i.i = getelementptr inbounds %class.mpz, ptr %__args, i64 0, i32 2
-  %4 = load ptr, ptr %m_ptr15.i.i.i.i.i.i, align 8
-  store ptr %4, ptr %m_ptr.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %m_ptr15.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %m_ptr.i.i.i.i.i.i, align 8
   store ptr null, ptr %m_ptr15.i.i.i.i.i.i, align 8
   %m_den.i.i.i.i.i = getelementptr inbounds %class.mpq, ptr %add.ptr, i64 0, i32 1
   %m_den3.i.i.i.i.i = getelementptr inbounds %class.mpq, ptr %__args, i64 0, i32 1
-  %5 = load i32, ptr %m_den3.i.i.i.i.i, align 8
-  store i32 %5, ptr %m_den.i.i.i.i.i, align 8
+  %6 = load i32, ptr %m_den3.i.i.i.i.i, align 8
+  store i32 %6, ptr %m_den.i.i.i.i.i, align 8
   %m_kind.i2.i.i.i.i.i = getelementptr inbounds %class.mpq, ptr %add.ptr, i64 0, i32 1, i32 1
   %m_kind3.i3.i.i.i.i.i = getelementptr inbounds %class.mpq, ptr %__args, i64 0, i32 1, i32 1
   %bf.load.i4.i.i.i.i.i = load i8, ptr %m_kind3.i3.i.i.i.i.i, align 4
   %bf.load4.i6.i.i.i.i.i = load i8, ptr %m_kind.i2.i.i.i.i.i, align 4
   %bf.clear5.i7.i.i.i.i.i = and i8 %bf.load4.i6.i.i.i.i.i, -4
-  %6 = and i8 %bf.load.i4.i.i.i.i.i, 3
-  %bf.set13.i12.i.i.i.i.i = or disjoint i8 %bf.clear5.i7.i.i.i.i.i, %6
+  %7 = and i8 %bf.load.i4.i.i.i.i.i, 3
+  %bf.set13.i12.i.i.i.i.i = or disjoint i8 %bf.clear5.i7.i.i.i.i.i, %7
   store i8 %bf.set13.i12.i.i.i.i.i, ptr %m_kind.i2.i.i.i.i.i, align 4
   %m_ptr.i13.i.i.i.i.i = getelementptr inbounds %class.mpq, ptr %add.ptr, i64 0, i32 1, i32 2
   %m_ptr15.i14.i.i.i.i.i = getelementptr inbounds %class.mpq, ptr %__args, i64 0, i32 1, i32 2
-  %7 = load ptr, ptr %m_ptr15.i14.i.i.i.i.i, align 8
-  store ptr %7, ptr %m_ptr.i13.i.i.i.i.i, align 8
+  %8 = load ptr, ptr %m_ptr15.i14.i.i.i.i.i, align 8
+  store ptr %8, ptr %m_ptr.i13.i.i.i.i.i, align 8
   store ptr null, ptr %m_ptr15.i14.i.i.i.i.i, align 8
   %m_j.i.i.i = getelementptr inbounds %"class.lp::implied_bound", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
   %m_j3.i.i.i = getelementptr inbounds %"class.lp::implied_bound", ptr %__args, i64 0, i32 1
@@ -36493,18 +36492,18 @@ _ZNSt12_Vector_baseIN2lp13implied_boundE13std_allocatorIS1_EE11_M_allocateEm.exi
   %_M_invoker.i.i.i.i = getelementptr inbounds %"class.lp::implied_bound", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 1
   %_M_invoker2.i.i.i.i = getelementptr inbounds %"class.lp::implied_bound", ptr %__args, i64 0, i32 4, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_explain_bound.i.i.i, i8 0, i64 24, i1 false)
-  %8 = load ptr, ptr %_M_invoker2.i.i.i.i, align 8
-  store ptr %8, ptr %_M_invoker.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_invoker2.i.i.i.i, align 8
+  store ptr %9, ptr %_M_invoker.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.lp::implied_bound", ptr %__args, i64 0, i32 4, i32 0, i32 1
-  %9 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.not.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.not.i.i.i.i, label %_ZNSt16allocator_traitsI13std_allocatorIN2lp13implied_boundEEE9constructIS2_JS2_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS3_PT_DpOS6_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN2lp13implied_boundE13std_allocatorIS1_EE11_M_allocateEm.exit
   %m_explain_bound4.i.i.i = getelementptr inbounds %"class.lp::implied_bound", ptr %__args, i64 0, i32 4
   %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.lp::implied_bound", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_explain_bound.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_explain_bound4.i.i.i, i64 16, i1 false)
-  store ptr %9, ptr %_M_manager.i.i.i.i.i, align 8
+  store ptr %10, ptr %_M_manager.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsI13std_allocatorIN2lp13implied_boundEEE9constructIS2_JS2_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS3_PT_DpOS6_.exit
 
@@ -40958,6 +40957,9 @@ declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22

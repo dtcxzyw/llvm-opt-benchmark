@@ -1669,30 +1669,29 @@ _ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenE
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE8allocateERS4_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
   br label %_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE8allocateERS4_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  %2 = load i32, ptr %__args, align 4
-  %3 = load i32, ptr %__args1, align 4
+  %3 = load i32, ptr %__args, align 4
+  %4 = load i32, ptr %__args1, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args3) #14
-  store i32 %2, ptr %add.ptr, align 8
+  store i32 %3, ptr %add.ptr, align 8
   %funcVirtualOffset3.i.i.i = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
-  store i32 %3, ptr %funcVirtualOffset3.i.i.i, align 4
+  store i32 %4, ptr %funcVirtualOffset3.i.i.i, align 4
   %debugInfo4.i.i.i = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %debugInfo4.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i) #14
@@ -1705,8 +1704,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %4 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !45, !noalias !42
-  store i64 %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !42, !noalias !45
+  %5 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !45, !noalias !42
+  store i64 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !42, !noalias !45
   %debugInfo.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %__cur.07.i.i.i, i64 0, i32 2
   %debugInfo3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %debugInfo.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %debugInfo3.i.i.i.i.i.i.i) #14
@@ -1727,8 +1726,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6herm
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %5 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !51, !noalias !48
-  store i64 %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !48, !noalias !51
+  %6 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !51, !noalias !48
+  store i64 %6, ptr %__cur.07.i.i.i13, align 8, !alias.scope !48, !noalias !51
   %debugInfo.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %__cur.07.i.i.i13, i64 0, i32 2
   %debugInfo3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %debugInfo.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %debugInfo3.i.i.i.i.i.i.i16) #14
@@ -1785,29 +1784,28 @@ _ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenE
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE8allocateERS4_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
   br label %_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE8allocateERS4_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  %2 = load i32, ptr %__args, align 4
-  %3 = load i32, ptr %__args1, align 4
+  %3 = load i32, ptr %__args, align 4
+  %4 = load i32, ptr %__args1, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i), !noalias !53
-  %4 = load ptr, ptr %__args3, align 8, !noalias !56
-  %tobool.not.i.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %__args3, align 8, !noalias !56
+  %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit
@@ -1816,17 +1814,17 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_base
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_M_allocateEm.exit
   %Length.i.i.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %__args3, i64 0, i32 1
-  %5 = load i64, ptr %Length.i.i.i.i, align 8, !noalias !56
+  %6 = load i64, ptr %Length.i.i.i.i, align 8, !noalias !56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14, !noalias !56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull %4, i64 noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14
   br label %_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE9constructIS3_JRKjS8_RN4llvh9StringRefEEEEvRS4_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE9constructIS3_JRKjS8_RN4llvh9StringRefEEEEvRS4_PT_DpOT0_.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i), !noalias !53
-  store i32 %2, ptr %add.ptr, align 8
+  store i32 %3, ptr %add.ptr, align 8
   %funcVirtualOffset3.i.i.i = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
-  store i32 %3, ptr %funcVirtualOffset3.i.i.i, align 4
+  store i32 %4, ptr %funcVirtualOffset3.i.i.i, align 4
   %debugInfo4.i.i.i = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %debugInfo4.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i) #14
@@ -1839,8 +1837,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaIN6hermes2vm20CodeCoverageProfiler8FuncInfoEEE9constructIS3_JRKjS8_RN4llvh9StringRefEEEEvRS4_PT_DpOT0_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %6 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !62, !noalias !59
-  store i64 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !59, !noalias !62
+  %7 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !62, !noalias !59
+  store i64 %7, ptr %__cur.07.i.i.i, align 8, !alias.scope !59, !noalias !62
   %debugInfo.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %__cur.07.i.i.i, i64 0, i32 2
   %debugInfo3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %debugInfo.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %debugInfo3.i.i.i.i.i.i.i) #14
@@ -1861,8 +1859,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6herm
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN6hermes2vm20CodeCoverageProfiler8FuncInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %7 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !67, !noalias !64
-  store i64 %7, ptr %__cur.07.i.i.i13, align 8, !alias.scope !64, !noalias !67
+  %8 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !67, !noalias !64
+  store i64 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !64, !noalias !67
   %debugInfo.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %__cur.07.i.i.i13, i64 0, i32 2
   %debugInfo3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.hermes::vm::CodeCoverageProfiler::FuncInfo", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %debugInfo.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %debugInfo3.i.i.i.i.i.i.i16) #14
@@ -2567,6 +2565,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13

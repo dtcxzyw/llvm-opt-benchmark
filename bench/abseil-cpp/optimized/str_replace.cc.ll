@@ -589,9 +589,8 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
@@ -606,7 +605,7 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %agg.tmp6.sroa.0.0.copyload.i.i = load i64, ptr %__args1, align 8
   %agg.tmp6.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
   %agg.tmp6.sroa.2.0.copyload.i.i = load ptr, ptr %agg.tmp6.sroa.2.0..sroa_idx.i.i, align 8
-  %2 = load i64, ptr %__args3, align 8
+  %3 = load i64, ptr %__args3, align 8
   store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %add.ptr, align 8
   %old_str.sroa.2.0.old.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %agg.tmp.sroa.2.0.copyload.i.i, ptr %old_str.sroa.2.0.old.sroa_idx.i.i.i, align 8
@@ -615,7 +614,7 @@ _ZNKSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12_M_check_le
   %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1
   store ptr %agg.tmp6.sroa.2.0.copyload.i.i, ptr %replacement_str.sroa.2.0.replacement.sroa_idx.i.i.i, align 8
   %offset.i.i.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
-  store i64 %2, ptr %offset.i.i.i, align 8
+  store i64 %3, ptr %offset.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 

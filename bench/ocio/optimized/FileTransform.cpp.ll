@@ -3356,9 +3356,9 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 invoke.cont9:                                     ; preds = %invoke.cont6
   %call10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call10)
-          to label %invoke.cont12 unwind label %ehcleanup.thread144
+          to label %invoke.cont12 unwind label %ehcleanup.thread142
 
-ehcleanup.thread144:                              ; preds = %invoke.cont9
+ehcleanup.thread142:                              ; preds = %invoke.cont9
   %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
@@ -3368,13 +3368,13 @@ invoke.cont12:                                    ; preds = %invoke.cont9
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #29
           to label %unreachable unwind label %ehcleanup
 
-lpad.loopexit:                                    ; preds = %if.end42, %if.end74, %invoke.cont83, %_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i, %if.then.i38, %if.else.i40, %if.then.i47, %if.else.i49, %if.then.i58, %if.else.i60, %if.then.i68, %if.else.i70, %if.then.i79, %if.else.i81, %if.then.i89, %if.else.i91
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %if.end42, %if.end74, %invoke.cont83, %cond.true.i.i.i, %if.then.i38, %if.else.i40, %if.then.i47, %if.else.i49, %if.then.i58, %if.else.i60, %if.then.i68, %if.else.i70, %if.then.i79, %if.else.i81, %if.then.i89, %if.else.i91
+  %lpad.loopexit154 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup137
 
-lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.invoke, %entry, %if.then, %if.then18, %if.then47, %_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i114
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.invoke, %entry, %if.then, %if.then18, %if.then47, %cond.true.i.i.i112
+  %lpad.loopexit.split-lp155 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup137
 
@@ -3394,21 +3394,21 @@ ehcleanup:                                        ; preds = %invoke.cont12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   br label %ehcleanup13
 
-cleanup.action:                                   ; preds = %ehcleanup.thread144, %ehcleanup.thread
-  %.pn23143 = phi { ptr, i32 } [ %5, %ehcleanup.thread ], [ %3, %ehcleanup.thread144 ]
+cleanup.action:                                   ; preds = %ehcleanup.thread142, %ehcleanup.thread
+  %.pn23141 = phi { ptr, i32 } [ %5, %ehcleanup.thread ], [ %3, %ehcleanup.thread142 ]
   call void @__cxa_free_exception(ptr %exception) #28
   br label %ehcleanup13
 
 ehcleanup13:                                      ; preds = %ehcleanup, %cleanup.action, %lpad3
-  %.pn23.pn = phi { ptr, i32 } [ %.pn23143, %cleanup.action ], [ %6, %ehcleanup ], [ %4, %lpad3 ]
+  %.pn23.pn = phi { ptr, i32 } [ %.pn23141, %cleanup.action ], [ %6, %ehcleanup ], [ %4, %lpad3 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #28
   br label %ehcleanup137
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %7 = phi ptr [ %1, %for.body.lr.ph ], [ %56, %for.inc ]
-  %conv169 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
-  %i.0168 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %capabilities = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %7, i64 %conv169, i32 2
+  %7 = phi ptr [ %1, %for.body.lr.ph ], [ %57, %for.inc ]
+  %conv167 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
+  %i.0166 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %capabilities = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %7, i64 %conv167, i32 2
   %8 = load i32, ptr %capabilities, align 8
   %cmp17 = icmp eq i32 %8, 0
   br i1 %cmp17, label %if.then18, label %if.end42
@@ -3437,9 +3437,9 @@ invoke.cont26:                                    ; preds = %invoke.cont24
 invoke.cont31:                                    ; preds = %invoke.cont26
   %call32 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #28
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception28, ptr noundef %call32)
-          to label %invoke.cont34 unwind label %ehcleanup37.thread149
+          to label %invoke.cont34 unwind label %ehcleanup37.thread147
 
-ehcleanup37.thread149:                            ; preds = %invoke.cont31
+ehcleanup37.thread147:                            ; preds = %invoke.cont31
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #28
@@ -3465,18 +3465,18 @@ ehcleanup37:                                      ; preds = %invoke.cont34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #28
   br label %ehcleanup41
 
-cleanup.action39:                                 ; preds = %ehcleanup37.thread149, %ehcleanup37.thread
-  %.pn20148 = phi { ptr, i32 } [ %11, %ehcleanup37.thread ], [ %9, %ehcleanup37.thread149 ]
+cleanup.action39:                                 ; preds = %ehcleanup37.thread147, %ehcleanup37.thread
+  %.pn20146 = phi { ptr, i32 } [ %11, %ehcleanup37.thread ], [ %9, %ehcleanup37.thread147 ]
   call void @__cxa_free_exception(ptr %exception28) #28
   br label %ehcleanup41
 
 ehcleanup41:                                      ; preds = %ehcleanup37, %cleanup.action39, %lpad21
-  %.pn20.pn = phi { ptr, i32 } [ %.pn20148, %cleanup.action39 ], [ %12, %ehcleanup37 ], [ %10, %lpad21 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn20146, %cleanup.action39 ], [ %12, %ehcleanup37 ], [ %10, %lpad21 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os19) #28
   br label %ehcleanup137
 
 if.end42:                                         ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %7, i64 %conv169
+  %add.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %7, i64 %conv167
   %call46 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev14FormatRegistry19getFileFormatByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
           to label %invoke.cont45 unwind label %lpad.loopexit
 
@@ -3494,7 +3494,7 @@ invoke.cont49:                                    ; preds = %if.then47
 
 invoke.cont51:                                    ; preds = %invoke.cont49
   %13 = load ptr, ptr %formatInfoVec, align 8
-  %add.ptr.i28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %13, i64 %conv169
+  %add.ptr.i28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %13, i64 %conv167
   %call57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os48, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i28)
           to label %invoke.cont56 unwind label %lpad50
 
@@ -3510,9 +3510,9 @@ invoke.cont58:                                    ; preds = %invoke.cont56
 invoke.cont63:                                    ; preds = %invoke.cont58
   %call64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61) #28
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception60, ptr noundef %call64)
-          to label %invoke.cont66 unwind label %ehcleanup69.thread154
+          to label %invoke.cont66 unwind label %ehcleanup69.thread152
 
-ehcleanup69.thread154:                            ; preds = %invoke.cont63
+ehcleanup69.thread152:                            ; preds = %invoke.cont63
   %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61) #28
@@ -3538,19 +3538,19 @@ ehcleanup69:                                      ; preds = %invoke.cont66
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61) #28
   br label %ehcleanup73
 
-cleanup.action71:                                 ; preds = %ehcleanup69.thread154, %ehcleanup69.thread
-  %.pn17153 = phi { ptr, i32 } [ %16, %ehcleanup69.thread ], [ %14, %ehcleanup69.thread154 ]
+cleanup.action71:                                 ; preds = %ehcleanup69.thread152, %ehcleanup69.thread
+  %.pn17151 = phi { ptr, i32 } [ %16, %ehcleanup69.thread ], [ %14, %ehcleanup69.thread152 ]
   call void @__cxa_free_exception(ptr %exception60) #28
   br label %ehcleanup73
 
 ehcleanup73:                                      ; preds = %ehcleanup69, %cleanup.action71, %lpad50
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17153, %cleanup.action71 ], [ %17, %ehcleanup69 ], [ %15, %lpad50 ]
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17151, %cleanup.action71 ], [ %17, %ehcleanup69 ], [ %15, %lpad50 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os48) #28
   br label %ehcleanup137
 
 if.end74:                                         ; preds = %invoke.cont45
   %18 = load ptr, ptr %formatInfoVec, align 8
-  %add.ptr.i29 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %18, i64 %conv169
+  %add.ptr.i29 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %18, i64 %conv167
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i29)
           to label %invoke.cont79 unwind label %lpad.loopexit
 
@@ -3585,7 +3585,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
   %22 = load ptr, ptr %formatInfoVec, align 8
-  %extension = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %22, i64 %conv169, i32 1
+  %extension = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %22, i64 %conv167, i32 1
   %call90 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS9_EESt4lessIS5_ESaISt4pairIKS5_SB_EEEixERSF_(ptr noundef nonnull align 8 dereferenceable(48) %m_formatsByExtension, ptr noundef nonnull align 8 dereferenceable(32) %extension)
           to label %invoke.cont89 unwind label %lpad.loopexit
 
@@ -3624,19 +3624,18 @@ _ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.ex
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %27 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %27
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #27
           to label %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i, %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i32, %_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i ]
+_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i32, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %format, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
@@ -3664,172 +3663,172 @@ _ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRK
   br label %invoke.cont91
 
 invoke.cont91:                                    ; preds = %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i
-  %27 = load ptr, ptr %formatInfoVec, align 8
-  %add.ptr.i33 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %27, i64 %conv169
-  %capabilities94 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %27, i64 %conv169, i32 2
-  %28 = load i32, ptr %capabilities94, align 8
-  %and = and i32 %28, 1
+  %28 = load ptr, ptr %formatInfoVec, align 8
+  %add.ptr.i33 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %28, i64 %conv167
+  %capabilities94 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %28, i64 %conv167, i32 2
+  %29 = load i32, ptr %capabilities94, align 8
+  %and = and i32 %29, 1
   %tobool95.not = icmp eq i32 %and, 0
   br i1 %tobool95.not, label %if.end105, label %if.then96
 
 if.then96:                                        ; preds = %invoke.cont91
-  %29 = load ptr, ptr %_M_finish.i35, align 8
-  %30 = load ptr, ptr %_M_end_of_storage.i36, align 8
-  %cmp.not.i37 = icmp eq ptr %29, %30
+  %30 = load ptr, ptr %_M_finish.i35, align 8
+  %31 = load ptr, ptr %_M_end_of_storage.i36, align 8
+  %cmp.not.i37 = icmp eq ptr %30, %31
   br i1 %cmp.not.i37, label %if.else.i40, label %if.then.i38
 
 if.then.i38:                                      ; preds = %if.then96
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i33)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i33)
           to label %.noexc41 unwind label %lpad.loopexit
 
 .noexc41:                                         ; preds = %if.then.i38
-  %31 = load ptr, ptr %_M_finish.i35, align 8
-  %incdec.ptr.i39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 1
+  %32 = load ptr, ptr %_M_finish.i35, align 8
+  %incdec.ptr.i39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %32, i64 1
   store ptr %incdec.ptr.i39, ptr %_M_finish.i35, align 8
   br label %invoke.cont100
 
 if.else.i40:                                      ; preds = %if.then96
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_readFormatNames, ptr %29, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i33)
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_readFormatNames, ptr %30, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i33)
           to label %invoke.cont100 unwind label %lpad.loopexit
 
 invoke.cont100:                                   ; preds = %.noexc41, %if.else.i40
-  %32 = load ptr, ptr %formatInfoVec, align 8
-  %extension103 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %32, i64 %conv169, i32 1
-  %33 = load ptr, ptr %_M_finish.i44, align 8
-  %34 = load ptr, ptr %_M_end_of_storage.i45, align 8
-  %cmp.not.i46 = icmp eq ptr %33, %34
+  %33 = load ptr, ptr %formatInfoVec, align 8
+  %extension103 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %33, i64 %conv167, i32 1
+  %34 = load ptr, ptr %_M_finish.i44, align 8
+  %35 = load ptr, ptr %_M_end_of_storage.i45, align 8
+  %cmp.not.i46 = icmp eq ptr %34, %35
   br i1 %cmp.not.i46, label %if.else.i49, label %if.then.i47
 
 if.then.i47:                                      ; preds = %invoke.cont100
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %extension103)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %extension103)
           to label %.noexc50 unwind label %lpad.loopexit
 
 .noexc50:                                         ; preds = %if.then.i47
-  %35 = load ptr, ptr %_M_finish.i44, align 8
-  %incdec.ptr.i48 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %35, i64 1
+  %36 = load ptr, ptr %_M_finish.i44, align 8
+  %incdec.ptr.i48 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %36, i64 1
   store ptr %incdec.ptr.i48, ptr %_M_finish.i44, align 8
   br label %if.end105
 
 if.else.i49:                                      ; preds = %invoke.cont100
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_readFormatExtensions, ptr %33, ptr noundef nonnull align 8 dereferenceable(32) %extension103)
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_readFormatExtensions, ptr %34, ptr noundef nonnull align 8 dereferenceable(32) %extension103)
           to label %if.end105 unwind label %lpad.loopexit
 
 lpad82:                                           ; preds = %invoke.cont81
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
   br label %ehcleanup137
 
 if.end105:                                        ; preds = %.noexc50, %if.else.i49, %invoke.cont91
-  %37 = load ptr, ptr %formatInfoVec, align 8
-  %add.ptr.i53 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %37, i64 %conv169
-  %capabilities108 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %37, i64 %conv169, i32 2
-  %38 = load i32, ptr %capabilities108, align 8
-  %and109 = and i32 %38, 2
+  %38 = load ptr, ptr %formatInfoVec, align 8
+  %add.ptr.i53 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %38, i64 %conv167
+  %capabilities108 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %38, i64 %conv167, i32 2
+  %39 = load i32, ptr %capabilities108, align 8
+  %and109 = and i32 %39, 2
   %tobool110.not = icmp eq i32 %and109, 0
   br i1 %tobool110.not, label %if.end120, label %if.then111
 
 if.then111:                                       ; preds = %if.end105
-  %39 = load ptr, ptr %_M_finish.i55, align 8
-  %40 = load ptr, ptr %_M_end_of_storage.i56, align 8
-  %cmp.not.i57 = icmp eq ptr %39, %40
+  %40 = load ptr, ptr %_M_finish.i55, align 8
+  %41 = load ptr, ptr %_M_end_of_storage.i56, align 8
+  %cmp.not.i57 = icmp eq ptr %40, %41
   br i1 %cmp.not.i57, label %if.else.i60, label %if.then.i58
 
 if.then.i58:                                      ; preds = %if.then111
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i53)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i53)
           to label %.noexc61 unwind label %lpad.loopexit
 
 .noexc61:                                         ; preds = %if.then.i58
-  %41 = load ptr, ptr %_M_finish.i55, align 8
-  %incdec.ptr.i59 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %41, i64 1
+  %42 = load ptr, ptr %_M_finish.i55, align 8
+  %incdec.ptr.i59 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %42, i64 1
   store ptr %incdec.ptr.i59, ptr %_M_finish.i55, align 8
   br label %invoke.cont115
 
 if.else.i60:                                      ; preds = %if.then111
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_bakeFormatNames, ptr %39, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i53)
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_bakeFormatNames, ptr %40, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i53)
           to label %invoke.cont115 unwind label %lpad.loopexit
 
 invoke.cont115:                                   ; preds = %.noexc61, %if.else.i60
-  %42 = load ptr, ptr %formatInfoVec, align 8
-  %extension118 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %42, i64 %conv169, i32 1
-  %43 = load ptr, ptr %_M_finish.i65, align 8
-  %44 = load ptr, ptr %_M_end_of_storage.i66, align 8
-  %cmp.not.i67 = icmp eq ptr %43, %44
+  %43 = load ptr, ptr %formatInfoVec, align 8
+  %extension118 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %43, i64 %conv167, i32 1
+  %44 = load ptr, ptr %_M_finish.i65, align 8
+  %45 = load ptr, ptr %_M_end_of_storage.i66, align 8
+  %cmp.not.i67 = icmp eq ptr %44, %45
   br i1 %cmp.not.i67, label %if.else.i70, label %if.then.i68
 
 if.then.i68:                                      ; preds = %invoke.cont115
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %extension118)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %extension118)
           to label %.noexc71 unwind label %lpad.loopexit
 
 .noexc71:                                         ; preds = %if.then.i68
-  %45 = load ptr, ptr %_M_finish.i65, align 8
-  %incdec.ptr.i69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %45, i64 1
+  %46 = load ptr, ptr %_M_finish.i65, align 8
+  %incdec.ptr.i69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %46, i64 1
   store ptr %incdec.ptr.i69, ptr %_M_finish.i65, align 8
   br label %if.end120
 
 if.else.i70:                                      ; preds = %invoke.cont115
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_bakeFormatExtensions, ptr %43, ptr noundef nonnull align 8 dereferenceable(32) %extension118)
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_bakeFormatExtensions, ptr %44, ptr noundef nonnull align 8 dereferenceable(32) %extension118)
           to label %if.end120 unwind label %lpad.loopexit
 
 if.end120:                                        ; preds = %.noexc71, %if.else.i70, %if.end105
-  %46 = load ptr, ptr %formatInfoVec, align 8
-  %add.ptr.i74 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %46, i64 %conv169
-  %capabilities123 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %46, i64 %conv169, i32 2
-  %47 = load i32, ptr %capabilities123, align 8
-  %and124 = and i32 %47, 4
+  %47 = load ptr, ptr %formatInfoVec, align 8
+  %add.ptr.i74 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %47, i64 %conv167
+  %capabilities123 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %47, i64 %conv167, i32 2
+  %48 = load i32, ptr %capabilities123, align 8
+  %and124 = and i32 %48, 4
   %tobool125.not = icmp eq i32 %and124, 0
   br i1 %tobool125.not, label %for.inc, label %if.then126
 
 if.then126:                                       ; preds = %if.end120
-  %48 = load ptr, ptr %_M_finish.i76, align 8
-  %49 = load ptr, ptr %_M_end_of_storage.i77, align 8
-  %cmp.not.i78 = icmp eq ptr %48, %49
+  %49 = load ptr, ptr %_M_finish.i76, align 8
+  %50 = load ptr, ptr %_M_end_of_storage.i77, align 8
+  %cmp.not.i78 = icmp eq ptr %49, %50
   br i1 %cmp.not.i78, label %if.else.i81, label %if.then.i79
 
 if.then.i79:                                      ; preds = %if.then126
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i74)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i74)
           to label %.noexc82 unwind label %lpad.loopexit
 
 .noexc82:                                         ; preds = %if.then.i79
-  %50 = load ptr, ptr %_M_finish.i76, align 8
-  %incdec.ptr.i80 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %50, i64 1
+  %51 = load ptr, ptr %_M_finish.i76, align 8
+  %incdec.ptr.i80 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %51, i64 1
   store ptr %incdec.ptr.i80, ptr %_M_finish.i76, align 8
   br label %invoke.cont130
 
 if.else.i81:                                      ; preds = %if.then126
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_writeFormatNames, ptr %48, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i74)
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_writeFormatNames, ptr %49, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i74)
           to label %invoke.cont130 unwind label %lpad.loopexit
 
 invoke.cont130:                                   ; preds = %.noexc82, %if.else.i81
-  %51 = load ptr, ptr %formatInfoVec, align 8
-  %extension133 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %51, i64 %conv169, i32 1
-  %52 = load ptr, ptr %_M_finish.i86, align 8
-  %53 = load ptr, ptr %_M_end_of_storage.i87, align 8
-  %cmp.not.i88 = icmp eq ptr %52, %53
+  %52 = load ptr, ptr %formatInfoVec, align 8
+  %extension133 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %52, i64 %conv167, i32 1
+  %53 = load ptr, ptr %_M_finish.i86, align 8
+  %54 = load ptr, ptr %_M_end_of_storage.i87, align 8
+  %cmp.not.i88 = icmp eq ptr %53, %54
   br i1 %cmp.not.i88, label %if.else.i91, label %if.then.i89
 
 if.then.i89:                                      ; preds = %invoke.cont130
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %extension133)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %extension133)
           to label %.noexc92 unwind label %lpad.loopexit
 
 .noexc92:                                         ; preds = %if.then.i89
-  %54 = load ptr, ptr %_M_finish.i86, align 8
-  %incdec.ptr.i90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %54, i64 1
+  %55 = load ptr, ptr %_M_finish.i86, align 8
+  %incdec.ptr.i90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %55, i64 1
   store ptr %incdec.ptr.i90, ptr %_M_finish.i86, align 8
   br label %for.inc
 
 if.else.i91:                                      ; preds = %invoke.cont130
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_writeFormatExtensions, ptr %52, ptr noundef nonnull align 8 dereferenceable(32) %extension133)
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_writeFormatExtensions, ptr %53, ptr noundef nonnull align 8 dereferenceable(32) %extension133)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %.noexc92, %if.else.i91, %if.end120
-  %inc = add i32 %i.0168, 1
+  %inc = add i32 %i.0166, 1
   %conv = zext i32 %inc to i64
-  %55 = load ptr, ptr %_M_finish.i.i, align 8
-  %56 = load ptr, ptr %formatInfoVec, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %55 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %56 to i64
+  %56 = load ptr, ptr %_M_finish.i.i, align 8
+  %57 = load ptr, ptr %formatInfoVec, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %56 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %57 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 72
   %cmp = icmp ugt i64 %sub.ptr.div.i, %conv
@@ -3838,23 +3837,23 @@ for.inc:                                          ; preds = %.noexc92, %if.else.
 for.end:                                          ; preds = %for.inc
   %m_rawFormats = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatRegistry", ptr %this, i64 0, i32 2
   %_M_finish.i95 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatRegistry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %57 = load ptr, ptr %_M_finish.i95, align 8
+  %58 = load ptr, ptr %_M_finish.i95, align 8
   %_M_end_of_storage.i96 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatRegistry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %58 = load ptr, ptr %_M_end_of_storage.i96, align 8
-  %cmp.not.i97 = icmp eq ptr %57, %58
+  %59 = load ptr, ptr %_M_end_of_storage.i96, align 8
+  %cmp.not.i97 = icmp eq ptr %58, %59
   br i1 %cmp.not.i97, label %if.else.i100, label %if.then.i98
 
 if.then.i98:                                      ; preds = %for.end
-  store ptr %format, ptr %57, align 8
-  %59 = load ptr, ptr %_M_finish.i95, align 8
-  %incdec.ptr.i99 = getelementptr inbounds ptr, ptr %59, i64 1
+  store ptr %format, ptr %58, align 8
+  %60 = load ptr, ptr %_M_finish.i95, align 8
+  %incdec.ptr.i99 = getelementptr inbounds ptr, ptr %60, i64 1
   store ptr %incdec.ptr.i99, ptr %_M_finish.i95, align 8
   br label %invoke.cont136
 
 if.else.i100:                                     ; preds = %for.end
-  %60 = load ptr, ptr %m_rawFormats, align 8
-  %sub.ptr.lhs.cast.i.i.i.i101 = ptrtoint ptr %57 to i64
-  %sub.ptr.rhs.cast.i.i.i.i102 = ptrtoint ptr %60 to i64
+  %61 = load ptr, ptr %m_rawFormats, align 8
+  %sub.ptr.lhs.cast.i.i.i.i101 = ptrtoint ptr %58 to i64
+  %sub.ptr.rhs.cast.i.i.i.i102 = ptrtoint ptr %61 to i64
   %sub.ptr.sub.i.i.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i.i.i101, %sub.ptr.rhs.cast.i.i.i.i102
   %cmp.i.i.i104 = icmp eq i64 %sub.ptr.sub.i.i.i.i103, 9223372036854775800
   br i1 %cmp.i.i.i104, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i105
@@ -3864,58 +3863,57 @@ _ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.ex
   %.sroa.speculated.i.i.i107 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i106, i64 1)
   %add.i.i.i108 = add i64 %.sroa.speculated.i.i.i107, %sub.ptr.div.i.i.i.i106
   %cmp7.i.i.i109 = icmp ult i64 %add.i.i.i108, %sub.ptr.div.i.i.i.i106
-  %cmp9.i.i.i110 = icmp ugt i64 %add.i.i.i108, 1152921504606846975
-  %or.cond.i.i.i111 = or i1 %cmp7.i.i.i109, %cmp9.i.i.i110
-  %cond.i.i.i112 = select i1 %or.cond.i.i.i111, i64 1152921504606846975, i64 %add.i.i.i108
-  %cmp.not.i.i.i113 = icmp eq i64 %cond.i.i.i112, 0
-  br i1 %cmp.not.i.i.i113, label %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i116, label %_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i114
+  %62 = call i64 @llvm.umin.i64(i64 %add.i.i.i108, i64 1152921504606846975)
+  %cond.i.i.i110 = select i1 %cmp7.i.i.i109, i64 1152921504606846975, i64 %62
+  %cmp.not.i.i.i111 = icmp eq i64 %cond.i.i.i110, 0
+  br i1 %cmp.not.i.i.i111, label %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i114, label %cond.true.i.i.i112
 
-_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i114: ; preds = %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i105
-  %mul.i.i.i.i.i115 = shl nuw nsw i64 %cond.i.i.i112, 3
-  %call5.i.i.i.i.i131 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i115) #27
-          to label %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i116 unwind label %lpad.loopexit.split-lp
+cond.true.i.i.i112:                               ; preds = %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i105
+  %mul.i.i.i.i.i113 = shl nuw nsw i64 %cond.i.i.i110, 3
+  %call5.i.i.i.i.i129 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i113) #27
+          to label %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i114 unwind label %lpad.loopexit.split-lp
 
-_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i116: ; preds = %_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i114, %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i105
-  %cond.i10.i.i117 = phi ptr [ null, %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %call5.i.i.i.i.i131, %_ZNSt16allocator_traitsISaIPN19OpenColorIO_v2_4dev10FileFormatEEE8allocateERS3_m.exit.i.i.i114 ]
-  %add.ptr.i.i118 = getelementptr inbounds ptr, ptr %cond.i10.i.i117, i64 %sub.ptr.div.i.i.i.i106
-  store ptr %format, ptr %add.ptr.i.i118, align 8
-  %cmp.i.i.i.i.i.i119 = icmp sgt i64 %sub.ptr.sub.i.i.i.i103, 0
-  br i1 %cmp.i.i.i.i.i.i119, label %if.then.i.i.i.i.i.i127, label %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i120
+_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i114: ; preds = %cond.true.i.i.i112, %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i105
+  %cond.i10.i.i115 = phi ptr [ null, %_ZNKSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %call5.i.i.i.i.i129, %cond.true.i.i.i112 ]
+  %add.ptr.i.i116 = getelementptr inbounds ptr, ptr %cond.i10.i.i115, i64 %sub.ptr.div.i.i.i.i106
+  store ptr %format, ptr %add.ptr.i.i116, align 8
+  %cmp.i.i.i.i.i.i117 = icmp sgt i64 %sub.ptr.sub.i.i.i.i103, 0
+  br i1 %cmp.i.i.i.i.i.i117, label %if.then.i.i.i.i.i.i125, label %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i118
 
-if.then.i.i.i.i.i.i127:                           ; preds = %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i116
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i117, ptr align 8 %60, i64 %sub.ptr.sub.i.i.i.i103, i1 false)
-  br label %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i120
+if.then.i.i.i.i.i.i125:                           ; preds = %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i114
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i115, ptr align 8 %61, i64 %sub.ptr.sub.i.i.i.i103, i1 false)
+  br label %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i118
 
-_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i120: ; preds = %if.then.i.i.i.i.i.i127, %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i116
-  %add.ptr.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %cond.i10.i.i117, i64 %sub.ptr.sub.i.i.i.i103
-  %incdec.ptr.i.i122 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i121, i64 1
-  %tobool.not.i.i.i123 = icmp eq ptr %60, null
-  br i1 %tobool.not.i.i.i123, label %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i125, label %if.then.i18.i.i124
+_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i118: ; preds = %if.then.i.i.i.i.i.i125, %_ZNSt12_Vector_baseIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_M_allocateEm.exit.i.i114
+  %add.ptr.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %cond.i10.i.i115, i64 %sub.ptr.sub.i.i.i.i103
+  %incdec.ptr.i.i120 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i119, i64 1
+  %tobool.not.i.i.i121 = icmp eq ptr %61, null
+  br i1 %tobool.not.i.i.i121, label %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i123, label %if.then.i18.i.i122
 
-if.then.i18.i.i124:                               ; preds = %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i120
-  call void @_ZdlPv(ptr noundef nonnull %60) #31
-  br label %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i125
+if.then.i18.i.i122:                               ; preds = %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i118
+  call void @_ZdlPv(ptr noundef nonnull %61) #31
+  br label %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i123
 
-_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i125: ; preds = %if.then.i18.i.i124, %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i120
-  store ptr %cond.i10.i.i117, ptr %m_rawFormats, align 8
-  store ptr %incdec.ptr.i.i122, ptr %_M_finish.i95, align 8
-  %add.ptr19.i.i126 = getelementptr inbounds ptr, ptr %cond.i10.i.i117, i64 %cond.i.i.i112
-  store ptr %add.ptr19.i.i126, ptr %_M_end_of_storage.i96, align 8
+_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i123: ; preds = %if.then.i18.i.i122, %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i118
+  store ptr %cond.i10.i.i115, ptr %m_rawFormats, align 8
+  store ptr %incdec.ptr.i.i120, ptr %_M_finish.i95, align 8
+  %add.ptr19.i.i124 = getelementptr inbounds ptr, ptr %cond.i10.i.i115, i64 %cond.i.i.i110
+  store ptr %add.ptr19.i.i124, ptr %_M_end_of_storage.i96, align 8
   br label %invoke.cont136
 
-invoke.cont136:                                   ; preds = %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i125, %if.then.i98
-  %61 = load ptr, ptr %formatInfoVec, align 8
-  %62 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %61, %62
+invoke.cont136:                                   ; preds = %_ZNSt6vectorIPN19OpenColorIO_v2_4dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i123, %if.then.i98
+  %63 = load ptr, ptr %formatInfoVec, align 8
+  %64 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %63, %64
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont136, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %61, %invoke.cont136 ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %63, %invoke.cont136 ]
   %extension.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extension.i.i.i.i.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #28
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::FormatInfo", ptr %__first.addr.04.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %62
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %64
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
@@ -3923,19 +3921,19 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %invoke.cont136
-  %63 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %61, %invoke.cont136 ]
-  %tobool.not.i.i.i134 = icmp eq ptr %63, null
-  br i1 %tobool.not.i.i.i134, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EED2Ev.exit, label %if.then.i.i.i135
+  %65 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %63, %invoke.cont136 ]
+  %tobool.not.i.i.i132 = icmp eq ptr %65, null
+  br i1 %tobool.not.i.i.i132, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EED2Ev.exit, label %if.then.i.i.i133
 
-if.then.i.i.i135:                                 ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %63) #31
+if.then.i.i.i133:                                 ; preds = %invoke.cont.i
+  call void @_ZdlPv(ptr noundef nonnull %65) #31
   br label %_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i135
+_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i133
   ret void
 
 ehcleanup137:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad82, %ehcleanup73, %ehcleanup41, %ehcleanup13
-  %.pn23.pn.pn = phi { ptr, i32 } [ %.pn23.pn, %ehcleanup13 ], [ %.pn20.pn, %ehcleanup41 ], [ %.pn17.pn, %ehcleanup73 ], [ %36, %lpad82 ], [ %lpad.loopexit156, %lpad.loopexit ], [ %lpad.loopexit.split-lp157, %lpad.loopexit.split-lp ]
+  %.pn23.pn.pn = phi { ptr, i32 } [ %.pn23.pn, %ehcleanup13 ], [ %.pn20.pn, %ehcleanup41 ], [ %.pn17.pn, %ehcleanup73 ], [ %37, %lpad82 ], [ %lpad.loopexit154, %lpad.loopexit ], [ %lpad.loopexit.split-lp155, %lpad.loopexit.split-lp ]
   call void @_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %formatInfoVec) #28
   resume { ptr, i32 } %.pn23.pn.pn
 
@@ -11310,22 +11308,21 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i17, i64 %sub.ptr.div.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %invoke.cont unwind label %lpad
@@ -11378,10 +11375,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #28
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #28
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i29
 
@@ -11390,7 +11387,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -11404,13 +11401,13 @@ invoke.cont19:                                    ; preds = %if.then.i29, %if.en
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 
 terminate.lpad:                                   ; preds = %lpad17
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #30
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #30
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -11580,6 +11577,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26

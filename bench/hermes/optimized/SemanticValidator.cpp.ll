@@ -16888,9 +16888,8 @@ _ZNKSt6vectorISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree2
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 164703072086692425
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 164703072086692425, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
+  %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
@@ -16899,8 +16898,8 @@ _ZNKSt6vectorISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree2
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 56
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load ptr, ptr %__args, align 8
-  store ptr %2, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
   %second.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 1
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %second.i.i.i, align 8
@@ -16909,8 +16908,8 @@ _ZNKSt6vectorISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree2
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   %Size.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %__args, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %3 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq i32 %3, 0
+  %4 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNKSt6vectorISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESaISB_EE12_M_check_lenEmPKc.exit
@@ -16925,8 +16924,8 @@ _ZNSt16allocator_traitsISaISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorI
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_traitsISaISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit, %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit ]
-  %4 = load ptr, ptr %__first.addr.06.i.i.i.i.i, align 8
-  store ptr %4, ptr %__cur.07.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %__first.addr.06.i.i.i.i.i, align 8
+  store ptr %5, ptr %__cur.07.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1
   %second3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %__first.addr.06.i.i.i.i.i, i64 0, i32 1
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1, i32 1
@@ -16936,18 +16935,18 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_tr
   %Capacity2.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %Size.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %__first.addr.06.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %5 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %5, 0
+  %6 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %6, 0
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %__cur.07.i.i.i.i.i, %__first.addr.06.i.i.i.i.i
   %or.cond.i.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i.i.i, %tobool.not.i.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i.i.i
 
 if.end13.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i
-  %cmp15.i.i.i.i.i.i.i.i.i = icmp ugt i32 %5, 4
+  %cmp15.i.i.i.i.i.i.i.i.i = icmp ugt i32 %6, 4
   br i1 %cmp15.i.i.i.i.i.i.i.i.i, label %if.end28.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.end28.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end13.i.i.i.i.i.i.i.i.i
-  %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %5 to i64
+  %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %6 to i64
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #21
   %.pre.i.i.i.i.i.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.pre.i.i.i.i.i.i.i.i, 0
@@ -16958,16 +16957,16 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i: ; preds = %if.end28.i.i.i.i.
   br label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i.i.i.i
-  %6 = phi ptr [ %.pre.i.i.i.i.i.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i.i.i.i ]
-  %7 = phi i32 [ %.pre.i.i.i.i.i.i.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i ], [ %5, %if.end13.i.i.i.i.i.i.i.i.i ]
-  %conv.i34.i.i.i.i.i.i.i.i.i = zext i32 %7 to i64
-  %8 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8
+  %7 = phi ptr [ %.pre.i.i.i.i.i.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i.i.i.i ]
+  %8 = phi i32 [ %.pre.i.i.i.i.i.i.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i ], [ %6, %if.end13.i.i.i.i.i.i.i.i.i ]
+  %conv.i34.i.i.i.i.i.i.i.i.i = zext i32 %8 to i64
+  %9 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8
   %add.ptr.i65.i.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i34.i.i.i.i.i.i.i.i.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 8 %8, i64 %add.ptr.i65.i.idx.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 8 %9, i64 %add.ptr.i65.i.idx.i.i.i.i.i.i.i.i, i1 false)
   br label %return.sink.split.i.i.i.i.i.i.i.i.i
 
 return.sink.split.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i.i.i.i
-  store i32 %5, ptr %Size.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store i32 %6, ptr %Size.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %return.sink.split.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
@@ -16985,8 +16984,8 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIPKN6hermes12UniqueStringEN4llv
 for.body.i.i.i.i.i14:                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESC_SaISB_EET0_T_SF_SE_RT1_.exit, %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i32
   %__cur.07.i.i.i.i.i15 = phi ptr [ %incdec.ptr1.i.i.i.i.i34, %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i32 ], [ %incdec.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESC_SaISB_EET0_T_SF_SE_RT1_.exit ]
   %__first.addr.06.i.i.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i.i.i33, %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i32 ], [ %__position.coerce, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESC_SaISB_EET0_T_SF_SE_RT1_.exit ]
-  %9 = load ptr, ptr %__first.addr.06.i.i.i.i.i16, align 8
-  store ptr %9, ptr %__cur.07.i.i.i.i.i15, align 8
+  %10 = load ptr, ptr %__first.addr.06.i.i.i.i.i16, align 8
+  store ptr %10, ptr %__cur.07.i.i.i.i.i15, align 8
   %second.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.std::pair.179", ptr %__cur.07.i.i.i.i.i15, i64 0, i32 1
   %second3.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.std::pair.179", ptr %__first.addr.06.i.i.i.i.i16, i64 0, i32 1
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds %"struct.std::pair.179", ptr %__cur.07.i.i.i.i.i15, i64 0, i32 1, i32 1
@@ -16996,18 +16995,18 @@ for.body.i.i.i.i.i14:                             ; preds = %_ZSt34__uninitializ
   %Capacity2.i.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"struct.std::pair.179", ptr %__cur.07.i.i.i.i.i15, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i.i.i.i.i21, align 4
   %Size.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.std::pair.179", ptr %__first.addr.06.i.i.i.i.i16, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %10 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i22, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i23 = icmp eq i32 %10, 0
+  %11 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i22, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i23 = icmp eq i32 %11, 0
   %cmp.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %__cur.07.i.i.i.i.i15, %__first.addr.06.i.i.i.i.i16
   %or.cond.i.i.i.i.i.i.i.i25 = or i1 %cmp.i.i.i.i.i.i.i.i.i24, %tobool.not.i.i.i.i.i.i.i.i.i23
   br i1 %or.cond.i.i.i.i.i.i.i.i25, label %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i32, label %if.end13.i.i.i.i.i.i.i.i.i26
 
 if.end13.i.i.i.i.i.i.i.i.i26:                     ; preds = %for.body.i.i.i.i.i14
-  %cmp15.i.i.i.i.i.i.i.i.i27 = icmp ugt i32 %10, 4
+  %cmp15.i.i.i.i.i.i.i.i.i27 = icmp ugt i32 %11, 4
   br i1 %cmp15.i.i.i.i.i.i.i.i.i27, label %if.end28.i.i.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i.i.i.i28
 
 if.end28.i.i.i.i.i.i.i.i.i37:                     ; preds = %if.end13.i.i.i.i.i.i.i.i.i26
-  %conv.i.i.i.i.i.i.i.i.i.i38 = zext i32 %10 to i64
+  %conv.i.i.i.i.i.i.i.i.i.i38 = zext i32 %11 to i64
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i17, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i19, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i38, i64 noundef 8) #21
   %.pre.i.i.i.i.i.i.i.i39 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i22, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i40 = icmp eq i32 %.pre.i.i.i.i.i.i.i.i39, 0
@@ -17018,16 +17017,16 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41: ; preds = %if.end28.i.i.i.
   br label %if.then.i.i.i.i.i.i.i.i.i.i28
 
 if.then.i.i.i.i.i.i.i.i.i.i28:                    ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41, %if.end13.i.i.i.i.i.i.i.i.i26
-  %11 = phi ptr [ %.pre.i.i.i.i.i.i.i42, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41 ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i19, %if.end13.i.i.i.i.i.i.i.i.i26 ]
-  %12 = phi i32 [ %.pre.i.i.i.i.i.i.i.i39, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41 ], [ %10, %if.end13.i.i.i.i.i.i.i.i.i26 ]
-  %conv.i34.i.i.i.i.i.i.i.i.i29 = zext i32 %12 to i64
-  %13 = load ptr, ptr %second3.i.i.i.i.i.i.i18, align 8
+  %12 = phi ptr [ %.pre.i.i.i.i.i.i.i42, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41 ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i19, %if.end13.i.i.i.i.i.i.i.i.i26 ]
+  %13 = phi i32 [ %.pre.i.i.i.i.i.i.i.i39, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41 ], [ %11, %if.end13.i.i.i.i.i.i.i.i.i26 ]
+  %conv.i34.i.i.i.i.i.i.i.i.i29 = zext i32 %13 to i64
+  %14 = load ptr, ptr %second3.i.i.i.i.i.i.i18, align 8
   %add.ptr.i65.i.idx.i.i.i.i.i.i.i.i30 = shl nuw nsw i64 %conv.i34.i.i.i.i.i.i.i.i.i29, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 8 %13, i64 %add.ptr.i65.i.idx.i.i.i.i.i.i.i.i30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 8 %14, i64 %add.ptr.i65.i.idx.i.i.i.i.i.i.i.i30, i1 false)
   br label %return.sink.split.i.i.i.i.i.i.i.i.i31
 
 return.sink.split.i.i.i.i.i.i.i.i.i31:            ; preds = %if.then.i.i.i.i.i.i.i.i.i.i28, %if.end28.i.i.i.i.i.i.i.i.i37
-  store i32 %10, ptr %Size.i.i.i.i.i.i.i.i.i.i.i.i20, align 8
+  store i32 %11, ptr %Size.i.i.i.i.i.i.i.i.i.i.i.i20, align 8
   br label %_ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i32
 
 _ZSt10_ConstructISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i32: ; preds = %return.sink.split.i.i.i.i.i.i.i.i.i31, %for.body.i.i.i.i.i14
@@ -17044,13 +17043,13 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIPKN6hermes12UniqueStringEN4llv
 for.body.i.i.i:                                   ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESC_SaISB_EET0_T_SF_SE_RT1_.exit43, %_ZSt8_DestroyISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEvPT_.exit.i.i.i ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESC_SaISB_EET0_T_SF_SE_RT1_.exit43 ]
   %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %__first.addr.04.i.i.i, i64 0, i32 1
-  %14 = load ptr, ptr %second.i.i.i.i.i, align 8
+  %15 = load ptr, ptr %second.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.179", ptr %__first.addr.04.i.i.i, i64 0, i32 1, i32 1
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %14, %add.ptr.i.i.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %15, %add.ptr.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  tail call void @free(ptr noundef %14) #21
+  tail call void @free(ptr noundef %15) #21
   br label %_ZSt8_DestroyISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
@@ -17095,6 +17094,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

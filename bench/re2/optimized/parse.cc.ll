@@ -3137,9 +3137,8 @@ _ZNKSt6vectorIN3re26SpliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.els
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 384307168202282325
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 384307168202282325, i64 %add.i.i
+  %30 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 384307168202282325)
+  %cond.i.i = select i1 %cmp7.i.i, i64 384307168202282325, i64 %30
   %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
@@ -3185,11 +3184,11 @@ if.end31:                                         ; preds = %_ZNSt6vectorIN3re26
   br i1 %cmp1, label %if.then33, label %for.inc35
 
 if.then33:                                        ; preds = %if.end31
-  %30 = trunc i64 %indvars.iv65 to i32
+  %31 = trunc i64 %indvars.iv65 to i32
   br label %for.inc35
 
 for.inc35:                                        ; preds = %while.end, %if.end31, %if.then33
-  %start.1 = phi i32 [ %30, %if.then33 ], [ %start.052, %if.end31 ], [ %start.052, %while.end ]
+  %start.1 = phi i32 [ %31, %if.then33 ], [ %start.052, %if.end31 ], [ %start.052, %while.end ]
   %rune.1 = phi ptr [ %rune_i.0, %if.then33 ], [ %rune.054, %if.end31 ], [ %rune.054, %while.end ]
   %nrune.1 = phi i32 [ %nrune_i.1, %if.then33 ], [ %nrune.055, %if.end31 ], [ %same.0.lcssa, %while.end ]
   %runeflags.1 = phi i32 [ %runeflags_i.0, %if.then33 ], [ %runeflags.056, %if.end31 ], [ %runeflags.056, %while.end ]
@@ -3426,9 +3425,8 @@ _ZNKSt6vectorIN3re26SpliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.els
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 384307168202282325
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 384307168202282325, i64 %add.i.i
+  %38 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 384307168202282325)
+  %cond.i.i = select i1 %cmp7.i.i, i64 384307168202282325, i64 %38
   %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
@@ -3843,9 +3841,8 @@ _ZNKSt6vectorIN3re26SpliceESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.els
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 384307168202282325
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 384307168202282325, i64 %add.i.i
+  %46 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 384307168202282325)
+  %cond.i.i = select i1 %cmp7.i.i, i64 384307168202282325, i64 %46
   %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
   call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
@@ -3891,15 +3888,15 @@ if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN3re26
   br label %invoke.cont98
 
 invoke.cont98:                                    ; preds = %.noexc70, %if.then.i67
-  %46 = load ptr, ptr %_M_parent.i.i.i.i.i72, align 8
-  invoke void @_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %ranges_.i71, ptr noundef %46)
+  %47 = load ptr, ptr %_M_parent.i.i.i.i.i72, align 8
+  invoke void @_ZNSt8_Rb_treeIN3re29RuneRangeES1_St9_IdentityIS1_ENS0_13RuneRangeLessESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %ranges_.i71, ptr noundef %47)
           to label %if.end102 unwind label %terminate.lpad.i.i.i73
 
 terminate.lpad.i.i.i73:                           ; preds = %invoke.cont98
-  %47 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #28
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #28
   unreachable
 
 ehcleanup100:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i, %ehcleanup, %lpad49
@@ -9450,28 +9447,27 @@ _ZNKSt6vectorIN3re25FrameESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %invoke.cont, label %_ZNSt16allocator_traitsISaIN3re25FrameEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN3re25FrameEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN3re25FrameESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN3re25FrameESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #29
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN3re25FrameEEE8allocateERS2_m.exit.i, %_ZNKSt6vectorIN3re25FrameESaIS1_EE12_M_check_lenEmPKc.exit
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN3re25FrameEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN3re25FrameESaIS1_EE12_M_check_lenEmPKc.exit ]
+invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorIN3re25FrameESaIS1_EE12_M_check_lenEmPKc.exit
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN3re25FrameESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.re2::Frame", ptr %cond.i17, i64 %sub.ptr.div.i
-  %2 = load ptr, ptr %__args, align 8
-  %3 = load i32, ptr %__args1, align 4
-  store ptr %2, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %__args, align 8
+  %4 = load i32, ptr %__args1, align 4
+  store ptr %3, ptr %add.ptr, align 8
   %nsub3.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
-  store i32 %3, ptr %nsub3.i.i.i, align 8
+  store i32 %4, ptr %nsub3.i.i.i, align 8
   %round.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %cond.i17, i64 %sub.ptr.div.i, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %round.i.i.i, i8 0, i64 28, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -9485,17 +9481,17 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !80
   %splices.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %__cur.07.i.i.i, i64 0, i32 3
   %splices3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %4 = load <2 x ptr>, ptr %splices3.i.i.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
-  store <2 x ptr> %4, ptr %splices.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !78
+  %5 = load <2 x ptr>, ptr %splices3.i.i.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
+  store <2 x ptr> %5, ptr %splices.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !78
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !78
+  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !78
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %splices3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !78, !noalias !75
   %spliceidx.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %__cur.07.i.i.i, i64 0, i32 4
   %spliceidx4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %__first.addr.06.i.i.i, i64 0, i32 4
-  %6 = load i32, ptr %spliceidx4.i.i.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
-  store i32 %6, ptr %spliceidx.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !78
+  %7 = load i32, ptr %spliceidx4.i.i.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
+  store i32 %7, ptr %spliceidx.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !78
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.re2::Frame", ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -9515,17 +9511,17 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN3re25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i21, i64 16, i1 false), !alias.scope !87
   %splices.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.re2::Frame", ptr %__cur.07.i.i.i20, i64 0, i32 3
   %splices3.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.re2::Frame", ptr %__first.addr.06.i.i.i21, i64 0, i32 3
-  %7 = load <2 x ptr>, ptr %splices3.i.i.i.i.i.i.i23, align 8, !alias.scope !85, !noalias !82
-  store <2 x ptr> %7, ptr %splices.i.i.i.i.i.i.i22, align 8, !alias.scope !82, !noalias !85
+  %8 = load <2 x ptr>, ptr %splices3.i.i.i.i.i.i.i23, align 8, !alias.scope !85, !noalias !82
+  store <2 x ptr> %8, ptr %splices.i.i.i.i.i.i.i22, align 8, !alias.scope !82, !noalias !85
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.re2::Frame", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.re2::Frame", ptr %__first.addr.06.i.i.i21, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i27, align 8, !alias.scope !85, !noalias !82
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !82, !noalias !85
+  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i27, align 8, !alias.scope !85, !noalias !82
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !82, !noalias !85
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %splices3.i.i.i.i.i.i.i23, i8 0, i64 24, i1 false), !alias.scope !85, !noalias !82
   %spliceidx.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.re2::Frame", ptr %__cur.07.i.i.i20, i64 0, i32 4
   %spliceidx4.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.re2::Frame", ptr %__first.addr.06.i.i.i21, i64 0, i32 4
-  %9 = load i32, ptr %spliceidx4.i.i.i.i.i.i.i29, align 8, !alias.scope !85, !noalias !82
-  store i32 %9, ptr %spliceidx.i.i.i.i.i.i.i28, align 8, !alias.scope !82, !noalias !85
+  %10 = load i32, ptr %spliceidx4.i.i.i.i.i.i.i29, align 8, !alias.scope !85, !noalias !82
+  store i32 %10, ptr %spliceidx.i.i.i.i.i.i.i28, align 8, !alias.scope !82, !noalias !85
   %incdec.ptr.i.i.i30 = getelementptr inbounds %"struct.re2::Frame", ptr %__first.addr.06.i.i.i21, i64 1
   %incdec.ptr1.i.i.i31 = getelementptr inbounds %"struct.re2::Frame", ptr %__cur.07.i.i.i20, i64 1
   %cmp.not.i.i.i32 = icmp eq ptr %incdec.ptr.i.i.i30, %0
@@ -9570,11 +9566,11 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #25
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #25
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

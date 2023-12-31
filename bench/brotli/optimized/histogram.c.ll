@@ -282,23 +282,22 @@ BlockSplitIteratorNext.exit86:                    ; preds = %if.then37, %if.then
   %or.cond1 = or i1 %cmp4.i, %cmp7.i
   %cmp10.i = icmp eq i32 %shr.i, 7
   %or.cond2 = or i1 %cmp10.i, %or.cond1
-  %cmp12.i = icmp ult i32 %and.i64, 3
-  %or.cond3 = and i1 %cmp12.i, %or.cond2
-  %48 = zext nneg i32 %and.i64 to i64
-  %conv42 = select i1 %or.cond3, i64 %48, i64 3
-  %49 = getelementptr %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %shl40
-  %arrayidx44 = getelementptr %struct.HistogramDistance, ptr %49, i64 %conv42
+  %48 = tail call i32 @llvm.umin.i32(i32 %and.i64, i32 3)
+  %49 = zext nneg i32 %48 to i64
+  %conv42 = select i1 %or.cond2, i64 %49, i64 3
+  %50 = getelementptr %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %shl40
+  %arrayidx44 = getelementptr %struct.HistogramDistance, ptr %50, i64 %conv42
   %dist_prefix_ = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.0116, i32 4
-  %50 = load i16, ptr %dist_prefix_, align 2
-  %51 = and i16 %50, 1023
-  %conv47 = zext nneg i16 %51 to i64
+  %51 = load i16, ptr %dist_prefix_, align 2
+  %52 = and i16 %51, 1023
+  %conv47 = zext nneg i16 %52 to i64
   %arrayidx.i67 = getelementptr inbounds [544 x i32], ptr %arrayidx44, i64 0, i64 %conv47
-  %52 = load i32, ptr %arrayidx.i67, align 4
-  %inc.i68 = add i32 %52, 1
+  %53 = load i32, ptr %arrayidx.i67, align 4
+  %inc.i68 = add i32 %53, 1
   store i32 %inc.i68, ptr %arrayidx.i67, align 4
-  %total_count_.i69 = getelementptr %struct.HistogramDistance, ptr %49, i64 %conv42, i32 1
-  %53 = load i64, ptr %total_count_.i69, align 8
-  %inc1.i70 = add i64 %53, 1
+  %total_count_.i69 = getelementptr %struct.HistogramDistance, ptr %50, i64 %conv42, i32 1
+  %54 = load i64, ptr %total_count_.i69, align 8
+  %inc1.i70 = add i64 %54, 1
   store i64 %inc1.i70, ptr %total_count_.i69, align 8
   br label %for.inc50
 
@@ -316,7 +315,11 @@ for.end52:                                        ; preds = %for.inc50, %InitBlo
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #1
+
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -42,6 +42,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.std::_Sp_counted_ptr" = type { %"class.std::_Sp_counted_base", ptr }
+%struct.aiExportFormatDesc = type { ptr, ptr, ptr }
+%"struct.Assimp::Exporter::ExportFormatEntry" = type <{ %struct.aiExportFormatDesc, ptr, i32, [4 x i8] }>
 %"class.std::_Sp_counted_ptr.83" = type { %"class.std::_Sp_counted_base", ptr }
 %"class.std::allocator.0" = type { i8 }
 %"class.Assimp::ExportProperties" = type { %"class.std::map", %"class.std::map.28", %"class.std::map.33", %"class.std::map.38", %"class.std::map.43" }
@@ -79,8 +81,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.Assimp::MakeLeftHandedProcess" = type { %"class.Assimp::BaseProcess" }
 %"class.Assimp::JoinVerticesProcess" = type { %"class.Assimp::BaseProcess" }
 %struct.ExceptionSwallower = type { i8 }
-%"struct.Assimp::Exporter::ExportFormatEntry" = type <{ %struct.aiExportFormatDesc, ptr, i32, [4 x i8] }>
-%struct.aiExportFormatDesc = type { ptr, ptr, ptr }
 %struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
 %"struct.Assimp::ScenePrivateData" = type <{ ptr, i32, i8, [3 x i8] }>
 %"struct.std::_Rb_tree_node.65" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.66" }
@@ -185,48 +185,6 @@ $_ZNSt15_Sp_counted_ptrIPN6Assimp15DefaultIOSystemELN9__gnu_cxx12_Lock_policyE2E
 $_ZNSt15_Sp_counted_ptrIPN6Assimp15DefaultIOSystemELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
 
 $_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA8_KcRA40_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_ = comdat any
-
-$_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_ = comdat any
 
 $_ZN6Assimp22DefaultProgressHandlerD2Ev = comdat any
 
@@ -658,48 +616,6 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 define linkonce_odr hidden void @_ZN6Assimp13ExporterPimplC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
-  %ref.tmp1.i = alloca ptr, align 8
-  %ref.tmp2.i = alloca i32, align 4
-  %ref.tmp4.i = alloca ptr, align 8
-  %ref.tmp5.i = alloca i32, align 4
-  %ref.tmp7.i = alloca ptr, align 8
-  %ref.tmp8.i = alloca i32, align 4
-  %ref.tmp10.i = alloca ptr, align 8
-  %ref.tmp11.i = alloca i32, align 4
-  %ref.tmp13.i = alloca ptr, align 8
-  %ref.tmp14.i = alloca i32, align 4
-  %ref.tmp16.i = alloca ptr, align 8
-  %ref.tmp17.i = alloca i32, align 4
-  %ref.tmp19.i = alloca ptr, align 8
-  %ref.tmp20.i = alloca i32, align 4
-  %ref.tmp22.i = alloca ptr, align 8
-  %ref.tmp23.i = alloca i32, align 4
-  %ref.tmp25.i = alloca ptr, align 8
-  %ref.tmp26.i = alloca i32, align 4
-  %ref.tmp28.i = alloca ptr, align 8
-  %ref.tmp29.i = alloca i32, align 4
-  %ref.tmp31.i = alloca ptr, align 8
-  %ref.tmp32.i = alloca i32, align 4
-  %ref.tmp34.i = alloca ptr, align 8
-  %ref.tmp35.i = alloca i32, align 4
-  %ref.tmp37.i = alloca ptr, align 8
-  %ref.tmp38.i = alloca i32, align 4
-  %ref.tmp40.i = alloca ptr, align 8
-  %ref.tmp41.i = alloca i32, align 4
-  %ref.tmp43.i = alloca ptr, align 8
-  %ref.tmp44.i = alloca i32, align 4
-  %ref.tmp46.i = alloca ptr, align 8
-  %ref.tmp47.i = alloca i32, align 4
-  %ref.tmp49.i = alloca ptr, align 8
-  %ref.tmp50.i = alloca i32, align 4
-  %ref.tmp52.i = alloca ptr, align 8
-  %ref.tmp53.i = alloca i32, align 4
-  %ref.tmp55.i = alloca ptr, align 8
-  %ref.tmp56.i = alloca i32, align 4
-  %ref.tmp58.i = alloca ptr, align 8
-  %ref.tmp59.i = alloca i32, align 4
-  %ref.tmp61.i = alloca ptr, align 8
-  %ref.tmp62.i = alloca i32, align 4
   store ptr null, ptr %this, align 8
   %mIOSystem = getelementptr inbounds %"class.Assimp::ExporterPimpl", ptr %this, i64 0, i32 1
   %call = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 32)
@@ -731,7 +647,7 @@ lpad3.i.i.i.i:                                    ; preds = %delete.end.i.i.i.i
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EED2Ev.exit
-  %common.resume.op = phi { ptr, i32 } [ %8, %_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EED2Ev.exit ], [ %5, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %113, %_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EED2Ev.exit ], [ %5, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -770,246 +686,1787 @@ _ZNSt10shared_ptrIN6Assimp8IOSystemEEC2INS0_15DefaultIOSystemEvEEPT_.exit: ; pre
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN6Assimp8IOSystemEEC2INS0_15DefaultIOSystemEvEEPT_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp7.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp8.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp13.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp14.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp16.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp19.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp20.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp22.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp23.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp25.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp26.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp28.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp31.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp32.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp37.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp38.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp40.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp41.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp46.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp47.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp50.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp55.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp56.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp58.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp61.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp62.i)
   store ptr @_ZN6Assimp18ExportSceneColladaEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp.i, align 8
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA8_KcRA40_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(8) @.str.8, ptr noundef nonnull align 1 dereferenceable(40) @.str.9, ptr noundef nonnull align 1 dereferenceable(4) @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  store ptr @_ZN6Assimp16ExportSceneXFileEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp1.i, align 8
-  store i32 25165828, ptr %ref.tmp2.i, align 4
-  %call3.i2 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(2) @.str.11, ptr noundef nonnull align 1 dereferenceable(8) @.str.12, ptr noundef nonnull align 1 dereferenceable(2) @.str.11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2.i)
-          to label %call3.i.noexc unwind label %lpad
+  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::ExporterPimpl", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %8 = load ptr, ptr %_M_finish.i.i, align 8
+  %_M_end_of_storage.i.i = getelementptr inbounds %"class.Assimp::ExporterPimpl", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %9 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %8, %9
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
-call3.i.noexc:                                    ; preds = %call.i.noexc
-  store ptr @_ZN6Assimp15ExportSceneStepEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp4.i, align 8
-  store i32 0, ptr %ref.tmp5.i, align 4
-  %call6.i3 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(4) @.str.13, ptr noundef nonnull align 1 dereferenceable(11) @.str.14, ptr noundef nonnull align 1 dereferenceable(4) @.str.13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5.i)
-          to label %call6.i.noexc unwind label %lpad
+if.then.i.i:                                      ; preds = %call.i.noexc
+  store ptr @.str.11, ptr %8, align 8
+  %description.i.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %8, i64 0, i32 1
+  store ptr @.str.12, ptr %description.i.i.i.i.i, align 8
+  %fileExtension.i.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %8, i64 0, i32 2
+  store ptr @.str.11, ptr %fileExtension.i.i.i.i.i, align 8
+  %mExportFunction.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %8, i64 0, i32 1
+  store ptr @_ZN6Assimp16ExportSceneXFileEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i, align 8
+  %mEnforcePP.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %8, i64 0, i32 2
+  store i32 25165828, ptr %mEnforcePP.i.i.i.i.i, align 8
+  %10 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %10, i64 1
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
+  %.pre.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
-call6.i.noexc:                                    ; preds = %call3.i.noexc
-  store ptr @_ZN6Assimp14ExportSceneObjEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp7.i, align 8
-  store i32 64, ptr %ref.tmp8.i, align 4
-  %call9.i4 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(4) @.str.15, ptr noundef nonnull align 1 dereferenceable(21) @.str.16, ptr noundef nonnull align 1 dereferenceable(4) @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8.i)
-          to label %call9.i.noexc unwind label %lpad
+if.else.i.i:                                      ; preds = %call.i.noexc
+  %11 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
+  %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
-call9.i.noexc:                                    ; preds = %call6.i.noexc
-  store ptr @_ZN6Assimp19ExportSceneObjNoMtlEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp10.i, align 8
-  store i32 64, ptr %ref.tmp11.i, align 4
-  %call12.i5 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(9) @.str.17, ptr noundef nonnull align 1 dereferenceable(43) @.str.18, ptr noundef nonnull align 1 dereferenceable(4) @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11.i)
-          to label %call12.i.noexc unwind label %lpad
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
+  %sub.ptr.div.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, 40
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
+  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %12 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 230584300921369395)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 230584300921369395, i64 %12
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i.i)
+  %mul.i.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i.i, 40
+  %call5.i.i.i.i.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
+          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad
 
-call12.i.noexc:                                   ; preds = %call9.i.noexc
-  store ptr @_ZN6Assimp14ExportSceneSTLEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp13.i, align 8
-  store i32 296, ptr %ref.tmp14.i, align 4
-  %call15.i6 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(4) @.str.19, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, ptr noundef nonnull align 1 dereferenceable(4) @.str.19, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14.i)
-          to label %call15.i.noexc unwind label %lpad
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2, i64 %sub.ptr.sub.i.i.i.i.i
+  store ptr @.str.11, ptr %add.ptr.i.i.i, align 8
+  %description.i.i.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i.i, i64 0, i32 1
+  store ptr @.str.12, ptr %description.i.i.i.i.i.i, align 8
+  %fileExtension.i.i.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i.i, i64 0, i32 2
+  store ptr @.str.11, ptr %fileExtension.i.i.i.i.i.i, align 8
+  %mExportFunction.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i.i2, i64 %sub.ptr.div.i.i.i.i.i, i32 1
+  store ptr @_ZN6Assimp16ExportSceneXFileEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i.i, align 8
+  %mEnforcePP.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i.i2, i64 %sub.ptr.div.i.i.i.i.i, i32 2
+  store i32 25165828, ptr %mEnforcePP.i.i.i.i.i.i, align 8
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %11, %8
+  br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i, label %for.body.i.i.i.i.i.i
 
-call15.i.noexc:                                   ; preds = %call12.i.noexc
-  store ptr @_ZN6Assimp20ExportSceneSTLBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp16.i, align 8
-  store i32 296, ptr %ref.tmp17.i, align 4
-  %call18.i7 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(5) @.str.21, ptr noundef nonnull align 1 dereferenceable(27) @.str.22, ptr noundef nonnull align 1 dereferenceable(4) @.str.19, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17.i)
-          to label %call18.i.noexc unwind label %lpad
+for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
+  %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i2, %call5.i.i.i.i.i.i.noexc ]
+  %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %11, %call5.i.i.i.i.i.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i.i, i64 40, i1 false), !alias.scope !4
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %8
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !8
 
-call18.i.noexc:                                   ; preds = %call15.i.noexc
-  store ptr @_ZN6Assimp14ExportScenePlyEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp19.i, align 8
-  store i32 256, ptr %ref.tmp20.i, align 4
-  %call21.i8 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(4) @.str.23, ptr noundef nonnull align 1 dereferenceable(25) @.str.24, ptr noundef nonnull align 1 dereferenceable(4) @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20.i)
-          to label %call21.i.noexc unwind label %lpad
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i2, %call5.i.i.i.i.i.i.noexc ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %incdec.ptr.i.i.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %tobool.not.i.i.i.i = icmp eq ptr %11, null
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i.i
 
-call21.i.noexc:                                   ; preds = %call18.i.noexc
-  store ptr @_ZN6Assimp20ExportScenePlyBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp22.i, align 8
-  store i32 256, ptr %ref.tmp23.i, align 4
-  %call24.i9 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(5) @.str.25, ptr noundef nonnull align 1 dereferenceable(34) @.str.26, ptr noundef nonnull align 1 dereferenceable(4) @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23.i)
-          to label %call24.i.noexc unwind label %lpad
+if.then.i27.i.i.i:                                ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %11) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-call24.i.noexc:                                   ; preds = %call21.i.noexc
-  store ptr @_ZN6Assimp14ExportScene3DSEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp25.i, align 8
-  store i32 32778, ptr %ref.tmp26.i, align 4
-  %call27.i10 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(4) @.str.27, ptr noundef nonnull align 1 dereferenceable(22) @.str.28, ptr noundef nonnull align 1 dereferenceable(4) @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp25.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26.i)
-          to label %call27.i.noexc unwind label %lpad
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i
+  store ptr %call5.i.i.i.i.i.i2, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i.i2, i64 %cond.i.i.i.i
+  store ptr %add.ptr34.i.i.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
-call27.i.noexc:                                   ; preds = %call24.i.noexc
-  store ptr @_ZN6Assimp16ExportSceneGLTF2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp28.i, align 8
-  store i32 32778, ptr %ref.tmp29.i, align 4
-  %call30.i11 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(6) @.str.29, ptr noundef nonnull align 1 dereferenceable(28) @.str.30, ptr noundef nonnull align 1 dereferenceable(5) @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29.i)
-          to label %call30.i.noexc unwind label %lpad
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i
+  %13 = phi ptr [ %.pre.i, %if.then.i.i ], [ %add.ptr34.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %14 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i24.i = icmp eq ptr %14, %13
+  br i1 %cmp.not.i24.i, label %if.else.i31.i, label %if.then.i25.i
 
-call30.i.noexc:                                   ; preds = %call27.i.noexc
-  store ptr @_ZN6Assimp15ExportSceneGLB2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp31.i, align 8
-  store i32 32778, ptr %ref.tmp32.i, align 4
-  %call33.i12 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(5) @.str.32, ptr noundef nonnull align 1 dereferenceable(37) @.str.33, ptr noundef nonnull align 1 dereferenceable(4) @.str.34, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32.i)
-          to label %call33.i.noexc unwind label %lpad
+if.then.i25.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  store ptr @.str.13, ptr %14, align 8
+  %description.i.i.i.i26.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %14, i64 0, i32 1
+  store ptr @.str.14, ptr %description.i.i.i.i26.i, align 8
+  %fileExtension.i.i.i.i27.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %14, i64 0, i32 2
+  store ptr @.str.13, ptr %fileExtension.i.i.i.i27.i, align 8
+  %mExportFunction.i.i.i.i28.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %14, i64 0, i32 1
+  store ptr @_ZN6Assimp15ExportSceneStepEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i28.i, align 8
+  %mEnforcePP.i.i.i.i29.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %14, i64 0, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i29.i, align 8
+  %15 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i30.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %15, i64 1
+  store ptr %incdec.ptr.i30.i, ptr %_M_finish.i.i, align 8
+  %.pre904.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
 
-call33.i.noexc:                                   ; preds = %call30.i.noexc
-  store ptr @_ZN6Assimp15ExportSceneGLTFEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp34.i, align 8
-  store i32 32778, ptr %ref.tmp35.i, align 4
-  %call36.i13 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(5) @.str.31, ptr noundef nonnull align 1 dereferenceable(23) @.str.35, ptr noundef nonnull align 1 dereferenceable(5) @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp34.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35.i)
-          to label %call36.i.noexc unwind label %lpad
+if.else.i31.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  %16 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i32.i = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i.i.i33.i = ptrtoint ptr %16 to i64
+  %sub.ptr.sub.i.i.i.i34.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i32.i, %sub.ptr.rhs.cast.i.i.i.i33.i
+  %cmp.i.i.i35.i = icmp eq i64 %sub.ptr.sub.i.i.i.i34.i, 9223372036854775800
+  br i1 %cmp.i.i.i35.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i36.i
 
-call36.i.noexc:                                   ; preds = %call33.i.noexc
-  store ptr @_ZN6Assimp14ExportSceneGLBEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp37.i, align 8
-  store i32 32778, ptr %ref.tmp38.i, align 4
-  %call39.i14 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(4) @.str.34, ptr noundef nonnull align 1 dereferenceable(32) @.str.36, ptr noundef nonnull align 1 dereferenceable(4) @.str.34, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38.i)
-          to label %call39.i.noexc unwind label %lpad
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i36.i: ; preds = %if.else.i31.i
+  %sub.ptr.div.i.i.i.i37.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i34.i, 40
+  %.sroa.speculated.i.i.i38.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i37.i, i64 1)
+  %add.i.i.i39.i = add i64 %.sroa.speculated.i.i.i38.i, %sub.ptr.div.i.i.i.i37.i
+  %cmp7.i.i.i40.i = icmp ult i64 %add.i.i.i39.i, %sub.ptr.div.i.i.i.i37.i
+  %17 = call i64 @llvm.umin.i64(i64 %add.i.i.i39.i, i64 230584300921369395)
+  %cond.i.i.i41.i = select i1 %cmp7.i.i.i40.i, i64 230584300921369395, i64 %17
+  %cmp.not.i.i.i42.i = icmp ne i64 %cond.i.i.i41.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i42.i)
+  %mul.i.i.i.i.i43.i = mul nuw nsw i64 %cond.i.i.i41.i, 40
+  %call5.i.i.i.i.i44.i4 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i43.i) #27
+          to label %call5.i.i.i.i.i44.i.noexc unwind label %lpad
 
-call39.i.noexc:                                   ; preds = %call36.i.noexc
-  store ptr @_ZN6Assimp17ExportSceneAssbinEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp40.i, align 8
-  store i32 0, ptr %ref.tmp41.i, align 4
-  %call42.i15 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(7) @.str.37, ptr noundef nonnull align 1 dereferenceable(19) @.str.38, ptr noundef nonnull align 1 dereferenceable(7) @.str.37, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp40.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41.i)
-          to label %call42.i.noexc unwind label %lpad
+call5.i.i.i.i.i44.i.noexc:                        ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i36.i
+  %add.ptr.i.i45.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i44.i4, i64 %sub.ptr.sub.i.i.i.i34.i
+  store ptr @.str.13, ptr %add.ptr.i.i45.i, align 8
+  %description.i.i.i.i.i46.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i45.i, i64 0, i32 1
+  store ptr @.str.14, ptr %description.i.i.i.i.i46.i, align 8
+  %fileExtension.i.i.i.i.i47.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i45.i, i64 0, i32 2
+  store ptr @.str.13, ptr %fileExtension.i.i.i.i.i47.i, align 8
+  %mExportFunction.i.i.i.i.i48.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i44.i4, i64 %sub.ptr.div.i.i.i.i37.i, i32 1
+  store ptr @_ZN6Assimp15ExportSceneStepEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i48.i, align 8
+  %mEnforcePP.i.i.i.i.i49.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i44.i4, i64 %sub.ptr.div.i.i.i.i37.i, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i.i49.i, align 8
+  %cmp.not5.i.i.i.i.i50.i = icmp eq ptr %16, %13
+  br i1 %cmp.not5.i.i.i.i.i50.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i57.i, label %for.body.i.i.i.i.i51.i
 
-call42.i.noexc:                                   ; preds = %call39.i.noexc
-  store ptr @_ZN6Assimp17ExportSceneAssxmlEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp43.i, align 8
-  store i32 0, ptr %ref.tmp44.i, align 4
-  %call45.i16 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(7) @.str.39, ptr noundef nonnull align 1 dereferenceable(20) @.str.40, ptr noundef nonnull align 1 dereferenceable(7) @.str.39, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp43.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp44.i)
-          to label %call45.i.noexc unwind label %lpad
+for.body.i.i.i.i.i51.i:                           ; preds = %call5.i.i.i.i.i44.i.noexc, %for.body.i.i.i.i.i51.i
+  %__cur.07.i.i.i.i.i52.i = phi ptr [ %incdec.ptr1.i.i.i.i.i55.i, %for.body.i.i.i.i.i51.i ], [ %call5.i.i.i.i.i44.i4, %call5.i.i.i.i.i44.i.noexc ]
+  %__first.addr.06.i.i.i.i.i53.i = phi ptr [ %incdec.ptr.i.i.i.i.i54.i, %for.body.i.i.i.i.i51.i ], [ %16, %call5.i.i.i.i.i44.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i52.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i53.i, i64 40, i1 false), !alias.scope !10
+  %incdec.ptr.i.i.i.i.i54.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i53.i, i64 1
+  %incdec.ptr1.i.i.i.i.i55.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i52.i, i64 1
+  %cmp.not.i.i.i.i.i56.i = icmp eq ptr %incdec.ptr.i.i.i.i.i54.i, %13
+  br i1 %cmp.not.i.i.i.i.i56.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i57.i, label %for.body.i.i.i.i.i51.i, !llvm.loop !8
 
-call45.i.noexc:                                   ; preds = %call42.i.noexc
-  store ptr @_ZN6Assimp14ExportSceneX3DEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp46.i, align 8
-  store i32 0, ptr %ref.tmp47.i, align 4
-  %call48.i17 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(4) @.str.41, ptr noundef nonnull align 1 dereferenceable(14) @.str.42, ptr noundef nonnull align 1 dereferenceable(4) @.str.41, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp47.i)
-          to label %call48.i.noexc unwind label %lpad
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i57.i: ; preds = %for.body.i.i.i.i.i51.i, %call5.i.i.i.i.i44.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i58.i = phi ptr [ %call5.i.i.i.i.i44.i4, %call5.i.i.i.i.i44.i.noexc ], [ %incdec.ptr1.i.i.i.i.i55.i, %for.body.i.i.i.i.i51.i ]
+  %incdec.ptr.i.i59.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i58.i, i64 1
+  %tobool.not.i.i.i60.i = icmp eq ptr %16, null
+  br i1 %tobool.not.i.i.i60.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i61.i
 
-call48.i.noexc:                                   ; preds = %call45.i.noexc
-  store ptr @_ZN6Assimp14ExportSceneFBXEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp49.i, align 8
-  store i32 0, ptr %ref.tmp50.i, align 4
-  %call51.i18 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(4) @.str.43, ptr noundef nonnull align 1 dereferenceable(22) @.str.44, ptr noundef nonnull align 1 dereferenceable(4) @.str.43, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp49.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp50.i)
-          to label %call51.i.noexc unwind label %lpad
+if.then.i27.i.i61.i:                              ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i57.i
+  call void @_ZdlPv(ptr noundef nonnull %16) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-call51.i.noexc:                                   ; preds = %call48.i.noexc
-  store ptr @_ZN6Assimp15ExportSceneFBXAEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp52.i, align 8
-  store i32 0, ptr %ref.tmp53.i, align 4
-  %call54.i19 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(5) @.str.45, ptr noundef nonnull align 1 dereferenceable(21) @.str.46, ptr noundef nonnull align 1 dereferenceable(4) @.str.43, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp52.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp53.i)
-          to label %call54.i.noexc unwind label %lpad
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i61.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i57.i
+  store ptr %call5.i.i.i.i.i44.i4, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i59.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i62.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i44.i4, i64 %cond.i.i.i41.i
+  store ptr %add.ptr34.i.i62.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
 
-call54.i.noexc:                                   ; preds = %call51.i.noexc
-  store ptr @_ZN6Assimp14ExportScene3MFEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp55.i, align 8
-  store i32 0, ptr %ref.tmp56.i, align 4
-  %call57.i20 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(4) @.str.47, ptr noundef nonnull align 1 dereferenceable(20) @.str.48, ptr noundef nonnull align 1 dereferenceable(4) @.str.47, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp55.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp56.i)
-          to label %call57.i.noexc unwind label %lpad
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i25.i
+  %18 = phi ptr [ %.pre904.i, %if.then.i25.i ], [ %add.ptr34.i.i62.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %19 = phi ptr [ %incdec.ptr.i30.i, %if.then.i25.i ], [ %incdec.ptr.i.i59.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i66.i = icmp eq ptr %19, %18
+  br i1 %cmp.not.i66.i, label %if.else.i73.i, label %if.then.i67.i
 
-call57.i.noexc:                                   ; preds = %call54.i.noexc
-  store ptr @_ZN6Assimp15ExportScenePbrtEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp58.i, align 8
-  store i32 25198604, ptr %ref.tmp59.i, align 4
-  %call60.i21 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(5) @.str.49, ptr noundef nonnull align 1 dereferenceable(31) @.str.50, ptr noundef nonnull align 1 dereferenceable(5) @.str.49, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp59.i)
-          to label %call60.i.noexc unwind label %lpad
+if.then.i67.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  store ptr @.str.15, ptr %19, align 8
+  %description.i.i.i.i68.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %19, i64 0, i32 1
+  store ptr @.str.16, ptr %description.i.i.i.i68.i, align 8
+  %fileExtension.i.i.i.i69.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %19, i64 0, i32 2
+  store ptr @.str.15, ptr %fileExtension.i.i.i.i69.i, align 8
+  %mExportFunction.i.i.i.i70.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %19, i64 0, i32 1
+  store ptr @_ZN6Assimp14ExportSceneObjEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i70.i, align 8
+  %mEnforcePP.i.i.i.i71.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %19, i64 0, i32 2
+  store i32 64, ptr %mEnforcePP.i.i.i.i71.i, align 8
+  %20 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i72.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %20, i64 1
+  store ptr %incdec.ptr.i72.i, ptr %_M_finish.i.i, align 8
+  %.pre905.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
 
-call60.i.noexc:                                   ; preds = %call57.i.noexc
-  store ptr @_ZN6Assimp17ExportAssimp2JsonEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %ref.tmp61.i, align 8
-  store i32 0, ptr %ref.tmp62.i, align 4
-  %call63.i22 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mExporters, ptr noundef nonnull align 1 dereferenceable(8) @.str.51, ptr noundef nonnull align 1 dereferenceable(21) @.str.52, ptr noundef nonnull align 1 dereferenceable(5) @.str.53, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp62.i)
-          to label %invoke.cont4 unwind label %lpad
+if.else.i73.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  %21 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i74.i = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast.i.i.i.i75.i = ptrtoint ptr %21 to i64
+  %sub.ptr.sub.i.i.i.i76.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i74.i, %sub.ptr.rhs.cast.i.i.i.i75.i
+  %cmp.i.i.i77.i = icmp eq i64 %sub.ptr.sub.i.i.i.i76.i, 9223372036854775800
+  br i1 %cmp.i.i.i77.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i78.i
 
-invoke.cont4:                                     ; preds = %call60.i.noexc
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i78.i: ; preds = %if.else.i73.i
+  %sub.ptr.div.i.i.i.i79.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i76.i, 40
+  %.sroa.speculated.i.i.i80.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i79.i, i64 1)
+  %add.i.i.i81.i = add i64 %.sroa.speculated.i.i.i80.i, %sub.ptr.div.i.i.i.i79.i
+  %cmp7.i.i.i82.i = icmp ult i64 %add.i.i.i81.i, %sub.ptr.div.i.i.i.i79.i
+  %22 = call i64 @llvm.umin.i64(i64 %add.i.i.i81.i, i64 230584300921369395)
+  %cond.i.i.i83.i = select i1 %cmp7.i.i.i82.i, i64 230584300921369395, i64 %22
+  %cmp.not.i.i.i84.i = icmp ne i64 %cond.i.i.i83.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i84.i)
+  %mul.i.i.i.i.i85.i = mul nuw nsw i64 %cond.i.i.i83.i, 40
+  %call5.i.i.i.i.i86.i6 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i85.i) #27
+          to label %call5.i.i.i.i.i86.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i86.i.noexc:                        ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i78.i
+  %add.ptr.i.i87.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i86.i6, i64 %sub.ptr.sub.i.i.i.i76.i
+  store ptr @.str.15, ptr %add.ptr.i.i87.i, align 8
+  %description.i.i.i.i.i88.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i87.i, i64 0, i32 1
+  store ptr @.str.16, ptr %description.i.i.i.i.i88.i, align 8
+  %fileExtension.i.i.i.i.i89.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i87.i, i64 0, i32 2
+  store ptr @.str.15, ptr %fileExtension.i.i.i.i.i89.i, align 8
+  %mExportFunction.i.i.i.i.i90.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i86.i6, i64 %sub.ptr.div.i.i.i.i79.i, i32 1
+  store ptr @_ZN6Assimp14ExportSceneObjEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i90.i, align 8
+  %mEnforcePP.i.i.i.i.i91.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i86.i6, i64 %sub.ptr.div.i.i.i.i79.i, i32 2
+  store i32 64, ptr %mEnforcePP.i.i.i.i.i91.i, align 8
+  %cmp.not5.i.i.i.i.i92.i = icmp eq ptr %21, %18
+  br i1 %cmp.not5.i.i.i.i.i92.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i99.i, label %for.body.i.i.i.i.i93.i
+
+for.body.i.i.i.i.i93.i:                           ; preds = %call5.i.i.i.i.i86.i.noexc, %for.body.i.i.i.i.i93.i
+  %__cur.07.i.i.i.i.i94.i = phi ptr [ %incdec.ptr1.i.i.i.i.i97.i, %for.body.i.i.i.i.i93.i ], [ %call5.i.i.i.i.i86.i6, %call5.i.i.i.i.i86.i.noexc ]
+  %__first.addr.06.i.i.i.i.i95.i = phi ptr [ %incdec.ptr.i.i.i.i.i96.i, %for.body.i.i.i.i.i93.i ], [ %21, %call5.i.i.i.i.i86.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i94.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i95.i, i64 40, i1 false), !alias.scope !14
+  %incdec.ptr.i.i.i.i.i96.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i95.i, i64 1
+  %incdec.ptr1.i.i.i.i.i97.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i94.i, i64 1
+  %cmp.not.i.i.i.i.i98.i = icmp eq ptr %incdec.ptr.i.i.i.i.i96.i, %18
+  br i1 %cmp.not.i.i.i.i.i98.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i99.i, label %for.body.i.i.i.i.i93.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i99.i: ; preds = %for.body.i.i.i.i.i93.i, %call5.i.i.i.i.i86.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i100.i = phi ptr [ %call5.i.i.i.i.i86.i6, %call5.i.i.i.i.i86.i.noexc ], [ %incdec.ptr1.i.i.i.i.i97.i, %for.body.i.i.i.i.i93.i ]
+  %incdec.ptr.i.i101.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i100.i, i64 1
+  %tobool.not.i.i.i102.i = icmp eq ptr %21, null
+  br i1 %tobool.not.i.i.i102.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i103.i
+
+if.then.i27.i.i103.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i99.i
+  call void @_ZdlPv(ptr noundef nonnull %21) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i103.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i99.i
+  store ptr %call5.i.i.i.i.i86.i6, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i101.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i104.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i86.i6, i64 %cond.i.i.i83.i
+  store ptr %add.ptr34.i.i104.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i67.i
+  %23 = phi ptr [ %.pre905.i, %if.then.i67.i ], [ %add.ptr34.i.i104.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %24 = phi ptr [ %incdec.ptr.i72.i, %if.then.i67.i ], [ %incdec.ptr.i.i101.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i108.i = icmp eq ptr %24, %23
+  br i1 %cmp.not.i108.i, label %if.else.i115.i, label %if.then.i109.i
+
+if.then.i109.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+  store ptr @.str.17, ptr %24, align 8
+  %description.i.i.i.i110.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %24, i64 0, i32 1
+  store ptr @.str.18, ptr %description.i.i.i.i110.i, align 8
+  %fileExtension.i.i.i.i111.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %24, i64 0, i32 2
+  store ptr @.str.15, ptr %fileExtension.i.i.i.i111.i, align 8
+  %mExportFunction.i.i.i.i112.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %24, i64 0, i32 1
+  store ptr @_ZN6Assimp19ExportSceneObjNoMtlEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i112.i, align 8
+  %mEnforcePP.i.i.i.i113.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %24, i64 0, i32 2
+  store i32 64, ptr %mEnforcePP.i.i.i.i113.i, align 8
+  %25 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i114.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %25, i64 1
+  store ptr %incdec.ptr.i114.i, ptr %_M_finish.i.i, align 8
+  %.pre906.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+
+if.else.i115.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+  %26 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i116.i = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i.i.i.i117.i = ptrtoint ptr %26 to i64
+  %sub.ptr.sub.i.i.i.i118.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i116.i, %sub.ptr.rhs.cast.i.i.i.i117.i
+  %cmp.i.i.i119.i = icmp eq i64 %sub.ptr.sub.i.i.i.i118.i, 9223372036854775800
+  br i1 %cmp.i.i.i119.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i120.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i120.i: ; preds = %if.else.i115.i
+  %sub.ptr.div.i.i.i.i121.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i118.i, 40
+  %.sroa.speculated.i.i.i122.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i121.i, i64 1)
+  %add.i.i.i123.i = add i64 %.sroa.speculated.i.i.i122.i, %sub.ptr.div.i.i.i.i121.i
+  %cmp7.i.i.i124.i = icmp ult i64 %add.i.i.i123.i, %sub.ptr.div.i.i.i.i121.i
+  %27 = call i64 @llvm.umin.i64(i64 %add.i.i.i123.i, i64 230584300921369395)
+  %cond.i.i.i125.i = select i1 %cmp7.i.i.i124.i, i64 230584300921369395, i64 %27
+  %cmp.not.i.i.i126.i = icmp ne i64 %cond.i.i.i125.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i126.i)
+  %mul.i.i.i.i.i127.i = mul nuw nsw i64 %cond.i.i.i125.i, 40
+  %call5.i.i.i.i.i128.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i127.i) #27
+          to label %call5.i.i.i.i.i128.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i128.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i120.i
+  %add.ptr.i.i129.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i128.i8, i64 %sub.ptr.sub.i.i.i.i118.i
+  store ptr @.str.17, ptr %add.ptr.i.i129.i, align 8
+  %description.i.i.i.i.i130.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i129.i, i64 0, i32 1
+  store ptr @.str.18, ptr %description.i.i.i.i.i130.i, align 8
+  %fileExtension.i.i.i.i.i131.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i129.i, i64 0, i32 2
+  store ptr @.str.15, ptr %fileExtension.i.i.i.i.i131.i, align 8
+  %mExportFunction.i.i.i.i.i132.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i128.i8, i64 %sub.ptr.div.i.i.i.i121.i, i32 1
+  store ptr @_ZN6Assimp19ExportSceneObjNoMtlEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i132.i, align 8
+  %mEnforcePP.i.i.i.i.i133.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i128.i8, i64 %sub.ptr.div.i.i.i.i121.i, i32 2
+  store i32 64, ptr %mEnforcePP.i.i.i.i.i133.i, align 8
+  %cmp.not5.i.i.i.i.i134.i = icmp eq ptr %26, %23
+  br i1 %cmp.not5.i.i.i.i.i134.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i141.i, label %for.body.i.i.i.i.i135.i
+
+for.body.i.i.i.i.i135.i:                          ; preds = %call5.i.i.i.i.i128.i.noexc, %for.body.i.i.i.i.i135.i
+  %__cur.07.i.i.i.i.i136.i = phi ptr [ %incdec.ptr1.i.i.i.i.i139.i, %for.body.i.i.i.i.i135.i ], [ %call5.i.i.i.i.i128.i8, %call5.i.i.i.i.i128.i.noexc ]
+  %__first.addr.06.i.i.i.i.i137.i = phi ptr [ %incdec.ptr.i.i.i.i.i138.i, %for.body.i.i.i.i.i135.i ], [ %26, %call5.i.i.i.i.i128.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i136.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i137.i, i64 40, i1 false), !alias.scope !18
+  %incdec.ptr.i.i.i.i.i138.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i137.i, i64 1
+  %incdec.ptr1.i.i.i.i.i139.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i136.i, i64 1
+  %cmp.not.i.i.i.i.i140.i = icmp eq ptr %incdec.ptr.i.i.i.i.i138.i, %23
+  br i1 %cmp.not.i.i.i.i.i140.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i141.i, label %for.body.i.i.i.i.i135.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i141.i: ; preds = %for.body.i.i.i.i.i135.i, %call5.i.i.i.i.i128.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i142.i = phi ptr [ %call5.i.i.i.i.i128.i8, %call5.i.i.i.i.i128.i.noexc ], [ %incdec.ptr1.i.i.i.i.i139.i, %for.body.i.i.i.i.i135.i ]
+  %incdec.ptr.i.i143.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i142.i, i64 1
+  %tobool.not.i.i.i144.i = icmp eq ptr %26, null
+  br i1 %tobool.not.i.i.i144.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i145.i
+
+if.then.i27.i.i145.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i141.i
+  call void @_ZdlPv(ptr noundef nonnull %26) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i145.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i141.i
+  store ptr %call5.i.i.i.i.i128.i8, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i143.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i146.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i128.i8, i64 %cond.i.i.i125.i
+  store ptr %add.ptr34.i.i146.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i109.i
+  %28 = phi ptr [ %.pre906.i, %if.then.i109.i ], [ %add.ptr34.i.i146.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %29 = phi ptr [ %incdec.ptr.i114.i, %if.then.i109.i ], [ %incdec.ptr.i.i143.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i150.i = icmp eq ptr %29, %28
+  br i1 %cmp.not.i150.i, label %if.else.i157.i, label %if.then.i151.i
+
+if.then.i151.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+  store ptr @.str.19, ptr %29, align 8
+  %description.i.i.i.i152.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %29, i64 0, i32 1
+  store ptr @.str.20, ptr %description.i.i.i.i152.i, align 8
+  %fileExtension.i.i.i.i153.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %29, i64 0, i32 2
+  store ptr @.str.19, ptr %fileExtension.i.i.i.i153.i, align 8
+  %mExportFunction.i.i.i.i154.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %29, i64 0, i32 1
+  store ptr @_ZN6Assimp14ExportSceneSTLEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i154.i, align 8
+  %mEnforcePP.i.i.i.i155.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %29, i64 0, i32 2
+  store i32 296, ptr %mEnforcePP.i.i.i.i155.i, align 8
+  %30 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i156.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %30, i64 1
+  store ptr %incdec.ptr.i156.i, ptr %_M_finish.i.i, align 8
+  %.pre907.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+if.else.i157.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+  %31 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i158.i = ptrtoint ptr %28 to i64
+  %sub.ptr.rhs.cast.i.i.i.i159.i = ptrtoint ptr %31 to i64
+  %sub.ptr.sub.i.i.i.i160.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i158.i, %sub.ptr.rhs.cast.i.i.i.i159.i
+  %cmp.i.i.i161.i = icmp eq i64 %sub.ptr.sub.i.i.i.i160.i, 9223372036854775800
+  br i1 %cmp.i.i.i161.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i162.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i162.i: ; preds = %if.else.i157.i
+  %sub.ptr.div.i.i.i.i163.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i160.i, 40
+  %.sroa.speculated.i.i.i164.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i163.i, i64 1)
+  %add.i.i.i165.i = add i64 %.sroa.speculated.i.i.i164.i, %sub.ptr.div.i.i.i.i163.i
+  %cmp7.i.i.i166.i = icmp ult i64 %add.i.i.i165.i, %sub.ptr.div.i.i.i.i163.i
+  %32 = call i64 @llvm.umin.i64(i64 %add.i.i.i165.i, i64 230584300921369395)
+  %cond.i.i.i167.i = select i1 %cmp7.i.i.i166.i, i64 230584300921369395, i64 %32
+  %cmp.not.i.i.i168.i = icmp ne i64 %cond.i.i.i167.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i168.i)
+  %mul.i.i.i.i.i169.i = mul nuw nsw i64 %cond.i.i.i167.i, 40
+  %call5.i.i.i.i.i170.i10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i169.i) #27
+          to label %call5.i.i.i.i.i170.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i170.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i162.i
+  %add.ptr.i.i171.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i170.i10, i64 %sub.ptr.sub.i.i.i.i160.i
+  store ptr @.str.19, ptr %add.ptr.i.i171.i, align 8
+  %description.i.i.i.i.i172.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i171.i, i64 0, i32 1
+  store ptr @.str.20, ptr %description.i.i.i.i.i172.i, align 8
+  %fileExtension.i.i.i.i.i173.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i171.i, i64 0, i32 2
+  store ptr @.str.19, ptr %fileExtension.i.i.i.i.i173.i, align 8
+  %mExportFunction.i.i.i.i.i174.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i170.i10, i64 %sub.ptr.div.i.i.i.i163.i, i32 1
+  store ptr @_ZN6Assimp14ExportSceneSTLEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i174.i, align 8
+  %mEnforcePP.i.i.i.i.i175.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i170.i10, i64 %sub.ptr.div.i.i.i.i163.i, i32 2
+  store i32 296, ptr %mEnforcePP.i.i.i.i.i175.i, align 8
+  %cmp.not5.i.i.i.i.i176.i = icmp eq ptr %31, %28
+  br i1 %cmp.not5.i.i.i.i.i176.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i183.i, label %for.body.i.i.i.i.i177.i
+
+for.body.i.i.i.i.i177.i:                          ; preds = %call5.i.i.i.i.i170.i.noexc, %for.body.i.i.i.i.i177.i
+  %__cur.07.i.i.i.i.i178.i = phi ptr [ %incdec.ptr1.i.i.i.i.i181.i, %for.body.i.i.i.i.i177.i ], [ %call5.i.i.i.i.i170.i10, %call5.i.i.i.i.i170.i.noexc ]
+  %__first.addr.06.i.i.i.i.i179.i = phi ptr [ %incdec.ptr.i.i.i.i.i180.i, %for.body.i.i.i.i.i177.i ], [ %31, %call5.i.i.i.i.i170.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i178.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i179.i, i64 40, i1 false), !alias.scope !22
+  %incdec.ptr.i.i.i.i.i180.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i179.i, i64 1
+  %incdec.ptr1.i.i.i.i.i181.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i178.i, i64 1
+  %cmp.not.i.i.i.i.i182.i = icmp eq ptr %incdec.ptr.i.i.i.i.i180.i, %28
+  br i1 %cmp.not.i.i.i.i.i182.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i183.i, label %for.body.i.i.i.i.i177.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i183.i: ; preds = %for.body.i.i.i.i.i177.i, %call5.i.i.i.i.i170.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i184.i = phi ptr [ %call5.i.i.i.i.i170.i10, %call5.i.i.i.i.i170.i.noexc ], [ %incdec.ptr1.i.i.i.i.i181.i, %for.body.i.i.i.i.i177.i ]
+  %incdec.ptr.i.i185.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i184.i, i64 1
+  %tobool.not.i.i.i186.i = icmp eq ptr %31, null
+  br i1 %tobool.not.i.i.i186.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i187.i
+
+if.then.i27.i.i187.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i183.i
+  call void @_ZdlPv(ptr noundef nonnull %31) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i187.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i183.i
+  store ptr %call5.i.i.i.i.i170.i10, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i185.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i188.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i170.i10, i64 %cond.i.i.i167.i
+  store ptr %add.ptr34.i.i188.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i151.i
+  %33 = phi ptr [ %.pre907.i, %if.then.i151.i ], [ %add.ptr34.i.i188.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %34 = phi ptr [ %incdec.ptr.i156.i, %if.then.i151.i ], [ %incdec.ptr.i.i185.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i192.i = icmp eq ptr %34, %33
+  br i1 %cmp.not.i192.i, label %if.else.i199.i, label %if.then.i193.i
+
+if.then.i193.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  store ptr @.str.21, ptr %34, align 8
+  %description.i.i.i.i194.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %34, i64 0, i32 1
+  store ptr @.str.22, ptr %description.i.i.i.i194.i, align 8
+  %fileExtension.i.i.i.i195.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %34, i64 0, i32 2
+  store ptr @.str.19, ptr %fileExtension.i.i.i.i195.i, align 8
+  %mExportFunction.i.i.i.i196.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %34, i64 0, i32 1
+  store ptr @_ZN6Assimp20ExportSceneSTLBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i196.i, align 8
+  %mEnforcePP.i.i.i.i197.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %34, i64 0, i32 2
+  store i32 296, ptr %mEnforcePP.i.i.i.i197.i, align 8
+  %35 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i198.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %35, i64 1
+  store ptr %incdec.ptr.i198.i, ptr %_M_finish.i.i, align 8
+  %.pre908.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+if.else.i199.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  %36 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i200.i = ptrtoint ptr %33 to i64
+  %sub.ptr.rhs.cast.i.i.i.i201.i = ptrtoint ptr %36 to i64
+  %sub.ptr.sub.i.i.i.i202.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i200.i, %sub.ptr.rhs.cast.i.i.i.i201.i
+  %cmp.i.i.i203.i = icmp eq i64 %sub.ptr.sub.i.i.i.i202.i, 9223372036854775800
+  br i1 %cmp.i.i.i203.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i204.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i204.i: ; preds = %if.else.i199.i
+  %sub.ptr.div.i.i.i.i205.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i202.i, 40
+  %.sroa.speculated.i.i.i206.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i205.i, i64 1)
+  %add.i.i.i207.i = add i64 %.sroa.speculated.i.i.i206.i, %sub.ptr.div.i.i.i.i205.i
+  %cmp7.i.i.i208.i = icmp ult i64 %add.i.i.i207.i, %sub.ptr.div.i.i.i.i205.i
+  %37 = call i64 @llvm.umin.i64(i64 %add.i.i.i207.i, i64 230584300921369395)
+  %cond.i.i.i209.i = select i1 %cmp7.i.i.i208.i, i64 230584300921369395, i64 %37
+  %cmp.not.i.i.i210.i = icmp ne i64 %cond.i.i.i209.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i210.i)
+  %mul.i.i.i.i.i211.i = mul nuw nsw i64 %cond.i.i.i209.i, 40
+  %call5.i.i.i.i.i212.i12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i211.i) #27
+          to label %call5.i.i.i.i.i212.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i212.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i204.i
+  %add.ptr.i.i213.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i212.i12, i64 %sub.ptr.sub.i.i.i.i202.i
+  store ptr @.str.21, ptr %add.ptr.i.i213.i, align 8
+  %description.i.i.i.i.i214.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i213.i, i64 0, i32 1
+  store ptr @.str.22, ptr %description.i.i.i.i.i214.i, align 8
+  %fileExtension.i.i.i.i.i215.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i213.i, i64 0, i32 2
+  store ptr @.str.19, ptr %fileExtension.i.i.i.i.i215.i, align 8
+  %mExportFunction.i.i.i.i.i216.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i212.i12, i64 %sub.ptr.div.i.i.i.i205.i, i32 1
+  store ptr @_ZN6Assimp20ExportSceneSTLBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i216.i, align 8
+  %mEnforcePP.i.i.i.i.i217.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i212.i12, i64 %sub.ptr.div.i.i.i.i205.i, i32 2
+  store i32 296, ptr %mEnforcePP.i.i.i.i.i217.i, align 8
+  %cmp.not5.i.i.i.i.i218.i = icmp eq ptr %36, %33
+  br i1 %cmp.not5.i.i.i.i.i218.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i225.i, label %for.body.i.i.i.i.i219.i
+
+for.body.i.i.i.i.i219.i:                          ; preds = %call5.i.i.i.i.i212.i.noexc, %for.body.i.i.i.i.i219.i
+  %__cur.07.i.i.i.i.i220.i = phi ptr [ %incdec.ptr1.i.i.i.i.i223.i, %for.body.i.i.i.i.i219.i ], [ %call5.i.i.i.i.i212.i12, %call5.i.i.i.i.i212.i.noexc ]
+  %__first.addr.06.i.i.i.i.i221.i = phi ptr [ %incdec.ptr.i.i.i.i.i222.i, %for.body.i.i.i.i.i219.i ], [ %36, %call5.i.i.i.i.i212.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i220.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i221.i, i64 40, i1 false), !alias.scope !26
+  %incdec.ptr.i.i.i.i.i222.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i221.i, i64 1
+  %incdec.ptr1.i.i.i.i.i223.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i220.i, i64 1
+  %cmp.not.i.i.i.i.i224.i = icmp eq ptr %incdec.ptr.i.i.i.i.i222.i, %33
+  br i1 %cmp.not.i.i.i.i.i224.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i225.i, label %for.body.i.i.i.i.i219.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i225.i: ; preds = %for.body.i.i.i.i.i219.i, %call5.i.i.i.i.i212.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i226.i = phi ptr [ %call5.i.i.i.i.i212.i12, %call5.i.i.i.i.i212.i.noexc ], [ %incdec.ptr1.i.i.i.i.i223.i, %for.body.i.i.i.i.i219.i ]
+  %incdec.ptr.i.i227.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i226.i, i64 1
+  %tobool.not.i.i.i228.i = icmp eq ptr %36, null
+  br i1 %tobool.not.i.i.i228.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i229.i
+
+if.then.i27.i.i229.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i225.i
+  call void @_ZdlPv(ptr noundef nonnull %36) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i229.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i225.i
+  store ptr %call5.i.i.i.i.i212.i12, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i227.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i230.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i212.i12, i64 %cond.i.i.i209.i
+  store ptr %add.ptr34.i.i230.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i193.i
+  %38 = phi ptr [ %.pre908.i, %if.then.i193.i ], [ %add.ptr34.i.i230.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %39 = phi ptr [ %incdec.ptr.i198.i, %if.then.i193.i ], [ %incdec.ptr.i.i227.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i234.i = icmp eq ptr %39, %38
+  br i1 %cmp.not.i234.i, label %if.else.i241.i, label %if.then.i235.i
+
+if.then.i235.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  store ptr @.str.23, ptr %39, align 8
+  %description.i.i.i.i236.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %39, i64 0, i32 1
+  store ptr @.str.24, ptr %description.i.i.i.i236.i, align 8
+  %fileExtension.i.i.i.i237.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %39, i64 0, i32 2
+  store ptr @.str.23, ptr %fileExtension.i.i.i.i237.i, align 8
+  %mExportFunction.i.i.i.i238.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %39, i64 0, i32 1
+  store ptr @_ZN6Assimp14ExportScenePlyEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i238.i, align 8
+  %mEnforcePP.i.i.i.i239.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %39, i64 0, i32 2
+  store i32 256, ptr %mEnforcePP.i.i.i.i239.i, align 8
+  %40 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i240.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %40, i64 1
+  store ptr %incdec.ptr.i240.i, ptr %_M_finish.i.i, align 8
+  %.pre909.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+
+if.else.i241.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  %41 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i242.i = ptrtoint ptr %38 to i64
+  %sub.ptr.rhs.cast.i.i.i.i243.i = ptrtoint ptr %41 to i64
+  %sub.ptr.sub.i.i.i.i244.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i242.i, %sub.ptr.rhs.cast.i.i.i.i243.i
+  %cmp.i.i.i245.i = icmp eq i64 %sub.ptr.sub.i.i.i.i244.i, 9223372036854775800
+  br i1 %cmp.i.i.i245.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i246.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i246.i: ; preds = %if.else.i241.i
+  %sub.ptr.div.i.i.i.i247.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i244.i, 40
+  %.sroa.speculated.i.i.i248.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i247.i, i64 1)
+  %add.i.i.i249.i = add i64 %.sroa.speculated.i.i.i248.i, %sub.ptr.div.i.i.i.i247.i
+  %cmp7.i.i.i250.i = icmp ult i64 %add.i.i.i249.i, %sub.ptr.div.i.i.i.i247.i
+  %42 = call i64 @llvm.umin.i64(i64 %add.i.i.i249.i, i64 230584300921369395)
+  %cond.i.i.i251.i = select i1 %cmp7.i.i.i250.i, i64 230584300921369395, i64 %42
+  %cmp.not.i.i.i252.i = icmp ne i64 %cond.i.i.i251.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i252.i)
+  %mul.i.i.i.i.i253.i = mul nuw nsw i64 %cond.i.i.i251.i, 40
+  %call5.i.i.i.i.i254.i14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i253.i) #27
+          to label %call5.i.i.i.i.i254.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i254.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i246.i
+  %add.ptr.i.i255.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i254.i14, i64 %sub.ptr.sub.i.i.i.i244.i
+  store ptr @.str.23, ptr %add.ptr.i.i255.i, align 8
+  %description.i.i.i.i.i256.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i255.i, i64 0, i32 1
+  store ptr @.str.24, ptr %description.i.i.i.i.i256.i, align 8
+  %fileExtension.i.i.i.i.i257.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i255.i, i64 0, i32 2
+  store ptr @.str.23, ptr %fileExtension.i.i.i.i.i257.i, align 8
+  %mExportFunction.i.i.i.i.i258.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i254.i14, i64 %sub.ptr.div.i.i.i.i247.i, i32 1
+  store ptr @_ZN6Assimp14ExportScenePlyEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i258.i, align 8
+  %mEnforcePP.i.i.i.i.i259.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i254.i14, i64 %sub.ptr.div.i.i.i.i247.i, i32 2
+  store i32 256, ptr %mEnforcePP.i.i.i.i.i259.i, align 8
+  %cmp.not5.i.i.i.i.i260.i = icmp eq ptr %41, %38
+  br i1 %cmp.not5.i.i.i.i.i260.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i267.i, label %for.body.i.i.i.i.i261.i
+
+for.body.i.i.i.i.i261.i:                          ; preds = %call5.i.i.i.i.i254.i.noexc, %for.body.i.i.i.i.i261.i
+  %__cur.07.i.i.i.i.i262.i = phi ptr [ %incdec.ptr1.i.i.i.i.i265.i, %for.body.i.i.i.i.i261.i ], [ %call5.i.i.i.i.i254.i14, %call5.i.i.i.i.i254.i.noexc ]
+  %__first.addr.06.i.i.i.i.i263.i = phi ptr [ %incdec.ptr.i.i.i.i.i264.i, %for.body.i.i.i.i.i261.i ], [ %41, %call5.i.i.i.i.i254.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i262.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i263.i, i64 40, i1 false), !alias.scope !30
+  %incdec.ptr.i.i.i.i.i264.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i263.i, i64 1
+  %incdec.ptr1.i.i.i.i.i265.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i262.i, i64 1
+  %cmp.not.i.i.i.i.i266.i = icmp eq ptr %incdec.ptr.i.i.i.i.i264.i, %38
+  br i1 %cmp.not.i.i.i.i.i266.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i267.i, label %for.body.i.i.i.i.i261.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i267.i: ; preds = %for.body.i.i.i.i.i261.i, %call5.i.i.i.i.i254.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i268.i = phi ptr [ %call5.i.i.i.i.i254.i14, %call5.i.i.i.i.i254.i.noexc ], [ %incdec.ptr1.i.i.i.i.i265.i, %for.body.i.i.i.i.i261.i ]
+  %incdec.ptr.i.i269.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i268.i, i64 1
+  %tobool.not.i.i.i270.i = icmp eq ptr %41, null
+  br i1 %tobool.not.i.i.i270.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i271.i
+
+if.then.i27.i.i271.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i267.i
+  call void @_ZdlPv(ptr noundef nonnull %41) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i271.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i267.i
+  store ptr %call5.i.i.i.i.i254.i14, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i269.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i272.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i254.i14, i64 %cond.i.i.i251.i
+  store ptr %add.ptr34.i.i272.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i235.i
+  %43 = phi ptr [ %.pre909.i, %if.then.i235.i ], [ %add.ptr34.i.i272.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %44 = phi ptr [ %incdec.ptr.i240.i, %if.then.i235.i ], [ %incdec.ptr.i.i269.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i276.i = icmp eq ptr %44, %43
+  br i1 %cmp.not.i276.i, label %if.else.i283.i, label %if.then.i277.i
+
+if.then.i277.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+  store ptr @.str.25, ptr %44, align 8
+  %description.i.i.i.i278.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %44, i64 0, i32 1
+  store ptr @.str.26, ptr %description.i.i.i.i278.i, align 8
+  %fileExtension.i.i.i.i279.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %44, i64 0, i32 2
+  store ptr @.str.23, ptr %fileExtension.i.i.i.i279.i, align 8
+  %mExportFunction.i.i.i.i280.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %44, i64 0, i32 1
+  store ptr @_ZN6Assimp20ExportScenePlyBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i280.i, align 8
+  %mEnforcePP.i.i.i.i281.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %44, i64 0, i32 2
+  store i32 256, ptr %mEnforcePP.i.i.i.i281.i, align 8
+  %45 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i282.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %45, i64 1
+  store ptr %incdec.ptr.i282.i, ptr %_M_finish.i.i, align 8
+  %.pre910.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+
+if.else.i283.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+  %46 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i284.i = ptrtoint ptr %43 to i64
+  %sub.ptr.rhs.cast.i.i.i.i285.i = ptrtoint ptr %46 to i64
+  %sub.ptr.sub.i.i.i.i286.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i284.i, %sub.ptr.rhs.cast.i.i.i.i285.i
+  %cmp.i.i.i287.i = icmp eq i64 %sub.ptr.sub.i.i.i.i286.i, 9223372036854775800
+  br i1 %cmp.i.i.i287.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i288.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i288.i: ; preds = %if.else.i283.i
+  %sub.ptr.div.i.i.i.i289.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i286.i, 40
+  %.sroa.speculated.i.i.i290.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i289.i, i64 1)
+  %add.i.i.i291.i = add i64 %.sroa.speculated.i.i.i290.i, %sub.ptr.div.i.i.i.i289.i
+  %cmp7.i.i.i292.i = icmp ult i64 %add.i.i.i291.i, %sub.ptr.div.i.i.i.i289.i
+  %47 = call i64 @llvm.umin.i64(i64 %add.i.i.i291.i, i64 230584300921369395)
+  %cond.i.i.i293.i = select i1 %cmp7.i.i.i292.i, i64 230584300921369395, i64 %47
+  %cmp.not.i.i.i294.i = icmp ne i64 %cond.i.i.i293.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i294.i)
+  %mul.i.i.i.i.i295.i = mul nuw nsw i64 %cond.i.i.i293.i, 40
+  %call5.i.i.i.i.i296.i16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i295.i) #27
+          to label %call5.i.i.i.i.i296.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i296.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i288.i
+  %add.ptr.i.i297.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i296.i16, i64 %sub.ptr.sub.i.i.i.i286.i
+  store ptr @.str.25, ptr %add.ptr.i.i297.i, align 8
+  %description.i.i.i.i.i298.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i297.i, i64 0, i32 1
+  store ptr @.str.26, ptr %description.i.i.i.i.i298.i, align 8
+  %fileExtension.i.i.i.i.i299.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i297.i, i64 0, i32 2
+  store ptr @.str.23, ptr %fileExtension.i.i.i.i.i299.i, align 8
+  %mExportFunction.i.i.i.i.i300.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i296.i16, i64 %sub.ptr.div.i.i.i.i289.i, i32 1
+  store ptr @_ZN6Assimp20ExportScenePlyBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i300.i, align 8
+  %mEnforcePP.i.i.i.i.i301.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i296.i16, i64 %sub.ptr.div.i.i.i.i289.i, i32 2
+  store i32 256, ptr %mEnforcePP.i.i.i.i.i301.i, align 8
+  %cmp.not5.i.i.i.i.i302.i = icmp eq ptr %46, %43
+  br i1 %cmp.not5.i.i.i.i.i302.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i309.i, label %for.body.i.i.i.i.i303.i
+
+for.body.i.i.i.i.i303.i:                          ; preds = %call5.i.i.i.i.i296.i.noexc, %for.body.i.i.i.i.i303.i
+  %__cur.07.i.i.i.i.i304.i = phi ptr [ %incdec.ptr1.i.i.i.i.i307.i, %for.body.i.i.i.i.i303.i ], [ %call5.i.i.i.i.i296.i16, %call5.i.i.i.i.i296.i.noexc ]
+  %__first.addr.06.i.i.i.i.i305.i = phi ptr [ %incdec.ptr.i.i.i.i.i306.i, %for.body.i.i.i.i.i303.i ], [ %46, %call5.i.i.i.i.i296.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i304.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i305.i, i64 40, i1 false), !alias.scope !34
+  %incdec.ptr.i.i.i.i.i306.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i305.i, i64 1
+  %incdec.ptr1.i.i.i.i.i307.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i304.i, i64 1
+  %cmp.not.i.i.i.i.i308.i = icmp eq ptr %incdec.ptr.i.i.i.i.i306.i, %43
+  br i1 %cmp.not.i.i.i.i.i308.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i309.i, label %for.body.i.i.i.i.i303.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i309.i: ; preds = %for.body.i.i.i.i.i303.i, %call5.i.i.i.i.i296.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i310.i = phi ptr [ %call5.i.i.i.i.i296.i16, %call5.i.i.i.i.i296.i.noexc ], [ %incdec.ptr1.i.i.i.i.i307.i, %for.body.i.i.i.i.i303.i ]
+  %incdec.ptr.i.i311.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i310.i, i64 1
+  %tobool.not.i.i.i312.i = icmp eq ptr %46, null
+  br i1 %tobool.not.i.i.i312.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i313.i
+
+if.then.i27.i.i313.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i309.i
+  call void @_ZdlPv(ptr noundef nonnull %46) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i313.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i309.i
+  store ptr %call5.i.i.i.i.i296.i16, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i311.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i314.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i296.i16, i64 %cond.i.i.i293.i
+  store ptr %add.ptr34.i.i314.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i277.i
+  %48 = phi ptr [ %.pre910.i, %if.then.i277.i ], [ %add.ptr34.i.i314.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %49 = phi ptr [ %incdec.ptr.i282.i, %if.then.i277.i ], [ %incdec.ptr.i.i311.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i318.i = icmp eq ptr %49, %48
+  br i1 %cmp.not.i318.i, label %if.else.i325.i, label %if.then.i319.i
+
+if.then.i319.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+  store ptr @.str.27, ptr %49, align 8
+  %description.i.i.i.i320.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %49, i64 0, i32 1
+  store ptr @.str.28, ptr %description.i.i.i.i320.i, align 8
+  %fileExtension.i.i.i.i321.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %49, i64 0, i32 2
+  store ptr @.str.27, ptr %fileExtension.i.i.i.i321.i, align 8
+  %mExportFunction.i.i.i.i322.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %49, i64 0, i32 1
+  store ptr @_ZN6Assimp14ExportScene3DSEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i322.i, align 8
+  %mEnforcePP.i.i.i.i323.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %49, i64 0, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i323.i, align 8
+  %50 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i324.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %50, i64 1
+  store ptr %incdec.ptr.i324.i, ptr %_M_finish.i.i, align 8
+  %.pre911.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+if.else.i325.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
+  %51 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i326.i = ptrtoint ptr %48 to i64
+  %sub.ptr.rhs.cast.i.i.i.i327.i = ptrtoint ptr %51 to i64
+  %sub.ptr.sub.i.i.i.i328.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i326.i, %sub.ptr.rhs.cast.i.i.i.i327.i
+  %cmp.i.i.i329.i = icmp eq i64 %sub.ptr.sub.i.i.i.i328.i, 9223372036854775800
+  br i1 %cmp.i.i.i329.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i330.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i330.i: ; preds = %if.else.i325.i
+  %sub.ptr.div.i.i.i.i331.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i328.i, 40
+  %.sroa.speculated.i.i.i332.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i331.i, i64 1)
+  %add.i.i.i333.i = add i64 %.sroa.speculated.i.i.i332.i, %sub.ptr.div.i.i.i.i331.i
+  %cmp7.i.i.i334.i = icmp ult i64 %add.i.i.i333.i, %sub.ptr.div.i.i.i.i331.i
+  %52 = call i64 @llvm.umin.i64(i64 %add.i.i.i333.i, i64 230584300921369395)
+  %cond.i.i.i335.i = select i1 %cmp7.i.i.i334.i, i64 230584300921369395, i64 %52
+  %cmp.not.i.i.i336.i = icmp ne i64 %cond.i.i.i335.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i336.i)
+  %mul.i.i.i.i.i337.i = mul nuw nsw i64 %cond.i.i.i335.i, 40
+  %call5.i.i.i.i.i338.i18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i337.i) #27
+          to label %call5.i.i.i.i.i338.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i338.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i330.i
+  %add.ptr.i.i339.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i338.i18, i64 %sub.ptr.sub.i.i.i.i328.i
+  store ptr @.str.27, ptr %add.ptr.i.i339.i, align 8
+  %description.i.i.i.i.i340.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i339.i, i64 0, i32 1
+  store ptr @.str.28, ptr %description.i.i.i.i.i340.i, align 8
+  %fileExtension.i.i.i.i.i341.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i339.i, i64 0, i32 2
+  store ptr @.str.27, ptr %fileExtension.i.i.i.i.i341.i, align 8
+  %mExportFunction.i.i.i.i.i342.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i338.i18, i64 %sub.ptr.div.i.i.i.i331.i, i32 1
+  store ptr @_ZN6Assimp14ExportScene3DSEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i342.i, align 8
+  %mEnforcePP.i.i.i.i.i343.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i338.i18, i64 %sub.ptr.div.i.i.i.i331.i, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i.i343.i, align 8
+  %cmp.not5.i.i.i.i.i344.i = icmp eq ptr %51, %48
+  br i1 %cmp.not5.i.i.i.i.i344.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i351.i, label %for.body.i.i.i.i.i345.i
+
+for.body.i.i.i.i.i345.i:                          ; preds = %call5.i.i.i.i.i338.i.noexc, %for.body.i.i.i.i.i345.i
+  %__cur.07.i.i.i.i.i346.i = phi ptr [ %incdec.ptr1.i.i.i.i.i349.i, %for.body.i.i.i.i.i345.i ], [ %call5.i.i.i.i.i338.i18, %call5.i.i.i.i.i338.i.noexc ]
+  %__first.addr.06.i.i.i.i.i347.i = phi ptr [ %incdec.ptr.i.i.i.i.i348.i, %for.body.i.i.i.i.i345.i ], [ %51, %call5.i.i.i.i.i338.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i346.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i347.i, i64 40, i1 false), !alias.scope !38
+  %incdec.ptr.i.i.i.i.i348.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i347.i, i64 1
+  %incdec.ptr1.i.i.i.i.i349.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i346.i, i64 1
+  %cmp.not.i.i.i.i.i350.i = icmp eq ptr %incdec.ptr.i.i.i.i.i348.i, %48
+  br i1 %cmp.not.i.i.i.i.i350.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i351.i, label %for.body.i.i.i.i.i345.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i351.i: ; preds = %for.body.i.i.i.i.i345.i, %call5.i.i.i.i.i338.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i352.i = phi ptr [ %call5.i.i.i.i.i338.i18, %call5.i.i.i.i.i338.i.noexc ], [ %incdec.ptr1.i.i.i.i.i349.i, %for.body.i.i.i.i.i345.i ]
+  %incdec.ptr.i.i353.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i352.i, i64 1
+  %tobool.not.i.i.i354.i = icmp eq ptr %51, null
+  br i1 %tobool.not.i.i.i354.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i355.i
+
+if.then.i27.i.i355.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i351.i
+  call void @_ZdlPv(ptr noundef nonnull %51) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i355.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i351.i
+  store ptr %call5.i.i.i.i.i338.i18, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i353.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i356.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i338.i18, i64 %cond.i.i.i335.i
+  store ptr %add.ptr34.i.i356.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i319.i
+  %53 = phi ptr [ %.pre911.i, %if.then.i319.i ], [ %add.ptr34.i.i356.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %54 = phi ptr [ %incdec.ptr.i324.i, %if.then.i319.i ], [ %incdec.ptr.i.i353.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i360.i = icmp eq ptr %54, %53
+  br i1 %cmp.not.i360.i, label %if.else.i367.i, label %if.then.i361.i
+
+if.then.i361.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  store ptr @.str.29, ptr %54, align 8
+  %description.i.i.i.i362.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %54, i64 0, i32 1
+  store ptr @.str.30, ptr %description.i.i.i.i362.i, align 8
+  %fileExtension.i.i.i.i363.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %54, i64 0, i32 2
+  store ptr @.str.31, ptr %fileExtension.i.i.i.i363.i, align 8
+  %mExportFunction.i.i.i.i364.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %54, i64 0, i32 1
+  store ptr @_ZN6Assimp16ExportSceneGLTF2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i364.i, align 8
+  %mEnforcePP.i.i.i.i365.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %54, i64 0, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i365.i, align 8
+  %55 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i366.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %55, i64 1
+  store ptr %incdec.ptr.i366.i, ptr %_M_finish.i.i, align 8
+  %.pre912.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+if.else.i367.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  %56 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i368.i = ptrtoint ptr %53 to i64
+  %sub.ptr.rhs.cast.i.i.i.i369.i = ptrtoint ptr %56 to i64
+  %sub.ptr.sub.i.i.i.i370.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i368.i, %sub.ptr.rhs.cast.i.i.i.i369.i
+  %cmp.i.i.i371.i = icmp eq i64 %sub.ptr.sub.i.i.i.i370.i, 9223372036854775800
+  br i1 %cmp.i.i.i371.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i372.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i372.i: ; preds = %if.else.i367.i
+  %sub.ptr.div.i.i.i.i373.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i370.i, 40
+  %.sroa.speculated.i.i.i374.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i373.i, i64 1)
+  %add.i.i.i375.i = add i64 %.sroa.speculated.i.i.i374.i, %sub.ptr.div.i.i.i.i373.i
+  %cmp7.i.i.i376.i = icmp ult i64 %add.i.i.i375.i, %sub.ptr.div.i.i.i.i373.i
+  %57 = call i64 @llvm.umin.i64(i64 %add.i.i.i375.i, i64 230584300921369395)
+  %cond.i.i.i377.i = select i1 %cmp7.i.i.i376.i, i64 230584300921369395, i64 %57
+  %cmp.not.i.i.i378.i = icmp ne i64 %cond.i.i.i377.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i378.i)
+  %mul.i.i.i.i.i379.i = mul nuw nsw i64 %cond.i.i.i377.i, 40
+  %call5.i.i.i.i.i380.i20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i379.i) #27
+          to label %call5.i.i.i.i.i380.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i380.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i372.i
+  %add.ptr.i.i381.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i380.i20, i64 %sub.ptr.sub.i.i.i.i370.i
+  store ptr @.str.29, ptr %add.ptr.i.i381.i, align 8
+  %description.i.i.i.i.i382.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i381.i, i64 0, i32 1
+  store ptr @.str.30, ptr %description.i.i.i.i.i382.i, align 8
+  %fileExtension.i.i.i.i.i383.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i381.i, i64 0, i32 2
+  store ptr @.str.31, ptr %fileExtension.i.i.i.i.i383.i, align 8
+  %mExportFunction.i.i.i.i.i384.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i380.i20, i64 %sub.ptr.div.i.i.i.i373.i, i32 1
+  store ptr @_ZN6Assimp16ExportSceneGLTF2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i384.i, align 8
+  %mEnforcePP.i.i.i.i.i385.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i380.i20, i64 %sub.ptr.div.i.i.i.i373.i, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i.i385.i, align 8
+  %cmp.not5.i.i.i.i.i386.i = icmp eq ptr %56, %53
+  br i1 %cmp.not5.i.i.i.i.i386.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i393.i, label %for.body.i.i.i.i.i387.i
+
+for.body.i.i.i.i.i387.i:                          ; preds = %call5.i.i.i.i.i380.i.noexc, %for.body.i.i.i.i.i387.i
+  %__cur.07.i.i.i.i.i388.i = phi ptr [ %incdec.ptr1.i.i.i.i.i391.i, %for.body.i.i.i.i.i387.i ], [ %call5.i.i.i.i.i380.i20, %call5.i.i.i.i.i380.i.noexc ]
+  %__first.addr.06.i.i.i.i.i389.i = phi ptr [ %incdec.ptr.i.i.i.i.i390.i, %for.body.i.i.i.i.i387.i ], [ %56, %call5.i.i.i.i.i380.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i388.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i389.i, i64 40, i1 false), !alias.scope !42
+  %incdec.ptr.i.i.i.i.i390.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i389.i, i64 1
+  %incdec.ptr1.i.i.i.i.i391.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i388.i, i64 1
+  %cmp.not.i.i.i.i.i392.i = icmp eq ptr %incdec.ptr.i.i.i.i.i390.i, %53
+  br i1 %cmp.not.i.i.i.i.i392.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i393.i, label %for.body.i.i.i.i.i387.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i393.i: ; preds = %for.body.i.i.i.i.i387.i, %call5.i.i.i.i.i380.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i394.i = phi ptr [ %call5.i.i.i.i.i380.i20, %call5.i.i.i.i.i380.i.noexc ], [ %incdec.ptr1.i.i.i.i.i391.i, %for.body.i.i.i.i.i387.i ]
+  %incdec.ptr.i.i395.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i394.i, i64 1
+  %tobool.not.i.i.i396.i = icmp eq ptr %56, null
+  br i1 %tobool.not.i.i.i396.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i397.i
+
+if.then.i27.i.i397.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i393.i
+  call void @_ZdlPv(ptr noundef nonnull %56) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i397.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i393.i
+  store ptr %call5.i.i.i.i.i380.i20, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i395.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i398.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i380.i20, i64 %cond.i.i.i377.i
+  store ptr %add.ptr34.i.i398.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i361.i
+  %58 = phi ptr [ %.pre912.i, %if.then.i361.i ], [ %add.ptr34.i.i398.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %59 = phi ptr [ %incdec.ptr.i366.i, %if.then.i361.i ], [ %incdec.ptr.i.i395.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i402.i = icmp eq ptr %59, %58
+  br i1 %cmp.not.i402.i, label %if.else.i409.i, label %if.then.i403.i
+
+if.then.i403.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  store ptr @.str.32, ptr %59, align 8
+  %description.i.i.i.i404.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %59, i64 0, i32 1
+  store ptr @.str.33, ptr %description.i.i.i.i404.i, align 8
+  %fileExtension.i.i.i.i405.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %59, i64 0, i32 2
+  store ptr @.str.34, ptr %fileExtension.i.i.i.i405.i, align 8
+  %mExportFunction.i.i.i.i406.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %59, i64 0, i32 1
+  store ptr @_ZN6Assimp15ExportSceneGLB2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i406.i, align 8
+  %mEnforcePP.i.i.i.i407.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %59, i64 0, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i407.i, align 8
+  %60 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i408.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %60, i64 1
+  store ptr %incdec.ptr.i408.i, ptr %_M_finish.i.i, align 8
+  %.pre913.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+if.else.i409.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  %61 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i410.i = ptrtoint ptr %58 to i64
+  %sub.ptr.rhs.cast.i.i.i.i411.i = ptrtoint ptr %61 to i64
+  %sub.ptr.sub.i.i.i.i412.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i410.i, %sub.ptr.rhs.cast.i.i.i.i411.i
+  %cmp.i.i.i413.i = icmp eq i64 %sub.ptr.sub.i.i.i.i412.i, 9223372036854775800
+  br i1 %cmp.i.i.i413.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i414.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i414.i: ; preds = %if.else.i409.i
+  %sub.ptr.div.i.i.i.i415.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i412.i, 40
+  %.sroa.speculated.i.i.i416.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i415.i, i64 1)
+  %add.i.i.i417.i = add i64 %.sroa.speculated.i.i.i416.i, %sub.ptr.div.i.i.i.i415.i
+  %cmp7.i.i.i418.i = icmp ult i64 %add.i.i.i417.i, %sub.ptr.div.i.i.i.i415.i
+  %62 = call i64 @llvm.umin.i64(i64 %add.i.i.i417.i, i64 230584300921369395)
+  %cond.i.i.i419.i = select i1 %cmp7.i.i.i418.i, i64 230584300921369395, i64 %62
+  %cmp.not.i.i.i420.i = icmp ne i64 %cond.i.i.i419.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i420.i)
+  %mul.i.i.i.i.i421.i = mul nuw nsw i64 %cond.i.i.i419.i, 40
+  %call5.i.i.i.i.i422.i22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i421.i) #27
+          to label %call5.i.i.i.i.i422.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i422.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i414.i
+  %add.ptr.i.i423.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i422.i22, i64 %sub.ptr.sub.i.i.i.i412.i
+  store ptr @.str.32, ptr %add.ptr.i.i423.i, align 8
+  %description.i.i.i.i.i424.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i423.i, i64 0, i32 1
+  store ptr @.str.33, ptr %description.i.i.i.i.i424.i, align 8
+  %fileExtension.i.i.i.i.i425.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i423.i, i64 0, i32 2
+  store ptr @.str.34, ptr %fileExtension.i.i.i.i.i425.i, align 8
+  %mExportFunction.i.i.i.i.i426.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i422.i22, i64 %sub.ptr.div.i.i.i.i415.i, i32 1
+  store ptr @_ZN6Assimp15ExportSceneGLB2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i426.i, align 8
+  %mEnforcePP.i.i.i.i.i427.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i422.i22, i64 %sub.ptr.div.i.i.i.i415.i, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i.i427.i, align 8
+  %cmp.not5.i.i.i.i.i428.i = icmp eq ptr %61, %58
+  br i1 %cmp.not5.i.i.i.i.i428.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i435.i, label %for.body.i.i.i.i.i429.i
+
+for.body.i.i.i.i.i429.i:                          ; preds = %call5.i.i.i.i.i422.i.noexc, %for.body.i.i.i.i.i429.i
+  %__cur.07.i.i.i.i.i430.i = phi ptr [ %incdec.ptr1.i.i.i.i.i433.i, %for.body.i.i.i.i.i429.i ], [ %call5.i.i.i.i.i422.i22, %call5.i.i.i.i.i422.i.noexc ]
+  %__first.addr.06.i.i.i.i.i431.i = phi ptr [ %incdec.ptr.i.i.i.i.i432.i, %for.body.i.i.i.i.i429.i ], [ %61, %call5.i.i.i.i.i422.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i430.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i431.i, i64 40, i1 false), !alias.scope !46
+  %incdec.ptr.i.i.i.i.i432.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i431.i, i64 1
+  %incdec.ptr1.i.i.i.i.i433.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i430.i, i64 1
+  %cmp.not.i.i.i.i.i434.i = icmp eq ptr %incdec.ptr.i.i.i.i.i432.i, %58
+  br i1 %cmp.not.i.i.i.i.i434.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i435.i, label %for.body.i.i.i.i.i429.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i435.i: ; preds = %for.body.i.i.i.i.i429.i, %call5.i.i.i.i.i422.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i436.i = phi ptr [ %call5.i.i.i.i.i422.i22, %call5.i.i.i.i.i422.i.noexc ], [ %incdec.ptr1.i.i.i.i.i433.i, %for.body.i.i.i.i.i429.i ]
+  %incdec.ptr.i.i437.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i436.i, i64 1
+  %tobool.not.i.i.i438.i = icmp eq ptr %61, null
+  br i1 %tobool.not.i.i.i438.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i439.i
+
+if.then.i27.i.i439.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i435.i
+  call void @_ZdlPv(ptr noundef nonnull %61) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i439.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i435.i
+  store ptr %call5.i.i.i.i.i422.i22, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i437.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i440.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i422.i22, i64 %cond.i.i.i419.i
+  store ptr %add.ptr34.i.i440.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i403.i
+  %63 = phi ptr [ %.pre913.i, %if.then.i403.i ], [ %add.ptr34.i.i440.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %64 = phi ptr [ %incdec.ptr.i408.i, %if.then.i403.i ], [ %incdec.ptr.i.i437.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i444.i = icmp eq ptr %64, %63
+  br i1 %cmp.not.i444.i, label %if.else.i451.i, label %if.then.i445.i
+
+if.then.i445.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  store ptr @.str.31, ptr %64, align 8
+  %description.i.i.i.i446.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %64, i64 0, i32 1
+  store ptr @.str.35, ptr %description.i.i.i.i446.i, align 8
+  %fileExtension.i.i.i.i447.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %64, i64 0, i32 2
+  store ptr @.str.31, ptr %fileExtension.i.i.i.i447.i, align 8
+  %mExportFunction.i.i.i.i448.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %64, i64 0, i32 1
+  store ptr @_ZN6Assimp15ExportSceneGLTFEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i448.i, align 8
+  %mEnforcePP.i.i.i.i449.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %64, i64 0, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i449.i, align 8
+  %65 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i450.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %65, i64 1
+  store ptr %incdec.ptr.i450.i, ptr %_M_finish.i.i, align 8
+  %.pre914.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+if.else.i451.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  %66 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i452.i = ptrtoint ptr %63 to i64
+  %sub.ptr.rhs.cast.i.i.i.i453.i = ptrtoint ptr %66 to i64
+  %sub.ptr.sub.i.i.i.i454.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i452.i, %sub.ptr.rhs.cast.i.i.i.i453.i
+  %cmp.i.i.i455.i = icmp eq i64 %sub.ptr.sub.i.i.i.i454.i, 9223372036854775800
+  br i1 %cmp.i.i.i455.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i456.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i456.i: ; preds = %if.else.i451.i
+  %sub.ptr.div.i.i.i.i457.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i454.i, 40
+  %.sroa.speculated.i.i.i458.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i457.i, i64 1)
+  %add.i.i.i459.i = add i64 %.sroa.speculated.i.i.i458.i, %sub.ptr.div.i.i.i.i457.i
+  %cmp7.i.i.i460.i = icmp ult i64 %add.i.i.i459.i, %sub.ptr.div.i.i.i.i457.i
+  %67 = call i64 @llvm.umin.i64(i64 %add.i.i.i459.i, i64 230584300921369395)
+  %cond.i.i.i461.i = select i1 %cmp7.i.i.i460.i, i64 230584300921369395, i64 %67
+  %cmp.not.i.i.i462.i = icmp ne i64 %cond.i.i.i461.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i462.i)
+  %mul.i.i.i.i.i463.i = mul nuw nsw i64 %cond.i.i.i461.i, 40
+  %call5.i.i.i.i.i464.i24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i463.i) #27
+          to label %call5.i.i.i.i.i464.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i464.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i456.i
+  %add.ptr.i.i465.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i464.i24, i64 %sub.ptr.sub.i.i.i.i454.i
+  store ptr @.str.31, ptr %add.ptr.i.i465.i, align 8
+  %description.i.i.i.i.i466.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i465.i, i64 0, i32 1
+  store ptr @.str.35, ptr %description.i.i.i.i.i466.i, align 8
+  %fileExtension.i.i.i.i.i467.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i465.i, i64 0, i32 2
+  store ptr @.str.31, ptr %fileExtension.i.i.i.i.i467.i, align 8
+  %mExportFunction.i.i.i.i.i468.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i464.i24, i64 %sub.ptr.div.i.i.i.i457.i, i32 1
+  store ptr @_ZN6Assimp15ExportSceneGLTFEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i468.i, align 8
+  %mEnforcePP.i.i.i.i.i469.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i464.i24, i64 %sub.ptr.div.i.i.i.i457.i, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i.i469.i, align 8
+  %cmp.not5.i.i.i.i.i470.i = icmp eq ptr %66, %63
+  br i1 %cmp.not5.i.i.i.i.i470.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i477.i, label %for.body.i.i.i.i.i471.i
+
+for.body.i.i.i.i.i471.i:                          ; preds = %call5.i.i.i.i.i464.i.noexc, %for.body.i.i.i.i.i471.i
+  %__cur.07.i.i.i.i.i472.i = phi ptr [ %incdec.ptr1.i.i.i.i.i475.i, %for.body.i.i.i.i.i471.i ], [ %call5.i.i.i.i.i464.i24, %call5.i.i.i.i.i464.i.noexc ]
+  %__first.addr.06.i.i.i.i.i473.i = phi ptr [ %incdec.ptr.i.i.i.i.i474.i, %for.body.i.i.i.i.i471.i ], [ %66, %call5.i.i.i.i.i464.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i472.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i473.i, i64 40, i1 false), !alias.scope !50
+  %incdec.ptr.i.i.i.i.i474.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i473.i, i64 1
+  %incdec.ptr1.i.i.i.i.i475.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i472.i, i64 1
+  %cmp.not.i.i.i.i.i476.i = icmp eq ptr %incdec.ptr.i.i.i.i.i474.i, %63
+  br i1 %cmp.not.i.i.i.i.i476.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i477.i, label %for.body.i.i.i.i.i471.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i477.i: ; preds = %for.body.i.i.i.i.i471.i, %call5.i.i.i.i.i464.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i478.i = phi ptr [ %call5.i.i.i.i.i464.i24, %call5.i.i.i.i.i464.i.noexc ], [ %incdec.ptr1.i.i.i.i.i475.i, %for.body.i.i.i.i.i471.i ]
+  %incdec.ptr.i.i479.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i478.i, i64 1
+  %tobool.not.i.i.i480.i = icmp eq ptr %66, null
+  br i1 %tobool.not.i.i.i480.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i481.i
+
+if.then.i27.i.i481.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i477.i
+  call void @_ZdlPv(ptr noundef nonnull %66) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i481.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i477.i
+  store ptr %call5.i.i.i.i.i464.i24, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i479.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i482.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i464.i24, i64 %cond.i.i.i461.i
+  store ptr %add.ptr34.i.i482.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i445.i
+  %68 = phi ptr [ %.pre914.i, %if.then.i445.i ], [ %add.ptr34.i.i482.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %69 = phi ptr [ %incdec.ptr.i450.i, %if.then.i445.i ], [ %incdec.ptr.i.i479.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i486.i = icmp eq ptr %69, %68
+  br i1 %cmp.not.i486.i, label %if.else.i493.i, label %if.then.i487.i
+
+if.then.i487.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  store ptr @.str.34, ptr %69, align 8
+  %description.i.i.i.i488.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %69, i64 0, i32 1
+  store ptr @.str.36, ptr %description.i.i.i.i488.i, align 8
+  %fileExtension.i.i.i.i489.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %69, i64 0, i32 2
+  store ptr @.str.34, ptr %fileExtension.i.i.i.i489.i, align 8
+  %mExportFunction.i.i.i.i490.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %69, i64 0, i32 1
+  store ptr @_ZN6Assimp14ExportSceneGLBEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i490.i, align 8
+  %mEnforcePP.i.i.i.i491.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %69, i64 0, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i491.i, align 8
+  %70 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i492.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %70, i64 1
+  store ptr %incdec.ptr.i492.i, ptr %_M_finish.i.i, align 8
+  %.pre915.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+if.else.i493.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  %71 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i494.i = ptrtoint ptr %68 to i64
+  %sub.ptr.rhs.cast.i.i.i.i495.i = ptrtoint ptr %71 to i64
+  %sub.ptr.sub.i.i.i.i496.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i494.i, %sub.ptr.rhs.cast.i.i.i.i495.i
+  %cmp.i.i.i497.i = icmp eq i64 %sub.ptr.sub.i.i.i.i496.i, 9223372036854775800
+  br i1 %cmp.i.i.i497.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i498.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i498.i: ; preds = %if.else.i493.i
+  %sub.ptr.div.i.i.i.i499.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i496.i, 40
+  %.sroa.speculated.i.i.i500.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i499.i, i64 1)
+  %add.i.i.i501.i = add i64 %.sroa.speculated.i.i.i500.i, %sub.ptr.div.i.i.i.i499.i
+  %cmp7.i.i.i502.i = icmp ult i64 %add.i.i.i501.i, %sub.ptr.div.i.i.i.i499.i
+  %72 = call i64 @llvm.umin.i64(i64 %add.i.i.i501.i, i64 230584300921369395)
+  %cond.i.i.i503.i = select i1 %cmp7.i.i.i502.i, i64 230584300921369395, i64 %72
+  %cmp.not.i.i.i504.i = icmp ne i64 %cond.i.i.i503.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i504.i)
+  %mul.i.i.i.i.i505.i = mul nuw nsw i64 %cond.i.i.i503.i, 40
+  %call5.i.i.i.i.i506.i26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i505.i) #27
+          to label %call5.i.i.i.i.i506.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i506.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i498.i
+  %add.ptr.i.i507.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i506.i26, i64 %sub.ptr.sub.i.i.i.i496.i
+  store ptr @.str.34, ptr %add.ptr.i.i507.i, align 8
+  %description.i.i.i.i.i508.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i507.i, i64 0, i32 1
+  store ptr @.str.36, ptr %description.i.i.i.i.i508.i, align 8
+  %fileExtension.i.i.i.i.i509.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i507.i, i64 0, i32 2
+  store ptr @.str.34, ptr %fileExtension.i.i.i.i.i509.i, align 8
+  %mExportFunction.i.i.i.i.i510.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i506.i26, i64 %sub.ptr.div.i.i.i.i499.i, i32 1
+  store ptr @_ZN6Assimp14ExportSceneGLBEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i510.i, align 8
+  %mEnforcePP.i.i.i.i.i511.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i506.i26, i64 %sub.ptr.div.i.i.i.i499.i, i32 2
+  store i32 32778, ptr %mEnforcePP.i.i.i.i.i511.i, align 8
+  %cmp.not5.i.i.i.i.i512.i = icmp eq ptr %71, %68
+  br i1 %cmp.not5.i.i.i.i.i512.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i519.i, label %for.body.i.i.i.i.i513.i
+
+for.body.i.i.i.i.i513.i:                          ; preds = %call5.i.i.i.i.i506.i.noexc, %for.body.i.i.i.i.i513.i
+  %__cur.07.i.i.i.i.i514.i = phi ptr [ %incdec.ptr1.i.i.i.i.i517.i, %for.body.i.i.i.i.i513.i ], [ %call5.i.i.i.i.i506.i26, %call5.i.i.i.i.i506.i.noexc ]
+  %__first.addr.06.i.i.i.i.i515.i = phi ptr [ %incdec.ptr.i.i.i.i.i516.i, %for.body.i.i.i.i.i513.i ], [ %71, %call5.i.i.i.i.i506.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i514.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i515.i, i64 40, i1 false), !alias.scope !54
+  %incdec.ptr.i.i.i.i.i516.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i515.i, i64 1
+  %incdec.ptr1.i.i.i.i.i517.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i514.i, i64 1
+  %cmp.not.i.i.i.i.i518.i = icmp eq ptr %incdec.ptr.i.i.i.i.i516.i, %68
+  br i1 %cmp.not.i.i.i.i.i518.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i519.i, label %for.body.i.i.i.i.i513.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i519.i: ; preds = %for.body.i.i.i.i.i513.i, %call5.i.i.i.i.i506.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i520.i = phi ptr [ %call5.i.i.i.i.i506.i26, %call5.i.i.i.i.i506.i.noexc ], [ %incdec.ptr1.i.i.i.i.i517.i, %for.body.i.i.i.i.i513.i ]
+  %incdec.ptr.i.i521.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i520.i, i64 1
+  %tobool.not.i.i.i522.i = icmp eq ptr %71, null
+  br i1 %tobool.not.i.i.i522.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i523.i
+
+if.then.i27.i.i523.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i519.i
+  call void @_ZdlPv(ptr noundef nonnull %71) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i523.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i519.i
+  store ptr %call5.i.i.i.i.i506.i26, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i521.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i524.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i506.i26, i64 %cond.i.i.i503.i
+  store ptr %add.ptr34.i.i524.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i487.i
+  %73 = phi ptr [ %.pre915.i, %if.then.i487.i ], [ %add.ptr34.i.i524.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %74 = phi ptr [ %incdec.ptr.i492.i, %if.then.i487.i ], [ %incdec.ptr.i.i521.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i528.i = icmp eq ptr %74, %73
+  br i1 %cmp.not.i528.i, label %if.else.i535.i, label %if.then.i529.i
+
+if.then.i529.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  store ptr @.str.37, ptr %74, align 8
+  %description.i.i.i.i530.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %74, i64 0, i32 1
+  store ptr @.str.38, ptr %description.i.i.i.i530.i, align 8
+  %fileExtension.i.i.i.i531.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %74, i64 0, i32 2
+  store ptr @.str.37, ptr %fileExtension.i.i.i.i531.i, align 8
+  %mExportFunction.i.i.i.i532.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %74, i64 0, i32 1
+  store ptr @_ZN6Assimp17ExportSceneAssbinEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i532.i, align 8
+  %mEnforcePP.i.i.i.i533.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %74, i64 0, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i533.i, align 8
+  %75 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i534.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %75, i64 1
+  store ptr %incdec.ptr.i534.i, ptr %_M_finish.i.i, align 8
+  %.pre916.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+if.else.i535.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  %76 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i536.i = ptrtoint ptr %73 to i64
+  %sub.ptr.rhs.cast.i.i.i.i537.i = ptrtoint ptr %76 to i64
+  %sub.ptr.sub.i.i.i.i538.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i536.i, %sub.ptr.rhs.cast.i.i.i.i537.i
+  %cmp.i.i.i539.i = icmp eq i64 %sub.ptr.sub.i.i.i.i538.i, 9223372036854775800
+  br i1 %cmp.i.i.i539.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i540.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i540.i: ; preds = %if.else.i535.i
+  %sub.ptr.div.i.i.i.i541.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i538.i, 40
+  %.sroa.speculated.i.i.i542.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i541.i, i64 1)
+  %add.i.i.i543.i = add i64 %.sroa.speculated.i.i.i542.i, %sub.ptr.div.i.i.i.i541.i
+  %cmp7.i.i.i544.i = icmp ult i64 %add.i.i.i543.i, %sub.ptr.div.i.i.i.i541.i
+  %77 = call i64 @llvm.umin.i64(i64 %add.i.i.i543.i, i64 230584300921369395)
+  %cond.i.i.i545.i = select i1 %cmp7.i.i.i544.i, i64 230584300921369395, i64 %77
+  %cmp.not.i.i.i546.i = icmp ne i64 %cond.i.i.i545.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i546.i)
+  %mul.i.i.i.i.i547.i = mul nuw nsw i64 %cond.i.i.i545.i, 40
+  %call5.i.i.i.i.i548.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i547.i) #27
+          to label %call5.i.i.i.i.i548.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i548.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i540.i
+  %add.ptr.i.i549.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i548.i28, i64 %sub.ptr.sub.i.i.i.i538.i
+  store ptr @.str.37, ptr %add.ptr.i.i549.i, align 8
+  %description.i.i.i.i.i550.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i549.i, i64 0, i32 1
+  store ptr @.str.38, ptr %description.i.i.i.i.i550.i, align 8
+  %fileExtension.i.i.i.i.i551.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i549.i, i64 0, i32 2
+  store ptr @.str.37, ptr %fileExtension.i.i.i.i.i551.i, align 8
+  %mExportFunction.i.i.i.i.i552.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i548.i28, i64 %sub.ptr.div.i.i.i.i541.i, i32 1
+  store ptr @_ZN6Assimp17ExportSceneAssbinEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i552.i, align 8
+  %mEnforcePP.i.i.i.i.i553.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i548.i28, i64 %sub.ptr.div.i.i.i.i541.i, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i.i553.i, align 8
+  %cmp.not5.i.i.i.i.i554.i = icmp eq ptr %76, %73
+  br i1 %cmp.not5.i.i.i.i.i554.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i561.i, label %for.body.i.i.i.i.i555.i
+
+for.body.i.i.i.i.i555.i:                          ; preds = %call5.i.i.i.i.i548.i.noexc, %for.body.i.i.i.i.i555.i
+  %__cur.07.i.i.i.i.i556.i = phi ptr [ %incdec.ptr1.i.i.i.i.i559.i, %for.body.i.i.i.i.i555.i ], [ %call5.i.i.i.i.i548.i28, %call5.i.i.i.i.i548.i.noexc ]
+  %__first.addr.06.i.i.i.i.i557.i = phi ptr [ %incdec.ptr.i.i.i.i.i558.i, %for.body.i.i.i.i.i555.i ], [ %76, %call5.i.i.i.i.i548.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i556.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i557.i, i64 40, i1 false), !alias.scope !58
+  %incdec.ptr.i.i.i.i.i558.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i557.i, i64 1
+  %incdec.ptr1.i.i.i.i.i559.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i556.i, i64 1
+  %cmp.not.i.i.i.i.i560.i = icmp eq ptr %incdec.ptr.i.i.i.i.i558.i, %73
+  br i1 %cmp.not.i.i.i.i.i560.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i561.i, label %for.body.i.i.i.i.i555.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i561.i: ; preds = %for.body.i.i.i.i.i555.i, %call5.i.i.i.i.i548.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i562.i = phi ptr [ %call5.i.i.i.i.i548.i28, %call5.i.i.i.i.i548.i.noexc ], [ %incdec.ptr1.i.i.i.i.i559.i, %for.body.i.i.i.i.i555.i ]
+  %incdec.ptr.i.i563.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i562.i, i64 1
+  %tobool.not.i.i.i564.i = icmp eq ptr %76, null
+  br i1 %tobool.not.i.i.i564.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i565.i
+
+if.then.i27.i.i565.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i561.i
+  call void @_ZdlPv(ptr noundef nonnull %76) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i565.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i561.i
+  store ptr %call5.i.i.i.i.i548.i28, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i563.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i566.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i548.i28, i64 %cond.i.i.i545.i
+  store ptr %add.ptr34.i.i566.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i529.i
+  %78 = phi ptr [ %.pre916.i, %if.then.i529.i ], [ %add.ptr34.i.i566.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %79 = phi ptr [ %incdec.ptr.i534.i, %if.then.i529.i ], [ %incdec.ptr.i.i563.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i570.i = icmp eq ptr %79, %78
+  br i1 %cmp.not.i570.i, label %if.else.i577.i, label %if.then.i571.i
+
+if.then.i571.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  store ptr @.str.39, ptr %79, align 8
+  %description.i.i.i.i572.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %79, i64 0, i32 1
+  store ptr @.str.40, ptr %description.i.i.i.i572.i, align 8
+  %fileExtension.i.i.i.i573.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %79, i64 0, i32 2
+  store ptr @.str.39, ptr %fileExtension.i.i.i.i573.i, align 8
+  %mExportFunction.i.i.i.i574.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %79, i64 0, i32 1
+  store ptr @_ZN6Assimp17ExportSceneAssxmlEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i574.i, align 8
+  %mEnforcePP.i.i.i.i575.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %79, i64 0, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i575.i, align 8
+  %80 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i576.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %80, i64 1
+  store ptr %incdec.ptr.i576.i, ptr %_M_finish.i.i, align 8
+  %.pre917.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+if.else.i577.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  %81 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i578.i = ptrtoint ptr %78 to i64
+  %sub.ptr.rhs.cast.i.i.i.i579.i = ptrtoint ptr %81 to i64
+  %sub.ptr.sub.i.i.i.i580.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i578.i, %sub.ptr.rhs.cast.i.i.i.i579.i
+  %cmp.i.i.i581.i = icmp eq i64 %sub.ptr.sub.i.i.i.i580.i, 9223372036854775800
+  br i1 %cmp.i.i.i581.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i582.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i582.i: ; preds = %if.else.i577.i
+  %sub.ptr.div.i.i.i.i583.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i580.i, 40
+  %.sroa.speculated.i.i.i584.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i583.i, i64 1)
+  %add.i.i.i585.i = add i64 %.sroa.speculated.i.i.i584.i, %sub.ptr.div.i.i.i.i583.i
+  %cmp7.i.i.i586.i = icmp ult i64 %add.i.i.i585.i, %sub.ptr.div.i.i.i.i583.i
+  %82 = call i64 @llvm.umin.i64(i64 %add.i.i.i585.i, i64 230584300921369395)
+  %cond.i.i.i587.i = select i1 %cmp7.i.i.i586.i, i64 230584300921369395, i64 %82
+  %cmp.not.i.i.i588.i = icmp ne i64 %cond.i.i.i587.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i588.i)
+  %mul.i.i.i.i.i589.i = mul nuw nsw i64 %cond.i.i.i587.i, 40
+  %call5.i.i.i.i.i590.i30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i589.i) #27
+          to label %call5.i.i.i.i.i590.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i590.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i582.i
+  %add.ptr.i.i591.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i590.i30, i64 %sub.ptr.sub.i.i.i.i580.i
+  store ptr @.str.39, ptr %add.ptr.i.i591.i, align 8
+  %description.i.i.i.i.i592.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i591.i, i64 0, i32 1
+  store ptr @.str.40, ptr %description.i.i.i.i.i592.i, align 8
+  %fileExtension.i.i.i.i.i593.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i591.i, i64 0, i32 2
+  store ptr @.str.39, ptr %fileExtension.i.i.i.i.i593.i, align 8
+  %mExportFunction.i.i.i.i.i594.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i590.i30, i64 %sub.ptr.div.i.i.i.i583.i, i32 1
+  store ptr @_ZN6Assimp17ExportSceneAssxmlEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i594.i, align 8
+  %mEnforcePP.i.i.i.i.i595.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i590.i30, i64 %sub.ptr.div.i.i.i.i583.i, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i.i595.i, align 8
+  %cmp.not5.i.i.i.i.i596.i = icmp eq ptr %81, %78
+  br i1 %cmp.not5.i.i.i.i.i596.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i603.i, label %for.body.i.i.i.i.i597.i
+
+for.body.i.i.i.i.i597.i:                          ; preds = %call5.i.i.i.i.i590.i.noexc, %for.body.i.i.i.i.i597.i
+  %__cur.07.i.i.i.i.i598.i = phi ptr [ %incdec.ptr1.i.i.i.i.i601.i, %for.body.i.i.i.i.i597.i ], [ %call5.i.i.i.i.i590.i30, %call5.i.i.i.i.i590.i.noexc ]
+  %__first.addr.06.i.i.i.i.i599.i = phi ptr [ %incdec.ptr.i.i.i.i.i600.i, %for.body.i.i.i.i.i597.i ], [ %81, %call5.i.i.i.i.i590.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i598.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i599.i, i64 40, i1 false), !alias.scope !62
+  %incdec.ptr.i.i.i.i.i600.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i599.i, i64 1
+  %incdec.ptr1.i.i.i.i.i601.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i598.i, i64 1
+  %cmp.not.i.i.i.i.i602.i = icmp eq ptr %incdec.ptr.i.i.i.i.i600.i, %78
+  br i1 %cmp.not.i.i.i.i.i602.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i603.i, label %for.body.i.i.i.i.i597.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i603.i: ; preds = %for.body.i.i.i.i.i597.i, %call5.i.i.i.i.i590.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i604.i = phi ptr [ %call5.i.i.i.i.i590.i30, %call5.i.i.i.i.i590.i.noexc ], [ %incdec.ptr1.i.i.i.i.i601.i, %for.body.i.i.i.i.i597.i ]
+  %incdec.ptr.i.i605.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i604.i, i64 1
+  %tobool.not.i.i.i606.i = icmp eq ptr %81, null
+  br i1 %tobool.not.i.i.i606.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i607.i
+
+if.then.i27.i.i607.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i603.i
+  call void @_ZdlPv(ptr noundef nonnull %81) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i607.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i603.i
+  store ptr %call5.i.i.i.i.i590.i30, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i605.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i608.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i590.i30, i64 %cond.i.i.i587.i
+  store ptr %add.ptr34.i.i608.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i571.i
+  %83 = phi ptr [ %.pre917.i, %if.then.i571.i ], [ %add.ptr34.i.i608.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %84 = phi ptr [ %incdec.ptr.i576.i, %if.then.i571.i ], [ %incdec.ptr.i.i605.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i612.i = icmp eq ptr %84, %83
+  br i1 %cmp.not.i612.i, label %if.else.i619.i, label %if.then.i613.i
+
+if.then.i613.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  store ptr @.str.41, ptr %84, align 8
+  %description.i.i.i.i614.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %84, i64 0, i32 1
+  store ptr @.str.42, ptr %description.i.i.i.i614.i, align 8
+  %fileExtension.i.i.i.i615.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %84, i64 0, i32 2
+  store ptr @.str.41, ptr %fileExtension.i.i.i.i615.i, align 8
+  %mExportFunction.i.i.i.i616.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %84, i64 0, i32 1
+  store ptr @_ZN6Assimp14ExportSceneX3DEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i616.i, align 8
+  %mEnforcePP.i.i.i.i617.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %84, i64 0, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i617.i, align 8
+  %85 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i618.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %85, i64 1
+  store ptr %incdec.ptr.i618.i, ptr %_M_finish.i.i, align 8
+  %.pre918.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+if.else.i619.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  %86 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i620.i = ptrtoint ptr %83 to i64
+  %sub.ptr.rhs.cast.i.i.i.i621.i = ptrtoint ptr %86 to i64
+  %sub.ptr.sub.i.i.i.i622.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i620.i, %sub.ptr.rhs.cast.i.i.i.i621.i
+  %cmp.i.i.i623.i = icmp eq i64 %sub.ptr.sub.i.i.i.i622.i, 9223372036854775800
+  br i1 %cmp.i.i.i623.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i624.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i624.i: ; preds = %if.else.i619.i
+  %sub.ptr.div.i.i.i.i625.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i622.i, 40
+  %.sroa.speculated.i.i.i626.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i625.i, i64 1)
+  %add.i.i.i627.i = add i64 %.sroa.speculated.i.i.i626.i, %sub.ptr.div.i.i.i.i625.i
+  %cmp7.i.i.i628.i = icmp ult i64 %add.i.i.i627.i, %sub.ptr.div.i.i.i.i625.i
+  %87 = call i64 @llvm.umin.i64(i64 %add.i.i.i627.i, i64 230584300921369395)
+  %cond.i.i.i629.i = select i1 %cmp7.i.i.i628.i, i64 230584300921369395, i64 %87
+  %cmp.not.i.i.i630.i = icmp ne i64 %cond.i.i.i629.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i630.i)
+  %mul.i.i.i.i.i631.i = mul nuw nsw i64 %cond.i.i.i629.i, 40
+  %call5.i.i.i.i.i632.i32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i631.i) #27
+          to label %call5.i.i.i.i.i632.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i632.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i624.i
+  %add.ptr.i.i633.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i632.i32, i64 %sub.ptr.sub.i.i.i.i622.i
+  store ptr @.str.41, ptr %add.ptr.i.i633.i, align 8
+  %description.i.i.i.i.i634.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i633.i, i64 0, i32 1
+  store ptr @.str.42, ptr %description.i.i.i.i.i634.i, align 8
+  %fileExtension.i.i.i.i.i635.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i633.i, i64 0, i32 2
+  store ptr @.str.41, ptr %fileExtension.i.i.i.i.i635.i, align 8
+  %mExportFunction.i.i.i.i.i636.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i632.i32, i64 %sub.ptr.div.i.i.i.i625.i, i32 1
+  store ptr @_ZN6Assimp14ExportSceneX3DEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i636.i, align 8
+  %mEnforcePP.i.i.i.i.i637.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i632.i32, i64 %sub.ptr.div.i.i.i.i625.i, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i.i637.i, align 8
+  %cmp.not5.i.i.i.i.i638.i = icmp eq ptr %86, %83
+  br i1 %cmp.not5.i.i.i.i.i638.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i645.i, label %for.body.i.i.i.i.i639.i
+
+for.body.i.i.i.i.i639.i:                          ; preds = %call5.i.i.i.i.i632.i.noexc, %for.body.i.i.i.i.i639.i
+  %__cur.07.i.i.i.i.i640.i = phi ptr [ %incdec.ptr1.i.i.i.i.i643.i, %for.body.i.i.i.i.i639.i ], [ %call5.i.i.i.i.i632.i32, %call5.i.i.i.i.i632.i.noexc ]
+  %__first.addr.06.i.i.i.i.i641.i = phi ptr [ %incdec.ptr.i.i.i.i.i642.i, %for.body.i.i.i.i.i639.i ], [ %86, %call5.i.i.i.i.i632.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i640.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i641.i, i64 40, i1 false), !alias.scope !66
+  %incdec.ptr.i.i.i.i.i642.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i641.i, i64 1
+  %incdec.ptr1.i.i.i.i.i643.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i640.i, i64 1
+  %cmp.not.i.i.i.i.i644.i = icmp eq ptr %incdec.ptr.i.i.i.i.i642.i, %83
+  br i1 %cmp.not.i.i.i.i.i644.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i645.i, label %for.body.i.i.i.i.i639.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i645.i: ; preds = %for.body.i.i.i.i.i639.i, %call5.i.i.i.i.i632.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i646.i = phi ptr [ %call5.i.i.i.i.i632.i32, %call5.i.i.i.i.i632.i.noexc ], [ %incdec.ptr1.i.i.i.i.i643.i, %for.body.i.i.i.i.i639.i ]
+  %incdec.ptr.i.i647.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i646.i, i64 1
+  %tobool.not.i.i.i648.i = icmp eq ptr %86, null
+  br i1 %tobool.not.i.i.i648.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i649.i
+
+if.then.i27.i.i649.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i645.i
+  call void @_ZdlPv(ptr noundef nonnull %86) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i649.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i645.i
+  store ptr %call5.i.i.i.i.i632.i32, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i647.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i650.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i632.i32, i64 %cond.i.i.i629.i
+  store ptr %add.ptr34.i.i650.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i613.i
+  %88 = phi ptr [ %.pre918.i, %if.then.i613.i ], [ %add.ptr34.i.i650.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %89 = phi ptr [ %incdec.ptr.i618.i, %if.then.i613.i ], [ %incdec.ptr.i.i647.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i654.i = icmp eq ptr %89, %88
+  br i1 %cmp.not.i654.i, label %if.else.i661.i, label %if.then.i655.i
+
+if.then.i655.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  store ptr @.str.43, ptr %89, align 8
+  %description.i.i.i.i656.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %89, i64 0, i32 1
+  store ptr @.str.44, ptr %description.i.i.i.i656.i, align 8
+  %fileExtension.i.i.i.i657.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %89, i64 0, i32 2
+  store ptr @.str.43, ptr %fileExtension.i.i.i.i657.i, align 8
+  %mExportFunction.i.i.i.i658.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %89, i64 0, i32 1
+  store ptr @_ZN6Assimp14ExportSceneFBXEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i658.i, align 8
+  %mEnforcePP.i.i.i.i659.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %89, i64 0, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i659.i, align 8
+  %90 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i660.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %90, i64 1
+  store ptr %incdec.ptr.i660.i, ptr %_M_finish.i.i, align 8
+  %.pre919.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+if.else.i661.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  %91 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i662.i = ptrtoint ptr %88 to i64
+  %sub.ptr.rhs.cast.i.i.i.i663.i = ptrtoint ptr %91 to i64
+  %sub.ptr.sub.i.i.i.i664.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i662.i, %sub.ptr.rhs.cast.i.i.i.i663.i
+  %cmp.i.i.i665.i = icmp eq i64 %sub.ptr.sub.i.i.i.i664.i, 9223372036854775800
+  br i1 %cmp.i.i.i665.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i666.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i666.i: ; preds = %if.else.i661.i
+  %sub.ptr.div.i.i.i.i667.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i664.i, 40
+  %.sroa.speculated.i.i.i668.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i667.i, i64 1)
+  %add.i.i.i669.i = add i64 %.sroa.speculated.i.i.i668.i, %sub.ptr.div.i.i.i.i667.i
+  %cmp7.i.i.i670.i = icmp ult i64 %add.i.i.i669.i, %sub.ptr.div.i.i.i.i667.i
+  %92 = call i64 @llvm.umin.i64(i64 %add.i.i.i669.i, i64 230584300921369395)
+  %cond.i.i.i671.i = select i1 %cmp7.i.i.i670.i, i64 230584300921369395, i64 %92
+  %cmp.not.i.i.i672.i = icmp ne i64 %cond.i.i.i671.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i672.i)
+  %mul.i.i.i.i.i673.i = mul nuw nsw i64 %cond.i.i.i671.i, 40
+  %call5.i.i.i.i.i674.i34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i673.i) #27
+          to label %call5.i.i.i.i.i674.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i674.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i666.i
+  %add.ptr.i.i675.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i674.i34, i64 %sub.ptr.sub.i.i.i.i664.i
+  store ptr @.str.43, ptr %add.ptr.i.i675.i, align 8
+  %description.i.i.i.i.i676.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i675.i, i64 0, i32 1
+  store ptr @.str.44, ptr %description.i.i.i.i.i676.i, align 8
+  %fileExtension.i.i.i.i.i677.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i675.i, i64 0, i32 2
+  store ptr @.str.43, ptr %fileExtension.i.i.i.i.i677.i, align 8
+  %mExportFunction.i.i.i.i.i678.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i674.i34, i64 %sub.ptr.div.i.i.i.i667.i, i32 1
+  store ptr @_ZN6Assimp14ExportSceneFBXEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i678.i, align 8
+  %mEnforcePP.i.i.i.i.i679.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i674.i34, i64 %sub.ptr.div.i.i.i.i667.i, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i.i679.i, align 8
+  %cmp.not5.i.i.i.i.i680.i = icmp eq ptr %91, %88
+  br i1 %cmp.not5.i.i.i.i.i680.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i687.i, label %for.body.i.i.i.i.i681.i
+
+for.body.i.i.i.i.i681.i:                          ; preds = %call5.i.i.i.i.i674.i.noexc, %for.body.i.i.i.i.i681.i
+  %__cur.07.i.i.i.i.i682.i = phi ptr [ %incdec.ptr1.i.i.i.i.i685.i, %for.body.i.i.i.i.i681.i ], [ %call5.i.i.i.i.i674.i34, %call5.i.i.i.i.i674.i.noexc ]
+  %__first.addr.06.i.i.i.i.i683.i = phi ptr [ %incdec.ptr.i.i.i.i.i684.i, %for.body.i.i.i.i.i681.i ], [ %91, %call5.i.i.i.i.i674.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i682.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i683.i, i64 40, i1 false), !alias.scope !70
+  %incdec.ptr.i.i.i.i.i684.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i683.i, i64 1
+  %incdec.ptr1.i.i.i.i.i685.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i682.i, i64 1
+  %cmp.not.i.i.i.i.i686.i = icmp eq ptr %incdec.ptr.i.i.i.i.i684.i, %88
+  br i1 %cmp.not.i.i.i.i.i686.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i687.i, label %for.body.i.i.i.i.i681.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i687.i: ; preds = %for.body.i.i.i.i.i681.i, %call5.i.i.i.i.i674.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i688.i = phi ptr [ %call5.i.i.i.i.i674.i34, %call5.i.i.i.i.i674.i.noexc ], [ %incdec.ptr1.i.i.i.i.i685.i, %for.body.i.i.i.i.i681.i ]
+  %incdec.ptr.i.i689.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i688.i, i64 1
+  %tobool.not.i.i.i690.i = icmp eq ptr %91, null
+  br i1 %tobool.not.i.i.i690.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i691.i
+
+if.then.i27.i.i691.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i687.i
+  call void @_ZdlPv(ptr noundef nonnull %91) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i691.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i687.i
+  store ptr %call5.i.i.i.i.i674.i34, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i689.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i692.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i674.i34, i64 %cond.i.i.i671.i
+  store ptr %add.ptr34.i.i692.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i655.i
+  %93 = phi ptr [ %.pre919.i, %if.then.i655.i ], [ %add.ptr34.i.i692.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %94 = phi ptr [ %incdec.ptr.i660.i, %if.then.i655.i ], [ %incdec.ptr.i.i689.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i696.i = icmp eq ptr %94, %93
+  br i1 %cmp.not.i696.i, label %if.else.i703.i, label %if.then.i697.i
+
+if.then.i697.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  store ptr @.str.45, ptr %94, align 8
+  %description.i.i.i.i698.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %94, i64 0, i32 1
+  store ptr @.str.46, ptr %description.i.i.i.i698.i, align 8
+  %fileExtension.i.i.i.i699.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %94, i64 0, i32 2
+  store ptr @.str.43, ptr %fileExtension.i.i.i.i699.i, align 8
+  %mExportFunction.i.i.i.i700.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %94, i64 0, i32 1
+  store ptr @_ZN6Assimp15ExportSceneFBXAEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i700.i, align 8
+  %mEnforcePP.i.i.i.i701.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %94, i64 0, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i701.i, align 8
+  %95 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i702.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %95, i64 1
+  store ptr %incdec.ptr.i702.i, ptr %_M_finish.i.i, align 8
+  %.pre920.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+if.else.i703.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  %96 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i704.i = ptrtoint ptr %93 to i64
+  %sub.ptr.rhs.cast.i.i.i.i705.i = ptrtoint ptr %96 to i64
+  %sub.ptr.sub.i.i.i.i706.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i704.i, %sub.ptr.rhs.cast.i.i.i.i705.i
+  %cmp.i.i.i707.i = icmp eq i64 %sub.ptr.sub.i.i.i.i706.i, 9223372036854775800
+  br i1 %cmp.i.i.i707.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i708.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i708.i: ; preds = %if.else.i703.i
+  %sub.ptr.div.i.i.i.i709.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i706.i, 40
+  %.sroa.speculated.i.i.i710.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i709.i, i64 1)
+  %add.i.i.i711.i = add i64 %.sroa.speculated.i.i.i710.i, %sub.ptr.div.i.i.i.i709.i
+  %cmp7.i.i.i712.i = icmp ult i64 %add.i.i.i711.i, %sub.ptr.div.i.i.i.i709.i
+  %97 = call i64 @llvm.umin.i64(i64 %add.i.i.i711.i, i64 230584300921369395)
+  %cond.i.i.i713.i = select i1 %cmp7.i.i.i712.i, i64 230584300921369395, i64 %97
+  %cmp.not.i.i.i714.i = icmp ne i64 %cond.i.i.i713.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i714.i)
+  %mul.i.i.i.i.i715.i = mul nuw nsw i64 %cond.i.i.i713.i, 40
+  %call5.i.i.i.i.i716.i36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i715.i) #27
+          to label %call5.i.i.i.i.i716.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i716.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i708.i
+  %add.ptr.i.i717.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i716.i36, i64 %sub.ptr.sub.i.i.i.i706.i
+  store ptr @.str.45, ptr %add.ptr.i.i717.i, align 8
+  %description.i.i.i.i.i718.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i717.i, i64 0, i32 1
+  store ptr @.str.46, ptr %description.i.i.i.i.i718.i, align 8
+  %fileExtension.i.i.i.i.i719.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i717.i, i64 0, i32 2
+  store ptr @.str.43, ptr %fileExtension.i.i.i.i.i719.i, align 8
+  %mExportFunction.i.i.i.i.i720.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i716.i36, i64 %sub.ptr.div.i.i.i.i709.i, i32 1
+  store ptr @_ZN6Assimp15ExportSceneFBXAEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i720.i, align 8
+  %mEnforcePP.i.i.i.i.i721.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i716.i36, i64 %sub.ptr.div.i.i.i.i709.i, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i.i721.i, align 8
+  %cmp.not5.i.i.i.i.i722.i = icmp eq ptr %96, %93
+  br i1 %cmp.not5.i.i.i.i.i722.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i729.i, label %for.body.i.i.i.i.i723.i
+
+for.body.i.i.i.i.i723.i:                          ; preds = %call5.i.i.i.i.i716.i.noexc, %for.body.i.i.i.i.i723.i
+  %__cur.07.i.i.i.i.i724.i = phi ptr [ %incdec.ptr1.i.i.i.i.i727.i, %for.body.i.i.i.i.i723.i ], [ %call5.i.i.i.i.i716.i36, %call5.i.i.i.i.i716.i.noexc ]
+  %__first.addr.06.i.i.i.i.i725.i = phi ptr [ %incdec.ptr.i.i.i.i.i726.i, %for.body.i.i.i.i.i723.i ], [ %96, %call5.i.i.i.i.i716.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i724.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i725.i, i64 40, i1 false), !alias.scope !74
+  %incdec.ptr.i.i.i.i.i726.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i725.i, i64 1
+  %incdec.ptr1.i.i.i.i.i727.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i724.i, i64 1
+  %cmp.not.i.i.i.i.i728.i = icmp eq ptr %incdec.ptr.i.i.i.i.i726.i, %93
+  br i1 %cmp.not.i.i.i.i.i728.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i729.i, label %for.body.i.i.i.i.i723.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i729.i: ; preds = %for.body.i.i.i.i.i723.i, %call5.i.i.i.i.i716.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i730.i = phi ptr [ %call5.i.i.i.i.i716.i36, %call5.i.i.i.i.i716.i.noexc ], [ %incdec.ptr1.i.i.i.i.i727.i, %for.body.i.i.i.i.i723.i ]
+  %incdec.ptr.i.i731.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i730.i, i64 1
+  %tobool.not.i.i.i732.i = icmp eq ptr %96, null
+  br i1 %tobool.not.i.i.i732.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i733.i
+
+if.then.i27.i.i733.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i729.i
+  call void @_ZdlPv(ptr noundef nonnull %96) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i733.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i729.i
+  store ptr %call5.i.i.i.i.i716.i36, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i731.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i734.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i716.i36, i64 %cond.i.i.i713.i
+  store ptr %add.ptr34.i.i734.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i697.i
+  %98 = phi ptr [ %.pre920.i, %if.then.i697.i ], [ %add.ptr34.i.i734.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %99 = phi ptr [ %incdec.ptr.i702.i, %if.then.i697.i ], [ %incdec.ptr.i.i731.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i738.i = icmp eq ptr %99, %98
+  br i1 %cmp.not.i738.i, label %if.else.i745.i, label %if.then.i739.i
+
+if.then.i739.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  store ptr @.str.47, ptr %99, align 8
+  %description.i.i.i.i740.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %99, i64 0, i32 1
+  store ptr @.str.48, ptr %description.i.i.i.i740.i, align 8
+  %fileExtension.i.i.i.i741.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %99, i64 0, i32 2
+  store ptr @.str.47, ptr %fileExtension.i.i.i.i741.i, align 8
+  %mExportFunction.i.i.i.i742.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %99, i64 0, i32 1
+  store ptr @_ZN6Assimp14ExportScene3MFEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i742.i, align 8
+  %mEnforcePP.i.i.i.i743.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %99, i64 0, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i743.i, align 8
+  %100 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i744.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %100, i64 1
+  store ptr %incdec.ptr.i744.i, ptr %_M_finish.i.i, align 8
+  %.pre921.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+if.else.i745.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  %101 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i746.i = ptrtoint ptr %98 to i64
+  %sub.ptr.rhs.cast.i.i.i.i747.i = ptrtoint ptr %101 to i64
+  %sub.ptr.sub.i.i.i.i748.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i746.i, %sub.ptr.rhs.cast.i.i.i.i747.i
+  %cmp.i.i.i749.i = icmp eq i64 %sub.ptr.sub.i.i.i.i748.i, 9223372036854775800
+  br i1 %cmp.i.i.i749.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i750.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i750.i: ; preds = %if.else.i745.i
+  %sub.ptr.div.i.i.i.i751.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i748.i, 40
+  %.sroa.speculated.i.i.i752.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i751.i, i64 1)
+  %add.i.i.i753.i = add i64 %.sroa.speculated.i.i.i752.i, %sub.ptr.div.i.i.i.i751.i
+  %cmp7.i.i.i754.i = icmp ult i64 %add.i.i.i753.i, %sub.ptr.div.i.i.i.i751.i
+  %102 = call i64 @llvm.umin.i64(i64 %add.i.i.i753.i, i64 230584300921369395)
+  %cond.i.i.i755.i = select i1 %cmp7.i.i.i754.i, i64 230584300921369395, i64 %102
+  %cmp.not.i.i.i756.i = icmp ne i64 %cond.i.i.i755.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i756.i)
+  %mul.i.i.i.i.i757.i = mul nuw nsw i64 %cond.i.i.i755.i, 40
+  %call5.i.i.i.i.i758.i38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i757.i) #27
+          to label %call5.i.i.i.i.i758.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i758.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i750.i
+  %add.ptr.i.i759.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i758.i38, i64 %sub.ptr.sub.i.i.i.i748.i
+  store ptr @.str.47, ptr %add.ptr.i.i759.i, align 8
+  %description.i.i.i.i.i760.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i759.i, i64 0, i32 1
+  store ptr @.str.48, ptr %description.i.i.i.i.i760.i, align 8
+  %fileExtension.i.i.i.i.i761.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i759.i, i64 0, i32 2
+  store ptr @.str.47, ptr %fileExtension.i.i.i.i.i761.i, align 8
+  %mExportFunction.i.i.i.i.i762.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i758.i38, i64 %sub.ptr.div.i.i.i.i751.i, i32 1
+  store ptr @_ZN6Assimp14ExportScene3MFEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i762.i, align 8
+  %mEnforcePP.i.i.i.i.i763.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i758.i38, i64 %sub.ptr.div.i.i.i.i751.i, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i.i763.i, align 8
+  %cmp.not5.i.i.i.i.i764.i = icmp eq ptr %101, %98
+  br i1 %cmp.not5.i.i.i.i.i764.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i771.i, label %for.body.i.i.i.i.i765.i
+
+for.body.i.i.i.i.i765.i:                          ; preds = %call5.i.i.i.i.i758.i.noexc, %for.body.i.i.i.i.i765.i
+  %__cur.07.i.i.i.i.i766.i = phi ptr [ %incdec.ptr1.i.i.i.i.i769.i, %for.body.i.i.i.i.i765.i ], [ %call5.i.i.i.i.i758.i38, %call5.i.i.i.i.i758.i.noexc ]
+  %__first.addr.06.i.i.i.i.i767.i = phi ptr [ %incdec.ptr.i.i.i.i.i768.i, %for.body.i.i.i.i.i765.i ], [ %101, %call5.i.i.i.i.i758.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i766.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i767.i, i64 40, i1 false), !alias.scope !78
+  %incdec.ptr.i.i.i.i.i768.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i767.i, i64 1
+  %incdec.ptr1.i.i.i.i.i769.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i766.i, i64 1
+  %cmp.not.i.i.i.i.i770.i = icmp eq ptr %incdec.ptr.i.i.i.i.i768.i, %98
+  br i1 %cmp.not.i.i.i.i.i770.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i771.i, label %for.body.i.i.i.i.i765.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i771.i: ; preds = %for.body.i.i.i.i.i765.i, %call5.i.i.i.i.i758.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i772.i = phi ptr [ %call5.i.i.i.i.i758.i38, %call5.i.i.i.i.i758.i.noexc ], [ %incdec.ptr1.i.i.i.i.i769.i, %for.body.i.i.i.i.i765.i ]
+  %incdec.ptr.i.i773.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i772.i, i64 1
+  %tobool.not.i.i.i774.i = icmp eq ptr %101, null
+  br i1 %tobool.not.i.i.i774.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i775.i
+
+if.then.i27.i.i775.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i771.i
+  call void @_ZdlPv(ptr noundef nonnull %101) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i775.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i771.i
+  store ptr %call5.i.i.i.i.i758.i38, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i773.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i776.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i758.i38, i64 %cond.i.i.i755.i
+  store ptr %add.ptr34.i.i776.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i739.i
+  %103 = phi ptr [ %.pre921.i, %if.then.i739.i ], [ %add.ptr34.i.i776.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %104 = phi ptr [ %incdec.ptr.i744.i, %if.then.i739.i ], [ %incdec.ptr.i.i773.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i780.i = icmp eq ptr %104, %103
+  br i1 %cmp.not.i780.i, label %if.else.i787.i, label %if.then.i781.i
+
+if.then.i781.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  store ptr @.str.49, ptr %104, align 8
+  %description.i.i.i.i782.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %104, i64 0, i32 1
+  store ptr @.str.50, ptr %description.i.i.i.i782.i, align 8
+  %fileExtension.i.i.i.i783.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %104, i64 0, i32 2
+  store ptr @.str.49, ptr %fileExtension.i.i.i.i783.i, align 8
+  %mExportFunction.i.i.i.i784.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %104, i64 0, i32 1
+  store ptr @_ZN6Assimp15ExportScenePbrtEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i784.i, align 8
+  %mEnforcePP.i.i.i.i785.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %104, i64 0, i32 2
+  store i32 25198604, ptr %mEnforcePP.i.i.i.i785.i, align 8
+  %105 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i786.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %105, i64 1
+  store ptr %incdec.ptr.i786.i, ptr %_M_finish.i.i, align 8
+  %.pre922.i = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+if.else.i787.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
+  %106 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i788.i = ptrtoint ptr %103 to i64
+  %sub.ptr.rhs.cast.i.i.i.i789.i = ptrtoint ptr %106 to i64
+  %sub.ptr.sub.i.i.i.i790.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i788.i, %sub.ptr.rhs.cast.i.i.i.i789.i
+  %cmp.i.i.i791.i = icmp eq i64 %sub.ptr.sub.i.i.i.i790.i, 9223372036854775800
+  br i1 %cmp.i.i.i791.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i792.i
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i792.i: ; preds = %if.else.i787.i
+  %sub.ptr.div.i.i.i.i793.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i790.i, 40
+  %.sroa.speculated.i.i.i794.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i793.i, i64 1)
+  %add.i.i.i795.i = add i64 %.sroa.speculated.i.i.i794.i, %sub.ptr.div.i.i.i.i793.i
+  %cmp7.i.i.i796.i = icmp ult i64 %add.i.i.i795.i, %sub.ptr.div.i.i.i.i793.i
+  %107 = call i64 @llvm.umin.i64(i64 %add.i.i.i795.i, i64 230584300921369395)
+  %cond.i.i.i797.i = select i1 %cmp7.i.i.i796.i, i64 230584300921369395, i64 %107
+  %cmp.not.i.i.i798.i = icmp ne i64 %cond.i.i.i797.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i798.i)
+  %mul.i.i.i.i.i799.i = mul nuw nsw i64 %cond.i.i.i797.i, 40
+  %call5.i.i.i.i.i800.i40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i799.i) #27
+          to label %call5.i.i.i.i.i800.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i800.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i792.i
+  %add.ptr.i.i801.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i800.i40, i64 %sub.ptr.sub.i.i.i.i790.i
+  store ptr @.str.49, ptr %add.ptr.i.i801.i, align 8
+  %description.i.i.i.i.i802.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i801.i, i64 0, i32 1
+  store ptr @.str.50, ptr %description.i.i.i.i.i802.i, align 8
+  %fileExtension.i.i.i.i.i803.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i801.i, i64 0, i32 2
+  store ptr @.str.49, ptr %fileExtension.i.i.i.i.i803.i, align 8
+  %mExportFunction.i.i.i.i.i804.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i800.i40, i64 %sub.ptr.div.i.i.i.i793.i, i32 1
+  store ptr @_ZN6Assimp15ExportScenePbrtEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i804.i, align 8
+  %mEnforcePP.i.i.i.i.i805.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i800.i40, i64 %sub.ptr.div.i.i.i.i793.i, i32 2
+  store i32 25198604, ptr %mEnforcePP.i.i.i.i.i805.i, align 8
+  %cmp.not5.i.i.i.i.i806.i = icmp eq ptr %106, %103
+  br i1 %cmp.not5.i.i.i.i.i806.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i813.i, label %for.body.i.i.i.i.i807.i
+
+for.body.i.i.i.i.i807.i:                          ; preds = %call5.i.i.i.i.i800.i.noexc, %for.body.i.i.i.i.i807.i
+  %__cur.07.i.i.i.i.i808.i = phi ptr [ %incdec.ptr1.i.i.i.i.i811.i, %for.body.i.i.i.i.i807.i ], [ %call5.i.i.i.i.i800.i40, %call5.i.i.i.i.i800.i.noexc ]
+  %__first.addr.06.i.i.i.i.i809.i = phi ptr [ %incdec.ptr.i.i.i.i.i810.i, %for.body.i.i.i.i.i807.i ], [ %106, %call5.i.i.i.i.i800.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i808.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i809.i, i64 40, i1 false), !alias.scope !82
+  %incdec.ptr.i.i.i.i.i810.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i809.i, i64 1
+  %incdec.ptr1.i.i.i.i.i811.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i808.i, i64 1
+  %cmp.not.i.i.i.i.i812.i = icmp eq ptr %incdec.ptr.i.i.i.i.i810.i, %103
+  br i1 %cmp.not.i.i.i.i.i812.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i813.i, label %for.body.i.i.i.i.i807.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i813.i: ; preds = %for.body.i.i.i.i.i807.i, %call5.i.i.i.i.i800.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i814.i = phi ptr [ %call5.i.i.i.i.i800.i40, %call5.i.i.i.i.i800.i.noexc ], [ %incdec.ptr1.i.i.i.i.i811.i, %for.body.i.i.i.i.i807.i ]
+  %incdec.ptr.i.i815.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i814.i, i64 1
+  %tobool.not.i.i.i816.i = icmp eq ptr %106, null
+  br i1 %tobool.not.i.i.i816.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i817.i
+
+if.then.i27.i.i817.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i813.i
+  call void @_ZdlPv(ptr noundef nonnull %106) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i817.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i813.i
+  store ptr %call5.i.i.i.i.i800.i40, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i815.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i818.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i800.i40, i64 %cond.i.i.i797.i
+  store ptr %add.ptr34.i.i818.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i781.i
+  %108 = phi ptr [ %.pre922.i, %if.then.i781.i ], [ %add.ptr34.i.i818.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %109 = phi ptr [ %incdec.ptr.i786.i, %if.then.i781.i ], [ %incdec.ptr.i.i815.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %cmp.not.i822.i = icmp eq ptr %109, %108
+  br i1 %cmp.not.i822.i, label %if.else.i829.i, label %if.then.i823.i
+
+if.then.i823.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  store ptr @.str.51, ptr %109, align 8
+  %description.i.i.i.i824.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %109, i64 0, i32 1
+  store ptr @.str.52, ptr %description.i.i.i.i824.i, align 8
+  %fileExtension.i.i.i.i825.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %109, i64 0, i32 2
+  store ptr @.str.53, ptr %fileExtension.i.i.i.i825.i, align 8
+  %mExportFunction.i.i.i.i826.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %109, i64 0, i32 1
+  store ptr @_ZN6Assimp17ExportAssimp2JsonEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i826.i, align 8
+  %mEnforcePP.i.i.i.i827.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %109, i64 0, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i827.i, align 8
+  %110 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i828.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %110, i64 1
+  store ptr %incdec.ptr.i828.i, ptr %_M_finish.i.i, align 8
+  br label %invoke.cont4
+
+if.else.i829.i:                                   ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
+  %111 = load ptr, ptr %mExporters, align 8
+  %sub.ptr.lhs.cast.i.i.i.i830.i = ptrtoint ptr %108 to i64
+  %sub.ptr.rhs.cast.i.i.i.i831.i = ptrtoint ptr %111 to i64
+  %sub.ptr.sub.i.i.i.i832.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i830.i, %sub.ptr.rhs.cast.i.i.i.i831.i
+  %cmp.i.i.i833.i = icmp eq i64 %sub.ptr.sub.i.i.i.i832.i, 9223372036854775800
+  br i1 %cmp.i.i.i833.i, label %if.then.i.i.i861.i.invoke, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i834.i
+
+if.then.i.i.i861.i.invoke:                        ; preds = %if.else.i829.i, %if.else.i787.i, %if.else.i745.i, %if.else.i703.i, %if.else.i661.i, %if.else.i619.i, %if.else.i577.i, %if.else.i535.i, %if.else.i493.i, %if.else.i451.i, %if.else.i409.i, %if.else.i367.i, %if.else.i325.i, %if.else.i283.i, %if.else.i241.i, %if.else.i199.i, %if.else.i157.i, %if.else.i115.i, %if.else.i73.i, %if.else.i31.i, %if.else.i.i
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
+          to label %if.then.i.i.i861.i.cont unwind label %lpad
+
+if.then.i.i.i861.i.cont:                          ; preds = %if.then.i.i.i861.i.invoke
+  unreachable
+
+_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i834.i: ; preds = %if.else.i829.i
+  %sub.ptr.div.i.i.i.i835.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i832.i, 40
+  %.sroa.speculated.i.i.i836.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i835.i, i64 1)
+  %add.i.i.i837.i = add i64 %.sroa.speculated.i.i.i836.i, %sub.ptr.div.i.i.i.i835.i
+  %cmp7.i.i.i838.i = icmp ult i64 %add.i.i.i837.i, %sub.ptr.div.i.i.i.i835.i
+  %112 = call i64 @llvm.umin.i64(i64 %add.i.i.i837.i, i64 230584300921369395)
+  %cond.i.i.i839.i = select i1 %cmp7.i.i.i838.i, i64 230584300921369395, i64 %112
+  %cmp.not.i.i.i840.i = icmp ne i64 %cond.i.i.i839.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i840.i)
+  %mul.i.i.i.i.i841.i = mul nuw nsw i64 %cond.i.i.i839.i, 40
+  %call5.i.i.i.i.i842.i42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i841.i) #27
+          to label %call5.i.i.i.i.i842.i.noexc unwind label %lpad
+
+call5.i.i.i.i.i842.i.noexc:                       ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i834.i
+  %add.ptr.i.i843.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i842.i42, i64 %sub.ptr.sub.i.i.i.i832.i
+  store ptr @.str.51, ptr %add.ptr.i.i843.i, align 8
+  %description.i.i.i.i.i844.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i843.i, i64 0, i32 1
+  store ptr @.str.52, ptr %description.i.i.i.i.i844.i, align 8
+  %fileExtension.i.i.i.i.i845.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i.i843.i, i64 0, i32 2
+  store ptr @.str.53, ptr %fileExtension.i.i.i.i.i845.i, align 8
+  %mExportFunction.i.i.i.i.i846.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i842.i42, i64 %sub.ptr.div.i.i.i.i835.i, i32 1
+  store ptr @_ZN6Assimp17ExportAssimp2JsonEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE, ptr %mExportFunction.i.i.i.i.i846.i, align 8
+  %mEnforcePP.i.i.i.i.i847.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i842.i42, i64 %sub.ptr.div.i.i.i.i835.i, i32 2
+  store i32 0, ptr %mEnforcePP.i.i.i.i.i847.i, align 8
+  %cmp.not5.i.i.i.i.i848.i = icmp eq ptr %111, %108
+  br i1 %cmp.not5.i.i.i.i.i848.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i855.i, label %for.body.i.i.i.i.i849.i
+
+for.body.i.i.i.i.i849.i:                          ; preds = %call5.i.i.i.i.i842.i.noexc, %for.body.i.i.i.i.i849.i
+  %__cur.07.i.i.i.i.i850.i = phi ptr [ %incdec.ptr1.i.i.i.i.i853.i, %for.body.i.i.i.i.i849.i ], [ %call5.i.i.i.i.i842.i42, %call5.i.i.i.i.i842.i.noexc ]
+  %__first.addr.06.i.i.i.i.i851.i = phi ptr [ %incdec.ptr.i.i.i.i.i852.i, %for.body.i.i.i.i.i849.i ], [ %111, %call5.i.i.i.i.i842.i.noexc ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i850.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i851.i, i64 40, i1 false), !alias.scope !86
+  %incdec.ptr.i.i.i.i.i852.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i851.i, i64 1
+  %incdec.ptr1.i.i.i.i.i853.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i850.i, i64 1
+  %cmp.not.i.i.i.i.i854.i = icmp eq ptr %incdec.ptr.i.i.i.i.i852.i, %108
+  br i1 %cmp.not.i.i.i.i.i854.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i855.i, label %for.body.i.i.i.i.i849.i, !llvm.loop !8
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i855.i: ; preds = %for.body.i.i.i.i.i849.i, %call5.i.i.i.i.i842.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i856.i = phi ptr [ %call5.i.i.i.i.i842.i42, %call5.i.i.i.i.i842.i.noexc ], [ %incdec.ptr1.i.i.i.i.i853.i, %for.body.i.i.i.i.i849.i ]
+  %incdec.ptr.i.i857.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i.i856.i, i64 1
+  %tobool.not.i.i.i858.i = icmp eq ptr %111, null
+  br i1 %tobool.not.i.i.i858.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i27.i.i859.i
+
+if.then.i27.i.i859.i:                             ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i855.i
+  call void @_ZdlPv(ptr noundef nonnull %111) #28
+  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i859.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i855.i
+  store ptr %call5.i.i.i.i.i842.i42, ptr %mExporters, align 8
+  store ptr %incdec.ptr.i.i857.i, ptr %_M_finish.i.i, align 8
+  %add.ptr34.i.i860.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i.i842.i42, i64 %cond.i.i.i839.i
+  store ptr %add.ptr34.i.i860.i, ptr %_M_end_of_storage.i.i, align 8
+  br label %invoke.cont4
+
+invoke.cont4:                                     ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i823.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp7.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp8.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp13.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp14.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp16.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp19.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp20.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp22.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp23.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp25.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp26.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp28.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp31.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp32.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp37.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp38.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp40.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp41.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp46.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp47.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp49.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp50.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp55.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp56.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp58.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp61.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp62.i)
   ret void
 
-lpad:                                             ; preds = %call60.i.noexc, %call57.i.noexc, %call54.i.noexc, %call51.i.noexc, %call48.i.noexc, %call45.i.noexc, %call42.i.noexc, %call39.i.noexc, %call36.i.noexc, %call33.i.noexc, %call30.i.noexc, %call27.i.noexc, %call24.i.noexc, %call21.i.noexc, %call18.i.noexc, %call15.i.noexc, %call12.i.noexc, %call9.i.noexc, %call6.i.noexc, %call3.i.noexc, %call.i.noexc, %invoke.cont, %_ZNSt10shared_ptrIN6Assimp8IOSystemEEC2INS0_15DefaultIOSystemEvEEPT_.exit
-  %8 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %if.then.i.i.i861.i.invoke, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i834.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i792.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i750.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i708.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i666.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i624.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i582.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i540.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i498.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i456.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i414.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i372.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i330.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i288.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i246.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i204.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i162.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i120.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i78.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i36.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, %invoke.cont, %_ZNSt10shared_ptrIN6Assimp8IOSystemEEC2INS0_15DefaultIOSystemEvEEPT_.exit
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %mExporters, align 8
-  %tobool.not.i.i.i = icmp eq ptr %9, null
+  %114 = load ptr, ptr %mExporters, align 8
+  %tobool.not.i.i.i = icmp eq ptr %114, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %9) #28
+  call void @_ZdlPv(ptr noundef nonnull %114) #28
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mError) #29
-  %10 = load ptr, ptr %mPostProcessingSteps, align 8
-  %tobool.not.i.i.i23 = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i.i23, label %_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EED2Ev.exit, label %if.then.i.i.i24
+  %115 = load ptr, ptr %mPostProcessingSteps, align 8
+  %tobool.not.i.i.i43 = icmp eq ptr %115, null
+  br i1 %tobool.not.i.i.i43, label %_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EED2Ev.exit, label %if.then.i.i.i44
 
-if.then.i.i.i24:                                  ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %10) #28
+if.then.i.i.i44:                                  ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %115) #28
   br label %_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EED2Ev.exit, %if.then.i.i.i24
+_ZNSt6vectorIPN6Assimp11BaseProcessESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EED2Ev.exit, %if.then.i.i.i44
   call void @_ZNSt10shared_ptrIN6Assimp8IOSystemEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %mIOSystem) #29
   br label %common.resume
 }
@@ -1137,7 +2594,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ugt i64 %sub.ptr.div.i, %conv
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !90
 
 for.end:                                          ; preds = %for.inc, %delete.end
   %mProgressHandler = getelementptr inbounds %"class.Assimp::ExporterPimpl", ptr %this, i64 0, i32 3
@@ -1506,9 +2963,9 @@ lpad.i:                                           ; preds = %.noexc
   br label %cleanup.action29
 
 invoke.cont:                                      ; preds = %.noexc
-  %call.i.i11 = call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0), !noalias !6
+  %call.i.i11 = call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0), !noalias !91
   %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.Assimp::ExportProperties", ptr %pProperties, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
-  %4 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !6
+  %4 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !91
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.Assimp::ExportProperties", ptr %pProperties, i64 0, i32 2, i32 0, i32 0, i32 1
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not5.i.i.i.i.i, label %_Z18GetGenericPropertyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKT_RKSt3mapIjS6_St4lessIjESaISt4pairIKjS6_EEEPKcS8_.exit.i, label %while.body.i.i.i.i.i
@@ -1517,15 +2974,15 @@ while.body.i.i.i.i.i:                             ; preds = %invoke.cont, %while
   %__x.addr.07.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %4, %invoke.cont ]
   %__y.addr.06.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont ]
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.73", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 1
-  %5 = load i32, ptr %_M_storage.i.i.i.i.i.i.i, align 4, !noalias !6
+  %5 = load i32, ptr %_M_storage.i.i.i.i.i.i.i, align 4, !noalias !91
   %cmp.i.i.i.i.i.i = icmp ult i32 %5, %call.i.i11
   %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 3
   %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i
   %__x.addr.1.in.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i
-  %__x.addr.1.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i, align 8, !noalias !6
+  %__x.addr.1.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i, align 8, !noalias !91
   %cmp.not.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !94
 
 _ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i, %add.ptr.i.i.i.i.i
@@ -1533,7 +2990,7 @@ _ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 _ZNKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE4findERS9_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.73", ptr %__y.addr.1.i.i.i.i.i, i64 0, i32 1
-  %6 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4, !noalias !6
+  %6 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4, !noalias !91
   %cmp.i4.i.i.i.i = icmp ult i32 %call.i.i11, %6
   %second.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.73", ptr %__y.addr.1.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
   %spec.select.i.i = select i1 %cmp.i4.i.i.i.i, ptr %ref.tmp, ptr %second.i.i
@@ -2161,7 +3618,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !94
 
 _ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -2456,7 +3913,7 @@ for.inc:                                          ; preds = %invoke.cont40, %inv
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
   %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 3
   %cmp32 = icmp ugt i64 %sub.ptr.div.i42, %conv
-  br i1 %cmp32, label %for.body33, label %lor.lhs.false.loopexit, !llvm.loop !10
+  br i1 %cmp32, label %for.body33, label %lor.lhs.false.loopexit, !llvm.loop !95
 
 lor.lhs.false.loopexit:                           ; preds = %for.inc
   %.pre = load i32, ptr %mEnforcePP, align 8
@@ -2602,7 +4059,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then98, %while.b
   %__x.addr.1.in.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i
   %__x.addr.1.i.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !96
 
 _ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
@@ -2686,7 +4143,7 @@ for.inc146:                                       ; preds = %dynamic_cast.notnul
   %sub.ptr.sub.i48 = sub i64 %sub.ptr.lhs.cast.i46, %sub.ptr.rhs.cast.i47
   %sub.ptr.div.i49 = ashr exact i64 %sub.ptr.sub.i48, 3
   %cmp109 = icmp ugt i64 %sub.ptr.div.i49, %conv105
-  br i1 %cmp109, label %for.body110, label %for.end148, !llvm.loop !12
+  br i1 %cmp109, label %for.body110, label %for.end148, !llvm.loop !97
 
 for.end148:                                       ; preds = %for.inc146, %if.end102
   %mPrivate.i53 = getelementptr inbounds %struct.aiScene, ptr %13, i64 0, i32 18
@@ -2758,7 +4215,7 @@ while.body.i.i.i.i.i.i58:                         ; preds = %invoke.cont167, %wh
   %__x.addr.1.in.i.i.i.i.i.i66 = select i1 %cmp.i.i.i.i.i.i.i62, ptr %_M_right.i.i.i.i.i.i.i63, ptr %_M_left.i.i.i.i.i.i.i64
   %__x.addr.1.i.i.i.i.i.i67 = load ptr, ptr %__x.addr.1.in.i.i.i.i.i.i66, align 8
   %cmp.not.i.i.i.i.i.i68 = icmp eq ptr %__x.addr.1.i.i.i.i.i.i67, null
-  br i1 %cmp.not.i.i.i.i.i.i68, label %_ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i58, !llvm.loop !13
+  br i1 %cmp.not.i.i.i.i.i.i68, label %_ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i58, !llvm.loop !98
 
 _ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i58
   %cmp.i.i.i.i.i.i69 = icmp eq ptr %__y.addr.1.i.i.i.i.i.i65, %cond172.sroa.sel82.v.sroa.sel.v.sroa.sel
@@ -2861,7 +4318,7 @@ lpad192:                                          ; preds = %catch
 for.inc199:                                       ; preds = %for.body
   %inc200 = add nuw i64 %i.092, 1
   %exitcond.not = icmp eq i64 %inc200, %umax
-  br i1 %exitcond.not, label %for.end201, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end201, label %for.body, !llvm.loop !99
 
 for.end201:                                       ; preds = %for.inc199, %for.cond.preheader
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp203) #29
@@ -3225,7 +4682,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.end70, %for.bod
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #29
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %16
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !100
 
 invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
   store ptr %15, ptr %_M_finish.i, align 8
@@ -3524,19 +4981,18 @@ _ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.e
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 230584300921369395
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 230584300921369395, i64 %add.i.i.i
+  %7 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 230584300921369395)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 230584300921369395, i64 %7
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN6Assimp8Exporter17ExportFormatEntryEEE8allocateERS3_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIN6Assimp8Exporter17ExportFormatEntryEEE8allocateERS3_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 40
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #27
   br label %_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN6Assimp8Exporter17ExportFormatEntryEEE8allocateERS3_m.exit.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN6Assimp8Exporter17ExportFormatEntryEEE8allocateERS3_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(40) %desc, i64 40, i1 false)
   br i1 %cmp.i.not7, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i
@@ -3544,11 +5000,11 @@ _ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i, i64 40, i1 false), !alias.scope !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i.i, i64 40, i1 false), !alias.scope !101
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !20
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -3616,7 +5072,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE5eraseEN9__gnu_cxx17__
 for.inc:                                          ; preds = %for.body
   %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %it.sroa.0.08, i64 1
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !105
 
 for.end:                                          ; preds = %for.inc, %entry, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
   ret void
@@ -3712,7 +5168,7 @@ while.cond.i.i.i.i.i.i:                           ; preds = %while.cond.i.i.i.i.
   %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i.i.i.i, i64 0, i32 2
   %2 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i, !llvm.loop !22
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i, !llvm.loop !106
 
 _ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i: ; preds = %while.cond.i.i.i.i.i.i
   store ptr %__x.addr.0.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
@@ -3723,7 +5179,7 @@ while.cond.i.i4.i.i.i.i:                          ; preds = %while.cond.i.i4.i.i
   %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i.i.i.i, i64 0, i32 3
   %3 = load ptr, ptr %_M_right.i.i.i.i.i.i, align 8
   %cmp.not.i.i6.i.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i6.i.i.i.i, label %invoke.cont.i.i, label %while.cond.i.i4.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i6.i.i.i.i, label %invoke.cont.i.i, label %while.cond.i.i4.i.i.i.i, !llvm.loop !107
 
 invoke.cont.i.i:                                  ; preds = %while.cond.i.i4.i.i.i.i
   store ptr %__x.addr.0.i.i5.i.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
@@ -3762,7 +5218,7 @@ while.cond.i.i.i.i.i.i17:                         ; preds = %if.then.i.i15, %whi
   %_M_left.i.i.i.i.i.i19 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i.i.i.i18, i64 0, i32 2
   %7 = load ptr, ptr %_M_left.i.i.i.i.i.i19, align 8
   %cmp.not.i.i.i.i.i.i20 = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i.i.i.i.i20, label %_ZNSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i17, !llvm.loop !22
+  br i1 %cmp.not.i.i.i.i.i.i20, label %_ZNSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i17, !llvm.loop !106
 
 _ZNSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i: ; preds = %while.cond.i.i.i.i.i.i17
   store ptr %__x.addr.0.i.i.i.i.i.i18, ptr %_M_left.i.i.i.i.i10, align 8
@@ -3773,7 +5229,7 @@ while.cond.i.i4.i.i.i.i21:                        ; preds = %while.cond.i.i4.i.i
   %_M_right.i.i.i.i.i.i23 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i.i.i.i22, i64 0, i32 3
   %8 = load ptr, ptr %_M_right.i.i.i.i.i.i23, align 8
   %cmp.not.i.i6.i.i.i.i24 = icmp eq ptr %8, null
-  br i1 %cmp.not.i.i6.i.i.i.i24, label %invoke.cont.i.i25, label %while.cond.i.i4.i.i.i.i21, !llvm.loop !23
+  br i1 %cmp.not.i.i6.i.i.i.i24, label %invoke.cont.i.i25, label %while.cond.i.i4.i.i.i.i21, !llvm.loop !107
 
 invoke.cont.i.i25:                                ; preds = %while.cond.i.i4.i.i.i.i21
   store ptr %__x.addr.0.i.i5.i.i.i.i22, ptr %_M_right.i.i.i.i.i11, align 8
@@ -3812,7 +5268,7 @@ while.cond.i.i.i.i.i.i37:                         ; preds = %if.then.i.i35, %whi
   %_M_left.i.i.i.i.i.i39 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i.i.i.i38, i64 0, i32 2
   %12 = load ptr, ptr %_M_left.i.i.i.i.i.i39, align 8
   %cmp.not.i.i.i.i.i.i40 = icmp eq ptr %12, null
-  br i1 %cmp.not.i.i.i.i.i.i40, label %_ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i37, !llvm.loop !22
+  br i1 %cmp.not.i.i.i.i.i.i40, label %_ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i37, !llvm.loop !106
 
 _ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i: ; preds = %while.cond.i.i.i.i.i.i37
   store ptr %__x.addr.0.i.i.i.i.i.i38, ptr %_M_left.i.i.i.i.i30, align 8
@@ -3823,7 +5279,7 @@ while.cond.i.i4.i.i.i.i41:                        ; preds = %while.cond.i.i4.i.i
   %_M_right.i.i.i.i.i.i43 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i.i.i.i42, i64 0, i32 3
   %13 = load ptr, ptr %_M_right.i.i.i.i.i.i43, align 8
   %cmp.not.i.i6.i.i.i.i44 = icmp eq ptr %13, null
-  br i1 %cmp.not.i.i6.i.i.i.i44, label %invoke.cont.i.i45, label %while.cond.i.i4.i.i.i.i41, !llvm.loop !23
+  br i1 %cmp.not.i.i6.i.i.i.i44, label %invoke.cont.i.i45, label %while.cond.i.i4.i.i.i.i41, !llvm.loop !107
 
 invoke.cont.i.i45:                                ; preds = %while.cond.i.i4.i.i.i.i41
   store ptr %__x.addr.0.i.i5.i.i.i.i42, ptr %_M_right.i.i.i.i.i31, align 8
@@ -3862,7 +5318,7 @@ while.cond.i.i.i.i.i.i57:                         ; preds = %if.then.i.i55, %whi
   %_M_left.i.i.i.i.i.i59 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i.i.i.i58, i64 0, i32 2
   %17 = load ptr, ptr %_M_left.i.i.i.i.i.i59, align 8
   %cmp.not.i.i.i.i.i.i60 = icmp eq ptr %17, null
-  br i1 %cmp.not.i.i.i.i.i.i60, label %_ZNSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i57, !llvm.loop !22
+  br i1 %cmp.not.i.i.i.i.i.i60, label %_ZNSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i57, !llvm.loop !106
 
 _ZNSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i: ; preds = %while.cond.i.i.i.i.i.i57
   store ptr %__x.addr.0.i.i.i.i.i.i58, ptr %_M_left.i.i.i.i.i50, align 8
@@ -3873,7 +5329,7 @@ while.cond.i.i4.i.i.i.i61:                        ; preds = %while.cond.i.i4.i.i
   %_M_right.i.i.i.i.i.i63 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i.i.i.i62, i64 0, i32 3
   %18 = load ptr, ptr %_M_right.i.i.i.i.i.i63, align 8
   %cmp.not.i.i6.i.i.i.i64 = icmp eq ptr %18, null
-  br i1 %cmp.not.i.i6.i.i.i.i64, label %invoke.cont.i.i65, label %while.cond.i.i4.i.i.i.i61, !llvm.loop !23
+  br i1 %cmp.not.i.i6.i.i.i.i64, label %invoke.cont.i.i65, label %while.cond.i.i4.i.i.i.i61, !llvm.loop !107
 
 invoke.cont.i.i65:                                ; preds = %while.cond.i.i4.i.i.i.i61
   store ptr %__x.addr.0.i.i5.i.i.i.i62, ptr %_M_right.i.i.i.i.i51, align 8
@@ -3912,7 +5368,7 @@ while.cond.i.i.i.i.i.i77:                         ; preds = %if.then.i.i75, %whi
   %_M_left.i.i.i.i.i.i79 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i.i.i.i78, i64 0, i32 2
   %22 = load ptr, ptr %_M_left.i.i.i.i.i.i79, align 8
   %cmp.not.i.i.i.i.i.i80 = icmp eq ptr %22, null
-  br i1 %cmp.not.i.i.i.i.i.i80, label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i77, !llvm.loop !22
+  br i1 %cmp.not.i.i.i.i.i.i80, label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %while.cond.i.i.i.i.i.i77, !llvm.loop !106
 
 _ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i: ; preds = %while.cond.i.i.i.i.i.i77
   store ptr %__x.addr.0.i.i.i.i.i.i78, ptr %_M_left.i.i.i.i.i70, align 8
@@ -3923,7 +5379,7 @@ while.cond.i.i4.i.i.i.i81:                        ; preds = %while.cond.i.i4.i.i
   %_M_right.i.i.i.i.i.i83 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i.i.i.i82, i64 0, i32 3
   %23 = load ptr, ptr %_M_right.i.i.i.i.i.i83, align 8
   %cmp.not.i.i6.i.i.i.i84 = icmp eq ptr %23, null
-  br i1 %cmp.not.i.i6.i.i.i.i84, label %invoke.cont.i.i85, label %while.cond.i.i4.i.i.i.i81, !llvm.loop !23
+  br i1 %cmp.not.i.i6.i.i.i.i84, label %invoke.cont.i.i85, label %while.cond.i.i4.i.i.i.i81, !llvm.loop !107
 
 invoke.cont.i.i85:                                ; preds = %while.cond.i.i4.i.i.i.i81
   store ptr %__x.addr.0.i.i5.i.i.i.i82, ptr %_M_right.i.i.i.i.i71, align 8
@@ -4083,7 +5539,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !24
+  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !108
 
 _ZNSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -4163,7 +5619,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE11lower_boundERS7_.exit.i, label %while.body.i.i.i.i, !llvm.loop !24
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE11lower_boundERS7_.exit.i, label %while.body.i.i.i.i, !llvm.loop !108
 
 _ZNSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE11lower_boundERS7_.exit.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i
@@ -4317,7 +5773,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !25
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !109
 
 _ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4432,7 +5888,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !25
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !109
 
 _ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4475,7 +5931,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !98
 
 _ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4530,7 +5986,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !26
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !110
 
 _ZNSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4591,7 +6047,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !111
 
 _ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -4627,7 +6083,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE11lower_boundERS9_.exit.i, label %while.body.i.i.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE11lower_boundERS9_.exit.i, label %while.body.i.i.i.i, !llvm.loop !111
 
 _ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE11lower_boundERS9_.exit.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i
@@ -4689,7 +6145,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !28
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !112
 
 _ZNSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4743,7 +6199,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !96
 
 _ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4787,7 +6243,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !29
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !113
 
 _ZNKSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4831,7 +6287,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !114
 
 _ZNKSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4876,7 +6332,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !96
 
 _ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4917,7 +6373,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !96
 
 _ZNKSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4958,7 +6414,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !29
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !113
 
 _ZNKSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -4999,7 +6455,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !94
 
 _ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -5040,7 +6496,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !114
 
 _ZNKSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i.i
@@ -5077,7 +6533,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #29
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !31
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !115
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %m_pathStack, align 8
@@ -5396,48 +6852,47 @@ _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiE
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobEEE8allocateERSA_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobEEE8allocateERSA_m.exit.i: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
   br label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobEEE8allocateERSA_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobEEE8allocateERSA_m.exit.i ], [ null, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %cond.i17, i64 %sub.ptr.div.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_M_allocateEm.exit
   %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
-  %2 = load ptr, ptr %__args1, align 8
-  store ptr %2, ptr %second.i.i.i, align 8
+  %3 = load ptr, ptr %__args1, align 8
+  store ptr %3, ptr %second.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i17, %invoke.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #29
   %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i, i64 0, i32 1
   %second3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %3 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8, !alias.scope !35, !noalias !32
-  store ptr %3, ptr %second.i.i.i.i.i.i.i, align 8, !alias.scope !32, !noalias !35
+  %4 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !116
+  store ptr %4, ptr %second.i.i.i.i.i.i.i, align 8, !alias.scope !116, !noalias !119
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #29
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %for.body.i.i.i, !llvm.loop !37
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, label %for.body.i.i.i, !llvm.loop !121
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -5448,18 +6903,18 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiEx
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %for.body.i.i.i19
   %__cur.07.i.i.i20 = phi ptr [ %incdec.ptr1.i.i.i25, %for.body.i.i.i19 ], [ %incdec.ptr, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i24, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #29
   %second.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i20, i64 0, i32 1
   %second3.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i21, i64 0, i32 1
-  %4 = load ptr, ptr %second3.i.i.i.i.i.i.i23, align 8, !alias.scope !41, !noalias !38
-  store ptr %4, ptr %second.i.i.i.i.i.i.i22, align 8, !alias.scope !38, !noalias !41
+  %5 = load ptr, ptr %second3.i.i.i.i.i.i.i23, align 8, !alias.scope !125, !noalias !122
+  store ptr %5, ptr %second.i.i.i.i.i.i.i22, align 8, !alias.scope !122, !noalias !125
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #29
   %incdec.ptr.i.i.i24 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i21, i64 1
   %incdec.ptr1.i.i.i25 = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i20, i64 1
   %cmp.not.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i24, %0
-  br i1 %cmp.not.i.i.i26, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit28, label %for.body.i.i.i19, !llvm.loop !37
+  br i1 %cmp.not.i.i.i26, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit28, label %for.body.i.i.i19, !llvm.loop !121
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit28: ; preds = %for.body.i.i.i19, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   %__cur.0.lcssa.i.i.i27 = phi ptr [ %incdec.ptr, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ], [ %incdec.ptr1.i.i.i25, %for.body.i.i.i19 ]
@@ -5479,10 +6934,10 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_M_allocateEm.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #29
+  %7 = extractvalue { ptr, i32 } %6, 0
+  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #29
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i31
 
@@ -5491,7 +6946,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont21
 
 lpad19:                                           ; preds = %invoke.cont21
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -5505,13 +6960,13 @@ invoke.cont21:                                    ; preds = %if.then.i31, %if.en
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 terminate.lpad:                                   ; preds = %lpad19
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #26
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -5619,22 +7074,21 @@ _ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.e
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 230584300921369395)
+  %cond.i.i = select i1 %cmp7.i.i, i64 230584300921369395, i64 %5
   %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %5 = load ptr, ptr %__args5, align 8
+  %6 = load ptr, ptr %__args5, align 8
   store ptr %__args, ptr %add.ptr.i, align 8
   %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
   store ptr %__args1, ptr %description.i.i.i.i, align 8
   %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
   store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
   %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %5, ptr %mExportFunction.i.i.i.i, align 8
+  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
   %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
   store i32 0, ptr %mEnforcePP.i.i.i.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %4, %0
@@ -5643,11 +7097,11 @@ _ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.e
 for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !127
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
@@ -5667,2088 +7121,51 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJR
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA40_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %6 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA40_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %3, %if.then ]
-  ret ptr %6
+  %7 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA40_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %3, %if.then ]
+  ret ptr %7
 }
 
 declare void @_ZN6Assimp18ExportSceneColladaEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(2) %__args, ptr noundef nonnull align 1 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(2) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !47
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp16ExportSceneXFileEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(11) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !51
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp15ExportSceneStepEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(21) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !55
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp14ExportSceneObjEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(9) %__args, ptr noundef nonnull align 1 dereferenceable(43) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !59
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp19ExportSceneObjNoMtlEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(18) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !63
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp14ExportSceneSTLEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(5) %__args, ptr noundef nonnull align 1 dereferenceable(27) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !67
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp20ExportSceneSTLBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(25) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !71
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp14ExportScenePlyEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(5) %__args, ptr noundef nonnull align 1 dereferenceable(34) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !75
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp20ExportScenePlyBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(22) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !79
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp14ExportScene3DSEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(6) %__args, ptr noundef nonnull align 1 dereferenceable(28) %__args1, ptr noundef nonnull align 1 dereferenceable(5) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !83
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp16ExportSceneGLTF2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(5) %__args, ptr noundef nonnull align 1 dereferenceable(37) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !87
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp15ExportSceneGLB2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(5) %__args, ptr noundef nonnull align 1 dereferenceable(23) %__args1, ptr noundef nonnull align 1 dereferenceable(5) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !91
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp15ExportSceneGLTFEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(32) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !95
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp14ExportSceneGLBEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(7) %__args, ptr noundef nonnull align 1 dereferenceable(19) %__args1, ptr noundef nonnull align 1 dereferenceable(7) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !99
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp17ExportSceneAssbinEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(7) %__args, ptr noundef nonnull align 1 dereferenceable(20) %__args1, ptr noundef nonnull align 1 dereferenceable(7) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !103
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp17ExportSceneAssxmlEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(14) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !107
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp14ExportSceneX3DEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(22) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !111
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp14ExportSceneFBXEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(5) %__args, ptr noundef nonnull align 1 dereferenceable(21) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !115
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp15ExportSceneFBXAEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(20) %__args1, ptr noundef nonnull align 1 dereferenceable(4) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !119
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp14ExportScene3MFEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(5) %__args, ptr noundef nonnull align 1 dereferenceable(31) %__args1, ptr noundef nonnull align 1 dereferenceable(5) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !123
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
-
 declare void @_ZN6Assimp15ExportScenePbrtEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(21) %__args1, ptr noundef nonnull align 1 dereferenceable(5) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Exporter::ExportFormatEntry, std::allocator<Assimp::Exporter::ExportFormatEntry>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp.not = icmp eq ptr %0, %1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__args5, align 8
-  %3 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %0, align 8
-  %description.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i, align 8
-  %fileExtension.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %0, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i, align 8
-  %mExportFunction.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 1
-  store ptr %2, ptr %mExportFunction.i.i.i, align 8
-  %mEnforcePP.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %0, i64 0, i32 2
-  store i32 %3, ptr %mEnforcePP.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %4, i64 1
-  store ptr %incdec.ptr, ptr %_M_finish, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #30
-  unreachable
-
-_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 40
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 230584300921369395
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 230584300921369395, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 40
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %6 = load ptr, ptr %__args5, align 8
-  %7 = load i32, ptr %__args7, align 4
-  store ptr %__args, ptr %add.ptr.i, align 8
-  %description.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 1
-  store ptr %__args1, ptr %description.i.i.i.i, align 8
-  %fileExtension.i.i.i.i = getelementptr inbounds %struct.aiExportFormatDesc, ptr %add.ptr.i, i64 0, i32 2
-  store ptr %__args3, ptr %fileExtension.i.i.i.i, align 8
-  %mExportFunction.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %6, ptr %mExportFunction.i.i.i.i, align 8
-  %mEnforcePP.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 2
-  store i32 %7, ptr %mEnforcePP.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, %0
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i, i64 40, i1 false), !alias.scope !127
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i.i, !llvm.loop !20
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"struct.Assimp::Exporter::ExportFormatEntry", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
-
-if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
-
-_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
-  store ptr %call5.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr34.i, ptr %_M_end_of_storage, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then
-  %8 = phi ptr [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit ], [ %4, %if.then ]
-  ret ptr %8
-}
 
 declare void @_ZN6Assimp17ExportAssimp2JsonEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #7
 
@@ -7861,7 +7278,7 @@ for.body.i.i.i.i:                                 ; preds = %for.end, %for.body.
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #29
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i.i, i64 1
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre7
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !100
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %blobs, align 8
@@ -7906,7 +7323,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt3setINSt7__cxx
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #29
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %8
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !31
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !115
 
 invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %m_pathStack.i, align 8
@@ -9225,22 +8642,21 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i17, i64 %sub.ptr.div.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %invoke.cont unwind label %lpad
@@ -9293,10 +8709,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #29
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #29
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i29
 
@@ -9305,7 +8721,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -9319,13 +8735,13 @@ invoke.cont19:                                    ; preds = %if.then.i29, %if.en
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 
 terminate.lpad:                                   ; preds = %lpad17
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #26
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -10026,7 +9442,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIjiSt4lessIjESaISt4pairIKjiEEE11lower_boundERS3_.exit, label %while.body.i.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIjiSt4lessIjESaISt4pairIKjiEEE11lower_boundERS3_.exit, label %while.body.i.i.i, !llvm.loop !98
 
 _ZNSt3mapIjiSt4lessIjESaISt4pairIKjiEEE11lower_boundERS3_.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -10334,7 +9750,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIjfSt4lessIjESaISt4pairIKjfEEE11lower_boundERS3_.exit, label %while.body.i.i.i, !llvm.loop !26
+  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIjfSt4lessIjESaISt4pairIKjfEEE11lower_boundERS3_.exit, label %while.body.i.i.i, !llvm.loop !110
 
 _ZNSt3mapIjfSt4lessIjESaISt4pairIKjfEEE11lower_boundERS3_.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -10940,7 +10356,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIj12aiMatrix4x4tIfESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit, label %while.body.i.i.i, !llvm.loop !28
+  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIj12aiMatrix4x4tIfESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit, label %while.body.i.i.i, !llvm.loop !112
 
 _ZNSt3mapIj12aiMatrix4x4tIfESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -11231,6 +10647,9 @@ declare i8 @llvm.abs.i8(i8, i1 immarg) #21
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #21
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
@@ -11285,150 +10704,150 @@ attributes #31 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZNK6Assimp16ExportProperties17GetPropertyStringEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: %agg.result"}
-!8 = distinct !{!8, !"_ZNK6Assimp16ExportProperties17GetPropertyStringEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!18 = distinct !{!18, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!19 = distinct !{!19, !18, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_: %__dest"}
-!34 = distinct !{!34, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_"}
-!35 = !{!36}
-!36 = distinct !{!36, !34, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_: %__orig"}
-!37 = distinct !{!37, !5}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_: %__dest"}
-!40 = distinct !{!40, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_"}
-!41 = !{!42}
-!42 = distinct !{!42, !40, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_: %__orig"}
-!43 = !{!44, !46}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!46 = distinct !{!46, !45, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!49 = distinct !{!49, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!50 = distinct !{!50, !49, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!51 = !{!52, !54}
-!52 = distinct !{!52, !53, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!53 = distinct !{!53, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!54 = distinct !{!54, !53, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!55 = !{!56, !58}
-!56 = distinct !{!56, !57, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!57 = distinct !{!57, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!58 = distinct !{!58, !57, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!59 = !{!60, !62}
-!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!61 = distinct !{!61, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!62 = distinct !{!62, !61, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!63 = !{!64, !66}
-!64 = distinct !{!64, !65, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!65 = distinct !{!65, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!66 = distinct !{!66, !65, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!67 = !{!68, !70}
-!68 = distinct !{!68, !69, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!69 = distinct !{!69, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!70 = distinct !{!70, !69, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!71 = !{!72, !74}
-!72 = distinct !{!72, !73, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!73 = distinct !{!73, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!74 = distinct !{!74, !73, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!75 = !{!76, !78}
-!76 = distinct !{!76, !77, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!77 = distinct !{!77, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!78 = distinct !{!78, !77, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!79 = !{!80, !82}
-!80 = distinct !{!80, !81, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!81 = distinct !{!81, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!82 = distinct !{!82, !81, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!83 = !{!84, !86}
-!84 = distinct !{!84, !85, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!85 = distinct !{!85, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!86 = distinct !{!86, !85, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!87 = !{!88, !90}
-!88 = distinct !{!88, !89, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!89 = distinct !{!89, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!90 = distinct !{!90, !89, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!91 = !{!92, !94}
-!92 = distinct !{!92, !93, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!93 = distinct !{!93, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!94 = distinct !{!94, !93, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!95 = !{!96, !98}
-!96 = distinct !{!96, !97, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!97 = distinct !{!97, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!98 = distinct !{!98, !97, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!99 = !{!100, !102}
-!100 = distinct !{!100, !101, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!101 = distinct !{!101, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!102 = distinct !{!102, !101, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!103 = !{!104, !106}
-!104 = distinct !{!104, !105, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!105 = distinct !{!105, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!106 = distinct !{!106, !105, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!107 = !{!108, !110}
-!108 = distinct !{!108, !109, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!109 = distinct !{!109, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!110 = distinct !{!110, !109, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!111 = !{!112, !114}
-!112 = distinct !{!112, !113, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!113 = distinct !{!113, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!114 = distinct !{!114, !113, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!115 = !{!116, !118}
-!116 = distinct !{!116, !117, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!117 = distinct !{!117, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!118 = distinct !{!118, !117, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!119 = !{!120, !122}
-!120 = distinct !{!120, !121, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!121 = distinct !{!121, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!122 = distinct !{!122, !121, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!123 = !{!124, !126}
-!124 = distinct !{!124, !125, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!125 = distinct !{!125, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!126 = distinct !{!126, !125, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!4 = !{!5, !7}
+!5 = distinct !{!5, !6, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!6 = distinct !{!6, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!7 = distinct !{!7, !6, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!12 = distinct !{!12, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!13 = distinct !{!13, !12, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!16 = distinct !{!16, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!17 = distinct !{!17, !16, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!20 = distinct !{!20, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!21 = distinct !{!21, !20, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!24 = distinct !{!24, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!25 = distinct !{!25, !24, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!28 = distinct !{!28, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!29 = distinct !{!29, !28, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!32 = distinct !{!32, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!33 = distinct !{!33, !32, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!36 = distinct !{!36, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!37 = distinct !{!37, !36, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!40 = distinct !{!40, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!41 = distinct !{!41, !40, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!42 = !{!43, !45}
+!43 = distinct !{!43, !44, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!44 = distinct !{!44, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!45 = distinct !{!45, !44, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!46 = !{!47, !49}
+!47 = distinct !{!47, !48, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!48 = distinct !{!48, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!49 = distinct !{!49, !48, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!50 = !{!51, !53}
+!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!53 = distinct !{!53, !52, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!54 = !{!55, !57}
+!55 = distinct !{!55, !56, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!56 = distinct !{!56, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!57 = distinct !{!57, !56, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!58 = !{!59, !61}
+!59 = distinct !{!59, !60, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!60 = distinct !{!60, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!61 = distinct !{!61, !60, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!62 = !{!63, !65}
+!63 = distinct !{!63, !64, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!64 = distinct !{!64, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!65 = distinct !{!65, !64, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!66 = !{!67, !69}
+!67 = distinct !{!67, !68, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!68 = distinct !{!68, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!69 = distinct !{!69, !68, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!70 = !{!71, !73}
+!71 = distinct !{!71, !72, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!72 = distinct !{!72, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!73 = distinct !{!73, !72, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!74 = !{!75, !77}
+!75 = distinct !{!75, !76, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!76 = distinct !{!76, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!77 = distinct !{!77, !76, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!78 = !{!79, !81}
+!79 = distinct !{!79, !80, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!80 = distinct !{!80, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!81 = distinct !{!81, !80, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!82 = !{!83, !85}
+!83 = distinct !{!83, !84, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!84 = distinct !{!84, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!85 = distinct !{!85, !84, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!86 = !{!87, !89}
+!87 = distinct !{!87, !88, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!88 = distinct !{!88, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!89 = distinct !{!89, !88, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!90 = distinct !{!90, !9}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZNK6Assimp16ExportProperties17GetPropertyStringEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: %agg.result"}
+!93 = distinct !{!93, !"_ZNK6Assimp16ExportProperties17GetPropertyStringEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
+!94 = distinct !{!94, !9}
+!95 = distinct !{!95, !9}
+!96 = distinct !{!96, !9}
+!97 = distinct !{!97, !9}
+!98 = distinct !{!98, !9}
+!99 = distinct !{!99, !9}
+!100 = distinct !{!100, !9}
+!101 = !{!102, !104}
+!102 = distinct !{!102, !103, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!103 = distinct !{!103, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!104 = distinct !{!104, !103, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!105 = distinct !{!105, !9}
+!106 = distinct !{!106, !9}
+!107 = distinct !{!107, !9}
+!108 = distinct !{!108, !9}
+!109 = distinct !{!109, !9}
+!110 = distinct !{!110, !9}
+!111 = distinct !{!111, !9}
+!112 = distinct !{!112, !9}
+!113 = distinct !{!113, !9}
+!114 = distinct !{!114, !9}
+!115 = distinct !{!115, !9}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_: %__dest"}
+!118 = distinct !{!118, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_"}
+!119 = !{!120}
+!120 = distinct !{!120, !118, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_: %__orig"}
+!121 = distinct !{!121, !9}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_: %__dest"}
+!124 = distinct !{!124, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_"}
+!125 = !{!126}
+!126 = distinct !{!126, !124, !"_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobES9_SaIS9_EEvPT_PT0_RT1_: %__orig"}
 !127 = !{!128, !130}
 !128 = distinct !{!128, !129, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
 !129 = distinct !{!129, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_"}
 !130 = distinct !{!130, !129, !"_ZSt19__relocate_object_aIN6Assimp8Exporter17ExportFormatEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!131 = distinct !{!131, !5}
-!132 = distinct !{!132, !5}
-!133 = distinct !{!133, !5}
-!134 = distinct !{!134, !5}
-!135 = distinct !{!135, !5}
-!136 = distinct !{!136, !5}
-!137 = distinct !{!137, !5}
-!138 = distinct !{!138, !5}
-!139 = distinct !{!139, !5}
-!140 = distinct !{!140, !5}
-!141 = distinct !{!141, !5}
-!142 = distinct !{!142, !5}
-!143 = distinct !{!143, !5}
-!144 = distinct !{!144, !5}
-!145 = distinct !{!145, !5}
-!146 = distinct !{!146, !5}
-!147 = distinct !{!147, !5}
-!148 = distinct !{!148, !5}
-!149 = distinct !{!149, !5}
-!150 = distinct !{!150, !5}
+!131 = distinct !{!131, !9}
+!132 = distinct !{!132, !9}
+!133 = distinct !{!133, !9}
+!134 = distinct !{!134, !9}
+!135 = distinct !{!135, !9}
+!136 = distinct !{!136, !9}
+!137 = distinct !{!137, !9}
+!138 = distinct !{!138, !9}
+!139 = distinct !{!139, !9}
+!140 = distinct !{!140, !9}
+!141 = distinct !{!141, !9}
+!142 = distinct !{!142, !9}
+!143 = distinct !{!143, !9}
+!144 = distinct !{!144, !9}
+!145 = distinct !{!145, !9}
+!146 = distinct !{!146, !9}
+!147 = distinct !{!147, !9}
+!148 = distinct !{!148, !9}
+!149 = distinct !{!149, !9}
+!150 = distinct !{!150, !9}

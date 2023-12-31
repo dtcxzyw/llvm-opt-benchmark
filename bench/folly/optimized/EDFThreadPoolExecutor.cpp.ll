@@ -8092,9 +8092,8 @@ _ZNKSt6vectorISt10shared_ptrIN5folly21EDFThreadPoolExecutor4TaskEESaIS4_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 576460752303423487
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 576460752303423487, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
@@ -8110,9 +8109,9 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5folly21EDFThreadPoolExecutor4TaskEESaIS4_EE
   %cond.i31 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5folly21EDFThreadPoolExecutor4TaskEEEE8allocateERS5_m.exit.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN5folly21EDFThreadPoolExecutor4TaskEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.133", ptr %cond.i31, i64 %sub.ptr.div.i
   %_M_refcount4.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.134", ptr %__args, i64 0, i32 1
-  %2 = load <2 x ptr>, ptr %__args, align 8, !tbaa !49
+  %3 = load <2 x ptr>, ptr %__args, align 8, !tbaa !49
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !tbaa !46
-  store <2 x ptr> %2, ptr %add.ptr, align 8, !tbaa !49
+  store <2 x ptr> %3, ptr %add.ptr, align 8, !tbaa !49
   store ptr null, ptr %__args, align 8, !tbaa !57
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN5folly21EDFThreadPoolExecutor4TaskEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i
@@ -8123,9 +8122,9 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !323)
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.134", ptr %__first.addr.07.i.i.i, i64 0, i32 1
-  %3 = load <2 x ptr>, ptr %__first.addr.07.i.i.i, align 8, !tbaa !49, !alias.scope !323, !noalias !320
+  %4 = load <2 x ptr>, ptr %__first.addr.07.i.i.i, align 8, !tbaa !49, !alias.scope !323, !noalias !320
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !323, !noalias !320
-  store <2 x ptr> %3, ptr %__cur.08.i.i.i, align 8, !tbaa !49, !alias.scope !320, !noalias !323
+  store <2 x ptr> %4, ptr %__cur.08.i.i.i, align 8, !tbaa !49, !alias.scope !320, !noalias !323
   store ptr null, ptr %__first.addr.07.i.i.i, align 8, !tbaa !57, !alias.scope !323, !noalias !320
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.133", ptr %__first.addr.07.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::shared_ptr.133", ptr %__cur.08.i.i.i, i64 1
@@ -8144,9 +8143,9 @@ for.body.i.i.i33:                                 ; preds = %_ZNSt6vectorISt10sh
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
   %_M_refcount4.i.i.i.i.i.i.i.i37 = getelementptr inbounds %"class.std::__shared_ptr.134", ptr %__first.addr.07.i.i.i35, i64 0, i32 1
-  %4 = load <2 x ptr>, ptr %__first.addr.07.i.i.i35, align 8, !tbaa !49, !alias.scope !329, !noalias !326
+  %5 = load <2 x ptr>, ptr %__first.addr.07.i.i.i35, align 8, !tbaa !49, !alias.scope !329, !noalias !326
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i37, align 8, !tbaa !46, !alias.scope !329, !noalias !326
-  store <2 x ptr> %4, ptr %__cur.08.i.i.i34, align 8, !tbaa !49, !alias.scope !326, !noalias !329
+  store <2 x ptr> %5, ptr %__cur.08.i.i.i34, align 8, !tbaa !49, !alias.scope !326, !noalias !329
   store ptr null, ptr %__first.addr.07.i.i.i35, align 8, !tbaa !57, !alias.scope !329, !noalias !326
   %incdec.ptr.i.i.i38 = getelementptr inbounds %"class.std::shared_ptr.133", ptr %__first.addr.07.i.i.i35, i64 1
   %incdec.ptr1.i.i.i39 = getelementptr inbounds %"class.std::shared_ptr.133", ptr %__cur.08.i.i.i34, i64 1

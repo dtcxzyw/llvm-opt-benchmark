@@ -465,10 +465,9 @@ if.else:                                          ; preds = %if.then30
   %sub52 = sub i64 %21, %conv51
   %conv53 = trunc i64 %sub52 to i32
   %cmp54 = icmp eq i32 %size, 1
-  %cmp56 = icmp ugt i32 %conv53, 255
-  %or.cond = select i1 %cmp54, i1 %cmp56, i1 false
-  %23 = shl i32 %conv53, 8
-  %shl60 = select i1 %or.cond, i32 65280, i32 %23
+  %23 = tail call i32 @llvm.umin.i32(i32 %conv53, i32 255)
+  %spec.store.select = select i1 %cmp54, i32 %23, i32 %conv53
+  %shl60 = shl i32 %spec.store.select, 8
   %or65 = or i32 %shl60, %15
   br label %sw.epilog109
 
@@ -2096,6 +2095,9 @@ entry:
 }
 
 declare void @tpm_backend_deliver_request(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

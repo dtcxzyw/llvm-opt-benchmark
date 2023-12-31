@@ -1334,22 +1334,21 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaISt6threadEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaISt6threadEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
   br label %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaISt6threadEE8allocateERS1_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt6threadEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::thread", ptr %cond.i17, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   store i64 0, ptr %add.ptr, align 8
@@ -1365,29 +1364,29 @@ call.i.i.i.noexc:                                 ; preds = %_ZNSt12_Vector_base
           to label %invoke.cont3.i.i.i unwind label %lpad2.i.i.i
 
 invoke.cont3.i.i.i:                               ; preds = %call.i.i.i.noexc
-  %2 = load ptr, ptr %agg.tmp.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %agg.tmp.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.cont3.i.i.i
-  %vtable.i.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
-  %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
+  %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %invoke.cont
 
 lpad2.i.i.i:                                      ; preds = %call.i.i.i.noexc
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = load ptr, ptr %agg.tmp.i.i.i, align 8
-  %cmp.not.i2.i.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %agg.tmp.i.i.i, align 8
+  %cmp.not.i2.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i2.i.i.i, label %invoke.cont19, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i.i.i: ; preds = %lpad2.i.i.i
-  %vtable.i.i4.i.i.i = load ptr, ptr %5, align 8
+  %vtable.i.i4.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i5.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i.i.i, i64 1
-  %6 = load ptr, ptr %vfn.i.i5.i.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %7 = load ptr, ptr %vfn.i.i5.i.i.i, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
   br label %invoke.cont19
 
 invoke.cont:                                      ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i, %invoke.cont3.i.i.i
@@ -1400,8 +1399,8 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %7 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !41, !noalias !38
-  store i64 %7, ptr %__cur.07.i.i.i, align 8, !alias.scope !38, !noalias !41
+  %8 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !41, !noalias !38
+  store i64 %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !38, !noalias !41
   store i64 0, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !41, !noalias !38
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::thread", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::thread", ptr %__cur.07.i.i.i, i64 1
@@ -1419,8 +1418,8 @@ for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorISt6thr
   %__first.addr.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i23, %for.body.i.i.i20 ], [ %__position.coerce, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %8 = load i64, ptr %__first.addr.06.i.i.i22, align 8, !alias.scope !47, !noalias !44
-  store i64 %8, ptr %__cur.07.i.i.i21, align 8, !alias.scope !44, !noalias !47
+  %9 = load i64, ptr %__first.addr.06.i.i.i22, align 8, !alias.scope !47, !noalias !44
+  store i64 %9, ptr %__cur.07.i.i.i21, align 8, !alias.scope !44, !noalias !47
   store i64 0, ptr %__first.addr.06.i.i.i22, align 8, !alias.scope !47, !noalias !44
   %incdec.ptr.i.i.i23 = getelementptr inbounds %"class.std::thread", ptr %__first.addr.06.i.i.i22, i64 1
   %incdec.ptr1.i.i.i24 = getelementptr inbounds %"class.std::thread", ptr %__cur.07.i.i.i21, i64 1
@@ -1445,32 +1444,32 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNS
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 invoke.cont19:                                    ; preds = %lpad, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i.i.i, %lpad2.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad ], [ %4, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i.i.i ], [ %4, %lpad2.i.i.i ]
-  %11 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %12 = call ptr @__cxa_begin_catch(ptr %11) #16
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %5, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i.i.i ], [ %5, %lpad2.i.i.i ]
+  %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %13 = call ptr @__cxa_begin_catch(ptr %12) #16
   call void @_ZdlPv(ptr noundef nonnull %cond.i17) #18
   invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 
 terminate.lpad:                                   ; preds = %lpad17
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #17
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #17
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -1825,6 +1824,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

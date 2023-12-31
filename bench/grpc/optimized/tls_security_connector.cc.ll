@@ -2926,8 +2926,8 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   store ptr %target_name, ptr %request, align 8
-  %cmp2370.not = icmp eq i64 %peer.coerce1, 0
-  br i1 %cmp2370.not, label %if.then106, label %for.body.lr.ph
+  %cmp2364.not = icmp eq i64 %peer.coerce1, 0
+  br i1 %cmp2364.not, label %if.then106, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end
   %verified_root_cert_subject = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 4
@@ -2937,24 +2937,24 @@ for.body.lr.ph:                                   ; preds = %do.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %has_common_name.0387 = phi i8 [ 0, %for.body.lr.ph ], [ %has_common_name.1, %for.inc ]
-  %has_peer_cert.0386 = phi i8 [ 0, %for.body.lr.ph ], [ %has_peer_cert.1, %for.inc ]
-  %has_peer_cert_full_chain.0385 = phi i8 [ 0, %for.body.lr.ph ], [ %has_peer_cert_full_chain.1, %for.inc ]
-  %i.0384 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %has_verified_root_cert_subject.0383 = phi i8 [ 0, %for.body.lr.ph ], [ %has_verified_root_cert_subject.1, %for.inc ]
-  %uri_names.sroa.0.0382 = phi ptr [ null, %for.body.lr.ph ], [ %uri_names.sroa.0.2, %for.inc ]
-  %uri_names.sroa.8.0381 = phi ptr [ null, %for.body.lr.ph ], [ %uri_names.sroa.8.2, %for.inc ]
-  %uri_names.sroa.14.0380 = phi ptr [ null, %for.body.lr.ph ], [ %uri_names.sroa.14.2, %for.inc ]
-  %dns_names.sroa.0.0379 = phi ptr [ null, %for.body.lr.ph ], [ %dns_names.sroa.0.2, %for.inc ]
-  %ip_names.sroa.14.0378 = phi ptr [ null, %for.body.lr.ph ], [ %ip_names.sroa.14.2, %for.inc ]
-  %ip_names.sroa.8.0377 = phi ptr [ null, %for.body.lr.ph ], [ %ip_names.sroa.8.2, %for.inc ]
-  %ip_names.sroa.0.0376 = phi ptr [ null, %for.body.lr.ph ], [ %ip_names.sroa.0.2, %for.inc ]
-  %email_names.sroa.14.0375 = phi ptr [ null, %for.body.lr.ph ], [ %email_names.sroa.14.2, %for.inc ]
-  %email_names.sroa.8.0374 = phi ptr [ null, %for.body.lr.ph ], [ %email_names.sroa.8.2, %for.inc ]
-  %email_names.sroa.0.0373 = phi ptr [ null, %for.body.lr.ph ], [ %email_names.sroa.0.2, %for.inc ]
-  %dns_names.sroa.14.0372 = phi ptr [ null, %for.body.lr.ph ], [ %dns_names.sroa.14.2, %for.inc ]
-  %dns_names.sroa.8.0371 = phi ptr [ null, %for.body.lr.ph ], [ %dns_names.sroa.8.2, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384
+  %has_common_name.0381 = phi i8 [ 0, %for.body.lr.ph ], [ %has_common_name.1, %for.inc ]
+  %has_peer_cert.0380 = phi i8 [ 0, %for.body.lr.ph ], [ %has_peer_cert.1, %for.inc ]
+  %has_peer_cert_full_chain.0379 = phi i8 [ 0, %for.body.lr.ph ], [ %has_peer_cert_full_chain.1, %for.inc ]
+  %i.0378 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %has_verified_root_cert_subject.0377 = phi i8 [ 0, %for.body.lr.ph ], [ %has_verified_root_cert_subject.1, %for.inc ]
+  %uri_names.sroa.0.0376 = phi ptr [ null, %for.body.lr.ph ], [ %uri_names.sroa.0.2, %for.inc ]
+  %uri_names.sroa.8.0375 = phi ptr [ null, %for.body.lr.ph ], [ %uri_names.sroa.8.2, %for.inc ]
+  %uri_names.sroa.14.0374 = phi ptr [ null, %for.body.lr.ph ], [ %uri_names.sroa.14.2, %for.inc ]
+  %dns_names.sroa.0.0373 = phi ptr [ null, %for.body.lr.ph ], [ %dns_names.sroa.0.2, %for.inc ]
+  %ip_names.sroa.14.0372 = phi ptr [ null, %for.body.lr.ph ], [ %ip_names.sroa.14.2, %for.inc ]
+  %ip_names.sroa.8.0371 = phi ptr [ null, %for.body.lr.ph ], [ %ip_names.sroa.8.2, %for.inc ]
+  %ip_names.sroa.0.0370 = phi ptr [ null, %for.body.lr.ph ], [ %ip_names.sroa.0.2, %for.inc ]
+  %email_names.sroa.14.0369 = phi ptr [ null, %for.body.lr.ph ], [ %email_names.sroa.14.2, %for.inc ]
+  %email_names.sroa.8.0368 = phi ptr [ null, %for.body.lr.ph ], [ %email_names.sroa.8.2, %for.inc ]
+  %email_names.sroa.0.0367 = phi ptr [ null, %for.body.lr.ph ], [ %email_names.sroa.0.2, %for.inc ]
+  %dns_names.sroa.14.0366 = phi ptr [ null, %for.body.lr.ph ], [ %dns_names.sroa.14.2, %for.inc ]
+  %dns_names.sroa.8.0365 = phi ptr [ null, %for.body.lr.ph ], [ %dns_names.sroa.8.2, %for.inc ]
+  %arrayidx = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp3 = icmp eq ptr %0, null
   br i1 %cmp3, label %for.inc, label %if.end5
@@ -2965,9 +2965,9 @@ if.end5:                                          ; preds = %for.body
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end5
-  %value = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1
+  %value = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1
   %1 = load ptr, ptr %value, align 8
-  %length = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1, i32 1
+  %length = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1, i32 1
   %2 = load i64, ptr %length, align 8
   %add.i = add i64 %2, 1
   %call.i72 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i)
@@ -2980,55 +2980,55 @@ invoke.cont:                                      ; preds = %if.then8
   store ptr %call.i72, ptr %peer_info, align 8
   br label %for.inc
 
-lpad.loopexit:                                    ; preds = %if.then8, %if.then14, %if.then26, %if.then38, %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i, %if.then51, %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i120, %if.then64, %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i162, %if.then77, %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i204, %if.then90
-  %lpad.loopexit300 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %if.then8, %if.then14, %if.then26, %if.then38, %cond.true.i.i.i, %if.then51, %cond.true.i.i.i118, %if.then64, %cond.true.i.i.i158, %if.then77, %cond.true.i.i.i198, %if.then90
+  %lpad.loopexit294 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i95.invoke, %if.then128, %if.then161, %if.then194, %if.then227
-  %email_names.sroa.0.0364 = phi ptr [ %email_names.sroa.0.0.lcssa442, %if.then128 ], [ %email_names.sroa.0.0.lcssa442, %if.then161 ], [ %email_names.sroa.0.0.lcssa442, %if.then194 ], [ %email_names.sroa.0.0.lcssa442, %if.then227 ], [ %email_names.sroa.0.0373, %if.then.i.i.i95.invoke ]
-  %ip_names.sroa.0.0352 = phi ptr [ %ip_names.sroa.0.0.lcssa446, %if.then128 ], [ %ip_names.sroa.0.0.lcssa446, %if.then161 ], [ %ip_names.sroa.0.0.lcssa446, %if.then194 ], [ %ip_names.sroa.0.0.lcssa446, %if.then227 ], [ %ip_names.sroa.0.0376, %if.then.i.i.i95.invoke ]
-  %dns_names.sroa.0.0340 = phi ptr [ %dns_names.sroa.0.0.lcssa450, %if.then128 ], [ %dns_names.sroa.0.0.lcssa450, %if.then161 ], [ %dns_names.sroa.0.0.lcssa450, %if.then194 ], [ %dns_names.sroa.0.0.lcssa450, %if.then227 ], [ %dns_names.sroa.0.0379, %if.then.i.i.i95.invoke ]
-  %uri_names.sroa.0.0328 = phi ptr [ %uri_names.sroa.0.0.lcssa454, %if.then128 ], [ %uri_names.sroa.0.0.lcssa454, %if.then161 ], [ %uri_names.sroa.0.0.lcssa454, %if.then194 ], [ %uri_names.sroa.0.0.lcssa454, %if.then227 ], [ %uri_names.sroa.0.0382, %if.then.i.i.i95.invoke ]
-  %lpad.loopexit.split-lp301 = landingpad { ptr, i32 }
+  %email_names.sroa.0.0358 = phi ptr [ %email_names.sroa.0.0.lcssa436, %if.then128 ], [ %email_names.sroa.0.0.lcssa436, %if.then161 ], [ %email_names.sroa.0.0.lcssa436, %if.then194 ], [ %email_names.sroa.0.0.lcssa436, %if.then227 ], [ %email_names.sroa.0.0367, %if.then.i.i.i95.invoke ]
+  %ip_names.sroa.0.0346 = phi ptr [ %ip_names.sroa.0.0.lcssa440, %if.then128 ], [ %ip_names.sroa.0.0.lcssa440, %if.then161 ], [ %ip_names.sroa.0.0.lcssa440, %if.then194 ], [ %ip_names.sroa.0.0.lcssa440, %if.then227 ], [ %ip_names.sroa.0.0370, %if.then.i.i.i95.invoke ]
+  %dns_names.sroa.0.0334 = phi ptr [ %dns_names.sroa.0.0.lcssa444, %if.then128 ], [ %dns_names.sroa.0.0.lcssa444, %if.then161 ], [ %dns_names.sroa.0.0.lcssa444, %if.then194 ], [ %dns_names.sroa.0.0.lcssa444, %if.then227 ], [ %dns_names.sroa.0.0373, %if.then.i.i.i95.invoke ]
+  %uri_names.sroa.0.0322 = phi ptr [ %uri_names.sroa.0.0.lcssa448, %if.then128 ], [ %uri_names.sroa.0.0.lcssa448, %if.then161 ], [ %uri_names.sroa.0.0.lcssa448, %if.then194 ], [ %uri_names.sroa.0.0.lcssa448, %if.then227 ], [ %uri_names.sroa.0.0376, %if.then.i.i.i95.invoke ]
+  %lpad.loopexit.split-lp295 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %email_names.sroa.0.0363 = phi ptr [ %email_names.sroa.0.0373, %lpad.loopexit ], [ %email_names.sroa.0.0364, %lpad.loopexit.split-lp ]
-  %ip_names.sroa.0.0351 = phi ptr [ %ip_names.sroa.0.0376, %lpad.loopexit ], [ %ip_names.sroa.0.0352, %lpad.loopexit.split-lp ]
-  %dns_names.sroa.0.0339 = phi ptr [ %dns_names.sroa.0.0379, %lpad.loopexit ], [ %dns_names.sroa.0.0340, %lpad.loopexit.split-lp ]
-  %uri_names.sroa.0.0327 = phi ptr [ %uri_names.sroa.0.0382, %lpad.loopexit ], [ %uri_names.sroa.0.0328, %lpad.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit300, %lpad.loopexit ], [ %lpad.loopexit.split-lp301, %lpad.loopexit.split-lp ]
-  %tobool.not.i.i.i = icmp eq ptr %ip_names.sroa.0.0351, null
+  %email_names.sroa.0.0357 = phi ptr [ %email_names.sroa.0.0367, %lpad.loopexit ], [ %email_names.sroa.0.0358, %lpad.loopexit.split-lp ]
+  %ip_names.sroa.0.0345 = phi ptr [ %ip_names.sroa.0.0370, %lpad.loopexit ], [ %ip_names.sroa.0.0346, %lpad.loopexit.split-lp ]
+  %dns_names.sroa.0.0333 = phi ptr [ %dns_names.sroa.0.0373, %lpad.loopexit ], [ %dns_names.sroa.0.0334, %lpad.loopexit.split-lp ]
+  %uri_names.sroa.0.0321 = phi ptr [ %uri_names.sroa.0.0376, %lpad.loopexit ], [ %uri_names.sroa.0.0322, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit294, %lpad.loopexit ], [ %lpad.loopexit.split-lp295, %lpad.loopexit.split-lp ]
+  %tobool.not.i.i.i = icmp eq ptr %ip_names.sroa.0.0345, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %ip_names.sroa.0.0351) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %ip_names.sroa.0.0345) #20
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit:                 ; preds = %lpad, %if.then.i.i.i
-  %tobool.not.i.i.i73 = icmp eq ptr %email_names.sroa.0.0363, null
+  %tobool.not.i.i.i73 = icmp eq ptr %email_names.sroa.0.0357, null
   br i1 %tobool.not.i.i.i73, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit75, label %if.then.i.i.i74
 
 if.then.i.i.i74:                                  ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %email_names.sroa.0.0363) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %email_names.sroa.0.0357) #20
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit75
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit75:               ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit, %if.then.i.i.i74
-  %tobool.not.i.i.i76 = icmp eq ptr %dns_names.sroa.0.0339, null
+  %tobool.not.i.i.i76 = icmp eq ptr %dns_names.sroa.0.0333, null
   br i1 %tobool.not.i.i.i76, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit78, label %if.then.i.i.i77
 
 if.then.i.i.i77:                                  ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit75
-  tail call void @_ZdlPv(ptr noundef nonnull %dns_names.sroa.0.0339) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %dns_names.sroa.0.0333) #20
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit78
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit78:               ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit75, %if.then.i.i.i77
-  %tobool.not.i.i.i79 = icmp eq ptr %uri_names.sroa.0.0327, null
+  %tobool.not.i.i.i79 = icmp eq ptr %uri_names.sroa.0.0321, null
   br i1 %tobool.not.i.i.i79, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit81, label %if.then.i.i.i80
 
 if.then.i.i.i80:                                  ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit78
-  tail call void @_ZdlPv(ptr noundef nonnull %uri_names.sroa.0.0327) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %uri_names.sroa.0.0321) #20
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit81
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit81:               ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit78, %if.then.i.i.i80
@@ -3040,9 +3040,9 @@ if.else:                                          ; preds = %if.end5
   br i1 %cmp13, label %if.then14, label %if.else22
 
 if.then14:                                        ; preds = %if.else
-  %value15 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1
+  %value15 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1
   %3 = load ptr, ptr %value15, align 8
-  %length18 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1, i32 1
+  %length18 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1, i32 1
   %4 = load i64, ptr %length18, align 8
   %add.i82 = add i64 %4, 1
   %call.i84 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i82)
@@ -3061,9 +3061,9 @@ if.else22:                                        ; preds = %if.else
   br i1 %cmp25, label %if.then26, label %if.else34
 
 if.then26:                                        ; preds = %if.else22
-  %value27 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1
+  %value27 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1
   %5 = load ptr, ptr %value27, align 8
-  %length30 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1, i32 1
+  %length30 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1, i32 1
   %6 = load i64, ptr %length30, align 8
   %add.i86 = add i64 %6, 1
   %call.i88 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i86)
@@ -3082,9 +3082,9 @@ if.else34:                                        ; preds = %if.else22
   br i1 %cmp37, label %if.then38, label %if.else47
 
 if.then38:                                        ; preds = %if.else34
-  %value39 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1
+  %value39 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1
   %7 = load ptr, ptr %value39, align 8
-  %length42 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1, i32 1
+  %length42 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1, i32 1
   %8 = load i64, ptr %length42, align 8
   %add.i90 = add i64 %8, 1
   %call.i92 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i90)
@@ -3094,22 +3094,22 @@ invoke.cont43:                                    ; preds = %if.then38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i92, ptr align 1 %7, i64 %8, i1 false)
   %arrayidx.i91 = getelementptr inbounds i8, ptr %call.i92, i64 %8
   store i8 0, ptr %arrayidx.i91, align 1
-  %cmp.not.i = icmp eq ptr %uri_names.sroa.8.0381, %uri_names.sroa.14.0380
+  %cmp.not.i = icmp eq ptr %uri_names.sroa.8.0375, %uri_names.sroa.14.0374
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont43
-  store ptr %call.i92, ptr %uri_names.sroa.8.0381, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %uri_names.sroa.8.0381, i64 1
+  store ptr %call.i92, ptr %uri_names.sroa.8.0375, align 8
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %uri_names.sroa.8.0375, i64 1
   br label %for.inc
 
 if.else.i:                                        ; preds = %invoke.cont43
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %uri_names.sroa.8.0381 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %uri_names.sroa.0.0382 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %uri_names.sroa.8.0375 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %uri_names.sroa.0.0376 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i95.invoke, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i.i95.invoke:                           ; preds = %if.else.i190, %if.else.i148, %if.else.i106, %if.else.i
+if.then.i.i.i95.invoke:                           ; preds = %if.else.i186, %if.else.i146, %if.else.i106, %if.else.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.32) #22
           to label %if.then.i.i.i95.cont unwind label %lpad.loopexit.split-lp
 
@@ -3121,39 +3121,38 @@ _ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %9
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i96 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #18
           to label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i96, %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i ]
+_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i96, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %call.i92, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
 
-if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %uri_names.sroa.0.0382, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %uri_names.sroa.0.0376, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
 
-_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
-  %tobool.not.i.i.i94 = icmp eq ptr %uri_names.sroa.0.0382, null
-  br i1 %tobool.not.i.i.i94, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i20.i.i
+  %tobool.not.i.i.i94 = icmp eq ptr %uri_names.sroa.0.0376, null
+  br i1 %tobool.not.i.i.i94, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i18.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %uri_names.sroa.0.0382) #20
+if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %uri_names.sroa.0.0376) #20
   br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
-_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i
+_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
   br label %for.inc
 
@@ -3163,29 +3162,29 @@ if.else47:                                        ; preds = %if.else34
   br i1 %cmp50, label %if.then51, label %if.else60
 
 if.then51:                                        ; preds = %if.else47
-  %value52 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1
-  %9 = load ptr, ptr %value52, align 8
-  %length55 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1, i32 1
-  %10 = load i64, ptr %length55, align 8
-  %add.i97 = add i64 %10, 1
+  %value52 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1
+  %10 = load ptr, ptr %value52, align 8
+  %length55 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1, i32 1
+  %11 = load i64, ptr %length55, align 8
+  %add.i97 = add i64 %11, 1
   %call.i99 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i97)
           to label %invoke.cont56 unwind label %lpad.loopexit
 
 invoke.cont56:                                    ; preds = %if.then51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i99, ptr align 1 %9, i64 %10, i1 false)
-  %arrayidx.i98 = getelementptr inbounds i8, ptr %call.i99, i64 %10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i99, ptr align 1 %10, i64 %11, i1 false)
+  %arrayidx.i98 = getelementptr inbounds i8, ptr %call.i99, i64 %11
   store i8 0, ptr %arrayidx.i98, align 1
-  %cmp.not.i103 = icmp eq ptr %dns_names.sroa.8.0371, %dns_names.sroa.14.0372
+  %cmp.not.i103 = icmp eq ptr %dns_names.sroa.8.0365, %dns_names.sroa.14.0366
   br i1 %cmp.not.i103, label %if.else.i106, label %if.then.i104
 
 if.then.i104:                                     ; preds = %invoke.cont56
-  store ptr %call.i99, ptr %dns_names.sroa.8.0371, align 8
-  %incdec.ptr.i105 = getelementptr inbounds ptr, ptr %dns_names.sroa.8.0371, i64 1
+  store ptr %call.i99, ptr %dns_names.sroa.8.0365, align 8
+  %incdec.ptr.i105 = getelementptr inbounds ptr, ptr %dns_names.sroa.8.0365, i64 1
   br label %for.inc
 
 if.else.i106:                                     ; preds = %invoke.cont56
-  %sub.ptr.lhs.cast.i.i.i.i107 = ptrtoint ptr %dns_names.sroa.14.0372 to i64
-  %sub.ptr.rhs.cast.i.i.i.i108 = ptrtoint ptr %dns_names.sroa.0.0379 to i64
+  %sub.ptr.lhs.cast.i.i.i.i107 = ptrtoint ptr %dns_names.sroa.14.0366 to i64
+  %sub.ptr.rhs.cast.i.i.i.i108 = ptrtoint ptr %dns_names.sroa.0.0373 to i64
   %sub.ptr.sub.i.i.i.i109 = sub i64 %sub.ptr.lhs.cast.i.i.i.i107, %sub.ptr.rhs.cast.i.i.i.i108
   %cmp.i.i.i110 = icmp eq i64 %sub.ptr.sub.i.i.i.i109, 9223372036854775800
   br i1 %cmp.i.i.i110, label %if.then.i.i.i95.invoke, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i111
@@ -3195,40 +3194,39 @@ _ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i111: ; preds = %if.else.i106
   %.sroa.speculated.i.i.i113 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i112, i64 1)
   %add.i.i.i114 = add i64 %.sroa.speculated.i.i.i113, %sub.ptr.div.i.i.i.i112
   %cmp7.i.i.i115 = icmp ult i64 %add.i.i.i114, %sub.ptr.div.i.i.i.i112
-  %cmp9.i.i.i116 = icmp ugt i64 %add.i.i.i114, 1152921504606846975
-  %or.cond.i.i.i117 = or i1 %cmp7.i.i.i115, %cmp9.i.i.i116
-  %cond.i.i.i118 = select i1 %or.cond.i.i.i117, i64 1152921504606846975, i64 %add.i.i.i114
-  %cmp.not.i.i.i119 = icmp eq i64 %cond.i.i.i118, 0
-  br i1 %cmp.not.i.i.i119, label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i122, label %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i120
+  %12 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i114, i64 1152921504606846975)
+  %cond.i.i.i116 = select i1 %cmp7.i.i.i115, i64 1152921504606846975, i64 %12
+  %cmp.not.i.i.i117 = icmp eq i64 %cond.i.i.i116, 0
+  br i1 %cmp.not.i.i.i117, label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i120, label %cond.true.i.i.i118
 
-_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i120: ; preds = %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i111
-  %mul.i.i.i.i.i121 = shl nuw nsw i64 %cond.i.i.i118, 3
-  %call5.i.i.i.i.i137 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i121) #18
-          to label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i122 unwind label %lpad.loopexit
+cond.true.i.i.i118:                               ; preds = %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i111
+  %mul.i.i.i.i.i119 = shl nuw nsw i64 %cond.i.i.i116, 3
+  %call5.i.i.i.i.i135 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i119) #18
+          to label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i120 unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i122: ; preds = %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i120, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i111
-  %cond.i10.i.i123 = phi ptr [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i111 ], [ %call5.i.i.i.i.i137, %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i120 ]
-  %add.ptr.i.i124 = getelementptr inbounds ptr, ptr %cond.i10.i.i123, i64 %sub.ptr.div.i.i.i.i112
-  store ptr %call.i99, ptr %add.ptr.i.i124, align 8
-  %cmp.i.i.i11.i.i125 = icmp sgt i64 %sub.ptr.sub.i.i.i.i109, 0
-  br i1 %cmp.i.i.i11.i.i125, label %if.then.i.i.i12.i.i133, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i126
+_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i120: ; preds = %cond.true.i.i.i118, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i111
+  %cond.i10.i.i121 = phi ptr [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i111 ], [ %call5.i.i.i.i.i135, %cond.true.i.i.i118 ]
+  %add.ptr.i.i122 = getelementptr inbounds ptr, ptr %cond.i10.i.i121, i64 %sub.ptr.div.i.i.i.i112
+  store ptr %call.i99, ptr %add.ptr.i.i122, align 8
+  %cmp.i.i.i.i.i123 = icmp sgt i64 %sub.ptr.sub.i.i.i.i109, 0
+  br i1 %cmp.i.i.i.i.i123, label %if.then.i.i.i.i.i131, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i124
 
-if.then.i.i.i12.i.i133:                           ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i122
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i123, ptr align 8 %dns_names.sroa.0.0379, i64 %sub.ptr.sub.i.i.i.i109, i1 false)
-  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i126
+if.then.i.i.i.i.i131:                             ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i120
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i121, ptr align 8 %dns_names.sroa.0.0373, i64 %sub.ptr.sub.i.i.i.i109, i1 false)
+  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i124
 
-_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i126: ; preds = %if.then.i.i.i12.i.i133, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i122
-  %add.ptr.i.i.i.i.i127 = getelementptr inbounds i8, ptr %cond.i10.i.i123, i64 %sub.ptr.sub.i.i.i.i109
-  %incdec.ptr.i.i128 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i127, i64 1
-  %tobool.not.i.i.i129 = icmp eq ptr %dns_names.sroa.0.0379, null
-  br i1 %tobool.not.i.i.i129, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131, label %if.then.i20.i.i130
+_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i124: ; preds = %if.then.i.i.i.i.i131, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i120
+  %add.ptr.i.i.i.i.i125 = getelementptr inbounds i8, ptr %cond.i10.i.i121, i64 %sub.ptr.sub.i.i.i.i109
+  %incdec.ptr.i.i126 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i125, i64 1
+  %tobool.not.i.i.i127 = icmp eq ptr %dns_names.sroa.0.0373, null
+  br i1 %tobool.not.i.i.i127, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129, label %if.then.i18.i.i128
 
-if.then.i20.i.i130:                               ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i126
-  tail call void @_ZdlPv(ptr noundef nonnull %dns_names.sroa.0.0379) #20
-  br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131
+if.then.i18.i.i128:                               ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i124
+  tail call void @_ZdlPv(ptr noundef nonnull %dns_names.sroa.0.0373) #20
+  br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129
 
-_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131: ; preds = %if.then.i20.i.i130, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i126
-  %add.ptr19.i.i132 = getelementptr inbounds ptr, ptr %cond.i10.i.i123, i64 %cond.i.i.i118
+_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129: ; preds = %if.then.i18.i.i128, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i124
+  %add.ptr19.i.i130 = getelementptr inbounds ptr, ptr %cond.i10.i.i121, i64 %cond.i.i.i116
   br label %for.inc
 
 if.else60:                                        ; preds = %if.else47
@@ -3237,72 +3235,71 @@ if.else60:                                        ; preds = %if.else47
   br i1 %cmp63, label %if.then64, label %if.else73
 
 if.then64:                                        ; preds = %if.else60
-  %value65 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1
-  %11 = load ptr, ptr %value65, align 8
-  %length68 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1, i32 1
-  %12 = load i64, ptr %length68, align 8
-  %add.i139 = add i64 %12, 1
-  %call.i141 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i139)
+  %value65 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1
+  %13 = load ptr, ptr %value65, align 8
+  %length68 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1, i32 1
+  %14 = load i64, ptr %length68, align 8
+  %add.i137 = add i64 %14, 1
+  %call.i139 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i137)
           to label %invoke.cont69 unwind label %lpad.loopexit
 
 invoke.cont69:                                    ; preds = %if.then64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i141, ptr align 1 %11, i64 %12, i1 false)
-  %arrayidx.i140 = getelementptr inbounds i8, ptr %call.i141, i64 %12
-  store i8 0, ptr %arrayidx.i140, align 1
-  %cmp.not.i145 = icmp eq ptr %email_names.sroa.8.0374, %email_names.sroa.14.0375
-  br i1 %cmp.not.i145, label %if.else.i148, label %if.then.i146
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i139, ptr align 1 %13, i64 %14, i1 false)
+  %arrayidx.i138 = getelementptr inbounds i8, ptr %call.i139, i64 %14
+  store i8 0, ptr %arrayidx.i138, align 1
+  %cmp.not.i143 = icmp eq ptr %email_names.sroa.8.0368, %email_names.sroa.14.0369
+  br i1 %cmp.not.i143, label %if.else.i146, label %if.then.i144
 
-if.then.i146:                                     ; preds = %invoke.cont69
-  store ptr %call.i141, ptr %email_names.sroa.8.0374, align 8
-  %incdec.ptr.i147 = getelementptr inbounds ptr, ptr %email_names.sroa.8.0374, i64 1
+if.then.i144:                                     ; preds = %invoke.cont69
+  store ptr %call.i139, ptr %email_names.sroa.8.0368, align 8
+  %incdec.ptr.i145 = getelementptr inbounds ptr, ptr %email_names.sroa.8.0368, i64 1
   br label %for.inc
 
-if.else.i148:                                     ; preds = %invoke.cont69
-  %sub.ptr.lhs.cast.i.i.i.i149 = ptrtoint ptr %email_names.sroa.14.0375 to i64
-  %sub.ptr.rhs.cast.i.i.i.i150 = ptrtoint ptr %email_names.sroa.0.0373 to i64
-  %sub.ptr.sub.i.i.i.i151 = sub i64 %sub.ptr.lhs.cast.i.i.i.i149, %sub.ptr.rhs.cast.i.i.i.i150
-  %cmp.i.i.i152 = icmp eq i64 %sub.ptr.sub.i.i.i.i151, 9223372036854775800
-  br i1 %cmp.i.i.i152, label %if.then.i.i.i95.invoke, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i153
+if.else.i146:                                     ; preds = %invoke.cont69
+  %sub.ptr.lhs.cast.i.i.i.i147 = ptrtoint ptr %email_names.sroa.14.0369 to i64
+  %sub.ptr.rhs.cast.i.i.i.i148 = ptrtoint ptr %email_names.sroa.0.0367 to i64
+  %sub.ptr.sub.i.i.i.i149 = sub i64 %sub.ptr.lhs.cast.i.i.i.i147, %sub.ptr.rhs.cast.i.i.i.i148
+  %cmp.i.i.i150 = icmp eq i64 %sub.ptr.sub.i.i.i.i149, 9223372036854775800
+  br i1 %cmp.i.i.i150, label %if.then.i.i.i95.invoke, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i151
 
-_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i153: ; preds = %if.else.i148
-  %sub.ptr.div.i.i.i.i154 = ashr exact i64 %sub.ptr.sub.i.i.i.i151, 3
-  %.sroa.speculated.i.i.i155 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i154, i64 1)
-  %add.i.i.i156 = add i64 %.sroa.speculated.i.i.i155, %sub.ptr.div.i.i.i.i154
-  %cmp7.i.i.i157 = icmp ult i64 %add.i.i.i156, %sub.ptr.div.i.i.i.i154
-  %cmp9.i.i.i158 = icmp ugt i64 %add.i.i.i156, 1152921504606846975
-  %or.cond.i.i.i159 = or i1 %cmp7.i.i.i157, %cmp9.i.i.i158
-  %cond.i.i.i160 = select i1 %or.cond.i.i.i159, i64 1152921504606846975, i64 %add.i.i.i156
-  %cmp.not.i.i.i161 = icmp eq i64 %cond.i.i.i160, 0
-  br i1 %cmp.not.i.i.i161, label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i164, label %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i162
+_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i151: ; preds = %if.else.i146
+  %sub.ptr.div.i.i.i.i152 = ashr exact i64 %sub.ptr.sub.i.i.i.i149, 3
+  %.sroa.speculated.i.i.i153 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i152, i64 1)
+  %add.i.i.i154 = add i64 %.sroa.speculated.i.i.i153, %sub.ptr.div.i.i.i.i152
+  %cmp7.i.i.i155 = icmp ult i64 %add.i.i.i154, %sub.ptr.div.i.i.i.i152
+  %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i154, i64 1152921504606846975)
+  %cond.i.i.i156 = select i1 %cmp7.i.i.i155, i64 1152921504606846975, i64 %15
+  %cmp.not.i.i.i157 = icmp eq i64 %cond.i.i.i156, 0
+  br i1 %cmp.not.i.i.i157, label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i160, label %cond.true.i.i.i158
 
-_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i162: ; preds = %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i153
-  %mul.i.i.i.i.i163 = shl nuw nsw i64 %cond.i.i.i160, 3
-  %call5.i.i.i.i.i179 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i163) #18
-          to label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i164 unwind label %lpad.loopexit
+cond.true.i.i.i158:                               ; preds = %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i151
+  %mul.i.i.i.i.i159 = shl nuw nsw i64 %cond.i.i.i156, 3
+  %call5.i.i.i.i.i175 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i159) #18
+          to label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i160 unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i164: ; preds = %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i162, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i153
-  %cond.i10.i.i165 = phi ptr [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i153 ], [ %call5.i.i.i.i.i179, %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i162 ]
-  %add.ptr.i.i166 = getelementptr inbounds ptr, ptr %cond.i10.i.i165, i64 %sub.ptr.div.i.i.i.i154
-  store ptr %call.i141, ptr %add.ptr.i.i166, align 8
-  %cmp.i.i.i11.i.i167 = icmp sgt i64 %sub.ptr.sub.i.i.i.i151, 0
-  br i1 %cmp.i.i.i11.i.i167, label %if.then.i.i.i12.i.i175, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i168
+_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i160: ; preds = %cond.true.i.i.i158, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i151
+  %cond.i10.i.i161 = phi ptr [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i151 ], [ %call5.i.i.i.i.i175, %cond.true.i.i.i158 ]
+  %add.ptr.i.i162 = getelementptr inbounds ptr, ptr %cond.i10.i.i161, i64 %sub.ptr.div.i.i.i.i152
+  store ptr %call.i139, ptr %add.ptr.i.i162, align 8
+  %cmp.i.i.i.i.i163 = icmp sgt i64 %sub.ptr.sub.i.i.i.i149, 0
+  br i1 %cmp.i.i.i.i.i163, label %if.then.i.i.i.i.i171, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i164
 
-if.then.i.i.i12.i.i175:                           ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i164
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i165, ptr align 8 %email_names.sroa.0.0373, i64 %sub.ptr.sub.i.i.i.i151, i1 false)
-  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i168
+if.then.i.i.i.i.i171:                             ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i160
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i161, ptr align 8 %email_names.sroa.0.0367, i64 %sub.ptr.sub.i.i.i.i149, i1 false)
+  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i164
 
-_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i168: ; preds = %if.then.i.i.i12.i.i175, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i164
-  %add.ptr.i.i.i.i.i169 = getelementptr inbounds i8, ptr %cond.i10.i.i165, i64 %sub.ptr.sub.i.i.i.i151
-  %incdec.ptr.i.i170 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i169, i64 1
-  %tobool.not.i.i.i171 = icmp eq ptr %email_names.sroa.0.0373, null
-  br i1 %tobool.not.i.i.i171, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173, label %if.then.i20.i.i172
+_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i164: ; preds = %if.then.i.i.i.i.i171, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i160
+  %add.ptr.i.i.i.i.i165 = getelementptr inbounds i8, ptr %cond.i10.i.i161, i64 %sub.ptr.sub.i.i.i.i149
+  %incdec.ptr.i.i166 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i165, i64 1
+  %tobool.not.i.i.i167 = icmp eq ptr %email_names.sroa.0.0367, null
+  br i1 %tobool.not.i.i.i167, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169, label %if.then.i18.i.i168
 
-if.then.i20.i.i172:                               ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i168
-  tail call void @_ZdlPv(ptr noundef nonnull %email_names.sroa.0.0373) #20
-  br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173
+if.then.i18.i.i168:                               ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i164
+  tail call void @_ZdlPv(ptr noundef nonnull %email_names.sroa.0.0367) #20
+  br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169
 
-_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173: ; preds = %if.then.i20.i.i172, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i168
-  %add.ptr19.i.i174 = getelementptr inbounds ptr, ptr %cond.i10.i.i165, i64 %cond.i.i.i160
+_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169: ; preds = %if.then.i18.i.i168, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i164
+  %add.ptr19.i.i170 = getelementptr inbounds ptr, ptr %cond.i10.i.i161, i64 %cond.i.i.i156
   br label %for.inc
 
 if.else73:                                        ; preds = %if.else60
@@ -3311,72 +3308,71 @@ if.else73:                                        ; preds = %if.else60
   br i1 %cmp76, label %if.then77, label %if.else86
 
 if.then77:                                        ; preds = %if.else73
-  %value78 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1
-  %13 = load ptr, ptr %value78, align 8
-  %length81 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1, i32 1
-  %14 = load i64, ptr %length81, align 8
-  %add.i181 = add i64 %14, 1
-  %call.i183 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i181)
+  %value78 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1
+  %16 = load ptr, ptr %value78, align 8
+  %length81 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1, i32 1
+  %17 = load i64, ptr %length81, align 8
+  %add.i177 = add i64 %17, 1
+  %call.i179 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i177)
           to label %invoke.cont82 unwind label %lpad.loopexit
 
 invoke.cont82:                                    ; preds = %if.then77
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i183, ptr align 1 %13, i64 %14, i1 false)
-  %arrayidx.i182 = getelementptr inbounds i8, ptr %call.i183, i64 %14
-  store i8 0, ptr %arrayidx.i182, align 1
-  %cmp.not.i187 = icmp eq ptr %ip_names.sroa.8.0377, %ip_names.sroa.14.0378
-  br i1 %cmp.not.i187, label %if.else.i190, label %if.then.i188
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i179, ptr align 1 %16, i64 %17, i1 false)
+  %arrayidx.i178 = getelementptr inbounds i8, ptr %call.i179, i64 %17
+  store i8 0, ptr %arrayidx.i178, align 1
+  %cmp.not.i183 = icmp eq ptr %ip_names.sroa.8.0371, %ip_names.sroa.14.0372
+  br i1 %cmp.not.i183, label %if.else.i186, label %if.then.i184
 
-if.then.i188:                                     ; preds = %invoke.cont82
-  store ptr %call.i183, ptr %ip_names.sroa.8.0377, align 8
-  %incdec.ptr.i189 = getelementptr inbounds ptr, ptr %ip_names.sroa.8.0377, i64 1
+if.then.i184:                                     ; preds = %invoke.cont82
+  store ptr %call.i179, ptr %ip_names.sroa.8.0371, align 8
+  %incdec.ptr.i185 = getelementptr inbounds ptr, ptr %ip_names.sroa.8.0371, i64 1
   br label %for.inc
 
-if.else.i190:                                     ; preds = %invoke.cont82
-  %sub.ptr.lhs.cast.i.i.i.i191 = ptrtoint ptr %ip_names.sroa.14.0378 to i64
-  %sub.ptr.rhs.cast.i.i.i.i192 = ptrtoint ptr %ip_names.sroa.0.0376 to i64
-  %sub.ptr.sub.i.i.i.i193 = sub i64 %sub.ptr.lhs.cast.i.i.i.i191, %sub.ptr.rhs.cast.i.i.i.i192
-  %cmp.i.i.i194 = icmp eq i64 %sub.ptr.sub.i.i.i.i193, 9223372036854775800
-  br i1 %cmp.i.i.i194, label %if.then.i.i.i95.invoke, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i195
+if.else.i186:                                     ; preds = %invoke.cont82
+  %sub.ptr.lhs.cast.i.i.i.i187 = ptrtoint ptr %ip_names.sroa.14.0372 to i64
+  %sub.ptr.rhs.cast.i.i.i.i188 = ptrtoint ptr %ip_names.sroa.0.0370 to i64
+  %sub.ptr.sub.i.i.i.i189 = sub i64 %sub.ptr.lhs.cast.i.i.i.i187, %sub.ptr.rhs.cast.i.i.i.i188
+  %cmp.i.i.i190 = icmp eq i64 %sub.ptr.sub.i.i.i.i189, 9223372036854775800
+  br i1 %cmp.i.i.i190, label %if.then.i.i.i95.invoke, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i191
 
-_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i195: ; preds = %if.else.i190
-  %sub.ptr.div.i.i.i.i196 = ashr exact i64 %sub.ptr.sub.i.i.i.i193, 3
-  %.sroa.speculated.i.i.i197 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i196, i64 1)
-  %add.i.i.i198 = add i64 %.sroa.speculated.i.i.i197, %sub.ptr.div.i.i.i.i196
-  %cmp7.i.i.i199 = icmp ult i64 %add.i.i.i198, %sub.ptr.div.i.i.i.i196
-  %cmp9.i.i.i200 = icmp ugt i64 %add.i.i.i198, 1152921504606846975
-  %or.cond.i.i.i201 = or i1 %cmp7.i.i.i199, %cmp9.i.i.i200
-  %cond.i.i.i202 = select i1 %or.cond.i.i.i201, i64 1152921504606846975, i64 %add.i.i.i198
-  %cmp.not.i.i.i203 = icmp eq i64 %cond.i.i.i202, 0
-  br i1 %cmp.not.i.i.i203, label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i206, label %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i204
+_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i191: ; preds = %if.else.i186
+  %sub.ptr.div.i.i.i.i192 = ashr exact i64 %sub.ptr.sub.i.i.i.i189, 3
+  %.sroa.speculated.i.i.i193 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i192, i64 1)
+  %add.i.i.i194 = add i64 %.sroa.speculated.i.i.i193, %sub.ptr.div.i.i.i.i192
+  %cmp7.i.i.i195 = icmp ult i64 %add.i.i.i194, %sub.ptr.div.i.i.i.i192
+  %18 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i194, i64 1152921504606846975)
+  %cond.i.i.i196 = select i1 %cmp7.i.i.i195, i64 1152921504606846975, i64 %18
+  %cmp.not.i.i.i197 = icmp eq i64 %cond.i.i.i196, 0
+  br i1 %cmp.not.i.i.i197, label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i200, label %cond.true.i.i.i198
 
-_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i204: ; preds = %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i195
-  %mul.i.i.i.i.i205 = shl nuw nsw i64 %cond.i.i.i202, 3
-  %call5.i.i.i.i.i221 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i205) #18
-          to label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i206 unwind label %lpad.loopexit
+cond.true.i.i.i198:                               ; preds = %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i191
+  %mul.i.i.i.i.i199 = shl nuw nsw i64 %cond.i.i.i196, 3
+  %call5.i.i.i.i.i215 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i199) #18
+          to label %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i200 unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i206: ; preds = %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i204, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i195
-  %cond.i10.i.i207 = phi ptr [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i195 ], [ %call5.i.i.i.i.i221, %_ZNSt16allocator_traitsISaIPcEE8allocateERS1_m.exit.i.i.i204 ]
-  %add.ptr.i.i208 = getelementptr inbounds ptr, ptr %cond.i10.i.i207, i64 %sub.ptr.div.i.i.i.i196
-  store ptr %call.i183, ptr %add.ptr.i.i208, align 8
-  %cmp.i.i.i11.i.i209 = icmp sgt i64 %sub.ptr.sub.i.i.i.i193, 0
-  br i1 %cmp.i.i.i11.i.i209, label %if.then.i.i.i12.i.i217, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i210
+_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i200: ; preds = %cond.true.i.i.i198, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i191
+  %cond.i10.i.i201 = phi ptr [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i191 ], [ %call5.i.i.i.i.i215, %cond.true.i.i.i198 ]
+  %add.ptr.i.i202 = getelementptr inbounds ptr, ptr %cond.i10.i.i201, i64 %sub.ptr.div.i.i.i.i192
+  store ptr %call.i179, ptr %add.ptr.i.i202, align 8
+  %cmp.i.i.i.i.i203 = icmp sgt i64 %sub.ptr.sub.i.i.i.i189, 0
+  br i1 %cmp.i.i.i.i.i203, label %if.then.i.i.i.i.i211, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i204
 
-if.then.i.i.i12.i.i217:                           ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i206
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i207, ptr align 8 %ip_names.sroa.0.0376, i64 %sub.ptr.sub.i.i.i.i193, i1 false)
-  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i210
+if.then.i.i.i.i.i211:                             ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i200
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i201, ptr align 8 %ip_names.sroa.0.0370, i64 %sub.ptr.sub.i.i.i.i189, i1 false)
+  br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i204
 
-_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i210: ; preds = %if.then.i.i.i12.i.i217, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i206
-  %add.ptr.i.i.i.i.i211 = getelementptr inbounds i8, ptr %cond.i10.i.i207, i64 %sub.ptr.sub.i.i.i.i193
-  %incdec.ptr.i.i212 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i211, i64 1
-  %tobool.not.i.i.i213 = icmp eq ptr %ip_names.sroa.0.0376, null
-  br i1 %tobool.not.i.i.i213, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215, label %if.then.i20.i.i214
+_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i204: ; preds = %if.then.i.i.i.i.i211, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i200
+  %add.ptr.i.i.i.i.i205 = getelementptr inbounds i8, ptr %cond.i10.i.i201, i64 %sub.ptr.sub.i.i.i.i189
+  %incdec.ptr.i.i206 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i205, i64 1
+  %tobool.not.i.i.i207 = icmp eq ptr %ip_names.sroa.0.0370, null
+  br i1 %tobool.not.i.i.i207, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209, label %if.then.i18.i.i208
 
-if.then.i20.i.i214:                               ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i210
-  tail call void @_ZdlPv(ptr noundef nonnull %ip_names.sroa.0.0376) #20
-  br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215
+if.then.i18.i.i208:                               ; preds = %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i204
+  tail call void @_ZdlPv(ptr noundef nonnull %ip_names.sroa.0.0370) #20
+  br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209
 
-_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215: ; preds = %if.then.i20.i.i214, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i210
-  %add.ptr19.i.i216 = getelementptr inbounds ptr, ptr %cond.i10.i.i207, i64 %cond.i.i.i202
+_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209: ; preds = %if.then.i18.i.i208, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i204
+  %add.ptr19.i.i210 = getelementptr inbounds ptr, ptr %cond.i10.i.i201, i64 %cond.i.i.i196
   br label %for.inc
 
 if.else86:                                        ; preds = %if.else73
@@ -3385,77 +3381,77 @@ if.else86:                                        ; preds = %if.else73
   br i1 %cmp89, label %if.then90, label %for.inc
 
 if.then90:                                        ; preds = %if.else86
-  %value91 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1
-  %15 = load ptr, ptr %value91, align 8
-  %length94 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0384, i32 1, i32 1
-  %16 = load i64, ptr %length94, align 8
-  %add.i223 = add i64 %16, 1
-  %call.i225 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i223)
+  %value91 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1
+  %19 = load ptr, ptr %value91, align 8
+  %length94 = getelementptr inbounds %struct.tsi_peer_property, ptr %peer.coerce0, i64 %i.0378, i32 1, i32 1
+  %20 = load i64, ptr %length94, align 8
+  %add.i217 = add i64 %20, 1
+  %call.i219 = invoke noundef ptr @gpr_malloc(i64 noundef %add.i217)
           to label %invoke.cont95 unwind label %lpad.loopexit
 
 invoke.cont95:                                    ; preds = %if.then90
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i225, ptr align 1 %15, i64 %16, i1 false)
-  %arrayidx.i224 = getelementptr inbounds i8, ptr %call.i225, i64 %16
-  store i8 0, ptr %arrayidx.i224, align 1
-  store ptr %call.i225, ptr %verified_root_cert_subject, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i219, ptr align 1 %19, i64 %20, i1 false)
+  %arrayidx.i218 = getelementptr inbounds i8, ptr %call.i219, i64 %20
+  store i8 0, ptr %arrayidx.i218, align 1
+  store ptr %call.i219, ptr %verified_root_cert_subject, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215, %if.then.i188, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173, %if.then.i146, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131, %if.then.i104, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %if.then.i, %invoke.cont, %invoke.cont31, %invoke.cont95, %if.else86, %invoke.cont19, %for.body
-  %dns_names.sroa.8.2 = phi ptr [ %dns_names.sroa.8.0371, %for.body ], [ %dns_names.sroa.8.0371, %invoke.cont ], [ %dns_names.sroa.8.0371, %invoke.cont19 ], [ %dns_names.sroa.8.0371, %invoke.cont31 ], [ %dns_names.sroa.8.0371, %invoke.cont95 ], [ %dns_names.sroa.8.0371, %if.else86 ], [ %dns_names.sroa.8.0371, %if.then.i ], [ %dns_names.sroa.8.0371, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %incdec.ptr.i.i128, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %incdec.ptr.i105, %if.then.i104 ], [ %dns_names.sroa.8.0371, %if.then.i146 ], [ %dns_names.sroa.8.0371, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %dns_names.sroa.8.0371, %if.then.i188 ], [ %dns_names.sroa.8.0371, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %dns_names.sroa.14.2 = phi ptr [ %dns_names.sroa.14.0372, %for.body ], [ %dns_names.sroa.14.0372, %invoke.cont ], [ %dns_names.sroa.14.0372, %invoke.cont19 ], [ %dns_names.sroa.14.0372, %invoke.cont31 ], [ %dns_names.sroa.14.0372, %invoke.cont95 ], [ %dns_names.sroa.14.0372, %if.else86 ], [ %dns_names.sroa.14.0372, %if.then.i ], [ %dns_names.sroa.14.0372, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %add.ptr19.i.i132, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %dns_names.sroa.14.0372, %if.then.i104 ], [ %dns_names.sroa.14.0372, %if.then.i146 ], [ %dns_names.sroa.14.0372, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %dns_names.sroa.14.0372, %if.then.i188 ], [ %dns_names.sroa.14.0372, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %email_names.sroa.0.2 = phi ptr [ %email_names.sroa.0.0373, %for.body ], [ %email_names.sroa.0.0373, %invoke.cont ], [ %email_names.sroa.0.0373, %invoke.cont19 ], [ %email_names.sroa.0.0373, %invoke.cont31 ], [ %email_names.sroa.0.0373, %invoke.cont95 ], [ %email_names.sroa.0.0373, %if.else86 ], [ %email_names.sroa.0.0373, %if.then.i ], [ %email_names.sroa.0.0373, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %email_names.sroa.0.0373, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %email_names.sroa.0.0373, %if.then.i104 ], [ %email_names.sroa.0.0373, %if.then.i146 ], [ %cond.i10.i.i165, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %email_names.sroa.0.0373, %if.then.i188 ], [ %email_names.sroa.0.0373, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %email_names.sroa.8.2 = phi ptr [ %email_names.sroa.8.0374, %for.body ], [ %email_names.sroa.8.0374, %invoke.cont ], [ %email_names.sroa.8.0374, %invoke.cont19 ], [ %email_names.sroa.8.0374, %invoke.cont31 ], [ %email_names.sroa.8.0374, %invoke.cont95 ], [ %email_names.sroa.8.0374, %if.else86 ], [ %email_names.sroa.8.0374, %if.then.i ], [ %email_names.sroa.8.0374, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %email_names.sroa.8.0374, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %email_names.sroa.8.0374, %if.then.i104 ], [ %incdec.ptr.i147, %if.then.i146 ], [ %incdec.ptr.i.i170, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %email_names.sroa.8.0374, %if.then.i188 ], [ %email_names.sroa.8.0374, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %email_names.sroa.14.2 = phi ptr [ %email_names.sroa.14.0375, %for.body ], [ %email_names.sroa.14.0375, %invoke.cont ], [ %email_names.sroa.14.0375, %invoke.cont19 ], [ %email_names.sroa.14.0375, %invoke.cont31 ], [ %email_names.sroa.14.0375, %invoke.cont95 ], [ %email_names.sroa.14.0375, %if.else86 ], [ %email_names.sroa.14.0375, %if.then.i ], [ %email_names.sroa.14.0375, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %email_names.sroa.14.0375, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %email_names.sroa.14.0375, %if.then.i104 ], [ %email_names.sroa.14.0375, %if.then.i146 ], [ %add.ptr19.i.i174, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %email_names.sroa.14.0375, %if.then.i188 ], [ %email_names.sroa.14.0375, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %ip_names.sroa.0.2 = phi ptr [ %ip_names.sroa.0.0376, %for.body ], [ %ip_names.sroa.0.0376, %invoke.cont ], [ %ip_names.sroa.0.0376, %invoke.cont19 ], [ %ip_names.sroa.0.0376, %invoke.cont31 ], [ %ip_names.sroa.0.0376, %invoke.cont95 ], [ %ip_names.sroa.0.0376, %if.else86 ], [ %ip_names.sroa.0.0376, %if.then.i ], [ %ip_names.sroa.0.0376, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %ip_names.sroa.0.0376, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %ip_names.sroa.0.0376, %if.then.i104 ], [ %ip_names.sroa.0.0376, %if.then.i146 ], [ %ip_names.sroa.0.0376, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %ip_names.sroa.0.0376, %if.then.i188 ], [ %cond.i10.i.i207, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %ip_names.sroa.8.2 = phi ptr [ %ip_names.sroa.8.0377, %for.body ], [ %ip_names.sroa.8.0377, %invoke.cont ], [ %ip_names.sroa.8.0377, %invoke.cont19 ], [ %ip_names.sroa.8.0377, %invoke.cont31 ], [ %ip_names.sroa.8.0377, %invoke.cont95 ], [ %ip_names.sroa.8.0377, %if.else86 ], [ %ip_names.sroa.8.0377, %if.then.i ], [ %ip_names.sroa.8.0377, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %ip_names.sroa.8.0377, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %ip_names.sroa.8.0377, %if.then.i104 ], [ %ip_names.sroa.8.0377, %if.then.i146 ], [ %ip_names.sroa.8.0377, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %incdec.ptr.i189, %if.then.i188 ], [ %incdec.ptr.i.i212, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %ip_names.sroa.14.2 = phi ptr [ %ip_names.sroa.14.0378, %for.body ], [ %ip_names.sroa.14.0378, %invoke.cont ], [ %ip_names.sroa.14.0378, %invoke.cont19 ], [ %ip_names.sroa.14.0378, %invoke.cont31 ], [ %ip_names.sroa.14.0378, %invoke.cont95 ], [ %ip_names.sroa.14.0378, %if.else86 ], [ %ip_names.sroa.14.0378, %if.then.i ], [ %ip_names.sroa.14.0378, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %ip_names.sroa.14.0378, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %ip_names.sroa.14.0378, %if.then.i104 ], [ %ip_names.sroa.14.0378, %if.then.i146 ], [ %ip_names.sroa.14.0378, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %ip_names.sroa.14.0378, %if.then.i188 ], [ %add.ptr19.i.i216, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %dns_names.sroa.0.2 = phi ptr [ %dns_names.sroa.0.0379, %for.body ], [ %dns_names.sroa.0.0379, %invoke.cont ], [ %dns_names.sroa.0.0379, %invoke.cont19 ], [ %dns_names.sroa.0.0379, %invoke.cont31 ], [ %dns_names.sroa.0.0379, %invoke.cont95 ], [ %dns_names.sroa.0.0379, %if.else86 ], [ %dns_names.sroa.0.0379, %if.then.i ], [ %dns_names.sroa.0.0379, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %cond.i10.i.i123, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %dns_names.sroa.0.0379, %if.then.i104 ], [ %dns_names.sroa.0.0379, %if.then.i146 ], [ %dns_names.sroa.0.0379, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %dns_names.sroa.0.0379, %if.then.i188 ], [ %dns_names.sroa.0.0379, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %uri_names.sroa.14.2 = phi ptr [ %uri_names.sroa.14.0380, %for.body ], [ %uri_names.sroa.14.0380, %invoke.cont ], [ %uri_names.sroa.14.0380, %invoke.cont19 ], [ %uri_names.sroa.14.0380, %invoke.cont31 ], [ %uri_names.sroa.14.0380, %invoke.cont95 ], [ %uri_names.sroa.14.0380, %if.else86 ], [ %uri_names.sroa.14.0380, %if.then.i ], [ %add.ptr19.i.i, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %uri_names.sroa.14.0380, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %uri_names.sroa.14.0380, %if.then.i104 ], [ %uri_names.sroa.14.0380, %if.then.i146 ], [ %uri_names.sroa.14.0380, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %uri_names.sroa.14.0380, %if.then.i188 ], [ %uri_names.sroa.14.0380, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %uri_names.sroa.8.2 = phi ptr [ %uri_names.sroa.8.0381, %for.body ], [ %uri_names.sroa.8.0381, %invoke.cont ], [ %uri_names.sroa.8.0381, %invoke.cont19 ], [ %uri_names.sroa.8.0381, %invoke.cont31 ], [ %uri_names.sroa.8.0381, %invoke.cont95 ], [ %uri_names.sroa.8.0381, %if.else86 ], [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %uri_names.sroa.8.0381, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %uri_names.sroa.8.0381, %if.then.i104 ], [ %uri_names.sroa.8.0381, %if.then.i146 ], [ %uri_names.sroa.8.0381, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %uri_names.sroa.8.0381, %if.then.i188 ], [ %uri_names.sroa.8.0381, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %uri_names.sroa.0.2 = phi ptr [ %uri_names.sroa.0.0382, %for.body ], [ %uri_names.sroa.0.0382, %invoke.cont ], [ %uri_names.sroa.0.0382, %invoke.cont19 ], [ %uri_names.sroa.0.0382, %invoke.cont31 ], [ %uri_names.sroa.0.0382, %invoke.cont95 ], [ %uri_names.sroa.0.0382, %if.else86 ], [ %uri_names.sroa.0.0382, %if.then.i ], [ %cond.i10.i.i, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %uri_names.sroa.0.0382, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %uri_names.sroa.0.0382, %if.then.i104 ], [ %uri_names.sroa.0.0382, %if.then.i146 ], [ %uri_names.sroa.0.0382, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %uri_names.sroa.0.0382, %if.then.i188 ], [ %uri_names.sroa.0.0382, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %has_verified_root_cert_subject.1 = phi i8 [ %has_verified_root_cert_subject.0383, %for.body ], [ %has_verified_root_cert_subject.0383, %invoke.cont ], [ %has_verified_root_cert_subject.0383, %invoke.cont19 ], [ %has_verified_root_cert_subject.0383, %invoke.cont31 ], [ 1, %invoke.cont95 ], [ %has_verified_root_cert_subject.0383, %if.else86 ], [ %has_verified_root_cert_subject.0383, %if.then.i ], [ %has_verified_root_cert_subject.0383, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %has_verified_root_cert_subject.0383, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %has_verified_root_cert_subject.0383, %if.then.i104 ], [ %has_verified_root_cert_subject.0383, %if.then.i146 ], [ %has_verified_root_cert_subject.0383, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %has_verified_root_cert_subject.0383, %if.then.i188 ], [ %has_verified_root_cert_subject.0383, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %has_peer_cert_full_chain.1 = phi i8 [ %has_peer_cert_full_chain.0385, %for.body ], [ %has_peer_cert_full_chain.0385, %invoke.cont ], [ %has_peer_cert_full_chain.0385, %invoke.cont19 ], [ 1, %invoke.cont31 ], [ %has_peer_cert_full_chain.0385, %invoke.cont95 ], [ %has_peer_cert_full_chain.0385, %if.else86 ], [ %has_peer_cert_full_chain.0385, %if.then.i ], [ %has_peer_cert_full_chain.0385, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %has_peer_cert_full_chain.0385, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %has_peer_cert_full_chain.0385, %if.then.i104 ], [ %has_peer_cert_full_chain.0385, %if.then.i146 ], [ %has_peer_cert_full_chain.0385, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %has_peer_cert_full_chain.0385, %if.then.i188 ], [ %has_peer_cert_full_chain.0385, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %has_peer_cert.1 = phi i8 [ %has_peer_cert.0386, %for.body ], [ %has_peer_cert.0386, %invoke.cont ], [ 1, %invoke.cont19 ], [ %has_peer_cert.0386, %invoke.cont31 ], [ %has_peer_cert.0386, %invoke.cont95 ], [ %has_peer_cert.0386, %if.else86 ], [ %has_peer_cert.0386, %if.then.i ], [ %has_peer_cert.0386, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %has_peer_cert.0386, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %has_peer_cert.0386, %if.then.i104 ], [ %has_peer_cert.0386, %if.then.i146 ], [ %has_peer_cert.0386, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %has_peer_cert.0386, %if.then.i188 ], [ %has_peer_cert.0386, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %has_common_name.1 = phi i8 [ %has_common_name.0387, %for.body ], [ 1, %invoke.cont ], [ %has_common_name.0387, %invoke.cont19 ], [ %has_common_name.0387, %invoke.cont31 ], [ %has_common_name.0387, %invoke.cont95 ], [ %has_common_name.0387, %if.else86 ], [ %has_common_name.0387, %if.then.i ], [ %has_common_name.0387, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %has_common_name.0387, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i131 ], [ %has_common_name.0387, %if.then.i104 ], [ %has_common_name.0387, %if.then.i146 ], [ %has_common_name.0387, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i173 ], [ %has_common_name.0387, %if.then.i188 ], [ %has_common_name.0387, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i215 ]
-  %inc = add nuw i64 %i.0384, 1
+for.inc:                                          ; preds = %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209, %if.then.i184, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169, %if.then.i144, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129, %if.then.i104, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %if.then.i, %invoke.cont, %invoke.cont31, %invoke.cont95, %if.else86, %invoke.cont19, %for.body
+  %dns_names.sroa.8.2 = phi ptr [ %dns_names.sroa.8.0365, %for.body ], [ %dns_names.sroa.8.0365, %invoke.cont ], [ %dns_names.sroa.8.0365, %invoke.cont19 ], [ %dns_names.sroa.8.0365, %invoke.cont31 ], [ %dns_names.sroa.8.0365, %invoke.cont95 ], [ %dns_names.sroa.8.0365, %if.else86 ], [ %dns_names.sroa.8.0365, %if.then.i ], [ %dns_names.sroa.8.0365, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %incdec.ptr.i.i126, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %incdec.ptr.i105, %if.then.i104 ], [ %dns_names.sroa.8.0365, %if.then.i144 ], [ %dns_names.sroa.8.0365, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %dns_names.sroa.8.0365, %if.then.i184 ], [ %dns_names.sroa.8.0365, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %dns_names.sroa.14.2 = phi ptr [ %dns_names.sroa.14.0366, %for.body ], [ %dns_names.sroa.14.0366, %invoke.cont ], [ %dns_names.sroa.14.0366, %invoke.cont19 ], [ %dns_names.sroa.14.0366, %invoke.cont31 ], [ %dns_names.sroa.14.0366, %invoke.cont95 ], [ %dns_names.sroa.14.0366, %if.else86 ], [ %dns_names.sroa.14.0366, %if.then.i ], [ %dns_names.sroa.14.0366, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %add.ptr19.i.i130, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %dns_names.sroa.14.0366, %if.then.i104 ], [ %dns_names.sroa.14.0366, %if.then.i144 ], [ %dns_names.sroa.14.0366, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %dns_names.sroa.14.0366, %if.then.i184 ], [ %dns_names.sroa.14.0366, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %email_names.sroa.0.2 = phi ptr [ %email_names.sroa.0.0367, %for.body ], [ %email_names.sroa.0.0367, %invoke.cont ], [ %email_names.sroa.0.0367, %invoke.cont19 ], [ %email_names.sroa.0.0367, %invoke.cont31 ], [ %email_names.sroa.0.0367, %invoke.cont95 ], [ %email_names.sroa.0.0367, %if.else86 ], [ %email_names.sroa.0.0367, %if.then.i ], [ %email_names.sroa.0.0367, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %email_names.sroa.0.0367, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %email_names.sroa.0.0367, %if.then.i104 ], [ %email_names.sroa.0.0367, %if.then.i144 ], [ %cond.i10.i.i161, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %email_names.sroa.0.0367, %if.then.i184 ], [ %email_names.sroa.0.0367, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %email_names.sroa.8.2 = phi ptr [ %email_names.sroa.8.0368, %for.body ], [ %email_names.sroa.8.0368, %invoke.cont ], [ %email_names.sroa.8.0368, %invoke.cont19 ], [ %email_names.sroa.8.0368, %invoke.cont31 ], [ %email_names.sroa.8.0368, %invoke.cont95 ], [ %email_names.sroa.8.0368, %if.else86 ], [ %email_names.sroa.8.0368, %if.then.i ], [ %email_names.sroa.8.0368, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %email_names.sroa.8.0368, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %email_names.sroa.8.0368, %if.then.i104 ], [ %incdec.ptr.i145, %if.then.i144 ], [ %incdec.ptr.i.i166, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %email_names.sroa.8.0368, %if.then.i184 ], [ %email_names.sroa.8.0368, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %email_names.sroa.14.2 = phi ptr [ %email_names.sroa.14.0369, %for.body ], [ %email_names.sroa.14.0369, %invoke.cont ], [ %email_names.sroa.14.0369, %invoke.cont19 ], [ %email_names.sroa.14.0369, %invoke.cont31 ], [ %email_names.sroa.14.0369, %invoke.cont95 ], [ %email_names.sroa.14.0369, %if.else86 ], [ %email_names.sroa.14.0369, %if.then.i ], [ %email_names.sroa.14.0369, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %email_names.sroa.14.0369, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %email_names.sroa.14.0369, %if.then.i104 ], [ %email_names.sroa.14.0369, %if.then.i144 ], [ %add.ptr19.i.i170, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %email_names.sroa.14.0369, %if.then.i184 ], [ %email_names.sroa.14.0369, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %ip_names.sroa.0.2 = phi ptr [ %ip_names.sroa.0.0370, %for.body ], [ %ip_names.sroa.0.0370, %invoke.cont ], [ %ip_names.sroa.0.0370, %invoke.cont19 ], [ %ip_names.sroa.0.0370, %invoke.cont31 ], [ %ip_names.sroa.0.0370, %invoke.cont95 ], [ %ip_names.sroa.0.0370, %if.else86 ], [ %ip_names.sroa.0.0370, %if.then.i ], [ %ip_names.sroa.0.0370, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %ip_names.sroa.0.0370, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %ip_names.sroa.0.0370, %if.then.i104 ], [ %ip_names.sroa.0.0370, %if.then.i144 ], [ %ip_names.sroa.0.0370, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %ip_names.sroa.0.0370, %if.then.i184 ], [ %cond.i10.i.i201, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %ip_names.sroa.8.2 = phi ptr [ %ip_names.sroa.8.0371, %for.body ], [ %ip_names.sroa.8.0371, %invoke.cont ], [ %ip_names.sroa.8.0371, %invoke.cont19 ], [ %ip_names.sroa.8.0371, %invoke.cont31 ], [ %ip_names.sroa.8.0371, %invoke.cont95 ], [ %ip_names.sroa.8.0371, %if.else86 ], [ %ip_names.sroa.8.0371, %if.then.i ], [ %ip_names.sroa.8.0371, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %ip_names.sroa.8.0371, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %ip_names.sroa.8.0371, %if.then.i104 ], [ %ip_names.sroa.8.0371, %if.then.i144 ], [ %ip_names.sroa.8.0371, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %incdec.ptr.i185, %if.then.i184 ], [ %incdec.ptr.i.i206, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %ip_names.sroa.14.2 = phi ptr [ %ip_names.sroa.14.0372, %for.body ], [ %ip_names.sroa.14.0372, %invoke.cont ], [ %ip_names.sroa.14.0372, %invoke.cont19 ], [ %ip_names.sroa.14.0372, %invoke.cont31 ], [ %ip_names.sroa.14.0372, %invoke.cont95 ], [ %ip_names.sroa.14.0372, %if.else86 ], [ %ip_names.sroa.14.0372, %if.then.i ], [ %ip_names.sroa.14.0372, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %ip_names.sroa.14.0372, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %ip_names.sroa.14.0372, %if.then.i104 ], [ %ip_names.sroa.14.0372, %if.then.i144 ], [ %ip_names.sroa.14.0372, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %ip_names.sroa.14.0372, %if.then.i184 ], [ %add.ptr19.i.i210, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %dns_names.sroa.0.2 = phi ptr [ %dns_names.sroa.0.0373, %for.body ], [ %dns_names.sroa.0.0373, %invoke.cont ], [ %dns_names.sroa.0.0373, %invoke.cont19 ], [ %dns_names.sroa.0.0373, %invoke.cont31 ], [ %dns_names.sroa.0.0373, %invoke.cont95 ], [ %dns_names.sroa.0.0373, %if.else86 ], [ %dns_names.sroa.0.0373, %if.then.i ], [ %dns_names.sroa.0.0373, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %cond.i10.i.i121, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %dns_names.sroa.0.0373, %if.then.i104 ], [ %dns_names.sroa.0.0373, %if.then.i144 ], [ %dns_names.sroa.0.0373, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %dns_names.sroa.0.0373, %if.then.i184 ], [ %dns_names.sroa.0.0373, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %uri_names.sroa.14.2 = phi ptr [ %uri_names.sroa.14.0374, %for.body ], [ %uri_names.sroa.14.0374, %invoke.cont ], [ %uri_names.sroa.14.0374, %invoke.cont19 ], [ %uri_names.sroa.14.0374, %invoke.cont31 ], [ %uri_names.sroa.14.0374, %invoke.cont95 ], [ %uri_names.sroa.14.0374, %if.else86 ], [ %uri_names.sroa.14.0374, %if.then.i ], [ %add.ptr19.i.i, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %uri_names.sroa.14.0374, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %uri_names.sroa.14.0374, %if.then.i104 ], [ %uri_names.sroa.14.0374, %if.then.i144 ], [ %uri_names.sroa.14.0374, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %uri_names.sroa.14.0374, %if.then.i184 ], [ %uri_names.sroa.14.0374, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %uri_names.sroa.8.2 = phi ptr [ %uri_names.sroa.8.0375, %for.body ], [ %uri_names.sroa.8.0375, %invoke.cont ], [ %uri_names.sroa.8.0375, %invoke.cont19 ], [ %uri_names.sroa.8.0375, %invoke.cont31 ], [ %uri_names.sroa.8.0375, %invoke.cont95 ], [ %uri_names.sroa.8.0375, %if.else86 ], [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %uri_names.sroa.8.0375, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %uri_names.sroa.8.0375, %if.then.i104 ], [ %uri_names.sroa.8.0375, %if.then.i144 ], [ %uri_names.sroa.8.0375, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %uri_names.sroa.8.0375, %if.then.i184 ], [ %uri_names.sroa.8.0375, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %uri_names.sroa.0.2 = phi ptr [ %uri_names.sroa.0.0376, %for.body ], [ %uri_names.sroa.0.0376, %invoke.cont ], [ %uri_names.sroa.0.0376, %invoke.cont19 ], [ %uri_names.sroa.0.0376, %invoke.cont31 ], [ %uri_names.sroa.0.0376, %invoke.cont95 ], [ %uri_names.sroa.0.0376, %if.else86 ], [ %uri_names.sroa.0.0376, %if.then.i ], [ %cond.i10.i.i, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %uri_names.sroa.0.0376, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %uri_names.sroa.0.0376, %if.then.i104 ], [ %uri_names.sroa.0.0376, %if.then.i144 ], [ %uri_names.sroa.0.0376, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %uri_names.sroa.0.0376, %if.then.i184 ], [ %uri_names.sroa.0.0376, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %has_verified_root_cert_subject.1 = phi i8 [ %has_verified_root_cert_subject.0377, %for.body ], [ %has_verified_root_cert_subject.0377, %invoke.cont ], [ %has_verified_root_cert_subject.0377, %invoke.cont19 ], [ %has_verified_root_cert_subject.0377, %invoke.cont31 ], [ 1, %invoke.cont95 ], [ %has_verified_root_cert_subject.0377, %if.else86 ], [ %has_verified_root_cert_subject.0377, %if.then.i ], [ %has_verified_root_cert_subject.0377, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %has_verified_root_cert_subject.0377, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %has_verified_root_cert_subject.0377, %if.then.i104 ], [ %has_verified_root_cert_subject.0377, %if.then.i144 ], [ %has_verified_root_cert_subject.0377, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %has_verified_root_cert_subject.0377, %if.then.i184 ], [ %has_verified_root_cert_subject.0377, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %has_peer_cert_full_chain.1 = phi i8 [ %has_peer_cert_full_chain.0379, %for.body ], [ %has_peer_cert_full_chain.0379, %invoke.cont ], [ %has_peer_cert_full_chain.0379, %invoke.cont19 ], [ 1, %invoke.cont31 ], [ %has_peer_cert_full_chain.0379, %invoke.cont95 ], [ %has_peer_cert_full_chain.0379, %if.else86 ], [ %has_peer_cert_full_chain.0379, %if.then.i ], [ %has_peer_cert_full_chain.0379, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %has_peer_cert_full_chain.0379, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %has_peer_cert_full_chain.0379, %if.then.i104 ], [ %has_peer_cert_full_chain.0379, %if.then.i144 ], [ %has_peer_cert_full_chain.0379, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %has_peer_cert_full_chain.0379, %if.then.i184 ], [ %has_peer_cert_full_chain.0379, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %has_peer_cert.1 = phi i8 [ %has_peer_cert.0380, %for.body ], [ %has_peer_cert.0380, %invoke.cont ], [ 1, %invoke.cont19 ], [ %has_peer_cert.0380, %invoke.cont31 ], [ %has_peer_cert.0380, %invoke.cont95 ], [ %has_peer_cert.0380, %if.else86 ], [ %has_peer_cert.0380, %if.then.i ], [ %has_peer_cert.0380, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %has_peer_cert.0380, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %has_peer_cert.0380, %if.then.i104 ], [ %has_peer_cert.0380, %if.then.i144 ], [ %has_peer_cert.0380, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %has_peer_cert.0380, %if.then.i184 ], [ %has_peer_cert.0380, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %has_common_name.1 = phi i8 [ %has_common_name.0381, %for.body ], [ 1, %invoke.cont ], [ %has_common_name.0381, %invoke.cont19 ], [ %has_common_name.0381, %invoke.cont31 ], [ %has_common_name.0381, %invoke.cont95 ], [ %has_common_name.0381, %if.else86 ], [ %has_common_name.0381, %if.then.i ], [ %has_common_name.0381, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %has_common_name.0381, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i129 ], [ %has_common_name.0381, %if.then.i104 ], [ %has_common_name.0381, %if.then.i144 ], [ %has_common_name.0381, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i169 ], [ %has_common_name.0381, %if.then.i184 ], [ %has_common_name.0381, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i209 ]
+  %inc = add nuw i64 %i.0378, 1
   %exitcond.not = icmp eq i64 %inc, %peer.coerce1
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc
-  %17 = and i8 %has_common_name.1, 1
-  %tobool.not = icmp eq i8 %17, 0
+  %21 = and i8 %has_common_name.1, 1
+  %tobool.not = icmp eq i8 %21, 0
   br i1 %tobool.not, label %if.then106, label %if.end109
 
 if.then106:                                       ; preds = %do.end, %for.end
-  %has_peer_cert.0.lcssa461 = phi i8 [ %has_peer_cert.1, %for.end ], [ 0, %do.end ]
-  %has_peer_cert_full_chain.0.lcssa459 = phi i8 [ %has_peer_cert_full_chain.1, %for.end ], [ 0, %do.end ]
-  %has_verified_root_cert_subject.0.lcssa457 = phi i8 [ %has_verified_root_cert_subject.1, %for.end ], [ 0, %do.end ]
-  %uri_names.sroa.0.0.lcssa455 = phi ptr [ %uri_names.sroa.0.2, %for.end ], [ null, %do.end ]
-  %uri_names.sroa.8.0.lcssa453 = phi ptr [ %uri_names.sroa.8.2, %for.end ], [ null, %do.end ]
-  %dns_names.sroa.0.0.lcssa451 = phi ptr [ %dns_names.sroa.0.2, %for.end ], [ null, %do.end ]
-  %ip_names.sroa.8.0.lcssa449 = phi ptr [ %ip_names.sroa.8.2, %for.end ], [ null, %do.end ]
-  %ip_names.sroa.0.0.lcssa447 = phi ptr [ %ip_names.sroa.0.2, %for.end ], [ null, %do.end ]
-  %email_names.sroa.8.0.lcssa445 = phi ptr [ %email_names.sroa.8.2, %for.end ], [ null, %do.end ]
-  %email_names.sroa.0.0.lcssa443 = phi ptr [ %email_names.sroa.0.2, %for.end ], [ null, %do.end ]
-  %dns_names.sroa.8.0.lcssa441 = phi ptr [ %dns_names.sroa.8.2, %for.end ], [ null, %do.end ]
+  %has_peer_cert.0.lcssa455 = phi i8 [ %has_peer_cert.1, %for.end ], [ 0, %do.end ]
+  %has_peer_cert_full_chain.0.lcssa453 = phi i8 [ %has_peer_cert_full_chain.1, %for.end ], [ 0, %do.end ]
+  %has_verified_root_cert_subject.0.lcssa451 = phi i8 [ %has_verified_root_cert_subject.1, %for.end ], [ 0, %do.end ]
+  %uri_names.sroa.0.0.lcssa449 = phi ptr [ %uri_names.sroa.0.2, %for.end ], [ null, %do.end ]
+  %uri_names.sroa.8.0.lcssa447 = phi ptr [ %uri_names.sroa.8.2, %for.end ], [ null, %do.end ]
+  %dns_names.sroa.0.0.lcssa445 = phi ptr [ %dns_names.sroa.0.2, %for.end ], [ null, %do.end ]
+  %ip_names.sroa.8.0.lcssa443 = phi ptr [ %ip_names.sroa.8.2, %for.end ], [ null, %do.end ]
+  %ip_names.sroa.0.0.lcssa441 = phi ptr [ %ip_names.sroa.0.2, %for.end ], [ null, %do.end ]
+  %email_names.sroa.8.0.lcssa439 = phi ptr [ %email_names.sroa.8.2, %for.end ], [ null, %do.end ]
+  %email_names.sroa.0.0.lcssa437 = phi ptr [ %email_names.sroa.0.2, %for.end ], [ null, %do.end ]
+  %dns_names.sroa.8.0.lcssa435 = phi ptr [ %dns_names.sroa.8.2, %for.end ], [ null, %do.end ]
   %peer_info107 = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1
   store ptr null, ptr %peer_info107, align 8
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then106, %for.end
-  %has_peer_cert.0.lcssa460 = phi i8 [ %has_peer_cert.0.lcssa461, %if.then106 ], [ %has_peer_cert.1, %for.end ]
-  %has_peer_cert_full_chain.0.lcssa458 = phi i8 [ %has_peer_cert_full_chain.0.lcssa459, %if.then106 ], [ %has_peer_cert_full_chain.1, %for.end ]
-  %has_verified_root_cert_subject.0.lcssa456 = phi i8 [ %has_verified_root_cert_subject.0.lcssa457, %if.then106 ], [ %has_verified_root_cert_subject.1, %for.end ]
-  %uri_names.sroa.0.0.lcssa454 = phi ptr [ %uri_names.sroa.0.0.lcssa455, %if.then106 ], [ %uri_names.sroa.0.2, %for.end ]
-  %uri_names.sroa.8.0.lcssa452 = phi ptr [ %uri_names.sroa.8.0.lcssa453, %if.then106 ], [ %uri_names.sroa.8.2, %for.end ]
-  %dns_names.sroa.0.0.lcssa450 = phi ptr [ %dns_names.sroa.0.0.lcssa451, %if.then106 ], [ %dns_names.sroa.0.2, %for.end ]
-  %ip_names.sroa.8.0.lcssa448 = phi ptr [ %ip_names.sroa.8.0.lcssa449, %if.then106 ], [ %ip_names.sroa.8.2, %for.end ]
-  %ip_names.sroa.0.0.lcssa446 = phi ptr [ %ip_names.sroa.0.0.lcssa447, %if.then106 ], [ %ip_names.sroa.0.2, %for.end ]
-  %email_names.sroa.8.0.lcssa444 = phi ptr [ %email_names.sroa.8.0.lcssa445, %if.then106 ], [ %email_names.sroa.8.2, %for.end ]
-  %email_names.sroa.0.0.lcssa442 = phi ptr [ %email_names.sroa.0.0.lcssa443, %if.then106 ], [ %email_names.sroa.0.2, %for.end ]
-  %dns_names.sroa.8.0.lcssa440 = phi ptr [ %dns_names.sroa.8.0.lcssa441, %if.then106 ], [ %dns_names.sroa.8.2, %for.end ]
-  %18 = and i8 %has_peer_cert.0.lcssa460, 1
-  %tobool110.not = icmp eq i8 %18, 0
+  %has_peer_cert.0.lcssa454 = phi i8 [ %has_peer_cert.0.lcssa455, %if.then106 ], [ %has_peer_cert.1, %for.end ]
+  %has_peer_cert_full_chain.0.lcssa452 = phi i8 [ %has_peer_cert_full_chain.0.lcssa453, %if.then106 ], [ %has_peer_cert_full_chain.1, %for.end ]
+  %has_verified_root_cert_subject.0.lcssa450 = phi i8 [ %has_verified_root_cert_subject.0.lcssa451, %if.then106 ], [ %has_verified_root_cert_subject.1, %for.end ]
+  %uri_names.sroa.0.0.lcssa448 = phi ptr [ %uri_names.sroa.0.0.lcssa449, %if.then106 ], [ %uri_names.sroa.0.2, %for.end ]
+  %uri_names.sroa.8.0.lcssa446 = phi ptr [ %uri_names.sroa.8.0.lcssa447, %if.then106 ], [ %uri_names.sroa.8.2, %for.end ]
+  %dns_names.sroa.0.0.lcssa444 = phi ptr [ %dns_names.sroa.0.0.lcssa445, %if.then106 ], [ %dns_names.sroa.0.2, %for.end ]
+  %ip_names.sroa.8.0.lcssa442 = phi ptr [ %ip_names.sroa.8.0.lcssa443, %if.then106 ], [ %ip_names.sroa.8.2, %for.end ]
+  %ip_names.sroa.0.0.lcssa440 = phi ptr [ %ip_names.sroa.0.0.lcssa441, %if.then106 ], [ %ip_names.sroa.0.2, %for.end ]
+  %email_names.sroa.8.0.lcssa438 = phi ptr [ %email_names.sroa.8.0.lcssa439, %if.then106 ], [ %email_names.sroa.8.2, %for.end ]
+  %email_names.sroa.0.0.lcssa436 = phi ptr [ %email_names.sroa.0.0.lcssa437, %if.then106 ], [ %email_names.sroa.0.2, %for.end ]
+  %dns_names.sroa.8.0.lcssa434 = phi ptr [ %dns_names.sroa.8.0.lcssa435, %if.then106 ], [ %dns_names.sroa.8.2, %for.end ]
+  %22 = and i8 %has_peer_cert.0.lcssa454, 1
+  %tobool110.not = icmp eq i8 %22, 0
   br i1 %tobool110.not, label %if.then111, label %if.end114
 
 if.then111:                                       ; preds = %if.end109
@@ -3464,8 +3460,8 @@ if.then111:                                       ; preds = %if.end109
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then111, %if.end109
-  %19 = and i8 %has_peer_cert_full_chain.0.lcssa458, 1
-  %tobool115.not = icmp eq i8 %19, 0
+  %23 = and i8 %has_peer_cert_full_chain.0.lcssa452, 1
+  %tobool115.not = icmp eq i8 %23, 0
   br i1 %tobool115.not, label %if.then116, label %if.end119
 
 if.then116:                                       ; preds = %if.end114
@@ -3474,8 +3470,8 @@ if.then116:                                       ; preds = %if.end114
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then116, %if.end114
-  %20 = and i8 %has_verified_root_cert_subject.0.lcssa456, 1
-  %tobool120.not = icmp eq i8 %20, 0
+  %24 = and i8 %has_verified_root_cert_subject.0.lcssa450, 1
+  %tobool120.not = icmp eq i8 %24, 0
   br i1 %tobool120.not, label %if.then121, label %if.end124
 
 if.then121:                                       ; preds = %if.end119
@@ -3484,37 +3480,37 @@ if.then121:                                       ; preds = %if.end119
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then121, %if.end119
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %uri_names.sroa.8.0.lcssa452 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %uri_names.sroa.0.0.lcssa454 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %uri_names.sroa.8.0.lcssa446 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %uri_names.sroa.0.0.lcssa448 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %san_names = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 1
   %uri_names_size = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 1, i32 1
   store i64 %sub.ptr.div.i, ptr %uri_names_size, align 8
-  %cmp.i.i = icmp eq ptr %uri_names.sroa.0.0.lcssa454, %uri_names.sroa.8.0.lcssa452
+  %cmp.i.i = icmp eq ptr %uri_names.sroa.0.0.lcssa448, %uri_names.sroa.8.0.lcssa446
   br i1 %cmp.i.i, label %if.else152, label %if.then128
 
 if.then128:                                       ; preds = %if.end124
-  %21 = icmp ugt i64 %sub.ptr.div.i, 2305843009213693951
-  %22 = select i1 %21, i64 -1, i64 %sub.ptr.sub.i
-  %call133 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %22) #18
+  %25 = icmp ugt i64 %sub.ptr.div.i, 2305843009213693951
+  %26 = select i1 %25, i64 -1, i64 %sub.ptr.sub.i
+  %call133 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #18
           to label %invoke.cont132 unwind label %lpad.loopexit.split-lp
 
 invoke.cont132:                                   ; preds = %if.then128
   store ptr %call133, ptr %san_names, align 8
-  %cmp142399.not = icmp eq ptr %uri_names.sroa.8.0.lcssa452, %uri_names.sroa.0.0.lcssa454
-  br i1 %cmp142399.not, label %if.end156, label %for.body143
+  %cmp142393.not = icmp eq ptr %uri_names.sroa.8.0.lcssa446, %uri_names.sroa.0.0.lcssa448
+  br i1 %cmp142393.not, label %if.end156, label %for.body143
 
 for.body143:                                      ; preds = %invoke.cont132, %for.body143
-  %i137.0400 = phi i64 [ %inc150, %for.body143 ], [ 0, %invoke.cont132 ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %uri_names.sroa.0.0.lcssa454, i64 %i137.0400
-  %23 = load ptr, ptr %add.ptr.i, align 8
-  %24 = load ptr, ptr %san_names, align 8
-  %arrayidx148 = getelementptr inbounds ptr, ptr %24, i64 %i137.0400
-  store ptr %23, ptr %arrayidx148, align 8
-  %inc150 = add nuw i64 %i137.0400, 1
-  %25 = load i64, ptr %uri_names_size, align 8
-  %cmp142 = icmp ult i64 %inc150, %25
+  %i137.0394 = phi i64 [ %inc150, %for.body143 ], [ 0, %invoke.cont132 ]
+  %add.ptr.i = getelementptr inbounds ptr, ptr %uri_names.sroa.0.0.lcssa448, i64 %i137.0394
+  %27 = load ptr, ptr %add.ptr.i, align 8
+  %28 = load ptr, ptr %san_names, align 8
+  %arrayidx148 = getelementptr inbounds ptr, ptr %28, i64 %i137.0394
+  store ptr %27, ptr %arrayidx148, align 8
+  %inc150 = add nuw i64 %i137.0394, 1
+  %29 = load i64, ptr %uri_names_size, align 8
+  %cmp142 = icmp ult i64 %inc150, %29
   br i1 %cmp142, label %for.body143, label %if.end156, !llvm.loop !20
 
 if.else152:                                       ; preds = %if.end124
@@ -3522,37 +3518,37 @@ if.else152:                                       ; preds = %if.end124
   br label %if.end156
 
 if.end156:                                        ; preds = %for.body143, %invoke.cont132, %if.else152
-  %sub.ptr.lhs.cast.i229 = ptrtoint ptr %dns_names.sroa.8.0.lcssa440 to i64
-  %sub.ptr.rhs.cast.i230 = ptrtoint ptr %dns_names.sroa.0.0.lcssa450 to i64
-  %sub.ptr.sub.i231 = sub i64 %sub.ptr.lhs.cast.i229, %sub.ptr.rhs.cast.i230
-  %sub.ptr.div.i232 = ashr exact i64 %sub.ptr.sub.i231, 3
+  %sub.ptr.lhs.cast.i223 = ptrtoint ptr %dns_names.sroa.8.0.lcssa434 to i64
+  %sub.ptr.rhs.cast.i224 = ptrtoint ptr %dns_names.sroa.0.0.lcssa444 to i64
+  %sub.ptr.sub.i225 = sub i64 %sub.ptr.lhs.cast.i223, %sub.ptr.rhs.cast.i224
+  %sub.ptr.div.i226 = ashr exact i64 %sub.ptr.sub.i225, 3
   %dns_names_size = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 1, i32 3
-  store i64 %sub.ptr.div.i232, ptr %dns_names_size, align 8
-  %cmp.i.i234 = icmp eq ptr %dns_names.sroa.0.0.lcssa450, %dns_names.sroa.8.0.lcssa440
-  br i1 %cmp.i.i234, label %if.else185, label %if.then161
+  store i64 %sub.ptr.div.i226, ptr %dns_names_size, align 8
+  %cmp.i.i228 = icmp eq ptr %dns_names.sroa.0.0.lcssa444, %dns_names.sroa.8.0.lcssa434
+  br i1 %cmp.i.i228, label %if.else185, label %if.then161
 
 if.then161:                                       ; preds = %if.end156
-  %26 = icmp ugt i64 %sub.ptr.div.i232, 2305843009213693951
-  %27 = select i1 %26, i64 -1, i64 %sub.ptr.sub.i231
-  %call166 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %30 = icmp ugt i64 %sub.ptr.div.i226, 2305843009213693951
+  %31 = select i1 %30, i64 -1, i64 %sub.ptr.sub.i225
+  %call166 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #18
           to label %invoke.cont165 unwind label %lpad.loopexit.split-lp
 
 invoke.cont165:                                   ; preds = %if.then161
   %dns_names169 = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 1, i32 2
   store ptr %call166, ptr %dns_names169, align 8
-  %cmp175401.not = icmp eq ptr %dns_names.sroa.8.0.lcssa440, %dns_names.sroa.0.0.lcssa450
-  br i1 %cmp175401.not, label %if.end189, label %for.body176
+  %cmp175395.not = icmp eq ptr %dns_names.sroa.8.0.lcssa434, %dns_names.sroa.0.0.lcssa444
+  br i1 %cmp175395.not, label %if.end189, label %for.body176
 
 for.body176:                                      ; preds = %invoke.cont165, %for.body176
-  %i170.0402 = phi i64 [ %inc183, %for.body176 ], [ 0, %invoke.cont165 ]
-  %add.ptr.i235 = getelementptr inbounds ptr, ptr %dns_names.sroa.0.0.lcssa450, i64 %i170.0402
-  %28 = load ptr, ptr %add.ptr.i235, align 8
-  %29 = load ptr, ptr %dns_names169, align 8
-  %arrayidx181 = getelementptr inbounds ptr, ptr %29, i64 %i170.0402
-  store ptr %28, ptr %arrayidx181, align 8
-  %inc183 = add nuw i64 %i170.0402, 1
-  %30 = load i64, ptr %dns_names_size, align 8
-  %cmp175 = icmp ult i64 %inc183, %30
+  %i170.0396 = phi i64 [ %inc183, %for.body176 ], [ 0, %invoke.cont165 ]
+  %add.ptr.i229 = getelementptr inbounds ptr, ptr %dns_names.sroa.0.0.lcssa444, i64 %i170.0396
+  %32 = load ptr, ptr %add.ptr.i229, align 8
+  %33 = load ptr, ptr %dns_names169, align 8
+  %arrayidx181 = getelementptr inbounds ptr, ptr %33, i64 %i170.0396
+  store ptr %32, ptr %arrayidx181, align 8
+  %inc183 = add nuw i64 %i170.0396, 1
+  %34 = load i64, ptr %dns_names_size, align 8
+  %cmp175 = icmp ult i64 %inc183, %34
   br i1 %cmp175, label %for.body176, label %if.end189, !llvm.loop !21
 
 if.else185:                                       ; preds = %if.end156
@@ -3561,37 +3557,37 @@ if.else185:                                       ; preds = %if.end156
   br label %if.end189
 
 if.end189:                                        ; preds = %for.body176, %invoke.cont165, %if.else185
-  %sub.ptr.lhs.cast.i237 = ptrtoint ptr %email_names.sroa.8.0.lcssa444 to i64
-  %sub.ptr.rhs.cast.i238 = ptrtoint ptr %email_names.sroa.0.0.lcssa442 to i64
-  %sub.ptr.sub.i239 = sub i64 %sub.ptr.lhs.cast.i237, %sub.ptr.rhs.cast.i238
-  %sub.ptr.div.i240 = ashr exact i64 %sub.ptr.sub.i239, 3
+  %sub.ptr.lhs.cast.i231 = ptrtoint ptr %email_names.sroa.8.0.lcssa438 to i64
+  %sub.ptr.rhs.cast.i232 = ptrtoint ptr %email_names.sroa.0.0.lcssa436 to i64
+  %sub.ptr.sub.i233 = sub i64 %sub.ptr.lhs.cast.i231, %sub.ptr.rhs.cast.i232
+  %sub.ptr.div.i234 = ashr exact i64 %sub.ptr.sub.i233, 3
   %email_names_size = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 1, i32 5
-  store i64 %sub.ptr.div.i240, ptr %email_names_size, align 8
-  %cmp.i.i242 = icmp eq ptr %email_names.sroa.0.0.lcssa442, %email_names.sroa.8.0.lcssa444
-  br i1 %cmp.i.i242, label %if.else218, label %if.then194
+  store i64 %sub.ptr.div.i234, ptr %email_names_size, align 8
+  %cmp.i.i236 = icmp eq ptr %email_names.sroa.0.0.lcssa436, %email_names.sroa.8.0.lcssa438
+  br i1 %cmp.i.i236, label %if.else218, label %if.then194
 
 if.then194:                                       ; preds = %if.end189
-  %31 = icmp ugt i64 %sub.ptr.div.i240, 2305843009213693951
-  %32 = select i1 %31, i64 -1, i64 %sub.ptr.sub.i239
-  %call199 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #18
+  %35 = icmp ugt i64 %sub.ptr.div.i234, 2305843009213693951
+  %36 = select i1 %35, i64 -1, i64 %sub.ptr.sub.i233
+  %call199 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %36) #18
           to label %invoke.cont198 unwind label %lpad.loopexit.split-lp
 
 invoke.cont198:                                   ; preds = %if.then194
   %email_names202 = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 1, i32 4
   store ptr %call199, ptr %email_names202, align 8
-  %cmp208403.not = icmp eq ptr %email_names.sroa.8.0.lcssa444, %email_names.sroa.0.0.lcssa442
-  br i1 %cmp208403.not, label %if.end222, label %for.body209
+  %cmp208397.not = icmp eq ptr %email_names.sroa.8.0.lcssa438, %email_names.sroa.0.0.lcssa436
+  br i1 %cmp208397.not, label %if.end222, label %for.body209
 
 for.body209:                                      ; preds = %invoke.cont198, %for.body209
-  %i203.0404 = phi i64 [ %inc216, %for.body209 ], [ 0, %invoke.cont198 ]
-  %add.ptr.i243 = getelementptr inbounds ptr, ptr %email_names.sroa.0.0.lcssa442, i64 %i203.0404
-  %33 = load ptr, ptr %add.ptr.i243, align 8
-  %34 = load ptr, ptr %email_names202, align 8
-  %arrayidx214 = getelementptr inbounds ptr, ptr %34, i64 %i203.0404
-  store ptr %33, ptr %arrayidx214, align 8
-  %inc216 = add nuw i64 %i203.0404, 1
-  %35 = load i64, ptr %email_names_size, align 8
-  %cmp208 = icmp ult i64 %inc216, %35
+  %i203.0398 = phi i64 [ %inc216, %for.body209 ], [ 0, %invoke.cont198 ]
+  %add.ptr.i237 = getelementptr inbounds ptr, ptr %email_names.sroa.0.0.lcssa436, i64 %i203.0398
+  %37 = load ptr, ptr %add.ptr.i237, align 8
+  %38 = load ptr, ptr %email_names202, align 8
+  %arrayidx214 = getelementptr inbounds ptr, ptr %38, i64 %i203.0398
+  store ptr %37, ptr %arrayidx214, align 8
+  %inc216 = add nuw i64 %i203.0398, 1
+  %39 = load i64, ptr %email_names_size, align 8
+  %cmp208 = icmp ult i64 %inc216, %39
   br i1 %cmp208, label %for.body209, label %if.end222, !llvm.loop !22
 
 if.else218:                                       ; preds = %if.end189
@@ -3600,38 +3596,38 @@ if.else218:                                       ; preds = %if.end189
   br label %if.end222
 
 if.end222:                                        ; preds = %for.body209, %invoke.cont198, %if.else218
-  %sub.ptr.lhs.cast.i245 = ptrtoint ptr %ip_names.sroa.8.0.lcssa448 to i64
-  %sub.ptr.rhs.cast.i246 = ptrtoint ptr %ip_names.sroa.0.0.lcssa446 to i64
-  %sub.ptr.sub.i247 = sub i64 %sub.ptr.lhs.cast.i245, %sub.ptr.rhs.cast.i246
-  %sub.ptr.div.i248 = ashr exact i64 %sub.ptr.sub.i247, 3
+  %sub.ptr.lhs.cast.i239 = ptrtoint ptr %ip_names.sroa.8.0.lcssa442 to i64
+  %sub.ptr.rhs.cast.i240 = ptrtoint ptr %ip_names.sroa.0.0.lcssa440 to i64
+  %sub.ptr.sub.i241 = sub i64 %sub.ptr.lhs.cast.i239, %sub.ptr.rhs.cast.i240
+  %sub.ptr.div.i242 = ashr exact i64 %sub.ptr.sub.i241, 3
   %ip_names_size = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 1, i32 7
-  store i64 %sub.ptr.div.i248, ptr %ip_names_size, align 8
-  %cmp.i.i250 = icmp eq ptr %ip_names.sroa.0.0.lcssa446, %ip_names.sroa.8.0.lcssa448
-  br i1 %cmp.i.i250, label %if.else251, label %if.then227
+  store i64 %sub.ptr.div.i242, ptr %ip_names_size, align 8
+  %cmp.i.i244 = icmp eq ptr %ip_names.sroa.0.0.lcssa440, %ip_names.sroa.8.0.lcssa442
+  br i1 %cmp.i.i244, label %if.else251, label %if.then227
 
 if.then227:                                       ; preds = %if.end222
-  %36 = icmp ugt i64 %sub.ptr.div.i248, 2305843009213693951
-  %37 = select i1 %36, i64 -1, i64 %sub.ptr.sub.i247
-  %call232 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %37) #18
+  %40 = icmp ugt i64 %sub.ptr.div.i242, 2305843009213693951
+  %41 = select i1 %40, i64 -1, i64 %sub.ptr.sub.i241
+  %call232 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %41) #18
           to label %invoke.cont231 unwind label %lpad.loopexit.split-lp
 
 invoke.cont231:                                   ; preds = %if.then227
   %ip_names235 = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 1, i32 6
   store ptr %call232, ptr %ip_names235, align 8
-  %cmp241405.not = icmp eq ptr %ip_names.sroa.8.0.lcssa448, %ip_names.sroa.0.0.lcssa446
-  br i1 %cmp241405.not, label %if.end255, label %for.body242
+  %cmp241399.not = icmp eq ptr %ip_names.sroa.8.0.lcssa442, %ip_names.sroa.0.0.lcssa440
+  br i1 %cmp241399.not, label %if.end255, label %for.body242
 
 for.body242:                                      ; preds = %invoke.cont231, %for.body242
-  %i236.0406 = phi i64 [ %inc249, %for.body242 ], [ 0, %invoke.cont231 ]
-  %add.ptr.i251 = getelementptr inbounds ptr, ptr %ip_names.sroa.0.0.lcssa446, i64 %i236.0406
-  %38 = load ptr, ptr %add.ptr.i251, align 8
-  %39 = load ptr, ptr %ip_names235, align 8
-  %arrayidx247 = getelementptr inbounds ptr, ptr %39, i64 %i236.0406
-  store ptr %38, ptr %arrayidx247, align 8
-  %inc249 = add nuw i64 %i236.0406, 1
-  %40 = load i64, ptr %ip_names_size, align 8
-  %cmp241 = icmp ult i64 %inc249, %40
-  br i1 %cmp241, label %for.body242, label %if.then.i.i.i253, !llvm.loop !23
+  %i236.0400 = phi i64 [ %inc249, %for.body242 ], [ 0, %invoke.cont231 ]
+  %add.ptr.i245 = getelementptr inbounds ptr, ptr %ip_names.sroa.0.0.lcssa440, i64 %i236.0400
+  %42 = load ptr, ptr %add.ptr.i245, align 8
+  %43 = load ptr, ptr %ip_names235, align 8
+  %arrayidx247 = getelementptr inbounds ptr, ptr %43, i64 %i236.0400
+  store ptr %42, ptr %arrayidx247, align 8
+  %inc249 = add nuw i64 %i236.0400, 1
+  %44 = load i64, ptr %ip_names_size, align 8
+  %cmp241 = icmp ult i64 %inc249, %44
+  br i1 %cmp241, label %for.body242, label %if.then.i.i.i247, !llvm.loop !23
 
 if.else251:                                       ; preds = %if.end222
   %ip_names254 = getelementptr inbounds %struct.grpc_tls_custom_verification_check_request, ptr %request, i64 0, i32 1, i32 1, i32 6
@@ -3639,38 +3635,38 @@ if.else251:                                       ; preds = %if.end222
   br label %if.end255
 
 if.end255:                                        ; preds = %invoke.cont231, %if.else251
-  %tobool.not.i.i.i252 = icmp eq ptr %ip_names.sroa.0.0.lcssa446, null
+  %tobool.not.i.i.i246 = icmp eq ptr %ip_names.sroa.0.0.lcssa440, null
+  br i1 %tobool.not.i.i.i246, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit248, label %if.then.i.i.i247
+
+if.then.i.i.i247:                                 ; preds = %for.body242, %if.end255
+  tail call void @_ZdlPv(ptr noundef nonnull %ip_names.sroa.0.0.lcssa440) #20
+  br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit248
+
+_ZNSt6vectorIPcSaIS0_EED2Ev.exit248:              ; preds = %if.end255, %if.then.i.i.i247
+  %tobool.not.i.i.i249 = icmp eq ptr %email_names.sroa.0.0.lcssa436, null
+  br i1 %tobool.not.i.i.i249, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit251, label %if.then.i.i.i250
+
+if.then.i.i.i250:                                 ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit248
+  tail call void @_ZdlPv(ptr noundef nonnull %email_names.sroa.0.0.lcssa436) #20
+  br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit251
+
+_ZNSt6vectorIPcSaIS0_EED2Ev.exit251:              ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit248, %if.then.i.i.i250
+  %tobool.not.i.i.i252 = icmp eq ptr %dns_names.sroa.0.0.lcssa444, null
   br i1 %tobool.not.i.i.i252, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit254, label %if.then.i.i.i253
 
-if.then.i.i.i253:                                 ; preds = %for.body242, %if.end255
-  tail call void @_ZdlPv(ptr noundef nonnull %ip_names.sroa.0.0.lcssa446) #20
+if.then.i.i.i253:                                 ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit251
+  tail call void @_ZdlPv(ptr noundef nonnull %dns_names.sroa.0.0.lcssa444) #20
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit254
 
-_ZNSt6vectorIPcSaIS0_EED2Ev.exit254:              ; preds = %if.end255, %if.then.i.i.i253
-  %tobool.not.i.i.i255 = icmp eq ptr %email_names.sroa.0.0.lcssa442, null
+_ZNSt6vectorIPcSaIS0_EED2Ev.exit254:              ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit251, %if.then.i.i.i253
+  %tobool.not.i.i.i255 = icmp eq ptr %uri_names.sroa.0.0.lcssa448, null
   br i1 %tobool.not.i.i.i255, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit257, label %if.then.i.i.i256
 
 if.then.i.i.i256:                                 ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit254
-  tail call void @_ZdlPv(ptr noundef nonnull %email_names.sroa.0.0.lcssa442) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %uri_names.sroa.0.0.lcssa448) #20
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit257
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit257:              ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit254, %if.then.i.i.i256
-  %tobool.not.i.i.i258 = icmp eq ptr %dns_names.sroa.0.0.lcssa450, null
-  br i1 %tobool.not.i.i.i258, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit260, label %if.then.i.i.i259
-
-if.then.i.i.i259:                                 ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit257
-  tail call void @_ZdlPv(ptr noundef nonnull %dns_names.sroa.0.0.lcssa450) #20
-  br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit260
-
-_ZNSt6vectorIPcSaIS0_EED2Ev.exit260:              ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit257, %if.then.i.i.i259
-  %tobool.not.i.i.i261 = icmp eq ptr %uri_names.sroa.0.0.lcssa454, null
-  br i1 %tobool.not.i.i.i261, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit263, label %if.then.i.i.i262
-
-if.then.i.i.i262:                                 ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit260
-  tail call void @_ZdlPv(ptr noundef nonnull %uri_names.sroa.0.0.lcssa454) #20
-  br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit263
-
-_ZNSt6vectorIPcSaIS0_EED2Ev.exit263:              ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit260, %if.then.i.i.i262
   ret void
 }
 
@@ -8278,6 +8274,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

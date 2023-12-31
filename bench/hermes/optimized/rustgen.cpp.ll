@@ -15089,22 +15089,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA6_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(6) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -15121,16 +15120,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !9, !noalias !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !12, !noalias !9
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -15156,16 +15155,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !18, !noalias !15
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !15, !noalias !18
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !18, !noalias !15
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !15, !noalias !18
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !18, !noalias !15
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !15, !noalias !18
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !18, !noalias !15
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !15, !noalias !18
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !18, !noalias !15
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !15, !noalias !18
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !18, !noalias !15
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !15, !noalias !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !18, !noalias !15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -15429,22 +15428,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA9_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(9) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -15461,16 +15459,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !30, !noalias !27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -15496,16 +15494,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !35, !noalias !32
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !32, !noalias !35
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !35, !noalias !32
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !32, !noalias !35
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !35, !noalias !32
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !32, !noalias !35
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !35, !noalias !32
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !32, !noalias !35
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !35, !noalias !32
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !32, !noalias !35
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !35, !noalias !32
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !32, !noalias !35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -15689,22 +15687,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA13_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(13) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -15721,16 +15718,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !46, !noalias !43
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !43, !noalias !46
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !46, !noalias !43
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !43, !noalias !46
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !46, !noalias !43
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !43, !noalias !46
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !46, !noalias !43
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !43, !noalias !46
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !46, !noalias !43
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !43, !noalias !46
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !46, !noalias !43
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !43, !noalias !46
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !46, !noalias !43
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -15756,16 +15753,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !51, !noalias !48
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !48, !noalias !51
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !51, !noalias !48
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !48, !noalias !51
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !51, !noalias !48
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !48, !noalias !51
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !51, !noalias !48
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !48, !noalias !51
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !51, !noalias !48
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !48, !noalias !51
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !51, !noalias !48
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !48, !noalias !51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !51, !noalias !48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -15950,22 +15947,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA8_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -15982,16 +15978,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !62, !noalias !59
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !59, !noalias !62
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !62, !noalias !59
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !59, !noalias !62
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !62, !noalias !59
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !59, !noalias !62
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !62, !noalias !59
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !59, !noalias !62
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !62, !noalias !59
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !59, !noalias !62
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !62, !noalias !59
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !59, !noalias !62
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !62, !noalias !59
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -16017,16 +16013,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !67, !noalias !64
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !64, !noalias !67
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !67, !noalias !64
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !64, !noalias !67
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !67, !noalias !64
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !64, !noalias !67
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !67, !noalias !64
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !64, !noalias !67
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !67, !noalias !64
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !64, !noalias !67
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !67, !noalias !64
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -16212,39 +16208,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -16257,16 +16252,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !78, !noalias !75
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !75, !noalias !78
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !78, !noalias !75
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !75, !noalias !78
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !78
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !78
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -16284,16 +16279,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !84, !noalias !81
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !81, !noalias !84
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !84, !noalias !81
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !81, !noalias !84
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !84, !noalias !81
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !81, !noalias !84
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !84, !noalias !81
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !81, !noalias !84
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -16339,22 +16334,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA19_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(19) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -16371,16 +16365,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !89, !noalias !86
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !86, !noalias !89
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !89, !noalias !86
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !86, !noalias !89
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !89, !noalias !86
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !86, !noalias !89
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !89, !noalias !86
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !86, !noalias !89
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !89, !noalias !86
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !86, !noalias !89
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !89, !noalias !86
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !86, !noalias !89
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !89, !noalias !86
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -16406,16 +16400,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !94, !noalias !91
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !91, !noalias !94
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !94, !noalias !91
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !91, !noalias !94
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !94, !noalias !91
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !91, !noalias !94
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !94, !noalias !91
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !91, !noalias !94
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !94, !noalias !91
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !91, !noalias !94
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !94, !noalias !91
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !91, !noalias !94
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !94, !noalias !91
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -16601,39 +16595,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -16646,16 +16639,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !105, !noalias !102
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !102, !noalias !105
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !105, !noalias !102
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !102, !noalias !105
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !105, !noalias !102
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !102, !noalias !105
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !105, !noalias !102
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !102, !noalias !105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -16673,16 +16666,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !110, !noalias !107
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !107, !noalias !110
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !110, !noalias !107
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !107, !noalias !110
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !110, !noalias !107
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !107, !noalias !110
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !110, !noalias !107
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !107, !noalias !110
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -16730,39 +16723,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -16775,16 +16767,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !115, !noalias !112
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !112, !noalias !115
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !115, !noalias !112
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !112, !noalias !115
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !112
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !112, !noalias !115
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !112
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !112, !noalias !115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -16802,16 +16794,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !120, !noalias !117
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !117, !noalias !120
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !120, !noalias !117
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !117, !noalias !120
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !120, !noalias !117
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !117, !noalias !120
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !120, !noalias !117
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !117, !noalias !120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -16859,39 +16851,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -16904,16 +16895,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !125, !noalias !122
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !122, !noalias !125
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !125, !noalias !122
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !122, !noalias !125
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !125, !noalias !122
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !125
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !125, !noalias !122
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !125
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -16931,16 +16922,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !130, !noalias !127
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !127, !noalias !130
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !130, !noalias !127
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !127, !noalias !130
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !130, !noalias !127
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !127, !noalias !130
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !130, !noalias !127
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !127, !noalias !130
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -16988,39 +16979,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -17033,16 +17023,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !135, !noalias !132
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !132, !noalias !135
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !135, !noalias !132
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !132, !noalias !135
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !135, !noalias !132
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !132, !noalias !135
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !135, !noalias !132
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !132, !noalias !135
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -17060,16 +17050,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !137)
   call void @llvm.experimental.noalias.scope.decl(metadata !140)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !140, !noalias !137
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !137, !noalias !140
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !140, !noalias !137
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !137, !noalias !140
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !140, !noalias !137
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !137, !noalias !140
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !140, !noalias !137
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !137, !noalias !140
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -17117,39 +17107,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -17162,16 +17151,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !145, !noalias !142
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !142, !noalias !145
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !145, !noalias !142
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !142, !noalias !145
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !145, !noalias !142
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !142, !noalias !145
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !145, !noalias !142
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !142, !noalias !145
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -17189,16 +17178,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !147)
   call void @llvm.experimental.noalias.scope.decl(metadata !150)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !150, !noalias !147
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !147, !noalias !150
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !150, !noalias !147
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !147, !noalias !150
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !150, !noalias !147
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !147, !noalias !150
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !150, !noalias !147
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !147, !noalias !150
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -17246,39 +17235,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -17291,16 +17279,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !155, !noalias !152
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !152, !noalias !155
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !155, !noalias !152
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !152, !noalias !155
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !155, !noalias !152
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !152, !noalias !155
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !155, !noalias !152
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !152, !noalias !155
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -17318,16 +17306,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !160, !noalias !157
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !157, !noalias !160
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !160, !noalias !157
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !157, !noalias !160
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !160, !noalias !157
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !157, !noalias !160
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !160, !noalias !157
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !157, !noalias !160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -17373,22 +17361,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA24_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(24) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -17405,16 +17392,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !165, !noalias !162
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !162, !noalias !165
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !165, !noalias !162
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !162, !noalias !165
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !165, !noalias !162
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !162, !noalias !165
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !165, !noalias !162
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !162, !noalias !165
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !165, !noalias !162
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !162, !noalias !165
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !165, !noalias !162
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !162, !noalias !165
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !165, !noalias !162
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -17440,16 +17427,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !170, !noalias !167
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !167, !noalias !170
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !170, !noalias !167
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !167, !noalias !170
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !170, !noalias !167
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !167, !noalias !170
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !170, !noalias !167
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !167, !noalias !170
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !170, !noalias !167
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !167, !noalias !170
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !170, !noalias !167
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !167, !noalias !170
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !170, !noalias !167
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -17633,22 +17620,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA20_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(20) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -17665,16 +17651,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !181, !noalias !178
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !178, !noalias !181
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !181, !noalias !178
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !178, !noalias !181
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !181, !noalias !178
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !178, !noalias !181
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !181, !noalias !178
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !178, !noalias !181
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !181, !noalias !178
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !178, !noalias !181
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !181, !noalias !178
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !178, !noalias !181
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !181, !noalias !178
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -17700,16 +17686,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !186, !noalias !183
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !183, !noalias !186
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !186, !noalias !183
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !183, !noalias !186
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !186, !noalias !183
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !183, !noalias !186
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !186, !noalias !183
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !183, !noalias !186
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !186, !noalias !183
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !183, !noalias !186
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !186, !noalias !183
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !183, !noalias !186
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !186, !noalias !183
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -17893,22 +17879,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA21_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(21) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -17925,16 +17910,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !197, !noalias !194
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !197
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !197, !noalias !194
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !197
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !197, !noalias !194
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !197
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !197, !noalias !194
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !197
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !197, !noalias !194
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !197
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !197, !noalias !194
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !197
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !197, !noalias !194
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -17960,16 +17945,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !202, !noalias !199
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !199, !noalias !202
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !202, !noalias !199
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !199, !noalias !202
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !202, !noalias !199
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !199, !noalias !202
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !202, !noalias !199
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !199, !noalias !202
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !202, !noalias !199
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !199, !noalias !202
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !202, !noalias !199
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !199, !noalias !202
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !202, !noalias !199
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -18155,39 +18140,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -18200,16 +18184,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !213, !noalias !210
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !210, !noalias !213
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !213, !noalias !210
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !210, !noalias !213
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !213, !noalias !210
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !210, !noalias !213
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !213, !noalias !210
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !210, !noalias !213
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -18227,16 +18211,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !215)
   call void @llvm.experimental.noalias.scope.decl(metadata !218)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !218, !noalias !215
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !215, !noalias !218
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !218, !noalias !215
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !215, !noalias !218
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !218, !noalias !215
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !215, !noalias !218
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !218, !noalias !215
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !215, !noalias !218
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -18282,22 +18266,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA13_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(13) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -18314,16 +18297,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !223, !noalias !220
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !220, !noalias !223
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !223, !noalias !220
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !220, !noalias !223
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !223, !noalias !220
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !220, !noalias !223
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !223, !noalias !220
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !220, !noalias !223
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !223, !noalias !220
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !220, !noalias !223
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !223, !noalias !220
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !220, !noalias !223
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !223, !noalias !220
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -18349,16 +18332,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !228, !noalias !225
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !225, !noalias !228
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !228, !noalias !225
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !225, !noalias !228
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !228, !noalias !225
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !225, !noalias !228
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !228, !noalias !225
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !225, !noalias !228
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !228, !noalias !225
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !225, !noalias !228
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !228, !noalias !225
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !225, !noalias !228
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !228, !noalias !225
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -18440,22 +18423,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA10_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(10) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -18472,16 +18454,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !233, !noalias !230
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !230, !noalias !233
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !233, !noalias !230
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !230, !noalias !233
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !233, !noalias !230
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !230, !noalias !233
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !233, !noalias !230
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !230, !noalias !233
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !233, !noalias !230
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !230, !noalias !233
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !233, !noalias !230
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !230, !noalias !233
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !233, !noalias !230
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -18507,16 +18489,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !238, !noalias !235
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !235, !noalias !238
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !238, !noalias !235
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !235, !noalias !238
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !238, !noalias !235
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !235, !noalias !238
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !238, !noalias !235
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !235, !noalias !238
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !238, !noalias !235
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !235, !noalias !238
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !238, !noalias !235
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !235, !noalias !238
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !238, !noalias !235
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -18701,22 +18683,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA14_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(14) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -18733,16 +18714,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !249, !noalias !246
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !249
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !249, !noalias !246
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !249
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !249, !noalias !246
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !249
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !249, !noalias !246
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !249
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !249, !noalias !246
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !249
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !249, !noalias !246
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !246, !noalias !249
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !249, !noalias !246
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -18768,16 +18749,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !254, !noalias !251
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !251, !noalias !254
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !254, !noalias !251
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !251, !noalias !254
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !254, !noalias !251
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !251, !noalias !254
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !254, !noalias !251
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !251, !noalias !254
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !254, !noalias !251
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !251, !noalias !254
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !254, !noalias !251
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !251, !noalias !254
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !254, !noalias !251
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -18962,22 +18943,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA15_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(15) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -18994,16 +18974,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !265, !noalias !262
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !262, !noalias !265
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !265, !noalias !262
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !262, !noalias !265
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !265, !noalias !262
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !262, !noalias !265
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !265, !noalias !262
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !262, !noalias !265
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !265, !noalias !262
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !262, !noalias !265
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !265, !noalias !262
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !262, !noalias !265
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !265, !noalias !262
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -19029,16 +19009,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !270, !noalias !267
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !267, !noalias !270
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !270, !noalias !267
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !267, !noalias !270
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !270, !noalias !267
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !267, !noalias !270
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !270, !noalias !267
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !267, !noalias !270
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !270, !noalias !267
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !267, !noalias !270
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !270, !noalias !267
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !267, !noalias !270
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !270, !noalias !267
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -19222,22 +19202,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA17_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(17) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -19254,16 +19233,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !281, !noalias !278
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !278, !noalias !281
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !281, !noalias !278
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !278, !noalias !281
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !281, !noalias !278
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !278, !noalias !281
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !281, !noalias !278
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !278, !noalias !281
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !281, !noalias !278
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !278, !noalias !281
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !281, !noalias !278
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !278, !noalias !281
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !281, !noalias !278
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -19289,16 +19268,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !286, !noalias !283
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !283, !noalias !286
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !286, !noalias !283
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !283, !noalias !286
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !286, !noalias !283
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !283, !noalias !286
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !286, !noalias !283
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !283, !noalias !286
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !286, !noalias !283
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !283, !noalias !286
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !286, !noalias !283
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !283, !noalias !286
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !286, !noalias !283
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -19482,22 +19461,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA13_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(13) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -19514,16 +19492,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !297, !noalias !294
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !294, !noalias !297
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !297, !noalias !294
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !294, !noalias !297
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !297, !noalias !294
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !294, !noalias !297
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !297, !noalias !294
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !294, !noalias !297
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !297, !noalias !294
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !294, !noalias !297
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !297, !noalias !294
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !294, !noalias !297
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !297, !noalias !294
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -19549,16 +19527,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !302, !noalias !299
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !299, !noalias !302
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !302, !noalias !299
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !299, !noalias !302
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !302, !noalias !299
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !299, !noalias !302
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !302, !noalias !299
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !299, !noalias !302
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !302, !noalias !299
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !299, !noalias !302
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !302, !noalias !299
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !299, !noalias !302
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !302, !noalias !299
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -19651,22 +19629,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA14_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(14) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -19683,16 +19660,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !313, !noalias !310
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !310, !noalias !313
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !313, !noalias !310
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !310, !noalias !313
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !313, !noalias !310
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !310, !noalias !313
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !313, !noalias !310
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !310, !noalias !313
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !313, !noalias !310
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !310, !noalias !313
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !313, !noalias !310
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !310, !noalias !313
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !313, !noalias !310
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -19718,16 +19695,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !318, !noalias !315
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !315, !noalias !318
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !318, !noalias !315
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !315, !noalias !318
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !318, !noalias !315
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !315, !noalias !318
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !318, !noalias !315
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !315, !noalias !318
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !318, !noalias !315
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !315, !noalias !318
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !318, !noalias !315
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !315, !noalias !318
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !318, !noalias !315
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -19809,22 +19786,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA18_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(18) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -19841,16 +19817,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !323, !noalias !320
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !320, !noalias !323
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !323, !noalias !320
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !320, !noalias !323
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !323, !noalias !320
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !320, !noalias !323
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !323, !noalias !320
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !320, !noalias !323
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !323, !noalias !320
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !320, !noalias !323
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !323, !noalias !320
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !320, !noalias !323
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !323, !noalias !320
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -19876,16 +19852,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !328, !noalias !325
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !325, !noalias !328
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !328, !noalias !325
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !325, !noalias !328
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !328, !noalias !325
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !325, !noalias !328
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !328, !noalias !325
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !325, !noalias !328
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !328, !noalias !325
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !325, !noalias !328
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !328, !noalias !325
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !325, !noalias !328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !328, !noalias !325
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -20071,39 +20047,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -20116,16 +20091,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !336)
   call void @llvm.experimental.noalias.scope.decl(metadata !339)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !339, !noalias !336
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !336, !noalias !339
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !339, !noalias !336
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !336, !noalias !339
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !339, !noalias !336
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !336, !noalias !339
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !339, !noalias !336
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !336, !noalias !339
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -20143,16 +20118,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !341)
   call void @llvm.experimental.noalias.scope.decl(metadata !344)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !344, !noalias !341
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !341, !noalias !344
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !344, !noalias !341
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !341, !noalias !344
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !344, !noalias !341
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !341, !noalias !344
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !344, !noalias !341
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !341, !noalias !344
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -20198,22 +20173,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA16_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -20230,16 +20204,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !349, !noalias !346
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !346, !noalias !349
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !349, !noalias !346
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !346, !noalias !349
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !349, !noalias !346
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !346, !noalias !349
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !349, !noalias !346
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !346, !noalias !349
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !349, !noalias !346
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !346, !noalias !349
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !349, !noalias !346
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !346, !noalias !349
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !349, !noalias !346
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -20265,16 +20239,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !354, !noalias !351
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !351, !noalias !354
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !354, !noalias !351
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !351, !noalias !354
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !354, !noalias !351
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !351, !noalias !354
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !354, !noalias !351
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !351, !noalias !354
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !354, !noalias !351
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !351, !noalias !354
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !354, !noalias !351
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !351, !noalias !354
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !354, !noalias !351
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -20458,22 +20432,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA14_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(14) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -20490,16 +20463,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !365, !noalias !362
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !362, !noalias !365
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !365, !noalias !362
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !362, !noalias !365
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !365, !noalias !362
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !362, !noalias !365
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !365, !noalias !362
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !362, !noalias !365
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !365, !noalias !362
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !362, !noalias !365
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !365, !noalias !362
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !362, !noalias !365
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !365, !noalias !362
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -20525,16 +20498,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !370, !noalias !367
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !367, !noalias !370
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !370, !noalias !367
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !367, !noalias !370
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !370, !noalias !367
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !367, !noalias !370
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !370, !noalias !367
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !367, !noalias !370
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !370, !noalias !367
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !367, !noalias !370
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !370, !noalias !367
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !367, !noalias !370
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !370, !noalias !367
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -20629,39 +20602,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -20674,16 +20646,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !378)
   call void @llvm.experimental.noalias.scope.decl(metadata !381)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !381, !noalias !378
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !378, !noalias !381
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !381, !noalias !378
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !378, !noalias !381
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !381, !noalias !378
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !378, !noalias !381
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !381, !noalias !378
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !378, !noalias !381
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -20701,16 +20673,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !383)
   call void @llvm.experimental.noalias.scope.decl(metadata !386)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !386, !noalias !383
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !383, !noalias !386
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !386, !noalias !383
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !383, !noalias !386
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !386, !noalias !383
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !383, !noalias !386
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !386, !noalias !383
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !383, !noalias !386
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -20758,39 +20730,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -20803,16 +20774,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !388)
   call void @llvm.experimental.noalias.scope.decl(metadata !391)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !391, !noalias !388
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !388, !noalias !391
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !391, !noalias !388
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !388, !noalias !391
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !391, !noalias !388
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !388, !noalias !391
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !391, !noalias !388
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !388, !noalias !391
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -20830,16 +20801,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !393)
   call void @llvm.experimental.noalias.scope.decl(metadata !396)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !396, !noalias !393
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !393, !noalias !396
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !396, !noalias !393
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !393, !noalias !396
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !396, !noalias !393
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !393, !noalias !396
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !396, !noalias !393
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !393, !noalias !396
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -20885,22 +20856,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA12_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(12) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -20917,16 +20887,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !401, !noalias !398
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !398, !noalias !401
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !401, !noalias !398
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !398, !noalias !401
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !401, !noalias !398
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !398, !noalias !401
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !401, !noalias !398
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !398, !noalias !401
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !401, !noalias !398
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !398, !noalias !401
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !401, !noalias !398
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !398, !noalias !401
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !401, !noalias !398
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -20952,16 +20922,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !406, !noalias !403
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !403, !noalias !406
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !406, !noalias !403
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !403, !noalias !406
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !406, !noalias !403
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !403, !noalias !406
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !406, !noalias !403
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !403, !noalias !406
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !406, !noalias !403
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !403, !noalias !406
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !406, !noalias !403
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !403, !noalias !406
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !406, !noalias !403
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -21145,22 +21115,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA10_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(10) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -21177,16 +21146,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !417, !noalias !414
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !414, !noalias !417
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !417, !noalias !414
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !414, !noalias !417
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !417, !noalias !414
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !414, !noalias !417
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !417, !noalias !414
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !414, !noalias !417
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !417, !noalias !414
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !414, !noalias !417
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !417, !noalias !414
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !414, !noalias !417
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !417, !noalias !414
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -21212,16 +21181,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !422, !noalias !419
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !419, !noalias !422
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !422, !noalias !419
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !419, !noalias !422
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !422, !noalias !419
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !419, !noalias !422
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !422, !noalias !419
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !419, !noalias !422
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !422, !noalias !419
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !419, !noalias !422
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !422, !noalias !419
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !419, !noalias !422
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !422, !noalias !419
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -21305,39 +21274,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -21350,16 +21318,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !424)
   call void @llvm.experimental.noalias.scope.decl(metadata !427)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !427, !noalias !424
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !424, !noalias !427
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !427, !noalias !424
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !424, !noalias !427
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !427, !noalias !424
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !424, !noalias !427
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !427, !noalias !424
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !424, !noalias !427
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -21377,16 +21345,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !429)
   call void @llvm.experimental.noalias.scope.decl(metadata !432)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !432, !noalias !429
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !429, !noalias !432
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !432, !noalias !429
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !429, !noalias !432
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !432, !noalias !429
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !429, !noalias !432
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !432, !noalias !429
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !429, !noalias !432
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -21432,22 +21400,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA19_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(19) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -21464,16 +21431,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !437, !noalias !434
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !434, !noalias !437
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !437, !noalias !434
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !434, !noalias !437
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !437, !noalias !434
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !434, !noalias !437
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !437, !noalias !434
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !434, !noalias !437
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !437, !noalias !434
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !434, !noalias !437
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !437, !noalias !434
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !434, !noalias !437
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !437, !noalias !434
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -21499,16 +21466,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !442, !noalias !439
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !439, !noalias !442
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !442, !noalias !439
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !439, !noalias !442
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !442, !noalias !439
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !439, !noalias !442
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !442, !noalias !439
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !439, !noalias !442
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !442, !noalias !439
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !439, !noalias !442
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !442, !noalias !439
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !439, !noalias !442
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !442, !noalias !439
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -21602,22 +21569,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA23_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(23) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -21634,16 +21600,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !453, !noalias !450
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !450, !noalias !453
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !453, !noalias !450
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !450, !noalias !453
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !453, !noalias !450
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !450, !noalias !453
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !453, !noalias !450
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !450, !noalias !453
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !453, !noalias !450
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !450, !noalias !453
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !453, !noalias !450
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !450, !noalias !453
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !453, !noalias !450
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -21669,16 +21635,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !458, !noalias !455
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !455, !noalias !458
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !458, !noalias !455
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !455, !noalias !458
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !458, !noalias !455
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !455, !noalias !458
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !458, !noalias !455
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !455, !noalias !458
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !458, !noalias !455
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !455, !noalias !458
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !458, !noalias !455
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !455, !noalias !458
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !458, !noalias !455
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -21862,22 +21828,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA19_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(19) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -21894,16 +21859,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !469, !noalias !466
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !466, !noalias !469
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !469, !noalias !466
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !466, !noalias !469
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !469, !noalias !466
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !466, !noalias !469
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !469, !noalias !466
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !466, !noalias !469
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !469, !noalias !466
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !466, !noalias !469
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !469, !noalias !466
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !466, !noalias !469
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !469, !noalias !466
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -21929,16 +21894,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !474, !noalias !471
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !471, !noalias !474
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !474, !noalias !471
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !471, !noalias !474
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !474, !noalias !471
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !471, !noalias !474
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !474, !noalias !471
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !471, !noalias !474
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !474, !noalias !471
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !471, !noalias !474
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !474, !noalias !471
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !471, !noalias !474
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !474, !noalias !471
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -22020,22 +21985,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA21_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(21) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -22052,16 +22016,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !479, !noalias !476
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !476, !noalias !479
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !479, !noalias !476
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !476, !noalias !479
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !479, !noalias !476
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !476, !noalias !479
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !479, !noalias !476
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !476, !noalias !479
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !479, !noalias !476
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !476, !noalias !479
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !479, !noalias !476
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !476, !noalias !479
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !479, !noalias !476
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -22087,16 +22051,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !484, !noalias !481
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !481, !noalias !484
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !484, !noalias !481
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !481, !noalias !484
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !484, !noalias !481
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !481, !noalias !484
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !484, !noalias !481
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !481, !noalias !484
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !484, !noalias !481
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !481, !noalias !484
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !484, !noalias !481
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !481, !noalias !484
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !484, !noalias !481
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -22190,22 +22154,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA25_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(25) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -22222,16 +22185,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !495, !noalias !492
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !492, !noalias !495
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !495, !noalias !492
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !492, !noalias !495
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !495, !noalias !492
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !492, !noalias !495
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !495, !noalias !492
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !492, !noalias !495
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !495, !noalias !492
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !492, !noalias !495
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !495, !noalias !492
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !492, !noalias !495
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !495, !noalias !492
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -22257,16 +22220,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !500, !noalias !497
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !497, !noalias !500
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !500, !noalias !497
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !497, !noalias !500
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !500, !noalias !497
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !497, !noalias !500
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !500, !noalias !497
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !497, !noalias !500
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !500, !noalias !497
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !497, !noalias !500
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !500, !noalias !497
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !497, !noalias !500
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !500, !noalias !497
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -22450,22 +22413,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA21_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(21) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -22482,16 +22444,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !511, !noalias !508
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !508, !noalias !511
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !511, !noalias !508
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !508, !noalias !511
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !511, !noalias !508
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !508, !noalias !511
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !511, !noalias !508
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !508, !noalias !511
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !511, !noalias !508
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !508, !noalias !511
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !511, !noalias !508
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !508, !noalias !511
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !511, !noalias !508
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -22517,16 +22479,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !516, !noalias !513
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !513, !noalias !516
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !516, !noalias !513
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !513, !noalias !516
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !516, !noalias !513
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !513, !noalias !516
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !516, !noalias !513
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !513, !noalias !516
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !516, !noalias !513
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !513, !noalias !516
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !516, !noalias !513
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !513, !noalias !516
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !516, !noalias !513
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -22608,22 +22570,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA22_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(22) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -22640,16 +22601,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !521, !noalias !518
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !518, !noalias !521
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !521, !noalias !518
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !518, !noalias !521
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !521, !noalias !518
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !518, !noalias !521
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !521, !noalias !518
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !518, !noalias !521
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !521, !noalias !518
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !518, !noalias !521
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !521, !noalias !518
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !518, !noalias !521
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !521, !noalias !518
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -22675,16 +22636,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !526, !noalias !523
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !523, !noalias !526
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !526, !noalias !523
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !523, !noalias !526
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !526, !noalias !523
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !523, !noalias !526
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !526, !noalias !523
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !523, !noalias !526
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !526, !noalias !523
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !523, !noalias !526
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !526, !noalias !523
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !523, !noalias !526
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !526, !noalias !523
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -22868,22 +22829,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA10_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(10) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -22900,16 +22860,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !537, !noalias !534
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !534, !noalias !537
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !537, !noalias !534
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !534, !noalias !537
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !537, !noalias !534
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !534, !noalias !537
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !537, !noalias !534
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !534, !noalias !537
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !537, !noalias !534
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !534, !noalias !537
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !537, !noalias !534
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !534, !noalias !537
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !537, !noalias !534
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -22935,16 +22895,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !542, !noalias !539
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !539, !noalias !542
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !542, !noalias !539
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !539, !noalias !542
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !542, !noalias !539
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !539, !noalias !542
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !542, !noalias !539
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !539, !noalias !542
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !542, !noalias !539
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !539, !noalias !542
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !542, !noalias !539
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !539, !noalias !542
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !542, !noalias !539
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -23037,22 +22997,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA11_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(11) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -23069,16 +23028,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !553, !noalias !550
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !550, !noalias !553
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !553, !noalias !550
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !550, !noalias !553
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !553, !noalias !550
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !550, !noalias !553
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !553, !noalias !550
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !550, !noalias !553
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !553, !noalias !550
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !550, !noalias !553
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !553, !noalias !550
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !550, !noalias !553
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !553, !noalias !550
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -23104,16 +23063,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !558, !noalias !555
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !555, !noalias !558
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !558, !noalias !555
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !555, !noalias !558
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !558, !noalias !555
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !555, !noalias !558
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !558, !noalias !555
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !555, !noalias !558
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !558, !noalias !555
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !555, !noalias !558
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !558, !noalias !555
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !555, !noalias !558
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !558, !noalias !555
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -23299,39 +23258,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -23344,16 +23302,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !566)
   call void @llvm.experimental.noalias.scope.decl(metadata !569)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !569, !noalias !566
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !566, !noalias !569
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !569, !noalias !566
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !566, !noalias !569
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !569, !noalias !566
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !566, !noalias !569
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !569, !noalias !566
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !566, !noalias !569
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -23371,16 +23329,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !571)
   call void @llvm.experimental.noalias.scope.decl(metadata !574)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !574, !noalias !571
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !571, !noalias !574
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !574, !noalias !571
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !571, !noalias !574
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !574, !noalias !571
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !571, !noalias !574
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !574, !noalias !571
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !571, !noalias !574
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -23428,39 +23386,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -23473,16 +23430,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !576)
   call void @llvm.experimental.noalias.scope.decl(metadata !579)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !579, !noalias !576
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !576, !noalias !579
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !579, !noalias !576
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !576, !noalias !579
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !579, !noalias !576
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !576, !noalias !579
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !579, !noalias !576
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !576, !noalias !579
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -23500,16 +23457,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !581)
   call void @llvm.experimental.noalias.scope.decl(metadata !584)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !584, !noalias !581
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !581, !noalias !584
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !584, !noalias !581
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !581, !noalias !584
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !584, !noalias !581
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !581, !noalias !584
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !584, !noalias !581
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !581, !noalias !584
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -23555,22 +23512,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA8_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -23587,16 +23543,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !589, !noalias !586
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !586, !noalias !589
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !589, !noalias !586
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !586, !noalias !589
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !589, !noalias !586
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !586, !noalias !589
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !589, !noalias !586
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !586, !noalias !589
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !589, !noalias !586
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !586, !noalias !589
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !589, !noalias !586
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !586, !noalias !589
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !589, !noalias !586
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -23622,16 +23578,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !594, !noalias !591
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !591, !noalias !594
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !594, !noalias !591
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !591, !noalias !594
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !594, !noalias !591
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !591, !noalias !594
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !594, !noalias !591
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !591, !noalias !594
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !594, !noalias !591
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !591, !noalias !594
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !594, !noalias !591
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !591, !noalias !594
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !594, !noalias !591
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -23725,22 +23681,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA8_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -23757,16 +23712,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !605, !noalias !602
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !602, !noalias !605
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !605, !noalias !602
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !602, !noalias !605
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !605, !noalias !602
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !602, !noalias !605
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !605, !noalias !602
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !602, !noalias !605
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !605, !noalias !602
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !602, !noalias !605
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !605, !noalias !602
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !602, !noalias !605
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !605, !noalias !602
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -23792,16 +23747,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !610, !noalias !607
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !607, !noalias !610
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !610, !noalias !607
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !607, !noalias !610
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !610, !noalias !607
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !607, !noalias !610
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !610, !noalias !607
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !607, !noalias !610
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !610, !noalias !607
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !607, !noalias !610
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !610, !noalias !607
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !607, !noalias !610
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !610, !noalias !607
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -23883,22 +23838,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA4_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -23915,16 +23869,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !615, !noalias !612
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !615
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !615, !noalias !612
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !615
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !615, !noalias !612
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !615
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !615, !noalias !612
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !615
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !615, !noalias !612
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !615
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !615, !noalias !612
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !615
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !615, !noalias !612
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -23950,16 +23904,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !620, !noalias !617
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !617, !noalias !620
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !620, !noalias !617
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !617, !noalias !620
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !620, !noalias !617
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !617, !noalias !620
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !620, !noalias !617
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !617, !noalias !620
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !620, !noalias !617
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !617, !noalias !620
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !620, !noalias !617
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !617, !noalias !620
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !620, !noalias !617
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -24146,39 +24100,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -24191,16 +24144,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !628)
   call void @llvm.experimental.noalias.scope.decl(metadata !631)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !631, !noalias !628
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !628, !noalias !631
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !631, !noalias !628
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !628, !noalias !631
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !631, !noalias !628
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !628, !noalias !631
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !631, !noalias !628
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !628, !noalias !631
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -24218,16 +24171,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !633)
   call void @llvm.experimental.noalias.scope.decl(metadata !636)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !636, !noalias !633
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !633, !noalias !636
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !636, !noalias !633
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !633, !noalias !636
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !636, !noalias !633
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !633, !noalias !636
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !636, !noalias !633
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !633, !noalias !636
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -24273,22 +24226,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA4_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(4) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -24305,16 +24257,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !641, !noalias !638
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !638, !noalias !641
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !641, !noalias !638
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !638, !noalias !641
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !641, !noalias !638
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !638, !noalias !641
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !641, !noalias !638
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !638, !noalias !641
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !641, !noalias !638
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !638, !noalias !641
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !641, !noalias !638
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !638, !noalias !641
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !641, !noalias !638
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -24340,16 +24292,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !646, !noalias !643
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !643, !noalias !646
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !646, !noalias !643
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !643, !noalias !646
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !646, !noalias !643
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !643, !noalias !646
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !646, !noalias !643
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !643, !noalias !646
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !646, !noalias !643
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !643, !noalias !646
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !646, !noalias !643
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !643, !noalias !646
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !646, !noalias !643
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -24431,22 +24383,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA5_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(5) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -24463,16 +24414,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !648
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !648, !noalias !651
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !648
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !648, !noalias !651
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !648
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !648, !noalias !651
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !648
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !648, !noalias !651
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !648
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !648, !noalias !651
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !648
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !648, !noalias !651
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !651, !noalias !648
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -24498,16 +24449,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !656, !noalias !653
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !653, !noalias !656
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !656, !noalias !653
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !653, !noalias !656
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !656, !noalias !653
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !653, !noalias !656
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !656, !noalias !653
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !653, !noalias !656
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !656, !noalias !653
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !653, !noalias !656
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !656, !noalias !653
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !653, !noalias !656
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !656, !noalias !653
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -24692,22 +24643,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA28_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(28) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -24724,16 +24674,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !667, !noalias !664
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !664, !noalias !667
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !667, !noalias !664
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !664, !noalias !667
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !667, !noalias !664
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !664, !noalias !667
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !667, !noalias !664
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !664, !noalias !667
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !667, !noalias !664
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !664, !noalias !667
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !667, !noalias !664
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !664, !noalias !667
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !667, !noalias !664
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -24759,16 +24709,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !672, !noalias !669
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !669, !noalias !672
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !672, !noalias !669
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !669, !noalias !672
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !672, !noalias !669
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !669, !noalias !672
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !672, !noalias !669
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !669, !noalias !672
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !672, !noalias !669
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !669, !noalias !672
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !672, !noalias !669
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !669, !noalias !672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !672, !noalias !669
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -24952,22 +24902,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA29_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(29) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -24984,16 +24933,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !683, !noalias !680
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !680, !noalias !683
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !683, !noalias !680
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !680, !noalias !683
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !683, !noalias !680
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !680, !noalias !683
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !683, !noalias !680
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !680, !noalias !683
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !683, !noalias !680
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !680, !noalias !683
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !683, !noalias !680
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !680, !noalias !683
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !683, !noalias !680
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -25019,16 +24968,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !688, !noalias !685
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !685, !noalias !688
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !688, !noalias !685
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !685, !noalias !688
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !688, !noalias !685
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !685, !noalias !688
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !688, !noalias !685
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !685, !noalias !688
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !688, !noalias !685
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !685, !noalias !688
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !688, !noalias !685
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !685, !noalias !688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !688, !noalias !685
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -25212,22 +25161,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA26_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(26) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -25244,16 +25192,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !699, !noalias !696
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !699
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !699, !noalias !696
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !699
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !699, !noalias !696
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !699
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !699, !noalias !696
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !699
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !699, !noalias !696
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !699
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !699, !noalias !696
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !699
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !699, !noalias !696
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -25279,16 +25227,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !704, !noalias !701
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !701, !noalias !704
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !704, !noalias !701
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !701, !noalias !704
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !704, !noalias !701
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !701, !noalias !704
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !704, !noalias !701
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !701, !noalias !704
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !704, !noalias !701
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !701, !noalias !704
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !704, !noalias !701
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !701, !noalias !704
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !704, !noalias !701
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -25472,22 +25420,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA27_KcN4llvh9StringRefEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(27) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -25504,16 +25451,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !715, !noalias !712
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !712, !noalias !715
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !715, !noalias !712
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !712, !noalias !715
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !715, !noalias !712
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !712, !noalias !715
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !715, !noalias !712
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !712, !noalias !715
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !715, !noalias !712
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !712, !noalias !715
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !715, !noalias !712
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !712, !noalias !715
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !715, !noalias !712
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -25539,16 +25486,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !720, !noalias !717
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !717, !noalias !720
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !720, !noalias !717
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !717, !noalias !720
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !720, !noalias !717
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !717, !noalias !720
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !720, !noalias !717
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !717, !noalias !720
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !720, !noalias !717
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !717, !noalias !720
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !720, !noalias !717
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !717, !noalias !720
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !720, !noalias !717
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -25734,39 +25681,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -25779,16 +25725,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !728)
   call void @llvm.experimental.noalias.scope.decl(metadata !731)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !731, !noalias !728
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !728, !noalias !731
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !731, !noalias !728
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !728, !noalias !731
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !731, !noalias !728
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !728, !noalias !731
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !731, !noalias !728
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !728, !noalias !731
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -25806,16 +25752,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !733)
   call void @llvm.experimental.noalias.scope.decl(metadata !736)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !736, !noalias !733
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !733, !noalias !736
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !736, !noalias !733
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !733, !noalias !736
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !736, !noalias !733
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !733, !noalias !736
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !736, !noalias !733
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !733, !noalias !736
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -25863,39 +25809,38 @@ _ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI5FieldEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI5FieldSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i.i)
-  %2 = load i32, ptr %__args, align 4
+  %3 = load i32, ptr %__args, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__args1) #17
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %__args1, ptr noundef nonnull %add.ptr.i.i.i)
-  %3 = load i8, ptr %__args3, align 1
-  %4 = and i8 %3, 1
-  store i32 %2, ptr %add.ptr, align 8
+  %4 = load i8, ptr %__args3, align 1
+  %5 = and i8 %4, 1
+  store i32 %3, ptr %add.ptr, align 8
   %name3.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %optional4.i.i.i = getelementptr inbounds %struct.Field, ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  store i8 %4, ptr %optional4.i.i.i, align 8
+  store i8 %5, ptr %optional4.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
@@ -25908,16 +25853,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseI5FieldSaIS0_EE11_M_allocateEm.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !738)
   call void @llvm.experimental.noalias.scope.decl(metadata !741)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !741, !noalias !738
-  store i32 %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !738, !noalias !741
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !741, !noalias !738
+  store i32 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !738, !noalias !741
   %name.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 2
   %name3.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %optional.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !741, !noalias !738
-  %7 = and i8 %6, 1
-  store i8 %7, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !738, !noalias !741
+  %7 = load i8, ptr %optional4.i.i.i.i.i.i.i, align 8, !alias.scope !741, !noalias !738
+  %8 = and i8 %7, 1
+  store i8 %8, ptr %optional.i.i.i.i.i.i.i, align 8, !alias.scope !738, !noalias !741
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i, i64 1
@@ -25935,16 +25880,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI5Field
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorI5FieldSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !743)
   call void @llvm.experimental.noalias.scope.decl(metadata !746)
-  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !746, !noalias !743
-  store i32 %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !743, !noalias !746
+  %9 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !746, !noalias !743
+  store i32 %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !743, !noalias !746
   %name.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %name3.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %optional.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %optional4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %9 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !746, !noalias !743
-  %10 = and i8 %9, 1
-  store i8 %10, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !743, !noalias !746
+  %10 = load i8, ptr %optional4.i.i.i.i.i.i.i18, align 8, !alias.scope !746, !noalias !743
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %optional.i.i.i.i.i.i.i17, align 8, !alias.scope !743, !noalias !746
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name3.i.i.i.i.i.i.i16) #17
   %incdec.ptr.i.i.i19 = getelementptr inbounds %struct.Field, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i20 = getelementptr inbounds %struct.Field, ptr %__cur.07.i.i.i13, i64 1
@@ -25990,22 +25935,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA5_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(5) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -26022,16 +25966,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !751, !noalias !748
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !748, !noalias !751
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !751, !noalias !748
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !748, !noalias !751
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !751, !noalias !748
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !748, !noalias !751
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !751, !noalias !748
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !748, !noalias !751
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !751, !noalias !748
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !748, !noalias !751
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !751, !noalias !748
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !748, !noalias !751
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !751, !noalias !748
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -26057,16 +26001,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !756, !noalias !753
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !753, !noalias !756
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !756, !noalias !753
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !753, !noalias !756
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !756, !noalias !753
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !753, !noalias !756
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !756, !noalias !753
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !753, !noalias !756
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !756, !noalias !753
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !753, !noalias !756
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !756, !noalias !753
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !753, !noalias !756
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !756, !noalias !753
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -26148,22 +26092,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA3_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(3) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -26180,16 +26123,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !761, !noalias !758
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !758, !noalias !761
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !761, !noalias !758
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !758, !noalias !761
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !761, !noalias !758
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !758, !noalias !761
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !761, !noalias !758
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !758, !noalias !761
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !761, !noalias !758
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !758, !noalias !761
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !761, !noalias !758
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !758, !noalias !761
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !761, !noalias !758
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -26215,16 +26158,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !766, !noalias !763
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !763, !noalias !766
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !766, !noalias !763
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !763, !noalias !766
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !766, !noalias !763
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !763, !noalias !766
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !766, !noalias !763
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !763, !noalias !766
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !766, !noalias !763
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !763, !noalias !766
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !766, !noalias !763
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !763, !noalias !766
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !766, !noalias !763
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -26409,22 +26352,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA3_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(3) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -26441,16 +26383,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !777, !noalias !774
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !774, !noalias !777
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !777, !noalias !774
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !774, !noalias !777
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !777, !noalias !774
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !774, !noalias !777
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !777, !noalias !774
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !774, !noalias !777
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !777, !noalias !774
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !774, !noalias !777
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !777, !noalias !774
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !774, !noalias !777
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !777, !noalias !774
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -26476,16 +26418,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !782, !noalias !779
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !779, !noalias !782
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !782, !noalias !779
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !779, !noalias !782
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !782, !noalias !779
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !779, !noalias !782
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !782, !noalias !779
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !779, !noalias !782
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !782, !noalias !779
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !779, !noalias !782
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !782, !noalias !779
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !779, !noalias !782
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !782, !noalias !779
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -26567,22 +26509,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA6_KcN4llvh9StringRefE12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(6) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -26599,16 +26540,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !787, !noalias !784
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !784, !noalias !787
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !787, !noalias !784
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !784, !noalias !787
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !787, !noalias !784
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !784, !noalias !787
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !787, !noalias !784
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !784, !noalias !787
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !787, !noalias !784
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !784, !noalias !787
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !787, !noalias !784
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !784, !noalias !787
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !787, !noalias !784
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -26634,16 +26575,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !792, !noalias !789
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !789, !noalias !792
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !792, !noalias !789
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !789, !noalias !792
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !792, !noalias !789
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !789, !noalias !792
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !792, !noalias !789
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !789, !noalias !792
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !792, !noalias !789
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !789, !noalias !792
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !792, !noalias !789
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !789, !noalias !792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !792, !noalias !789
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -26737,22 +26678,21 @@ _ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaI9TreeClassEE8allocateERS1_m.exit.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseI9TreeClassSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI9TreeClassSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %struct.TreeClass, ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt15__new_allocatorI9TreeClassE9constructIS0_JRA6_KcRA1_S3_12SentinelTypeEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(6) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -26769,16 +26709,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   %sentinel.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %2 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !803, !noalias !800
-  store i32 %2, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !800, !noalias !803
+  %3 = load i32, ptr %sentinel4.i.i.i.i.i.i.i, align 8, !alias.scope !803, !noalias !800
+  store i32 %3, ptr %sentinel.i.i.i.i.i.i.i, align 8, !alias.scope !800, !noalias !803
   %fields.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %3 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !803, !noalias !800
-  store <2 x ptr> %3, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !800, !noalias !803
+  %4 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i, align 8, !alias.scope !803, !noalias !800
+  store <2 x ptr> %4, ptr %fields.i.i.i.i.i.i.i, align 8, !alias.scope !800, !noalias !803
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !803, !noalias !800
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !800, !noalias !803
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !803, !noalias !800
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !800, !noalias !803
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !803, !noalias !800
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #17
@@ -26804,16 +26744,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorI9TreeC
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   %sentinel.i.i.i.i.i.i.i17 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 2
   %sentinel4.i.i.i.i.i.i.i18 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %5 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !808, !noalias !805
-  store i32 %5, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !805, !noalias !808
+  %6 = load i32, ptr %sentinel4.i.i.i.i.i.i.i18, align 8, !alias.scope !808, !noalias !805
+  store i32 %6, ptr %sentinel.i.i.i.i.i.i.i17, align 8, !alias.scope !805, !noalias !808
   %fields.i.i.i.i.i.i.i19 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3
   %fields5.i.i.i.i.i.i.i20 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !808, !noalias !805
-  store <2 x ptr> %6, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !805, !noalias !808
+  %7 = load <2 x ptr>, ptr %fields5.i.i.i.i.i.i.i20, align 8, !alias.scope !808, !noalias !805
+  store <2 x ptr> %7, ptr %fields.i.i.i.i.i.i.i19, align 8, !alias.scope !805, !noalias !808
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %struct.TreeClass, ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %struct.TreeClass, ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !808, !noalias !805
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !805, !noalias !808
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !808, !noalias !805
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !805, !noalias !808
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields5.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !808, !noalias !805
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base3.i.i.i.i.i.i.i16) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #17
@@ -27106,6 +27046,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -138,28 +138,28 @@ if.then10:                                        ; preds = %if.then
   br label %if.end25
 
 if.else:                                          ; preds = %entry, %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.exit
-  %retval.0.i31 = phi i32 [ %retval.0.i, %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.exit ], [ -1, %entry ]
-  %sub14 = xor i32 %retval.0.i31, -1
+  %retval.0.i30 = phi i32 [ %retval.0.i, %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.exit ], [ -1, %entry ]
+  %sub14 = xor i32 %retval.0.i30, -1
   %conv19 = zext nneg i32 %sub14 to i64
   %add.ptr.i15 = getelementptr inbounds i32, ptr %this.val, i64 %conv19
   %sub.ptr.lhs.cast.i.i16 = ptrtoint ptr %add.ptr.i15 to i64
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i20 = icmp eq ptr %this.val7, %7
-  br i1 %cmp.not.i20, label %if.else29.i, label %if.then.i21
+  %cmp.not.i19 = icmp eq ptr %this.val7, %7
+  br i1 %cmp.not.i19, label %if.else29.i, label %if.then.i20
 
-if.then.i21:                                      ; preds = %if.else
+if.then.i20:                                      ; preds = %if.else
   %cmp.i.i = icmp eq ptr %this.val7, %add.ptr.i15
-  br i1 %cmp.i.i, label %if.then10.i, label %if.else.i22
+  br i1 %cmp.i.i, label %if.then10.i, label %if.else.i21
 
-if.then10.i:                                      ; preds = %if.then.i21
+if.then10.i:                                      ; preds = %if.then.i20
   store i32 %or.i9, ptr %this.val7, align 4
   %8 = load ptr, ptr %2, align 8
   %incdec.ptr.i = getelementptr inbounds i32, ptr %8, i64 1
   store ptr %incdec.ptr.i, ptr %2, align 8
   br label %if.end25
 
-if.else.i22:                                      ; preds = %if.then.i21
+if.else.i21:                                      ; preds = %if.then.i20
   %add.ptr6.i.i = getelementptr inbounds i32, ptr %this.val7, i64 -1
   %9 = load i32, ptr %add.ptr6.i.i, align 4
   store i32 %9, ptr %this.val7, align 4
@@ -170,7 +170,7 @@ if.else.i22:                                      ; preds = %if.then.i21
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %add.ptr13.i.i, %add.ptr.i15
   br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i22
+if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i21
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i16
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 2
@@ -179,7 +179,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i22
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i, ptr align 4 %add.ptr.i15, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i22
+invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i21
   store i32 %or.i9, ptr %add.ptr.i15, align 4
   br label %if.end25
 
@@ -190,14 +190,14 @@ if.else29.i:                                      ; preds = %if.else
 if.end25:                                         ; preds = %if.else29.i, %invoke.cont.i, %if.then10.i, %if.then, %if.then10
   %11 = load ptr, ptr %2, align 8
   %12 = load ptr, ptr %1, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
-  %sub.ptr.div.i.i27 = ashr exact i64 %sub.ptr.sub.i.i26, 2
+  %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i24 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i23, %sub.ptr.rhs.cast.i.i24
+  %sub.ptr.div.i.i26 = ashr exact i64 %sub.ptr.sub.i.i25, 2
   %softNumEntriesLimit_.i = getelementptr inbounds %"class.facebook::velox::common::hll::SparseHll", ptr %this, i64 0, i32 1
   %13 = load i32, ptr %softNumEntriesLimit_.i, align 8
-  %conv.i28 = zext i32 %13 to i64
-  %cmp.i = icmp uge i64 %sub.ptr.div.i.i27, %conv.i28
+  %conv.i27 = zext i32 %13 to i64
+  %cmp.i = icmp uge i64 %sub.ptr.div.i.i26, %conv.i27
   ret i1 %cmp.i
 }
 
@@ -879,9 +879,8 @@ _ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit: ; pr
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 2305843009213693951
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 2305843009213693951, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
+  %cond.i = select i1 %cmp7.i, i64 2305843009213693951, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
@@ -889,38 +888,38 @@ _ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit: ; pr
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl i64 %cond.i, 2
-  %cmp.i.i.i = icmp ugt i64 %mul.i.i.i, 3072
-  %2 = load ptr, ptr %this, align 8
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %cond.i, 768
+  %3 = load ptr, ptr %this, align 8
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.true.i
-  %call.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator16allocateFromPoolEm(ptr noundef nonnull align 8 dereferenceable(37416) %2, i64 noundef %mul.i.i.i)
+  %mul.i.i.i = shl nuw nsw i64 %cond.i, 2
+  %call.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator16allocateFromPoolEm(ptr noundef nonnull align 8 dereferenceable(37416) %3, i64 noundef %mul.i.i.i)
   br label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit
 
-_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i.i: ; preds = %cond.true.i
-  %currentHeader_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator", ptr %2, i64 0, i32 7
-  %3 = load ptr, ptr %currentHeader_.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %3, null
+if.end.i.i.i:                                     ; preds = %cond.true.i
+  %currentHeader_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator", ptr %3, i64 0, i32 7
+  %4 = load ptr, ptr %currentHeader_.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i, label %if.then.i1.i.i.i
 
-if.then.i1.i.i.i:                                 ; preds = %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i.i
+if.then.i1.i.i.i:                                 ; preds = %if.end.i.i.i
   tail call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i.i
+_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %if.end.i.i.i
   %n.tr.i.i.i = trunc i64 %cond.i to i32
-  %conv.i.i.i = shl i32 %n.tr.i.i.i, 2
+  %conv.i.i.i = shl nuw nsw i32 %n.tr.i.i.i, 2
   %.sroa.speculated.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %conv.i.i.i, i32 16)
-  %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %2, i32 noundef %.sroa.speculated.i.i.i.i, i1 noundef zeroext true)
+  %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %3, i32 noundef %.sroa.speculated.i.i.i.i, i1 noundef zeroext true)
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator::Header", ptr %call3.i.i.i.i, i64 1
   br label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit, %if.then.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i
   %cond.i10 = phi ptr [ null, %_ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit ], [ %call.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i ]
   %add.ptr9 = getelementptr inbounds i32, ptr %cond.i10, i64 %sub.ptr.div.i
-  %4 = load i32, ptr %__args, align 4
-  store i32 %4, ptr %add.ptr9, align 4
+  %5 = load i32, ptr %__args, align 4
+  store i32 %5, ptr %add.ptr9, align 4
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit, label %for.body.i.i.i
 
@@ -929,8 +928,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %5 = load i32, ptr %__first.addr.06.i.i.i, align 4, !alias.scope !18, !noalias !15
-  store i32 %5, ptr %__cur.07.i.i.i, align 4, !alias.scope !15, !noalias !18
+  %6 = load i32, ptr %__first.addr.06.i.i.i, align 4, !alias.scope !18, !noalias !15
+  store i32 %6, ptr %__cur.07.i.i.i, align 4, !alias.scope !15, !noalias !18
   %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds i32, ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -947,8 +946,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIjN8fac
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  %6 = load i32, ptr %__first.addr.06.i.i.i14, align 4, !alias.scope !24, !noalias !21
-  store i32 %6, ptr %__cur.07.i.i.i13, align 4, !alias.scope !21, !noalias !24
+  %7 = load i32, ptr %__first.addr.06.i.i.i14, align 4, !alias.scope !24, !noalias !21
+  store i32 %7, ptr %__cur.07.i.i.i13, align 4, !alias.scope !21, !noalias !24
   %incdec.ptr.i.i.i15 = getelementptr inbounds i32, ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i16 = getelementptr inbounds i32, ptr %__cur.07.i.i.i13, i64 1
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
@@ -957,31 +956,31 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIjN8fac
 _ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit19: ; preds = %for.body.i.i.i12, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit
   %__cur.0.lcssa.i.i.i18 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit ], [ %incdec.ptr1.i.i.i16, %for.body.i.i.i12 ]
   %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
+  %8 = load ptr, ptr %_M_end_of_storage, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit, label %if.then.i20
 
 if.then.i20:                                      ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit19
   %cmp.i.i.i21 = icmp ugt i64 %sub.ptr.sub, 3072
-  %8 = load ptr, ptr %this, align 8
+  %9 = load ptr, ptr %this, align 8
   br i1 %cmp.i.i.i21, label %if.then.i.i.i24, label %if.end.i.i.i22
 
 if.then.i.i.i24:                                  ; preds = %if.then.i20
-  invoke void @_ZN8facebook5velox19HashStringAllocator10freeToPoolEPvm(ptr noundef nonnull align 8 dereferenceable(37416) %8, ptr noundef nonnull %1, i64 noundef %sub.ptr.sub)
+  invoke void @_ZN8facebook5velox19HashStringAllocator10freeToPoolEPvm(ptr noundef nonnull align 8 dereferenceable(37416) %9, ptr noundef nonnull %1, i64 noundef %sub.ptr.sub)
           to label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit unwind label %terminate.lpad.i.i.i
 
 if.end.i.i.i22:                                   ; preds = %if.then.i20
   %add.ptr.i.i.i.i23 = getelementptr inbounds %"class.facebook::velox::HashStringAllocator::Header", ptr %1, i64 -1
-  invoke void @_ZN8facebook5velox19HashStringAllocator4freeEPNS1_6HeaderE(ptr noundef nonnull align 8 dereferenceable(37416) %8, ptr noundef nonnull %add.ptr.i.i.i.i23)
+  invoke void @_ZN8facebook5velox19HashStringAllocator4freeEPNS1_6HeaderE(ptr noundef nonnull align 8 dereferenceable(37416) %9, ptr noundef nonnull %add.ptr.i.i.i.i23)
           to label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i22, %if.then.i.i.i24
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #22
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #22
   unreachable
 
 _ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit19, %if.then.i.i.i24, %if.end.i.i.i22
@@ -1049,45 +1048,44 @@ _ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit: ; pr
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 2305843009213693951
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 2305843009213693951, i64 %add.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
+  %cond.i = select i1 %cmp7.i, i64 2305843009213693951, i64 %4
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZSt27__uninitialized_default_n_aIPjmN8facebook5velox12StlAllocatorIjEEET_S5_T0_RT1_.exit22, label %cond.true.i
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit
-  %mul.i.i.i = shl i64 %cond.i, 2
-  %cmp.i.i.i = icmp ugt i64 %mul.i.i.i, 3072
-  %4 = load ptr, ptr %this, align 8
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i.i
+  %cmp.i.i.i = icmp ugt i64 %cond.i, 768
+  %5 = load ptr, ptr %this, align 8
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.true.i
-  %call.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator16allocateFromPoolEm(ptr noundef nonnull align 8 dereferenceable(37416) %4, i64 noundef %mul.i.i.i)
+  %mul.i.i.i = shl nuw nsw i64 %cond.i, 2
+  %call.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator16allocateFromPoolEm(ptr noundef nonnull align 8 dereferenceable(37416) %5, i64 noundef %mul.i.i.i)
   br label %_ZSt27__uninitialized_default_n_aIPjmN8facebook5velox12StlAllocatorIjEEET_S5_T0_RT1_.exit22
 
-_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i.i: ; preds = %cond.true.i
-  %currentHeader_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator", ptr %4, i64 0, i32 7
-  %5 = load ptr, ptr %currentHeader_.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %5, null
+if.end.i.i.i:                                     ; preds = %cond.true.i
+  %currentHeader_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator", ptr %5, i64 0, i32 7
+  %6 = load ptr, ptr %currentHeader_.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i, label %if.then.i1.i.i.i
 
-if.then.i1.i.i.i:                                 ; preds = %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i.i
+if.then.i1.i.i.i:                                 ; preds = %if.end.i.i.i
   tail call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i.i.i
+_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %if.end.i.i.i
   %n.tr.i.i.i = trunc i64 %cond.i to i32
-  %conv.i.i.i = shl i32 %n.tr.i.i.i, 2
+  %conv.i.i.i = shl nuw nsw i32 %n.tr.i.i.i, 2
   %.sroa.speculated.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %conv.i.i.i, i32 16)
-  %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %4, i32 noundef %.sroa.speculated.i.i.i.i, i1 noundef zeroext true)
+  %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %5, i32 noundef %.sroa.speculated.i.i.i.i, i1 noundef zeroext true)
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator::Header", ptr %call3.i.i.i.i, i64 1
   br label %_ZSt27__uninitialized_default_n_aIPjmN8facebook5velox12StlAllocatorIjEEET_S5_T0_RT1_.exit22
 
 _ZSt27__uninitialized_default_n_aIPjmN8facebook5velox12StlAllocatorIjEEET_S5_T0_RT1_.exit22: ; preds = %_ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit, %if.then.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i
   %cond.i17 = phi ptr [ null, %_ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit ], [ %call.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i ]
   %add.ptr26 = getelementptr inbounds i32, ptr %cond.i17, i64 %sub.ptr.div.i
-  %6 = shl nuw i64 %__n, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %add.ptr26, i8 0, i64 %6, i1 false)
+  %7 = shl nuw i64 %__n, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %add.ptr26, i8 0, i64 %7, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %0
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit, label %for.body.i.i.i
 
@@ -1096,39 +1094,39 @@ for.body.i.i.i:                                   ; preds = %_ZSt27__uninitializ
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZSt27__uninitialized_default_n_aIPjmN8facebook5velox12StlAllocatorIjEEET_S5_T0_RT1_.exit22 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %7 = load i32, ptr %__first.addr.06.i.i.i, align 4, !alias.scope !29, !noalias !26
-  store i32 %7, ptr %__cur.07.i.i.i, align 4, !alias.scope !26, !noalias !29
+  %8 = load i32, ptr %__first.addr.06.i.i.i, align 4, !alias.scope !29, !noalias !26
+  store i32 %8, ptr %__cur.07.i.i.i, align 4, !alias.scope !26, !noalias !29
   %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds i32, ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZSt27__uninitialized_default_n_aIPjmN8facebook5velox12StlAllocatorIjEEET_S5_T0_RT1_.exit22
-  %8 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast37 = ptrtoint ptr %8 to i64
+  %9 = load ptr, ptr %_M_end_of_storage, align 8
+  %sub.ptr.lhs.cast37 = ptrtoint ptr %9 to i64
   %sub.ptr.sub39 = sub i64 %sub.ptr.lhs.cast37, %sub.ptr.rhs.cast.i
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit
   %cmp.i.i.i24 = icmp ugt i64 %sub.ptr.sub39, 3072
-  %9 = load ptr, ptr %this, align 8
+  %10 = load ptr, ptr %this, align 8
   br i1 %cmp.i.i.i24, label %if.then.i.i.i27, label %if.end.i.i.i25
 
 if.then.i.i.i27:                                  ; preds = %if.then.i23
-  invoke void @_ZN8facebook5velox19HashStringAllocator10freeToPoolEPvm(ptr noundef nonnull align 8 dereferenceable(37416) %9, ptr noundef nonnull %1, i64 noundef %sub.ptr.sub39)
+  invoke void @_ZN8facebook5velox19HashStringAllocator10freeToPoolEPvm(ptr noundef nonnull align 8 dereferenceable(37416) %10, ptr noundef nonnull %1, i64 noundef %sub.ptr.sub39)
           to label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit unwind label %terminate.lpad.i.i.i
 
 if.end.i.i.i25:                                   ; preds = %if.then.i23
   %add.ptr.i.i.i.i26 = getelementptr inbounds %"class.facebook::velox::HashStringAllocator::Header", ptr %1, i64 -1
-  invoke void @_ZN8facebook5velox19HashStringAllocator4freeEPNS1_6HeaderE(ptr noundef nonnull align 8 dereferenceable(37416) %9, ptr noundef nonnull %add.ptr.i.i.i.i26)
+  invoke void @_ZN8facebook5velox19HashStringAllocator4freeEPNS1_6HeaderE(ptr noundef nonnull align 8 dereferenceable(37416) %10, ptr noundef nonnull %add.ptr.i.i.i.i26)
           to label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i25, %if.then.i.i.i27
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #22
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit, %if.then.i.i.i27, %if.end.i.i.i25
@@ -1151,6 +1149,9 @@ declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

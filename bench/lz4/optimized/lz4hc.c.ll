@@ -86,7 +86,7 @@ LZ4HC_init_internal.exit:                         ; preds = %LZ4_resetStreamHC_f
   store i32 %conv3.i, ptr %dictLimit.i1833, align 8
   %lowLimit.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %state, i64 0, i32 6
   store i32 %conv3.i, ptr %lowLimit.i, align 4
-  %call2 = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2 = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp = icmp sgt i32 %call2, %dstCapacity
   %. = zext i1 %cmp to i32
   %call5 = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr, i32 noundef %dstCapacity, i32 noundef %compressionLevel, i32 noundef %.)
@@ -97,7 +97,7 @@ return:                                           ; preds = %LZ4HC_init_internal
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @LZ4_resetStreamHC_fast(ptr noundef %LZ4_streamHCPtr, i32 noundef %compressionLevel) local_unnamed_addr #2 {
 entry:
   %dirty = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %LZ4_streamHCPtr, i64 0, i32 10
@@ -5300,7 +5300,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit:        ; preds = %entry
   store i32 65536, ptr %dictLimit.i1833.i, align 8
   %lowLimit.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %state, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i, align 4
-  %call2.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5 = icmp sgt i32 %call2.i, %dstCapacity
   %..i = zext i1 %cmp.i5 to i32
   %call5.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i, i32 noundef %dstCapacity, i32 noundef %compressionLevel, i32 noundef %..i)
@@ -5312,7 +5312,7 @@ return:                                           ; preds = %entry, %LZ4_compres
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define ptr @LZ4_initStreamHC(ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ne ptr %buffer, null
@@ -5339,7 +5339,7 @@ return:                                           ; preds = %entry, %if.end6
 define i32 @LZ4_compress_HC(ptr noundef %src, ptr noundef %dst, i32 noundef %srcSize, i32 noundef %dstCapacity, i32 noundef %compressionLevel) local_unnamed_addr #1 {
 entry:
   %srcSize.addr.i.i = alloca i32, align 4
-  %call = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #20
+  %call = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #19
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -5373,7 +5373,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %if.end
   store i32 65536, ptr %dictLimit.i1833.i.i, align 8
   %lowLimit.i.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %call, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i.i, align 4
-  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5.i = icmp sgt i32 %call2.i.i, %dstCapacity
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %dstCapacity, i32 noundef %compressionLevel, i32 noundef %..i.i)
@@ -5382,7 +5382,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %if.end
 
 LZ4_compress_HC_extStateHC.exit:                  ; preds = %if.end, %LZ4_compress_HC_extStateHC_fastReset.exit.i
   %retval.0.i = phi i32 [ %call5.i.i, %LZ4_compress_HC_extStateHC_fastReset.exit.i ], [ 0, %if.end ]
-  tail call void @free(ptr noundef nonnull %call) #19
+  tail call void @free(ptr noundef nonnull %call) #18
   br label %return
 
 return:                                           ; preds = %entry, %LZ4_compress_HC_extStateHC.exit
@@ -5434,7 +5434,7 @@ return:                                           ; preds = %entry, %LZ4HC_init_
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @LZ4_setCompressionLevel(ptr nocapture noundef writeonly %LZ4_streamHCPtr, i32 noundef %compressionLevel) local_unnamed_addr #4 {
 entry:
   %cmp = icmp slt i32 %compressionLevel, 1
@@ -5449,7 +5449,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias ptr @LZ4_createStreamHC() local_unnamed_addr #7 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(262200) ptr @calloc(i64 noundef 1, i64 noundef 262200) #21
+  %call = tail call noalias dereferenceable_or_null(262200) ptr @calloc(i64 noundef 1, i64 noundef 262200) #20
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -5472,7 +5472,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @free(ptr noundef nonnull %LZ4_streamHCPtr) #19
+  tail call void @free(ptr noundef nonnull %LZ4_streamHCPtr) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -5482,7 +5482,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @LZ4_resetStreamHC(ptr noundef %LZ4_streamHCPtr, i32 noundef %compressionLevel) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp ne ptr %LZ4_streamHCPtr, null
@@ -5507,7 +5507,7 @@ LZ4_initStreamHC.exit:                            ; preds = %entry, %if.end6.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LZ4_favorDecompressionSpeed(ptr nocapture noundef writeonly %LZ4_streamHCPtr, i32 noundef %favor) local_unnamed_addr #11 {
+define void @LZ4_favorDecompressionSpeed(ptr nocapture noundef writeonly %LZ4_streamHCPtr, i32 noundef %favor) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ne i32 %favor, 0
   %conv1 = zext i1 %cmp to i8
@@ -5516,8 +5516,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_loadDictHC(ptr noundef %LZ4_streamHCPtr, ptr noundef %dictionary, i32 noundef %dictSize) local_unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define i32 @LZ4_loadDictHC(ptr noundef %LZ4_streamHCPtr, ptr noundef %dictionary, i32 noundef %dictSize) local_unnamed_addr #11 {
 entry:
   %cmp = icmp sgt i32 %dictSize, 65536
   %conv = zext nneg i32 %dictSize to i64
@@ -5637,7 +5637,7 @@ if.end8:                                          ; preds = %LZ4HC_Insert.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LZ4_attach_HC_dictionary(ptr nocapture noundef writeonly %working_stream, ptr noundef %dictionary_stream) local_unnamed_addr #11 {
+define void @LZ4_attach_HC_dictionary(ptr nocapture noundef writeonly %working_stream, ptr noundef %dictionary_stream) local_unnamed_addr #4 {
 entry:
   %dictCtx = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %working_stream, i64 0, i32 11
   store ptr %dictionary_stream, ptr %dictCtx, align 8
@@ -5649,7 +5649,7 @@ define i32 @LZ4_compress_HC_continue(ptr noundef %LZ4_streamHCPtr, ptr noundef %
 entry:
   %srcSize.addr = alloca i32, align 4
   store i32 %srcSize, ptr %srcSize.addr, align 4
-  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp = icmp sgt i32 %call, %dstCapacity
   %. = zext i1 %cmp to i32
   %call2 = call fastcc i32 @LZ4_compressHC_continue_generic(ptr noundef %LZ4_streamHCPtr, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr, i32 noundef %dstCapacity, i32 noundef %.)
@@ -5930,8 +5930,8 @@ entry:
   ret i32 %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_saveDictHC(ptr nocapture noundef %LZ4_streamHCPtr, ptr noundef %safeBuffer, i32 noundef %dictSize) local_unnamed_addr #13 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define i32 @LZ4_saveDictHC(ptr nocapture noundef %LZ4_streamHCPtr, ptr noundef %safeBuffer, i32 noundef %dictSize) local_unnamed_addr #12 {
 entry:
   %end = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %LZ4_streamHCPtr, i64 0, i32 2
   %0 = load ptr, ptr %end, align 8
@@ -5992,14 +5992,14 @@ if.end41:                                         ; preds = %if.then38, %if.end1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
 define i32 @LZ4_compressHC(ptr noundef %src, ptr noundef %dst, i32 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %srcSize.addr.i.i.i = alloca i32, align 4
-  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
-  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #20
+  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
+  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #19
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %LZ4_compress_HC.exit, label %if.end.i
 
@@ -6029,7 +6029,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   store i32 65536, ptr %dictLimit.i1833.i.i.i, align 8
   %lowLimit.i.i.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %call.i, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i.i.i, align 4
-  %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5.i.i = icmp sgt i32 %call2.i.i.i, %call
   %..i.i.i = zext i1 %cmp.i5.i.i to i32
   %call5.i.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call.i, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i.i, i32 noundef %call, i32 noundef 0, i32 noundef %..i.i.i)
@@ -6038,7 +6038,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
 
 LZ4_compress_HC_extStateHC.exit.i:                ; preds = %LZ4_compress_HC_extStateHC_fastReset.exit.i.i, %if.end.i
   %retval.0.i.i = phi i32 [ %call5.i.i.i, %LZ4_compress_HC_extStateHC_fastReset.exit.i.i ], [ 0, %if.end.i ]
-  tail call void @free(ptr noundef nonnull %call.i) #19
+  tail call void @free(ptr noundef nonnull %call.i) #18
   br label %LZ4_compress_HC.exit
 
 LZ4_compress_HC.exit:                             ; preds = %entry, %LZ4_compress_HC_extStateHC.exit.i
@@ -6050,7 +6050,7 @@ LZ4_compress_HC.exit:                             ; preds = %entry, %LZ4_compres
 define i32 @LZ4_compressHC_limitedOutput(ptr noundef %src, ptr noundef %dst, i32 noundef %srcSize, i32 noundef %maxDstSize) local_unnamed_addr #1 {
 entry:
   %srcSize.addr.i.i.i = alloca i32, align 4
-  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #20
+  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #19
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %LZ4_compress_HC.exit, label %if.end.i
 
@@ -6080,7 +6080,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   store i32 65536, ptr %dictLimit.i1833.i.i.i, align 8
   %lowLimit.i.i.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %call.i, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i.i.i, align 4
-  %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5.i.i = icmp sgt i32 %call2.i.i.i, %maxDstSize
   %..i.i.i = zext i1 %cmp.i5.i.i to i32
   %call5.i.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call.i, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i.i, i32 noundef %maxDstSize, i32 noundef 0, i32 noundef %..i.i.i)
@@ -6089,7 +6089,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
 
 LZ4_compress_HC_extStateHC.exit.i:                ; preds = %LZ4_compress_HC_extStateHC_fastReset.exit.i.i, %if.end.i
   %retval.0.i.i = phi i32 [ %call5.i.i.i, %LZ4_compress_HC_extStateHC_fastReset.exit.i.i ], [ 0, %if.end.i ]
-  tail call void @free(ptr noundef nonnull %call.i) #19
+  tail call void @free(ptr noundef nonnull %call.i) #18
   br label %LZ4_compress_HC.exit
 
 LZ4_compress_HC.exit:                             ; preds = %entry, %LZ4_compress_HC_extStateHC.exit.i
@@ -6101,8 +6101,8 @@ LZ4_compress_HC.exit:                             ; preds = %entry, %LZ4_compres
 define i32 @LZ4_compressHC2(ptr noundef %src, ptr noundef %dst, i32 noundef %srcSize, i32 noundef %cLevel) local_unnamed_addr #1 {
 entry:
   %srcSize.addr.i.i.i = alloca i32, align 4
-  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
-  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #20
+  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
+  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #19
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %LZ4_compress_HC.exit, label %if.end.i
 
@@ -6136,7 +6136,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   store i32 65536, ptr %dictLimit.i1833.i.i.i, align 8
   %lowLimit.i.i.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %call.i, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i.i.i, align 4
-  %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5.i.i = icmp sgt i32 %call2.i.i.i, %call
   %..i.i.i = zext i1 %cmp.i5.i.i to i32
   %call5.i.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call.i, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i.i, i32 noundef %call, i32 noundef %cLevel, i32 noundef %..i.i.i)
@@ -6145,7 +6145,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
 
 LZ4_compress_HC_extStateHC.exit.i:                ; preds = %LZ4_compress_HC_extStateHC_fastReset.exit.i.i, %if.end.i
   %retval.0.i.i = phi i32 [ %call5.i.i.i, %LZ4_compress_HC_extStateHC_fastReset.exit.i.i ], [ 0, %if.end.i ]
-  tail call void @free(ptr noundef nonnull %call.i) #19
+  tail call void @free(ptr noundef nonnull %call.i) #18
   br label %LZ4_compress_HC.exit
 
 LZ4_compress_HC.exit:                             ; preds = %entry, %LZ4_compress_HC_extStateHC.exit.i
@@ -6157,7 +6157,7 @@ LZ4_compress_HC.exit:                             ; preds = %entry, %LZ4_compres
 define i32 @LZ4_compressHC2_limitedOutput(ptr noundef %src, ptr noundef %dst, i32 noundef %srcSize, i32 noundef %maxDstSize, i32 noundef %cLevel) local_unnamed_addr #1 {
 entry:
   %srcSize.addr.i.i.i = alloca i32, align 4
-  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #20
+  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #19
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %LZ4_compress_HC.exit, label %if.end.i
 
@@ -6191,7 +6191,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   store i32 65536, ptr %dictLimit.i1833.i.i.i, align 8
   %lowLimit.i.i.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %call.i, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i.i.i, align 4
-  %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5.i.i = icmp sgt i32 %call2.i.i.i, %maxDstSize
   %..i.i.i = zext i1 %cmp.i5.i.i to i32
   %call5.i.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %call.i, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i.i, i32 noundef %maxDstSize, i32 noundef %cLevel, i32 noundef %..i.i.i)
@@ -6200,7 +6200,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
 
 LZ4_compress_HC_extStateHC.exit.i:                ; preds = %LZ4_compress_HC_extStateHC_fastReset.exit.i.i, %if.end.i
   %retval.0.i.i = phi i32 [ %call5.i.i.i, %LZ4_compress_HC_extStateHC_fastReset.exit.i.i ], [ 0, %if.end.i ]
-  tail call void @free(ptr noundef nonnull %call.i) #19
+  tail call void @free(ptr noundef nonnull %call.i) #18
   br label %LZ4_compress_HC.exit
 
 LZ4_compress_HC.exit:                             ; preds = %entry, %LZ4_compress_HC_extStateHC.exit.i
@@ -6212,7 +6212,7 @@ LZ4_compress_HC.exit:                             ; preds = %entry, %LZ4_compres
 define i32 @LZ4_compressHC_withStateHC(ptr noundef %state, ptr noundef %src, ptr noundef %dst, i32 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %srcSize.addr.i.i = alloca i32, align 4
-  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i.i = icmp ne ptr %state, null
   %0 = ptrtoint ptr %state to i64
   %and.i.i.i = and i64 %0, 7
@@ -6240,7 +6240,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   store i32 65536, ptr %dictLimit.i1833.i.i, align 8
   %lowLimit.i.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %state, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i.i, align 4
-  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5.i = icmp sgt i32 %call2.i.i, %call
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %call, i32 noundef 0, i32 noundef %..i.i)
@@ -6283,7 +6283,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   store i32 65536, ptr %dictLimit.i1833.i.i, align 8
   %lowLimit.i.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %state, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i.i, align 4
-  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5.i = icmp sgt i32 %call2.i.i, %maxDstSize
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %maxDstSize, i32 noundef 0, i32 noundef %..i.i)
@@ -6299,7 +6299,7 @@ LZ4_compress_HC_extStateHC.exit:                  ; preds = %entry, %LZ4_compres
 define i32 @LZ4_compressHC2_withStateHC(ptr noundef %state, ptr noundef %src, ptr noundef %dst, i32 noundef %srcSize, i32 noundef %cLevel) local_unnamed_addr #1 {
 entry:
   %srcSize.addr.i.i = alloca i32, align 4
-  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i.i = icmp ne ptr %state, null
   %0 = ptrtoint ptr %state to i64
   %and.i.i.i = and i64 %0, 7
@@ -6331,7 +6331,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   store i32 65536, ptr %dictLimit.i1833.i.i, align 8
   %lowLimit.i.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %state, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i.i, align 4
-  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5.i = icmp sgt i32 %call2.i.i, %call
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %call, i32 noundef %cLevel, i32 noundef %..i.i)
@@ -6378,7 +6378,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   store i32 65536, ptr %dictLimit.i1833.i.i, align 8
   %lowLimit.i.i.i = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %state, i64 0, i32 6
   store i32 65536, ptr %lowLimit.i.i.i, align 4
-  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call2.i.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i5.i = icmp sgt i32 %call2.i.i, %maxDstSize
   %..i.i = zext i1 %cmp.i5.i to i32
   %call5.i.i = call fastcc i32 @LZ4HC_compress_generic(ptr noundef nonnull %state, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i.i, i32 noundef %maxDstSize, i32 noundef %cLevel, i32 noundef %..i.i)
@@ -6394,10 +6394,10 @@ LZ4_compress_HC_extStateHC.exit:                  ; preds = %entry, %LZ4_compres
 define i32 @LZ4_compressHC_continue(ptr noundef %ctx, ptr noundef %src, ptr noundef %dst, i32 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %srcSize.addr.i = alloca i32, align 4
-  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %srcSize.addr.i)
   store i32 %srcSize, ptr %srcSize.addr.i, align 4
-  %call.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i = icmp sgt i32 %call.i, %call
   %..i = zext i1 %cmp.i to i32
   %call2.i = call fastcc i32 @LZ4_compressHC_continue_generic(ptr noundef %ctx, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i, i32 noundef %call, i32 noundef %..i)
@@ -6411,7 +6411,7 @@ entry:
   %srcSize.addr.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %srcSize.addr.i)
   store i32 %srcSize, ptr %srcSize.addr.i, align 4
-  %call.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #19
+  %call.i = tail call i32 @LZ4_compressBound(i32 noundef %srcSize) #18
   %cmp.i = icmp sgt i32 %call.i, %maxDstSize
   %..i = zext i1 %cmp.i to i32
   %call2.i = call fastcc i32 @LZ4_compressHC_continue_generic(ptr noundef %ctx, ptr noundef %src, ptr noundef %dst, ptr noundef nonnull %srcSize.addr.i, i32 noundef %maxDstSize, i32 noundef %..i)
@@ -6425,7 +6425,7 @@ entry:
   ret i32 262200
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @LZ4_resetStreamStateHC(ptr noundef %state, ptr noundef %inputBuffer) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp ne ptr %state, null
@@ -6461,7 +6461,7 @@ return:                                           ; preds = %entry, %LZ4HC_init_
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias ptr @LZ4_createHC(ptr noundef %inputBuffer) local_unnamed_addr #7 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @calloc(i64 noundef 1, i64 noundef 262200) #21
+  %call.i = tail call noalias dereferenceable_or_null(262200) ptr @calloc(i64 noundef 1, i64 noundef 262200) #20
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %LZ4HC_init_internal.exit
 
@@ -6493,7 +6493,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @free(ptr noundef nonnull %LZ4HC_Data) #19
+  tail call void @free(ptr noundef nonnull %LZ4HC_Data) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -6518,7 +6518,7 @@ entry:
   ret i32 %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @LZ4_slideInputBufferHC(ptr noundef %LZ4HC_Data) local_unnamed_addr #2 {
 entry:
   %prefixStart = getelementptr inbounds %struct.LZ4HC_CCtx_internal, ptr %LZ4HC_Data, i64 0, i32 3
@@ -10889,7 +10889,7 @@ LZ4HC_compress_generic_internal.exit:             ; preds = %if.end18.i, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @LZ4HC_compress_optimal(ptr nocapture noundef %ctx, ptr noundef %source, ptr noundef %dst, ptr nocapture noundef %srcSizePtr, i32 noundef %dstCapacity, i32 noundef %nbSearches, i64 noundef %sufficient_len, i32 noundef %limit, i32 noundef %fullUpdate, i32 noundef %dict, i32 noundef %favorDecSpeed) unnamed_addr #1 {
@@ -10900,7 +10900,7 @@ entry:
   %pattern.addr.i2252 = alloca i32, align 4
   %pattern.addr.i2074 = alloca i32, align 4
   %pattern.addr.i = alloca i32, align 4
-  %call = tail call noalias dereferenceable_or_null(65584) ptr @malloc(i64 noundef 65584) #20
+  %call = tail call noalias dereferenceable_or_null(65584) ptr @malloc(i64 noundef 65584) #19
   %0 = load i32, ptr %srcSizePtr, align 4
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %source, i64 %idx.ext
@@ -14999,13 +14999,12 @@ lor.lhs.false242:                                 ; preds = %if.end238
 
 if.then249:                                       ; preds = %lor.lhs.false242, %if.end238
   %cmp250 = icmp eq i64 %indvars.iv3080, %231
-  %cmp253 = icmp slt i32 %last_match_pos.12886, %246
-  %or.cond1924 = select i1 %cmp250, i1 %cmp253, i1 false
-  %last_match_pos.2 = select i1 %or.cond1924, i32 %246, i32 %last_match_pos.12886
+  %248 = tail call i32 @llvm.smax.i32(i32 %last_match_pos.12886, i32 %246)
+  %last_match_pos.2 = select i1 %cmp250, i32 %248, i32 %last_match_pos.12886
   %arrayidx258 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %240
   %mlen259 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %240, i32 2
-  %248 = trunc i64 %indvars.iv3080 to i32
-  store i32 %248, ptr %mlen259, align 4
+  %249 = trunc i64 %indvars.iv3080 to i32
+  store i32 %249, ptr %mlen259, align 4
   %off262 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %240, i32 1
   store i32 %newMatch.sroa.0.02572, ptr %off262, align 4
   %litlen265 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %240, i32 3
@@ -15021,17 +15020,17 @@ for.inc270:                                       ; preds = %lor.lhs.false242, %
 
 for.body277:                                      ; preds = %for.cond274.preheader, %for.body277
   %indvars.iv3088 = phi i64 [ 1, %for.cond274.preheader ], [ %indvars.iv.next3089, %for.body277 ]
-  %249 = add nsw i64 %indvars.iv3088, %239
-  %mlen281 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %249, i32 2
+  %250 = add nsw i64 %indvars.iv3088, %239
+  %mlen281 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %250, i32 2
   store i32 1, ptr %mlen281, align 4
-  %off285 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %249, i32 1
+  %off285 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %250, i32 1
   store i32 0, ptr %off285, align 4
-  %litlen289 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %249, i32 3
-  %250 = trunc i64 %indvars.iv3088 to i32
-  store i32 %250, ptr %litlen289, align 4
-  %251 = load i32, ptr %arrayidx291, align 4
-  %arrayidx280 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %249
-  %add294 = add nsw i32 %251, %250
+  %litlen289 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %250, i32 3
+  %251 = trunc i64 %indvars.iv3088 to i32
+  store i32 %251, ptr %litlen289, align 4
+  %252 = load i32, ptr %arrayidx291, align 4
+  %arrayidx280 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %250
+  %add294 = add nsw i32 %252, %251
   store i32 %add294, ptr %arrayidx280, align 4
   %indvars.iv.next3089 = add nuw nsw i64 %indvars.iv3088, 1
   %exitcond3092.not = icmp eq i64 %indvars.iv.next3089, 4
@@ -15040,8 +15039,8 @@ for.body277:                                      ; preds = %for.cond274.prehead
 for.inc302:                                       ; preds = %for.body277, %LZ4HC_InsertAndGetWiderMatch.exit.i, %LZ4HC_InsertAndGetWiderMatch.exit.i859, %if.end145, %if.else, %land.lhs.true
   %last_match_pos.4 = phi i32 [ %last_match_pos.02894, %land.lhs.true ], [ %last_match_pos.02894, %if.end145 ], [ %last_match_pos.02894, %if.else ], [ %last_match_pos.02894, %LZ4HC_InsertAndGetWiderMatch.exit.i859 ], [ %last_match_pos.02894, %LZ4HC_InsertAndGetWiderMatch.exit.i ], [ %last_match_pos.1.lcssa, %for.body277 ]
   %indvars.iv.next3094 = add nuw nsw i64 %indvars.iv3093, 1
-  %252 = sext i32 %last_match_pos.4 to i64
-  %cmp95 = icmp slt i64 %indvars.iv.next3094, %252
+  %253 = sext i32 %last_match_pos.4 to i64
+  %cmp95 = icmp slt i64 %indvars.iv.next3094, %253
   br i1 %cmp95, label %for.body97, label %for.end304.loopexit, !llvm.loop !27
 
 for.end304.loopexit:                              ; preds = %for.body97, %for.inc302
@@ -15053,32 +15052,32 @@ for.end304:                                       ; preds = %for.end304.loopexit
   %idxprom305.pre-phi = phi i64 [ %.pre3130, %for.end304.loopexit ], [ %conv20, %for.cond94.preheader ]
   %last_match_pos.0.lcssa = phi i32 [ %last_match_pos.0.lcssa.ph, %for.end304.loopexit ], [ %longest.addr.i.i1828.7, %for.cond94.preheader ]
   %mlen307 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %idxprom305.pre-phi, i32 2
-  %253 = load i32, ptr %mlen307, align 4
+  %254 = load i32, ptr %mlen307, align 4
   %off310 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %idxprom305.pre-phi, i32 1
-  %254 = load i32, ptr %off310, align 4
-  %sub311 = sub nsw i32 %last_match_pos.0.lcssa, %253
+  %255 = load i32, ptr %off310, align 4
+  %sub311 = sub nsw i32 %last_match_pos.0.lcssa, %254
   br label %encode
 
 encode:                                           ; preds = %for.end304, %if.then158
-  %best_mlen.0 = phi i32 [ %253, %for.end304 ], [ %newMatch.sroa.4.02571, %if.then158 ]
-  %best_off.0 = phi i32 [ %254, %for.end304 ], [ %newMatch.sroa.0.02572, %if.then158 ]
+  %best_mlen.0 = phi i32 [ %254, %for.end304 ], [ %newMatch.sroa.4.02571, %if.then158 ]
+  %best_off.0 = phi i32 [ %255, %for.end304 ], [ %newMatch.sroa.0.02572, %if.then158 ]
   %cur.1 = phi i32 [ %sub311, %for.end304 ], [ %.pre-phi, %if.then158 ]
   %last_match_pos.5 = phi i32 [ %last_match_pos.0.lcssa, %for.end304 ], [ %add161, %if.then158 ]
   br label %while.body313
 
 while.body313:                                    ; preds = %while.body313, %encode
   %candidate_pos.0 = phi i32 [ %cur.1, %encode ], [ %sub330, %while.body313 ]
-  %selected_matchLength.0 = phi i32 [ %best_mlen.0, %encode ], [ %255, %while.body313 ]
-  %selected_offset.0 = phi i32 [ %best_off.0, %encode ], [ %256, %while.body313 ]
+  %selected_matchLength.0 = phi i32 [ %best_mlen.0, %encode ], [ %256, %while.body313 ]
+  %selected_offset.0 = phi i32 [ %best_off.0, %encode ], [ %257, %while.body313 ]
   %idxprom314 = sext i32 %candidate_pos.0 to i64
   %mlen316 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %idxprom314, i32 2
-  %255 = load i32, ptr %mlen316, align 4
+  %256 = load i32, ptr %mlen316, align 4
   %off319 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %idxprom314, i32 1
-  %256 = load i32, ptr %off319, align 4
+  %257 = load i32, ptr %off319, align 4
   store i32 %selected_matchLength.0, ptr %mlen316, align 4
   store i32 %selected_offset.0, ptr %off319, align 4
-  %cmp326 = icmp sgt i32 %255, %candidate_pos.0
-  %sub330 = sub nsw i32 %candidate_pos.0, %255
+  %cmp326 = icmp sgt i32 %256, %candidate_pos.0
+  %sub330 = sub nsw i32 %candidate_pos.0, %256
   br i1 %cmp326, label %while.cond332.preheader, label %while.body313
 
 while.cond332.preheader:                          ; preds = %while.body313
@@ -15086,34 +15085,34 @@ while.cond332.preheader:                          ; preds = %while.body313
   br i1 %cmp33328972916, label %while.body335.lr.ph.preheader, label %while.cond.outer.backedge, !llvm.loop !20
 
 while.body335.lr.ph.preheader:                    ; preds = %while.cond332.preheader
-  %257 = zext nneg i32 %last_match_pos.5 to i64
+  %258 = zext nneg i32 %last_match_pos.5 to i64
   br label %while.body335.lr.ph
 
 while.body335:                                    ; preds = %while.body335.lr.ph, %if.then346
-  %indvars.iv3106 = phi i64 [ %279, %while.body335.lr.ph ], [ %indvars.iv.next3107, %if.then346 ]
-  %indvars.iv3102 = phi i64 [ %277, %while.body335.lr.ph ], [ %indvars.iv.next3103, %if.then346 ]
+  %indvars.iv3106 = phi i64 [ %280, %while.body335.lr.ph ], [ %indvars.iv.next3107, %if.then346 ]
+  %indvars.iv3102 = phi i64 [ %278, %while.body335.lr.ph ], [ %indvars.iv.next3103, %if.then346 ]
   %indvar = phi i64 [ 0, %while.body335.lr.ph ], [ %indvar.next, %if.then346 ]
-  %indvars.iv3096 = phi i64 [ %275, %while.body335.lr.ph ], [ %indvars.iv.next3097, %if.then346 ]
+  %indvars.iv3096 = phi i64 [ %276, %while.body335.lr.ph ], [ %indvars.iv.next3097, %if.then346 ]
   %ip.22898 = phi ptr [ %ip.2.ph2919, %while.body335.lr.ph ], [ %incdec.ptr347, %if.then346 ]
   %mlen339 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %indvars.iv3096, i32 2
-  %258 = load i32, ptr %mlen339, align 4
-  %cmp344 = icmp eq i32 %258, 1
+  %259 = load i32, ptr %mlen339, align 4
+  %cmp344 = icmp eq i32 %259, 1
   br i1 %cmp344, label %if.then346, label %if.end349
 
 if.then346:                                       ; preds = %while.body335
   %incdec.ptr347 = getelementptr inbounds i8, ptr %ip.22898, i64 1
   %indvars.iv.next3097 = add nsw i64 %indvars.iv3096, 1
-  %cmp333 = icmp slt i64 %indvars.iv.next3097, %257
+  %cmp333 = icmp slt i64 %indvars.iv.next3097, %258
   %indvar.next = add i64 %indvar, 1
   %indvars.iv.next3103 = add i64 %indvars.iv3102, 1
   %indvars.iv.next3107 = add i64 %indvars.iv3106, 1
   br i1 %cmp333, label %while.body335, label %while.cond.outer.backedge, !llvm.loop !28
 
 if.end349:                                        ; preds = %while.body335
-  %259 = trunc i64 %indvars.iv3096 to i32
+  %260 = trunc i64 %indvars.iv3096 to i32
   %off343.le = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %indvars.iv3096, i32 1
-  %260 = load i32, ptr %off343.le, align 4
-  %add350 = add nsw i32 %258, %259
+  %261 = load i32, ptr %off343.le, align 4
+  %add350 = add nsw i32 %259, %260
   %incdec.ptr.i474 = getelementptr i8, ptr %op.7.ph2918, i64 1
   %sub.ptr.lhs.cast.i475 = ptrtoint ptr %ip.22898 to i64
   %sub.ptr.sub.i477 = sub i64 %sub.ptr.lhs.cast.i475, %anchor.2.ph29173101
@@ -15136,20 +15135,20 @@ if.then4.i528:                                    ; preds = %if.end.i479
   br i1 %cmp5.i5312906, label %for.body.i535.preheader, label %for.end.i532
 
 for.body.i535.preheader:                          ; preds = %if.then4.i528
-  %261 = add i64 %indvar, %277
-  %262 = udiv i64 %261, 255
-  %263 = add nuw nsw i64 %262, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr.i474, i8 -1, i64 %263, i1 false)
-  %264 = udiv i64 %indvars.iv3102, 255
-  %.neg = mul i64 %264, -255
+  %262 = add i64 %indvar, %278
+  %263 = udiv i64 %262, 255
+  %264 = add nuw nsw i64 %263, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr.i474, i8 -1, i64 %264, i1 false)
+  %265 = udiv i64 %indvars.iv3102, 255
+  %.neg = mul i64 %265, -255
   %scevgep = getelementptr i8, ptr %op.7.ph2918, i64 2
-  %scevgep3105 = getelementptr i8, ptr %scevgep, i64 %264
-  %265 = add i64 %.neg, %indvars.iv3102
+  %scevgep3105 = getelementptr i8, ptr %scevgep, i64 %265
+  %266 = add i64 %.neg, %indvars.iv3102
   br label %for.end.i532
 
 for.end.i532:                                     ; preds = %for.body.i535.preheader, %if.then4.i528
   %op.8.lcssa = phi ptr [ %incdec.ptr.i474, %if.then4.i528 ], [ %scevgep3105, %for.body.i535.preheader ]
-  %len.i473.0.lcssa = phi i64 [ %sub.i529, %if.then4.i528 ], [ %265, %for.body.i535.preheader ]
+  %len.i473.0.lcssa = phi i64 [ %sub.i529, %if.then4.i528 ], [ %266, %for.body.i535.preheader ]
   %conv.i533 = trunc i64 %len.i473.0.lcssa to i8
   %incdec.ptr8.i534 = getelementptr inbounds i8, ptr %op.8.lcssa, i64 1
   store i8 %conv.i533, ptr %op.8.lcssa, align 1
@@ -15169,18 +15168,18 @@ if.end10.i484:                                    ; preds = %if.else.i481, %for.
 do.body.i638:                                     ; preds = %do.body.i638, %if.end10.i484
   %d.i635.0 = phi ptr [ %op.9, %if.end10.i484 ], [ %add.ptr.i639, %do.body.i638 ]
   %s.i636.0 = phi ptr [ %anchor.2.ph2917, %if.end10.i484 ], [ %add.ptr1.i640, %do.body.i638 ]
-  %266 = load i64, ptr %s.i636.0, align 1
-  store i64 %266, ptr %d.i635.0, align 1
+  %267 = load i64, ptr %s.i636.0, align 1
+  store i64 %267, ptr %d.i635.0, align 1
   %add.ptr.i639 = getelementptr inbounds i8, ptr %d.i635.0, i64 8
   %add.ptr1.i640 = getelementptr inbounds i8, ptr %s.i636.0, i64 8
   %cmp.i641 = icmp ult ptr %add.ptr.i639, %add.ptr11.i485
   br i1 %cmp.i641, label %do.body.i638, label %LZ4_wildCopy8.exit642, !llvm.loop !18
 
 LZ4_wildCopy8.exit642:                            ; preds = %do.body.i638
-  %conv13.i487 = trunc i32 %260 to i16
+  %conv13.i487 = trunc i32 %261 to i16
   store i16 %conv13.i487, ptr %add.ptr11.i485, align 1
   %add.ptr14.i488 = getelementptr i8, ptr %add.ptr11.i485, i64 2
-  %conv15.i489 = sext i32 %258 to i64
+  %conv15.i489 = sext i32 %259 to i64
   %sub16.i490 = add nsw i64 %conv15.i489, -4
   %div19.i523 = udiv i64 %sub16.i490, 255
   %add.ptr20.i524 = getelementptr inbounds i8, ptr %add.ptr14.i488, i64 %div19.i523
@@ -15194,28 +15193,28 @@ if.end25.i492:                                    ; preds = %LZ4_wildCopy8.exit6
   br i1 %cmp26.i493, label %if.then28.i503, label %if.else49.i494
 
 if.then28.i503:                                   ; preds = %if.end25.i492
-  %267 = load i8, ptr %op.7.ph2918, align 1
-  %add.i505 = add i8 %267, 15
+  %268 = load i8, ptr %op.7.ph2918, align 1
+  %add.i505 = add i8 %268, 15
   store i8 %add.i505, ptr %op.7.ph2918, align 1
   %sub31.i507 = add nsw i64 %conv15.i489, -19
   %cmp33.i5092911 = icmp ugt i64 %sub31.i507, 509
   br i1 %cmp33.i5092911, label %for.body35.i518.preheader, label %for.end40.i510
 
 for.body35.i518.preheader:                        ; preds = %if.then28.i503
-  %268 = add nsw i64 %conv15.i489, -529
-  %269 = udiv i64 %268, 510
-  %270 = shl nuw nsw i64 %269, 1
-  %271 = add nuw nsw i64 %270, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr14.i488, i8 -1, i64 %271, i1 false)
-  %272 = add i64 %indvars.iv3106, %270
-  %scevgep3109 = getelementptr i8, ptr %op.9, i64 %272
-  %.neg3138 = mul i64 %269, -510
-  %273 = add i64 %.neg3138, %268
+  %269 = add nsw i64 %conv15.i489, -529
+  %270 = udiv i64 %269, 510
+  %271 = shl nuw nsw i64 %270, 1
+  %272 = add nuw nsw i64 %271, 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr14.i488, i8 -1, i64 %272, i1 false)
+  %273 = add i64 %indvars.iv3106, %271
+  %scevgep3109 = getelementptr i8, ptr %op.9, i64 %273
+  %.neg3138 = mul i64 %270, -510
+  %274 = add i64 %.neg3138, %269
   br label %for.end40.i510
 
 for.end40.i510:                                   ; preds = %for.body35.i518.preheader, %if.then28.i503
   %op.10.lcssa = phi ptr [ %add.ptr14.i488, %if.then28.i503 ], [ %scevgep3109, %for.body35.i518.preheader ]
-  %length.i471.0.lcssa = phi i64 [ %sub31.i507, %if.then28.i503 ], [ %273, %for.body35.i518.preheader ]
+  %length.i471.0.lcssa = phi i64 [ %sub31.i507, %if.then28.i503 ], [ %274, %for.body35.i518.preheader ]
   %cmp41.i511 = icmp ugt i64 %length.i471.0.lcssa, 254
   br i1 %cmp41.i511, label %if.then43.i515, label %if.end46.i512
 
@@ -15235,8 +15234,8 @@ if.end46.i512:                                    ; preds = %if.then43.i515, %fo
 
 if.else49.i494:                                   ; preds = %if.end25.i492
   %conv50.i495 = trunc i64 %sub16.i490 to i8
-  %274 = load i8, ptr %op.7.ph2918, align 1
-  %add53.i498 = add i8 %274, %conv50.i495
+  %275 = load i8, ptr %op.7.ph2918, align 1
+  %add53.i498 = add i8 %275, %conv50.i495
   store i8 %add53.i498, ptr %op.7.ph2918, align 1
   br label %LZ4HC_encodeSequence.exit545
 
@@ -15253,11 +15252,11 @@ while.body335.lr.ph:                              ; preds = %while.body335.lr.ph
   %anchor.2.ph2917 = phi ptr [ %add.ptr56.i502, %LZ4HC_encodeSequence.exit545 ], [ %anchor.0.ph2935, %while.body335.lr.ph.preheader ]
   %anchor.2.ph29173101 = ptrtoint ptr %anchor.2.ph2917 to i64
   %ip.2.ph29193099 = ptrtoint ptr %ip.2.ph2919 to i64
-  %275 = sext i32 %rPos331.0.ph2920 to i64
-  %276 = add i64 %ip.2.ph29193099, -270
-  %277 = sub i64 %276, %anchor.2.ph29173101
-  %278 = add i64 %ip.2.ph29193099, 4
-  %279 = sub i64 %278, %anchor.2.ph29173101
+  %276 = sext i32 %rPos331.0.ph2920 to i64
+  %277 = add i64 %ip.2.ph29193099, -270
+  %278 = sub i64 %277, %anchor.2.ph29173101
+  %279 = add i64 %ip.2.ph29193099, 4
+  %280 = sub i64 %279, %anchor.2.ph29173101
   br label %while.body335
 
 _last_literals:                                   ; preds = %while.cond.outer.backedge, %if.then17, %if.end, %if.then419, %if.end55.i, %if.then432
@@ -15285,8 +15284,8 @@ if.then374:                                       ; preds = %_last_literals
 if.end378:                                        ; preds = %if.then374
   %sub.ptr.lhs.cast379 = ptrtoint ptr %spec.select1928 to i64
   %sub.ptr.rhs.cast380 = ptrtoint ptr %op.14 to i64
-  %280 = xor i64 %sub.ptr.rhs.cast380, -1
-  %sub382 = add i64 %280, %sub.ptr.lhs.cast379
+  %281 = xor i64 %sub.ptr.rhs.cast380, -1
+  %sub382 = add i64 %281, %sub.ptr.lhs.cast379
   %sub384 = add i64 %sub382, 241
   %div3851860 = lshr i64 %sub384, 8
   %sub386 = sub i64 %sub382, %div3851860
@@ -15306,18 +15305,18 @@ if.then391:                                       ; preds = %if.end387
   br i1 %cmp3952951, label %for.body397.preheader, label %for.end401
 
 for.body397.preheader:                            ; preds = %if.then391
-  %281 = add i64 %lastRunSize.0, -270
-  %282 = udiv i64 %281, 255
-  %283 = add nuw nsw i64 %282, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %op.152950, i8 -1, i64 %283, i1 false)
-  %.neg3143 = mul i64 %282, -255
-  %284 = add nuw nsw i64 %282, 2
-  %285 = add i64 %.neg3143, %281
-  %scevgep3127 = getelementptr i8, ptr %op.14, i64 %284
+  %282 = add i64 %lastRunSize.0, -270
+  %283 = udiv i64 %282, 255
+  %284 = add nuw nsw i64 %283, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %op.152950, i8 -1, i64 %284, i1 false)
+  %.neg3143 = mul i64 %283, -255
+  %285 = add nuw nsw i64 %283, 2
+  %286 = add i64 %.neg3143, %282
+  %scevgep3127 = getelementptr i8, ptr %op.14, i64 %285
   br label %for.end401
 
 for.end401:                                       ; preds = %for.body397.preheader, %if.then391
-  %accumulator.0.lcssa = phi i64 [ %sub392, %if.then391 ], [ %285, %for.body397.preheader ]
+  %accumulator.0.lcssa = phi i64 [ %sub392, %if.then391 ], [ %286, %for.body397.preheader ]
   %op.15.lcssa = phi ptr [ %op.152950, %if.then391 ], [ %scevgep3127, %for.body397.preheader ]
   %conv402 = trunc i64 %accumulator.0.lcssa to i8
   store i8 %conv402, ptr %op.15.lcssa, align 1
@@ -15349,8 +15348,8 @@ _dest_overflow:                                   ; preds = %LZ4_wildCopy8.exit,
   %anchor.5 = phi ptr [ %anchor.2.ph2917, %if.end349 ], [ %anchor.2.ph2917, %LZ4_wildCopy8.exit642 ], [ %anchor.0.ph2935, %if.then23 ], [ %anchor.0.ph2935, %LZ4_wildCopy8.exit ]
   %ip.4 = phi ptr [ %ip.22898, %if.end349 ], [ %ip.22898, %LZ4_wildCopy8.exit642 ], [ %ip.02727, %if.then23 ], [ %ip.02727, %LZ4_wildCopy8.exit ]
   %opSaved.0 = phi ptr [ %op.7.ph2918, %if.end349 ], [ %op.7.ph2918, %LZ4_wildCopy8.exit642 ], [ %op.0.ph2936, %if.then23 ], [ %op.0.ph2936, %LZ4_wildCopy8.exit ]
-  %ovml.0 = phi i32 [ %258, %if.end349 ], [ %258, %LZ4_wildCopy8.exit642 ], [ %md.i1898.sroa.2.0, %if.then23 ], [ %md.i1898.sroa.2.0, %LZ4_wildCopy8.exit ]
-  %ovoff.0 = phi i32 [ %260, %if.end349 ], [ %260, %LZ4_wildCopy8.exit642 ], [ %offset.i.i1853.7, %if.then23 ], [ %offset.i.i1853.7, %LZ4_wildCopy8.exit ]
+  %ovml.0 = phi i32 [ %259, %if.end349 ], [ %259, %LZ4_wildCopy8.exit642 ], [ %md.i1898.sroa.2.0, %if.then23 ], [ %md.i1898.sroa.2.0, %LZ4_wildCopy8.exit ]
+  %ovoff.0 = phi i32 [ %261, %if.end349 ], [ %261, %LZ4_wildCopy8.exit642 ], [ %offset.i.i1853.7, %if.then23 ], [ %offset.i.i1853.7, %LZ4_wildCopy8.exit ]
   br i1 %cmp6, label %if.then419, label %if.then461
 
 if.then419:                                       ; preds = %_dest_overflow
@@ -15380,9 +15379,9 @@ if.then432:                                       ; preds = %if.then419
   %sub.ptr.lhs.cast447 = ptrtoint ptr %add.ptr5 to i64
   %sub.ptr.rhs.cast448 = ptrtoint ptr %add.ptr446 to i64
   %conv451 = sext i32 %spec.select1930 to i64
-  %286 = add i64 %sub.ptr.lhs.cast447, %conv451
-  %287 = sub i64 %sub.ptr.rhs.cast448, %286
-  %cmp453 = icmp slt i64 %287, -12
+  %287 = add i64 %sub.ptr.lhs.cast447, %conv451
+  %288 = sub i64 %sub.ptr.rhs.cast448, %287
+  %cmp453 = icmp slt i64 %288, -12
   br i1 %cmp453, label %if.then455, label %_last_literals
 
 if.then455:                                       ; preds = %if.then432
@@ -15397,20 +15396,20 @@ if.then4.i:                                       ; preds = %if.then455
   br i1 %cmp5.i2940, label %for.body.i.preheader, label %for.end.i
 
 for.body.i.preheader:                             ; preds = %if.then4.i
-  %288 = add i64 %sub.ptr.lhs.cast421, -270
-  %289 = sub i64 %288, %sub.ptr.rhs.cast422
-  %290 = udiv i64 %289, 255
-  %291 = add nuw nsw i64 %290, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr.i, i8 -1, i64 %291, i1 false)
-  %292 = add nuw nsw i64 %290, 2
-  %.neg3141 = mul i64 %290, -255
-  %scevgep3125 = getelementptr i8, ptr %opSaved.0, i64 %292
-  %293 = add i64 %.neg3141, %289
+  %289 = add i64 %sub.ptr.lhs.cast421, -270
+  %290 = sub i64 %289, %sub.ptr.rhs.cast422
+  %291 = udiv i64 %290, 255
+  %292 = add nuw nsw i64 %291, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr.i, i8 -1, i64 %292, i1 false)
+  %293 = add nuw nsw i64 %291, 2
+  %.neg3141 = mul i64 %291, -255
+  %scevgep3125 = getelementptr i8, ptr %opSaved.0, i64 %293
+  %294 = add i64 %.neg3141, %290
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.body.i.preheader, %if.then4.i
   %op.17.lcssa = phi ptr [ %incdec.ptr.i, %if.then4.i ], [ %scevgep3125, %for.body.i.preheader ]
-  %len.i.0.lcssa = phi i64 [ %sub.i, %if.then4.i ], [ %293, %for.body.i.preheader ]
+  %len.i.0.lcssa = phi i64 [ %sub.i, %if.then4.i ], [ %294, %for.body.i.preheader ]
   %conv.i = trunc i64 %len.i.0.lcssa to i8
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %op.17.lcssa, i64 1
   store i8 %conv.i, ptr %op.17.lcssa, align 1
@@ -15430,8 +15429,8 @@ if.end10.i:                                       ; preds = %if.else.i, %for.end
 do.body.i649:                                     ; preds = %do.body.i649, %if.end10.i
   %d.i646.0 = phi ptr [ %op.18, %if.end10.i ], [ %add.ptr.i650, %do.body.i649 ]
   %s.i647.0 = phi ptr [ %anchor.5, %if.end10.i ], [ %add.ptr1.i651, %do.body.i649 ]
-  %294 = load i64, ptr %s.i647.0, align 1
-  store i64 %294, ptr %d.i646.0, align 1
+  %295 = load i64, ptr %s.i647.0, align 1
+  store i64 %295, ptr %d.i646.0, align 1
   %add.ptr.i650 = getelementptr inbounds i8, ptr %d.i646.0, i64 8
   %add.ptr1.i651 = getelementptr inbounds i8, ptr %s.i647.0, i64 8
   %cmp.i652 = icmp ult ptr %add.ptr.i650, %add.ptr11.i
@@ -15446,30 +15445,30 @@ LZ4_wildCopy8.exit653:                            ; preds = %do.body.i649
   br i1 %cmp26.i, label %if.then28.i, label %if.else49.i
 
 if.then28.i:                                      ; preds = %LZ4_wildCopy8.exit653
-  %295 = load i8, ptr %opSaved.0, align 1
-  %add.i = add i8 %295, 15
+  %296 = load i8, ptr %opSaved.0, align 1
+  %add.i = add i8 %296, 15
   store i8 %add.i, ptr %opSaved.0, align 1
   %sub31.i = add nsw i64 %conv451, -19
   %cmp33.i2945 = icmp ugt i64 %sub31.i, 509
   br i1 %cmp33.i2945, label %for.body35.i.preheader, label %for.end40.i
 
 for.body35.i.preheader:                           ; preds = %if.then28.i
-  %296 = add nsw i64 %conv451, -529
-  %297 = udiv i64 %296, 510
-  %298 = shl nuw nsw i64 %297, 1
-  %299 = add nuw nsw i64 %298, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr14.i, i8 -1, i64 %299, i1 false)
-  %300 = add i64 %298, %sub.ptr.lhs.cast421
-  %301 = add i64 %300, 4
-  %302 = sub i64 %301, %sub.ptr.rhs.cast422
-  %scevgep3126 = getelementptr i8, ptr %op.18, i64 %302
-  %.neg3142 = mul i64 %297, -510
-  %303 = add i64 %.neg3142, %296
+  %297 = add nsw i64 %conv451, -529
+  %298 = udiv i64 %297, 510
+  %299 = shl nuw nsw i64 %298, 1
+  %300 = add nuw nsw i64 %299, 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr14.i, i8 -1, i64 %300, i1 false)
+  %301 = add i64 %299, %sub.ptr.lhs.cast421
+  %302 = add i64 %301, 4
+  %303 = sub i64 %302, %sub.ptr.rhs.cast422
+  %scevgep3126 = getelementptr i8, ptr %op.18, i64 %303
+  %.neg3142 = mul i64 %298, -510
+  %304 = add i64 %.neg3142, %297
   br label %for.end40.i
 
 for.end40.i:                                      ; preds = %for.body35.i.preheader, %if.then28.i
   %op.19.lcssa = phi ptr [ %add.ptr14.i, %if.then28.i ], [ %scevgep3126, %for.body35.i.preheader ]
-  %length.i.0.lcssa = phi i64 [ %sub31.i, %if.then28.i ], [ %303, %for.body35.i.preheader ]
+  %length.i.0.lcssa = phi i64 [ %sub31.i, %if.then28.i ], [ %304, %for.body35.i.preheader ]
   %cmp41.i = icmp ugt i64 %length.i.0.lcssa, 254
   br i1 %cmp41.i, label %if.then43.i, label %if.end46.i
 
@@ -15489,8 +15488,8 @@ if.end46.i:                                       ; preds = %if.then43.i, %for.e
 
 if.else49.i:                                      ; preds = %LZ4_wildCopy8.exit653
   %conv50.i = trunc i64 %sub16.i to i8
-  %304 = load i8, ptr %opSaved.0, align 1
-  %add53.i = add i8 %304, %conv50.i
+  %305 = load i8, ptr %opSaved.0, align 1
+  %add53.i = add i8 %305, %conv50.i
   store i8 %add53.i, ptr %opSaved.0, align 1
   br label %if.end55.i
 
@@ -15501,7 +15500,7 @@ if.end55.i:                                       ; preds = %if.else49.i, %if.en
 
 if.then461:                                       ; preds = %if.end407, %_dest_overflow, %if.then374
   %retval1.0 = phi i32 [ %conv416, %if.end407 ], [ 0, %_dest_overflow ], [ 0, %if.then374 ]
-  tail call void @free(ptr noundef nonnull %call) #19
+  tail call void @free(ptr noundef nonnull %call) #18
   br label %if.end462
 
 if.end462:                                        ; preds = %entry, %if.then461
@@ -15509,8 +15508,8 @@ if.end462:                                        ; preds = %entry, %if.then461
   ret i32 %retval1.02578
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @LZ4HC_countPattern(ptr noundef %ip, ptr noundef readnone %iEnd, i32 noundef %pattern32) unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define internal fastcc i32 @LZ4HC_countPattern(ptr noundef %ip, ptr noundef readnone %iEnd, i32 noundef %pattern32) unnamed_addr #14 {
 entry:
   %iEnd32 = ptrtoint ptr %iEnd to i64
   %conv = zext i32 %pattern32 to i64
@@ -15577,63 +15576,62 @@ return:                                           ; preds = %while.cond14.prehea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #16
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #16
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #17
+declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #17
+declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #17
+declare i16 @llvm.smin.i16(i16, i16) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { nounwind allocsize(0,1) }
+attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

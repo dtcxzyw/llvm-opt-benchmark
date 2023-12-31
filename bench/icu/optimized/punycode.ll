@@ -401,10 +401,9 @@ for.body162:                                      ; preds = %for.cond160.prehead
   %arrayidx164 = getelementptr inbounds [1000 x i32], ptr %cpBuffer, i64 0, i64 %indvars.iv237
   %22 = load i32, ptr %arrayidx164, align 4
   %and165 = and i32 %22, 2147483647
-  %cmp166.not = icmp sle i32 %n.2222, %and165
-  %cmp168 = icmp slt i32 %and165, %m.0197
-  %or.cond138 = select i1 %cmp166.not, i1 %cmp168, i1 false
-  %m.1 = select i1 %or.cond138, i32 %and165, i32 %m.0197
+  %cmp166.not.not = icmp sgt i32 %n.2222, %and165
+  %23 = tail call i32 @llvm.smin.i32(i32 %and165, i32 %m.0197)
+  %m.1 = select i1 %cmp166.not.not, i32 %m.0197, i32 %23
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count
   br i1 %exitcond.not, label %for.end173, label %for.body162, !llvm.loop !7
@@ -412,8 +411,8 @@ for.body162:                                      ; preds = %for.cond160.prehead
 for.end173:                                       ; preds = %for.body162, %for.cond160.preheader
   %m.0.lcssa = phi i32 [ 2147483647, %for.cond160.preheader ], [ %m.1, %for.body162 ]
   %sub174 = sub nsw i32 %m.0.lcssa, %n.2222
-  %23 = add i32 %delta.0223, %handledCPCount.0224
-  %sub176 = sub i32 2147483647, %23
+  %24 = add i32 %delta.0223, %handledCPCount.0224
+  %sub176 = sub i32 2147483647, %24
   %add177 = add nsw i32 %handledCPCount.0224, 1
   %div = sdiv i32 %sub176, %add177
   %cmp178 = icmp sgt i32 %sub174, %div
@@ -435,8 +434,8 @@ for.body186:                                      ; preds = %if.end180, %for.inc
   %handledCPCount.1213 = phi i32 [ %handledCPCount.2, %for.inc245 ], [ %handledCPCount.0224, %if.end180 ]
   %delta.1212 = phi i32 [ %delta.2, %for.inc245 ], [ %add183, %if.end180 ]
   %arrayidx188 = getelementptr inbounds [1000 x i32], ptr %cpBuffer, i64 0, i64 %indvars.iv243
-  %24 = load i32, ptr %arrayidx188, align 4
-  %and189 = and i32 %24, 2147483647
+  %25 = load i32, ptr %arrayidx188, align 4
+  %and189 = and i32 %25, 2147483647
   %cmp190 = icmp slt i32 %and189, %m.0.lcssa
   br i1 %cmp190, label %if.then191, label %if.else193
 
@@ -458,11 +457,11 @@ for.cond196.preheader:                            ; preds = %if.else193
   br i1 %cmp206204, label %for.end225, label %if.end208.preheader
 
 if.end208.preheader:                              ; preds = %for.cond196.preheader
-  %25 = sext i32 %destLength.7214 to i64
+  %26 = sext i32 %destLength.7214 to i64
   br label %if.end208
 
 if.end208:                                        ; preds = %if.end208.preheader, %if.end218
-  %indvars.iv240 = phi i64 [ %25, %if.end208.preheader ], [ %indvars.iv.next241, %if.end218 ]
+  %indvars.iv240 = phi i64 [ %26, %if.end208.preheader ], [ %indvars.iv.next241, %if.end218 ]
   %t.0208 = phi i32 [ %t.0203, %if.end208.preheader ], [ %t.0, %if.end218 ]
   %k.0207 = phi i32 [ 36, %if.end208.preheader ], [ %add224, %if.end218 ]
   %q.0206 = phi i32 [ %delta.1212, %if.end208.preheader ], [ %div222, %if.end218 ]
@@ -476,9 +475,9 @@ if.end208:                                        ; preds = %if.end208.preheader
 if.then210:                                       ; preds = %if.end208
   %add213 = add nsw i32 %rem, %t.0208
   %cmp.i149 = icmp slt i32 %add213, 26
-  %26 = trunc i32 %add213 to i16
+  %27 = trunc i32 %add213 to i16
   %retval.0.i.v = select i1 %cmp.i149, i16 97, i16 22
-  %retval.0.i = add i16 %retval.0.i.v, %26
+  %retval.0.i = add i16 %retval.0.i.v, %27
   %sext171 = shl i16 %retval.0.i, 8
   %conv215 = ashr exact i16 %sext171, 8
   %arrayidx217 = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv240
@@ -490,19 +489,19 @@ if.end218:                                        ; preds = %if.end208, %if.then
   %add224 = add nuw nsw i32 %k.0207, 36
   %sub197 = sub nsw i32 %add224, %bias.1215
   %cmp198 = icmp slt i32 %sub197, 1
-  %27 = add nuw nsw i32 %k.0207, 10
-  %cmp202.not = icmp slt i32 %27, %bias.1215
+  %28 = add nuw nsw i32 %k.0207, 10
+  %cmp202.not = icmp slt i32 %28, %bias.1215
   %spec.select = select i1 %cmp202.not, i32 %sub197, i32 26
   %t.0 = select i1 %cmp198, i32 1, i32 %spec.select
   %cmp206 = icmp slt i32 %div222, %t.0
   br i1 %cmp206, label %for.end225.loopexit, label %if.end208, !llvm.loop !8
 
 for.end225.loopexit:                              ; preds = %if.end218
-  %28 = trunc i64 %indvars.iv.next241 to i32
+  %29 = trunc i64 %indvars.iv.next241 to i32
   br label %for.end225
 
 for.end225:                                       ; preds = %for.end225.loopexit, %for.cond196.preheader
-  %destLength.8.lcssa = phi i32 [ %destLength.7214, %for.cond196.preheader ], [ %28, %for.end225.loopexit ]
+  %destLength.8.lcssa = phi i32 [ %destLength.7214, %for.cond196.preheader ], [ %29, %for.end225.loopexit ]
   %q.0.lcssa = phi i32 [ %delta.1212, %for.cond196.preheader ], [ %div222, %for.end225.loopexit ]
   %cmp226 = icmp slt i32 %destLength.8.lcssa, %destCapacity
   br i1 %cmp226, label %if.then227, label %if.end236
@@ -512,21 +511,21 @@ if.then227:                                       ; preds = %for.end225
   br i1 %cmp.i152, label %if.then.i156, label %if.else4.i153
 
 if.then.i156:                                     ; preds = %if.then227
-  %tobool.not.i157 = icmp sgt i32 %24, -1
-  %29 = trunc i32 %q.0.lcssa to i8
+  %tobool.not.i157 = icmp sgt i32 %25, -1
+  %30 = trunc i32 %q.0.lcssa to i8
   br i1 %tobool.not.i157, label %if.else.i159, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i156
-  %conv.i158 = add i8 %29, 65
+  %conv.i158 = add i8 %30, 65
   br label %_ZL12digitToBasicia.exit161
 
 if.else.i159:                                     ; preds = %if.then.i156
-  %conv3.i160 = add i8 %29, 97
+  %conv3.i160 = add i8 %30, 97
   br label %_ZL12digitToBasicia.exit161
 
 if.else4.i153:                                    ; preds = %if.then227
-  %30 = trunc i32 %q.0.lcssa to i8
-  %conv6.i154 = add i8 %30, 22
+  %31 = trunc i32 %q.0.lcssa to i8
+  %conv6.i154 = add i8 %31, 22
   br label %_ZL12digitToBasicia.exit161
 
 _ZL12digitToBasicia.exit161:                      ; preds = %if.then1.i, %if.else.i159, %if.else4.i153
@@ -1063,9 +1062,13 @@ declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #3
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

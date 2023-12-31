@@ -7546,61 +7546,60 @@ _ZNKSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE12_M_check_lenEmPKc.exit: ; 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN9grpc_core16ContextListEntryEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core16ContextListEntryEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   br label %_ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN9grpc_core16ContextListEntryEEE8allocateERS2_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core16ContextListEntryEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %cond.i17, i64 %sub.ptr.div.i
-  %2 = load ptr, ptr %__args, align 8
-  %3 = load i64, ptr %__args1, align 8
-  %4 = load i64, ptr %__args3, align 8
-  %5 = load i64, ptr %__args5, align 8
-  %6 = load ptr, ptr %__args7, align 8
+  %3 = load ptr, ptr %__args, align 8
+  %4 = load i64, ptr %__args1, align 8
+  %5 = load i64, ptr %__args3, align 8
+  %6 = load i64, ptr %__args5, align 8
+  %7 = load ptr, ptr %__args7, align 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.282", ptr %__args7, i64 0, i32 1
-  %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
-  %8 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %8, 0
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 1
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %9 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %9, 1
+  %10 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %10, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4
   br label %invoke.cont
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE11_M_allocateEm.exit
-  store ptr %2, ptr %add.ptr, align 8
+  store ptr %3, ptr %add.ptr, align 8
   %relative_start_pos_in_chunk_.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
-  store i64 %3, ptr %relative_start_pos_in_chunk_.i.i.i, align 8
+  store i64 %4, ptr %relative_start_pos_in_chunk_.i.i.i, align 8
   %num_traced_bytes_in_chunk_.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %cond.i17, i64 %sub.ptr.div.i, i32 2
-  store i64 %4, ptr %num_traced_bytes_in_chunk_.i.i.i, align 8
+  store i64 %5, ptr %num_traced_bytes_in_chunk_.i.i.i, align 8
   %byte_offset_in_stream_.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3
-  store i64 %5, ptr %byte_offset_in_stream_.i.i.i, align 8
+  store i64 %6, ptr %byte_offset_in_stream_.i.i.i, align 8
   %tcp_tracer_.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %cond.i17, i64 %sub.ptr.div.i, i32 4
-  store ptr %6, ptr %tcp_tracer_.i.i.i, align 8
+  store ptr %7, ptr %tcp_tracer_.i.i.i, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %cond.i17, i64 %sub.ptr.div.i, i32 4, i32 0, i32 1
-  store ptr %7, ptr %_M_refcount.i.i.i.i.i, align 8
+  store ptr %8, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i
 
@@ -7613,9 +7612,9 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %tcp_tracer_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__cur.07.i.i.i, i64 0, i32 4
   %tcp_tracer_3.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__first.addr.06.i.i.i, i64 0, i32 4
   %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 1
-  %11 = load <2 x ptr>, ptr %tcp_tracer_3.i.i.i.i.i.i.i, align 8, !alias.scope !270, !noalias !267
+  %12 = load <2 x ptr>, ptr %tcp_tracer_3.i.i.i.i.i.i.i, align 8, !alias.scope !270, !noalias !267
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !270, !noalias !267
-  store <2 x ptr> %11, ptr %tcp_tracer_.i.i.i.i.i.i.i, align 8, !alias.scope !267, !noalias !270
+  store <2 x ptr> %12, ptr %tcp_tracer_.i.i.i.i.i.i.i, align 8, !alias.scope !267, !noalias !270
   store ptr null, ptr %tcp_tracer_3.i.i.i.i.i.i.i, align 8, !alias.scope !270, !noalias !267
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__cur.07.i.i.i, i64 1
@@ -7637,9 +7636,9 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN9grpc
   %tcp_tracer_.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__cur.07.i.i.i20, i64 0, i32 4
   %tcp_tracer_3.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__first.addr.06.i.i.i21, i64 0, i32 4
   %_M_refcount4.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__first.addr.06.i.i.i21, i64 0, i32 4, i32 0, i32 1
-  %12 = load <2 x ptr>, ptr %tcp_tracer_3.i.i.i.i.i.i.i23, align 8, !alias.scope !277, !noalias !274
+  %13 = load <2 x ptr>, ptr %tcp_tracer_3.i.i.i.i.i.i.i23, align 8, !alias.scope !277, !noalias !274
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !277, !noalias !274
-  store <2 x ptr> %12, ptr %tcp_tracer_.i.i.i.i.i.i.i22, align 8, !alias.scope !274, !noalias !277
+  store <2 x ptr> %13, ptr %tcp_tracer_.i.i.i.i.i.i.i22, align 8, !alias.scope !274, !noalias !277
   store ptr null, ptr %tcp_tracer_3.i.i.i.i.i.i.i23, align 8, !alias.scope !277, !noalias !274
   %incdec.ptr.i.i.i26 = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__first.addr.06.i.i.i21, i64 1
   %incdec.ptr1.i.i.i27 = getelementptr inbounds %"class.grpc_core::ContextListEntry", ptr %__cur.07.i.i.i20, i64 1

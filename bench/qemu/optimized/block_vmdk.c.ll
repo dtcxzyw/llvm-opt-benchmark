@@ -897,7 +897,7 @@ if.end42:                                         ; preds = %qobject_ref_impl.ex
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vmdk_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #2 {
 entry:
   %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
@@ -4278,12 +4278,11 @@ if.else151:                                       ; preds = %if.end131
   %tobool156 = icmp ne i8 %39, 0
   %cmp158 = icmp eq i32 %37, 1
   %or.cond = select i1 %tobool156, i1 %cmp158, i1 false
-  %spec.select101 = select i1 %or.cond, i64 1, i64 %conv155
   br label %if.end162
 
 if.end162:                                        ; preds = %if.else151, %sw.bb144
   %zeroed.0 = phi i1 [ false, %sw.bb144 ], [ %or.cond, %if.else151 ]
-  %cluster_sector.0 = phi i64 [ %add150, %sw.bb144 ], [ %spec.select101, %if.else151 ]
+  %cluster_sector.0 = phi i64 [ %add150, %sw.bb144 ], [ %conv155, %if.else151 ]
   %tobool163.not = icmp eq i64 %cluster_sector.0, 0
   %brmerge = or i1 %zeroed.0, %tobool163.not
   br i1 %brmerge, label %if.then166, label %if.end162.if.end197_crit_edge
@@ -5360,7 +5359,7 @@ declare i32 @llvm.umin.i32(i32, i32) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -199,10 +199,9 @@ if.end6:                                          ; preds = %if.end, %if.then2
   br i1 %cmp17, label %land.lhs.true, label %if.end19
 
 if.end19:                                         ; preds = %if.end6
-  %cmp9 = icmp slt i32 %call8, %loc
   %cmp12 = icmp slt i32 %loc, 0
-  %1 = or i1 %cmp12, %cmp9
-  %loc.addr.0 = select i1 %1, i32 %call8, i32 %loc
+  %1 = tail call i32 @llvm.smin.i32(i32 %call8, i32 %loc)
+  %loc.addr.0 = select i1 %cmp12, i32 %call8, i32 %1
   %call22 = tail call i32 @OPENSSL_sk_insert(ptr noundef nonnull %sk.0, ptr noundef nonnull %call16, i32 noundef %loc.addr.0) #6
   %tobool.not = icmp eq i32 %call22, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end24
@@ -478,6 +477,9 @@ return:                                           ; preds = %if.end, %entry
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

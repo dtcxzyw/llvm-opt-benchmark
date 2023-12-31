@@ -169,15 +169,15 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7517CharacterIt
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522UCharCharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN6icu_7517CharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
+  tail call void @_ZN6icu_7517CharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522UCharCharacterIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN6icu_7522UCharCharacterIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #14
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
+  tail call void @_ZN6icu_7522UCharCharacterIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
   ret void
 }
 
@@ -214,7 +214,7 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %if.end.i.i
   %cmp.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i = zext i1 %cmp.i.i.i to i64
   %cond.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i
-  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #14
+  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #13
   %cmp7.i.i.not = icmp eq i32 %call6.i.i, 0
   br i1 %cmp7.i.i.not, label %if.end4, label %return
 
@@ -288,7 +288,7 @@ declare i32 @ustr_hashUCharsN_75(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7522UCharCharacterIterator5cloneEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #14
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #13
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -302,7 +302,7 @@ new.cont:                                         ; preds = %new.notnull, %entry
 lpad:                                             ; preds = %new.notnull
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #13
   resume { ptr, i32 } %0
 }
 
@@ -712,8 +712,8 @@ return:                                           ; preds = %entry, %land.lhs.tr
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7522UCharCharacterIterator10setIndex32Ei(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %position) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @_ZN6icu_7522UCharCharacterIterator10setIndex32Ei(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %position) unnamed_addr #6 align 2 {
 entry:
   %begin = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this, i64 0, i32 3
   %0 = load i32, ptr %begin, align 8
@@ -1036,7 +1036,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7522UCharCharacterIterator4moveEiNS_17CharacterIterator7EOriginE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %delta, i32 noundef %origin) unnamed_addr #10 align 2 {
+define noundef i32 @_ZN6icu_7522UCharCharacterIterator4moveEiNS_17CharacterIterator7EOriginE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %delta, i32 noundef %origin) unnamed_addr #9 align 2 {
 entry:
   switch i32 %origin, label %entry.sw.epilog_crit_edge [
     i32 0, label %sw.bb
@@ -1097,7 +1097,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7522UCharCharacterIterator6move32EiNS_17CharacterIterator7EOriginE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %delta, i32 noundef %origin) unnamed_addr #11 align 2 {
+define noundef i32 @_ZN6icu_7522UCharCharacterIterator6move32EiNS_17CharacterIterator7EOriginE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %delta, i32 noundef %origin) unnamed_addr #10 align 2 {
 entry:
   switch i32 %origin, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1410,15 +1410,14 @@ sw.epilog:                                        ; preds = %do.end171, %land.rh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %newText, i32 noundef %newTextLength) local_unnamed_addr #10 align 2 {
+define void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %newText, i32 noundef %newTextLength) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %newText, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this, i64 0, i32 1
   store ptr %0, ptr %text, align 8
   %cmp = icmp eq ptr %0, null
-  %cmp3 = icmp slt i32 %newTextLength, 0
-  %or.cond = or i1 %cmp3, %cmp
-  %spec.store.select = select i1 %or.cond, i32 0, i32 %newTextLength
+  %1 = tail call i32 @llvm.smax.i32(i32 %newTextLength, i32 0)
+  %spec.store.select = select i1 %cmp, i32 0, i32 %1
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this, i64 0, i32 1
   store i32 %spec.store.select, ptr %textLength, align 8
   %end = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this, i64 0, i32 4
@@ -1439,8 +1438,8 @@ entry:
   %textLength = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this, i64 0, i32 1
   %1 = load i32, ptr %textLength, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %0, i32 noundef %1)
-  %call = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #14
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #14
+  %call = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #13
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #13
   ret void
 }
 
@@ -1453,10 +1452,13 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1467,12 +1469,11 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(read, inaccessi
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

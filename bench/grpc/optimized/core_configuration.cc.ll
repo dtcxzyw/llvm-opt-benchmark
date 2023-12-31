@@ -1023,7 +1023,7 @@ invoke.cont2.preheader:                           ; preds = %for.inc, %entry
   br label %invoke.cont2
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %storemerge40 = phi ptr [ %1, %for.inc ], [ %atomic-temp.i.0.i, %for.body.preheader ]
+  %storemerge40 = phi ptr [ %2, %for.inc ], [ %atomic-temp.i.0.i, %for.body.preheader ]
   %registered_builders.sroa.0.039 = phi ptr [ %registered_builders.sroa.0.1, %for.inc ], [ null, %for.body.preheader ]
   %registered_builders.sroa.6.038 = phi ptr [ %registered_builders.sroa.6.1, %for.inc ], [ null, %for.body.preheader ]
   %registered_builders.sroa.11.037 = phi ptr [ %registered_builders.sroa.11.1, %for.inc ], [ null, %for.body.preheader ]
@@ -1053,38 +1053,37 @@ _ZNKSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE12_M_ch
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %1 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %1
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIPN9grpc_core17CoreConfiguration17RegisteredBuilderEEE8allocateERS4_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIPN9grpc_core17CoreConfiguration17RegisteredBuilderEEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i3 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #18
           to label %_ZNSt12_Vector_baseIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
-_ZNSt12_Vector_baseIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN9grpc_core17CoreConfiguration17RegisteredBuilderEEE8allocateERS4_m.exit.i.i.i, %_ZNKSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i3, %_ZNSt16allocator_traitsISaIPN9grpc_core17CoreConfiguration17RegisteredBuilderEEE8allocateERS4_m.exit.i.i.i ]
+_ZNSt12_Vector_baseIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i3, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %storemerge40, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_M_allocateEm.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %registered_builders.sroa.0.039, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+  br label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %registered_builders.sroa.0.039, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i20.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   call void @_ZdlPv(ptr noundef nonnull %registered_builders.sroa.0.039) #16
   br label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
   br label %for.inc
 
@@ -1094,8 +1093,8 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPN9grp
   %registered_builders.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %registered_builders.sroa.0.039, %if.then.i ]
   %registered_builders.sroa.6.1 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.pn, i64 1
   %next = getelementptr inbounds %"struct.grpc_core::CoreConfiguration::RegisteredBuilder", ptr %storemerge40, i64 0, i32 1
-  %1 = load ptr, ptr %next, align 16
-  %cmp.not = icmp eq ptr %1, null
+  %2 = load ptr, ptr %next, align 16
+  %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %invoke.cont2.preheader, label %for.body, !llvm.loop !13
 
 lpad.loopexit:                                    ; preds = %for.body4
@@ -1103,7 +1102,7 @@ lpad.loopexit:                                    ; preds = %for.body4
           cleanup
   br label %lpad.body
 
-lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZNSt16allocator_traitsISaIPN9grpc_core17CoreConfiguration17RegisteredBuilderEEE8allocateERS4_m.exit.i.i.i
+lpad.loopexit.split-lp.loopexit:                  ; preds = %cond.true.i.i.i
   %lpad.loopexit25 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
@@ -1116,7 +1115,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end, %if.then.i.
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i
   %registered_builders.sroa.0.030 = phi ptr [ %registered_builders.sroa.0.0.lcssa, %lpad.i ], [ %registered_builders.sroa.0.0.lcssa, %lpad.loopexit ], [ %registered_builders.sroa.0.039, %lpad.loopexit.split-lp.loopexit ], [ %registered_builders.sroa.0.033, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad.i ], [ %lpad.loopexit23, %lpad.loopexit ], [ %lpad.loopexit25, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp26, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad.i ], [ %lpad.loopexit23, %lpad.loopexit ], [ %lpad.loopexit25, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp26, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i4 = icmp eq ptr %registered_builders.sroa.0.030, null
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EED2Ev.exit, label %if.then.i.i.i5
 
@@ -1135,19 +1134,19 @@ invoke.cont2:                                     ; preds = %invoke.cont2.prehea
 
 for.body4:                                        ; preds = %invoke.cont2
   %incdec.ptr.i.i7 = getelementptr inbounds ptr, ptr %it.sroa.0.0, i64 -1
-  %2 = load ptr, ptr %incdec.ptr.i.i7, align 8
-  %invoker_.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.55", ptr %2, i64 0, i32 2
-  %3 = load ptr, ptr %invoker_.i.i, align 8
-  invoke void %3(ptr noundef nonnull %2, ptr noundef nonnull %builder)
+  %3 = load ptr, ptr %incdec.ptr.i.i7, align 8
+  %invoker_.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.55", ptr %3, i64 0, i32 2
+  %4 = load ptr, ptr %invoker_.i.i, align 8
+  invoke void %4(ptr noundef nonnull %3, ptr noundef nonnull %builder)
           to label %invoke.cont2 unwind label %lpad.loopexit, !llvm.loop !14
 
 for.end12:                                        ; preds = %invoke.cont2
-  %4 = load ptr, ptr @_ZN9grpc_core17CoreConfiguration16default_builder_E, align 8
-  %cmp13.not = icmp eq ptr %4, null
+  %5 = load ptr, ptr @_ZN9grpc_core17CoreConfiguration16default_builder_E, align 8
+  %cmp13.not = icmp eq ptr %5, null
   br i1 %cmp13.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end12
-  invoke void %4(ptr noundef nonnull %builder)
+  invoke void %5(ptr noundef nonnull %builder)
           to label %if.end unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.end:                                           ; preds = %if.then, %for.end12
@@ -1159,26 +1158,26 @@ call.i.noexc:                                     ; preds = %if.end
           to label %invoke.cont15 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %call.i.noexc
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call.i10) #16
   br label %lpad.body
 
 invoke.cont15:                                    ; preds = %call.i.noexc
-  %6 = ptrtoint ptr %call.i10 to i64
-  %7 = cmpxchg ptr @_ZN9grpc_core17CoreConfiguration7config_E, i64 0, i64 %6 acq_rel acquire, align 8
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %cleanup, label %delete.end
+  %7 = ptrtoint ptr %call.i10 to i64
+  %8 = cmpxchg ptr @_ZN9grpc_core17CoreConfiguration7config_E, i64 0, i64 %7 acq_rel acquire, align 8
+  %9 = extractvalue { i64, i1 } %8, 1
+  br i1 %9, label %cleanup, label %delete.end
 
 delete.end:                                       ; preds = %invoke.cont15
-  %9 = extractvalue { i64, i1 } %7, 0
-  %10 = inttoptr i64 %9 to ptr
+  %10 = extractvalue { i64, i1 } %8, 0
+  %11 = inttoptr i64 %10 to ptr
   call void @_ZN9grpc_core17CoreConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %call.i10) #15
   call void @_ZdlPv(ptr noundef nonnull %call.i10) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont15, %delete.end
-  %retval.0 = phi ptr [ %10, %delete.end ], [ %call.i10, %invoke.cont15 ]
+  %retval.0 = phi ptr [ %11, %delete.end ], [ %call.i10, %invoke.cont15 ]
   %tobool.not.i.i.i11 = icmp eq ptr %registered_builders.sroa.0.0.lcssa, null
   br i1 %tobool.not.i.i.i11, label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EED2Ev.exit13, label %if.then.i.i.i12
 
@@ -2154,6 +2153,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

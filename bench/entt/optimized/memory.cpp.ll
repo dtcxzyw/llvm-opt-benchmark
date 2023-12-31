@@ -12993,9 +12993,8 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12_M_check_lenEmPKc.ex
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i6, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i6
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i6
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 384307168202282325
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 384307168202282325, i64 %add.i.i
+  %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 384307168202282325)
+  %cond.i.i = select i1 %cmp7.i.i, i64 384307168202282325, i64 %8
   %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
@@ -13044,22 +13043,22 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRm
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEERS3_DpOT_.exit: ; preds = %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, %if.then.i
   %sub.ptr.sub.i.i10.i.pre-phi = phi i64 [ %sub.ptr.sub.i.i.i, %if.then.i ], [ %.pre56.pre-phi, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
-  %8 = phi ptr [ %2, %if.then.i ], [ %.pre52, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
-  %9 = phi ptr [ %3, %if.then.i ], [ %call5.i.i.i.i, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
-  %10 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i9, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
+  %9 = phi ptr [ %2, %if.then.i ], [ %.pre52, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
+  %10 = phi ptr [ %3, %if.then.i ], [ %call5.i.i.i.i, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
+  %11 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i9, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %sub = add nsw i64 %sub.ptr.div.i, -1
-  %add.ptr.i37 = getelementptr inbounds i64, ptr %8, i64 %and.i.i
+  %add.ptr.i37 = getelementptr inbounds i64, ptr %9, i64 %and.i.i
   store i64 %sub, ptr %add.ptr.i37, align 8, !tbaa !86
   %conv.i = uitofp i64 %sub.ptr.div.i to float
   %sub.ptr.div.i.i11.i = ashr exact i64 %sub.ptr.sub.i.i10.i.pre-phi, 3
   %conv3.i = uitofp i64 %sub.ptr.div.i.i11.i to float
   %threshold.i.i = getelementptr inbounds %"class.entt::dense_map", ptr %this, i64 0, i32 2
-  %11 = load float, ptr %threshold.i.i, align 8, !tbaa !65
-  %mul.i = fmul float %11, %conv3.i
+  %12 = load float, ptr %threshold.i.i, align 8, !tbaa !65
+  %mul.i = fmul float %12, %conv3.i
   %cmp.i = fcmp olt float %mul.i, %conv.i
   br i1 %cmp.i, label %if.then.i44, label %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE18rehash_if_requiredEv.exit
 
@@ -13069,8 +13068,8 @@ if.then.i44:                                      ; preds = %_ZNSt6vectorIN4entt
   br label %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE18rehash_if_requiredEv.exit
 
 _ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE18rehash_if_requiredEv.exit: ; preds = %if.then.i44, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEERS3_DpOT_.exit
-  %12 = load ptr, ptr %_M_finish.i.i60, align 8, !tbaa !26
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %12, i64 -1
+  %13 = load ptr, ptr %_M_finish.i.i60, align 8, !tbaa !26
+  %incdec.ptr.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %13, i64 -1
   br label %cleanup29
 
 cleanup29:                                        ; preds = %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE18rehash_if_requiredEv.exit, %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE16constrained_findIjEEDaRKT_m.exit
@@ -14620,9 +14619,8 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12_M_check_lenEmPKc.ex
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i6, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i6
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i6
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 384307168202282325
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 384307168202282325, i64 %add.i.i
+  %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 384307168202282325)
+  %cond.i.i = select i1 %cmp7.i.i, i64 384307168202282325, i64 %8
   %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
@@ -14671,22 +14669,22 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRm
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEERS3_DpOT_.exit: ; preds = %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, %if.then.i
   %sub.ptr.sub.i.i10.i.pre-phi = phi i64 [ %sub.ptr.sub.i.i.i, %if.then.i ], [ %.pre56.pre-phi, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
-  %8 = phi ptr [ %2, %if.then.i ], [ %.pre52, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
-  %9 = phi ptr [ %3, %if.then.i ], [ %call5.i.i.i.i, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
-  %10 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i9, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
+  %9 = phi ptr [ %2, %if.then.i ], [ %.pre52, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
+  %10 = phi ptr [ %3, %if.then.i ], [ %call5.i.i.i.i, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
+  %11 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i9, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %sub = add nsw i64 %sub.ptr.div.i, -1
-  %add.ptr.i37 = getelementptr inbounds i64, ptr %8, i64 %and.i.i
+  %add.ptr.i37 = getelementptr inbounds i64, ptr %9, i64 %and.i.i
   store i64 %sub, ptr %add.ptr.i37, align 8, !tbaa !86
   %conv.i = uitofp i64 %sub.ptr.div.i to float
   %sub.ptr.div.i.i11.i = ashr exact i64 %sub.ptr.sub.i.i10.i.pre-phi, 3
   %conv3.i = uitofp i64 %sub.ptr.div.i.i11.i to float
   %threshold.i.i = getelementptr inbounds %"class.entt::dense_map", ptr %this, i64 0, i32 2
-  %11 = load float, ptr %threshold.i.i, align 8, !tbaa !65
-  %mul.i = fmul float %11, %conv3.i
+  %12 = load float, ptr %threshold.i.i, align 8, !tbaa !65
+  %mul.i = fmul float %12, %conv3.i
   %cmp.i = fcmp olt float %mul.i, %conv.i
   br i1 %cmp.i, label %if.then.i44, label %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE18rehash_if_requiredEv.exit
 
@@ -14696,8 +14694,8 @@ if.then.i44:                                      ; preds = %_ZNSt6vectorIN4entt
   br label %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE18rehash_if_requiredEv.exit
 
 _ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE18rehash_if_requiredEv.exit: ; preds = %if.then.i44, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEERS3_DpOT_.exit
-  %12 = load ptr, ptr %_M_finish.i.i60, align 8, !tbaa !26
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %12, i64 -1
+  %13 = load ptr, ptr %_M_finish.i.i60, align 8, !tbaa !26
+  %incdec.ptr.i.i = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %13, i64 -1
   br label %cleanup29
 
 cleanup29:                                        ; preds = %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE18rehash_if_requiredEv.exit, %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE16constrained_findIjEEDaRKT_m.exit

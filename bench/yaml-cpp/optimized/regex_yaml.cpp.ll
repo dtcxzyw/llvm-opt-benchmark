@@ -40,7 +40,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4YAML5RegExC2ENS_8REGEX_OPE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %op) unnamed_addr #3 align 2 {
 entry:
   store i32 %op, ptr %this, align 8
@@ -56,7 +56,7 @@ entry:
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4YAML5RegExC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 8
@@ -69,7 +69,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4YAML5RegExC2Ec(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i8 noundef signext %ch) unnamed_addr #3 align 2 {
 entry:
   store i32 1, ptr %this, align 8
@@ -82,7 +82,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4YAML5RegExC2Ecc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i8 noundef signext %a, i8 noundef signext %z) unnamed_addr #3 align 2 {
 entry:
   store i32 2, ptr %this, align 8
@@ -550,22 +550,21 @@ _ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
   br label %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.YAML::RegEx", ptr %cond.i19, i64 %sub.ptr.div.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %add.ptr, ptr noundef nonnull align 8 dereferenceable(6) %__args, i64 6, i1 false)
   %m_params.i.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %cond.i19, i64 %sub.ptr.div.i, i32 3
@@ -593,10 +592,10 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !7
 
 lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #14
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #14
   %cmp.not.i1.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %cond.i19
   br i1 %cmp.not.i1.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
@@ -613,16 +612,16 @@ invoke.cont3.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i.i unwind label %lpad2.i.i.i.i.i
 
 lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %if.then unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #16
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #16
   unreachable
 
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.i.i
@@ -651,10 +650,10 @@ for.inc.i.i.i.i.i38:                              ; preds = %for.body.i.i.i.i.i2
   br i1 %cmp.not.i.i.i.i.i41, label %invoke.cont14.loopexit, label %for.body.i.i.i.i.i21, !llvm.loop !7
 
 lpad.i.i.i.i.i26:                                 ; preds = %for.body.i.i.i.i.i21
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #14
   %cmp.not.i1.i.i.i.i.i.i27 = icmp eq i64 %__cur.010.i.i.i.i.i22.idx, 32
   br i1 %cmp.not.i1.i.i.i.i.i.i27, label %invoke.cont3.i.i.i.i.i33, label %for.body.i.i.i.i.i.i.i28
 
@@ -671,16 +670,16 @@ invoke.cont3.i.i.i.i.i33:                         ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i.i37 unwind label %lpad2.i.i.i.i.i34
 
 lpad2.i.i.i.i.i34:                                ; preds = %invoke.cont3.i.i.i.i.i33
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %if.else unwind label %terminate.lpad.i.i.i.i.i35
 
 terminate.lpad.i.i.i.i.i35:                       ; preds = %lpad2.i.i.i.i.i34
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #16
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #16
   unreachable
 
 unreachable.i.i.i.i.i37:                          ; preds = %invoke.cont3.i.i.i.i.i33
@@ -720,21 +719,21 @@ _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
   br label %if.else
 
 if.then:                                          ; preds = %lpad2.i.i.i.i.i
-  %15 = extractvalue { ptr, i32 } %5, 0
-  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #14
+  %16 = extractvalue { ptr, i32 } %6, 0
+  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #14
   tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i) #14
   br label %if.end
 
 if.else:                                          ; preds = %lpad, %lpad2.i.i.i.i.i34
   %__new_finish.0.lpad-body.ph = phi ptr [ %incdec.ptr.ptr, %lpad2.i.i.i.i.i34 ], [ %cond.i19, %lpad ]
-  %eh.lpad-body.ph = phi { ptr, i32 } [ %11, %lpad2.i.i.i.i.i34 ], [ %14, %lpad ]
-  %17 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
-  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #14
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %12, %lpad2.i.i.i.i.i34 ], [ %15, %lpad ]
+  %18 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
+  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #14
   %cmp.not.i1.i.i49 = icmp eq ptr %cond.i19, %__new_finish.0.lpad-body.ph
   br i1 %cmp.not.i1.i.i49, label %if.end, label %for.body.i.i.i50
 
@@ -747,7 +746,7 @@ for.body.i.i.i50:                                 ; preds = %if.else, %for.body.
   br i1 %cmp.not.i.i.i54, label %if.end, label %for.body.i.i.i50, !llvm.loop !4
 
 lpad19:                                           ; preds = %invoke.cont21
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -765,13 +764,13 @@ invoke.cont21:                                    ; preds = %if.then.i57, %if.en
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %20
 
 terminate.lpad:                                   ; preds = %lpad19
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #16
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #16
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -897,10 +896,13 @@ entry:
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #13
+
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2727,12 +2727,11 @@ if.else31:                                        ; preds = %if.end5
   %cmp35 = icmp eq i32 %12, 0
   %or.cond105 = select i1 %cmp32, i1 %cmp35, i1 false
   %spec.select = select i1 %or.cond105, i32 1, i32 %11
-  %spec.select119 = select i1 %or.cond105, i32 0, i32 %12
   br label %if.end41
 
 if.end41:                                         ; preds = %if.else31, %if.then30
   %minInt.0 = phi i32 [ 0, %if.then30 ], [ %spec.select, %if.else31 ]
-  %minFrac.0 = phi i32 [ %call, %if.then30 ], [ %spec.select119, %if.else31 ]
+  %minFrac.0 = phi i32 [ %call, %if.then30 ], [ %12, %if.else31 ]
   %integerAtSigns = getelementptr inbounds %"struct.icu_75::number::impl::ParsedPatternInfo", ptr %patternInfo, i64 0, i32 2, i32 4
   %13 = load i32, ptr %integerAtSigns, align 4
   %cmp42 = icmp sgt i32 %13, 0

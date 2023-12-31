@@ -1581,7 +1581,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3fmt3v106detail11file_bufferC2EOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) %other) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr_.i = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %other, i64 0, i32 1
@@ -12557,9 +12557,8 @@ if.end179:                                        ; preds = %if.else131
   %cmp182 = icmp eq i32 %8, 0
   %cmp185 = icmp sgt i32 %6, -1
   %or.cond = and i1 %cmp182, %cmp185
-  %cmp188 = icmp slt i32 %6, %sub181
-  %or.cond37 = select i1 %or.cond, i1 %cmp188, i1 false
-  %spec.store.select38 = select i1 %or.cond37, i32 %6, i32 %sub181
+  %52 = call i32 @llvm.smin.i32(i32 %6, i32 %sub181)
+  %spec.store.select38 = select i1 %or.cond, i32 %52, i32 %sub181
   store i32 %spec.store.select38, ptr %num_zeros180, align 4
   %cmp192 = icmp ne i32 %spec.store.select38, 0
   %cmp193 = icmp ne i32 %8, 0
@@ -12568,42 +12567,42 @@ if.end179:                                        ; preds = %if.else131
 
 lor.end.thread:                                   ; preds = %if.end179
   store i8 1, ptr %pointy, align 1
-  br label %53
-
-lor.end:                                          ; preds = %if.end179
-  %52 = and i32 %4, 524288
-  %bf.cast198.not = icmp eq i32 %52, 0
-  %.lobit = lshr exact i32 %52, 19
-  %frombool = trunc i32 %.lobit to i8
-  store i8 %frombool, ptr %pointy, align 1
-  br i1 %bf.cast198.not, label %54, label %53
-
-53:                                               ; preds = %lor.end.thread, %lor.end
   br label %54
 
-54:                                               ; preds = %lor.end, %53
-  %55 = phi i32 [ 2, %53 ], [ 1, %lor.end ]
-  %add203 = add i32 %55, %spec.store.select38
+lor.end:                                          ; preds = %if.end179
+  %53 = and i32 %4, 524288
+  %bf.cast198.not = icmp eq i32 %53, 0
+  %.lobit = lshr exact i32 %53, 19
+  %frombool = trunc i32 %.lobit to i8
+  store i8 %frombool, ptr %pointy, align 1
+  br i1 %bf.cast198.not, label %55, label %54
+
+54:                                               ; preds = %lor.end.thread, %lor.end
+  br label %55
+
+55:                                               ; preds = %lor.end, %54
+  %56 = phi i32 [ 2, %54 ], [ 1, %lor.end ]
+  %add203 = add i32 %56, %spec.store.select38
   %conv204 = zext i32 %add203 to i64
   %add205 = add nuw nsw i64 %conv, %conv204
   store ptr %sign, ptr %ref.tmp207, align 8
-  %56 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 1
-  store ptr %zero, ptr %56, align 8
-  %57 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 2
-  store ptr %pointy, ptr %57, align 8
-  %58 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 3
-  store ptr %decimal_point, ptr %58, align 8
-  %59 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 4
-  store ptr %num_zeros180, ptr %59, align 8
-  %60 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 5
-  store ptr %significand, ptr %60, align 8
-  %61 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 6
-  store ptr %significand_size, ptr %61, align 8
+  %57 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 1
+  store ptr %zero, ptr %57, align 8
+  %58 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 2
+  store ptr %pointy, ptr %58, align 8
+  %59 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 3
+  store ptr %decimal_point, ptr %59, align 8
+  %60 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 4
+  store ptr %num_zeros180, ptr %60, align 8
+  %61 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 5
+  store ptr %significand, ptr %61, align 8
+  %62 = getelementptr inbounds %class.anon.90, ptr %ref.tmp207, i64 0, i32 6
+  store ptr %significand_size, ptr %62, align 8
   %call.i74 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add205, i64 noundef %add205, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp207)
   br label %return
 
-return:                                           ; preds = %cond.true53, %cond.false60, %54, %invoke.cont174, %invoke.cont127
-  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true53 ], [ %call67, %cond.false60 ], [ %call.i4041, %invoke.cont127 ], [ %call.i7071, %invoke.cont174 ], [ %call.i74, %54 ]
+return:                                           ; preds = %cond.true53, %cond.false60, %55, %invoke.cont174, %invoke.cont127
+  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true53 ], [ %call67, %cond.false60 ], [ %call.i4041, %invoke.cont127 ], [ %call.i7071, %invoke.cont174 ], [ %call.i74, %55 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -15966,9 +15965,8 @@ if.end179:                                        ; preds = %if.else131
   %cmp182 = icmp eq i32 %9, 0
   %cmp185 = icmp sgt i32 %7, -1
   %or.cond = and i1 %cmp182, %cmp185
-  %cmp188 = icmp slt i32 %7, %sub181
-  %or.cond37 = select i1 %or.cond, i1 %cmp188, i1 false
-  %spec.store.select38 = select i1 %or.cond37, i32 %7, i32 %sub181
+  %53 = call i32 @llvm.smin.i32(i32 %7, i32 %sub181)
+  %spec.store.select38 = select i1 %or.cond, i32 %53, i32 %sub181
   store i32 %spec.store.select38, ptr %num_zeros180, align 4
   %cmp192 = icmp ne i32 %spec.store.select38, 0
   %cmp193 = icmp ne i32 %9, 0
@@ -15977,42 +15975,42 @@ if.end179:                                        ; preds = %if.else131
 
 lor.end.thread:                                   ; preds = %if.end179
   store i8 1, ptr %pointy, align 1
-  br label %54
-
-lor.end:                                          ; preds = %if.end179
-  %53 = and i32 %5, 524288
-  %bf.cast198.not = icmp eq i32 %53, 0
-  %.lobit = lshr exact i32 %53, 19
-  %frombool = trunc i32 %.lobit to i8
-  store i8 %frombool, ptr %pointy, align 1
-  br i1 %bf.cast198.not, label %55, label %54
-
-54:                                               ; preds = %lor.end.thread, %lor.end
   br label %55
 
-55:                                               ; preds = %lor.end, %54
-  %56 = phi i32 [ 2, %54 ], [ 1, %lor.end ]
-  %add203 = add i32 %56, %spec.store.select38
+lor.end:                                          ; preds = %if.end179
+  %54 = and i32 %5, 524288
+  %bf.cast198.not = icmp eq i32 %54, 0
+  %.lobit = lshr exact i32 %54, 19
+  %frombool = trunc i32 %.lobit to i8
+  store i8 %frombool, ptr %pointy, align 1
+  br i1 %bf.cast198.not, label %56, label %55
+
+55:                                               ; preds = %lor.end.thread, %lor.end
+  br label %56
+
+56:                                               ; preds = %lor.end, %55
+  %57 = phi i32 [ 2, %55 ], [ 1, %lor.end ]
+  %add203 = add i32 %57, %spec.store.select38
   %conv204 = zext i32 %add203 to i64
   %add205 = add nuw nsw i64 %conv204, %conv
   store ptr %sign, ptr %ref.tmp207, align 8
-  %57 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 1
-  store ptr %zero, ptr %57, align 8
-  %58 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 2
-  store ptr %pointy, ptr %58, align 8
-  %59 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 3
-  store ptr %decimal_point, ptr %59, align 8
-  %60 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 4
-  store ptr %num_zeros180, ptr %60, align 8
-  %61 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 5
-  store ptr %significand, ptr %61, align 8
-  %62 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 6
-  store ptr %significand_size, ptr %62, align 8
+  %58 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 1
+  store ptr %zero, ptr %58, align 8
+  %59 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 2
+  store ptr %pointy, ptr %59, align 8
+  %60 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 3
+  store ptr %decimal_point, ptr %60, align 8
+  %61 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 4
+  store ptr %num_zeros180, ptr %61, align 8
+  %62 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 5
+  store ptr %significand, ptr %62, align 8
+  %63 = getelementptr inbounds %class.anon.97, ptr %ref.tmp207, i64 0, i32 6
+  store ptr %significand_size, ptr %63, align 8
   %call.i75 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add205, i64 noundef %add205, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp207)
   br label %return
 
-return:                                           ; preds = %cond.true53, %cond.false60, %55, %invoke.cont174, %invoke.cont127
-  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true53 ], [ %call67, %cond.false60 ], [ %call.i4142, %invoke.cont127 ], [ %call.i7172, %invoke.cont174 ], [ %call.i75, %55 ]
+return:                                           ; preds = %cond.true53, %cond.false60, %56, %invoke.cont174, %invoke.cont127
+  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true53 ], [ %call67, %cond.false60 ], [ %call.i4142, %invoke.cont127 ], [ %call.i7172, %invoke.cont174 ], [ %call.i75, %56 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -23084,9 +23082,8 @@ if.end179:                                        ; preds = %if.else131
   %cmp182 = icmp eq i32 %7, 0
   %cmp185 = icmp sgt i32 %5, -1
   %or.cond = and i1 %cmp182, %cmp185
-  %cmp188 = icmp slt i32 %5, %sub181
-  %or.cond37 = select i1 %or.cond, i1 %cmp188, i1 false
-  %spec.store.select38 = select i1 %or.cond37, i32 %5, i32 %sub181
+  %51 = call i32 @llvm.smin.i32(i32 %5, i32 %sub181)
+  %spec.store.select38 = select i1 %or.cond, i32 %51, i32 %sub181
   store i32 %spec.store.select38, ptr %num_zeros180, align 4
   %cmp192 = icmp ne i32 %spec.store.select38, 0
   %cmp193 = icmp ne i32 %7, 0
@@ -23095,42 +23092,42 @@ if.end179:                                        ; preds = %if.else131
 
 lor.end.thread:                                   ; preds = %if.end179
   store i8 1, ptr %pointy, align 1
-  br label %52
-
-lor.end:                                          ; preds = %if.end179
-  %51 = and i32 %3, 524288
-  %bf.cast198.not = icmp eq i32 %51, 0
-  %.lobit = lshr exact i32 %51, 19
-  %frombool = trunc i32 %.lobit to i8
-  store i8 %frombool, ptr %pointy, align 1
-  br i1 %bf.cast198.not, label %53, label %52
-
-52:                                               ; preds = %lor.end.thread, %lor.end
   br label %53
 
-53:                                               ; preds = %lor.end, %52
-  %54 = phi i32 [ 2, %52 ], [ 1, %lor.end ]
-  %add203 = add i32 %54, %spec.store.select38
+lor.end:                                          ; preds = %if.end179
+  %52 = and i32 %3, 524288
+  %bf.cast198.not = icmp eq i32 %52, 0
+  %.lobit = lshr exact i32 %52, 19
+  %frombool = trunc i32 %.lobit to i8
+  store i8 %frombool, ptr %pointy, align 1
+  br i1 %bf.cast198.not, label %54, label %53
+
+53:                                               ; preds = %lor.end.thread, %lor.end
+  br label %54
+
+54:                                               ; preds = %lor.end, %53
+  %55 = phi i32 [ 2, %53 ], [ 1, %lor.end ]
+  %add203 = add i32 %55, %spec.store.select38
   %conv204 = zext i32 %add203 to i64
   %add205 = add nuw nsw i64 %conv204, %conv
   store ptr %sign, ptr %ref.tmp207, align 8
-  %55 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 1
-  store ptr %zero, ptr %55, align 8
-  %56 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 2
-  store ptr %pointy, ptr %56, align 8
-  %57 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 3
-  store ptr %decimal_point, ptr %57, align 8
-  %58 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 4
-  store ptr %num_zeros180, ptr %58, align 8
-  %59 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 5
-  store ptr %significand, ptr %59, align 8
-  %60 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 6
-  store ptr %significand_size, ptr %60, align 8
+  %56 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 1
+  store ptr %zero, ptr %56, align 8
+  %57 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 2
+  store ptr %pointy, ptr %57, align 8
+  %58 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 3
+  store ptr %decimal_point, ptr %58, align 8
+  %59 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 4
+  store ptr %num_zeros180, ptr %59, align 8
+  %60 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 5
+  store ptr %significand, ptr %60, align 8
+  %61 = getelementptr inbounds %class.anon.116, ptr %ref.tmp207, i64 0, i32 6
+  store ptr %significand_size, ptr %61, align 8
   %call.i74 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %add205, i64 noundef %add205, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp207)
   br label %return
 
-return:                                           ; preds = %cond.true53, %cond.false60, %53, %invoke.cont174, %invoke.cont127
-  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true53 ], [ %call67, %cond.false60 ], [ %call.i4041, %invoke.cont127 ], [ %call.i7071, %invoke.cont174 ], [ %call.i74, %53 ]
+return:                                           ; preds = %cond.true53, %cond.false60, %54, %invoke.cont174, %invoke.cont127
+  %retval.sroa.0.0 = phi ptr [ %call.i, %cond.true53 ], [ %call67, %cond.false60 ], [ %call.i4041, %invoke.cont127 ], [ %call.i7071, %invoke.cont174 ], [ %call.i74, %54 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -37915,7 +37912,7 @@ attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

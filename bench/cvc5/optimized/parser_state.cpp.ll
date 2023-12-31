@@ -8004,9 +8004,8 @@ _ZNKSt6vectorIN4cvc54TermESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 384307168202282325
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 384307168202282325, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
+  %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
@@ -8015,33 +8014,33 @@ _ZNKSt6vectorIN4cvc54TermESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #28
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load ptr, ptr %__args, align 8
-  store ptr %2, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
   %d_node.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %d_node3.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %__args, i64 0, i32 1
-  %3 = load ptr, ptr %d_node3.i.i.i, align 8
-  store ptr %3, ptr %d_node.i.i.i, align 8
+  %4 = load ptr, ptr %d_node3.i.i.i, align 8
+  store ptr %4, ptr %d_node.i.i.i, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %__args, i64 0, i32 1, i32 0, i32 1
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_refcount.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIN4cvc54TermESaIS1_EE12_M_check_lenEmPKc.exit
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
-  %5 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %5, 0
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %6 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %6 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %6, 1
+  %7 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i = add nsw i32 %7, 1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
   br label %_ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %8 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN4cvc54TermESaIS1_EE12_M_check_lenEmPKc.exit, %if.then.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i
@@ -8053,29 +8052,29 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !37, !noalias !34
-  store <2 x ptr> %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !34, !noalias !37
+  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !37, !noalias !34
+  store <2 x ptr> %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !34, !noalias !37
   %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 1
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !37, !noalias !34
-  store ptr %9, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !34, !noalias !37
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !37, !noalias !34
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !34, !noalias !37
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %9, i64 0, i32 1
-  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !39
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %11 = load i8, ptr @__libc_single_threaded, align 1, !noalias !39
+  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %11 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !39
-  %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %11, 1
+  %12 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !39
+  %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %12, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !39
   br label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %12 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !39
+  %13 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !39
   br label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i
@@ -8096,29 +8095,29 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4cvc5
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i26, %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25 ], [ %__position.coerce, %_ZNSt6vectorIN4cvc54TermESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %13 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !44, !noalias !41
-  store <2 x ptr> %13, ptr %__cur.07.i.i.i13, align 8, !alias.scope !41, !noalias !44
+  %14 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !44, !noalias !41
+  store <2 x ptr> %14, ptr %__cur.07.i.i.i13, align 8, !alias.scope !41, !noalias !44
   %_M_refcount.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.cvc5::Term", ptr %__cur.07.i.i.i13, i64 0, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.cvc5::Term", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 0, i32 1
-  %14 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !44, !noalias !41
-  store ptr %14, ptr %_M_refcount.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !41, !noalias !44
-  %cmp.not.i.i.i.i.i.i.i.i.i.i19 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !44, !noalias !41
+  store ptr %15, ptr %_M_refcount.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !41, !noalias !44
+  %cmp.not.i.i.i.i.i.i.i.i.i.i19 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i19, label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25, label %if.then.i.i.i.i.i.i.i.i.i.i20
 
 if.then.i.i.i.i.i.i.i.i.i.i20:                    ; preds = %for.body.i.i.i12
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
-  %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !46
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq i8 %15, 0
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 1
+  %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !46
+  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i23:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i20
-  %16 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, align 4, !noalias !46
-  %add.i.i.i.i.i.i.i.i.i.i.i.i24 = add nsw i32 %16, 1
+  %17 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, align 4, !noalias !46
+  %add.i.i.i.i.i.i.i.i.i.i.i.i24 = add nsw i32 %17, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i24, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, align 4, !noalias !46
   br label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i30:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i20
-  %17 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, i32 1 acq_rel, align 4, !noalias !46
+  %18 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, i32 1 acq_rel, align 4, !noalias !46
   br label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25
 
 _ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i30, %if.then.i.i.i.i.i.i.i.i.i.i.i.i23, %for.body.i.i.i12
@@ -8599,9 +8598,8 @@ _ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 384307168202282325
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 384307168202282325, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
+  %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
@@ -8610,33 +8608,33 @@ _ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #28
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load ptr, ptr %__args, align 8
-  store ptr %2, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
   %d_type.i.i.i = getelementptr inbounds %"class.cvc5::Sort", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %d_type3.i.i.i = getelementptr inbounds %"class.cvc5::Sort", ptr %__args, i64 0, i32 1
-  %3 = load ptr, ptr %d_type3.i.i.i, align 8
-  store ptr %3, ptr %d_type.i.i.i, align 8
+  %4 = load ptr, ptr %d_type3.i.i.i, align 8
+  store ptr %4, ptr %d_type.i.i.i, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Sort", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Sort", ptr %__args, i64 0, i32 1, i32 0, i32 1
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_refcount.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4cvc54SortEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
-  %5 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %5, 0
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %6 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %6 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %6, 1
+  %7 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i = add nsw i32 %7, 1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
   br label %_ZNSt16allocator_traitsISaIN4cvc54SortEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %8 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN4cvc54SortEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN4cvc54SortEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit, %if.then.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i
@@ -8648,29 +8646,29 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaIN4cvc54SortEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store <2 x ptr> %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !50, !noalias !53
+  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !53, !noalias !50
+  store <2 x ptr> %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !50, !noalias !53
   %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Sort", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Sort", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 1
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store ptr %9, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %9, i64 0, i32 1
-  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !55
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %11 = load i8, ptr @__libc_single_threaded, align 1, !noalias !55
+  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %11 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !55
-  %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %11, 1
+  %12 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !55
+  %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %12, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !55
   br label %_ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %12 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !55
+  %13 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !55
   br label %_ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i
@@ -8691,29 +8689,29 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4cvc5
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i26, %_ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25 ], [ %__position.coerce, %_ZNSt6vectorIN4cvc54SortESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %13 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !60, !noalias !57
-  store <2 x ptr> %13, ptr %__cur.07.i.i.i13, align 8, !alias.scope !57, !noalias !60
+  %14 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !60, !noalias !57
+  store <2 x ptr> %14, ptr %__cur.07.i.i.i13, align 8, !alias.scope !57, !noalias !60
   %_M_refcount.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.cvc5::Sort", ptr %__cur.07.i.i.i13, i64 0, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.cvc5::Sort", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 0, i32 1
-  %14 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !60, !noalias !57
-  store ptr %14, ptr %_M_refcount.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !57, !noalias !60
-  %cmp.not.i.i.i.i.i.i.i.i.i.i19 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !60, !noalias !57
+  store ptr %15, ptr %_M_refcount.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !57, !noalias !60
+  %cmp.not.i.i.i.i.i.i.i.i.i.i19 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i19, label %_ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25, label %if.then.i.i.i.i.i.i.i.i.i.i20
 
 if.then.i.i.i.i.i.i.i.i.i.i20:                    ; preds = %for.body.i.i.i12
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
-  %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !62
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq i8 %15, 0
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 1
+  %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !62
+  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i23:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i20
-  %16 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, align 4, !noalias !62
-  %add.i.i.i.i.i.i.i.i.i.i.i.i24 = add nsw i32 %16, 1
+  %17 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, align 4, !noalias !62
+  %add.i.i.i.i.i.i.i.i.i.i.i.i24 = add nsw i32 %17, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i24, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, align 4, !noalias !62
   br label %_ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i30:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i20
-  %17 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, i32 1 acq_rel, align 4, !noalias !62
+  %18 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, i32 1 acq_rel, align 4, !noalias !62
   br label %_ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25
 
 _ZSt19__relocate_object_aIN4cvc54SortES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i30, %if.then.i.i.i.i.i.i.i.i.i.i.i.i23, %for.body.i.i.i12
@@ -8762,9 +8760,8 @@ _ZNKSt6vectorIN4cvc54TermESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 384307168202282325
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 384307168202282325, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
+  %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
@@ -8773,33 +8770,33 @@ _ZNKSt6vectorIN4cvc54TermESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #28
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load ptr, ptr %__args, align 8
-  store ptr %2, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
   %d_node.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %d_node3.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %__args, i64 0, i32 1
-  %3 = load ptr, ptr %d_node3.i.i.i, align 8
-  store ptr %3, ptr %d_node.i.i.i, align 8
+  %4 = load ptr, ptr %d_node3.i.i.i, align 8
+  store ptr %4, ptr %d_node.i.i.i, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %__args, i64 0, i32 1, i32 0, i32 1
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_refcount.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIN4cvc54TermESaIS1_EE12_M_check_lenEmPKc.exit
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
-  %5 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %5, 0
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %6 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %6 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %6, 1
+  %7 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i = add nsw i32 %7, 1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
   br label %_ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %8 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN4cvc54TermESaIS1_EE12_M_check_lenEmPKc.exit, %if.then.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i
@@ -8811,29 +8808,29 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaIN4cvc54TermEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !66, !noalias !63
-  store <2 x ptr> %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !63, !noalias !66
+  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !66, !noalias !63
+  store <2 x ptr> %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !63, !noalias !66
   %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::Term", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 1
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !63
-  store ptr %9, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !63, !noalias !66
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !63
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !63, !noalias !66
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %9, i64 0, i32 1
-  %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !68
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %11 = load i8, ptr @__libc_single_threaded, align 1, !noalias !68
+  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %11 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !68
-  %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %11, 1
+  %12 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !68
+  %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %12, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !68
   br label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %12 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !68
+  %13 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !68
   br label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i
@@ -8854,29 +8851,29 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4cvc5
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i26, %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25 ], [ %__position.coerce, %_ZNSt6vectorIN4cvc54TermESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %13 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !72, !noalias !69
-  store <2 x ptr> %13, ptr %__cur.07.i.i.i13, align 8, !alias.scope !69, !noalias !72
+  %14 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !72, !noalias !69
+  store <2 x ptr> %14, ptr %__cur.07.i.i.i13, align 8, !alias.scope !69, !noalias !72
   %_M_refcount.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.cvc5::Term", ptr %__cur.07.i.i.i13, i64 0, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.cvc5::Term", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 0, i32 1
-  %14 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !72, !noalias !69
-  store ptr %14, ptr %_M_refcount.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !69, !noalias !72
-  %cmp.not.i.i.i.i.i.i.i.i.i.i19 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !72, !noalias !69
+  store ptr %15, ptr %_M_refcount.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !69, !noalias !72
+  %cmp.not.i.i.i.i.i.i.i.i.i.i19 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i19, label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25, label %if.then.i.i.i.i.i.i.i.i.i.i20
 
 if.then.i.i.i.i.i.i.i.i.i.i20:                    ; preds = %for.body.i.i.i12
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
-  %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !74
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq i8 %15, 0
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 1
+  %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !74
+  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i22, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i23:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i20
-  %16 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, align 4, !noalias !74
-  %add.i.i.i.i.i.i.i.i.i.i.i.i24 = add nsw i32 %16, 1
+  %17 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, align 4, !noalias !74
+  %add.i.i.i.i.i.i.i.i.i.i.i.i24 = add nsw i32 %17, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i24, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, align 4, !noalias !74
   br label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i30:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i20
-  %17 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, i32 1 acq_rel, align 4, !noalias !74
+  %18 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i21, i32 1 acq_rel, align 4, !noalias !74
   br label %_ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25
 
 _ZSt19__relocate_object_aIN4cvc54TermES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i25: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i30, %if.then.i.i.i.i.i.i.i.i.i.i.i.i23, %for.body.i.i.i12
@@ -9105,52 +9102,51 @@ _ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.else68
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.ptr.div.i.i.i)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 384307168202282325
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 384307168202282325, i64 %add.i
+  %23 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 384307168202282325)
+  %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %23
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4cvc54SortEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4cvc54SortEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #28
   br label %_ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4cvc54SortEEE8allocateERS2_m.exit.i
-  %cond.i58 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4cvc54SortEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i58 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4cvc54SortESaIS1_EE12_M_check_lenEmPKc.exit ]
   %cmp.i.i.not7.i.i.i.i.i59 = icmp eq ptr %22, %__position.coerce
   br i1 %cmp.i.i.not7.i.i.i.i.i59, label %for.body.i.i.i.i80.preheader, label %for.body.i.i.i.i.i60
 
 for.body.i.i.i.i.i60:                             ; preds = %_ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE11_M_allocateEm.exit, %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i73
   %__cur.09.i.i.i.i.i61 = phi ptr [ %incdec.ptr.i.i.i.i.i75, %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i73 ], [ %cond.i58, %_ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE11_M_allocateEm.exit ]
   %__first.sroa.0.08.i.i.i.i.i62 = phi ptr [ %incdec.ptr.i.i.i.i.i.i74, %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i73 ], [ %22, %_ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE11_M_allocateEm.exit ]
-  %23 = load ptr, ptr %__first.sroa.0.08.i.i.i.i.i62, align 8
-  store ptr %23, ptr %__cur.09.i.i.i.i.i61, align 8
+  %24 = load ptr, ptr %__first.sroa.0.08.i.i.i.i.i62, align 8
+  store ptr %24, ptr %__cur.09.i.i.i.i.i61, align 8
   %d_type.i.i.i.i.i.i.i63 = getelementptr inbounds %"class.cvc5::Sort", ptr %__cur.09.i.i.i.i.i61, i64 0, i32 1
   %d_type3.i.i.i.i.i.i.i64 = getelementptr inbounds %"class.cvc5::Sort", ptr %__first.sroa.0.08.i.i.i.i.i62, i64 0, i32 1
-  %24 = load ptr, ptr %d_type3.i.i.i.i.i.i.i64, align 8
-  store ptr %24, ptr %d_type.i.i.i.i.i.i.i63, align 8
+  %25 = load ptr, ptr %d_type3.i.i.i.i.i.i.i64, align 8
+  store ptr %25, ptr %d_type.i.i.i.i.i.i.i63, align 8
   %_M_refcount.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"class.cvc5::Sort", ptr %__cur.09.i.i.i.i.i61, i64 0, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds %"class.cvc5::Sort", ptr %__first.sroa.0.08.i.i.i.i.i62, i64 0, i32 1, i32 0, i32 1
-  %25 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i66, align 8
-  store ptr %25, ptr %_M_refcount.i.i.i.i.i.i.i.i.i65, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i67 = icmp eq ptr %25, null
+  %26 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i66, align 8
+  store ptr %26, ptr %_M_refcount.i.i.i.i.i.i.i.i.i65, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i67 = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i67, label %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i73, label %if.then.i.i.i.i.i.i.i.i.i.i68
 
 if.then.i.i.i.i.i.i.i.i.i.i68:                    ; preds = %for.body.i.i.i.i.i60
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
-  %26 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i70 = icmp eq i8 %26, 0
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %26, i64 0, i32 1
+  %27 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i70 = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i70, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i78, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i71
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i71:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i68
-  %27 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i69, align 4
-  %add.i.i.i.i.i.i.i.i.i.i.i.i72 = add nsw i32 %27, 1
+  %28 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i69, align 4
+  %add.i.i.i.i.i.i.i.i.i.i.i.i72 = add nsw i32 %28, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i72, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i69, align 4
   br label %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i73
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i78:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i68
-  %28 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i69, i32 1 acq_rel, align 4
+  %29 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i69, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i73
 
 _ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i73: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i78, %if.then.i.i.i.i.i.i.i.i.i.i.i.i71, %for.body.i.i.i.i.i60
@@ -9166,33 +9162,33 @@ for.body.i.i.i.i80.preheader:                     ; preds = %_ZSt10_ConstructIN4
 for.body.i.i.i.i80:                               ; preds = %for.body.i.i.i.i80.preheader, %_ZSt10_ConstructIN4cvc54SortEJRS1_EEvPT_DpOT0_.exit.i.i.i.i93
   %__cur.07.i.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i.i95, %_ZSt10_ConstructIN4cvc54SortEJRS1_EEvPT_DpOT0_.exit.i.i.i.i93 ], [ %__cur.07.i.i.i.i81.ph, %for.body.i.i.i.i80.preheader ]
   %__first.sroa.0.06.i.i.i.i82 = phi ptr [ %incdec.ptr.i.i.i.i.i94, %_ZSt10_ConstructIN4cvc54SortEJRS1_EEvPT_DpOT0_.exit.i.i.i.i93 ], [ %__first.coerce, %for.body.i.i.i.i80.preheader ]
-  %29 = load ptr, ptr %__first.sroa.0.06.i.i.i.i82, align 8
-  store ptr %29, ptr %__cur.07.i.i.i.i81, align 8
+  %30 = load ptr, ptr %__first.sroa.0.06.i.i.i.i82, align 8
+  store ptr %30, ptr %__cur.07.i.i.i.i81, align 8
   %d_type.i.i.i.i.i.i83 = getelementptr inbounds %"class.cvc5::Sort", ptr %__cur.07.i.i.i.i81, i64 0, i32 1
   %d_type3.i.i.i.i.i.i84 = getelementptr inbounds %"class.cvc5::Sort", ptr %__first.sroa.0.06.i.i.i.i82, i64 0, i32 1
-  %30 = load ptr, ptr %d_type3.i.i.i.i.i.i84, align 8
-  store ptr %30, ptr %d_type.i.i.i.i.i.i83, align 8
+  %31 = load ptr, ptr %d_type3.i.i.i.i.i.i84, align 8
+  store ptr %31, ptr %d_type.i.i.i.i.i.i83, align 8
   %_M_refcount.i.i.i.i.i.i.i.i85 = getelementptr inbounds %"class.cvc5::Sort", ptr %__cur.07.i.i.i.i81, i64 0, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i.i.i.i86 = getelementptr inbounds %"class.cvc5::Sort", ptr %__first.sroa.0.06.i.i.i.i82, i64 0, i32 1, i32 0, i32 1
-  %31 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i86, align 8
-  store ptr %31, ptr %_M_refcount.i.i.i.i.i.i.i.i85, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i87 = icmp eq ptr %31, null
+  %32 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i86, align 8
+  store ptr %32, ptr %_M_refcount.i.i.i.i.i.i.i.i85, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i87 = icmp eq ptr %32, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i87, label %_ZSt10_ConstructIN4cvc54SortEJRS1_EEvPT_DpOT0_.exit.i.i.i.i93, label %if.then.i.i.i.i.i.i.i.i.i88
 
 if.then.i.i.i.i.i.i.i.i.i88:                      ; preds = %for.body.i.i.i.i80
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i89 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %31, i64 0, i32 1
-  %32 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i90 = icmp eq i8 %32, 0
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i89 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 1
+  %33 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i.i.i.i90 = icmp eq i8 %33, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i90, label %if.else.i.i.i.i.i.i.i.i.i.i.i98, label %if.then.i.i.i.i.i.i.i.i.i.i.i91
 
 if.then.i.i.i.i.i.i.i.i.i.i.i91:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i88
-  %33 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i89, align 4
-  %add.i.i.i.i.i.i.i.i.i.i.i92 = add nsw i32 %33, 1
+  %34 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i89, align 4
+  %add.i.i.i.i.i.i.i.i.i.i.i92 = add nsw i32 %34, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i92, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i89, align 4
   br label %_ZSt10_ConstructIN4cvc54SortEJRS1_EEvPT_DpOT0_.exit.i.i.i.i93
 
 if.else.i.i.i.i.i.i.i.i.i.i.i98:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i88
-  %34 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i89, i32 1 acq_rel, align 4
+  %35 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i89, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN4cvc54SortEJRS1_EEvPT_DpOT0_.exit.i.i.i.i93
 
 _ZSt10_ConstructIN4cvc54SortEJRS1_EEvPT_DpOT0_.exit.i.i.i.i93: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i98, %if.then.i.i.i.i.i.i.i.i.i.i.i91, %for.body.i.i.i.i80
@@ -9208,33 +9204,33 @@ invoke.cont83:                                    ; preds = %_ZSt10_ConstructIN4
 for.body.i.i.i.i.i101:                            ; preds = %invoke.cont83, %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i114
   %__cur.09.i.i.i.i.i102 = phi ptr [ %incdec.ptr.i.i.i.i.i116, %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i114 ], [ %incdec.ptr.i.i.i.i95, %invoke.cont83 ]
   %__first.sroa.0.08.i.i.i.i.i103 = phi ptr [ %incdec.ptr.i.i.i.i.i.i115, %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i114 ], [ %__position.coerce, %invoke.cont83 ]
-  %35 = load ptr, ptr %__first.sroa.0.08.i.i.i.i.i103, align 8
-  store ptr %35, ptr %__cur.09.i.i.i.i.i102, align 8
+  %36 = load ptr, ptr %__first.sroa.0.08.i.i.i.i.i103, align 8
+  store ptr %36, ptr %__cur.09.i.i.i.i.i102, align 8
   %d_type.i.i.i.i.i.i.i104 = getelementptr inbounds %"class.cvc5::Sort", ptr %__cur.09.i.i.i.i.i102, i64 0, i32 1
   %d_type3.i.i.i.i.i.i.i105 = getelementptr inbounds %"class.cvc5::Sort", ptr %__first.sroa.0.08.i.i.i.i.i103, i64 0, i32 1
-  %36 = load ptr, ptr %d_type3.i.i.i.i.i.i.i105, align 8
-  store ptr %36, ptr %d_type.i.i.i.i.i.i.i104, align 8
+  %37 = load ptr, ptr %d_type3.i.i.i.i.i.i.i105, align 8
+  store ptr %37, ptr %d_type.i.i.i.i.i.i.i104, align 8
   %_M_refcount.i.i.i.i.i.i.i.i.i106 = getelementptr inbounds %"class.cvc5::Sort", ptr %__cur.09.i.i.i.i.i102, i64 0, i32 1, i32 0, i32 1
   %_M_refcount3.i.i.i.i.i.i.i.i.i107 = getelementptr inbounds %"class.cvc5::Sort", ptr %__first.sroa.0.08.i.i.i.i.i103, i64 0, i32 1, i32 0, i32 1
-  %37 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i107, align 8
-  store ptr %37, ptr %_M_refcount.i.i.i.i.i.i.i.i.i106, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i108 = icmp eq ptr %37, null
+  %38 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i107, align 8
+  store ptr %38, ptr %_M_refcount.i.i.i.i.i.i.i.i.i106, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i108 = icmp eq ptr %38, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i108, label %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i114, label %if.then.i.i.i.i.i.i.i.i.i.i109
 
 if.then.i.i.i.i.i.i.i.i.i.i109:                   ; preds = %for.body.i.i.i.i.i101
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i110 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %37, i64 0, i32 1
-  %38 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i111 = icmp eq i8 %38, 0
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i110 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %38, i64 0, i32 1
+  %39 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i111 = icmp eq i8 %39, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i111, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i119, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i112
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i112:               ; preds = %if.then.i.i.i.i.i.i.i.i.i.i109
-  %39 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i110, align 4
-  %add.i.i.i.i.i.i.i.i.i.i.i.i113 = add nsw i32 %39, 1
+  %40 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i110, align 4
+  %add.i.i.i.i.i.i.i.i.i.i.i.i113 = add nsw i32 %40, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i113, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i110, align 4
   br label %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i114
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i119:               ; preds = %if.then.i.i.i.i.i.i.i.i.i.i109
-  %40 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i110, i32 1 acq_rel, align 4
+  %41 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i110, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i114
 
 _ZSt10_ConstructIN4cvc54SortEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i114: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i119, %if.then.i.i.i.i.i.i.i.i.i.i.i.i112, %for.body.i.i.i.i.i101
@@ -10973,6 +10969,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22

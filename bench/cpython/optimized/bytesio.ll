@@ -1904,16 +1904,15 @@ if.end.i:                                         ; preds = %skip_optional
   %string_size.i.i = getelementptr inbounds %struct.bytesio, ptr %self, i64 0, i32 3
   %5 = load i64, ptr %string_size.i.i, align 8
   %cmp.not.i.i = icmp slt i64 %4, %5
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end.i7.i
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end.i6.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %sub.i.i = sub i64 %5, %4
   %cmp3.i.i = icmp slt i64 %1, 0
-  %cmp4.i.i = icmp slt i64 %sub.i.i, %1
-  %or.cond.i.i = or i1 %cmp3.i.i, %cmp4.i.i
-  %len.addr.0.i.i = select i1 %or.cond.i.i, i64 %sub.i.i, i64 %1
+  %6 = call i64 @llvm.smin.i64(i64 %sub.i.i, i64 %1)
+  %len.addr.0.i.i = select i1 %cmp3.i.i, i64 %sub.i.i, i64 %6
   %tobool.not.i.i = icmp eq i64 %len.addr.0.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i7.i, label %if.then7.i.i
+  br i1 %tobool.not.i.i, label %if.end.i6.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end.i.i
   %ob_sval.i.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %self.val.i, i64 0, i32 2
@@ -1927,43 +1926,43 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
   %retval.0.i3.i = select i1 %tobool10.not.i.i, i64 %len.addr.0.i.i, i64 %add.i.i
   %cmp.i4.i = icmp sgt i64 %retval.0.i3.i, 1
   %cmp1.i.i = icmp eq i64 %4, 0
-  %or.cond.i6.i = and i1 %cmp1.i.i, %cmp.i4.i
-  br i1 %or.cond.i6.i, label %land.lhs.true2.i.i, label %if.end.i7.i
+  %or.cond.i.i = and i1 %cmp1.i.i, %cmp.i4.i
+  br i1 %or.cond.i.i, label %land.lhs.true2.i.i, label %if.end.i6.i
 
 land.lhs.true2.i.i:                               ; preds = %if.then7.i.i
-  %6 = getelementptr i8, ptr %self.val.i, i64 16
-  %.val.i.i = load i64, ptr %6, align 8
-  %cmp3.i12.i = icmp eq i64 %.val.i.i, %retval.0.i3.i
-  br i1 %cmp3.i12.i, label %land.lhs.true4.i.i, label %if.end.i7.i
+  %7 = getelementptr i8, ptr %self.val.i, i64 16
+  %.val.i.i = load i64, ptr %7, align 8
+  %cmp3.i11.i = icmp eq i64 %.val.i.i, %retval.0.i3.i
+  br i1 %cmp3.i11.i, label %land.lhs.true4.i.i, label %if.end.i6.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true2.i.i
   %exports.i.i = getelementptr inbounds %struct.bytesio, ptr %self, i64 0, i32 6
-  %7 = load i64, ptr %exports.i.i, align 8
-  %cmp5.i.i = icmp eq i64 %7, 0
-  br i1 %cmp5.i.i, label %if.then.i13.i, label %if.end.i7.i
+  %8 = load i64, ptr %exports.i.i, align 8
+  %cmp5.i.i = icmp eq i64 %8, 0
+  br i1 %cmp5.i.i, label %if.then.i12.i, label %if.end.i6.i
 
-if.then.i13.i:                                    ; preds = %land.lhs.true4.i.i
+if.then.i12.i:                                    ; preds = %land.lhs.true4.i.i
   store i64 %retval.0.i3.i, ptr %pos.i.i, align 8
-  %8 = load i32, ptr %self.val.i, align 8
-  %add.i.i.i.i = add i32 %8, 1
+  %9 = load i32, ptr %self.val.i, align 8
+  %add.i.i.i.i = add i32 %9, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %exit, label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.then.i13.i
+if.end.i.i.i.i:                                   ; preds = %if.then.i12.i
   store i32 %add.i.i.i.i, ptr %self.val.i, align 8
   br label %exit
 
-if.end.i7.i:                                      ; preds = %land.lhs.true4.i.i, %land.lhs.true2.i.i, %if.then7.i.i, %if.end.i.i, %if.end.i
-  %retval.0.i320.i = phi i64 [ %retval.0.i3.i, %land.lhs.true4.i.i ], [ %retval.0.i3.i, %land.lhs.true2.i.i ], [ %retval.0.i3.i, %if.then7.i.i ], [ 0, %if.end.i ], [ 0, %if.end.i.i ]
-  %ob_sval.i.i8.i = getelementptr inbounds %struct.PyBytesObject, ptr %self.val.i, i64 0, i32 2
-  %add.ptr.i9.i = getelementptr i8, ptr %ob_sval.i.i8.i, i64 %4
-  %add13.i.i = add i64 %retval.0.i320.i, %4
+if.end.i6.i:                                      ; preds = %land.lhs.true4.i.i, %land.lhs.true2.i.i, %if.then7.i.i, %if.end.i.i, %if.end.i
+  %retval.0.i319.i = phi i64 [ %retval.0.i3.i, %land.lhs.true4.i.i ], [ %retval.0.i3.i, %land.lhs.true2.i.i ], [ %retval.0.i3.i, %if.then7.i.i ], [ 0, %if.end.i ], [ 0, %if.end.i.i ]
+  %ob_sval.i.i7.i = getelementptr inbounds %struct.PyBytesObject, ptr %self.val.i, i64 0, i32 2
+  %add.ptr.i8.i = getelementptr i8, ptr %ob_sval.i.i7.i, i64 %4
+  %add13.i.i = add i64 %retval.0.i319.i, %4
   store i64 %add13.i.i, ptr %pos.i.i, align 8
-  %call14.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %add.ptr.i9.i, i64 noundef %retval.0.i320.i) #8
+  %call14.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %add.ptr.i8.i, i64 noundef %retval.0.i319.i) #8
   br label %exit
 
-exit:                                             ; preds = %if.end.i7.i, %if.end.i.i.i.i, %if.then.i13.i, %check_closed.exit.i, %if.end4, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %if.end4 ], [ null, %lor.lhs.false ], [ null, %check_closed.exit.i ], [ %call14.i.i, %if.end.i7.i ], [ %self.val.i, %if.then.i13.i ], [ %self.val.i, %if.end.i.i.i.i ]
+exit:                                             ; preds = %if.end.i6.i, %if.end.i.i.i.i, %if.then.i12.i, %check_closed.exit.i, %if.end4, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %if.end4 ], [ null, %lor.lhs.false ], [ null, %check_closed.exit.i ], [ %call14.i.i, %if.end.i6.i ], [ %self.val.i, %if.then.i12.i ], [ %self.val.i, %if.end.i.i.i.i ]
   ret ptr %return_value.0
 }
 
@@ -3412,6 +3411,9 @@ declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

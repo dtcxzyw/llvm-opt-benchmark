@@ -1082,22 +1082,21 @@ _ZNKSt6vectorIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 115292150460684697
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 115292150460684697, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 115292150460684697)
+  %cond.i = select i1 %cmp7.i, i64 115292150460684697, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 80
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 80
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
   br label %_ZNSt12_Vector_baseIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE8allocateERS3_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.grpc_core::StatefulSessionMethodParsedConfig::CookieConfig", ptr %cond.i10, i64 %sub.ptr.div.i
   %path.i.i.i = getelementptr inbounds %"struct.grpc_core::StatefulSessionMethodParsedConfig::CookieConfig", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr, i8 0, i64 80, i1 false)
@@ -1115,9 +1114,9 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %_M_engaged.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %__first.addr.06.i.i.i, i64 0, i32 1
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %__cur.07.i.i.i, i64 0, i32 1
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !11, !noalias !14
-  %2 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !11
-  %3 = and i8 %2, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
+  %3 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !11
+  %4 = and i8 %3, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i
@@ -1131,12 +1130,12 @@ _ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12Cooki
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %path.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %path3.i.i.i.i.i.i.i) #15
   %ttl.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::StatefulSessionMethodParsedConfig::CookieConfig", ptr %__cur.07.i.i.i, i64 0, i32 2
   %ttl4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::StatefulSessionMethodParsedConfig::CookieConfig", ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %4 = load i64, ptr %ttl4.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !11
-  store i64 %4, ptr %ttl.i.i.i.i.i.i.i, align 8, !alias.scope !11, !noalias !14
+  %5 = load i64, ptr %ttl4.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !11
+  store i64 %5, ptr %ttl.i.i.i.i.i.i.i, align 8, !alias.scope !11, !noalias !14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path3.i.i.i.i.i.i.i) #15
-  %5 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !11
-  %6 = and i8 %5, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
+  %6 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !11
+  %7 = and i8 %6, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i
@@ -1164,9 +1163,9 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN9grpc
   %_M_engaged.i.i.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %__cur.07.i.i.i13, i64 0, i32 1
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !18, !noalias !21
-  %7 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !18
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i17 = icmp eq i8 %8, 0
+  %8 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !18
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i17 = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i17, label %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i19, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i18
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i18:                ; preds = %for.body.i.i.i12
@@ -1180,12 +1179,12 @@ _ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12Cooki
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %path.i.i.i.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %path3.i.i.i.i.i.i.i21) #15
   %ttl.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.grpc_core::StatefulSessionMethodParsedConfig::CookieConfig", ptr %__cur.07.i.i.i13, i64 0, i32 2
   %ttl4.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.grpc_core::StatefulSessionMethodParsedConfig::CookieConfig", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %9 = load i64, ptr %ttl4.i.i.i.i.i.i.i23, align 8, !alias.scope !21, !noalias !18
-  store i64 %9, ptr %ttl.i.i.i.i.i.i.i22, align 8, !alias.scope !18, !noalias !21
+  %10 = load i64, ptr %ttl4.i.i.i.i.i.i.i23, align 8, !alias.scope !21, !noalias !18
+  store i64 %10, ptr %ttl.i.i.i.i.i.i.i22, align 8, !alias.scope !18, !noalias !21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path3.i.i.i.i.i.i.i21) #15
-  %10 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !18
-  %11 = and i8 %10, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i24 = icmp eq i8 %11, 0
+  %11 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !18
+  %12 = and i8 %11, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i24 = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i24, label %_ZSt19__relocate_object_aIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i26, label %if.then.i.i.i.i.i.i.i.i.i.i.i25
 
 if.then.i.i.i.i.i.i.i.i.i.i.i25:                  ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i19
@@ -1443,6 +1442,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

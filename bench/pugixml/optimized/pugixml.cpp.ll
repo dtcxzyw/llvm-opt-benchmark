@@ -28404,9 +28404,8 @@ if.then82:                                        ; preds = %if.end80
   br label %return
 
 if.else87:                                        ; preds = %if.end80
-  %cmp90 = icmp ugt i32 %result.3, %maxv
-  %or.cond38 = select i1 %overflow.0, i1 true, i1 %cmp90
-  %cond94 = select i1 %or.cond38, i32 %maxv, i32 %result.3
+  %10 = tail call i32 @llvm.umin.i32(i32 %result.3, i32 %maxv)
+  %cond94 = select i1 %overflow.0, i32 %maxv, i32 %10
   br label %return
 
 return:                                           ; preds = %if.else87, %if.then82
@@ -28569,9 +28568,8 @@ if.then85:                                        ; preds = %if.end83
   br label %return
 
 if.else90:                                        ; preds = %if.end83
-  %cmp93 = icmp ugt i64 %result.3, %maxv
-  %or.cond38 = select i1 %overflow.0, i1 true, i1 %cmp93
-  %cond97 = select i1 %or.cond38, i64 %maxv, i64 %result.3
+  %10 = tail call i64 @llvm.umin.i64(i64 %result.3, i64 %maxv)
+  %cond97 = select i1 %overflow.0, i64 %maxv, i64 %10
   br label %return
 
 return:                                           ; preds = %if.else90, %if.then85
@@ -48427,6 +48425,9 @@ declare i64 @llvm.umax.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #38
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #39

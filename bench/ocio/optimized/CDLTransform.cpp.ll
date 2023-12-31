@@ -2781,22 +2781,21 @@ _ZNKSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE12_M_check_lenE
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 76861433640456465
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 76861433640456465, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 76861433640456465)
+  %cond.i = select i1 %cmp7.i, i64 76861433640456465, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 120
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev18FormatMetadataImplEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev18FormatMetadataImplEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 120
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #20
   br label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev18FormatMetadataImplEEE8allocateERS2_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev18FormatMetadataImplEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %cond.i19, i64 %sub.ptr.div.i
   invoke void @_ZNSt15__new_allocatorIN19OpenColorIO_v2_4dev18FormatMetadataImplEE9constructIS1_JRA15_KcRPS4_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(15) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1)
           to label %invoke.cont unwind label %lpad.body
@@ -2818,10 +2817,10 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont12, label %for.body.i.i.i.i.i, !llvm.loop !18
 
 lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #21
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #21
   %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %cond.i19
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
@@ -2829,8 +2828,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %fo
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %cond.i19, %lpad.i.i.i.i.i ]
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 19
-  %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.04.i.i.i.i.i.i.i) #21
+  %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.04.i.i.i.i.i.i.i) #21
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %__cur.010.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !19
@@ -2840,21 +2839,21 @@ invoke.cont3.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i.i unwind label %lpad2.i.i.i.i.i
 
 lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body.thread unwind label %terminate.lpad.i.i.i.i.i
 
 lpad.body.thread:                                 ; preds = %lpad2.i.i.i.i.i
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #21
+  %8 = extractvalue { ptr, i32 } %7, 0
+  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #21
   br label %if.end.thread
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #24
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #24
   unreachable
 
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.i.i
@@ -2880,10 +2879,10 @@ for.inc.i.i.i.i.i37:                              ; preds = %for.body.i.i.i.i.i2
   br i1 %cmp.not.i.i.i.i.i40, label %invoke.cont16.loopexit, label %for.body.i.i.i.i.i21, !llvm.loop !18
 
 lpad.i.i.i.i.i24:                                 ; preds = %for.body.i.i.i.i.i21
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #21
+  %13 = extractvalue { ptr, i32 } %12, 0
+  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #21
   %cmp.not3.i.i.i.i.i.i.i25 = icmp eq i64 %__cur.010.i.i.i.i.i22.idx, 120
   br i1 %cmp.not3.i.i.i.i.i.i.i25, label %invoke.cont3.i.i.i.i.i32, label %for.body.i.i.i.i.i.i.i26
 
@@ -2891,8 +2890,8 @@ for.body.i.i.i.i.i.i.i26:                         ; preds = %lpad.i.i.i.i.i24, %
   %__first.addr.04.i.i.i.i.i.i.i27 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i30, %for.body.i.i.i.i.i.i.i26 ], [ %incdec.ptr.ptr, %lpad.i.i.i.i.i24 ]
   %vtable.i.i.i.i.i.i.i.i28 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i27, align 8
   %vfn.i.i.i.i.i.i.i.i29 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i28, i64 19
-  %14 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i29, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.04.i.i.i.i.i.i.i27) #21
+  %15 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i29, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.04.i.i.i.i.i.i.i27) #21
   %incdec.ptr.i.i.i.i.i.i.i30 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.04.i.i.i.i.i.i.i27, i64 1
   %cmp.not.i.i.i.i.i.i.i31 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i30, %__cur.010.i.i.i.i.i22.ptr
   br i1 %cmp.not.i.i.i.i.i.i.i31, label %invoke.cont3.i.i.i.i.i32, label %for.body.i.i.i.i.i.i.i26, !llvm.loop !19
@@ -2902,21 +2901,21 @@ invoke.cont3.i.i.i.i.i32:                         ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i.i36 unwind label %lpad2.i.i.i.i.i33
 
 lpad2.i.i.i.i.i33:                                ; preds = %invoke.cont3.i.i.i.i.i32
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body.thread63 unwind label %terminate.lpad.i.i.i.i.i34
 
 lpad.body.thread63:                               ; preds = %lpad2.i.i.i.i.i33
-  %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #21
+  %17 = extractvalue { ptr, i32 } %16, 0
+  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #21
   br label %if.else
 
 terminate.lpad.i.i.i.i.i34:                       ; preds = %lpad2.i.i.i.i.i33
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #24
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #24
   unreachable
 
 unreachable.i.i.i.i.i36:                          ; preds = %invoke.cont3.i.i.i.i.i32
@@ -2935,8 +2934,8 @@ for.body.i.i.i:                                   ; preds = %invoke.cont16, %for
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont16 ]
   %vtable.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 19
-  %20 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.04.i.i.i) #21
+  %21 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.04.i.i.i) #21
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.04.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN19OpenColorIO_v2_4dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !19
@@ -2958,18 +2957,18 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE13_M_deal
   ret void
 
 lpad.body:                                        ; preds = %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE11_M_allocateEm.exit
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  %23 = tail call ptr @__cxa_begin_catch(ptr %22) #21
+  %23 = extractvalue { ptr, i32 } %22, 0
+  %24 = tail call ptr @__cxa_begin_catch(ptr %23) #21
   %tobool.not = icmp eq ptr %cond.i19, null
   br i1 %tobool.not, label %if.end.thread, label %if.else
 
 if.end.thread:                                    ; preds = %lpad.body, %lpad.body.thread
   %vtable.i.i = load ptr, ptr %add.ptr, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 19
-  %24 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(120) %add.ptr) #21
+  %25 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(120) %add.ptr) #21
   br label %if.then.i56
 
 if.else:                                          ; preds = %lpad.body.thread63, %lpad.body
@@ -2981,14 +2980,14 @@ for.body.i.i.i48:                                 ; preds = %if.else, %for.body.
   %__first.addr.04.i.i.i49 = phi ptr [ %incdec.ptr.i.i.i52, %for.body.i.i.i48 ], [ %cond.i19, %if.else ]
   %vtable.i.i.i.i50 = load ptr, ptr %__first.addr.04.i.i.i49, align 8
   %vfn.i.i.i.i51 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i50, i64 19
-  %25 = load ptr, ptr %vfn.i.i.i.i51, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.04.i.i.i49) #21
+  %26 = load ptr, ptr %vfn.i.i.i.i51, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.04.i.i.i49) #21
   %incdec.ptr.i.i.i52 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %__first.addr.04.i.i.i49, i64 1
   %cmp.not.i.i.i53 = icmp eq ptr %incdec.ptr.i.i.i52, %__new_finish.0.lpad-body67
   br i1 %cmp.not.i.i.i53, label %if.end, label %for.body.i.i.i48, !llvm.loop !19
 
 lpad21:                                           ; preds = %invoke.cont23
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -3006,13 +3005,13 @@ invoke.cont23:                                    ; preds = %if.then.i56, %if.en
           to label %unreachable unwind label %lpad21
 
 eh.resume:                                        ; preds = %lpad21
-  resume { ptr, i32 } %26
+  resume { ptr, i32 } %27
 
 terminate.lpad:                                   ; preds = %lpad21
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #24
+  %29 = extractvalue { ptr, i32 } %28, 0
+  tail call void @__clang_call_terminate(ptr %29) #24
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont23
@@ -3097,6 +3096,9 @@ declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

@@ -15801,9 +15801,8 @@ cond.false.i:                                     ; preds = %skip_optional
 cond.end.i:                                       ; preds = %cond.false.i, %skip_optional
   %cond.i = phi i32 [ %3, %cond.false.i ], [ 2147483647, %skip_optional ]
   %cmp3.i = icmp slt i32 %len.0, 0
-  %cmp5.i = icmp slt i32 %cond.i, %len.0
-  %or.cond14.i = select i1 %cmp3.i, i1 true, i1 %cmp5.i
-  %len.addr.0.i = select i1 %or.cond14.i, i32 %cond.i, i32 %len.0
+  %4 = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 %len.0)
+  %len.addr.0.i = select i1 %cmp3.i, i32 %cond.i, i32 %4
   %conv7.i = sext i32 %len.addr.0.i to i64
   %call8.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %conv7.i) #11
   store ptr %call8.i, ptr %result.i, align 8
@@ -15813,23 +15812,23 @@ cond.end.i:                                       ; preds = %cond.false.i, %skip
   br i1 %or.cond.i, label %_ssl_MemoryBIO_read_impl.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %cond.end.i
-  %4 = load ptr, ptr %bio.i, align 8
+  %5 = load ptr, ptr %bio.i, align 8
   %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call8.i, i64 0, i32 2
-  %call18.i = tail call i32 @BIO_read(ptr noundef %4, ptr noundef nonnull %ob_sval.i.i, i32 noundef %len.addr.0.i) #11
+  %call18.i = tail call i32 @BIO_read(ptr noundef %5, ptr noundef nonnull %ob_sval.i.i, i32 noundef %len.addr.0.i) #11
   %cmp19.i = icmp slt i32 %call18.i, 0
   br i1 %cmp19.i, label %if.then21.i, label %if.end25.i
 
 if.then21.i:                                      ; preds = %if.end15.i
-  %5 = getelementptr i8, ptr %self, i64 8
-  %self.val.i = load ptr, ptr %5, align 8
+  %6 = getelementptr i8, ptr %self, i64 8
+  %self.val.i = load ptr, ptr %6, align 8
   %call23.i = tail call ptr @PyType_GetModuleState(ptr noundef %self.val.i) #11
-  %6 = load i64, ptr %call8.i, align 8
-  %7 = and i64 %6, 2147483648
-  %cmp.i33.not.i = icmp eq i64 %7, 0
+  %7 = load i64, ptr %call8.i, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i33.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i33.not.i, label %if.end.i.i, label %Py_DECREF.exit.i
 
 if.end.i.i:                                       ; preds = %if.then21.i
-  %dec.i.i = add i64 %6, -1
+  %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %call8.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %Py_DECREF.exit.i
@@ -15842,10 +15841,10 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %call.i.i = tail call i64 @ERR_peek_last_error() #11
   %conv.i.i = trunc i64 %call.i.i to i32
   %PySSLErrorObject4.i.i = getelementptr inbounds %struct._sslmodulestate, ptr %call23.i, i64 0, i32 5
-  %8 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
+  %9 = load ptr, ptr %PySSLErrorObject4.i.i, align 8
   %sext.i.i = shl i64 %call.i.i, 32
   %conv15.i.i = ashr exact i64 %sext.i.i, 32
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef %call23.i, ptr noundef null, ptr noundef %8, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 5095, i64 noundef %conv15.i.i)
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef %call23.i, ptr noundef null, ptr noundef %9, i32 noundef %conv.i.i, ptr noundef null, i32 noundef 5095, i64 noundef %conv15.i.i)
   tail call void @ERR_clear_error() #11
   br label %_ssl_MemoryBIO_read_impl.exit
 
@@ -16736,6 +16735,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

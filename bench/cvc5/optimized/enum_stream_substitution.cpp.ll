@@ -8258,8 +8258,8 @@ cond.end67:                                       ; preds = %invoke.cont57, %if.
   %_M_left.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 2
   %20 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
-  %cmp.i.not598 = icmp eq ptr %20, %add.ptr.i.i
-  br i1 %cmp.i.not598, label %cond.end195, label %for.body.lr.ph
+  %cmp.i.not621 = icmp eq ptr %20, %add.ptr.i.i
+  br i1 %cmp.i.not621, label %cond.end195, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cond.end67
   %_M_parent.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this, i64 0, i32 8, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
@@ -8269,9 +8269,9 @@ for.body.lr.ph:                                   ; preds = %cond.end67
   %d_last_comb.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %ref.tmp78, i64 0, i32 3
   %d_vars.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %ref.tmp78, i64 0, i32 4
   %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %ref.tmp78, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_end_of_storage.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %ref.tmp78, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_finish.i.i221 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
   %_M_end_of_storage.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this, i64 0, i32 9, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %ref.tmp78, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_finish3.i.i.i.i4.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %ref.tmp78, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
   %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %ref.tmp78, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
   %21 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -8284,8 +8284,8 @@ for.bodythread-pre-split:                         ; preds = %for.inc184
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.bodythread-pre-split
   %23 = phi ptr [ %.pr, %for.bodythread-pre-split ], [ %21, %for.body.lr.ph ]
-  %__begin3.sroa.0.0599 = phi ptr [ %call.i, %for.bodythread-pre-split ], [ %20, %for.body.lr.ph ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.552", ptr %__begin3.sroa.0.0599, i64 0, i32 1
+  %__begin3.sroa.0.0622 = phi ptr [ %call.i, %for.bodythread-pre-split ], [ %20, %for.body.lr.ph ]
+  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.552", ptr %__begin3.sroa.0.0622, i64 0, i32 1
   %24 = load i32, ptr %_M_storage.i.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not5.i.i.i.i, label %for.inc184, label %while.body.i.i.i.i
@@ -8325,7 +8325,7 @@ _ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation15getVarClassSizeEj
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %cmp = icmp eq i32 %conv.i, 0
-  br i1 %cmp, label %for.inc184, label %if.then.i.i218
+  br i1 %cmp, label %for.inc184, label %if.then.i574
 
 lpad50:                                           ; preds = %if.then13.i4.i, %if.then13.i.i119
   %29 = landingpad { ptr, i32 }
@@ -8339,9 +8339,9 @@ lpad56:                                           ; preds = %_ZN4cvc58internal12
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp55) #22
   br label %common.resume
 
-if.then.i.i218:                                   ; preds = %_ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation15getVarClassSizeEj.exit
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.552", ptr %__begin3.sroa.0.0599, i64 0, i32 1, i32 0, i64 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Rb_tree_node.552", ptr %__begin3.sroa.0.0599, i64 0, i32 1, i32 0, i64 16
+if.then.i574:                                     ; preds = %_ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation15getVarClassSizeEj.exit
+  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.552", ptr %__begin3.sroa.0.0622, i64 0, i32 1, i32 0, i64 8
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Rb_tree_node.552", ptr %__begin3.sroa.0.0622, i64 0, i32 1, i32 0, i64 16
   %31 = load ptr, ptr %_M_finish.i, align 8
   %32 = load ptr, ptr %second, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %31 to i64
@@ -8353,30 +8353,45 @@ if.then.i.i218:                                   ; preds = %_ZNK4cvc58internal6
   store i32 %conv.i, ptr %d_k.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %d_last_comb.i, i8 0, i64 48, i1 false)
   %conv.i219 = and i64 %sub.ptr.div.i.i, 4294967295
-  invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_last_comb.i, i64 noundef %conv.i219)
-          to label %invoke.cont.i unwind label %lpad.i220
+  %cmp8.not.i.not = icmp ne i64 %conv.i219, 0
+  call void @llvm.assume(i1 %cmp8.not.i.not)
+  %mul.i.i.i.i = shl nuw nsw i64 %conv.i219, 2
+  %call5.i.i.i.i591 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #23
+          to label %if.then.i.i.i21.i unwind label %lpad.i220
 
-invoke.cont.i:                                    ; preds = %if.then.i.i218
-  %.pre.i = load ptr, ptr %d_last_comb.i, align 8
-  %.pre2.i = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.not4.i.i = icmp eq ptr %.pre.i, %.pre2.i
-  br i1 %cmp.i.not4.i.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i, label %for.body.i.i
+if.then.i.i.i21.i:                                ; preds = %if.then.i574
+  store i32 0, ptr %call5.i.i.i.i591, align 4
+  %cmp.i.i.i.i.i23.i = icmp eq i64 %conv.i219, 1
+  br i1 %cmp.i.i.i.i.i23.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i, label %if.end.i.i.i.i.i24.i
 
-for.body.i.i:                                     ; preds = %invoke.cont.i, %for.body.i.i
-  %__value.addr.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %invoke.cont.i ]
-  %__first.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %.pre.i, %invoke.cont.i ]
+if.end.i.i.i.i.i24.i:                             ; preds = %if.then.i.i.i21.i
+  %incdec.ptr.i.i.i22.i = getelementptr i32, ptr %call5.i.i.i.i591, i64 1
+  %33 = add nsw i64 %mul.i.i.i.i, -4
+  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22.i, i8 0, i64 %33, i1 false)
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i
+
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i: ; preds = %if.then.i.i.i21.i, %if.end.i.i.i.i.i24.i
+  store ptr %call5.i.i.i.i591, ptr %d_last_comb.i, align 8
+  %add.ptr37.i = getelementptr inbounds i32, ptr %call5.i.i.i.i591, i64 %conv.i219
+  store ptr %add.ptr37.i, ptr %_M_finish.i.i.i, align 8
+  store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i, %for.body.i.i
+  %__value.addr.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i ]
+  %__first.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call5.i.i.i.i591, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32.i ]
   store i32 %__value.addr.06.i.i, ptr %__first.sroa.0.05.i.i, align 4
   %inc.i.i = add nuw nsw i32 %__value.addr.06.i.i, 1
   %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.05.i.i, i64 1
-  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %.pre2.i
+  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr37.i
   br i1 %cmp.i.not.i.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i, label %for.body.i.i, !llvm.loop !30
 
-_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i: ; preds = %for.body.i.i, %invoke.cont.i
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i: ; preds = %for.body.i.i
   %call13.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %d_vars.i, ptr noundef nonnull align 8 dereferenceable(24) %second)
           to label %_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitution16CombinationStateC2EjjjRKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE.exit unwind label %lpad.i220
 
-lpad.i220:                                        ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i, %if.then.i.i218
-  %33 = landingpad { ptr, i32 }
+lpad.i220:                                        ; preds = %if.then.i574, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i
+  %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_vars.i) #22
   %34 = load ptr, ptr %d_last_comb.i, align 8
@@ -8388,7 +8403,7 @@ if.then.i.i.i.i:                                  ; preds = %lpad.i220
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad50, %lpad56, %lpad82, %lpad.i220, %if.then.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %33, %if.then.i.i.i.i ], [ %33, %lpad.i220 ], [ %50, %lpad82 ], [ %30, %lpad56 ], [ %29, %lpad50 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit, %if.then.i.i.i.i ], [ %lpad.loopexit, %lpad.i220 ], [ %50, %lpad82 ], [ %30, %lpad56 ], [ %29, %lpad50 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitution16CombinationStateC2EjjjRKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE.exit: ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i
@@ -8407,7 +8422,7 @@ invoke.cont.i.i.thread:                           ; preds = %_ZN4cvc58internal6t
   %38 = load ptr, ptr %_M_finish.i.i.i, align 8
   store ptr %38, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %35, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %39 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
+  %39 = load ptr, ptr %_M_end_of_storage.i, align 8
   store ptr %39, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_last_comb.i, i8 0, i64 24, i1 false)
   %d_vars.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %35, i64 0, i32 4
@@ -8431,8 +8446,8 @@ if.else.i.i224:                                   ; preds = %_ZN4cvc58internal6t
 
 invoke.cont83:                                    ; preds = %if.else.i.i224
   %.pre = load ptr, ptr %d_vars.i, align 8
-  %.pre601 = load ptr, ptr %_M_finish3.i.i.i.i4.i.i.i.i.i, align 8
-  %cmp.not3.i.i.i.i.i = icmp eq ptr %.pre, %.pre601
+  %.pre626 = load ptr, ptr %_M_finish3.i.i.i.i4.i.i.i.i.i, align 8
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %.pre, %.pre626
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont83, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i.i
@@ -8465,7 +8480,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then13.i.i.i.i.i
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %if.then13.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %.pre601
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %.pre626
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !22
 
 invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i.i
@@ -8473,7 +8488,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyIN4cvc
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont83
-  %48 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre601, %invoke.cont83 ]
+  %48 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %.pre626, %invoke.cont83 ]
   %tobool.not.i.i.i.i228 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i.i.i228, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i, label %if.then.i.i.i.i229
 
@@ -8497,7 +8512,7 @@ lpad82:                                           ; preds = %if.else.i.i224
   br label %common.resume
 
 for.inc184:                                       ; preds = %for.body, %_ZNKSt8_Rb_treeIjSt4pairIKjSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS6_EEESt10_Select1stIS9_ESt4lessIjESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapIjSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESt4lessIjESaISt4pairIKjS6_EEE4findERSA_.exit.i, %if.then.i.i.i3.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i, %_ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation15getVarClassSizeEj.exit
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0599) #27
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0622) #27
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %cond.end195, label %for.bodythread-pre-split, !llvm.loop !63
 
@@ -14141,29 +14156,28 @@ _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.ex
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
   br label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %cond.i19, i64 %sub.ptr.div.i
-  %2 = load ptr, ptr %__args, align 8
-  store ptr %2, ptr %add.ptr, align 8
-  %bf.load.i.i.i.i = load i64, ptr %2, align 8
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
+  %bf.load.i.i.i.i = load i64, ptr %3, align 8
   %bf.lshr.i.i.i.i = lshr i64 %bf.load.i.i.i.i, 40
-  %3 = trunc i64 %bf.lshr.i.i.i.i to i32
-  %bf.cast.i.i.i.i = and i32 %3, 1048575
+  %4 = trunc i64 %bf.lshr.i.i.i.i to i32
+  %bf.cast.i.i.i.i = and i32 %4, 1048575
   %cmp.i.i.i.i = icmp ult i32 %bf.cast.i.i.i.i, 1048574
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -14172,7 +14186,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_base
   %bf.shl.i.i.i.i = and i64 %bf.value.i.i.i.i, 1152920405095219200
   %bf.clear7.i.i.i.i = and i64 %bf.load.i.i.i.i, -1152920405095219201
   %bf.set.i.i.i.i = or disjoint i64 %bf.shl.i.i.i.i, %bf.clear7.i.i.i.i
-  store i64 %bf.set.i.i.i.i, ptr %2, align 8
+  store i64 %bf.set.i.i.i.i, ptr %3, align 8
   br label %invoke.cont
 
 if.else.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit
@@ -14181,8 +14195,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_base
 
 if.then13.i.i.i.i:                                ; preds = %if.else.i.i.i.i
   %bf.set23.i.i.i.i = or i64 %bf.load.i.i.i.i, 1152920405095219200
-  store i64 %bf.set23.i.i.i.i, ptr %2, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  store i64 %bf.set23.i.i.i.i, ptr %3, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %invoke.cont unwind label %if.else
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then13.i.i.i.i
@@ -14200,10 +14214,10 @@ invoke.cont14:                                    ; preds = %invoke.cont10
 
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i ], [ %1, %invoke.cont14 ]
-  %4 = load ptr, ptr %__first.addr.04.i.i.i, align 8
-  %bf.load.i.i.i.i.i.i = load i64, ptr %4, align 8
-  %5 = and i64 %bf.load.i.i.i.i.i.i, 1152920405095219200
-  %cmp.not.i.i.i.i.i.i = icmp eq i64 %5, 1152920405095219200
+  %5 = load ptr, ptr %__first.addr.04.i.i.i, align 8
+  %bf.load.i.i.i.i.i.i = load i64, ptr %5, align 8
+  %6 = and i64 %bf.load.i.i.i.i.i.i, 1152920405095219200
+  %cmp.not.i.i.i.i.i.i = icmp eq i64 %6, 1152920405095219200
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
@@ -14211,19 +14225,19 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
   %bf.shl.i.i.i.i.i.i = and i64 %bf.value.i.i.i.i.i.i, 1152920405095219200
   %bf.clear7.i.i.i.i.i.i = and i64 %bf.load.i.i.i.i.i.i, -1152920405095219201
   %bf.set.i.i.i.i.i.i = or disjoint i64 %bf.shl.i.i.i.i.i.i, %bf.clear7.i.i.i.i.i.i
-  store i64 %bf.set.i.i.i.i.i.i, ptr %4, align 8
+  store i64 %bf.set.i.i.i.i.i.i, ptr %5, align 8
   %cmp12.i.i.i.i.i.i = icmp eq i64 %bf.shl.i.i.i.i.i.i, 0
   br i1 %cmp12.i.i.i.i.i.i, label %if.then13.i.i.i.i.i.i, label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i
 
 if.then13.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then13.i.i.i.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #24
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
@@ -14250,8 +14264,8 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateE
 if.then:                                          ; preds = %invoke.cont
   %lpad.thr_comm.split-lp30 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp30, 0
-  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #22
+  %9 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp30, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #22
   tail call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %add.ptr) #22
   br label %invoke.cont21
 
@@ -14259,13 +14273,13 @@ if.else:                                          ; preds = %if.then13.i.i.i.i, 
   %__new_finish.0.ph = phi ptr [ %incdec.ptr, %invoke.cont10 ], [ %cond.i19, %if.then13.i.i.i.i ]
   %lpad.thr_comm29 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %lpad.thr_comm29, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #22
+  %11 = extractvalue { ptr, i32 } %lpad.thr_comm29, 0
+  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #22
   invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E(ptr noundef nonnull %cond.i19, ptr noundef nonnull %__new_finish.0.ph, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %invoke.cont21 unwind label %lpad19
 
 lpad19:                                           ; preds = %invoke.cont21, %if.else
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -14276,13 +14290,13 @@ invoke.cont21:                                    ; preds = %if.then, %if.else
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 
 terminate.lpad:                                   ; preds = %lpad19
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #24
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #24
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -14424,9 +14438,8 @@ _ZNKSt6vectorIN4cvc58internal6theory11quantifiers21EnumStreamPermutation16Permut
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 115292150460684697
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 115292150460684697, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 115292150460684697)
+  %cond.i = select i1 %cmp7.i, i64 115292150460684697, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 80
@@ -14435,35 +14448,35 @@ _ZNKSt6vectorIN4cvc58internal6theory11quantifiers21EnumStreamPermutation16Permut
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 80
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  %2 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %2, ptr %add.ptr, align 8
+  %3 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %3, ptr %add.ptr, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %add.ptr, i64 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %__args, i64 0, i32 2
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
   %d_last_perm.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
   %d_last_perm3.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__args, i64 0, i32 1
-  %4 = load <2 x ptr>, ptr %d_last_perm3.i.i.i, align 8
-  store <2 x ptr> %4, ptr %d_last_perm.i.i.i, align 8
+  %5 = load <2 x ptr>, ptr %d_last_perm3.i.i.i, align 8
+  store <2 x ptr> %5, ptr %d_last_perm.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i6.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i7.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__args, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i, align 8
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i6.i.i.i, align 8
+  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i, align 8
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i6.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_last_perm3.i.i.i, i8 0, i64 24, i1 false)
   %d_seq.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2
   %d_seq4.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__args, i64 0, i32 2
-  %6 = load <2 x ptr>, ptr %d_seq4.i.i.i, align 8
-  store <2 x ptr> %6, ptr %d_seq.i.i.i, align 8
+  %7 = load <2 x ptr>, ptr %d_seq4.i.i.i, align 8
+  store <2 x ptr> %7, ptr %d_seq.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i10.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 2, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i11.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__args, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i, align 8
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i10.i.i.i, align 8
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i, align 8
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i10.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_seq4.i.i.i, i8 0, i64 24, i1 false)
   %d_curr_ind.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 3
   %d_curr_ind5.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__args, i64 0, i32 3
-  %8 = load i32, ptr %d_curr_ind5.i.i.i, align 8
-  store i32 %8, ptr %d_curr_ind.i.i.i, align 8
+  %9 = load i32, ptr %d_curr_ind5.i.i.i, align 8
+  store i32 %9, ptr %d_curr_ind.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationStateESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i
 
@@ -14472,35 +14485,35 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4cvc
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationStateESaIS5_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !97, !noalias !94
-  store <2 x ptr> %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !94, !noalias !97
+  %10 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !97, !noalias !94
+  store <2 x ptr> %10, ptr %__cur.07.i.i.i, align 8, !alias.scope !94, !noalias !97
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %__cur.07.i.i.i, i64 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
-  store ptr %10, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
+  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !97, !noalias !94
   %d_last_perm.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i, i64 0, i32 1
   %d_last_perm3.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %11 = load <2 x ptr>, ptr %d_last_perm3.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
-  store <2 x ptr> %11, ptr %d_last_perm.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
+  %12 = load <2 x ptr>, ptr %d_last_perm3.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
+  store <2 x ptr> %12, ptr %d_last_perm.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
   %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
+  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
+  store ptr %13, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_last_perm3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !97, !noalias !94
   %d_seq.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i, i64 0, i32 2
   %d_seq4.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %13 = load <2 x ptr>, ptr %d_seq4.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
-  store <2 x ptr> %13, ptr %d_seq.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
+  %14 = load <2 x ptr>, ptr %d_seq4.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
+  store <2 x ptr> %14, ptr %d_seq.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
   %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
-  store ptr %14, ptr %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
+  %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
+  store ptr %15, ptr %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_seq4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !97, !noalias !94
   %d_curr_ind.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i, i64 0, i32 3
   %d_curr_ind5.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %15 = load i32, ptr %d_curr_ind5.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
-  store i32 %15, ptr %d_curr_ind.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
+  %16 = load i32, ptr %d_curr_ind5.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
+  store i32 %16, ptr %d_curr_ind.i.i.i.i.i.i.i, align 8, !alias.scope !94, !noalias !97
   tail call void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationStateD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %__first.addr.06.i.i.i) #22, !noalias !94
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i, i64 1
@@ -14518,35 +14531,35 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4cvc5
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i33, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationStateESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %16 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !103, !noalias !100
-  store <2 x ptr> %16, ptr %__cur.07.i.i.i13, align 8, !alias.scope !100, !noalias !103
+  %17 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !103, !noalias !100
+  store <2 x ptr> %17, ptr %__cur.07.i.i.i13, align 8, !alias.scope !100, !noalias !103
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %__cur.07.i.i.i13, i64 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %17 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !103, !noalias !100
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !100, !noalias !103
+  %18 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !103, !noalias !100
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !100, !noalias !103
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !103, !noalias !100
   %d_last_perm.i.i.i.i.i.i.i19 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %d_last_perm3.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %18 = load <2 x ptr>, ptr %d_last_perm3.i.i.i.i.i.i.i20, align 8, !alias.scope !103, !noalias !100
-  store <2 x ptr> %18, ptr %d_last_perm.i.i.i.i.i.i.i19, align 8, !alias.scope !100, !noalias !103
+  %19 = load <2 x ptr>, ptr %d_last_perm3.i.i.i.i.i.i.i20, align 8, !alias.scope !103, !noalias !100
+  store <2 x ptr> %19, ptr %d_last_perm.i.i.i.i.i.i.i19, align 8, !alias.scope !100, !noalias !103
   %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i24 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %19 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i24, align 8, !alias.scope !103, !noalias !100
-  store ptr %19, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i23, align 8, !alias.scope !100, !noalias !103
+  %20 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i24, align 8, !alias.scope !103, !noalias !100
+  store ptr %20, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i23, align 8, !alias.scope !100, !noalias !103
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_last_perm3.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !103, !noalias !100
   %d_seq.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i13, i64 0, i32 2
   %d_seq4.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
-  %20 = load <2 x ptr>, ptr %d_seq4.i.i.i.i.i.i.i26, align 8, !alias.scope !103, !noalias !100
-  store <2 x ptr> %20, ptr %d_seq.i.i.i.i.i.i.i25, align 8, !alias.scope !100, !noalias !103
+  %21 = load <2 x ptr>, ptr %d_seq4.i.i.i.i.i.i.i26, align 8, !alias.scope !103, !noalias !100
+  store <2 x ptr> %21, ptr %d_seq.i.i.i.i.i.i.i25, align 8, !alias.scope !100, !noalias !103
   %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i13, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i30 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i14, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %21 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i30, align 8, !alias.scope !103, !noalias !100
-  store ptr %21, ptr %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i29, align 8, !alias.scope !100, !noalias !103
+  %22 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i30, align 8, !alias.scope !103, !noalias !100
+  store ptr %22, ptr %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i29, align 8, !alias.scope !100, !noalias !103
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_seq4.i.i.i.i.i.i.i26, i8 0, i64 24, i1 false), !alias.scope !103, !noalias !100
   %d_curr_ind.i.i.i.i.i.i.i31 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i13, i64 0, i32 3
   %d_curr_ind5.i.i.i.i.i.i.i32 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %22 = load i32, ptr %d_curr_ind5.i.i.i.i.i.i.i32, align 8, !alias.scope !103, !noalias !100
-  store i32 %22, ptr %d_curr_ind.i.i.i.i.i.i.i31, align 8, !alias.scope !100, !noalias !103
+  %23 = load i32, ptr %d_curr_ind5.i.i.i.i.i.i.i32, align 8, !alias.scope !103, !noalias !100
+  store i32 %23, ptr %d_curr_ind.i.i.i.i.i.i.i31, align 8, !alias.scope !100, !noalias !103
   tail call void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationStateD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %__first.addr.06.i.i.i14) #22, !noalias !100
   %incdec.ptr.i.i.i33 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i34 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation::PermutationState", ptr %__cur.07.i.i.i13, i64 1
@@ -16111,48 +16124,47 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 2305843009213693951
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 2305843009213693951, i64 %add.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
+  %cond.i = select i1 %cmp7.i, i64 2305843009213693951, i64 %5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %if.then.i.i.i22, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i
+  br i1 %cmp.not.i, label %if.then.i.i.i21, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 2
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #23
-  br label %if.then.i.i.i22
+  br label %if.then.i.i.i21
 
-if.then.i.i.i22:                                  ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit ]
+if.then.i.i.i21:                                  ; preds = %cond.true.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds i32, ptr %cond.i19, i64 %sub.ptr.div.i
   store i32 0, ptr %add.ptr, align 4
-  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
+  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
 
-if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i22
-  %incdec.ptr.i.i.i23 = getelementptr i32, ptr %add.ptr, i64 1
-  %5 = shl i64 %__n, 2
-  %6 = add i64 %5, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23, i8 0, i64 %6, i1 false)
+if.end.i.i.i.i.i24:                               ; preds = %if.then.i.i.i21
+  %incdec.ptr.i.i.i22 = getelementptr i32, ptr %add.ptr, i64 1
+  %6 = shl i64 %__n, 2
+  %7 = add i64 %6, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %if.then.i.i.i22
-  %cmp.i.i.i30 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i.i30, label %if.then.i.i.i31, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %if.then.i.i.i21
+  %cmp.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i.i, label %if.then.i.i.i29, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
 
-if.then.i.i.i31:                                  ; preds = %try.cont
+if.then.i.i.i29:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i19, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i31
-  %tobool.not.i32 = icmp eq ptr %1, null
-  br i1 %tobool.not.i32, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34, label %if.then.i33
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i29
+  %tobool.not.i30 = icmp eq ptr %1, null
+  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32, label %if.then.i31
 
-if.then.i33:                                      ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
+if.then.i31:                                      ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #25
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %if.then.i33
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %if.then.i31
   store ptr %cond.i19, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -16160,7 +16172,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34: ; preds = %_ZNSt6vectorIj
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32, %entry
   ret void
 }
 
@@ -16274,9 +16286,8 @@ _ZNKSt6vectorIN4cvc58internal6theory11quantifiers22EnumStreamSubstitution16Combi
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 144115188075855871
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 144115188075855871, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 144115188075855871)
+  %cond.i = select i1 %cmp7.i, i64 144115188075855871, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
@@ -16288,21 +16299,21 @@ _ZNKSt6vectorIN4cvc58internal6theory11quantifiers22EnumStreamSubstitution16Combi
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, ptr noundef nonnull align 8 dereferenceable(12) %__args, i64 12, i1 false)
   %d_last_comb.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 3
   %d_last_comb3.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__args, i64 0, i32 3
-  %2 = load <2 x ptr>, ptr %d_last_comb3.i.i.i, align 8
-  store <2 x ptr> %2, ptr %d_last_comb.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %d_last_comb3.i.i.i, align 8
+  store <2 x ptr> %3, ptr %d_last_comb.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__args, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_last_comb3.i.i.i, i8 0, i64 24, i1 false)
   %d_vars.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 4
   %d_vars4.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__args, i64 0, i32 4
-  %4 = load <2 x ptr>, ptr %d_vars4.i.i.i, align 8
-  store <2 x ptr> %4, ptr %d_vars.i.i.i, align 8
+  %5 = load <2 x ptr>, ptr %d_vars4.i.i.i, align 8
+  store <2 x ptr> %5, ptr %d_vars.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i5.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 4, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i6.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i, align 8
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i5.i.i.i, align 8
+  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i, align 8
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i5.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_vars4.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4cvc58internal6theory11quantifiers22EnumStreamSubstitution16CombinationStateESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i
@@ -16315,21 +16326,21 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4cvc
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %__first.addr.06.i.i.i, i64 12, i1 false), !alias.scope !124
   %d_last_comb.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i, i64 0, i32 3
   %d_last_comb3.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i, i64 0, i32 3
-  %6 = load <2 x ptr>, ptr %d_last_comb3.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
-  store <2 x ptr> %6, ptr %d_last_comb.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
+  %7 = load <2 x ptr>, ptr %d_last_comb3.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
+  store <2 x ptr> %7, ptr %d_last_comb.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_last_comb3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !122, !noalias !119
   %d_vars.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i, i64 0, i32 4
   %d_vars4.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i, i64 0, i32 4
-  %8 = load <2 x ptr>, ptr %d_vars4.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
-  store <2 x ptr> %8, ptr %d_vars.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
+  %9 = load <2 x ptr>, ptr %d_vars4.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
+  store <2 x ptr> %9, ptr %d_vars.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
   %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
-  store ptr %9, ptr %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
+  %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
+  store ptr %10, ptr %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_vars4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !122, !noalias !119
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i, i64 1
@@ -16350,21 +16361,21 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4cvc5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(12) %__first.addr.06.i.i.i14, i64 12, i1 false), !alias.scope !131
   %d_last_comb.i.i.i.i.i.i.i15 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i13, i64 0, i32 3
   %d_last_comb3.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
-  %10 = load <2 x ptr>, ptr %d_last_comb3.i.i.i.i.i.i.i16, align 8, !alias.scope !129, !noalias !126
-  store <2 x ptr> %10, ptr %d_last_comb.i.i.i.i.i.i.i15, align 8, !alias.scope !126, !noalias !129
+  %11 = load <2 x ptr>, ptr %d_last_comb3.i.i.i.i.i.i.i16, align 8, !alias.scope !129, !noalias !126
+  store <2 x ptr> %11, ptr %d_last_comb.i.i.i.i.i.i.i15, align 8, !alias.scope !126, !noalias !129
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !129, !noalias !126
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !126, !noalias !129
+  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !129, !noalias !126
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !126, !noalias !129
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_last_comb3.i.i.i.i.i.i.i16, i8 0, i64 24, i1 false), !alias.scope !129, !noalias !126
   %d_vars.i.i.i.i.i.i.i21 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i13, i64 0, i32 4
   %d_vars4.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i14, i64 0, i32 4
-  %12 = load <2 x ptr>, ptr %d_vars4.i.i.i.i.i.i.i22, align 8, !alias.scope !129, !noalias !126
-  store <2 x ptr> %12, ptr %d_vars.i.i.i.i.i.i.i21, align 8, !alias.scope !126, !noalias !129
+  %13 = load <2 x ptr>, ptr %d_vars4.i.i.i.i.i.i.i22, align 8, !alias.scope !129, !noalias !126
+  store <2 x ptr> %13, ptr %d_vars.i.i.i.i.i.i.i21, align 8, !alias.scope !126, !noalias !129
   %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i.i26, align 8, !alias.scope !129, !noalias !126
-  store ptr %13, ptr %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i.i25, align 8, !alias.scope !126, !noalias !129
+  %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i.i26, align 8, !alias.scope !129, !noalias !126
+  store ptr %14, ptr %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i.i25, align 8, !alias.scope !126, !noalias !129
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_vars4.i.i.i.i.i.i.i22, i8 0, i64 24, i1 false), !alias.scope !129, !noalias !126
   %incdec.ptr.i.i.i27 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i28 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution::CombinationState", ptr %__cur.07.i.i.i13, i64 1
@@ -16408,6 +16419,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21

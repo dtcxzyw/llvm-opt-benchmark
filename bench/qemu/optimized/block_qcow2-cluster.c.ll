@@ -2087,10 +2087,8 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %48 = load i8, ptr %keep_old_clusters, align 4
   %49 = and i8 %48, 1
   %tobool117.not72 = icmp eq i8 %49, 0
-  %cmp119 = icmp ne i32 %j.0.lcssa, 0
-  %or.cond = select i1 %tobool117.not72, i1 %cmp119, i1 false
   %cmp123108 = icmp sgt i32 %j.0.lcssa, 0
-  %or.cond110 = select i1 %or.cond, i1 %cmp123108, i1 false
+  %or.cond110 = select i1 %tobool117.not72, i1 %cmp123108, i1 false
   br i1 %or.cond110, label %for.body125.preheader, label %err
 
 for.body125.preheader:                            ; preds = %for.end

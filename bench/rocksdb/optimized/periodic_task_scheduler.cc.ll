@@ -2885,40 +2885,39 @@ _ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIPN7rocksdb5Timer12FunctionInfoEEE8allocateERS4_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIPN7rocksdb5Timer12FunctionInfoEEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #19
   br label %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN7rocksdb5Timer12FunctionInfoEEE8allocateERS4_m.exit.i.i.i, %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIPN7rocksdb5Timer12FunctionInfoEEE8allocateERS4_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  %5 = load ptr, ptr %__x, align 8
-  store ptr %5, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+  %6 = load ptr, ptr %__x, align 8
+  store ptr %6, ptr %add.ptr.i.i, align 8
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %4, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+  br label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
   %tobool.not.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i20.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   br label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
+_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   store ptr %cond.i10.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
@@ -2926,12 +2925,12 @@ _ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EE
   br label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backERKS3_.exit: ; preds = %if.then.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
-  %6 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
-  %7 = phi ptr [ %.pre, %if.then.i ], [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
-  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %6, i64 -1
-  %8 = load ptr, ptr %add.ptr.i.i2, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
+  %7 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
+  %8 = phi ptr [ %.pre, %if.then.i ], [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
+  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %7, i64 -1
+  %9 = load ptr, ptr %add.ptr.i.i2, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
@@ -2939,31 +2938,31 @@ _ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backERKS3_.exit: ; pre
   br i1 %cmp16.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit
 
 land.rhs.lr.ph.i.i:                               ; preds = %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backERKS3_.exit
-  %next_run_time_us2.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Timer::FunctionInfo", ptr %8, i64 0, i32 2
+  %next_run_time_us2.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Timer::FunctionInfo", ptr %9, i64 0, i32 2
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
   %__holeIndex.addr.017.i.i = phi i64 [ %sub.i, %land.rhs.lr.ph.i.i ], [ %__parent.018.i23.i, %while.body.i.i ]
   %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
   %__parent.018.i23.i = lshr i64 %__parent.018.in.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %__parent.018.i23.i
-  %9 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %next_run_time_us.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Timer::FunctionInfo", ptr %9, i64 0, i32 2
-  %10 = load i64, ptr %next_run_time_us.i.i.i.i, align 8
-  %11 = load i64, ptr %next_run_time_us2.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ugt i64 %10, %11
+  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %__parent.018.i23.i
+  %10 = load ptr, ptr %add.ptr.i.i.i, align 8
+  %next_run_time_us.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Timer::FunctionInfo", ptr %10, i64 0, i32 2
+  %11 = load i64, ptr %next_run_time_us.i.i.i.i, align 8
+  %12 = load i64, ptr %next_run_time_us2.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp ugt i64 %11, %12
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr.i8.i.i = getelementptr inbounds ptr, ptr %7, i64 %__holeIndex.addr.017.i.i
-  store ptr %9, ptr %add.ptr.i8.i.i, align 8
+  %add.ptr.i8.i.i = getelementptr inbounds ptr, ptr %8, i64 %__holeIndex.addr.017.i.i
+  store ptr %10, ptr %add.ptr.i8.i.i, align 8
   %cmp.i.not.i = icmp ult i64 %__parent.018.in.i.i, 2
   br i1 %cmp.i.not.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit, label %land.rhs.i.i, !llvm.loop !42
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backERKS3_.exit
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %sub.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backERKS3_.exit ], [ 0, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %land.rhs.i.i ]
-  %add.ptr.i9.i.i = getelementptr inbounds ptr, ptr %7, i64 %__holeIndex.addr.0.lcssa.i.i
-  store ptr %8, ptr %add.ptr.i9.i.i, align 8
+  %add.ptr.i9.i.i = getelementptr inbounds ptr, ptr %8, i64 %__holeIndex.addr.0.lcssa.i.i
+  store ptr %9, ptr %add.ptr.i9.i.i, align 8
   ret void
 }
 
@@ -3254,40 +3253,39 @@ _ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
-  %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
-  %cond.i.i.i.i = select i1 %or.cond.i.i.i.i, i64 1152921504606846975, i64 %add.i.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %5
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i.i, label %_ZNSt16allocator_traitsISaIPN7rocksdb5Timer12FunctionInfoEEE8allocateERS4_m.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
-_ZNSt16allocator_traitsISaIPN7rocksdb5Timer12FunctionInfoEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 3
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
   br label %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN7rocksdb5Timer12FunctionInfoEEE8allocateERS4_m.exit.i.i.i.i, %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIPN7rocksdb5Timer12FunctionInfoEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
+_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cond.i10.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %cond.true.i.i.i.i ], [ null, %_ZNKSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  %5 = load ptr, ptr %__x, align 8
-  store ptr %5, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
+  %6 = load ptr, ptr %__x, align 8
+  store ptr %6, ptr %add.ptr.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
 
-if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i.i
+if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %4, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
+  br label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
 
-_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i.i
+_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
-if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
+if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   br label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i
+_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
   store ptr %cond.i10.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
@@ -3295,12 +3293,12 @@ _ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEv
   br label %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backEOS3_.exit: ; preds = %if.then.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
-  %6 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
-  %7 = phi ptr [ %.pre, %if.then.i.i ], [ %cond.i10.i.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %6, i64 -1
-  %8 = load ptr, ptr %add.ptr.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
+  %7 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
+  %8 = phi ptr [ %.pre, %if.then.i.i ], [ %cond.i10.i.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %7, i64 -1
+  %9 = load ptr, ptr %add.ptr.i.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
@@ -3308,31 +3306,31 @@ _ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backEOS3_.exit: ; pred
   br i1 %cmp16.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit
 
 land.rhs.lr.ph.i.i:                               ; preds = %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backEOS3_.exit
-  %next_run_time_us2.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Timer::FunctionInfo", ptr %8, i64 0, i32 2
+  %next_run_time_us2.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Timer::FunctionInfo", ptr %9, i64 0, i32 2
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
   %__holeIndex.addr.017.i.i = phi i64 [ %sub.i, %land.rhs.lr.ph.i.i ], [ %__parent.018.i23.i, %while.body.i.i ]
   %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
   %__parent.018.i23.i = lshr i64 %__parent.018.in.i.i, 1
-  %add.ptr.i.i.i1 = getelementptr inbounds ptr, ptr %7, i64 %__parent.018.i23.i
-  %9 = load ptr, ptr %add.ptr.i.i.i1, align 8
-  %next_run_time_us.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Timer::FunctionInfo", ptr %9, i64 0, i32 2
-  %10 = load i64, ptr %next_run_time_us.i.i.i.i, align 8
-  %11 = load i64, ptr %next_run_time_us2.i.i.i.i, align 8
-  %cmp.i.i.i.i2 = icmp ugt i64 %10, %11
+  %add.ptr.i.i.i1 = getelementptr inbounds ptr, ptr %8, i64 %__parent.018.i23.i
+  %10 = load ptr, ptr %add.ptr.i.i.i1, align 8
+  %next_run_time_us.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Timer::FunctionInfo", ptr %10, i64 0, i32 2
+  %11 = load i64, ptr %next_run_time_us.i.i.i.i, align 8
+  %12 = load i64, ptr %next_run_time_us2.i.i.i.i, align 8
+  %cmp.i.i.i.i2 = icmp ugt i64 %11, %12
   br i1 %cmp.i.i.i.i2, label %while.body.i.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr.i8.i.i = getelementptr inbounds ptr, ptr %7, i64 %__holeIndex.addr.017.i.i
-  store ptr %9, ptr %add.ptr.i8.i.i, align 8
+  %add.ptr.i8.i.i = getelementptr inbounds ptr, ptr %8, i64 %__holeIndex.addr.017.i.i
+  store ptr %10, ptr %add.ptr.i8.i.i, align 8
   %cmp.i.not.i = icmp ult i64 %__parent.018.in.i.i, 2
   br i1 %cmp.i.not.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit, label %land.rhs.i.i, !llvm.loop !42
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backEOS3_.exit
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %sub.i, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backEOS3_.exit ], [ 0, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %land.rhs.i.i ]
-  %add.ptr.i9.i.i = getelementptr inbounds ptr, ptr %7, i64 %__holeIndex.addr.0.lcssa.i.i
-  store ptr %8, ptr %add.ptr.i9.i.i, align 8
+  %add.ptr.i9.i.i = getelementptr inbounds ptr, ptr %8, i64 %__holeIndex.addr.0.lcssa.i.i
+  store ptr %9, ptr %add.ptr.i9.i.i, align 8
   ret void
 }
 
@@ -4439,6 +4437,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

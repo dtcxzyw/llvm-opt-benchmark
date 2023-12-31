@@ -1552,13 +1552,12 @@ entry:
   %spec.store.select = select i1 %cmp, ptr @_ZL8gNullStr, ptr %0
   %call = tail call i32 @u_strlen_75(ptr noundef nonnull %spec.store.select)
   %1 = load i32, ptr %info, align 4
-  %cmp1.not = icmp ne i32 %1, -1
-  %cmp3 = icmp slt i32 %1, %call
-  %or.cond = select i1 %cmp1.not, i1 %cmp3, i1 false
-  %len.0 = select i1 %or.cond, i32 %1, i32 %call
+  %cmp1.not.not = icmp eq i32 %1, -1
+  %2 = tail call i32 @llvm.smin.i32(i32 %1, i32 %call)
+  %len.0 = select i1 %cmp1.not.not, i32 %call, i32 %2
   %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
-  %2 = load ptr, ptr %pad_and_justify, align 8
-  %call7 = tail call noundef i32 %2(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %spec.store.select, i32 noundef %len.0)
+  %3 = load ptr, ptr %pad_and_justify, align 8
+  %call7 = tail call noundef i32 %3(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %spec.store.select, i32 noundef %len.0)
   ret i32 %call7
 }
 
@@ -2059,13 +2058,12 @@ if.end17:                                         ; preds = %entry, %if.else, %i
   %s.0 = phi ptr [ %call11, %if.then1 ], [ %call14, %if.else ], [ @_ZL8gNullStr, %entry ]
   %call18 = call i32 @u_strlen_75(ptr noundef %s.0)
   %1 = load i32, ptr %info, align 4
-  %cmp19.not = icmp ne i32 %1, -1
-  %cmp21 = icmp slt i32 %1, %call18
-  %or.cond18 = select i1 %cmp19.not, i1 %cmp21, i1 false
-  %len.0 = select i1 %or.cond18, i32 %1, i32 %call18
+  %cmp19.not.not = icmp eq i32 %1, -1
+  %2 = call i32 @llvm.smin.i32(i32 %1, i32 %call18)
+  %len.0 = select i1 %cmp19.not.not, i32 %call18, i32 %2
   %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
-  %2 = load ptr, ptr %pad_and_justify, align 8
-  %call25 = call noundef i32 %2(ptr noundef %context, ptr noundef nonnull %info, ptr noundef %s.0, i32 noundef %len.0)
+  %3 = load ptr, ptr %pad_and_justify, align 8
+  %call25 = call noundef i32 %3(ptr noundef %context, ptr noundef nonnull %info, ptr noundef %s.0, i32 noundef %len.0)
   %cmp26 = icmp ne ptr %s.0, @_ZL8gNullStr
   %cmp29 = icmp ne ptr %buffer, %s.0
   %or.cond = and i1 %cmp26, %cmp29
@@ -2188,14 +2186,17 @@ declare void @_Z12ufmt_ptou_75PDsPiPva(ptr noundef, ptr noundef, ptr noundef, i8
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -2204,8 +2205,8 @@ attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { allocsize(0) }
 attributes #10 = { nounwind willreturn memory(read) }
 

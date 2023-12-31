@@ -669,13 +669,12 @@ for.cond:                                         ; preds = %if.end234, %if.end1
   %26 = load ptr, ptr %wrl137, align 8
   %call138 = call i64 %25(ptr noundef %26, i8 noundef zeroext %type, i64 noundef %n.0, i64 noundef %conv, ptr noundef nonnull %split_send_fragment) #9
   %27 = load i64, ptr %max_pipelines, align 8
-  %cmp139.not = icmp ne i64 %27, 0
-  %cmp143 = icmp ugt i64 %call138, %27
-  %or.cond145 = select i1 %cmp139.not, i1 %cmp143, i1 false
-  %maxpipes.0 = select i1 %or.cond145, i64 %27, i64 %call138
+  %cmp139.not.not = icmp eq i64 %27, 0
+  %28 = call i64 @llvm.umin.i64(i64 %call138, i64 %27)
+  %maxpipes.0 = select i1 %cmp139.not.not, i64 %call138, i64 %28
   %spec.store.select = call i64 @llvm.umin.i64(i64 %maxpipes.0, i64 32)
-  %28 = load i64, ptr %split_send_fragment, align 8
-  %cmp152 = icmp ugt i64 %28, %conv
+  %29 = load i64, ptr %split_send_fragment, align 8
+  %cmp152 = icmp ugt i64 %29, %conv
   br i1 %cmp152, label %if.then154, label %if.end155
 
 if.then154:                                       ; preds = %for.cond
@@ -687,7 +686,7 @@ if.then154:                                       ; preds = %for.cond
 if.end155:                                        ; preds = %for.cond
   %div = udiv i64 %n.0, %spec.store.select
   %rem = urem i64 %n.0, %spec.store.select
-  %cmp156.not = icmp ult i64 %div, %28
+  %cmp156.not = icmp ult i64 %div, %29
   br i1 %cmp156.not, label %if.else172, label %for.cond159.preheader
 
 for.cond159.preheader:                            ; preds = %if.end155
@@ -701,18 +700,18 @@ for.body:                                         ; preds = %for.cond159.prehead
   store i8 %type, ptr %arrayidx, align 8
   %version164 = getelementptr inbounds [32 x %struct.ossl_record_template_st], ptr %tmpls, i64 0, i64 %j.0158, i32 1
   store i32 %recversion.0, ptr %version164, align 4
-  %mul = mul i64 %j.0158, %28
+  %mul = mul i64 %j.0158, %29
   %add.ptr = getelementptr inbounds i8, ptr %arrayidx165, i64 %mul
   %buf167 = getelementptr inbounds [32 x %struct.ossl_record_template_st], ptr %tmpls, i64 0, i64 %j.0158, i32 2
   store ptr %add.ptr, ptr %buf167, align 8
   %buflen = getelementptr inbounds [32 x %struct.ossl_record_template_st], ptr %tmpls, i64 0, i64 %j.0158, i32 3
-  store i64 %28, ptr %buflen, align 8
+  store i64 %29, ptr %buflen, align 8
   %inc = add nuw nsw i64 %j.0158, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
-  %mul169 = mul i64 %spec.store.select, %28
+  %mul169 = mul i64 %spec.store.select, %29
   br label %if.end204
 
 if.else172:                                       ; preds = %if.end155
@@ -747,11 +746,11 @@ for.body182:                                      ; preds = %if.else172, %for.bo
 if.end204:                                        ; preds = %for.body182, %for.end
   %storemerge = phi i64 [ %mul169, %for.end ], [ %n.0, %for.body182 ]
   store i64 %storemerge, ptr %wpend_tot, align 8
-  %29 = load ptr, ptr %wrlmethod135, align 8
-  %write_records = getelementptr inbounds %struct.ossl_record_method_st, ptr %29, i64 0, i32 6
-  %30 = load ptr, ptr %write_records, align 8
-  %31 = load ptr, ptr %wrl137, align 8
-  %call209 = call i32 %30(ptr noundef %31, ptr noundef nonnull %tmpls, i64 noundef %spec.store.select) #9
+  %30 = load ptr, ptr %wrlmethod135, align 8
+  %write_records = getelementptr inbounds %struct.ossl_record_method_st, ptr %30, i64 0, i32 6
+  %31 = load ptr, ptr %write_records, align 8
+  %32 = load ptr, ptr %wrl137, align 8
+  %call209 = call i32 %31(ptr noundef %32, ptr noundef nonnull %tmpls, i64 noundef %spec.store.select) #9
   %call210 = call i32 @ossl_tls_handle_rlayer_return(ptr noundef %ssl, i32 noundef 1, i32 noundef %call209, ptr noundef nonnull @.str.1, i32 noundef 424)
   %cmp211 = icmp slt i32 %call210, 1
   br i1 %cmp211, label %if.then213, label %if.end216
@@ -761,29 +760,29 @@ if.then213:                                       ; preds = %if.end204
   br label %return
 
 if.end216:                                        ; preds = %if.end204
-  %32 = load i64, ptr %wpend_tot, align 8
-  %cmp219 = icmp eq i64 %32, %n.0
+  %33 = load i64, ptr %wpend_tot, align 8
+  %cmp219 = icmp eq i64 %33, %n.0
   br i1 %cmp219, label %if.then228, label %lor.lhs.false221
 
 lor.lhs.false221:                                 ; preds = %if.end216
   br i1 %cmp223, label %land.lhs.true225, label %if.end234
 
 land.lhs.true225:                                 ; preds = %lor.lhs.false221
-  %33 = load i32, ptr %mode, align 8
-  %and = and i32 %33, 1
+  %34 = load i32, ptr %mode, align 8
+  %and = and i32 %34, 1
   %cmp226.not = icmp eq i32 %and, 0
   br i1 %cmp226.not, label %if.end234, label %if.then228
 
 if.then228:                                       ; preds = %land.lhs.true225, %if.end216
-  %.lcssa = phi i64 [ %32, %land.lhs.true225 ], [ %n.0, %if.end216 ]
+  %.lcssa = phi i64 [ %33, %land.lhs.true225 ], [ %n.0, %if.end216 ]
   %add231 = add i64 %.lcssa, %tot.1
   store i64 %add231, ptr %written, align 8
   store i64 0, ptr %wpend_tot, align 8
   br label %return
 
 if.end234:                                        ; preds = %land.lhs.true225, %lor.lhs.false221
-  %sub237 = sub i64 %n.0, %32
-  %add240 = add i64 %32, %tot.1
+  %sub237 = sub i64 %n.0, %33
+  %add240 = add i64 %33, %tot.1
   br label %for.cond
 
 return:                                           ; preds = %entry, %cond.false, %tls_write_check_pending.exit, %if.end47, %if.then43, %land.lhs.true21, %if.then228, %if.then213, %if.then154, %if.then104, %if.then88, %if.then82, %if.then62, %if.then18

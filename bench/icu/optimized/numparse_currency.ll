@@ -996,7 +996,7 @@ cleanup:                                          ; preds = %lor.end49, %land.lh
 
 for.body:                                         ; preds = %if.end35, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end35 ]
-  %maybeMore.0.in73 = phi i1 [ %20, %for.body ], [ %5, %if.end35 ]
+  %maybeMore.0.in73 = phi i1 [ %21, %for.body ], [ %5, %if.end35 ]
   %longestFullMatch.071 = phi i32 [ %longestFullMatch.1, %for.body ], [ 0, %if.end35 ]
   %arrayidx = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 5, i64 %indvars.iv
   %call67 = tail call noundef i32 @_ZN6icu_7513StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx)
@@ -1009,11 +1009,10 @@ for.body:                                         ; preds = %if.end35, %for.body
   %19 = load i32, ptr %fLength.i58, align 4
   %cond.i59 = select i1 %cmp.i.i56, i32 %19, i32 %shr.i.i57
   %cmp69 = icmp eq i32 %call67, %cond.i59
-  %cmp72 = icmp sgt i32 %cond.i59, %longestFullMatch.071
-  %or.cond = select i1 %cmp69, i1 %cmp72, i1 false
-  %longestFullMatch.1 = select i1 %or.cond, i32 %cond.i59, i32 %longestFullMatch.071
+  %20 = tail call i32 @llvm.smax.i32(i32 %cond.i59, i32 %longestFullMatch.071)
+  %longestFullMatch.1 = select i1 %cmp69, i32 %20, i32 %longestFullMatch.071
   %cmp78 = icmp sgt i32 %call67, 0
-  %20 = or i1 %maybeMore.0.in73, %cmp78
+  %21 = or i1 %maybeMore.0.in73, %cmp78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -1033,7 +1032,7 @@ if.then82:                                        ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %cleanup, %for.end, %if.then82, %if.then29, %if.then9
-  %retval.1 = phi i1 [ %cmp, %if.then9 ], [ %5, %if.then29 ], [ %20, %if.then82 ], [ %13, %cleanup ], [ %20, %for.end ]
+  %retval.1 = phi i1 [ %cmp, %if.then9 ], [ %5, %if.then29 ], [ %21, %if.then82 ], [ %13, %cleanup ], [ %21, %for.end ]
   ret i1 %retval.1
 }
 
@@ -1145,6 +1144,9 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -25036,16 +25036,16 @@ entry:
   %ref.tmp42 = alloca %"class.arrow::Status", align 8
   %null_count.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %array, i64 0, i32 2
   %0 = load i64, ptr %null_count.i, align 8
-  %cmp.not.i = icmp eq i64 %0, 0
+  %cmp.not.i.not = icmp eq i64 %0, 0
   %buffers.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %array, i64 0, i32 4
   %1 = load ptr, ptr %buffers.i, align 8
-  %cmp2.i = icmp eq ptr %1, null
-  %.not = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
+  %cond = select i1 %cmp.not.i.not, ptr null, ptr %1
   %add = add nsw i64 %length, %offset
   %cmp234 = icmp sgt i64 %length, 0
   br i1 %cmp234, label %for.body.lr.ph, label %return.sink.split
 
 for.body.lr.ph:                                   ; preds = %entry
+  %tobool.not = icmp eq ptr %cond, null
   %offset2 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %array, i64 0, i32 3
   %capacity_.i.i.i125 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 6
   %data_.i.i.i.i.i139 = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 3, i32 0, i32 2
@@ -25061,11 +25061,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %row.0235 = phi i64 [ %offset, %for.body.lr.ph ], [ %inc, %for.inc ]
   %.pre = load i64, ptr %offset2, align 8
   %.pre236 = add nsw i64 %.pre, %row.0235
-  br i1 %.not, label %_ZN5arrow6StatusD2Ev.exit, label %lor.lhs.false
+  br i1 %tobool.not, label %_ZN5arrow6StatusD2Ev.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
   %shr.i = lshr i64 %.pre236, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %cond, i64 %shr.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %2 to i32
   %3 = trunc i64 %.pre236 to i32
@@ -25962,11 +25962,10 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2E
 for.end:                                          ; preds = %for.cond, %entry
   %null_count.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %array, i64 0, i32 2
   %10 = load i64, ptr %null_count.i, align 8
-  %cmp.not.i50 = icmp eq i64 %10, 0
+  %cmp.not.i50.not = icmp eq i64 %10, 0
   %buffers.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %array, i64 0, i32 4
   %11 = load ptr, ptr %buffers.i, align 8
-  %cmp2.i = icmp eq ptr %11, null
-  %.not = select i1 %cmp.not.i50, i1 true, i1 %cmp2.i
+  %cond = select i1 %cmp.not.i50.not, ptr null, ptr %11
   %capacity_.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 6
   %12 = load i64, ptr %capacity_.i.i, align 8, !noalias !1189
   %vtable.i = load ptr, ptr %this, align 8, !noalias !1189
@@ -26001,7 +26000,8 @@ do.end37:                                         ; preds = %nrvo.skipdtor33.thr
   %offset38 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %array, i64 0, i32 3
   %15 = load i64, ptr %offset38, align 8
   %add39 = add nsw i64 %15, %offset
-  br i1 %.not, label %if.then.i130, label %if.end.i128
+  %cmp.i127 = icmp eq ptr %cond, null
+  br i1 %cmp.i127, label %if.then.i130, label %if.end.i128
 
 if.then.i130:                                     ; preds = %do.end37
   call void @_ZN5arrow12ArrayBuilder16UnsafeSetNotNullEl(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %length)
@@ -26021,8 +26021,8 @@ if.end.i.i:                                       ; preds = %if.end.i128
   %16 = load ptr, ptr %data_.i.i.i.i, align 8
   %bit_length_.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 3, i32 1
   %17 = load i64, ptr %bit_length_.i.i, align 8
-  call void @_ZN5arrow8internal10CopyBitmapEPKhllPhl(ptr noundef nonnull %11, i64 noundef %add39, i64 noundef %length, ptr noundef %16, i64 noundef %17)
-  %call2.i.i = call noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef nonnull %11, i64 noundef %add39, i64 noundef %length)
+  call void @_ZN5arrow8internal10CopyBitmapEPKhllPhl(ptr noundef nonnull %cond, i64 noundef %add39, i64 noundef %length, ptr noundef %16, i64 noundef %17)
+  %call2.i.i = call noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef nonnull %cond, i64 noundef %add39, i64 noundef %length)
   %sub.i.i = sub i64 %length, %call2.i.i
   %false_count_.i.i = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this, i64 0, i32 3, i32 2
   %18 = load i64, ptr %false_count_.i.i, align 8

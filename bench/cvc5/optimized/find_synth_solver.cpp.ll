@@ -340,8 +340,8 @@ _ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE5clearEv.exit: ; preds = %wh
   %8 = load ptr, ptr %gtns, align 8
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::TypeNode, std::allocator<cvc5::internal::TypeNode>>::_Vector_impl_data", ptr %gtns, i64 0, i32 1
   %9 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not13 = icmp eq ptr %8, %9
-  br i1 %cmp.i.not13, label %for.end, label %for.body.lr.ph
+  %cmp.i.not15 = icmp eq ptr %8, %9
+  br i1 %cmp.i.not15, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE5clearEv.exit
   %d_env = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this, i64 0, i32 1
@@ -349,7 +349,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt13unordered_se
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPS5_EEERS8_DpOT_.exit
-  %__begin2.sroa.0.014 = phi ptr [ %8, %for.body.lr.ph ], [ %incdec.ptr.i5, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPS5_EEERS8_DpOT_.exit ]
+  %__begin2.sroa.0.016 = phi ptr [ %8, %for.body.lr.ph ], [ %incdec.ptr.i10, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPS5_EEERS8_DpOT_.exit ]
   %call7 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #16
   %10 = load ptr, ptr %d_env, align 8
   invoke void @_ZN4cvc58internal6theory11quantifiers11SynthFinderC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(120) %call7, ptr noundef nonnull align 8 dereferenceable(576) %10)
@@ -370,82 +370,81 @@ if.then.i:                                        ; preds = %invoke.cont
 
 if.else.i:                                        ; preds = %invoke.cont
   %14 = load ptr, ptr %d_sfinders, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %14 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %14 to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i:                                      ; preds = %if.else.i
+if.then.i.i.i:                                    ; preds = %if.else.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #17
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 1152921504606846975
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 1152921504606846975, i64 %add.i.i
-  %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EEEE8allocateERS9_m.exit.i.i
+_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
+  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
+  %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %15
+  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EEEE8allocateERS9_m.exit.i.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i
-  %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 3
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #16
-  br label %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i
+  %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #16
+  br label %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EEEE8allocateERS9_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i
-  %cond.i10.i = phi ptr [ %call5.i.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EEEE8allocateERS9_m.exit.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i ]
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.328", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  store ptr %call7, ptr %add.ptr.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %14, %11
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i
+_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i.i ]
+  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.328", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
+  store ptr %call7, ptr %add.ptr.i.i, align 8
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %14, %11
+  br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i4
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %14, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ]
+for.body.i.i.i.i.i4:                              ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i4
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i4 ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i5, %for.body.i.i.i.i.i4 ], [ %14, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %15 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  store i64 %15, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !7, !noalias !10
-  store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.328", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.328", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %11
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !12
+  %16 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  store i64 %16, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
+  store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  %incdec.ptr.i.i.i.i.i5 = getelementptr inbounds %"class.std::unique_ptr.328", ptr %__first.addr.06.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.328", ptr %__cur.07.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i.i5, %11
+  br i1 %cmp.not.i.i.i.i.i6, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i4, !llvm.loop !12
 
-_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i6 = getelementptr %"class.std::unique_ptr.328", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i7 = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i7, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
+_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i: ; preds = %for.body.i.i.i.i.i4, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i4 ]
+  %incdec.ptr.i.i = getelementptr %"class.std::unique_ptr.328", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %tobool.not.i.i.i7 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i.i7, label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %14) #15
-  br label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit
+  br label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i
 
-_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, %if.then.i20.i
-  store ptr %cond.i10.i, ptr %d_sfinders, align 8
-  store ptr %incdec.ptr.i6, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i = getelementptr inbounds %"class.std::unique_ptr.328", ptr %cond.i10.i, i64 %cond.i.i
-  store ptr %add.ptr19.i, ptr %_M_end_of_storage.i, align 8
+_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i
+  store ptr %cond.i10.i.i, ptr %d_sfinders, align 8
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
+  %add.ptr19.i.i = getelementptr inbounds %"class.std::unique_ptr.328", ptr %cond.i10.i.i, i64 %cond.i.i.i
+  store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPS5_EEERS8_DpOT_.exit
 
-_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPS5_EEERS8_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit
-  %16 = phi ptr [ %13, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit ]
-  %17 = load ptr, ptr %16, align 8
-  tail call void @_ZN4cvc58internal6theory11quantifiers11SynthFinder10initializeENS_5modes15FindSynthTargetERKNS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(120) %17, i32 noundef %fst, ptr noundef nonnull align 8 dereferenceable(8) %__begin2.sroa.0.014)
-  %incdec.ptr.i5 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %__begin2.sroa.0.014, i64 1
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i5, %9
+_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPS5_EEERS8_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i
+  %17 = phi ptr [ %13, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ]
+  %18 = load ptr, ptr %17, align 8
+  tail call void @_ZN4cvc58internal6theory11quantifiers11SynthFinder10initializeENS_5modes15FindSynthTargetERKNS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(120) %18, i32 noundef %fst, ptr noundef nonnull align 8 dereferenceable(8) %__begin2.sroa.0.016)
+  %incdec.ptr.i10 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %__begin2.sroa.0.016, i64 1
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i10, %9
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %for.body
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call7) #15
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %19
 
 for.end:                                          ; preds = %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPS5_EEERS8_DpOT_.exit, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE5clearEv.exit
   %d_currIndex = getelementptr inbounds %"class.cvc5::internal::smt::FindSynthSolver", ptr %this, i64 0, i32 3
@@ -1668,6 +1667,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

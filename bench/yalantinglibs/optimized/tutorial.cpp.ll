@@ -1075,22 +1075,21 @@ _ZNKSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit: ;
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN8tutorial6Person11PhoneNumberEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN8tutorial6Person11PhoneNumberEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN8tutorial6Person11PhoneNumberEEE8allocateERS3_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8tutorial6Person11PhoneNumberEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %cond.i17, i64 %sub.ptr.div.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args)
           to label %invoke.cont unwind label %lpad
@@ -1098,8 +1097,8 @@ _ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit:
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit
   %type.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
   %type3.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__args, i64 0, i32 1
-  %2 = load i32, ptr %type3.i.i.i, align 8
-  store i32 %2, ptr %type.i.i.i, align 8
+  %3 = load i32, ptr %type3.i.i.i, align 8
+  store i32 %3, ptr %type.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
@@ -1108,43 +1107,43 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 2
+  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 2
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #18
-  store ptr %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !7, !noalias !10
-  %4 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !10, !noalias !7
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, %5
+  store ptr %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !7, !noalias !10
+  %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !10, !noalias !7
+  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %6 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %6, 16
+  %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
-  %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %6, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %add.i.i.i.i.i.i.i.i, i1 false)
+  %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %7, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %add.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  store ptr %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !7, !noalias !10
-  %7 = load i64, ptr %5, align 8, !alias.scope !10, !noalias !7
-  store i64 %7, ptr %3, align 8, !alias.scope !7, !noalias !10
+  store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !7, !noalias !10
+  %8 = load i64, ptr %6, align 8, !alias.scope !10, !noalias !7
+  store i64 %8, ptr %4, align 8, !alias.scope !7, !noalias !10
   %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
   %.pre.i.i.i.i = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !alias.scope !10, !noalias !7
   br label %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %8 = phi i64 [ %6, %if.then.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
+  %9 = phi i64 [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
   %_M_string_length.i12.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 0, i32 1
   %_M_string_length.i13.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 0, i32 1
-  store i64 %8, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
-  store ptr %5, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !10, !noalias !7
+  store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
+  store ptr %6, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !10, !noalias !7
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  store i8 0, ptr %5, align 1, !alias.scope !10, !noalias !7
+  store i8 0, ptr %6, align 1, !alias.scope !10, !noalias !7
   %type.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__cur.07.i.i.i, i64 0, i32 1
   %type3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %9 = load i32, ptr %type3.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  store i32 %9, ptr %type.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
+  %10 = load i32, ptr %type3.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  store i32 %10, ptr %type.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #18
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__cur.07.i.i.i, i64 1
@@ -1162,43 +1161,43 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8tuto
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i31, %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i26 ], [ %__position.coerce, %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i20, i64 0, i32 2
+  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i20, i64 0, i32 2
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i20, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i21) #18
-  store ptr %10, ptr %__cur.07.i.i.i20, align 8, !alias.scope !13, !noalias !16
-  %11 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !16, !noalias !13
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i21, i64 0, i32 2
-  %cmp.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %11, %12
+  store ptr %11, ptr %__cur.07.i.i.i20, align 8, !alias.scope !13, !noalias !16
+  %12 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !16, !noalias !13
+  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i21, i64 0, i32 2
+  %cmp.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i.i.i.i22, label %if.then.i.i.i.i.i.i.i.i35, label %if.else.i.i.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i.i.i35:                        ; preds = %for.body.i.i.i19
   %_M_string_length.i.i.i.i.i.i.i.i.i36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i21, i64 0, i32 1
-  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i36, align 8, !alias.scope !16, !noalias !13
-  %cmp3.i.i.i.i.i.i.i.i.i37 = icmp ult i64 %13, 16
+  %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i36, align 8, !alias.scope !16, !noalias !13
+  %cmp3.i.i.i.i.i.i.i.i.i37 = icmp ult i64 %14, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i37)
-  %add.i.i.i.i.i.i.i.i38 = add nuw nsw i64 %13, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i.i.i.i.i.i.i38, i1 false)
+  %add.i.i.i.i.i.i.i.i38 = add nuw nsw i64 %14, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(1) %12, i64 %add.i.i.i.i.i.i.i.i38, i1 false)
   br label %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i26
 
 if.else.i.i.i.i.i.i.i.i23:                        ; preds = %for.body.i.i.i19
-  store ptr %11, ptr %__cur.07.i.i.i20, align 8, !alias.scope !13, !noalias !16
-  %14 = load i64, ptr %12, align 8, !alias.scope !16, !noalias !13
-  store i64 %14, ptr %10, align 8, !alias.scope !13, !noalias !16
+  store ptr %12, ptr %__cur.07.i.i.i20, align 8, !alias.scope !13, !noalias !16
+  %15 = load i64, ptr %13, align 8, !alias.scope !16, !noalias !13
+  store i64 %15, ptr %11, align 8, !alias.scope !13, !noalias !16
   %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i21, i64 0, i32 1
   %.pre.i.i.i.i25 = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i24, align 8, !alias.scope !16, !noalias !13
   br label %_ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i26
 
 _ZSt19__relocate_object_aIN8tutorial6Person11PhoneNumberES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i26: ; preds = %if.else.i.i.i.i.i.i.i.i23, %if.then.i.i.i.i.i.i.i.i35
-  %15 = phi i64 [ %13, %if.then.i.i.i.i.i.i.i.i35 ], [ %.pre.i.i.i.i25, %if.else.i.i.i.i.i.i.i.i23 ]
+  %16 = phi i64 [ %14, %if.then.i.i.i.i.i.i.i.i35 ], [ %.pre.i.i.i.i25, %if.else.i.i.i.i.i.i.i.i23 ]
   %_M_string_length.i12.i.i.i.i.i.i.i.i27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i21, i64 0, i32 1
   %_M_string_length.i13.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i20, i64 0, i32 1
-  store i64 %15, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i28, align 8, !alias.scope !13, !noalias !16
-  store ptr %12, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !16, !noalias !13
+  store i64 %16, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i28, align 8, !alias.scope !13, !noalias !16
+  store ptr %13, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !16, !noalias !13
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i27, align 8, !alias.scope !16, !noalias !13
-  store i8 0, ptr %12, align 1, !alias.scope !16, !noalias !13
+  store i8 0, ptr %13, align 1, !alias.scope !16, !noalias !13
   %type.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__cur.07.i.i.i20, i64 0, i32 1
   %type3.i.i.i.i.i.i.i30 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__first.addr.06.i.i.i21, i64 0, i32 1
-  %16 = load i32, ptr %type3.i.i.i.i.i.i.i30, align 8, !alias.scope !16, !noalias !13
-  store i32 %16, ptr %type.i.i.i.i.i.i.i29, align 8, !alias.scope !13, !noalias !16
+  %17 = load i32, ptr %type3.i.i.i.i.i.i.i30, align 8, !alias.scope !16, !noalias !13
+  store i32 %17, ptr %type.i.i.i.i.i.i.i29, align 8, !alias.scope !13, !noalias !16
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i21) #18
   %incdec.ptr.i.i.i31 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__first.addr.06.i.i.i21, i64 1
   %incdec.ptr1.i.i.i32 = getelementptr inbounds %"struct.tutorial::Person::PhoneNumber", ptr %__cur.07.i.i.i20, i64 1
@@ -1223,10 +1222,10 @@ _ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE11_M_allocateEm.exit
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #18
+  %19 = extractvalue { ptr, i32 } %18, 0
+  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #18
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i42
 
@@ -1235,7 +1234,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -1249,13 +1248,13 @@ invoke.cont19:                                    ; preds = %if.then.i42, %if.en
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %21
 
 terminate.lpad:                                   ; preds = %lpad17
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #21
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #21
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -1545,46 +1544,45 @@ _ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %ent
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN8tutorial6PersonEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN8tutorial6PersonEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN8tutorial6PersonEEE8allocateERS2_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8tutorial6PersonEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr, i8 0, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 2
+  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
-  store ptr %2, ptr %add.ptr, align 8
+  store ptr %3, ptr %add.ptr, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #18
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 0, i32 1
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
-  %3 = load ptr, ptr %add.ptr, align 8
-  store i8 0, ptr %3, align 1
+  %4 = load ptr, ptr %add.ptr, align 8
+  store i8 0, ptr %4, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
   %email.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
-  %4 = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2, i32 2
+  %5 = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2, i32 2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #18
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %email.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #18
-  store ptr %4, ptr %email.i.i.i, align 8
+  store ptr %5, ptr %email.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #18
   %_M_string_length.i.i.i2.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2, i32 1
   store i64 0, ptr %_M_string_length.i.i.i2.i.i.i, align 8
-  %5 = load ptr, ptr %email.i.i.i, align 8
-  store i8 0, ptr %5, align 1
+  %6 = load ptr, ptr %email.i.i.i, align 8
+  store i8 0, ptr %6, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
   %phones.i.i.i = getelementptr inbounds %"struct.tutorial::Person", ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %phones.i.i.i, i8 0, i64 24, i1 false)

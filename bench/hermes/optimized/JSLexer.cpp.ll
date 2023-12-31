@@ -2474,71 +2474,70 @@ if.then.i:                                        ; preds = %if.then
 
 if.else.i36:                                      ; preds = %if.then
   %13 = load ptr, ptr %commentStorage_, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %13 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i51 = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i51, label %if.then.i.i, label %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i:                                      ; preds = %if.else.i36
+if.then.i.i.i:                                    ; preds = %if.else.i36
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.421) #22
   unreachable
 
-_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i36
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 384307168202282325
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 384307168202282325, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
-  %call5.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
-  %add.ptr.i52 = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  store i32 %cond, ptr %add.ptr.i52, align 8
-  %range_.i.i.i.i56 = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %start, ptr %range_.i.i.i.i56, align 8
-  %range.sroa.2.0.range_.sroa_idx.i.i.i.i57 = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1, i32 1
-  store ptr %add.ptr.i33, ptr %range.sroa.2.0.range_.sroa_idx.i.i.i.i57, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %13, %10
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i
+_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i36
+  %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
+  %14 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %14
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i)
+  %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 24
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
+  store i32 %cond, ptr %add.ptr.i.i, align 8
+  %range_.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  store ptr %start, ptr %range_.i.i.i.i.i, align 8
+  %range.sroa.2.0.range_.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 1
+  store ptr %add.ptr.i33, ptr %range.sroa.2.0.range_.sroa_idx.i.i.i.i.i, align 8
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %13, %10
+  br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %13, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i64 24, i1 false), !alias.scope !33
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %10
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !37
+for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %13, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !33
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__first.addr.06.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__cur.07.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %10
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !37
 
-_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i58 = getelementptr %"class.hermes::parser::StoredComment", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i20.i
+_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %incdec.ptr.i.i = getelementptr %"class.hermes::parser::StoredComment", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %tobool.not.i.i.i = icmp eq ptr %13, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i20.i:                                    ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
   call void @_ZdlPv(ptr noundef nonnull %13) #23
-  br label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
+  br label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, %if.then.i20.i
-  store ptr %call5.i.i.i.i, ptr %commentStorage_, align 8
-  store ptr %incdec.ptr.i58, ptr %_M_finish.i, align 8
-  %add.ptr21.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr21.i, ptr %_M_end_of_storage.i, align 8
+_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+  store ptr %call5.i.i.i.i.i, ptr %commentStorage_, align 8
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
+  %add.ptr21.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then.i, %_ZN6hermes6parser7JSLexer17lineCommentHelperEPKc.exit
+if.end:                                           ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i, %_ZN6hermes6parser7JSLexer17lineCommentHelperEPKc.exit
   %cmp.i.not = icmp ult i64 %sub.ptr.sub.i, 4
   br i1 %cmp.i.not, label %if.end30, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %start, ptr noundef nonnull dereferenceable(4) @.str.60, i64 4)
-  %14 = icmp eq i32 %bcmp, 0
-  br i1 %14, label %if.end.i51, label %if.end30
+  %15 = icmp eq i32 %bcmp, 0
+  br i1 %15, label %if.end.i51, label %if.end30
 
 if.end.i51:                                       ; preds = %if.end.i.i
   %add.ptr.i154 = getelementptr inbounds i8, ptr %start, i64 4
@@ -2548,16 +2547,16 @@ if.end.i51:                                       ; preds = %if.end.i.i
 
 if.end.i.i80:                                     ; preds = %if.end.i51
   %bcmp29 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %add.ptr.i154, ptr noundef nonnull dereferenceable(10) @.str.61, i64 10)
-  %15 = icmp eq i32 %bcmp29, 0
-  br i1 %15, label %if.end.i39, label %if.else
+  %16 = icmp eq i32 %bcmp29, 0
+  br i1 %16, label %if.end.i39, label %if.else
 
 if.end.i39:                                       ; preds = %if.end.i.i80
   %add.ptr.i137 = getelementptr inbounds i8, ptr %start, i64 14
   %sub.i139 = add i64 %sub.ptr.sub.i, -14
-  %16 = load ptr, ptr %this, align 8
+  %17 = load ptr, ptr %this, align 8
   %bufId_ = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %this, i64 0, i32 2
-  %17 = load i32, ptr %bufId_, align 8
-  call void @_ZN6hermes18SourceErrorManager12setSourceUrlEjN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %16, i32 noundef %17, ptr nonnull %add.ptr.i137, i64 %sub.i139)
+  %18 = load i32, ptr %bufId_, align 8
+  call void @_ZN6hermes18SourceErrorManager12setSourceUrlEjN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %17, i32 noundef %18, ptr nonnull %add.ptr.i137, i64 %sub.i139)
   br label %if.end30
 
 if.else:                                          ; preds = %if.end.i.i80
@@ -2566,16 +2565,16 @@ if.else:                                          ; preds = %if.end.i.i80
 
 if.end.i.i99:                                     ; preds = %if.else
   %bcmp30 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %add.ptr.i154, ptr noundef nonnull dereferenceable(17) @.str.62, i64 17)
-  %18 = icmp eq i32 %bcmp30, 0
-  br i1 %18, label %if.end.i, label %if.end30
+  %19 = icmp eq i32 %bcmp30, 0
+  br i1 %19, label %if.end.i, label %if.end30
 
 if.end.i:                                         ; preds = %if.end.i.i99
   %add.ptr.i = getelementptr inbounds i8, ptr %start, i64 21
   %sub.i = add i64 %sub.ptr.sub.i, -21
-  %19 = load ptr, ptr %this, align 8
+  %20 = load ptr, ptr %this, align 8
   %bufId_27 = getelementptr inbounds %"class.hermes::parser::JSLexer", ptr %this, i64 0, i32 2
-  %20 = load i32, ptr %bufId_27, align 8
-  call void @_ZN6hermes18SourceErrorManager19setSourceMappingUrlEjN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %19, i32 noundef %20, ptr nonnull %add.ptr.i, i64 %sub.i)
+  %21 = load i32, ptr %bufId_27, align 8
+  call void @_ZN6hermes18SourceErrorManager19setSourceMappingUrlEjN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %20, i32 noundef %21, ptr nonnull %add.ptr.i, i64 %sub.i)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end.i51, %if.else, %if.end.i.i99, %if.end, %if.end.i.i, %if.end.i, %if.end.i39
@@ -2733,66 +2732,65 @@ if.then.i:                                        ; preds = %if.then33
 
 if.else.i:                                        ; preds = %if.then33
   %18 = load ptr, ptr %commentStorage_, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %18 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i:                                      ; preds = %if.else.i
+if.then.i.i.i:                                    ; preds = %if.else.i
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.421) #22
   unreachable
 
-_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 384307168202282325
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 384307168202282325, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
-  %call5.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  store i32 1, ptr %add.ptr.i, align 8
-  %range_.i.i.i.i11 = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %start, ptr %range_.i.i.i.i11, align 8
-  %range.sroa.2.0.range_.sroa_idx.i.i.i.i12 = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1, i32 1
-  store ptr %14, ptr %range.sroa.2.0.range_.sroa_idx.i.i.i.i12, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %18, %15
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i
+_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
+  %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
+  %19 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %19
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i)
+  %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 24
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
+  store i32 1, ptr %add.ptr.i.i, align 8
+  %range_.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  store ptr %start, ptr %range_.i.i.i.i.i, align 8
+  %range.sroa.2.0.range_.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 1
+  store ptr %14, ptr %range.sroa.2.0.range_.sroa_idx.i.i.i.i.i, align 8
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %18, %15
+  br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %18, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i64 24, i1 false), !alias.scope !39
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %15
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !37
+for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %18, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !39
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__first.addr.06.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %__cur.07.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %15
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !37
 
-_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i13 = getelementptr %"class.hermes::parser::StoredComment", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i20.i
+_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %incdec.ptr.i.i = getelementptr %"class.hermes::parser::StoredComment", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %tobool.not.i.i.i = icmp eq ptr %18, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i20.i:                                    ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
   call void @_ZdlPv(ptr noundef nonnull %18) #23
-  br label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
+  br label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, %if.then.i20.i
-  store ptr %call5.i.i.i.i, ptr %commentStorage_, align 8
-  store ptr %incdec.ptr.i13, ptr %_M_finish.i, align 8
-  %add.ptr21.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr21.i, ptr %_M_end_of_storage.i, align 8
+_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+  store ptr %call5.i.i.i.i.i, ptr %commentStorage_, align 8
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
+  %add.ptr21.i.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, %if.then.i, %endLoop
-  %19 = load ptr, ptr %cur, align 8
-  ret ptr %19
+if.end43:                                         ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE17_M_realloc_insertIJNS2_4KindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i, %endLoop
+  %20 = load ptr, ptr %cur, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18224,64 +18222,63 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %4 = load ptr, ptr %tokenStorage_, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i:                                      ; preds = %if.else.i
+if.then.i.i.i:                                    ; preds = %if.else.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.421) #22
   unreachable
 
-_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
-  %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 384307168202282325
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 384307168202282325, i64 %add.i.i
-  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i)
-  %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 24
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  store i32 %0, ptr %add.ptr.i, align 8
-  %range_.i.i.i.i4 = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1
-  store ptr %retval.sroa.0.0.copyload.i, ptr %range_.i.i.i.i4, align 8
-  %range.sroa.2.0.range_.sroa_idx.i.i.i.i5 = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %call5.i.i.i.i, i64 %sub.ptr.div.i.i.i, i32 1, i32 1
-  store ptr %retval.sroa.2.0.copyload.i, ptr %range.sroa.2.0.range_.sroa_idx.i.i.i.i5, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %4, %1
-  br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i
+_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
+  %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
+  %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 24
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
+  store i32 %0, ptr %add.ptr.i.i, align 8
+  %range_.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  store ptr %retval.sroa.0.0.copyload.i, ptr %range_.i.i.i.i.i, align 8
+  %range.sroa.2.0.range_.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %call5.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 1
+  store ptr %retval.sroa.2.0.copyload.i, ptr %range.sroa.2.0.range_.sroa_idx.i.i.i.i.i, align 8
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %1
+  br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i64 24, i1 false), !alias.scope !1414
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !1418
+for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !1414
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !1418
 
-_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i6 = getelementptr %"class.hermes::parser::StoredToken", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE17_M_realloc_insertIJNS1_9TokenKindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i20.i
+_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %incdec.ptr.i.i = getelementptr %"class.hermes::parser::StoredToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %tobool.not.i.i.i = icmp eq ptr %4, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE17_M_realloc_insertIJNS1_9TokenKindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
-if.then.i20.i:                                    ; preds = %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i
+if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %4) #23
-  br label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE17_M_realloc_insertIJNS1_9TokenKindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
+  br label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE17_M_realloc_insertIJNS1_9TokenKindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE17_M_realloc_insertIJNS1_9TokenKindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, %if.then.i20.i
-  store ptr %call5.i.i.i.i, ptr %tokenStorage_, align 8
-  store ptr %incdec.ptr.i6, ptr %_M_finish.i, align 8
-  %add.ptr21.i = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %call5.i.i.i.i, i64 %cond.i.i
-  store ptr %add.ptr21.i, ptr %_M_end_of_storage.i, align 8
+_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE17_M_realloc_insertIJNS1_9TokenKindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
+  store ptr %call5.i.i.i.i.i, ptr %tokenStorage_, align 8
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
+  %add.ptr21.i.i = getelementptr inbounds %"class.hermes::parser::StoredToken", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12emplace_backIJNS1_9TokenKindEN4llvh7SMRangeEEEERS2_DpOT_.exit
 
-_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12emplace_backIJNS1_9TokenKindEN4llvh7SMRangeEEEERS2_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE17_M_realloc_insertIJNS1_9TokenKindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
+_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE12emplace_backIJNS1_9TokenKindEN4llvh7SMRangeEEEERS2_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN6hermes6parser11StoredTokenESaIS2_EE17_M_realloc_insertIJNS1_9TokenKindEN4llvh7SMRangeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   ret void
 }
 
@@ -19687,6 +19684,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19

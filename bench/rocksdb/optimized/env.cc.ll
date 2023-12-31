@@ -10095,25 +10095,24 @@ _ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::unique_ptr.156", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = load i64, ptr %__args, align 8
-  store i64 %2, ptr %add.ptr, align 8
+  %3 = load i64, ptr %__args, align 8
+  store i64 %3, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %for.body.i.i.i
@@ -10123,8 +10122,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  %3 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !98, !noalias !95
-  store i64 %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !95, !noalias !98
+  %4 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !98, !noalias !95
+  store i64 %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !95, !noalias !98
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !98, !noalias !95
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.156", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::unique_ptr.156", ptr %__cur.07.i.i.i, i64 1
@@ -10142,8 +10141,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10un
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  %4 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !104, !noalias !101
-  store i64 %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !101, !noalias !104
+  %5 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !104, !noalias !101
+  store i64 %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !101, !noalias !104
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !104, !noalias !101
   %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::unique_ptr.156", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::unique_ptr.156", ptr %__cur.07.i.i.i13, i64 1
@@ -10600,19 +10599,18 @@ _ZNKSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE12_M_check_lenEmPKc.exit: ; 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN7rocksdb3Env14FileAttributesESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN7rocksdb3Env14FileAttributesEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN7rocksdb3Env14FileAttributesESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN7rocksdb3Env14FileAttributesEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   br label %_ZNSt12_Vector_baseIN7rocksdb3Env14FileAttributesESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN7rocksdb3Env14FileAttributesESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN7rocksdb3Env14FileAttributesEEE8allocateERS3_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN7rocksdb3Env14FileAttributesEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN7rocksdb3Env14FileAttributesESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %cond.i19, i64 %sub.ptr.div.i
   br label %for.body.i.i.i21
 
@@ -10638,8 +10636,8 @@ for.body.i.i.i30:                                 ; preds = %try.cont, %for.body
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #32
   %size_bytes.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %__cur.07.i.i.i, i64 0, i32 1
   %size_bytes3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %3 = load i64, ptr %size_bytes3.i.i.i.i.i.i.i, align 8, !alias.scope !110, !noalias !107
-  store i64 %3, ptr %size_bytes.i.i.i.i.i.i.i, align 8, !alias.scope !107, !noalias !110
+  %4 = load i64, ptr %size_bytes3.i.i.i.i.i.i.i, align 8, !alias.scope !110, !noalias !107
+  store i64 %4, ptr %size_bytes.i.i.i.i.i.i.i, align 8, !alias.scope !107, !noalias !110
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #32
   %incdec.ptr.i.i.i31 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %__cur.07.i.i.i, i64 1
@@ -14361,22 +14359,21 @@ _ZNKSt6vectorIN7rocksdb11ReadRequestESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 164703072086692425
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 164703072086692425, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
+  %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN7rocksdb11ReadRequestESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN7rocksdb11ReadRequestEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN7rocksdb11ReadRequestESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN7rocksdb11ReadRequestEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN7rocksdb11ReadRequestESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN7rocksdb11ReadRequestESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 56
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   br label %_ZNSt12_Vector_baseIN7rocksdb11ReadRequestESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN7rocksdb11ReadRequestESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7rocksdb11ReadRequestESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN7rocksdb11ReadRequestEEE8allocateERS2_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN7rocksdb11ReadRequestEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN7rocksdb11ReadRequestESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN7rocksdb11ReadRequestESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7rocksdb11ReadRequestESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN7rocksdb11ReadRequestESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %__args, i64 40, i1 false)
   %status.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4
@@ -14388,37 +14385,37 @@ _ZNSt12_Vector_baseIN7rocksdb11ReadRequestESaIS1_EE11_M_allocateEm.exit: ; preds
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN7rocksdb11ReadRequestESaIS1_EE11_M_allocateEm.exit
   %status3.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__args, i64 0, i32 4
-  %2 = load i8, ptr %status3.i.i.i, align 8
-  store i8 %2, ptr %status.i.i.i, align 8
+  %3 = load i8, ptr %status3.i.i.i, align 8
+  store i8 %3, ptr %status.i.i.i, align 8
   %subcode_.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__args, i64 0, i32 4, i32 1
-  %3 = load i8, ptr %subcode_.i.i.i.i.i, align 1
+  %4 = load i8, ptr %subcode_.i.i.i.i.i, align 1
   %subcode_4.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 1
-  store i8 %3, ptr %subcode_4.i.i.i.i.i, align 1
+  store i8 %4, ptr %subcode_4.i.i.i.i.i, align 1
   %sev_.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__args, i64 0, i32 4, i32 2
-  %4 = load i8, ptr %sev_.i.i.i.i.i, align 2
+  %5 = load i8, ptr %sev_.i.i.i.i.i, align 2
   %sev_6.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 2
-  store i8 %4, ptr %sev_6.i.i.i.i.i, align 2
+  store i8 %5, ptr %sev_6.i.i.i.i.i, align 2
   %retryable_.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__args, i64 0, i32 4, i32 3
-  %5 = load i8, ptr %retryable_.i.i.i.i.i, align 1
-  %6 = and i8 %5, 1
+  %6 = load i8, ptr %retryable_.i.i.i.i.i, align 1
+  %7 = and i8 %6, 1
   %retryable_8.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 3
-  store i8 %6, ptr %retryable_8.i.i.i.i.i, align 1
+  store i8 %7, ptr %retryable_8.i.i.i.i.i, align 1
   store <4 x i8> zeroinitializer, ptr %status3.i.i.i, align 8
   %data_loss_.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__args, i64 0, i32 4, i32 4
-  %7 = load i8, ptr %data_loss_.i.i.i.i.i, align 4
-  %8 = and i8 %7, 1
+  %8 = load i8, ptr %data_loss_.i.i.i.i.i, align 4
+  %9 = and i8 %8, 1
   %data_loss_11.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 4
-  store i8 %8, ptr %data_loss_11.i.i.i.i.i, align 4
+  store i8 %9, ptr %data_loss_11.i.i.i.i.i, align 4
   store i8 0, ptr %data_loss_.i.i.i.i.i, align 4
   %scope_.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__args, i64 0, i32 4, i32 5
-  %9 = load i8, ptr %scope_.i.i.i.i.i, align 1
+  %10 = load i8, ptr %scope_.i.i.i.i.i, align 1
   %scope_14.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4, i32 5
-  store i8 %9, ptr %scope_14.i.i.i.i.i, align 1
+  store i8 %10, ptr %scope_14.i.i.i.i.i, align 1
   store i8 0, ptr %scope_.i.i.i.i.i, align 1
   %state_.i2.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__args, i64 0, i32 4, i32 6
-  %10 = load ptr, ptr %state_.i2.i.i.i.i, align 8
+  %11 = load ptr, ptr %state_.i2.i.i.i.i, align 8
   store ptr null, ptr %state_.i2.i.i.i.i, align 8
-  store ptr %10, ptr %state_.i.i.i.i.i, align 8
+  store ptr %11, ptr %state_.i.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN7rocksdb11ReadRequestEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN7rocksdb11ReadRequestEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb11ReadRequestESaIS1_EE11_M_allocateEm.exit
@@ -14440,36 +14437,36 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i
   %status3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i, i64 0, i32 4
-  %11 = load i8, ptr %status3.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
-  store i8 %11, ptr %status.i.i.i.i.i.i.i, align 8, !alias.scope !252, !noalias !255
+  %12 = load i8, ptr %status3.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
+  store i8 %12, ptr %status.i.i.i.i.i.i.i, align 8, !alias.scope !252, !noalias !255
   %subcode_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 1
-  %12 = load i8, ptr %subcode_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
+  %13 = load i8, ptr %subcode_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
   %subcode_4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 1
-  store i8 %12, ptr %subcode_4.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !252, !noalias !255
+  store i8 %13, ptr %subcode_4.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !252, !noalias !255
   %sev_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 2
-  %13 = load i8, ptr %sev_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
+  %14 = load i8, ptr %sev_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
   %sev_6.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 2
-  store i8 %13, ptr %sev_6.i.i.i.i.i.i.i.i.i, align 2, !alias.scope !252, !noalias !255
+  store i8 %14, ptr %sev_6.i.i.i.i.i.i.i.i.i, align 2, !alias.scope !252, !noalias !255
   %retryable_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 3
-  %14 = load i8, ptr %retryable_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
-  %15 = and i8 %14, 1
+  %15 = load i8, ptr %retryable_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
+  %16 = and i8 %15, 1
   %retryable_8.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 3
-  store i8 %15, ptr %retryable_8.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !252, !noalias !255
+  store i8 %16, ptr %retryable_8.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !252, !noalias !255
   store <4 x i8> zeroinitializer, ptr %status3.i.i.i.i.i.i.i, align 8, !alias.scope !255, !noalias !252
   %data_loss_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 4
-  %16 = load i8, ptr %data_loss_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
-  %17 = and i8 %16, 1
+  %17 = load i8, ptr %data_loss_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
+  %18 = and i8 %17, 1
   %data_loss_11.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 4
-  store i8 %17, ptr %data_loss_11.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !252, !noalias !255
+  store i8 %18, ptr %data_loss_11.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !252, !noalias !255
   store i8 0, ptr %data_loss_.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !255, !noalias !252
   %scope_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 5
-  %18 = load i8, ptr %scope_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
+  %19 = load i8, ptr %scope_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
   %scope_14.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 5
-  store i8 %18, ptr %scope_14.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !252, !noalias !255
+  store i8 %19, ptr %scope_14.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !252, !noalias !255
   store i8 0, ptr %scope_.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !255, !noalias !252
   %state_.i2.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 6
-  %19 = load ptr, ptr %state_.i2.i.i.i.i.i.i.i.i, align 8, !alias.scope !255, !noalias !252
-  store ptr %19, ptr %state_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !252, !noalias !255
+  %20 = load ptr, ptr %state_.i2.i.i.i.i.i.i.i.i, align 8, !alias.scope !255, !noalias !252
+  store ptr %20, ptr %state_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !252, !noalias !255
   br label %_ZSt19__relocate_object_aIN7rocksdb11ReadRequestES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN7rocksdb11ReadRequestES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i
@@ -14501,36 +14498,36 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN7rock
 
 if.then.i.i.i.i.i.i.i.i.i18:                      ; preds = %for.body.i.i.i12
   %status3.i.i.i.i.i.i.i19 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i14, i64 0, i32 4
-  %20 = load i8, ptr %status3.i.i.i.i.i.i.i19, align 1, !alias.scope !261, !noalias !258
-  store i8 %20, ptr %status.i.i.i.i.i.i.i15, align 8, !alias.scope !258, !noalias !261
+  %21 = load i8, ptr %status3.i.i.i.i.i.i.i19, align 1, !alias.scope !261, !noalias !258
+  store i8 %21, ptr %status.i.i.i.i.i.i.i15, align 8, !alias.scope !258, !noalias !261
   %subcode_.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 1
-  %21 = load i8, ptr %subcode_.i.i.i.i.i.i.i.i.i20, align 1, !alias.scope !261, !noalias !258
+  %22 = load i8, ptr %subcode_.i.i.i.i.i.i.i.i.i20, align 1, !alias.scope !261, !noalias !258
   %subcode_4.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 1
-  store i8 %21, ptr %subcode_4.i.i.i.i.i.i.i.i.i21, align 1, !alias.scope !258, !noalias !261
+  store i8 %22, ptr %subcode_4.i.i.i.i.i.i.i.i.i21, align 1, !alias.scope !258, !noalias !261
   %sev_.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 2
-  %22 = load i8, ptr %sev_.i.i.i.i.i.i.i.i.i22, align 1, !alias.scope !261, !noalias !258
+  %23 = load i8, ptr %sev_.i.i.i.i.i.i.i.i.i22, align 1, !alias.scope !261, !noalias !258
   %sev_6.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 2
-  store i8 %22, ptr %sev_6.i.i.i.i.i.i.i.i.i23, align 2, !alias.scope !258, !noalias !261
+  store i8 %23, ptr %sev_6.i.i.i.i.i.i.i.i.i23, align 2, !alias.scope !258, !noalias !261
   %retryable_.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 3
-  %23 = load i8, ptr %retryable_.i.i.i.i.i.i.i.i.i24, align 1, !alias.scope !261, !noalias !258
-  %24 = and i8 %23, 1
+  %24 = load i8, ptr %retryable_.i.i.i.i.i.i.i.i.i24, align 1, !alias.scope !261, !noalias !258
+  %25 = and i8 %24, 1
   %retryable_8.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 3
-  store i8 %24, ptr %retryable_8.i.i.i.i.i.i.i.i.i25, align 1, !alias.scope !258, !noalias !261
+  store i8 %25, ptr %retryable_8.i.i.i.i.i.i.i.i.i25, align 1, !alias.scope !258, !noalias !261
   store <4 x i8> zeroinitializer, ptr %status3.i.i.i.i.i.i.i19, align 8, !alias.scope !261, !noalias !258
   %data_loss_.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 4
-  %25 = load i8, ptr %data_loss_.i.i.i.i.i.i.i.i.i26, align 1, !alias.scope !261, !noalias !258
-  %26 = and i8 %25, 1
+  %26 = load i8, ptr %data_loss_.i.i.i.i.i.i.i.i.i26, align 1, !alias.scope !261, !noalias !258
+  %27 = and i8 %26, 1
   %data_loss_11.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 4
-  store i8 %26, ptr %data_loss_11.i.i.i.i.i.i.i.i.i27, align 4, !alias.scope !258, !noalias !261
+  store i8 %27, ptr %data_loss_11.i.i.i.i.i.i.i.i.i27, align 4, !alias.scope !258, !noalias !261
   store i8 0, ptr %data_loss_.i.i.i.i.i.i.i.i.i26, align 4, !alias.scope !261, !noalias !258
   %scope_.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 5
-  %27 = load i8, ptr %scope_.i.i.i.i.i.i.i.i.i28, align 1, !alias.scope !261, !noalias !258
+  %28 = load i8, ptr %scope_.i.i.i.i.i.i.i.i.i28, align 1, !alias.scope !261, !noalias !258
   %scope_14.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__cur.07.i.i.i13, i64 0, i32 4, i32 5
-  store i8 %27, ptr %scope_14.i.i.i.i.i.i.i.i.i29, align 1, !alias.scope !258, !noalias !261
+  store i8 %28, ptr %scope_14.i.i.i.i.i.i.i.i.i29, align 1, !alias.scope !258, !noalias !261
   store i8 0, ptr %scope_.i.i.i.i.i.i.i.i.i28, align 1, !alias.scope !261, !noalias !258
   %state_.i2.i.i.i.i.i.i.i.i30 = getelementptr inbounds %"struct.rocksdb::ReadRequest", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 6
-  %28 = load ptr, ptr %state_.i2.i.i.i.i.i.i.i.i30, align 8, !alias.scope !261, !noalias !258
-  store ptr %28, ptr %state_.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !258, !noalias !261
+  %29 = load ptr, ptr %state_.i2.i.i.i.i.i.i.i.i30, align 8, !alias.scope !261, !noalias !258
+  store ptr %29, ptr %state_.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !258, !noalias !261
   br label %_ZSt19__relocate_object_aIN7rocksdb11ReadRequestES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i31
 
 _ZSt19__relocate_object_aIN7rocksdb11ReadRequestES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i31: ; preds = %if.then.i.i.i.i.i.i.i.i.i18, %for.body.i.i.i12
@@ -19027,43 +19024,42 @@ _ZNKSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE12_M_check_lenEmP
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 576460752303423487
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 576460752303423487, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE8allocateERS4_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 4
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE8allocateERS4_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.199", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %2, ptr %add.ptr, align 8
-  %3 = extractelement <2 x ptr> %2, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
+  %3 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %3, ptr %add.ptr, align 8
+  %4 = extractelement <2 x ptr> %3, i64 1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
-  %4 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %4, 0
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %5 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %5 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %5, 1
+  %6 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_M_allocateEm.exit, %if.then.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i
@@ -19076,9 +19072,9 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.200", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %7 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !340, !noalias !337
+  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !340, !noalias !337
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !340, !noalias !337
-  store <2 x ptr> %7, ptr %__cur.07.i.i.i, align 8, !alias.scope !337, !noalias !340
+  store <2 x ptr> %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !337, !noalias !340
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !340, !noalias !337
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.199", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::shared_ptr.199", ptr %__cur.07.i.i.i, i64 1
@@ -19097,9 +19093,9 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
   %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::__shared_ptr.200", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !346, !noalias !343
+  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !346, !noalias !343
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !346, !noalias !343
-  store <2 x ptr> %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !343, !noalias !346
+  store <2 x ptr> %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !343, !noalias !346
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !346, !noalias !343
   %incdec.ptr.i.i.i17 = getelementptr inbounds %"class.std::shared_ptr.199", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i18 = getelementptr inbounds %"class.std::shared_ptr.199", ptr %__cur.07.i.i.i13, i64 1

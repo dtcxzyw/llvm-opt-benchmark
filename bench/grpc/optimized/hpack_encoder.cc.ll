@@ -3778,9 +3778,8 @@ _ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
@@ -3794,13 +3793,13 @@ _ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.sroa.4.0.__args.sroa_idx.i.i, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__args, i8 0, i64 32, i1 false), !noalias !208
-  %2 = load i32, ptr %__args1, align 4
+  %3 = load i32, ptr %__args1, align 4
   store ptr %ref.tmp.i.sroa.0.0.copyload.i.i, ptr %add.ptr, align 8
   %ref.tmp.i.i.sroa.4.0.__p.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.0.__p.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4.i.i)
   %index3.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
-  store i32 %2, ptr %index3.i.i.i, align 8
+  store i32 %3, ptr %index3.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i
 
@@ -3816,8 +3815,8 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN9grp
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %index.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__cur.07.i.i.i, i64 0, i32 1
   %index3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %3 = load i32, ptr %index3.i.i.i.i.i.i.i, align 8, !alias.scope !214, !noalias !211
-  store i32 %3, ptr %index.i.i.i.i.i.i.i, align 8, !alias.scope !211, !noalias !214
+  %4 = load i32, ptr %index3.i.i.i.i.i.i.i, align 8, !alias.scope !214, !noalias !211
+  store i32 %4, ptr %index.i.i.i.i.i.i.i, align 8, !alias.scope !211, !noalias !214
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -3841,8 +3840,8 @@ for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIN9grpc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i18)
   %index.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__cur.07.i.i.i21, i64 0, i32 1
   %index3.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__first.addr.06.i.i.i22, i64 0, i32 1
-  %4 = load i32, ptr %index3.i.i.i.i.i.i.i24, align 8, !alias.scope !223, !noalias !220
-  store i32 %4, ptr %index.i.i.i.i.i.i.i23, align 8, !alias.scope !220, !noalias !223
+  %5 = load i32, ptr %index3.i.i.i.i.i.i.i24, align 8, !alias.scope !223, !noalias !220
+  store i32 %5, ptr %index.i.i.i.i.i.i.i23, align 8, !alias.scope !220, !noalias !223
   %incdec.ptr.i.i.i25 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__first.addr.06.i.i.i22, i64 1
   %incdec.ptr1.i.i.i26 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__cur.07.i.i.i21, i64 1
   %cmp.not.i.i.i27 = icmp eq ptr %incdec.ptr.i.i.i25, %0

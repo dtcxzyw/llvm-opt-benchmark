@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.29 = private unnamed_addr constant [13 x i8] c"for iterator\00", align 1
 @.str.30 = private unnamed_addr constant [11 x i8] c" (%s '%s')\00", align 1
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @luaG_getfuncline(ptr nocapture noundef readonly %f, i32 noundef %pc) local_unnamed_addr #0 {
 entry:
   %lineinfo = getelementptr inbounds %struct.Proto, ptr %f, i64 0, i32 19
@@ -148,32 +148,32 @@ define dso_local void @lua_sethook(ptr noundef %L, ptr noundef %func, i32 nounde
 entry:
   %cmp = icmp eq ptr %func, null
   %cmp1 = icmp eq i32 %mask, 0
-  %or.cond = or i1 %cmp, %cmp1
-  %0 = and i32 %mask, 255
-  %spec.select9 = select i1 %or.cond, ptr null, ptr %func
+  %spec.select = select i1 %cmp, i32 0, i32 %mask
+  %spec.select9 = select i1 %cmp1, ptr null, ptr %func
   %hook = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 17
   store volatile ptr %spec.select9, ptr %hook, align 8
   %basehookcount = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 21
   store i32 %count, ptr %basehookcount, align 8
   %hookcount = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 22
   store i32 %count, ptr %hookcount, align 4
-  %conv3 = select i1 %or.cond, i32 0, i32 %0
+  %conv3 = and i32 %spec.select, 255
   %hookmask = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 23
   store volatile i32 %conv3, ptr %hookmask, align 8
-  br i1 %or.cond, label %if.end5, label %if.then4
+  %tobool.not = icmp eq i32 %spec.select, 0
+  br i1 %tobool.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %entry
   %ci = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %ci, align 8
-  %cmp.not4.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %ci, align 8
+  %cmp.not4.i = icmp eq ptr %0, null
   br i1 %cmp.not4.i, label %if.end5, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then4, %for.inc.i
-  %ci.addr.05.i = phi ptr [ %4, %for.inc.i ], [ %1, %if.then4 ]
+  %ci.addr.05.i = phi ptr [ %3, %for.inc.i ], [ %0, %if.then4 ]
   %callstatus.i = getelementptr inbounds %struct.CallInfo, ptr %ci.addr.05.i, i64 0, i32 7
-  %2 = load i16, ptr %callstatus.i, align 2
-  %3 = and i16 %2, 2
-  %tobool.not.i = icmp eq i16 %3, 0
+  %1 = load i16, ptr %callstatus.i, align 2
+  %2 = and i16 %1, 2
+  %tobool.not.i = icmp eq i16 %2, 0
   br i1 %tobool.not.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -183,8 +183,8 @@ if.then.i:                                        ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %previous.i = getelementptr inbounds %struct.CallInfo, ptr %ci.addr.05.i, i64 0, i32 2
-  %4 = load ptr, ptr %previous.i, align 8
-  %cmp.not.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %previous.i, align 8
+  %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %if.end5, label %for.body.i, !llvm.loop !8
 
 if.end5:                                          ; preds = %for.inc.i, %if.then4, %entry
@@ -2588,21 +2588,20 @@ sw.epilog.thread.i:                               ; preds = %for.body.i
   %5 = trunc i64 %indvars.iv.i to i32
   %6 = add i32 %5, -16777214
   %add30.i = add i32 %6, %shr10.i
-  %cmp31.not.i = icmp sle i32 %add30.i, %spec.select.i
-  %cmp33.i = icmp sgt i32 %add30.i, %jmptarget.07.i
-  %or.cond.i = select i1 %cmp31.not.i, i1 %cmp33.i, i1 false
-  %jmptarget.1.i = select i1 %or.cond.i, i32 %add30.i, i32 %jmptarget.07.i
+  %cmp31.not.not.i = icmp sgt i32 %add30.i, %spec.select.i
+  %7 = tail call i32 @llvm.smax.i32(i32 %add30.i, i32 %jmptarget.07.i)
+  %jmptarget.1.i = select i1 %cmp31.not.not.i, i32 %jmptarget.07.i, i32 %7
   br label %for.inc.i
 
 sw.default.i:                                     ; preds = %for.body.i
   %idxprom37.i = zext nneg i32 %and9.i to i64
   %arrayidx38.i = getelementptr inbounds [83 x i8], ptr @luaP_opmodes, i64 0, i64 %idxprom37.i
-  %7 = load i8, ptr %arrayidx38.i, align 1
-  %8 = and i8 %7, 8
-  %tobool41.i = icmp ne i8 %8, 0
+  %8 = load i8, ptr %arrayidx38.i, align 1
+  %9 = and i8 %8, 8
+  %tobool41.i = icmp ne i8 %9, 0
   %cmp43.i = icmp eq i32 %and11.i, %reg.tr
-  %9 = and i1 %cmp43.i, %tobool41.i
-  br i1 %9, label %if.then48.i, label %for.inc.i
+  %10 = and i1 %cmp43.i, %tobool41.i
+  br i1 %10, label %if.then48.i, label %for.inc.i
 
 sw.epilog.i:                                      ; preds = %for.body.i
   %cmp14.not.i = icmp sle i32 %and11.i, %reg.tr
@@ -2610,14 +2609,14 @@ sw.epilog.i:                                      ; preds = %for.body.i
   %and13.i = and i32 %shr12.i, 255
   %add.i = add nuw nsw i32 %and11.i, %and13.i
   %cmp16.i = icmp sge i32 %add.i, %reg.tr
-  %10 = select i1 %cmp14.not.i, i1 %cmp16.i, i1 false
-  br i1 %10, label %if.then48.i, label %for.inc.i
+  %11 = select i1 %cmp14.not.i, i1 %cmp16.i, i1 false
+  br i1 %11, label %if.then48.i, label %for.inc.i
 
 if.then48.i:                                      ; preds = %sw.epilog.i, %sw.default.i, %sw.bb22.i, %sw.bb18.i
-  %11 = sext i32 %jmptarget.07.i to i64
-  %cmp.i.i = icmp slt i64 %indvars.iv.i, %11
-  %12 = trunc i64 %indvars.iv.i to i32
-  %.pc.i.i = select i1 %cmp.i.i, i32 -1, i32 %12
+  %12 = sext i32 %jmptarget.07.i to i64
+  %cmp.i.i = icmp slt i64 %indvars.iv.i, %12
+  %13 = trunc i64 %indvars.iv.i to i32
+  %.pc.i.i = select i1 %cmp.i.i, i32 -1, i32 %13
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then48.i, %sw.epilog.i, %sw.default.i, %sw.epilog.thread.i, %sw.bb22.i, %sw.bb18.i
@@ -2633,11 +2632,11 @@ findsetreg.exit:                                  ; preds = %for.inc.i
   br i1 %cmp.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %findsetreg.exit
-  %13 = load ptr, ptr %0, align 8
+  %14 = load ptr, ptr %0, align 8
   %idxprom = sext i32 %setreg.1.i to i64
-  %arrayidx = getelementptr inbounds i32, ptr %13, i64 %idxprom
-  %14 = load i32, ptr %arrayidx, align 4
-  %and = and i32 %14, 127
+  %arrayidx = getelementptr inbounds i32, ptr %14, i64 %idxprom
+  %15 = load i32, ptr %arrayidx, align 4
+  %and = and i32 %15, 127
   switch i32 %and, label %return [
     i32 0, label %sw.bb
     i32 9, label %sw.bb11
@@ -2646,42 +2645,42 @@ if.then2:                                         ; preds = %findsetreg.exit
   ]
 
 sw.bb:                                            ; preds = %if.then2
-  %shr3 = lshr i32 %14, 16
+  %shr3 = lshr i32 %15, 16
   %and4 = and i32 %shr3, 255
-  %shr5 = lshr i32 %14, 7
+  %shr5 = lshr i32 %15, 7
   %and6 = and i32 %shr5, 255
   %cmp7 = icmp ult i32 %and4, %and6
   br i1 %cmp7, label %tailrecurse, label %return
 
 sw.bb11:                                          ; preds = %if.then2
-  %shr12 = lshr i32 %14, 16
+  %shr12 = lshr i32 %15, 16
   %and13 = and i32 %shr12, 255
-  %15 = getelementptr i8, ptr %p, i64 80
-  %p.val25 = load ptr, ptr %15, align 8
+  %16 = getelementptr i8, ptr %p, i64 80
+  %p.val25 = load ptr, ptr %16, align 8
   %idxprom.i28 = zext nneg i32 %and13 to i64
   %arrayidx.i29 = getelementptr inbounds %struct.Upvaldesc, ptr %p.val25, i64 %idxprom.i28
-  %16 = load ptr, ptr %arrayidx.i29, align 8
-  %cmp.i = icmp eq ptr %16, null
-  %contents.i = getelementptr inbounds %struct.TString, ptr %16, i64 0, i32 7
+  %17 = load ptr, ptr %arrayidx.i29, align 8
+  %cmp.i = icmp eq ptr %17, null
+  %contents.i = getelementptr inbounds %struct.TString, ptr %17, i64 0, i32 7
   %retval.0.i = select i1 %cmp.i, ptr @.str.18, ptr %contents.i
   store ptr %retval.0.i, ptr %name, align 8
   br label %return
 
 sw.bb15:                                          ; preds = %if.then2
-  %shr16 = lshr i32 %14, 15
-  %17 = getelementptr i8, ptr %p, i64 56
-  %p.val26 = load ptr, ptr %17, align 8
+  %shr16 = lshr i32 %15, 15
+  %18 = getelementptr i8, ptr %p, i64 56
+  %p.val26 = load ptr, ptr %18, align 8
   %idxprom.i30 = zext nneg i32 %shr16 to i64
   %tt_.i = getelementptr inbounds %struct.TValue, ptr %p.val26, i64 %idxprom.i30, i32 1
-  %18 = load i8, ptr %tt_.i, align 8
-  %19 = and i8 %18, 15
-  %cmp.i31 = icmp eq i8 %19, 4
+  %19 = load i8, ptr %tt_.i, align 8
+  %20 = and i8 %19, 15
+  %cmp.i31 = icmp eq i8 %20, 4
   br i1 %cmp.i31, label %if.then.i, label %kname.exit
 
 if.then.i:                                        ; preds = %sw.bb15
   %arrayidx.i33 = getelementptr inbounds %struct.TValue, ptr %p.val26, i64 %idxprom.i30
-  %20 = load ptr, ptr %arrayidx.i33, align 8
-  %contents.i34 = getelementptr inbounds %struct.TString, ptr %20, i64 0, i32 7
+  %21 = load ptr, ptr %arrayidx.i33, align 8
+  %contents.i34 = getelementptr inbounds %struct.TString, ptr %21, i64 0, i32 7
   br label %kname.exit
 
 kname.exit:                                       ; preds = %sw.bb15, %if.then.i
@@ -2691,23 +2690,23 @@ kname.exit:                                       ; preds = %sw.bb15, %if.then.i
   br label %return
 
 sw.bb19:                                          ; preds = %if.then2
-  %arrayidx.le = getelementptr inbounds i32, ptr %13, i64 %idxprom
+  %arrayidx.le = getelementptr inbounds i32, ptr %14, i64 %idxprom
   %arrayidx23 = getelementptr i32, ptr %arrayidx.le, i64 1
-  %21 = load i32, ptr %arrayidx23, align 4
-  %shr24 = lshr i32 %21, 7
-  %22 = getelementptr i8, ptr %p, i64 56
-  %p.val27 = load ptr, ptr %22, align 8
+  %22 = load i32, ptr %arrayidx23, align 4
+  %shr24 = lshr i32 %22, 7
+  %23 = getelementptr i8, ptr %p, i64 56
+  %p.val27 = load ptr, ptr %23, align 8
   %idxprom.i35 = zext nneg i32 %shr24 to i64
   %tt_.i36 = getelementptr inbounds %struct.TValue, ptr %p.val27, i64 %idxprom.i35, i32 1
-  %23 = load i8, ptr %tt_.i36, align 8
-  %24 = and i8 %23, 15
-  %cmp.i37 = icmp eq i8 %24, 4
+  %24 = load i8, ptr %tt_.i36, align 8
+  %25 = and i8 %24, 15
+  %cmp.i37 = icmp eq i8 %25, 4
   br i1 %cmp.i37, label %if.then.i40, label %kname.exit43
 
 if.then.i40:                                      ; preds = %sw.bb19
   %arrayidx.i41 = getelementptr inbounds %struct.TValue, ptr %p.val27, i64 %idxprom.i35
-  %25 = load ptr, ptr %arrayidx.i41, align 8
-  %contents.i42 = getelementptr inbounds %struct.TString, ptr %25, i64 0, i32 7
+  %26 = load ptr, ptr %arrayidx.i41, align 8
+  %contents.i42 = getelementptr inbounds %struct.TString, ptr %26, i64 0, i32 7
   br label %kname.exit43
 
 kname.exit43:                                     ; preds = %sw.bb19, %if.then.i40
@@ -2730,7 +2729,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
-attributes #0 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

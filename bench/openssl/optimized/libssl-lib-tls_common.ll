@@ -530,10 +530,8 @@ if.then24:                                        ; preds = %if.end22
   br i1 %or.cond1, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.then24
-  %cmp30.not = icmp ne i64 %0, 0
-  %cmp32 = icmp ult i64 %0, %n
-  %or.cond96 = and i1 %cmp30.not, %cmp32
-  %spec.select99 = select i1 %or.cond96, i64 %0, i64 %n
+  %8 = tail call i64 @llvm.umin.i64(i64 %0, i64 %n)
+  %spec.select99 = select i1 %cmp25, i64 %n, i64 %8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end29, %if.end22
@@ -542,24 +540,24 @@ if.end35:                                         ; preds = %if.end29, %if.end22
   br i1 %cmp36.not, label %if.end44, label %if.then37
 
 if.then37:                                        ; preds = %if.end35
-  %8 = load i64, ptr %packet_length10, align 8
-  %add39 = add i64 %8, %n.addr.0
+  %9 = load i64, ptr %packet_length10, align 8
+  %add39 = add i64 %9, %n.addr.0
   store i64 %add39, ptr %packet_length10, align 8
   %sub40 = sub i64 %0, %n.addr.0
   store i64 %sub40, ptr %left1, align 8
   %offset42 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 3
-  %9 = load i64, ptr %offset42, align 8
-  %add43 = add i64 %9, %n.addr.0
+  %10 = load i64, ptr %offset42, align 8
+  %add43 = add i64 %10, %n.addr.0
   store i64 %add43, ptr %offset42, align 8
   store i64 %n.addr.0, ptr %readbytes, align 8
   br label %return
 
 if.end44:                                         ; preds = %if.end35
   %len45 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 2
-  %10 = load i64, ptr %len45, align 8
+  %11 = load i64, ptr %len45, align 8
   %offset46 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 3
-  %11 = load i64, ptr %offset46, align 8
-  %sub47 = sub i64 %10, %11
+  %12 = load i64, ptr %offset46, align 8
+  %sub47 = sub i64 %11, %12
   %cmp48 = icmp ugt i64 %n.addr.0, %sub47
   br i1 %cmp48, label %if.then49, label %while.body.lr.ph.lr.ph
 
@@ -571,9 +569,9 @@ if.then49:                                        ; preds = %if.end44
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end44
   %read_ahead = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 27
-  %12 = load i32, ptr %read_ahead, align 4
-  %13 = or i32 %12, %7
-  %brmerge.not = icmp eq i32 %13, 0
+  %13 = load i32, ptr %read_ahead, align 4
+  %14 = or i32 %13, %7
+  %brmerge.not = icmp eq i32 %14, 0
   %spec.select = tail call i64 @llvm.umax.i64(i64 %n.addr.0, i64 %max)
   %spec.select100 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %sub47)
   %max.addr.1 = select i1 %brmerge.not, i64 %n.addr.0, i64 %spec.select100
@@ -592,8 +590,8 @@ while.body.us.preheader:                          ; preds = %if.end123, %while.b
   br label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.us.preheader, %if.then90.us
-  %14 = phi ptr [ %.pre168, %while.body.us.preheader ], [ null, %if.then90.us ]
-  %cmp70.not.us = icmp eq ptr %14, null
+  %15 = phi ptr [ %.pre168, %while.body.us.preheader ], [ null, %if.then90.us ]
+  %cmp70.not.us = icmp eq ptr %15, null
   br i1 %cmp70.not.us, label %cond.end.us, label %cond.end.thread.us
 
 cond.end.thread.us:                               ; preds = %while.body.us
@@ -602,14 +600,14 @@ cond.end.thread.us:                               ; preds = %while.body.us
   br label %if.then74.us
 
 cond.end.us:                                      ; preds = %while.body.us
-  %15 = load ptr, ptr %bio72, align 8
+  %16 = load ptr, ptr %bio72, align 8
   %call.us = tail call ptr @__errno_location() #13
   store i32 0, ptr %call.us, align 4
-  %cmp73.not.us = icmp eq ptr %15, null
+  %cmp73.not.us = icmp eq ptr %16, null
   br i1 %cmp73.not.us, label %if.else104, label %if.then74.us
 
 if.then74.us:                                     ; preds = %cond.end.us, %cond.end.thread.us
-  %cond104.us = phi ptr [ %14, %cond.end.thread.us ], [ %15, %cond.end.us ]
+  %cond104.us = phi ptr [ %15, %cond.end.thread.us ], [ %16, %cond.end.us ]
   %call78.us = tail call i32 @BIO_read(ptr noundef nonnull %cond104.us, ptr noundef %add.ptr76, i32 noundef %conv) #12
   %cmp79.us = icmp sgt i32 %call78.us, 0
   br i1 %cmp79.us, label %if.end123, label %if.else83.us
@@ -620,19 +618,19 @@ if.else83.us:                                     ; preds = %if.then74.us
   br i1 %tobool85.not.us, label %if.else95, label %if.then86.us
 
 if.then86.us:                                     ; preds = %if.else83.us
-  %16 = load ptr, ptr %prev, align 8
-  %cmp88.not.us = icmp eq ptr %16, null
+  %17 = load ptr, ptr %prev, align 8
+  %cmp88.not.us = icmp eq ptr %17, null
   br i1 %cmp88.not.us, label %if.then108, label %if.then90.us
 
 if.then90.us:                                     ; preds = %if.then86.us
-  %call92.us = tail call i32 @BIO_free(ptr noundef nonnull %16) #12
+  %call92.us = tail call i32 @BIO_free(ptr noundef nonnull %17) #12
   store ptr null, ptr %prev, align 8
   br label %while.body.us
 
 if.else95:                                        ; preds = %if.else83.us
   %call96 = tail call i64 @BIO_ctrl(ptr noundef nonnull %cond104.us, i32 noundef 2, i64 noundef 0, ptr noundef null) #12
-  %17 = and i64 %call96, 4294967295
-  %tobool98.not = icmp eq i64 %17, 0
+  %18 = and i64 %call96, 4294967295
+  %tobool98.not = icmp eq i64 %18, 0
   %. = select i1 %tobool98.not, i32 -2, i32 -3
   br label %if.then108
 
@@ -646,14 +644,14 @@ if.then108:                                       ; preds = %if.then86.us, %if.e
   %ret.0.ph = phi i32 [ %., %if.else95 ], [ -2, %if.else104 ], [ 0, %if.then86.us ]
   store i64 %left.0.ph143, ptr %left1, align 8
   %mode = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 13
-  %18 = load i32, ptr %mode, align 8
-  %and = and i32 %18, 16
+  %19 = load i32, ptr %mode, align 8
+  %and = and i32 %19, 16
   %cmp110.not = icmp eq i32 %and, 0
   br i1 %cmp110.not, label %return, label %land.lhs.true112
 
 land.lhs.true112:                                 ; preds = %if.then108
-  %19 = load i32, ptr %isdtls, align 8
-  %tobool114.not = icmp eq i32 %19, 0
+  %20 = load i32, ptr %isdtls, align 8
+  %tobool114.not = icmp eq i32 %20, 0
   %add116 = sub i64 0, %left.0.ph143
   %cmp117 = icmp eq i64 %6, %add116
   %or.cond97 = select i1 %tobool114.not, i1 %cmp117, i1 false
@@ -667,10 +665,9 @@ if.end123:                                        ; preds = %if.then74.us
   %.pre169 = load i32, ptr %isdtls, align 8
   %conv82 = zext nneg i32 %call78.us to i64
   %add124 = add i64 %left.0.ph143, %conv82
-  %tobool126.not = icmp ne i32 %.pre169, 0
-  %cmp128 = icmp ugt i64 %n.addr.1.ph144, %add124
-  %or.cond98 = and i1 %tobool126.not, %cmp128
-  %n.addr.2 = select i1 %or.cond98, i64 %add124, i64 %n.addr.1.ph144
+  %tobool126.not.not = icmp eq i32 %.pre169, 0
+  %21 = tail call i64 @llvm.umin.i64(i64 %n.addr.1.ph144, i64 %add124)
+  %n.addr.2 = select i1 %tobool126.not.not, i64 %n.addr.1.ph144, i64 %21
   %cmp69 = icmp ult i64 %add124, %n.addr.2
   br i1 %cmp69, label %while.body.us.preheader, label %while.end, !llvm.loop !7
 
@@ -680,8 +677,8 @@ while.end:                                        ; preds = %if.end123
   store i64 %add134, ptr %offset46, align 8
   %sub135 = sub i64 %add124, %n.addr.2
   store i64 %sub135, ptr %left1, align 8
-  %20 = load i64, ptr %packet_length10, align 8
-  %add138 = add i64 %20, %n.addr.2
+  %22 = load i64, ptr %packet_length10, align 8
+  %add138 = add i64 %22, %n.addr.2
   store i64 %add138, ptr %packet_length10, align 8
   store i64 %n.addr.2, ptr %readbytes, align 8
   br label %return

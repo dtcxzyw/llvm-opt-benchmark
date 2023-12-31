@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [18 x i8] c"entryIsNormal(de)\00", align 1
 @.str.20 = private unnamed_addr constant [39 x i8] c"((uintptr_t)ptr & ENTRY_PTR_MASK) == 0\00", align 1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @dictSetHashFunctionSeed(ptr nocapture noundef readonly %seed) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @dict_hash_function_seed, ptr noundef nonnull align 1 dereferenceable(16) %seed, i64 16, i1 false)
@@ -2609,7 +2609,7 @@ for.end:                                          ; preds = %for.body
   ret i64 %add32
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @dictInitIterator(ptr nocapture noundef writeonly %iter, ptr noundef %d) local_unnamed_addr #13 {
 entry:
   store ptr %d, ptr %iter, align 8
@@ -2622,7 +2622,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @dictInitSafeIterator(ptr nocapture noundef writeonly %iter, ptr noundef %d) local_unnamed_addr #13 {
 entry:
   store ptr %d, ptr %iter, align 8
@@ -2766,7 +2766,7 @@ entry:
   ret ptr %call.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @dictNext(ptr nocapture noundef %iter) local_unnamed_addr #14 {
 entry:
   %integers.i = alloca [6 x i64], align 16
@@ -3199,13 +3199,12 @@ land.lhs.true:                                    ; preds = %for.end
   %arrayidx42 = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 5, i64 1
   %6 = load i8, ptr %arrayidx42, align 1
   %conv43 = sext i8 %6 to i64
-  %cmp44 = icmp ne i8 %6, -1
+  %cmp44.not = icmp eq i8 %6, -1
   %sh_prom58 = and i64 %conv43, 4294967295
   %notmask63 = shl nsw i64 -1, %sh_prom58
   %sub62 = xor i64 %notmask63, -1
-  %cmp6567 = icmp ult i64 %cond38, %sub62
-  %cmp65 = select i1 %cmp44, i1 %cmp6567, i1 false
-  %spec.select66 = select i1 %cmp65, i64 %sub62, i64 %cond38
+  %7 = tail call i64 @llvm.umax.i64(i64 %cond38, i64 %sub62)
+  %spec.select66 = select i1 %cmp44.not, i64 %cond38, i64 %7
   br label %if.end92
 
 if.end92:                                         ; preds = %land.lhs.true, %for.end
@@ -3241,14 +3240,14 @@ for.body99:                                       ; preds = %for.body99.preheade
   br i1 %or.cond, label %land.lhs.true105, label %if.end130
 
 land.lhs.true105:                                 ; preds = %for.body99
-  %7 = load i64, ptr %rehashidx, align 8
-  %cmp107 = icmp ult i64 %i.182, %7
+  %8 = load i64, ptr %rehashidx, align 8
+  %cmp107 = icmp ult i64 %i.182, %8
   br i1 %cmp107, label %if.then109, label %if.end130
 
 if.then109:                                       ; preds = %land.lhs.true105
-  %8 = load i8, ptr %arrayidx111, align 1
-  %cmp113 = icmp ne i8 %8, -1
-  %conv112 = sext i8 %8 to i64
+  %9 = load i8, ptr %arrayidx111, align 1
+  %cmp113 = icmp ne i8 %9, -1
+  %conv112 = sext i8 %9 to i64
   %sh_prom120 = and i64 %conv112, 4294967295
   %i.1.highbits = lshr i64 %i.182, %sh_prom120
   %cmp124.not68 = icmp eq i64 %i.1.highbits, 0
@@ -3256,11 +3255,11 @@ if.then109:                                       ; preds = %land.lhs.true105
   br i1 %cmp124.not, label %for.inc192, label %if.end130
 
 if.end130:                                        ; preds = %if.then109, %land.lhs.true105, %for.body99
-  %i.2 = phi i64 [ %i.182, %land.lhs.true105 ], [ %i.182, %for.body99 ], [ %7, %if.then109 ]
+  %i.2 = phi i64 [ %i.182, %land.lhs.true105 ], [ %i.182, %for.body99 ], [ %8, %if.then109 ]
   %arrayidx132 = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 5, i64 %j.180
-  %9 = load i8, ptr %arrayidx132, align 1
-  %cmp134 = icmp ne i8 %9, -1
-  %conv133 = sext i8 %9 to i64
+  %10 = load i8, ptr %arrayidx132, align 1
+  %cmp134 = icmp ne i8 %10, -1
+  %conv133 = sext i8 %10 to i64
   %sh_prom141 = and i64 %conv133, 4294967295
   %i.2.highbits = lshr i64 %i.2, %sh_prom141
   %cmp145.not69 = icmp eq i64 %i.2.highbits, 0
@@ -3269,10 +3268,10 @@ if.end130:                                        ; preds = %if.then109, %land.l
 
 if.end148:                                        ; preds = %if.end130
   %arrayidx149 = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 1, i64 %j.180
-  %10 = load ptr, ptr %arrayidx149, align 8
-  %arrayidx150 = getelementptr inbounds ptr, ptr %10, i64 %i.2
-  %11 = load ptr, ptr %arrayidx150, align 8
-  %cmp151 = icmp eq ptr %11, null
+  %11 = load ptr, ptr %arrayidx149, align 8
+  %arrayidx150 = getelementptr inbounds ptr, ptr %11, i64 %i.2
+  %12 = load ptr, ptr %arrayidx150, align 8
+  %cmp151 = icmp eq ptr %12, null
   br i1 %cmp151, label %if.then153, label %while.body168
 
 if.then153:                                       ; preds = %if.end148
@@ -3286,7 +3285,7 @@ if.then161:                                       ; preds = %if.then153
   br label %for.inc192
 
 while.body168:                                    ; preds = %if.end148, %dictGetNext.exit
-  %he.079 = phi ptr [ %14, %dictGetNext.exit ], [ %11, %if.end148 ]
+  %he.079 = phi ptr [ %15, %dictGetNext.exit ], [ %12, %if.end148 ]
   %stored.278 = phi i64 [ %inc185, %dictGetNext.exit ], [ %stored.181, %if.end148 ]
   %cmp170 = icmp ult i64 %stored.278, %conv11
   br i1 %cmp170, label %if.end183.sink.split, label %if.else174
@@ -3305,8 +3304,8 @@ if.end183.sink.split:                             ; preds = %if.else174, %while.
   br label %if.end183
 
 if.end183:                                        ; preds = %if.end183.sink.split, %if.else174
-  %12 = ptrtoint ptr %he.079 to i64
-  %conv.i5.i = and i64 %12, 1
+  %13 = ptrtoint ptr %he.079 to i64
+  %conv.i5.i = and i64 %13, 1
   %tobool.not.i = icmp eq i64 %conv.i5.i, 0
   br i1 %tobool.not.i, label %dictGetNext.exit, label %dictGetNext.exit.thread
 
@@ -3315,16 +3314,16 @@ dictGetNext.exit.thread:                          ; preds = %if.end183
   br label %while.end
 
 dictGetNext.exit:                                 ; preds = %if.end183
-  %and.i.i = and i64 %12, 6
+  %and.i.i = and i64 %13, 6
   %cmp.i.not.i = icmp eq i64 %and.i.i, 2
   %next6.i = getelementptr inbounds %struct.dictEntry, ptr %he.079, i64 0, i32 2
-  %and.i.i.i = and i64 %12, -8
-  %13 = inttoptr i64 %and.i.i.i to ptr
-  %next.i = getelementptr inbounds %struct.dictEntryNoValue, ptr %13, i64 0, i32 1
+  %and.i.i.i = and i64 %13, -8
+  %14 = inttoptr i64 %and.i.i.i to ptr
+  %next.i = getelementptr inbounds %struct.dictEntryNoValue, ptr %14, i64 0, i32 1
   %next6.sink.i = select i1 %cmp.i.not.i, ptr %next.i, ptr %next6.i
-  %14 = load ptr, ptr %next6.sink.i, align 8
+  %15 = load ptr, ptr %next6.sink.i, align 8
   %inc185 = add i64 %stored.278, 1
-  %tobool167.not = icmp eq ptr %14, null
+  %tobool167.not = icmp eq ptr %15, null
   br i1 %tobool167.not, label %while.end, label %while.body168, !llvm.loop !28
 
 while.end:                                        ; preds = %dictGetNext.exit, %dictGetNext.exit.thread
@@ -4042,7 +4041,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @dictCombineStats(ptr nocapture noundef readonly %from, ptr nocapture noundef %into) local_unnamed_addr #14 {
 entry:
   %buckets = getelementptr inbounds %struct.dictStats, ptr %from, i64 0, i32 1
@@ -4341,7 +4340,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4354,8 +4353,8 @@ attributes #9 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vecto
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

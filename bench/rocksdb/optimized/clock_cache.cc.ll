@@ -6536,7 +6536,7 @@ entry:
 
 for.cond:                                         ; preds = %if.end54, %entry
   %.pr.i.i140 = phi i64 [ 0, %entry ], [ %.pr.i.i, %if.end54 ]
-  %3 = phi ptr [ null, %entry ], [ %43, %if.end54 ]
+  %3 = phi ptr [ null, %entry ], [ %44, %if.end54 ]
   %max_clock_pointer.0 = phi i64 [ 0, %entry ], [ %max_clock_pointer.1, %if.end54 ]
   %clock_pointer_mask.0 = phi i64 [ %0, %entry ], [ %clock_pointer_mask.1148, %if.end54 ]
   %4 = atomicrmw add ptr %this, i64 4 monotonic, align 8
@@ -6726,39 +6726,38 @@ _ZNKSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE1
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 1152921504606846975
-  %or.cond.i.i.i.i = or i1 %cmp7.i.i.i.i, %cmp9.i.i.i.i
-  %cond.i.i.i.i = select i1 %or.cond.i.i.i.i, i64 1152921504606846975, i64 %add.i.i.i.i
+  %30 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %30
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_M_allocateEm.exit.i.i.i, label %_ZNSt16allocator_traitsISaIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplEEE8allocateERS5_m.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
-_ZNSt16allocator_traitsISaIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplEEE8allocateERS5_m.exit.i.i.i.i: ; preds = %_ZNKSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 3
   %call5.i.i.i.i.i.i84 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
           to label %_ZNSt12_Vector_baseIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_M_allocateEm.exit.i.i.i unwind label %lpad.i.loopexit
 
-_ZNSt12_Vector_baseIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplEEE8allocateERS5_m.exit.i.i.i.i, %_ZNKSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i84, %_ZNSt16allocator_traitsISaIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplEEE8allocateERS5_m.exit.i.i.i.i ]
+_ZNSt12_Vector_baseIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i84, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i76 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store ptr %h.i.0, ptr %add.ptr.i.i.i76, align 8
-  %cmp.i.i.i11.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i, label %if.then.i.i.i12.i.i.i, label %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
+  %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
 
-if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_M_allocateEm.exit.i.i.i
+if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_M_allocateEm.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %29, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
+  br label %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
 
-_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_M_allocateEm.exit.i.i.i
+_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i, i64 1
   %tobool.not.i.i.i.i77 = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i.i.i77, label %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
+  br i1 %tobool.not.i.i.i.i77, label %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
-if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
+if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %29) #24
   br label %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
+_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
   store ptr %cond.i10.i.i.i, ptr %vect_.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
@@ -6766,8 +6765,8 @@ _ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17
   br label %if.end30.i
 
 if.else.i:                                        ; preds = %if.end28.i.i, %if.then19.i.i, %if.then14.i.i, %if.end.i55
-  %30 = and i8 %pending_purge.040.i, 1
-  %tobool12.not.i = icmp eq i8 %30, 0
+  %31 = and i8 %pending_purge.040.i, 1
+  %tobool12.not.i = icmp eq i8 %31, 0
   br i1 %tobool12.not.i, label %if.end27.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.else.i
@@ -6781,43 +6780,43 @@ if.then15.i:                                      ; preds = %if.then13.i
 
 if.else16.i:                                      ; preds = %if.then13.i
   %or.i16.i = or i64 %next_with_shift.038.i, 128
-  %31 = cmpxchg ptr %head_next_with_shift.i.i, i64 %rewrite_lock.i.sroa.9.0, i64 %or.i16.i acq_rel acquire, align 8
-  %32 = extractvalue { i64, i1 } %31, 1
-  br i1 %32, label %if.end27.i, label %if.else.i.i
+  %32 = cmpxchg ptr %head_next_with_shift.i.i, i64 %rewrite_lock.i.sroa.9.0, i64 %or.i16.i acq_rel acquire, align 8
+  %33 = extractvalue { i64, i1 } %32, 1
+  br i1 %33, label %if.end27.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.else16.i
-  %33 = extractvalue { i64, i1 } %31, 0
+  %34 = extractvalue { i64, i1 } %32, 0
   %and.i.i.i.i58 = and i64 %rewrite_lock.i.sroa.9.0, 64
   %tobool.i.i.not.i.i59 = icmp ne i64 %and.i.i.i.i58, 0
-  %and.i.i.i60 = and i64 %33, 64
+  %and.i.i.i60 = and i64 %34, 64
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i60, 0
   %or.cond.i17.i = select i1 %tobool.i.i.not.i.i59, i1 %tobool.i.not.i.i, i1 false
   br i1 %or.cond.i17.i, label %if.else8.i.i, label %if.else19.i
 
 if.else8.i.i:                                     ; preds = %if.else.i.i
-  %34 = atomicrmw or ptr %head_next_with_shift.i.i, i64 128 acq_rel, align 8
-  %and2.i.i.i61 = and i64 %34, 192
+  %35 = atomicrmw or ptr %head_next_with_shift.i.i, i64 128 acq_rel, align 8
+  %and2.i.i.i61 = and i64 %35, 192
   %cmp.not3.i.i.i62 = icmp eq i64 %and2.i.i.i61, 128
   br i1 %cmp.not3.i.i.i62, label %if.end.i.i.i63, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.thread35.i
 
 _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.thread35.i: ; preds = %if.else8.i.i
-  %or.i.i37.i = or i64 %34, 128
+  %or.i.i37.i = or i64 %35, 128
   br label %if.else19.i
 
 if.end.i.i.i63:                                   ; preds = %if.else8.i.i, %if.end.i.i.i63
-  %35 = atomicrmw add ptr %yield_count_.i, i64 1 monotonic, align 8
+  %36 = atomicrmw add ptr %yield_count_.i, i64 1 monotonic, align 8
   %call.i.i.i.i.i64 = call noundef i32 @sched_yield() #22
-  %36 = atomicrmw or ptr %head_next_with_shift.i.i, i64 128 acq_rel, align 8
-  %and.i5.i.i = and i64 %36, 192
+  %37 = atomicrmw or ptr %head_next_with_shift.i.i, i64 128 acq_rel, align 8
+  %and.i5.i.i = and i64 %37, 192
   %cmp.not.i.i.i65 = icmp eq i64 %and.i5.i.i, 128
   br i1 %cmp.not.i.i.i65, label %if.end.i.i.i63, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.i, !llvm.loop !56
 
 _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.i: ; preds = %if.end.i.i.i63
-  %or.i.i.i66 = or i64 %36, 128
+  %or.i.i.i66 = or i64 %37, 128
   br label %if.else19.i
 
 if.else19.i:                                      ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.thread35.i, %if.else.i.i
-  %or.i.i.sink.i = phi i64 [ %or.i.i.i66, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.i ], [ %or.i.i37.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.thread35.i ], [ %33, %if.else.i.i ]
+  %or.i.i.sink.i = phi i64 [ %or.i.i.i66, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.i ], [ %or.i.i37.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.thread35.i ], [ %34, %if.else.i.i ]
   %shr.i19.i = lshr i64 %or.i.i.sink.i, 8
   %arrayidx22.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %11, i64 %shr.i19.i
   br label %for.inc.i
@@ -6832,27 +6831,27 @@ if.end30.i:                                       ; preds = %if.then.i79, %if.th
   %prev_to_keep.1.i156 = phi ptr [ %h.i.0, %if.end27.i ], [ %prev_to_keep.039.i, %if.then5.i ], [ %prev_to_keep.039.i, %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %prev_to_keep.039.i, %if.then.i.i73 ], [ %prev_to_keep.039.i, %if.then.i79 ]
   %rewrite_lock.i.sroa.9.2155 = phi i64 [ %rewrite_lock.i.sroa.9.2, %if.end27.i ], [ %rewrite_lock.i.sroa.9.0, %if.then5.i ], [ %rewrite_lock.i.sroa.9.0, %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %rewrite_lock.i.sroa.9.0, %if.then.i.i73 ], [ %rewrite_lock.i.sroa.9.0, %if.then.i79 ]
   %chain_next_with_shift31.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %h.i.0, i64 0, i32 2
-  %37 = load atomic i64, ptr %chain_next_with_shift31.i acquire, align 8
-  %and.i.i = and i64 %37, 64
+  %38 = load atomic i64, ptr %chain_next_with_shift31.i acquire, align 8
+  %and.i.i = and i64 %38, 64
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.not.i, label %if.else35.i, label %for.inc.i
 
 if.else35.i:                                      ; preds = %if.end30.i
-  %shr.i20.i = lshr i64 %37, 8
+  %shr.i20.i = lshr i64 %38, 8
   %arrayidx37.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %11, i64 %shr.i20.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end30.i, %if.else35.i, %if.else19.i
   %rewrite_lock.i.sroa.9.3 = phi i64 [ %rewrite_lock.i.sroa.9.2155, %if.else35.i ], [ %or.i.i.sink.i, %if.else19.i ], [ %rewrite_lock.i.sroa.9.2155, %if.end30.i ]
   %h.i.1 = phi ptr [ %arrayidx37.i, %if.else35.i ], [ %arrayidx22.i, %if.else19.i ], [ null, %if.end30.i ]
-  %next_with_shift.1.i = phi i64 [ %37, %if.else35.i ], [ %or.i.i.sink.i, %if.else19.i ], [ %37, %if.end30.i ]
+  %next_with_shift.1.i = phi i64 [ %38, %if.else35.i ], [ %or.i.i.sink.i, %if.else19.i ], [ %38, %if.end30.i ]
   %prev_to_keep.2.i = phi ptr [ %prev_to_keep.1.i156, %if.else35.i ], [ null, %if.else19.i ], [ %prev_to_keep.1.i156, %if.end30.i ]
   %pending_purge.2.i = phi i8 [ %pending_purge.1.i157, %if.else35.i ], [ 0, %if.else19.i ], [ %pending_purge.1.i157, %if.end30.i ]
   %inc.i56 = add nuw nsw i64 %i.041.i, 1
   %exitcond.i = icmp eq i64 %inc.i56, 4096
   br i1 %exitcond.i, label %if.then.i57, label %if.end.i55, !llvm.loop !65
 
-lpad.i.loopexit:                                  ; preds = %_ZNSt16allocator_traitsISaIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplEEE8allocateERS5_m.exit.i.i.i.i
+lpad.i.loopexit:                                  ; preds = %cond.true.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
@@ -6869,17 +6868,17 @@ lpad.i:                                           ; preds = %lpad.i.loopexit.spl
   br i1 %tobool.i.i.not.i.i, label %if.then.i.i, label %ehcleanup60
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %38 = atomicrmw and ptr %head_next_with_shift.i.i, i64 -129 acq_rel, align 8
+  %39 = atomicrmw and ptr %head_next_with_shift.i.i, i64 -129 acq_rel, align 8
   br label %ehcleanup60
 
 if.end.i:                                         ; preds = %if.end27.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit.i
-  %39 = phi i64 [ %or.i.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit.i ], [ %rewrite_lock.i.sroa.9.2, %if.end27.i ]
-  %and.i.i.i5.i = and i64 %39, 64
+  %40 = phi i64 [ %or.i.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit.i ], [ %rewrite_lock.i.sroa.9.2, %if.end27.i ]
+  %and.i.i.i5.i = and i64 %40, 64
   %tobool.i.i.not.i6.i = icmp eq i64 %and.i.i.i5.i, 0
   br i1 %tobool.i.i.not.i6.i, label %if.then.i7.i, label %for.inc
 
 if.then.i7.i:                                     ; preds = %if.end.i
-  %40 = atomicrmw and ptr %head_next_with_shift.i.i, i64 -129 acq_rel, align 8
+  %41 = atomicrmw and ptr %head_next_with_shift.i.i, i64 -129 acq_rel, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i7.i, %if.end.i
@@ -6903,10 +6902,10 @@ invoke.cont28:                                    ; preds = %invoke.cont28.loope
   %clock_pointer_mask.1148 = phi i64 [ %clock_pointer_mask.1149, %invoke.cont28.loopexit ], [ %clock_pointer_mask.1, %if.end13 ]
   %.pr.i.i139 = phi i64 [ %.pre, %invoke.cont28.loopexit ], [ %.pr.i.i140, %if.end13 ]
   %.pr.i134 = phi i64 [ %.pre, %invoke.cont28.loopexit ], [ 0, %if.end13 ]
-  %41 = phi ptr [ %.pre133, %invoke.cont28.loopexit ], [ %3, %if.end13 ]
-  %42 = phi ptr [ %.pre132, %invoke.cont28.loopexit ], [ %3, %if.end13 ]
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %41 to i64
+  %42 = phi ptr [ %.pre133, %invoke.cont28.loopexit ], [ %3, %if.end13 ]
+  %43 = phi ptr [ %.pre132, %invoke.cont28.loopexit ], [ %3, %if.end13 ]
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %43 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %add.i.i = add i64 %sub.ptr.div.i.i.i, %.pr.i134
@@ -6929,18 +6928,18 @@ while.body.preheader.i:                           ; preds = %for.cond.cleanup
 
 while.end.i:                                      ; preds = %while.body.preheader.i, %for.cond.cleanup
   %.pr.i.i = phi i64 [ 0, %while.body.preheader.i ], [ %.pr.i.i138, %for.cond.cleanup ]
-  %43 = load ptr, ptr %vect_.i, align 8
-  %44 = load ptr, ptr %_M_finish.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %44, %43
+  %44 = load ptr, ptr %vect_.i, align 8
+  %45 = load ptr, ptr %_M_finish.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %45, %44
   br i1 %tobool.not.i.i.i, label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %while.end.i
-  store ptr %43, ptr %_M_finish.i.i, align 8
+  store ptr %44, ptr %_M_finish.i.i, align 8
   br label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit
 
 _ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit: ; preds = %while.end.i, %invoke.cont.i.i.i
-  %45 = load i64, ptr %data, align 8
-  %cmp44.not = icmp ult i64 %45, %requested_charge
+  %46 = load i64, ptr %data, align 8
+  %cmp44.not = icmp ult i64 %46, %requested_charge
   br i1 %cmp44.not, label %if.end46, label %cleanup
 
 lpad32.loopexit:                                  ; preds = %if.then.i30, %_ZNKSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEclES3_S6_b.exit.i, %if.then.i7.i31
@@ -6956,49 +6955,49 @@ lpad32.loopexit.split-lp:                         ; preds = %if.then.i.i32
 invoke.cont36:                                    ; preds = %invoke.cont28, %for.inc39
   %__begin3.sroa.2.0121 = phi i64 [ %inc.i, %for.inc39 ], [ 0, %invoke.cont28 ]
   %cmp.i.i28 = icmp ult i64 %__begin3.sroa.2.0121, 8
-  %46 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %46, i64 %__begin3.sroa.2.0121
-  %47 = load ptr, ptr %vect_.i, align 8
-  %48 = getelementptr ptr, ptr %47, i64 %__begin3.sroa.2.0121
-  %add.ptr.i.i.i = getelementptr ptr, ptr %48, i64 -8
+  %47 = load ptr, ptr %values_.i, align 8
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %47, i64 %__begin3.sroa.2.0121
+  %48 = load ptr, ptr %vect_.i, align 8
+  %49 = getelementptr ptr, ptr %48, i64 %__begin3.sroa.2.0121
+  %add.ptr.i.i.i = getelementptr ptr, ptr %49, i64 -8
   %retval.0.i.i = select i1 %cmp.i.i28, ptr %arrayidx.i.i, ptr %add.ptr.i.i.i
-  %49 = load ptr, ptr %retval.0.i.i, align 8
+  %50 = load ptr, ptr %retval.0.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %unhashed.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %50 = load ptr, ptr %eviction_callback_.i, align 16
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %50, i64 0, i32 1
-  %51 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.not.i = icmp eq ptr %51, null
+  %51 = load ptr, ptr %eviction_callback_.i, align 16
+  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %51, i64 0, i32 1
+  %52 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.not.i = icmp eq ptr %52, null
   br i1 %tobool.not.i.i.not.i, label %if.then8.i, label %if.then.i30
 
 if.then.i30:                                      ; preds = %invoke.cont36
-  %hashed_key.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandleBasicData", ptr %49, i64 0, i32 2
-  %52 = load ptr, ptr %hash_seed_.i, align 8
-  %53 = load i32, ptr %52, align 4
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandleBasicData", ptr %49, i64 0, i32 2, i32 0, i64 1
-  %54 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %55 = load i64, ptr %hashed_key.i.i, align 8
-  invoke void @_ZN7rocksdb19BijectiveUnhash2x64EmmPmS0_(i64 noundef %54, i64 noundef %55, ptr noundef nonnull %arrayidx.i.i5.i.i, ptr noundef nonnull %unhashed.i)
+  %hashed_key.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandleBasicData", ptr %50, i64 0, i32 2
+  %53 = load ptr, ptr %hash_seed_.i, align 8
+  %54 = load i32, ptr %53, align 4
+  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandleBasicData", ptr %50, i64 0, i32 2, i32 0, i64 1
+  %55 = load i64, ptr %arrayidx.i.i.i.i, align 8
+  %56 = load i64, ptr %hashed_key.i.i, align 8
+  invoke void @_ZN7rocksdb19BijectiveUnhash2x64EmmPmS0_(i64 noundef %55, i64 noundef %56, ptr noundef nonnull %arrayidx.i.i5.i.i, ptr noundef nonnull %unhashed.i)
           to label %.noexc unwind label %lpad32.loopexit
 
 .noexc:                                           ; preds = %if.then.i30
-  %conv.i.i = zext i32 %53 to i64
-  %56 = load i64, ptr %unhashed.i, align 8
-  %xor.i.i = xor i64 %56, %conv.i.i
+  %conv.i.i = zext i32 %54 to i64
+  %57 = load i64, ptr %unhashed.i, align 8
+  %xor.i.i = xor i64 %57, %conv.i.i
   store i64 %xor.i.i, ptr %unhashed.i, align 8
   store ptr %unhashed.i, ptr %ref.tmp.i, align 8
   store i64 16, ptr %2, align 8
-  %meta.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandle", ptr %49, i64 0, i32 1
-  %57 = load atomic i64, ptr %meta.i monotonic, align 8
+  %meta.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandle", ptr %50, i64 0, i32 1
+  %58 = load atomic i64, ptr %meta.i monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr4.i.i)
-  store ptr %49, ptr %__args.addr2.i.i, align 8
-  %and.i = lshr i64 %57, 60
-  %58 = trunc i64 %and.i to i8
-  %frombool.i.i = and i8 %58, 1
+  store ptr %50, ptr %__args.addr2.i.i, align 8
+  %and.i = lshr i64 %58, 60
+  %59 = trunc i64 %and.i to i8
+  %frombool.i.i = and i8 %59, 1
   store i8 %frombool.i.i, ptr %__args.addr4.i.i, align 1
-  %59 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i6.i = icmp eq ptr %59, null
+  %60 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i6.i = icmp eq ptr %60, null
   br i1 %tobool.not.i.i6.i, label %if.then.i.i32, label %_ZNKSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEclES3_S6_b.exit.i
 
 if.then.i.i32:                                    ; preds = %.noexc
@@ -7009,9 +7008,9 @@ if.then.i.i32:                                    ; preds = %.noexc
   unreachable
 
 _ZNKSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEclES3_S6_b.exit.i: ; preds = %.noexc
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.21", ptr %50, i64 0, i32 1
-  %60 = load ptr, ptr %_M_invoker.i.i, align 8
-  %call6.i.i34 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr4.i.i)
+  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.21", ptr %51, i64 0, i32 1
+  %61 = load ptr, ptr %_M_invoker.i.i, align 8
+  %call6.i.i34 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr4.i.i)
           to label %call6.i.i.noexc unwind label %lpad32.loopexit
 
 call6.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEclES3_S6_b.exit.i
@@ -7020,20 +7019,20 @@ call6.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFbR
   br i1 %call6.i.i34, label %for.inc39, label %if.then8.i
 
 if.then8.i:                                       ; preds = %call6.i.i.noexc, %invoke.cont36
-  %helper.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandleBasicData", ptr %49, i64 0, i32 1
-  %61 = load ptr, ptr %helper.i.i, align 8
-  %62 = load ptr, ptr %61, align 8
-  %tobool.not.i.i = icmp eq ptr %62, null
+  %helper.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandleBasicData", ptr %50, i64 0, i32 1
+  %62 = load ptr, ptr %helper.i.i, align 8
+  %63 = load ptr, ptr %62, align 8
+  %tobool.not.i.i = icmp eq ptr %63, null
   br i1 %tobool.not.i.i, label %for.inc39, label %if.then.i7.i31
 
 if.then.i7.i31:                                   ; preds = %if.then8.i
-  %63 = load ptr, ptr %allocator_.i, align 8
-  %64 = load ptr, ptr %49, align 8
-  invoke void %62(ptr noundef %64, ptr noundef %63)
+  %64 = load ptr, ptr %allocator_.i, align 8
+  %65 = load ptr, ptr %50, align 8
+  invoke void %63(ptr noundef %65, ptr noundef %64)
           to label %for.inc39 unwind label %lpad32.loopexit
 
 for.inc39:                                        ; preds = %if.then8.i, %call6.i.i.noexc, %if.then.i7.i31
-  %meta.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandle", ptr %49, i64 0, i32 1
+  %meta.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::ClockHandle", ptr %50, i64 0, i32 1
   store atomic i64 0, ptr %meta.i.i release, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %unhashed.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -7051,16 +7050,16 @@ if.end46:                                         ; preds = %_ZN7rocksdb10autove
   br i1 %cmp52.not, label %if.end54, label %cleanup
 
 if.end54:                                         ; preds = %if.end46
-  %65 = load i64, ptr %freed_count.i.i, align 8
-  %add.i37 = add i64 %65, 1
+  %66 = load i64, ptr %freed_count.i.i, align 8
+  %add.i37 = add i64 %66, 1
   %mul.i = mul i64 %add.i37, %conv.i38
-  %66 = load i64, ptr %seen_pinned_count.i.i, align 8
-  %cmp.i.not = icmp ugt i64 %mul.i, %66
+  %67 = load i64, ptr %seen_pinned_count.i.i, align 8
+  %cmp.i.not = icmp ugt i64 %mul.i, %67
   br i1 %cmp.i.not, label %for.cond, label %if.then56, !llvm.loop !71
 
 if.then56:                                        ; preds = %if.end54
   %eviction_effort_exceeded_count_ = getelementptr inbounds %"class.rocksdb::clock_cache::BaseClockTable", ptr %this, i64 0, i32 2
-  %67 = atomicrmw add ptr %eviction_effort_exceeded_count_, i64 1 monotonic, align 8
+  %68 = atomicrmw add ptr %eviction_effort_exceeded_count_, i64 1 monotonic, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end46, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit, %if.then56
@@ -7072,11 +7071,11 @@ while.body.preheader.i.i:                         ; preds = %cleanup
   br label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i
 
 _ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i: ; preds = %cleanup, %while.body.preheader.i.i
-  %tobool.not.i.i.i1.i = icmp eq ptr %43, null
+  %tobool.not.i.i.i1.i = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %43) #24
+  call void @_ZdlPv(ptr noundef nonnull %44) #24
   br label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EED2Ev.exit
 
 _ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EED2Ev.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i, %if.then.i.i.i.i
@@ -7093,21 +7092,21 @@ while.body.preheader.i.i42:                       ; preds = %ehcleanup60
   br label %while.end.i.i43
 
 while.end.i.i43:                                  ; preds = %while.body.preheader.i.i42, %ehcleanup60
-  %68 = load ptr, ptr %vect_.i, align 8
-  %69 = load ptr, ptr %_M_finish.i.i, align 8
-  %tobool.not.i.i.i.i46 = icmp eq ptr %69, %68
+  %69 = load ptr, ptr %vect_.i, align 8
+  %70 = load ptr, ptr %_M_finish.i.i, align 8
+  %tobool.not.i.i.i.i46 = icmp eq ptr %70, %69
   br i1 %tobool.not.i.i.i.i46, label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i48, label %invoke.cont.i.i.i.i47
 
 invoke.cont.i.i.i.i47:                            ; preds = %while.end.i.i43
-  store ptr %68, ptr %_M_finish.i.i, align 8
+  store ptr %69, ptr %_M_finish.i.i, align 8
   br label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i48
 
 _ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i48: ; preds = %invoke.cont.i.i.i.i47, %while.end.i.i43
-  %tobool.not.i.i.i1.i49 = icmp eq ptr %68, null
+  %tobool.not.i.i.i1.i49 = icmp eq ptr %69, null
   br i1 %tobool.not.i.i.i1.i49, label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EED2Ev.exit51, label %if.then.i.i.i.i50
 
 if.then.i.i.i.i50:                                ; preds = %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i48
-  call void @_ZdlPv(ptr noundef nonnull %68) #24
+  call void @_ZdlPv(ptr noundef nonnull %69) #24
   br label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EED2Ev.exit51
 
 _ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EED2Ev.exit51: ; preds = %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i48, %if.then.i.i.i.i50
@@ -11861,39 +11860,38 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %if.else.i.
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i.i, i64 1)
   %add.i.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i.i
-  %cmp9.i.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i.i, 1152921504606846975
-  %or.cond.i.i.i.i.i.i.i = or i1 %cmp7.i.i.i.i.i.i.i, %cmp9.i.i.i.i.i.i.i
-  %cond.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i64 1152921504606846975, i64 %add.i.i.i.i.i.i.i
+  %13 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i.i, i64 1152921504606846975, i64 %13
   %cmp.not.i.i.i.i.i.i.i = icmp eq i64 %cond.i.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
+cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i.i.i.i, 3
   %call5.i.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i.i) #25
   br label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
-  %cond.i10.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i ], [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ]
+_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
+  %cond.i10.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %cond.i10.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
   store double %mul15.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i.i.i.i, label %if.then.i.i.i12.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit19.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i.i.i
 
-if.then.i.i.i12.i.i.i.i.i.i:                      ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i.i.i, ptr align 8 %12, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit19.i.i.i.i.i.i
+  br label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i.i.i
 
-_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit19.i.i.i.i.i.i: ; preds = %if.then.i.i.i12.i.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i.i.i
+_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %add.ptr.i.i.i.i.i.i.i.i.i, i64 1
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i.i.i, label %if.then.i20.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i.i.i, label %if.then.i18.i.i.i.i.i.i
 
-if.then.i20.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit19.i.i.i.i.i.i
+if.then.i18.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %12) #24
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i.i.i
 
-_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i20.i.i.i.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit19.i.i.i.i.i.i
+_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %if.then.i18.i.i.i.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i.i.i
   store ptr %cond.i10.i.i.i.i.i.i, ptr %1, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   %add.ptr19.i.i.i.i.i.i = getelementptr inbounds double, ptr %cond.i10.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i.i
@@ -11902,8 +11900,8 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit.i.i.i.i:  ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i.i.i, %if.then.i.i.i.i.i
   %div16.i.i.i.i = udiv i64 %sub.i.i.i.i, %7
-  %13 = load i64, ptr %3, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div16.i.i.i.i, i64 %13)
+  %14 = load i64, ptr %3, align 8
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div16.i.i.i.i, i64 %14)
   store i64 %.sroa.speculated.i.i.i.i, ptr %3, align 8
   br label %"_ZSt10__invoke_rIvRZNK7rocksdb11clock_cache20FixedHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0JPKNS1_15ClockCacheShardINS1_20FixedHyperClockTableEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 

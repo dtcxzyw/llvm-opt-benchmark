@@ -1424,10 +1424,9 @@ while.end330:                                     ; preds = %invoke.cont119, %in
 if.then332:                                       ; preds = %while.end330
   %call333 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16find_last_not_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.5, i64 noundef -1) #11
   %cmp334.not = icmp eq i64 %lastEscapedChar.3, -1
-  %cmp336 = icmp ult i64 %call333, %lastEscapedChar.3
   %cmp338 = icmp eq i64 %call333, -1
-  %or.cond3 = or i1 %cmp336, %cmp338
-  %spec.select121 = select i1 %or.cond3, i64 %lastEscapedChar.3, i64 %call333
+  %145 = call i64 @llvm.umax.i64(i64 %call333, i64 %lastEscapedChar.3)
+  %spec.select121 = select i1 %cmp338, i64 %lastEscapedChar.3, i64 %145
   %pos.0 = select i1 %cmp334.not, i64 %call333, i64 %spec.select121
   %call342 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   %cmp343 = icmp ult i64 %pos.0, %call342
@@ -1440,8 +1439,8 @@ if.then344:                                       ; preds = %if.then332
 
 if.end348:                                        ; preds = %if.then332, %if.then344, %while.end330
   %chomp = getelementptr inbounds %"struct.YAML::ScanScalarParams", ptr %params, i64 0, i32 11
-  %145 = load i32, ptr %chomp, align 4
-  switch i32 %145, label %nrvo.skipdtor [
+  %146 = load i32, ptr %chomp, align 4
+  switch i32 %146, label %nrvo.skipdtor [
     i32 0, label %sw.bb349
     i32 -1, label %sw.bb374
   ]
@@ -1449,10 +1448,9 @@ if.end348:                                        ; preds = %if.then332, %if.the
 sw.bb349:                                         ; preds = %if.end348
   %call351 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16find_last_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 10, i64 noundef -1) #11
   %cmp352.not = icmp eq i64 %lastEscapedChar.3, -1
-  %cmp354 = icmp ult i64 %call351, %lastEscapedChar.3
   %cmp356 = icmp eq i64 %call351, -1
-  %or.cond4 = or i1 %cmp354, %cmp356
-  %spec.select122 = select i1 %or.cond4, i64 %lastEscapedChar.3, i64 %call351
+  %147 = call i64 @llvm.umax.i64(i64 %call351, i64 %lastEscapedChar.3)
+  %spec.select122 = select i1 %cmp356, i64 %lastEscapedChar.3, i64 %147
   %pos350.0 = select i1 %cmp352.not, i64 %call351, i64 %spec.select122
   %cmp360 = icmp eq i64 %pos350.0, -1
   br i1 %cmp360, label %if.then392.invoke, label %if.else364
@@ -1470,10 +1468,9 @@ if.then368:                                       ; preds = %if.else364
 sw.bb374:                                         ; preds = %if.end348
   %call376 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16find_last_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 10, i64 noundef -1) #11
   %cmp377.not = icmp eq i64 %lastEscapedChar.3, -1
-  %cmp379 = icmp ult i64 %call376, %lastEscapedChar.3
   %cmp381 = icmp eq i64 %call376, -1
-  %or.cond5 = or i1 %cmp379, %cmp381
-  %spec.select123 = select i1 %or.cond5, i64 %lastEscapedChar.3, i64 %call376
+  %148 = call i64 @llvm.umax.i64(i64 %call376, i64 %lastEscapedChar.3)
+  %spec.select123 = select i1 %cmp381, i64 %lastEscapedChar.3, i64 %148
   %pos375.0 = select i1 %cmp377.not, i64 %call376, i64 %spec.select123
   %cmp385 = icmp eq i64 %pos375.0, -1
   br i1 %cmp385, label %if.then392.invoke, label %if.else389
@@ -1488,8 +1485,8 @@ if.then392:                                       ; preds = %if.else389
   br label %if.then392.invoke
 
 if.then392.invoke:                                ; preds = %sw.bb374, %sw.bb349, %if.then368, %if.then392
-  %146 = phi i64 [ %add393, %if.then392 ], [ %add369, %if.then368 ], [ 0, %sw.bb349 ], [ 0, %sw.bb374 ]
-  %147 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %146, i64 noundef -1)
+  %149 = phi i64 [ %add393, %if.then392 ], [ %add369, %if.then368 ], [ 0, %sw.bb349 ], [ 0, %sw.bb374 ]
+  %150 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %149, i64 noundef -1)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 nrvo.skipdtor:                                    ; preds = %if.then392.invoke, %if.else364, %if.else389, %if.end348
@@ -2688,6 +2685,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

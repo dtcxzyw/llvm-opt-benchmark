@@ -1364,19 +1364,18 @@ _ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_c
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 1152921504606846975
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 1152921504606846975, i64 %add.i.i
+  %32 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %32
   %cmp.not.i.i125 = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i125, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i127, label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i
+  br i1 %cmp.not.i.i125, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i127, label %cond.true.i.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i: ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i
+cond.true.i.i:                                    ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i126 = shl nuw nsw i64 %cond.i.i, 3
   %call5.i.i.i.i142 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i126) #19
           to label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i127 unwind label %lpad30
 
-_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i127: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i
-  %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i142, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i127: ; preds = %cond.true.i.i, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i
+  %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i142, %cond.true.i.i ]
   %add.ptr.i128 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
   store ptr %27, ptr %add.ptr.i128, align 8
   %cmp.not5.i.i.i.i129 = icmp eq ptr %31, %28
@@ -1387,8 +1386,8 @@ for.body.i.i.i.i130:                              ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i.i132 = phi ptr [ %incdec.ptr.i.i.i.i133, %for.body.i.i.i.i130 ], [ %31, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i127 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %32 = load ptr, ptr %__first.addr.06.i.i.i.i132, align 8, !alias.scope !49, !noalias !46
-  store ptr %32, ptr %__cur.07.i.i.i.i131, align 8, !alias.scope !46, !noalias !49
+  %33 = load ptr, ptr %__first.addr.06.i.i.i.i132, align 8, !alias.scope !49, !noalias !46
+  store ptr %33, ptr %__cur.07.i.i.i.i131, align 8, !alias.scope !46, !noalias !49
   store ptr null, ptr %__first.addr.06.i.i.i.i132, align 8, !alias.scope !49, !noalias !46
   %incdec.ptr.i.i.i.i133 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__first.addr.06.i.i.i.i132, i64 1
   %incdec.ptr1.i.i.i.i134 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__cur.07.i.i.i.i131, i64 1
@@ -1415,9 +1414,9 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorIN9grpc
 if.end.i38:                                       ; preds = %invoke.cont28
   %inner_.i.i39 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %27, i64 0, i32 2
   %_M_finish.i.i40 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %27, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %33 = load ptr, ptr %_M_finish.i.i40, align 8
-  %34 = load ptr, ptr %inner_.i.i39, align 8
-  %cmp9.not.i = icmp eq ptr %33, %34
+  %34 = load ptr, ptr %_M_finish.i.i40, align 8
+  %35 = load ptr, ptr %inner_.i.i39, align 8
+  %cmp9.not.i = icmp eq ptr %34, %35
   br i1 %cmp9.not.i, label %if.then.i50, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i38
@@ -1425,44 +1424,44 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i38
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i, %for.body.lr.ph.i
-  %35 = phi ptr [ %34, %for.body.lr.ph.i ], [ %43, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i ]
+  %36 = phi ptr [ %35, %for.body.lr.ph.i ], [ %44, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i ]
   %i.010.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %35, i64 %i.010.i
-  %36 = load ptr, ptr %_M_finish.i4.i, align 8
-  %37 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %36, %37
+  %add.ptr.i.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %36, i64 %i.010.i
+  %37 = load ptr, ptr %_M_finish.i4.i, align 8
+  %38 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %37, %38
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i42
 
 if.then.i.i42:                                    ; preds = %for.body.i
-  store ptr null, ptr %36, align 8
-  %38 = load ptr, ptr %add.ptr.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %38, null
+  store ptr null, ptr %37, align 8
+  %39 = load ptr, ptr %add.ptr.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i42
-  %refs_.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %38, i64 0, i32 1
-  %39 = atomicrmw add ptr %refs_.i.i.i.i.i.i, i64 1 monotonic, align 8
+  %refs_.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %39, i64 0, i32 1
+  %40 = atomicrmw add ptr %refs_.i.i.i.i.i.i, i64 1 monotonic, align 8
   %.pre.i.i.i.i.i = load ptr, ptr %add.ptr.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i42
-  %40 = phi ptr [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %if.then.i.i42 ]
-  store ptr %40, ptr %36, align 8
-  %41 = load ptr, ptr %_M_finish.i4.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %41, i64 1
+  %41 = phi ptr [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %if.then.i.i42 ]
+  store ptr %41, ptr %37, align 8
+  %42 = load ptr, ptr %_M_finish.i4.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %42, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i4.i, align 8
   br label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  invoke void @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %inner_, ptr %36, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
+  invoke void @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %inner_, ptr %37, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
           to label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i unwind label %lpad30.thread
 
 _ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i: ; preds = %if.else.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i
   %inc.i = add nuw i64 %i.010.i, 1
-  %42 = load ptr, ptr %_M_finish.i.i40, align 8
-  %43 = load ptr, ptr %inner_.i.i39, align 8
-  %sub.ptr.lhs.cast.i.i43 = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast.i.i44 = ptrtoint ptr %43 to i64
+  %43 = load ptr, ptr %_M_finish.i.i40, align 8
+  %44 = load ptr, ptr %inner_.i.i39, align 8
+  %sub.ptr.lhs.cast.i.i43 = ptrtoint ptr %43 to i64
+  %sub.ptr.rhs.cast.i.i44 = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i.i45 = sub i64 %sub.ptr.lhs.cast.i.i43, %sub.ptr.rhs.cast.i.i44
   %sub.ptr.div.i.i46 = ashr exact i64 %sub.ptr.sub.i.i45, 3
   %cmp.i47 = icmp ult i64 %inc.i, %sub.ptr.div.i.i46
@@ -1470,49 +1469,49 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_b
 
 if.then.i50:                                      ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i, %if.end.i38
   %refs_.i.i51 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %27, i64 0, i32 1
-  %44 = atomicrmw sub ptr %refs_.i.i51, i64 1 acq_rel, align 8
-  %cmp.i.i.i = icmp eq i64 %44, 1
+  %45 = atomicrmw sub ptr %refs_.i.i51, i64 1 acq_rel, align 8
+  %cmp.i.i.i = icmp eq i64 %45, 1
   br i1 %cmp.i.i.i, label %if.then.i.i53, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit
 
 if.then.i.i53:                                    ; preds = %if.then.i50
   %vtable.i.i.i = load ptr, ptr %27, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %45 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(20) %27) #18
+  %46 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(20) %27) #18
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit: ; preds = %if.then.i.i.i, %.noexc48, %if.then.i50, %if.then.i.i53
-  %46 = load ptr, ptr %creds2, align 8
+  %47 = load ptr, ptr %creds2, align 8
   store ptr null, ptr %creds2, align 8
   br i1 %cmp.i20, label %if.end.i62, label %if.then.i54
 
 if.then.i54:                                      ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit
   %_M_finish.i.i.i55 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %47 = load ptr, ptr %_M_finish.i.i.i55, align 8
-  %48 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i.i57 = icmp eq ptr %47, %48
+  %48 = load ptr, ptr %_M_finish.i.i.i55, align 8
+  %49 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i.i57 = icmp eq ptr %48, %49
   br i1 %cmp.not.i.i.i57, label %if.else.i.i.i60, label %if.then.i.i.i58
 
 if.then.i.i.i58:                                  ; preds = %if.then.i54
-  store ptr %46, ptr %47, align 8
-  %49 = load ptr, ptr %_M_finish.i.i.i55, align 8
-  %incdec.ptr.i.i.i59 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %49, i64 1
+  store ptr %47, ptr %48, align 8
+  %50 = load ptr, ptr %_M_finish.i.i.i55, align 8
+  %incdec.ptr.i.i.i59 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %50, i64 1
   store ptr %incdec.ptr.i.i.i59, ptr %_M_finish.i.i.i55, align 8
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100
 
 if.else.i.i.i60:                                  ; preds = %if.then.i54
-  %50 = load ptr, ptr %inner_, align 8
-  %sub.ptr.lhs.cast.i.i.i144 = ptrtoint ptr %47 to i64
-  %sub.ptr.rhs.cast.i.i.i145 = ptrtoint ptr %50 to i64
+  %51 = load ptr, ptr %inner_, align 8
+  %sub.ptr.lhs.cast.i.i.i144 = ptrtoint ptr %48 to i64
+  %sub.ptr.rhs.cast.i.i.i145 = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i.i.i146 = sub i64 %sub.ptr.lhs.cast.i.i.i144, %sub.ptr.rhs.cast.i.i.i145
   %cmp.i.i147 = icmp eq i64 %sub.ptr.sub.i.i.i146, 9223372036854775800
-  br i1 %cmp.i.i147, label %if.then.i.i189, label %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i148
+  br i1 %cmp.i.i147, label %if.then.i.i187, label %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i148
 
-if.then.i.i189:                                   ; preds = %if.else.i.i.i60
+if.then.i.i187:                                   ; preds = %if.else.i.i.i60
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #21
-          to label %.noexc190 unwind label %lpad34
+          to label %.noexc188 unwind label %lpad34
 
-.noexc190:                                        ; preds = %if.then.i.i189
+.noexc188:                                        ; preds = %if.then.i.i187
   unreachable
 
 _ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i148: ; preds = %if.else.i.i.i60
@@ -1520,60 +1519,59 @@ _ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_c
   %.sroa.speculated.i.i150 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i149, i64 1)
   %add.i.i151 = add i64 %.sroa.speculated.i.i150, %sub.ptr.div.i.i.i149
   %cmp7.i.i152 = icmp ult i64 %add.i.i151, %sub.ptr.div.i.i.i149
-  %cmp9.i.i153 = icmp ugt i64 %add.i.i151, 1152921504606846975
-  %or.cond.i.i154 = or i1 %cmp7.i.i152, %cmp9.i.i153
-  %cond.i.i155 = select i1 %or.cond.i.i154, i64 1152921504606846975, i64 %add.i.i151
-  %cmp.not.i.i159 = icmp eq i64 %cond.i.i155, 0
-  br i1 %cmp.not.i.i159, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i162, label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i160
+  %52 = call i64 @llvm.umin.i64(i64 %add.i.i151, i64 1152921504606846975)
+  %cond.i.i153 = select i1 %cmp7.i.i152, i64 1152921504606846975, i64 %52
+  %cmp.not.i.i157 = icmp eq i64 %cond.i.i153, 0
+  br i1 %cmp.not.i.i157, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i160, label %cond.true.i.i158
 
-_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i160: ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i148
-  %mul.i.i.i.i161 = shl nuw nsw i64 %cond.i.i155, 3
-  %call5.i.i.i.i192 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i161) #19
-          to label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i162 unwind label %lpad34
+cond.true.i.i158:                                 ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i148
+  %mul.i.i.i.i159 = shl nuw nsw i64 %cond.i.i153, 3
+  %call5.i.i.i.i190 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i159) #19
+          to label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i160 unwind label %lpad34
 
-_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i162: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i160, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i148
-  %cond.i10.i163 = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i148 ], [ %call5.i.i.i.i192, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i160 ]
-  %add.ptr.i164 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %cond.i10.i163, i64 %sub.ptr.div.i.i.i149
-  store ptr %46, ptr %add.ptr.i164, align 8
-  %cmp.not5.i.i.i.i165 = icmp eq ptr %50, %47
-  br i1 %cmp.not5.i.i.i.i165, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i182, label %for.body.i.i.i.i166
+_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i160: ; preds = %cond.true.i.i158, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i148
+  %cond.i10.i161 = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit.i148 ], [ %call5.i.i.i.i190, %cond.true.i.i158 ]
+  %add.ptr.i162 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %cond.i10.i161, i64 %sub.ptr.div.i.i.i149
+  store ptr %47, ptr %add.ptr.i162, align 8
+  %cmp.not5.i.i.i.i163 = icmp eq ptr %51, %48
+  br i1 %cmp.not5.i.i.i.i163, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i180, label %for.body.i.i.i.i164
 
-for.body.i.i.i.i166:                              ; preds = %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i162, %for.body.i.i.i.i166
-  %__cur.07.i.i.i.i167 = phi ptr [ %incdec.ptr1.i.i.i.i170, %for.body.i.i.i.i166 ], [ %cond.i10.i163, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i162 ]
-  %__first.addr.06.i.i.i.i168 = phi ptr [ %incdec.ptr.i.i.i.i169, %for.body.i.i.i.i166 ], [ %50, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i162 ]
+for.body.i.i.i.i164:                              ; preds = %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i160, %for.body.i.i.i.i164
+  %__cur.07.i.i.i.i165 = phi ptr [ %incdec.ptr1.i.i.i.i168, %for.body.i.i.i.i164 ], [ %cond.i10.i161, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i160 ]
+  %__first.addr.06.i.i.i.i166 = phi ptr [ %incdec.ptr.i.i.i.i167, %for.body.i.i.i.i164 ], [ %51, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i160 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %51 = load ptr, ptr %__first.addr.06.i.i.i.i168, align 8, !alias.scope !54, !noalias !51
-  store ptr %51, ptr %__cur.07.i.i.i.i167, align 8, !alias.scope !51, !noalias !54
-  store ptr null, ptr %__first.addr.06.i.i.i.i168, align 8, !alias.scope !54, !noalias !51
-  %incdec.ptr.i.i.i.i169 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__first.addr.06.i.i.i.i168, i64 1
-  %incdec.ptr1.i.i.i.i170 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__cur.07.i.i.i.i167, i64 1
-  %cmp.not.i.i.i.i171 = icmp eq ptr %incdec.ptr.i.i.i.i169, %47
-  br i1 %cmp.not.i.i.i.i171, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i182, label %for.body.i.i.i.i166, !llvm.loop !45
+  %53 = load ptr, ptr %__first.addr.06.i.i.i.i166, align 8, !alias.scope !54, !noalias !51
+  store ptr %53, ptr %__cur.07.i.i.i.i165, align 8, !alias.scope !51, !noalias !54
+  store ptr null, ptr %__first.addr.06.i.i.i.i166, align 8, !alias.scope !54, !noalias !51
+  %incdec.ptr.i.i.i.i167 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__first.addr.06.i.i.i.i166, i64 1
+  %incdec.ptr1.i.i.i.i168 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__cur.07.i.i.i.i165, i64 1
+  %cmp.not.i.i.i.i169 = icmp eq ptr %incdec.ptr.i.i.i.i167, %48
+  br i1 %cmp.not.i.i.i.i169, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i180, label %for.body.i.i.i.i164, !llvm.loop !45
 
-_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i182: ; preds = %for.body.i.i.i.i166, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i162
-  %__cur.0.lcssa.i.i.i.i173 = phi ptr [ %cond.i10.i163, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i162 ], [ %incdec.ptr1.i.i.i.i170, %for.body.i.i.i.i166 ]
-  %incdec.ptr.i174 = getelementptr %"class.grpc_core::RefCountedPtr", ptr %__cur.0.lcssa.i.i.i.i173, i64 1
-  %tobool.not.i.i184 = icmp eq ptr %50, null
-  br i1 %tobool.not.i.i184, label %.noexc89, label %if.then.i20.i185
+_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i180: ; preds = %for.body.i.i.i.i164, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i160
+  %__cur.0.lcssa.i.i.i.i171 = phi ptr [ %cond.i10.i161, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i160 ], [ %incdec.ptr1.i.i.i.i168, %for.body.i.i.i.i164 ]
+  %incdec.ptr.i172 = getelementptr %"class.grpc_core::RefCountedPtr", ptr %__cur.0.lcssa.i.i.i.i171, i64 1
+  %tobool.not.i.i182 = icmp eq ptr %51, null
+  br i1 %tobool.not.i.i182, label %.noexc89, label %if.then.i20.i183
 
-if.then.i20.i185:                                 ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i182
-  call void @_ZdlPv(ptr noundef nonnull %50) #20
+if.then.i20.i183:                                 ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i180
+  call void @_ZdlPv(ptr noundef nonnull %51) #20
   br label %.noexc89
 
-.noexc89:                                         ; preds = %if.then.i20.i185, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i182
-  store ptr %cond.i10.i163, ptr %inner_, align 8
-  store ptr %incdec.ptr.i174, ptr %_M_finish.i.i.i55, align 8
-  %add.ptr19.i188 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %cond.i10.i163, i64 %cond.i.i155
-  store ptr %add.ptr19.i188, ptr %_M_end_of_storage.i.i, align 8
+.noexc89:                                         ; preds = %if.then.i20.i183, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i180
+  store ptr %cond.i10.i161, ptr %inner_, align 8
+  store ptr %incdec.ptr.i172, ptr %_M_finish.i.i.i55, align 8
+  %add.ptr19.i186 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %cond.i10.i161, i64 %cond.i.i153
+  store ptr %add.ptr19.i186, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100
 
 if.end.i62:                                       ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit
-  %inner_.i.i63 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %46, i64 0, i32 2
-  %_M_finish.i.i64 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %46, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %52 = load ptr, ptr %_M_finish.i.i64, align 8
-  %53 = load ptr, ptr %inner_.i.i63, align 8
-  %cmp9.not.i65 = icmp eq ptr %52, %53
+  %inner_.i.i63 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %47, i64 0, i32 2
+  %_M_finish.i.i64 = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %47, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %54 = load ptr, ptr %_M_finish.i.i64, align 8
+  %55 = load ptr, ptr %inner_.i.i63, align 8
+  %cmp9.not.i65 = icmp eq ptr %54, %55
   br i1 %cmp9.not.i65, label %if.then.i93, label %for.body.lr.ph.i66
 
 for.body.lr.ph.i66:                               ; preds = %if.end.i62
@@ -1581,95 +1579,95 @@ for.body.lr.ph.i66:                               ; preds = %if.end.i62
   br label %for.body.i70
 
 for.body.i70:                                     ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i81, %for.body.lr.ph.i66
-  %54 = phi ptr [ %53, %for.body.lr.ph.i66 ], [ %62, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i81 ]
+  %56 = phi ptr [ %55, %for.body.lr.ph.i66 ], [ %64, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i81 ]
   %i.010.i71 = phi i64 [ 0, %for.body.lr.ph.i66 ], [ %inc.i82, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i81 ]
-  %add.ptr.i.i72 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %54, i64 %i.010.i71
-  %55 = load ptr, ptr %_M_finish.i4.i67, align 8
-  %56 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i73 = icmp eq ptr %55, %56
+  %add.ptr.i.i72 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %56, i64 %i.010.i71
+  %57 = load ptr, ptr %_M_finish.i4.i67, align 8
+  %58 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i73 = icmp eq ptr %57, %58
   br i1 %cmp.not.i.i73, label %if.else.i.i88, label %if.then.i.i74
 
 if.then.i.i74:                                    ; preds = %for.body.i70
-  store ptr null, ptr %55, align 8
-  %57 = load ptr, ptr %add.ptr.i.i72, align 8
-  %cmp.not.i.i.i.i.i75 = icmp eq ptr %57, null
+  store ptr null, ptr %57, align 8
+  %59 = load ptr, ptr %add.ptr.i.i72, align 8
+  %cmp.not.i.i.i.i.i75 = icmp eq ptr %59, null
   br i1 %cmp.not.i.i.i.i.i75, label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i79, label %if.then.i.i.i.i.i76
 
 if.then.i.i.i.i.i76:                              ; preds = %if.then.i.i74
-  %refs_.i.i.i.i.i.i77 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %57, i64 0, i32 1
-  %58 = atomicrmw add ptr %refs_.i.i.i.i.i.i77, i64 1 monotonic, align 8
+  %refs_.i.i.i.i.i.i77 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %59, i64 0, i32 1
+  %60 = atomicrmw add ptr %refs_.i.i.i.i.i.i77, i64 1 monotonic, align 8
   %.pre.i.i.i.i.i78 = load ptr, ptr %add.ptr.i.i72, align 8
   br label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i79
 
 _ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i79: ; preds = %if.then.i.i.i.i.i76, %if.then.i.i74
-  %59 = phi ptr [ %.pre.i.i.i.i.i78, %if.then.i.i.i.i.i76 ], [ null, %if.then.i.i74 ]
-  store ptr %59, ptr %55, align 8
-  %60 = load ptr, ptr %_M_finish.i4.i67, align 8
-  %incdec.ptr.i.i80 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %60, i64 1
+  %61 = phi ptr [ %.pre.i.i.i.i.i78, %if.then.i.i.i.i.i76 ], [ null, %if.then.i.i74 ]
+  store ptr %61, ptr %57, align 8
+  %62 = load ptr, ptr %_M_finish.i4.i67, align 8
+  %incdec.ptr.i.i80 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %62, i64 1
   store ptr %incdec.ptr.i.i80, ptr %_M_finish.i4.i67, align 8
   br label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i81
 
 if.else.i.i88:                                    ; preds = %for.body.i70
-  invoke void @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %inner_, ptr %55, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i72)
+  invoke void @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %inner_, ptr %57, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i72)
           to label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i81 unwind label %lpad34.thread
 
 _ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i81: ; preds = %if.else.i.i88, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i79
   %inc.i82 = add nuw i64 %i.010.i71, 1
-  %61 = load ptr, ptr %_M_finish.i.i64, align 8
-  %62 = load ptr, ptr %inner_.i.i63, align 8
-  %sub.ptr.lhs.cast.i.i83 = ptrtoint ptr %61 to i64
-  %sub.ptr.rhs.cast.i.i84 = ptrtoint ptr %62 to i64
+  %63 = load ptr, ptr %_M_finish.i.i64, align 8
+  %64 = load ptr, ptr %inner_.i.i63, align 8
+  %sub.ptr.lhs.cast.i.i83 = ptrtoint ptr %63 to i64
+  %sub.ptr.rhs.cast.i.i84 = ptrtoint ptr %64 to i64
   %sub.ptr.sub.i.i85 = sub i64 %sub.ptr.lhs.cast.i.i83, %sub.ptr.rhs.cast.i.i84
   %sub.ptr.div.i.i86 = ashr exact i64 %sub.ptr.sub.i.i85, 3
   %cmp.i87 = icmp ult i64 %inc.i82, %sub.ptr.div.i.i86
   br i1 %cmp.i87, label %for.body.i70, label %if.then.i93, !llvm.loop !27
 
 if.then.i93:                                      ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i81, %if.end.i62
-  %refs_.i.i94 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %46, i64 0, i32 1
-  %63 = atomicrmw sub ptr %refs_.i.i94, i64 1 acq_rel, align 8
-  %cmp.i.i.i95 = icmp eq i64 %63, 1
+  %refs_.i.i94 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %47, i64 0, i32 1
+  %65 = atomicrmw sub ptr %refs_.i.i94, i64 1 acq_rel, align 8
+  %cmp.i.i.i95 = icmp eq i64 %65, 1
   br i1 %cmp.i.i.i95, label %if.then.i.i97, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100
 
 if.then.i.i97:                                    ; preds = %if.then.i93
-  %vtable.i.i.i98 = load ptr, ptr %46, align 8
+  %vtable.i.i.i98 = load ptr, ptr %47, align 8
   %vfn.i.i.i99 = getelementptr inbounds ptr, ptr %vtable.i.i.i98, i64 1
-  %64 = load ptr, ptr %vfn.i.i.i99, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(20) %46) #18
+  %66 = load ptr, ptr %vfn.i.i.i99, align 8
+  call void %66(ptr noundef nonnull align 8 dereferenceable(20) %47) #18
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100
 
 _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100: ; preds = %if.then.i.i.i58, %.noexc89, %if.then.i93, %if.then.i.i97
   %min_security_level_ = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this, i64 0, i32 1
   store i32 0, ptr %min_security_level_, align 4
   %_M_finish.i = getelementptr inbounds %class.grpc_composite_call_credentials, ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %65 = load ptr, ptr %_M_finish.i, align 8
-  %66 = load ptr, ptr %inner_, align 8
-  %cmp218.not = icmp eq ptr %65, %66
-  br i1 %cmp218.not, label %for.end, label %for.body
+  %67 = load ptr, ptr %_M_finish.i, align 8
+  %68 = load ptr, ptr %inner_, align 8
+  %cmp216.not = icmp eq ptr %67, %68
+  br i1 %cmp216.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100, %for.inc
-  %67 = phi ptr [ %79, %for.inc ], [ %66, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100 ]
-  %i.0219 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100 ]
-  %68 = load i32, ptr %min_security_level_, align 4
-  %add.ptr.i101 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %67, i64 %i.0219
-  %69 = load ptr, ptr %add.ptr.i101, align 8
-  %vtable43 = load ptr, ptr %69, align 8
+  %69 = phi ptr [ %81, %for.inc ], [ %68, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100 ]
+  %i.0217 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit100 ]
+  %70 = load i32, ptr %min_security_level_, align 4
+  %add.ptr.i101 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %69, i64 %i.0217
+  %71 = load ptr, ptr %add.ptr.i101, align 8
+  %vtable43 = load ptr, ptr %71, align 8
   %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 3
-  %70 = load ptr, ptr %vfn44, align 8
-  %call46 = invoke noundef i32 %70(ptr noundef nonnull align 8 dereferenceable(20) %69)
+  %72 = load ptr, ptr %vfn44, align 8
+  %call46 = invoke noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(20) %71)
           to label %invoke.cont45 unwind label %lpad.loopexit
 
 invoke.cont45:                                    ; preds = %for.body
-  %cmp47 = icmp slt i32 %68, %call46
+  %cmp47 = icmp slt i32 %70, %call46
   br i1 %cmp47, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont45
-  %71 = load ptr, ptr %inner_, align 8
-  %add.ptr.i102 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %71, i64 %i.0219
-  %72 = load ptr, ptr %add.ptr.i102, align 8
-  %vtable52 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %inner_, align 8
+  %add.ptr.i102 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %73, i64 %i.0217
+  %74 = load ptr, ptr %add.ptr.i102, align 8
+  %vtable52 = load ptr, ptr %74, align 8
   %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 3
-  %73 = load ptr, ptr %vfn53, align 8
-  %call55 = invoke noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(20) %72)
+  %75 = load ptr, ptr %vfn53, align 8
+  %call55 = invoke noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(20) %74)
           to label %invoke.cont54 unwind label %lpad.loopexit
 
 invoke.cont54:                                    ; preds = %if.then
@@ -1677,71 +1675,71 @@ invoke.cont54:                                    ; preds = %if.then
   br label %for.inc
 
 lpad.loopexit:                                    ; preds = %for.body, %if.then
-  %lpad.loopexit206 = landingpad { ptr, i32 }
+  %lpad.loopexit204 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %entry, %invoke.cont4, %if.then.i, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit.i
-  %lpad.loopexit.split-lp207 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp205 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad30.thread:                                    ; preds = %if.else.i.i
-  %lpad.loopexit211 = landingpad { ptr, i32 }
+  %lpad.loopexit209 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i104
 
-lpad30:                                           ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i, %if.then.i.i139
-  %lpad.loopexit.split-lp212 = landingpad { ptr, i32 }
+lpad30:                                           ; preds = %cond.true.i.i, %if.then.i.i139
+  %lpad.loopexit.split-lp210 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i103 = icmp eq ptr %27, null
   br i1 %cmp.not.i103, label %ehcleanup, label %if.then.i104
 
 if.then.i104:                                     ; preds = %lpad30.thread, %lpad30
-  %lpad.phi213222 = phi { ptr, i32 } [ %lpad.loopexit211, %lpad30.thread ], [ %lpad.loopexit.split-lp212, %lpad30 ]
+  %lpad.phi211220 = phi { ptr, i32 } [ %lpad.loopexit209, %lpad30.thread ], [ %lpad.loopexit.split-lp210, %lpad30 ]
   %refs_.i.i105 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %27, i64 0, i32 1
-  %74 = atomicrmw sub ptr %refs_.i.i105, i64 1 acq_rel, align 8
-  %cmp.i.i.i106 = icmp eq i64 %74, 1
+  %76 = atomicrmw sub ptr %refs_.i.i105, i64 1 acq_rel, align 8
+  %cmp.i.i.i106 = icmp eq i64 %76, 1
   br i1 %cmp.i.i.i106, label %if.then.i.i108, label %ehcleanup
 
 if.then.i.i108:                                   ; preds = %if.then.i104
   %vtable.i.i.i109 = load ptr, ptr %27, align 8
   %vfn.i.i.i110 = getelementptr inbounds ptr, ptr %vtable.i.i.i109, i64 1
-  %75 = load ptr, ptr %vfn.i.i.i110, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(20) %27) #18
+  %77 = load ptr, ptr %vfn.i.i.i110, align 8
+  call void %77(ptr noundef nonnull align 8 dereferenceable(20) %27) #18
   br label %ehcleanup
 
 lpad34.thread:                                    ; preds = %if.else.i.i88
-  %lpad.loopexit208 = landingpad { ptr, i32 }
+  %lpad.loopexit206 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i113
 
-lpad34:                                           ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i.i160, %if.then.i.i189
-  %lpad.loopexit.split-lp209 = landingpad { ptr, i32 }
+lpad34:                                           ; preds = %cond.true.i.i158, %if.then.i.i187
+  %lpad.loopexit.split-lp207 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i112 = icmp eq ptr %46, null
+  %cmp.not.i112 = icmp eq ptr %47, null
   br i1 %cmp.not.i112, label %ehcleanup, label %if.then.i113
 
 if.then.i113:                                     ; preds = %lpad34.thread, %lpad34
-  %lpad.phi210225 = phi { ptr, i32 } [ %lpad.loopexit208, %lpad34.thread ], [ %lpad.loopexit.split-lp209, %lpad34 ]
-  %refs_.i.i114 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %46, i64 0, i32 1
-  %76 = atomicrmw sub ptr %refs_.i.i114, i64 1 acq_rel, align 8
-  %cmp.i.i.i115 = icmp eq i64 %76, 1
+  %lpad.phi208223 = phi { ptr, i32 } [ %lpad.loopexit206, %lpad34.thread ], [ %lpad.loopexit.split-lp207, %lpad34 ]
+  %refs_.i.i114 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %47, i64 0, i32 1
+  %78 = atomicrmw sub ptr %refs_.i.i114, i64 1 acq_rel, align 8
+  %cmp.i.i.i115 = icmp eq i64 %78, 1
   br i1 %cmp.i.i.i115, label %if.then.i.i117, label %ehcleanup
 
 if.then.i.i117:                                   ; preds = %if.then.i113
-  %vtable.i.i.i118 = load ptr, ptr %46, align 8
+  %vtable.i.i.i118 = load ptr, ptr %47, align 8
   %vfn.i.i.i119 = getelementptr inbounds ptr, ptr %vtable.i.i.i118, i64 1
-  %77 = load ptr, ptr %vfn.i.i.i119, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(20) %46) #18
+  %79 = load ptr, ptr %vfn.i.i.i119, align 8
+  call void %79(ptr noundef nonnull align 8 dereferenceable(20) %47) #18
   br label %ehcleanup
 
 for.inc:                                          ; preds = %invoke.cont45, %invoke.cont54
-  %inc = add nuw i64 %i.0219, 1
-  %78 = load ptr, ptr %_M_finish.i, align 8
-  %79 = load ptr, ptr %inner_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %78 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
+  %inc = add nuw i64 %i.0217, 1
+  %80 = load ptr, ptr %_M_finish.i, align 8
+  %81 = load ptr, ptr %inner_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %80 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %81 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
@@ -1751,7 +1749,7 @@ for.end:                                          ; preds = %for.inc, %_ZN9grpc_
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %if.then.i.i117, %if.then.i113, %lpad34, %if.then.i.i108, %if.then.i104, %lpad30, %lpad.i, %lpad.i13
-  %.pn = phi { ptr, i32 } [ %4, %lpad.i ], [ %12, %lpad.i13 ], [ %lpad.loopexit.split-lp212, %lpad30 ], [ %lpad.phi213222, %if.then.i104 ], [ %lpad.phi213222, %if.then.i.i108 ], [ %lpad.loopexit.split-lp209, %lpad34 ], [ %lpad.phi210225, %if.then.i113 ], [ %lpad.phi210225, %if.then.i.i117 ], [ %lpad.loopexit206, %lpad.loopexit ], [ %lpad.loopexit.split-lp207, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad.i ], [ %12, %lpad.i13 ], [ %lpad.loopexit.split-lp210, %lpad30 ], [ %lpad.phi211220, %if.then.i104 ], [ %lpad.phi211220, %if.then.i.i108 ], [ %lpad.loopexit.split-lp207, %lpad34 ], [ %lpad.phi208223, %if.then.i113 ], [ %lpad.phi208223, %if.then.i.i117 ], [ %lpad.loopexit204, %lpad.loopexit ], [ %lpad.loopexit.split-lp205, %lpad.loopexit.split-lp ]
   call void @_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %inner_) #18
   resume { ptr, i32 } %.pn
 }
@@ -3887,22 +3885,21 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #18
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -4061,25 +4058,24 @@ _ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
   br label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = load ptr, ptr %__args, align 8
-  store ptr %2, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i
@@ -4089,8 +4085,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
-  %3 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !143, !noalias !140
-  store ptr %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !140, !noalias !143
+  %4 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !143, !noalias !140
+  store ptr %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !140, !noalias !143
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !143, !noalias !140
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__cur.07.i.i.i, i64 1
@@ -4108,8 +4104,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN9grpc
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
-  %4 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !148, !noalias !145
-  store ptr %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !145, !noalias !148
+  %5 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !148, !noalias !145
+  store ptr %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !145, !noalias !148
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !148, !noalias !145
   %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__cur.07.i.i.i13, i64 1
@@ -4155,36 +4151,35 @@ _ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
   br label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %cond.i17, i64 %sub.ptr.div.i
-  %2 = load ptr, ptr %__args, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i18
+  %3 = load ptr, ptr %__args, align 8
+  %cmp.not.i.i.i = icmp eq ptr %3, null
+  br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
-if.then.i.i.i18:                                  ; preds = %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit
-  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %2, i64 0, i32 1
-  %3 = atomicrmw add ptr %refs_.i.i.i.i, i64 1 monotonic, align 8
+if.then.i.i.i:                                    ; preds = %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit
+  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %3, i64 0, i32 1
+  %4 = atomicrmw add ptr %refs_.i.i.i.i, i64 1 monotonic, align 8
   %.pre.i.i.i = load ptr, ptr %__args, align 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %if.then.i.i.i18, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit
-  %4 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i18 ], [ null, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit ]
-  store ptr %4, ptr %add.ptr, align 8
+invoke.cont:                                      ; preds = %if.then.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit
+  %5 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ null, %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_M_allocateEm.exit ]
+  store ptr %5, ptr %add.ptr, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i
 
@@ -4193,46 +4188,46 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
-  %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !153, !noalias !150
-  store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !150, !noalias !153
+  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !153, !noalias !150
+  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !150, !noalias !153
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !153, !noalias !150
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__cur.07.i.i.i, i64 1
-  %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !45
+  %cmp.not.i.i.i18 = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
+  br i1 %cmp.not.i.i.i18, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !45
 
 _ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr %"class.grpc_core::RefCountedPtr", ptr %__cur.0.lcssa.i.i.i, i64 1
-  %cmp.not5.i.i.i20 = icmp eq ptr %0, %__position.coerce
-  br i1 %cmp.not5.i.i.i20, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28, label %for.body.i.i.i21
+  %cmp.not5.i.i.i19 = icmp eq ptr %0, %__position.coerce
+  br i1 %cmp.not5.i.i.i19, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, label %for.body.i.i.i20
 
-for.body.i.i.i21:                                 ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i21
-  %__cur.07.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i25, %for.body.i.i.i21 ], [ %incdec.ptr, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %__first.addr.06.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i24, %for.body.i.i.i21 ], [ %__position.coerce, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i20
+  %__cur.07.i.i.i21 = phi ptr [ %incdec.ptr1.i.i.i24, %for.body.i.i.i20 ], [ %incdec.ptr, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %__first.addr.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i23, %for.body.i.i.i20 ], [ %__position.coerce, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
-  %6 = load ptr, ptr %__first.addr.06.i.i.i23, align 8, !alias.scope !158, !noalias !155
-  store ptr %6, ptr %__cur.07.i.i.i22, align 8, !alias.scope !155, !noalias !158
-  store ptr null, ptr %__first.addr.06.i.i.i23, align 8, !alias.scope !158, !noalias !155
-  %incdec.ptr.i.i.i24 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__first.addr.06.i.i.i23, i64 1
-  %incdec.ptr1.i.i.i25 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__cur.07.i.i.i22, i64 1
-  %cmp.not.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i24, %0
-  br i1 %cmp.not.i.i.i26, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28, label %for.body.i.i.i21, !llvm.loop !45
+  %7 = load ptr, ptr %__first.addr.06.i.i.i22, align 8, !alias.scope !158, !noalias !155
+  store ptr %7, ptr %__cur.07.i.i.i21, align 8, !alias.scope !155, !noalias !158
+  store ptr null, ptr %__first.addr.06.i.i.i22, align 8, !alias.scope !158, !noalias !155
+  %incdec.ptr.i.i.i23 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__first.addr.06.i.i.i22, i64 1
+  %incdec.ptr1.i.i.i24 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %__cur.07.i.i.i21, i64 1
+  %cmp.not.i.i.i25 = icmp eq ptr %incdec.ptr.i.i.i23, %0
+  br i1 %cmp.not.i.i.i25, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, label %for.body.i.i.i20, !llvm.loop !45
 
-_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28: ; preds = %for.body.i.i.i21, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %__cur.0.lcssa.i.i.i27 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %incdec.ptr1.i.i.i25, %for.body.i.i.i21 ]
+_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27: ; preds = %for.body.i.i.i20, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
+  %__cur.0.lcssa.i.i.i26 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %incdec.ptr1.i.i.i24, %for.body.i.i.i20 ]
   %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE13_M_deallocateEPS3_m.exit, label %if.then.i29
+  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE13_M_deallocateEPS3_m.exit, label %if.then.i28
 
-if.then.i29:                                      ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28
+if.then.i28:                                      ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27
   tail call void @_ZdlPv(ptr noundef nonnull %1) #20
   br label %_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28, %if.then.i29
+_ZNSt12_Vector_baseIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, %if.then.i28
   %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::RefCountedPtr<grpc_call_credentials>, std::allocator<grpc_core::RefCountedPtr<grpc_call_credentials>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %cond.i17, ptr %this, align 8
-  store ptr %__cur.0.lcssa.i.i.i27, ptr %_M_finish.i.i, align 8
+  store ptr %__cur.0.lcssa.i.i.i26, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"class.grpc_core::RefCountedPtr", ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8
   ret void
@@ -4257,6 +4252,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

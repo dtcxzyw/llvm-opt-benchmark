@@ -2656,39 +2656,38 @@ _ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i: ; pr
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %cmp9.i.i = icmp ugt i64 %add.i.i, 144115188075855871
-  %or.cond.i.i = or i1 %cmp7.i.i, %cmp9.i.i
-  %cond.i.i = select i1 %or.cond.i.i, i64 144115188075855871, i64 %add.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 144115188075855871)
+  %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855871, i64 %4
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaI24napi_property_descriptorEE8allocateERS1_m.exit.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
-_ZNSt16allocator_traitsISaI24napi_property_descriptorEE8allocateERS1_m.exit.i.i: ; preds = %_ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i
+cond.true.i.i:                                    ; preds = %_ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 6
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #25
   br label %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaI24napi_property_descriptorEE8allocateERS1_m.exit.i.i, %_ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i
-  %cond.i10.i = phi ptr [ %call5.i.i.i.i, %_ZNSt16allocator_traitsISaI24napi_property_descriptorEE8allocateERS1_m.exit.i.i ], [ null, %_ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i ]
+_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i, %_ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i
+  %cond.i10.i = phi ptr [ %call5.i.i.i.i, %cond.true.i.i ], [ null, %_ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i ]
   %add.ptr.i = getelementptr inbounds %struct.napi_property_descriptor, ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(64) %__x, i64 64, i1 false)
-  %cmp.i.i.i11.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 0
-  br i1 %cmp.i.i.i11.i, label %if.then.i.i.i12.i, label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i
+  %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 0
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i
 
-if.then.i.i.i12.i:                                ; preds = %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i
+if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i, ptr align 8 %3, i64 %sub.ptr.sub.i.i.i, i1 false)
-  br label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i
+  br label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i
 
-_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i: ; preds = %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i, %if.then.i.i.i12.i
+_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i: ; preds = %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i, %if.then.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i, i64 %sub.ptr.sub.i.i.i
   %incdec.ptr.i = getelementptr inbounds %struct.napi_property_descriptor, ptr %add.ptr.i.i.i.i, i64 1
   %tobool.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, label %if.then.i20.i
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, label %if.then.i18.i
 
-if.then.i20.i:                                    ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i
+if.then.i18.i:                                    ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i
   tail call void @_ZdlPv(ptr noundef nonnull %3) #26
   br label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit
 
-_ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i, %if.then.i20.i
+_ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i, %if.then.i18.i
   store ptr %cond.i10.i, ptr %this, align 8
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr19.i = getelementptr inbounds %struct.napi_property_descriptor, ptr %cond.i10.i, i64 %cond.i.i

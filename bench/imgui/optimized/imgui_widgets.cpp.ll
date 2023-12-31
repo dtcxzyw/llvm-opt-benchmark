@@ -28602,8 +28602,7 @@ if.then252:                                       ; preds = %land.end243
   %HoveredWindow = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 30
   %66 = load ptr, ptr %HoveredWindow, align 8
   %cmp245.not = icmp eq ptr %2, %66
-  %brmerge.not = and i1 %cmp242, %cmp245.not
-  %button_flags.2 = select i1 %brmerge.not, i32 %spec.select, i32 %or249
+  %button_flags.2 = select i1 %cmp245.not, i32 %spec.select, i32 %or249
   %or253 = or i32 %button_flags.2, 16
   br label %if.end261
 

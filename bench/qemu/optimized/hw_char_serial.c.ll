@@ -1665,28 +1665,25 @@ if.then54:                                        ; preds = %if.end
   %shr27 = xor i8 %cond46.in, %1
   %xor = lshr i8 %shr27, 4
   %or61 = or i8 %xor, %cond46.in
-  %8 = and i8 %or61, 4
-  %tobool67.not = icmp ne i8 %8, 0
-  %9 = and i8 %1, 64
-  %tobool70.not = icmp eq i8 %9, 0
-  %or.cond = and i1 %tobool70.not, %tobool67.not
+  %8 = and i8 %1, 64
+  %tobool70.not = icmp eq i8 %8, 0
   %and74 = and i8 %or61, -5
-  %spec.select = select i1 %or.cond, i8 %and74, i8 %or61
+  %spec.select = select i1 %tobool70.not, i8 %and74, i8 %or61
   store i8 %spec.select, ptr %msr, align 2
   call fastcc void @serial_update_irq(ptr noundef nonnull %s)
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then54, %if.end
   %poll_msl78 = getelementptr inbounds %struct.SerialState, ptr %s, i64 0, i32 29
-  %10 = load i32, ptr %poll_msl78, align 8
-  %tobool79.not = icmp eq i32 %10, 0
+  %9 = load i32, ptr %poll_msl78, align 8
+  %tobool79.not = icmp eq i32 %9, 0
   br i1 %tobool79.not, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %if.end77
-  %11 = load ptr, ptr %modem_status_poll, align 16
+  %10 = load ptr, ptr %modem_status_poll, align 16
   %call82 = call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %add = add i64 %call82, 10000000
-  call void @timer_mod(ptr noundef %11, i64 noundef %add) #10
+  call void @timer_mod(ptr noundef %10, i64 noundef %add) #10
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then80, %if.end77, %if.then

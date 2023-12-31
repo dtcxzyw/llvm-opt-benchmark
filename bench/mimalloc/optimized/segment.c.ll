@@ -2915,10 +2915,9 @@ if.end7:                                          ; preds = %if.end
   %start.0.in = select i1 %conservative, i64 %add.i, i64 %sub.ptr.sub
   %start.0 = and i64 %start.0.in, -65536
   %end.0 = and i64 %end.0.in, -65536
-  %cmp15.not = icmp uge i64 %sub.ptr.sub, %mul.i
-  %cmp16 = icmp ult i64 %start.0, %mul.i
-  %or.cond38 = and i1 %cmp15.not, %cmp16
-  %start.1 = select i1 %or.cond38, i64 %mul.i, i64 %start.0
+  %cmp15.not.not = icmp ult i64 %sub.ptr.sub, %mul.i
+  %4 = tail call i64 @llvm.umax.i64(i64 %start.0, i64 %mul.i)
+  %start.1 = select i1 %cmp15.not.not, i64 %start.0, i64 %4
   %end.1 = tail call i64 @llvm.umin.i64(i64 %end.0, i64 %mul.i40)
   %add.ptr22 = getelementptr inbounds i8, ptr %segment, i64 %start.1
   store ptr %add.ptr22, ptr %start_p, align 8

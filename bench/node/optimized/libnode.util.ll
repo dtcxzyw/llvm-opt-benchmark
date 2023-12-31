@@ -725,7 +725,7 @@ for.cond1.preheader.lr.ph.i.lr.ph:                ; preds = %entry
   br label %for.cond1.preheader.lr.ph.i
 
 for.cond1.preheader.lr.ph.i:                      ; preds = %for.cond1.preheader.lr.ph.i.lr.ph, %for.inc
-  %0 = phi ptr [ null, %for.cond1.preheader.lr.ph.i.lr.ph ], [ %4, %for.inc ]
+  %0 = phi ptr [ null, %for.cond1.preheader.lr.ph.i.lr.ph ], [ %5, %for.inc ]
   %first.025 = phi ptr [ %in.coerce1, %for.cond1.preheader.lr.ph.i.lr.ph ], [ %add.ptr9, %for.inc ]
   %call5.i.i.i.i.i2124 = phi ptr [ null, %for.cond1.preheader.lr.ph.i.lr.ph ], [ %call5.i.i.i.i.i20, %for.inc ]
   br i1 %cmp2.not9.i, label %_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit, label %for.cond1.preheader.i
@@ -788,9 +788,8 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 576460752303423487
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 576460752303423487, i64 %add.i.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %4
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
@@ -829,13 +828,13 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_inse
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i, %_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit
-  %4 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i10, %if.then.i ], [ %0, %_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit ]
+  %5 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i10, %if.then.i ], [ %0, %_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit ]
   %call5.i.i.i.i.i20 = phi ptr [ %call5.i.i.i.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %call5.i.i.i.i.i2124, %if.then.i ], [ %call5.i.i.i.i.i2124, %_ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit ]
   %add.ptr9 = getelementptr inbounds i8, ptr %retval.0.i, i64 1
   %cmp = icmp ne ptr %retval.0.i, %add.ptr
   %cmp3 = icmp ne ptr %add.ptr9, %add.ptr
-  %5 = select i1 %cmp, i1 %cmp3, i1 false
-  br i1 %5, label %for.cond1.preheader.lr.ph.i, label %nrvo.skipdtor, !llvm.loop !14
+  %6 = select i1 %cmp, i1 %cmp3, i1 false
+  br i1 %6, label %for.cond1.preheader.lr.ph.i, label %nrvo.skipdtor, !llvm.loop !14
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %entry
   ret void
@@ -2841,6 +2840,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20

@@ -1109,47 +1109,46 @@ _ZNKSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE1
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %6
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIPN17grpc_event_engine12experimental11EventEngine7ClosureEEE8allocateERS5_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIPN17grpc_event_engine12experimental11EventEngine7ClosureEEE8allocateERS5_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #17
           to label %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN17grpc_event_engine12experimental11EventEngine7ClosureEEE8allocateERS5_m.exit.i.i.i, %_ZNKSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i8, %_ZNSt16allocator_traitsISaIPN17grpc_event_engine12experimental11EventEngine7ClosureEEE8allocateERS5_m.exit.i.i.i ]
+_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i8, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  %6 = load ptr, ptr %closure, align 8
-  store ptr %6, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
+  %7 = load ptr, ptr %closure, align 8
+  store ptr %7, ptr %add.ptr.i.i, align 8
+  %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
 
-if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
+  br label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
 
-_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
   %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i18.i.i
 
-if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
+if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %5) #18
   br label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
+_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
   store ptr %cond.i10.i.i, ptr %out, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %while.cond.backedge
 
-lpad.loopexit:                                    ; preds = %while.cond, %if.end.i, %if.end10.i, %if.end19.i, %_ZNSt16allocator_traitsISaIPN17grpc_event_engine12experimental11EventEngine7ClosureEEE8allocateERS5_m.exit.i.i.i
+lpad.loopexit:                                    ; preds = %while.cond, %if.end.i, %if.end10.i, %if.end19.i, %cond.true.i.i.i
   %lpad.loopexit20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -1165,10 +1164,10 @@ lpad:                                             ; preds = %lpad.loopexit.split
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #19
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #19
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
@@ -1197,23 +1196,23 @@ cond.false.i:                                     ; preds = %call.i.noexc12
           to label %call9.i.noexc unwind label %lpad.loopexit.split-lp
 
 call9.i.noexc:                                    ; preds = %cond.false.i
-  %9 = load i64, ptr %call9.i14, align 8
+  %10 = load i64, ptr %call9.i14, align 8
   br label %invoke.cont4
 
 cond.end.fold.split.i:                            ; preds = %cond.true.i
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %cond.end.fold.split.i, %call9.i.noexc, %if.end11.i.i.i, %cond.true.i
-  %retval.sroa.0.0.i = phi i64 [ %9, %call9.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i11, %cond.true.i ], [ -9223372036854775808, %cond.end.fold.split.i ], [ %add.i.i.i.i, %if.end11.i.i.i ]
+  %retval.sroa.0.0.i = phi i64 [ %10, %call9.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i11, %cond.true.i ], [ -9223372036854775808, %cond.end.fold.split.i ], [ %add.i.i.i.i, %if.end11.i.i.i ]
   store i64 %retval.sroa.0.0.i, ptr %new_min_deadline, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit16 unwind label %terminate.lpad.i15
 
 terminate.lpad.i15:                               ; preds = %invoke.cont4
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %invoke.cont4
@@ -1546,6 +1545,9 @@ declare i64 @llvm.smax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #15

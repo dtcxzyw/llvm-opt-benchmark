@@ -3378,17 +3378,16 @@ if.else.i39:                                      ; preds = %if.end.i
   unreachable
 
 for.body.i37:                                     ; preds = %for.cond.preheader.i, %for.body.i37
-  %11 = phi i8 [ %13, %for.body.i37 ], [ %10, %for.cond.preheader.i ]
+  %11 = phi i8 [ %14, %for.body.i37 ], [ %10, %for.cond.preheader.i ]
   %found.010.i = phi i8 [ %found.1.i, %for.body.i37 ], [ 0, %for.cond.preheader.i ]
-  %cmp.not.i = icmp ule i8 %11, %conv7
-  %cmp14.i = icmp ugt i8 %11, %found.010.i
-  %or.cond.i = select i1 %cmp.not.i, i1 %cmp14.i, i1 false
-  %found.1.i = select i1 %or.cond.i, i8 %11, i8 %found.010.i
-  %12 = add i8 %11, 1
-  %idxprom6.i = zext i8 %12 to i64
+  %cmp.not.not.i = icmp ugt i8 %11, %conv7
+  %12 = tail call i8 @llvm.umax.i8(i8 %11, i8 %found.010.i)
+  %found.1.i = select i1 %cmp.not.not.i, i8 %found.010.i, i8 %12
+  %13 = add i8 %11, 1
+  %idxprom6.i = zext i8 %13 to i64
   %arrayidx7.i = getelementptr i8, ptr %7, i64 %idxprom6.i
-  %13 = load i8, ptr %arrayidx7.i, align 1
-  %tobool8.not.i = icmp eq i8 %13, 0
+  %14 = load i8, ptr %arrayidx7.i, align 1
+  %tobool8.not.i = icmp eq i8 %14, 0
   br i1 %tobool8.not.i, label %pci_find_capability_at_offset.exit, label %for.body.i37, !llvm.loop !24
 
 pci_find_capability_at_offset.exit:               ; preds = %for.body.i37
@@ -3404,13 +3403,13 @@ if.then11:                                        ; preds = %pci_find_capability
   %call.i.i1.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i) #23
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
   %bus_num.i.i = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i.i.i, i64 0, i32 1
-  %14 = load ptr, ptr %bus_num.i.i, align 8
-  %call1.i2.i = tail call i32 %14(ptr noundef %call.i1.i.i) #23
+  %15 = load ptr, ptr %bus_num.i.i, align 8
+  %call1.i2.i = tail call i32 %15(ptr noundef %call.i1.i.i) #23
   %devfn = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 8
-  %15 = load i32, ptr %devfn, align 16
-  %shr = lshr i32 %15, 3
+  %16 = load i32, ptr %devfn, align 16
+  %shr = lshr i32 %16, 3
   %and = and i32 %shr, 31
-  %and15 = and i32 %15, 7
+  %and15 = and i32 %16, 7
   %conv16 = zext i8 %cap_id to i32
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2474, ptr noundef nonnull @__func__.pci_add_capability, ptr noundef nonnull @.str.41, ptr noundef %call12, i32 noundef %call1.i2.i, i32 noundef %and, i32 noundef %and15, i32 noundef %conv16, i32 noundef %conv, i32 noundef %conv9, i32 noundef %i.048) #23
   br label %return
@@ -3424,37 +3423,37 @@ if.end19:                                         ; preds = %for.inc, %pci_find_
   %conv21.pre-phi = phi i32 [ %.pre, %pci_find_space.exit.if.end19_crit_edge ], [ %conv, %if.else3 ], [ %conv, %for.inc ]
   %offset.addr.0 = phi i8 [ %conv5.i, %pci_find_space.exit.if.end19_crit_edge ], [ %offset, %if.else3 ], [ %offset, %for.inc ]
   %config20 = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 3
-  %16 = load ptr, ptr %config20, align 8
-  %idx.ext = zext i8 %offset.addr.0 to i64
-  %add.ptr = getelementptr i8, ptr %16, i64 %idx.ext
-  store i8 %cap_id, ptr %add.ptr, align 1
   %17 = load ptr, ptr %config20, align 8
-  %arrayidx23 = getelementptr i8, ptr %17, i64 52
-  %18 = load i8, ptr %arrayidx23, align 1
+  %idx.ext = zext i8 %offset.addr.0 to i64
+  %add.ptr = getelementptr i8, ptr %17, i64 %idx.ext
+  store i8 %cap_id, ptr %add.ptr, align 1
+  %18 = load ptr, ptr %config20, align 8
+  %arrayidx23 = getelementptr i8, ptr %18, i64 52
+  %19 = load i8, ptr %arrayidx23, align 1
   %arrayidx24 = getelementptr i8, ptr %add.ptr, i64 1
-  store i8 %18, ptr %arrayidx24, align 1
-  %19 = load ptr, ptr %config20, align 8
-  %arrayidx26 = getelementptr i8, ptr %19, i64 52
-  store i8 %offset.addr.0, ptr %arrayidx26, align 1
+  store i8 %19, ptr %arrayidx24, align 1
   %20 = load ptr, ptr %config20, align 8
-  %arrayidx28 = getelementptr i8, ptr %20, i64 6
-  %21 = load i8, ptr %arrayidx28, align 1
-  %22 = or i8 %21, 16
-  store i8 %22, ptr %arrayidx28, align 1
+  %arrayidx26 = getelementptr i8, ptr %20, i64 52
+  store i8 %offset.addr.0, ptr %arrayidx26, align 1
+  %21 = load ptr, ptr %config20, align 8
+  %arrayidx28 = getelementptr i8, ptr %21, i64 6
+  %22 = load i8, ptr %arrayidx28, align 1
+  %23 = or i8 %22, 16
+  store i8 %23, ptr %arrayidx28, align 1
   %used = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 7
-  %23 = load ptr, ptr %used, align 8
-  %add.ptr33 = getelementptr i8, ptr %23, i64 %idx.ext
+  %24 = load ptr, ptr %used, align 8
+  %add.ptr33 = getelementptr i8, ptr %24, i64 %idx.ext
   %conv34 = zext i8 %size to i64
   %sub = add nuw nsw i64 %conv34, 3
   %div33 = and i64 %sub, 508
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr33, i8 -1, i64 %div33, i1 false)
   %wmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 5
-  %24 = load ptr, ptr %wmask, align 8
-  %add.ptr39 = getelementptr i8, ptr %24, i64 %idx.ext
+  %25 = load ptr, ptr %wmask, align 8
+  %add.ptr39 = getelementptr i8, ptr %25, i64 %idx.ext
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr39, i8 0, i64 %conv34, i1 false)
   %cmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 4
-  %25 = load ptr, ptr %cmask, align 16
-  %add.ptr43 = getelementptr i8, ptr %25, i64 %idx.ext
+  %26 = load ptr, ptr %cmask, align 16
+  %add.ptr43 = getelementptr i8, ptr %26, i64 %idx.ext
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr43, i8 -1, i64 %conv34, i1 false)
   br label %return
 
@@ -3468,7 +3467,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pci_del_capability(ptr nocapture noundef readonly %pdev, i8 noundef zeroext %cap_id, i8 noundef zeroext %size) local_unnamed_addr #11 {
 entry:
   %0 = getelementptr i8, ptr %pdev, i64 168
@@ -3513,29 +3512,29 @@ if.end.loopexit:                                  ; preds = %for.body.i
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i.preheader, %if.end.loopexit
-  %conv.pre-phi = phi i64 [ %idxprom6.i, %if.end.loopexit ], [ %idxprom6.i23, %for.body.i.preheader ]
+  %.pre-phi = phi i64 [ %idxprom6.i, %if.end.loopexit ], [ %idxprom6.i23, %for.body.i.preheader ]
   %prev.03.i.lcssa = phi i64 [ %8, %if.end.loopexit ], [ 52, %for.body.i.preheader ]
-  %9 = getelementptr i8, ptr %pdev.val, i64 %conv.pre-phi
+  %9 = getelementptr i8, ptr %pdev.val, i64 %.pre-phi
   %arrayidx = getelementptr i8, ptr %9, i64 1
   %10 = load i8, ptr %arrayidx, align 1
   %arrayidx3 = getelementptr i8, ptr %pdev.val, i64 %prev.03.i.lcssa
   store i8 %10, ptr %arrayidx3, align 1
   %wmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 5
   %11 = load ptr, ptr %wmask, align 8
-  %add.ptr = getelementptr i8, ptr %11, i64 %conv.pre-phi
+  %add.ptr = getelementptr i8, ptr %11, i64 %.pre-phi
   %conv5 = zext i8 %size to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 -1, i64 %conv5, i1 false)
   %w1cmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 6
   %12 = load ptr, ptr %w1cmask, align 16
-  %add.ptr8 = getelementptr i8, ptr %12, i64 %conv.pre-phi
+  %add.ptr8 = getelementptr i8, ptr %12, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr8, i8 0, i64 %conv5, i1 false)
   %cmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 4
   %13 = load ptr, ptr %cmask, align 16
-  %add.ptr12 = getelementptr i8, ptr %13, i64 %conv.pre-phi
+  %add.ptr12 = getelementptr i8, ptr %13, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr12, i8 0, i64 %conv5, i1 false)
   %used = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 7
   %14 = load ptr, ptr %used, align 8
-  %add.ptr16 = getelementptr i8, ptr %14, i64 %conv.pre-phi
+  %add.ptr16 = getelementptr i8, ptr %14, i64 %.pre-phi
   %sub = add nuw nsw i64 %conv5, 3
   %div17 = and i64 %sub, 508
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr16, i8 0, i64 %div17, i1 false)
@@ -6249,6 +6248,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #19
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6262,7 +6264,7 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

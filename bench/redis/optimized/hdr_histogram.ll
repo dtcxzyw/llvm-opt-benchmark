@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [13 x i8] c"%s,%s,%s,%s\0A\00", align 1
 @.str.10 = private unnamed_addr constant [22 x i8] c"%12s %12s %12s %12s\0A\0A\00", align 1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @counts_index_for(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 6
@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @hdr_value_at_index(ptr nocapture noundef readonly %h, i32 noundef %index) local_unnamed_addr #1 {
+define dso_local i64 @hdr_value_at_index(ptr nocapture noundef readonly %h, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %sub_bucket_half_count_magnitude = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 4
   %0 = load i32, ptr %sub_bucket_half_count_magnitude, align 8
@@ -74,7 +74,7 @@ entry:
   ret i64 %shl.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @hdr_size_of_equivalent_value_range(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 6
@@ -103,7 +103,7 @@ entry:
   ret i64 %shl
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @hdr_next_non_equivalent_value(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 6
@@ -132,7 +132,7 @@ entry:
   ret i64 %add
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @hdr_median_equivalent_value(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 6
@@ -162,8 +162,8 @@ entry:
   ret i64 %add
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @hdr_reset_internal_counters(ptr nocapture noundef %h) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local void @hdr_reset_internal_counters(ptr nocapture noundef %h) local_unnamed_addr #1 {
 entry:
   %counts_len = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 13
   %0 = load i32, ptr %counts_len, align 8
@@ -294,7 +294,7 @@ if.end18:                                         ; preds = %if.end12, %if.end12
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef %cfg) local_unnamed_addr #3 {
+define dso_local i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef %cfg) local_unnamed_addr #2 {
 entry:
   %cmp = icmp slt i64 %lowest_discernible_value, 1
   %0 = add i32 %significant_figures, -6
@@ -325,7 +325,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
 power.exit:                                       ; preds = %while.body.i
   %mul10 = mul i64 %result.05.i, 20
   %conv11 = sitofp i64 %mul10 to double
-  %call12 = tail call double @log(double noundef %conv11) #24
+  %call12 = tail call double @log(double noundef %conv11) #21
   %div = fdiv double %call12, 0x3FE62E42FEFA39EF
   %2 = tail call double @llvm.ceil.f64(double %div)
   %conv14 = fptosi double %2 to i32
@@ -334,7 +334,7 @@ power.exit:                                       ; preds = %while.body.i
   %sub_bucket_half_count_magnitude = getelementptr inbounds %struct.hdr_histogram_bucket_config, ptr %cfg, i64 0, i32 4
   store i32 %sub, ptr %sub_bucket_half_count_magnitude, align 8
   %conv17 = sitofp i64 %lowest_discernible_value to double
-  %call18 = tail call double @log(double noundef %conv17) #24
+  %call18 = tail call double @log(double noundef %conv17) #21
   %div20 = fdiv double %call18, 0x3FE62E42FEFA39EF
   %cmp21 = fcmp ogt double %div20, 0x41DFFFFFFFC00000
   br i1 %cmp21, label %return, label %if.end24
@@ -346,7 +346,7 @@ if.end24:                                         ; preds = %power.exit
   store i64 %conv26, ptr %unit_magnitude27, align 8
   %3 = load i32, ptr %sub_bucket_half_count_magnitude, align 8
   %add = add nsw i32 %3, 1
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %add) #24
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %add) #21
   %conv31 = fptosi double %ldexp to i32
   %sub_bucket_count = getelementptr inbounds %struct.hdr_histogram_bucket_config, ptr %cfg, i64 0, i32 7
   store i32 %conv31, ptr %sub_bucket_count, align 8
@@ -403,13 +403,13 @@ return:                                           ; preds = %if.end24, %power.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #4
+declare double @log(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #5
+declare double @llvm.ceil.f64(double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_init_preallocated(ptr nocapture noundef writeonly %h, ptr nocapture noundef readonly %cfg) local_unnamed_addr #6 {
+define dso_local void @hdr_init_preallocated(ptr nocapture noundef writeonly %h, ptr nocapture noundef readonly %cfg) local_unnamed_addr #5 {
 entry:
   %0 = load i64, ptr %cfg, align 8
   store i64 %0, ptr %h, align 8
@@ -465,7 +465,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hdr_init(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #7 {
+define dso_local i32 @hdr_init(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 {
 entry:
   %cfg = alloca %struct.hdr_histogram_bucket_config, align 16
   %call = call i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef nonnull %cfg), !range !6
@@ -476,17 +476,17 @@ if.end:                                           ; preds = %entry
   %counts_len = getelementptr inbounds %struct.hdr_histogram_bucket_config, ptr %cfg, i64 0, i32 9
   %0 = load i32, ptr %counts_len, align 8
   %conv = sext i32 %0 to i64
-  %call1 = tail call ptr @zcalloc_num(i64 noundef %conv, i64 noundef 8) #24
+  %call1 = tail call ptr @zcalloc_num(i64 noundef %conv, i64 noundef 8) #21
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call ptr @zcalloc_num(i64 noundef 1, i64 noundef 104) #24
+  %call5 = tail call ptr @zcalloc_num(i64 noundef 1, i64 noundef 104) #21
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
-  tail call void @zfree(ptr noundef nonnull %call1) #24
+  tail call void @zfree(ptr noundef nonnull %call1) #21
   br label %return
 
 if.end8:                                          ; preds = %if.end4
@@ -531,12 +531,12 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i32 %retval.0
 }
 
-declare ptr @zcalloc_num(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @zcalloc_num(i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare void @zfree(ptr noundef) local_unnamed_addr #8
+declare void @zfree(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hdr_close(ptr noundef %h) local_unnamed_addr #7 {
+define dso_local void @hdr_close(ptr noundef %h) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %h, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -544,8 +544,8 @@ entry:
 if.then:                                          ; preds = %entry
   %counts = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 15
   %0 = load ptr, ptr %counts, align 8
-  tail call void @zfree(ptr noundef %0) #24
-  tail call void @zfree(ptr noundef nonnull %h) #24
+  tail call void @zfree(ptr noundef %0) #21
+  tail call void @zfree(ptr noundef nonnull %h) #21
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -553,14 +553,14 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hdr_alloc(i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #7 {
+define dso_local i32 @hdr_alloc(i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 {
 entry:
   %call = tail call i32 @hdr_init(i64 noundef 1, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef %result), !range !6
   ret i32 %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @hdr_reset(ptr nocapture noundef %h) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local void @hdr_reset(ptr nocapture noundef %h) local_unnamed_addr #8 {
 entry:
   %total_count = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 14
   store i64 0, ptr %total_count, align 8
@@ -579,10 +579,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @hdr_get_memory_size(ptr nocapture noundef readonly %h) local_unnamed_addr #1 {
+define dso_local i64 @hdr_get_memory_size(ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
 entry:
   %counts_len = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 13
   %0 = load i32, ptr %counts_len, align 8
@@ -592,8 +592,8 @@ entry:
   ret i64 %add
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @hdr_record_value(ptr nocapture noundef %h, i64 noundef %value) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local zeroext i1 @hdr_record_value(ptr nocapture noundef %h, i64 noundef %value) local_unnamed_addr #10 {
 entry:
   %cmp.i = icmp slt i64 %value, 0
   br i1 %cmp.i, label %hdr_record_values.exit, label %if.end.i
@@ -661,14 +661,13 @@ counts_inc_normalised.exit.i:                     ; preds = %if.end.i.i.i, %if.e
   store i64 %add1.i.i, ptr %total_count.i.i, align 8
   %min_value.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 9
   %12 = load i64, ptr %min_value.i.i, align 8
-  %cmp.i.i = icmp sgt i64 %12, %value
-  %cmp1.i.i = icmp ne i64 %value, 0
-  %or.cond.i.i = and i1 %cmp1.i.i, %cmp.i.i
-  %value..i.i = select i1 %or.cond.i.i, i64 %value, i64 %12
+  %cmp1.not.i.i = icmp eq i64 %value, 0
+  %13 = tail call i64 @llvm.smin.i64(i64 %12, i64 %value)
+  %value..i.i = select i1 %cmp1.not.i.i, i64 %12, i64 %13
   store i64 %value..i.i, ptr %min_value.i.i, align 8
   %max_value.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 10
-  %13 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %13, i64 %value)
+  %14 = load i64, ptr %max_value.i.i, align 8
+  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %14, i64 %value)
   store i64 %cond9.i.i, ptr %max_value.i.i, align 8
   br label %hdr_record_values.exit
 
@@ -677,8 +676,8 @@ hdr_record_values.exit:                           ; preds = %entry, %if.end.i, %
   ret i1 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @hdr_record_values(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local zeroext i1 @hdr_record_values(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count) local_unnamed_addr #10 {
 entry:
   %cmp = icmp slt i64 %value, 0
   br i1 %cmp, label %return, label %if.end
@@ -746,14 +745,13 @@ counts_inc_normalised.exit:                       ; preds = %if.end4, %if.end.i.
   store i64 %add1.i, ptr %total_count.i, align 8
   %min_value.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 9
   %12 = load i64, ptr %min_value.i, align 8
-  %cmp.i = icmp sgt i64 %12, %value
-  %cmp1.i = icmp ne i64 %value, 0
-  %or.cond.i = and i1 %cmp1.i, %cmp.i
-  %value..i = select i1 %or.cond.i, i64 %value, i64 %12
+  %cmp1.not.i = icmp eq i64 %value, 0
+  %13 = tail call i64 @llvm.smin.i64(i64 %12, i64 %value)
+  %value..i = select i1 %cmp1.not.i, i64 %12, i64 %13
   store i64 %value..i, ptr %min_value.i, align 8
   %max_value.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 10
-  %13 = load i64, ptr %max_value.i, align 8
-  %cond9.i = tail call i64 @llvm.smax.i64(i64 %13, i64 %value)
+  %14 = load i64, ptr %max_value.i, align 8
+  %cond9.i = tail call i64 @llvm.smax.i64(i64 %14, i64 %value)
   store i64 %cond9.i, ptr %max_value.i, align 8
   br label %return
 
@@ -762,8 +760,8 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @hdr_record_value_atomic(ptr nocapture noundef %h, i64 noundef %value) local_unnamed_addr #12 {
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local zeroext i1 @hdr_record_value_atomic(ptr nocapture noundef %h, i64 noundef %value) local_unnamed_addr #11 {
 entry:
   %cmp.i = icmp slt i64 %value, 0
   br i1 %cmp.i, label %hdr_record_values_atomic.exit, label %if.end.i
@@ -862,8 +860,8 @@ hdr_record_values_atomic.exit:                    ; preds = %do.body3.i.i, %do.c
   ret i1 %retval.0.i
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @hdr_record_values_atomic(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count) local_unnamed_addr #12 {
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local zeroext i1 @hdr_record_values_atomic(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count) local_unnamed_addr #11 {
 entry:
   %cmp = icmp slt i64 %value, 0
   br i1 %cmp, label %return, label %if.end
@@ -962,15 +960,15 @@ return:                                           ; preds = %do.cond8.i, %do.bod
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @hdr_record_corrected_value(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %expected_interval) local_unnamed_addr #13 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local zeroext i1 @hdr_record_corrected_value(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %expected_interval) local_unnamed_addr #12 {
 entry:
   %call = tail call zeroext i1 @hdr_record_corrected_values(ptr noundef %h, i64 noundef %value, i64 noundef 1, i64 noundef %expected_interval)
   ret i1 %call
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @hdr_record_corrected_values(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count, i64 noundef %expected_interval) local_unnamed_addr #13 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local zeroext i1 @hdr_record_corrected_values(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count, i64 noundef %expected_interval) local_unnamed_addr #12 {
 entry:
   %cmp.i = icmp slt i64 %value, 0
   br i1 %cmp.i, label %return, label %if.end.i
@@ -1038,101 +1036,100 @@ if.end:                                           ; preds = %if.end.i.i.i, %if.e
   store i64 %add1.i.i, ptr %total_count.i.i, align 8
   %min_value.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 9
   %12 = load i64, ptr %min_value.i.i, align 8
-  %cmp.i.i = icmp sgt i64 %12, %value
-  %cmp1.i.i = icmp ne i64 %value, 0
-  %or.cond.i.i = and i1 %cmp1.i.i, %cmp.i.i
-  %value..i.i = select i1 %or.cond.i.i, i64 %value, i64 %12
+  %cmp1.not.i.i = icmp eq i64 %value, 0
+  %13 = tail call i64 @llvm.smin.i64(i64 %12, i64 %value)
+  %value..i.i = select i1 %cmp1.not.i.i, i64 %12, i64 %13
   store i64 %value..i.i, ptr %min_value.i.i, align 8
   %max_value.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 10
-  %13 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %13, i64 %value)
+  %14 = load i64, ptr %max_value.i.i, align 8
+  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %14, i64 %value)
   store i64 %cond9.i.i, ptr %max_value.i.i, align 8
   %cmp = icmp slt i64 %expected_interval, 1
   %cmp1.not = icmp sle i64 %value, %expected_interval
-  %or.cond.not69 = or i1 %cmp, %cmp1.not
-  %missing_value.063 = sub nsw i64 %value, %expected_interval
-  %cmp4.not64 = icmp slt i64 %missing_value.063, %expected_interval
-  %or.cond68 = select i1 %or.cond.not69, i1 true, i1 %cmp4.not64
-  br i1 %or.cond68, label %return, label %for.body
+  %or.cond.not67 = or i1 %cmp, %cmp1.not
+  %missing_value.061 = sub nsw i64 %value, %expected_interval
+  %cmp4.not62 = icmp slt i64 %missing_value.061, %expected_interval
+  %or.cond66 = select i1 %or.cond.not67, i1 true, i1 %cmp4.not62
+  br i1 %or.cond66, label %return, label %for.body
 
-for.body:                                         ; preds = %if.end, %hdr_record_values.exit59
-  %missing_value.065 = phi i64 [ %missing_value.0, %hdr_record_values.exit59 ], [ %missing_value.063, %if.end ]
-  %14 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
-  %or.i.i.i14 = or i64 %14, %missing_value.065
-  %15 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i14, i1 true), !range !5
-  %cast.i.i.i.i15 = trunc i64 %15 to i32
-  %16 = load i32, ptr %unit_magnitude.i.i.i, align 8
-  %17 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
-  %18 = add i32 %17, %16
-  %19 = add i32 %18, %cast.i.i.i.i15
-  %reass.sub.i.i18 = add i32 %16, 63
-  %add.i.i.i19 = sub i32 %reass.sub.i.i18, %19
+for.body:                                         ; preds = %if.end, %hdr_record_values.exit57
+  %missing_value.063 = phi i64 [ %missing_value.0, %hdr_record_values.exit57 ], [ %missing_value.061, %if.end ]
+  %15 = load i64, ptr %sub_bucket_mask.i.i.i, align 8
+  %or.i.i.i14 = or i64 %15, %missing_value.063
+  %16 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i14, i1 true), !range !5
+  %cast.i.i.i.i15 = trunc i64 %16 to i32
+  %17 = load i32, ptr %unit_magnitude.i.i.i, align 8
+  %18 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
+  %19 = add i32 %18, %17
+  %20 = add i32 %19, %cast.i.i.i.i15
+  %reass.sub.i.i18 = add i32 %17, 63
+  %add.i.i.i19 = sub i32 %reass.sub.i.i18, %20
   %sh_prom.i.i.i20 = zext nneg i32 %add.i.i.i19 to i64
-  %shr.i.i.i21 = lshr i64 %missing_value.065, %sh_prom.i.i.i20
+  %shr.i.i.i21 = lshr i64 %missing_value.063, %sh_prom.i.i.i20
   %conv.i.i.i22 = trunc i64 %shr.i.i.i21 to i32
   %h.val5.i.i23 = load i32, ptr %6, align 4
-  %add.i6.i.i24 = sub i32 64, %19
-  %shl.i.i.i25 = shl i32 %add.i6.i.i24, %17
+  %add.i6.i.i24 = sub i32 64, %20
+  %shl.i.i.i25 = shl i32 %add.i6.i.i24, %18
   %sub.i.i.i26 = sub i32 %shl.i.i.i25, %h.val5.i.i23
   %add1.i.i.i27 = add i32 %sub.i.i.i26, %conv.i.i.i22
   %cmp1.i28 = icmp slt i32 %add1.i.i.i27, 0
   br i1 %cmp1.i28, label %return, label %lor.lhs.false.i29
 
 lor.lhs.false.i29:                                ; preds = %for.body
-  %20 = load i32, ptr %counts_len.i, align 8
-  %cmp2.not.i31 = icmp sgt i32 %20, %add1.i.i.i27
+  %21 = load i32, ptr %counts_len.i, align 8
+  %cmp2.not.i31 = icmp sgt i32 %21, %add1.i.i.i27
   br i1 %cmp2.not.i31, label %if.end4.i33, label %return
 
 if.end4.i33:                                      ; preds = %lor.lhs.false.i29
-  %21 = load i32, ptr %normalizing_index_offset.i.i.i, align 8
-  %cmp.i.i.i35 = icmp eq i32 %21, 0
-  br i1 %cmp.i.i.i35, label %hdr_record_values.exit59, label %if.end.i.i.i36
+  %22 = load i32, ptr %normalizing_index_offset.i.i.i, align 8
+  %cmp.i.i.i35 = icmp eq i32 %22, 0
+  br i1 %cmp.i.i.i35, label %hdr_record_values.exit57, label %if.end.i.i.i36
 
 if.end.i.i.i36:                                   ; preds = %if.end4.i33
-  %sub.i.i8.i37 = sub nsw i32 %add1.i.i.i27, %21
+  %sub.i.i8.i37 = sub nsw i32 %add1.i.i.i27, %22
   %cmp2.i.i.i38 = icmp slt i32 %sub.i.i8.i37, 0
-  %cmp5.not.i.i.i39 = icmp slt i32 %sub.i.i8.i37, %20
-  %sub8.i.i.i40 = sub nsw i32 0, %20
+  %cmp5.not.i.i.i39 = icmp slt i32 %sub.i.i8.i37, %21
+  %sub8.i.i.i40 = sub nsw i32 0, %21
   %spec.select.i.i.i41 = select i1 %cmp5.not.i.i.i39, i32 0, i32 %sub8.i.i.i40
-  %adjustment.0.i.i.i42 = select i1 %cmp2.i.i.i38, i32 %20, i32 %spec.select.i.i.i41
+  %adjustment.0.i.i.i42 = select i1 %cmp2.i.i.i38, i32 %21, i32 %spec.select.i.i.i41
   %add.i.i9.i43 = add nsw i32 %adjustment.0.i.i.i42, %sub.i.i8.i37
-  br label %hdr_record_values.exit59
+  br label %hdr_record_values.exit57
 
-hdr_record_values.exit59:                         ; preds = %if.end4.i33, %if.end.i.i.i36
+hdr_record_values.exit57:                         ; preds = %if.end4.i33, %if.end.i.i.i36
   %retval.0.i.i.i45 = phi i32 [ %add.i.i9.i43, %if.end.i.i.i36 ], [ %add1.i.i.i27, %if.end4.i33 ]
-  %22 = load ptr, ptr %counts.i.i, align 8
+  %23 = load ptr, ptr %counts.i.i, align 8
   %idxprom.i.i47 = sext i32 %retval.0.i.i.i45 to i64
-  %arrayidx.i.i48 = getelementptr inbounds i64, ptr %22, i64 %idxprom.i.i47
-  %23 = load i64, ptr %arrayidx.i.i48, align 8
-  %add.i.i49 = add nsw i64 %23, %count
+  %arrayidx.i.i48 = getelementptr inbounds i64, ptr %23, i64 %idxprom.i.i47
+  %24 = load i64, ptr %arrayidx.i.i48, align 8
+  %add.i.i49 = add nsw i64 %24, %count
   store i64 %add.i.i49, ptr %arrayidx.i.i48, align 8
-  %24 = load i64, ptr %total_count.i.i, align 8
-  %add1.i.i51 = add nsw i64 %24, %count
+  %25 = load i64, ptr %total_count.i.i, align 8
+  %add1.i.i51 = add nsw i64 %25, %count
   store i64 %add1.i.i51, ptr %total_count.i.i, align 8
-  %25 = load i64, ptr %min_value.i.i, align 8
-  %value..i.i56 = tail call i64 @llvm.smin.i64(i64 %25, i64 %missing_value.065)
-  store i64 %value..i.i56, ptr %min_value.i.i, align 8
-  %26 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i58 = tail call i64 @llvm.smax.i64(i64 %26, i64 %missing_value.065)
-  store i64 %cond9.i.i58, ptr %max_value.i.i, align 8
-  %missing_value.0 = sub nsw i64 %missing_value.065, %expected_interval
+  %26 = load i64, ptr %min_value.i.i, align 8
+  %27 = tail call i64 @llvm.smin.i64(i64 %26, i64 %missing_value.063)
+  store i64 %27, ptr %min_value.i.i, align 8
+  %28 = load i64, ptr %max_value.i.i, align 8
+  %cond9.i.i56 = tail call i64 @llvm.smax.i64(i64 %28, i64 %missing_value.063)
+  store i64 %cond9.i.i56, ptr %max_value.i.i, align 8
+  %missing_value.0 = sub nsw i64 %missing_value.063, %expected_interval
   %cmp4.not = icmp slt i64 %missing_value.0, %expected_interval
   br i1 %cmp4.not, label %return, label %for.body
 
-return:                                           ; preds = %hdr_record_values.exit59, %lor.lhs.false.i29, %for.body, %if.end.i, %lor.lhs.false.i, %entry, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %entry ], [ false, %lor.lhs.false.i ], [ false, %if.end.i ], [ true, %hdr_record_values.exit59 ], [ false, %lor.lhs.false.i29 ], [ false, %for.body ]
+return:                                           ; preds = %hdr_record_values.exit57, %lor.lhs.false.i29, %for.body, %if.end.i, %lor.lhs.false.i, %entry, %if.end
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %entry ], [ false, %lor.lhs.false.i ], [ false, %if.end.i ], [ true, %hdr_record_values.exit57 ], [ false, %lor.lhs.false.i29 ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @hdr_record_corrected_value_atomic(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %expected_interval) local_unnamed_addr #12 {
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local zeroext i1 @hdr_record_corrected_value_atomic(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %expected_interval) local_unnamed_addr #11 {
 entry:
   %call = tail call zeroext i1 @hdr_record_corrected_values_atomic(ptr noundef %h, i64 noundef %value, i64 noundef 1, i64 noundef %expected_interval)
   ret i1 %call
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @hdr_record_corrected_values_atomic(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count, i64 noundef %expected_interval) local_unnamed_addr #12 {
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local zeroext i1 @hdr_record_corrected_values_atomic(ptr nocapture noundef %h, i64 noundef %value, i64 noundef %count, i64 noundef %expected_interval) local_unnamed_addr #11 {
 entry:
   %cmp.i = icmp slt i64 %value, 0
   br i1 %cmp.i, label %return, label %if.end.i
@@ -1321,7 +1318,7 @@ return:                                           ; preds = %hdr_record_values_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hdr_add(ptr nocapture noundef %h, ptr noundef %from) local_unnamed_addr #7 {
+define dso_local i64 @hdr_add(ptr nocapture noundef %h, ptr noundef %from) local_unnamed_addr #6 {
 entry:
   %iter = alloca %struct.hdr_iter, align 8
   store ptr %from, ptr %iter, align 8
@@ -1337,7 +1334,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_iterated_from.i.i, i8 0, i64 24, i1 false)
   store ptr @recorded_iter_next, ptr %_next_fp.i.i, align 8
-  %call.i6 = call zeroext i1 @recorded_iter_next(ptr noundef nonnull %iter) #24
+  %call.i6 = call zeroext i1 @recorded_iter_next(ptr noundef nonnull %iter) #21
   br i1 %call.i6, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -1355,7 +1352,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
-  %dropped.07 = phi i64 [ 0, %while.body.lr.ph ], [ %18, %while.cond ]
+  %dropped.07 = phi i64 [ 0, %while.body.lr.ph ], [ %19, %while.cond ]
   %2 = load i64, ptr %value1, align 8
   %3 = load i64, ptr %count.i.i, align 8
   %cmp.i = icmp slt i64 %2, 0
@@ -1419,29 +1416,28 @@ hdr_record_values.exit.thread:                    ; preds = %while.body, %lor.lh
   %add1.i.i = add nsw i64 %15, %3
   store i64 %add1.i.i, ptr %total_count.i.i3, align 8
   %16 = load i64, ptr %min_value.i.i, align 8
-  %cmp.i.i = icmp sgt i64 %16, %2
-  %cmp1.i.i = icmp ne i64 %2, 0
-  %or.cond.i.i = and i1 %cmp1.i.i, %cmp.i.i
-  %value..i.i = select i1 %or.cond.i.i, i64 %2, i64 %16
+  %cmp1.not.i.i = icmp eq i64 %2, 0
+  %17 = call i64 @llvm.smin.i64(i64 %16, i64 %2)
+  %value..i.i = select i1 %cmp1.not.i.i, i64 %16, i64 %17
   store i64 %value..i.i, ptr %min_value.i.i, align 8
-  %17 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i = call i64 @llvm.smax.i64(i64 %17, i64 %2)
+  %18 = load i64, ptr %max_value.i.i, align 8
+  %cond9.i.i = call i64 @llvm.smax.i64(i64 %18, i64 %2)
   store i64 %cond9.i.i, ptr %max_value.i.i, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %hdr_record_values.exit.thread, %12
-  %18 = phi i64 [ %dropped.07, %12 ], [ %add5, %hdr_record_values.exit.thread ]
-  %19 = load ptr, ptr %_next_fp.i.i, align 8
-  %call.i = call zeroext i1 %19(ptr noundef nonnull %iter) #24
+  %19 = phi i64 [ %dropped.07, %12 ], [ %add5, %hdr_record_values.exit.thread ]
+  %20 = load ptr, ptr %_next_fp.i.i, align 8
+  %call.i = call zeroext i1 %20(ptr noundef nonnull %iter) #21
   br i1 %call.i, label %while.body, label %while.end
 
 while.end:                                        ; preds = %while.cond, %entry
-  %dropped.0.lcssa = phi i64 [ 0, %entry ], [ %18, %while.cond ]
+  %dropped.0.lcssa = phi i64 [ 0, %entry ], [ %19, %while.cond ]
   ret i64 %dropped.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_recorded_init(ptr nocapture noundef writeonly %iter, ptr noundef %h) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @hdr_iter_recorded_init(ptr nocapture noundef writeonly %iter, ptr noundef %h) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 1
@@ -1462,16 +1458,16 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @hdr_iter_next(ptr noundef %iter) local_unnamed_addr #7 {
+define dso_local zeroext i1 @hdr_iter_next(ptr noundef %iter) local_unnamed_addr #6 {
 entry:
   %_next_fp = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 12
   %0 = load ptr, ptr %_next_fp, align 8
-  %call = tail call zeroext i1 %0(ptr noundef %iter) #24
+  %call = tail call zeroext i1 %0(ptr noundef %iter) #21
   ret i1 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hdr_add_while_correcting_for_coordinated_omission(ptr nocapture noundef %h, ptr noundef %from, i64 noundef %expected_interval) local_unnamed_addr #7 {
+define dso_local i64 @hdr_add_while_correcting_for_coordinated_omission(ptr nocapture noundef %h, ptr noundef %from, i64 noundef %expected_interval) local_unnamed_addr #6 {
 entry:
   %iter = alloca %struct.hdr_iter, align 8
   store ptr %from, ptr %iter, align 8
@@ -1487,7 +1483,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_iterated_from.i.i, i8 0, i64 24, i1 false)
   store ptr @recorded_iter_next, ptr %_next_fp.i.i, align 8
-  %call.i3 = call zeroext i1 @recorded_iter_next(ptr noundef nonnull %iter) #24
+  %call.i3 = call zeroext i1 @recorded_iter_next(ptr noundef nonnull %iter) #21
   br i1 %call.i3, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -1502,7 +1498,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add = select i1 %call3, i64 0, i64 %2
   %spec.select = add nsw i64 %add, %dropped.04
   %3 = load ptr, ptr %_next_fp.i.i, align 8
-  %call.i = call zeroext i1 %3(ptr noundef nonnull %iter) #24
+  %call.i = call zeroext i1 %3(ptr noundef nonnull %iter) #21
   br i1 %call.i, label %while.body, label %while.end
 
 while.end:                                        ; preds = %while.body, %entry
@@ -1510,7 +1506,7 @@ while.end:                                        ; preds = %while.body, %entry
   ret i64 %dropped.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @hdr_max(ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
 entry:
   %max_value = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 10
@@ -1550,8 +1546,8 @@ return:                                           ; preds = %entry, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @hdr_min(ptr nocapture noundef readonly %h) local_unnamed_addr #15 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define dso_local i64 @hdr_min(ptr nocapture noundef readonly %h) local_unnamed_addr #13 {
 entry:
   %normalizing_index_offset.i.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 11
   %0 = load i32, ptr %normalizing_index_offset.i.i.i, align 8
@@ -1609,7 +1605,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @hdr_count_at_index(ptr nocapture noundef readonly %h, i32 noundef %index) local_unnamed_addr #16 {
+define dso_local i64 @hdr_count_at_index(ptr nocapture noundef readonly %h, i32 noundef %index) local_unnamed_addr #13 {
 entry:
   %normalizing_index_offset.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 11
   %0 = load i32, ptr %normalizing_index_offset.i.i, align 8
@@ -1638,8 +1634,8 @@ counts_get_normalised.exit:                       ; preds = %entry, %if.end.i.i
   ret i64 %3
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @hdr_value_at_percentile(ptr nocapture noundef readonly %h, double noundef %percentile) local_unnamed_addr #17 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define dso_local i64 @hdr_value_at_percentile(ptr nocapture noundef readonly %h, double noundef %percentile) local_unnamed_addr #14 {
 entry:
   %cmp = fcmp olt double %percentile, 1.000000e+02
   %cond = select i1 %cmp, double %percentile, double 1.000000e+02
@@ -1734,10 +1730,10 @@ return:                                           ; preds = %get_value_from_idx_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hdr_value_at_percentiles(ptr noundef %h, ptr noundef readonly %percentiles, ptr noundef %values, i64 noundef %length) local_unnamed_addr #7 {
+define dso_local i32 @hdr_value_at_percentiles(ptr noundef %h, ptr noundef readonly %percentiles, ptr noundef %values, i64 noundef %length) local_unnamed_addr #6 {
 entry:
   %iter = alloca %struct.hdr_iter, align 8
   %cmp = icmp eq ptr %percentiles, null
@@ -1784,7 +1780,7 @@ for.end:                                          ; preds = %for.body, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
-  %call.i25 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #24
+  %call.i25 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #21
   %cmp1526 = icmp ne i64 %length, 0
   %4 = and i1 %cmp1526, %call.i25
   br i1 %4, label %while.body.lr.ph, label %return
@@ -1841,7 +1837,7 @@ while.body25:                                     ; preds = %land.rhs20
 while.end:                                        ; preds = %while.body25, %land.rhs20
   %at_pos.1.lcssa = phi i64 [ %inc28, %while.body25 ], [ %at_pos.124, %land.rhs20 ]
   %13 = load ptr, ptr %_next_fp.i, align 8
-  %call.i = call zeroext i1 %13(ptr noundef nonnull %iter) #24
+  %call.i = call zeroext i1 %13(ptr noundef nonnull %iter) #21
   %cmp15 = icmp ult i64 %at_pos.1.lcssa, %length
   %14 = and i1 %cmp15, %call.i
   br i1 %14, label %while.body, label %return
@@ -1851,8 +1847,8 @@ return:                                           ; preds = %while.end, %for.end
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_init(ptr nocapture noundef writeonly %iter, ptr noundef %h) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @hdr_iter_init(ptr nocapture noundef writeonly %iter, ptr noundef %h) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 1
@@ -1871,7 +1867,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @hdr_mean(ptr noundef %h) local_unnamed_addr #7 {
+define dso_local double @hdr_mean(ptr noundef %h) local_unnamed_addr #6 {
 entry:
   %iter = alloca %struct.hdr_iter, align 8
   store ptr %h, ptr %iter, align 8
@@ -1887,7 +1883,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
-  %call.i6 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #24
+  %call.i6 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #21
   br i1 %call.i6, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -1933,7 +1929,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.then, %while.body
   %total.1 = phi i64 [ %add, %if.then ], [ %total.07, %while.body ]
   %8 = load ptr, ptr %_next_fp.i, align 8
-  %call.i = call zeroext i1 %8(ptr noundef nonnull %iter) #24
+  %call.i = call zeroext i1 %8(ptr noundef nonnull %iter) #21
   br i1 %call.i, label %while.body, label %while.end.loopexit
 
 while.end.loopexit:                               ; preds = %if.end
@@ -1950,7 +1946,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @hdr_stddev(ptr noundef %h) local_unnamed_addr #7 {
+define dso_local double @hdr_stddev(ptr noundef %h) local_unnamed_addr #6 {
 entry:
   %iter.i = alloca %struct.hdr_iter, align 8
   %iter = alloca %struct.hdr_iter, align 8
@@ -2061,7 +2057,7 @@ if.then.i:                                        ; preds = %while.body.i
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %total.1.i = phi i64 [ %add.i, %if.then.i ], [ %total.07.i, %while.body.i ]
   %18 = load ptr, ptr %_next_fp.i.i, align 8
-  %call.i.i = call zeroext i1 %18(ptr noundef nonnull %iter.i) #24
+  %call.i.i = call zeroext i1 %18(ptr noundef nonnull %iter.i) #21
   br i1 %call.i.i, label %while.body.i, label %while.end.loopexit.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
@@ -2086,7 +2082,7 @@ hdr_mean.exit:                                    ; preds = %entry, %while.end.l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_iterated_from.i, i8 0, i64 16, i1 false)
   store ptr @all_values_iter_next, ptr %_next_fp.i, align 8
-  %call.i36 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #24
+  %call.i36 = call zeroext i1 @all_values_iter_next(ptr noundef nonnull %iter) #21
   br i1 %call.i36, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %hdr_mean.exit
@@ -2135,7 +2131,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.then, %while.body
   %geometric_dev_total.1 = phi double [ %29, %if.then ], [ %geometric_dev_total.037, %while.body ]
   %30 = load ptr, ptr %_next_fp.i, align 8
-  %call.i = call zeroext i1 %30(ptr noundef nonnull %iter) #24
+  %call.i = call zeroext i1 %30(ptr noundef nonnull %iter) #21
   br i1 %call.i, label %while.body, label %while.end.loopexit
 
 while.end.loopexit:                               ; preds = %if.end
@@ -2147,14 +2143,14 @@ while.end:                                        ; preds = %while.end.loopexit,
   %conv6.pre-phi = phi double [ %.pre39, %while.end.loopexit ], [ %conv4.i, %hdr_mean.exit ]
   %geometric_dev_total.0.lcssa = phi double [ %geometric_dev_total.1, %while.end.loopexit ], [ 0.000000e+00, %hdr_mean.exit ]
   %div = fdiv double %geometric_dev_total.0.lcssa, %conv6.pre-phi
-  %call7 = call double @sqrt(double noundef %div) #24
+  %call7 = call double @sqrt(double noundef %div) #21
   ret double %call7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #4
+declare double @sqrt(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @hdr_values_are_equivalent(ptr nocapture noundef readonly %h, i64 noundef %a, i64 noundef %b) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 6
@@ -2185,7 +2181,7 @@ entry:
   ret i1 %cmp
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @hdr_lowest_equivalent_value(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 6
@@ -2205,8 +2201,8 @@ entry:
   ret i64 %shl.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @hdr_count_at_value(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #15 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define dso_local i64 @hdr_count_at_value(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #13 {
 entry:
   %sub_bucket_mask.i.i = getelementptr inbounds %struct.hdr_histogram, ptr %h, i64 0, i32 6
   %0 = load i64, ptr %sub_bucket_mask.i.i, align 8
@@ -2257,8 +2253,8 @@ counts_get_normalised.exit:                       ; preds = %entry, %if.end.i.i
   ret i64 %10
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i1 @all_values_iter_next(ptr nocapture noundef %iter) #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal zeroext i1 @all_values_iter_next(ptr nocapture noundef %iter) #15 {
 entry:
   %call = tail call fastcc zeroext i1 @move_next(ptr noundef %iter)
   br i1 %call, label %if.then, label %if.end
@@ -2277,8 +2273,8 @@ if.end:                                           ; preds = %if.then, %entry
   ret i1 %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_percentile_init(ptr nocapture noundef writeonly %iter, ptr noundef %h, i32 noundef %ticks_per_half_distance) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @hdr_iter_percentile_init(ptr nocapture noundef writeonly %iter, ptr noundef %h, i32 noundef %ticks_per_half_distance) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 1
@@ -2303,7 +2299,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @percentile_iter_next(ptr nocapture noundef %iter) #7 {
+define internal zeroext i1 @percentile_iter_next(ptr nocapture noundef %iter) #6 {
 entry:
   %specifics = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 11
   %0 = getelementptr i8, ptr %iter, i64 16
@@ -2401,12 +2397,12 @@ if.then13:                                        ; preds = %land.lhs.true10
   store double %10, ptr %percentile17, align 8
   %sub = fsub double 1.000000e+02, %10
   %div19 = fdiv double 1.000000e+02, %sub
-  %call20 = tail call double @log(double noundef %div19) #24
+  %call20 = tail call double @log(double noundef %div19) #21
   %div22 = fdiv double %call20, 0x3FE62E42FEFA39EF
   %conv23 = fptosi double %div22 to i64
   %add = add nsw i64 %conv23, 1
   %conv24 = sitofp i64 %add to double
-  %exp2 = tail call double @exp2(double %conv24) #24
+  %exp2 = tail call double @exp2(double %conv24) #21
   %conv26 = fptosi double %exp2 to i64
   %ticks_per_half_distance = getelementptr inbounds i8, ptr %iter, i64 92
   %18 = load i32, ptr %ticks_per_half_distance, align 4
@@ -2440,8 +2436,8 @@ return:                                           ; preds = %do.cond, %lor.lhs.f
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i1 @recorded_iter_next(ptr nocapture noundef %iter) #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal zeroext i1 @recorded_iter_next(ptr nocapture noundef %iter) #1 {
 entry:
   %0 = getelementptr i8, ptr %iter, i64 16
   %1 = getelementptr i8, ptr %iter, i64 32
@@ -2486,8 +2482,8 @@ return:                                           ; preds = %while.cond, %lor.lh
   ret i1 %retval.0.i7
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_linear_init(ptr nocapture noundef writeonly %iter, ptr noundef %h, i64 noundef %value_units_per_bucket) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @hdr_iter_linear_init(ptr nocapture noundef writeonly %iter, ptr noundef %h, i64 noundef %value_units_per_bucket) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 1
@@ -2528,8 +2524,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i1 @iter_linear_next(ptr nocapture noundef %iter) #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal zeroext i1 @iter_linear_next(ptr nocapture noundef %iter) #1 {
 entry:
   %specifics = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 11
   %count_added_in_this_iteration_step = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 11, i32 0, i32 1
@@ -2641,15 +2637,15 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @hdr_iter_linear_set_value_units_per_bucket(ptr nocapture noundef writeonly %iter, i64 noundef %value_units_per_bucket) local_unnamed_addr #19 {
+define dso_local void @hdr_iter_linear_set_value_units_per_bucket(ptr nocapture noundef writeonly %iter, i64 noundef %value_units_per_bucket) local_unnamed_addr #16 {
 entry:
   %specifics = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 11
   store i64 %value_units_per_bucket, ptr %specifics, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_log_init(ptr nocapture noundef writeonly %iter, ptr noundef %h, i64 noundef %value_units_first_bucket, double noundef %log_base) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @hdr_iter_log_init(ptr nocapture noundef writeonly %iter, ptr noundef %h, i64 noundef %value_units_first_bucket, double noundef %log_base) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 1
@@ -2690,8 +2686,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i1 @log_iter_next(ptr nocapture noundef %iter) #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal zeroext i1 @log_iter_next(ptr nocapture noundef %iter) #1 {
 entry:
   %specifics = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 11
   %count_added_in_this_iteration_step = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 11, i32 0, i32 1
@@ -2804,7 +2800,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hdr_percentiles_print(ptr noundef %h, ptr nocapture noundef %stream, i32 noundef %ticks_per_half_distance, double noundef %value_scale, i32 noundef %format) local_unnamed_addr #7 {
+define dso_local i32 @hdr_percentiles_print(ptr noundef %h, ptr nocapture noundef %stream, i32 noundef %ticks_per_half_distance, double noundef %value_scale, i32 noundef %format) local_unnamed_addr #6 {
 entry:
   %iter.i = alloca %struct.hdr_iter, align 8
   %line_format = alloca [25 x i8], align 16
@@ -2817,15 +2813,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %0, ptr noundef nonnull @.str.6) #24
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %0, ptr noundef nonnull @.str.6) #21
   br label %format_line_string.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #24
+  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
   br label %format_line_string.exit
 
 sw.default.i:                                     ; preds = %entry
-  %call3.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #24
+  %call3.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line_format, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i32 noundef %0, ptr noundef nonnull @.str.8) #21
   br label %format_line_string.exit
 
 format_line_string.exit:                          ; preds = %sw.bb.i, %sw.bb1.i, %sw.default.i
@@ -2860,7 +2856,7 @@ while.cond.preheader:                             ; preds = %format_line_string.
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
   %2 = load ptr, ptr %_next_fp.i.i, align 8
-  %call.i16 = call zeroext i1 %2(ptr noundef nonnull %iter) #24
+  %call.i16 = call zeroext i1 %2(ptr noundef nonnull %iter) #21
   br i1 %call.i16, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
@@ -2987,7 +2983,7 @@ if.then.i:                                        ; preds = %while.body.i
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %total.1.i = phi i64 [ %add.i, %if.then.i ], [ %total.07.i, %while.body.i ]
   %24 = load ptr, ptr %_next_fp.i.i22, align 8
-  %call.i.i = call zeroext i1 %24(ptr noundef nonnull %iter.i) #24
+  %call.i.i = call zeroext i1 %24(ptr noundef nonnull %iter.i) #21
   br i1 %call.i.i, label %while.body.i, label %while.end.loopexit.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
@@ -3060,13 +3056,13 @@ cleanup:                                          ; preds = %while.body, %hdr_ma
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @move_next(ptr nocapture noundef %iter) unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc zeroext i1 @move_next(ptr nocapture noundef %iter) unnamed_addr #15 {
 entry:
   %counts_index = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 1
   %0 = load i32, ptr %counts_index, align 8
@@ -3164,56 +3160,53 @@ return:                                           ; preds = %entry, %counts_get_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nofree willreturn
-declare double @ldexp(double, i32) local_unnamed_addr #22
+declare double @ldexp(double, i32) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #21
+declare i64 @llvm.smax.i64(i64, i64) #18
 
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #21
+declare i64 @llvm.smin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #21
+declare i32 @llvm.usub.sat.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nofree willreturn }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nofree willreturn }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

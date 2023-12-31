@@ -5144,27 +5144,26 @@ _ZNKSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 230584300921369395
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 230584300921369395, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6Assimp7Blender5MFaceESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN6Assimp7Blender5MFaceEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6Assimp7Blender5MFaceESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN6Assimp7Blender5MFaceEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
   br label %_ZNSt12_Vector_baseIN6Assimp7Blender5MFaceESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN6Assimp7Blender5MFaceESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN6Assimp7Blender5MFaceEEE8allocateERS3_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6Assimp7Blender5MFaceEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN6Assimp7Blender5MFaceESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %cond.i10, i64 %sub.ptr.div.i
   %dna_type.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %add.ptr, i64 0, i32 1
   %dna_type2.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__args, i64 0, i32 1
-  %2 = load ptr, ptr %dna_type2.i.i.i.i, align 8
-  store ptr %2, ptr %dna_type.i.i.i.i, align 8
+  %3 = load ptr, ptr %dna_type2.i.i.i.i, align 8
+  store ptr %3, ptr %dna_type.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, inrange i32 0, i64 2), ptr %add.ptr, align 8
   %v1.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
   %v12.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %__args, i64 0, i32 1
@@ -5179,15 +5178,15 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %dna_type.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__cur.07.i.i.i, i64 0, i32 1
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %3 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
-  store ptr %3, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
+  %4 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
+  store ptr %4, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, inrange i32 0, i64 2), ptr %__cur.07.i.i.i, align 8, !alias.scope !36, !noalias !39
   %v1.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %__cur.07.i.i.i, i64 0, i32 1
   %v12.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %__first.addr.06.i.i.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(21) %v12.i.i.i.i.i.i.i, i64 21, i1 false), !alias.scope !41
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !39, !noalias !36
-  %4 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8, !noalias !41
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(37) %__first.addr.06.i.i.i) #16, !noalias !36
+  %5 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8, !noalias !41
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(37) %__first.addr.06.i.i.i) #16, !noalias !36
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -5206,15 +5205,15 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %dna_type.i.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %dna_type2.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %5 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i16, align 8, !alias.scope !46, !noalias !43
-  store ptr %5, ptr %dna_type.i.i.i.i.i.i.i.i15, align 8, !alias.scope !43, !noalias !46
+  %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i16, align 8, !alias.scope !46, !noalias !43
+  store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i15, align 8, !alias.scope !43, !noalias !46
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, inrange i32 0, i64 2), ptr %__cur.07.i.i.i13, align 8, !alias.scope !43, !noalias !46
   %v1.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %v12.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(21) %v12.i.i.i.i.i.i.i18, i64 21, i1 false), !alias.scope !48
   %vtable.i.i.i.i.i.i19 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !46, !noalias !43
-  %6 = load ptr, ptr %vtable.i.i.i.i.i.i19, align 8, !noalias !48
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(37) %__first.addr.06.i.i.i14) #16, !noalias !43
+  %7 = load ptr, ptr %vtable.i.i.i.i.i.i19, align 8, !noalias !48
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(37) %__first.addr.06.i.i.i14) #16, !noalias !43
   %incdec.ptr.i.i.i20 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i21 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %__cur.07.i.i.i13, i64 1
   %cmp.not.i.i.i22 = icmp eq ptr %incdec.ptr.i.i.i20, %0
@@ -5262,27 +5261,26 @@ _ZNKSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE12_M_check_lenEmPKc.exit: ; preds 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 164703072086692425
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 164703072086692425, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
+  %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6Assimp7Blender6MTFaceESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN6Assimp7Blender6MTFaceEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6Assimp7Blender6MTFaceESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN6Assimp7Blender6MTFaceEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 56
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
   br label %_ZNSt12_Vector_baseIN6Assimp7Blender6MTFaceESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN6Assimp7Blender6MTFaceESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN6Assimp7Blender6MTFaceEEE8allocateERS3_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6Assimp7Blender6MTFaceEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN6Assimp7Blender6MTFaceESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %cond.i10, i64 %sub.ptr.div.i
   %dna_type.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %add.ptr, i64 0, i32 1
   %dna_type2.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__args, i64 0, i32 1
-  %2 = load ptr, ptr %dna_type2.i.i.i.i, align 8
-  store ptr %2, ptr %dna_type.i.i.i.i, align 8
+  %3 = load ptr, ptr %dna_type2.i.i.i.i, align 8
+  store ptr %3, ptr %dna_type.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, inrange i32 0, i64 2), ptr %add.ptr, align 8
   %uv.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
   %uv2.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %__args, i64 0, i32 1
@@ -5297,15 +5295,15 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %dna_type.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__cur.07.i.i.i, i64 0, i32 1
   %dna_type2.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %3 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !52, !noalias !49
-  store ptr %3, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !52
+  %4 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i, align 8, !alias.scope !52, !noalias !49
+  store ptr %4, ptr %dna_type.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !52
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, inrange i32 0, i64 2), ptr %__cur.07.i.i.i, align 8, !alias.scope !49, !noalias !52
   %uv.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %__cur.07.i.i.i, i64 0, i32 1
   %uv2.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %__first.addr.06.i.i.i, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %uv2.i.i.i.i.i.i.i, i64 40, i1 false), !alias.scope !54
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !52, !noalias !49
-  %4 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8, !noalias !54
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.06.i.i.i) #16, !noalias !49
+  %5 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8, !noalias !54
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.06.i.i.i) #16, !noalias !49
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -5324,15 +5322,15 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %dna_type.i.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %dna_type2.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %5 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i16, align 8, !alias.scope !59, !noalias !56
-  store ptr %5, ptr %dna_type.i.i.i.i.i.i.i.i15, align 8, !alias.scope !56, !noalias !59
+  %6 = load ptr, ptr %dna_type2.i.i.i.i.i.i.i.i16, align 8, !alias.scope !59, !noalias !56
+  store ptr %6, ptr %dna_type.i.i.i.i.i.i.i.i15, align 8, !alias.scope !56, !noalias !59
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, inrange i32 0, i64 2), ptr %__cur.07.i.i.i13, align 8, !alias.scope !56, !noalias !59
   %uv.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %__cur.07.i.i.i13, i64 0, i32 1
   %uv2.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(40) %uv2.i.i.i.i.i.i.i18, i64 40, i1 false), !alias.scope !61
   %vtable.i.i.i.i.i.i19 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !59, !noalias !56
-  %6 = load ptr, ptr %vtable.i.i.i.i.i.i19, align 8, !noalias !61
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.06.i.i.i14) #16, !noalias !56
+  %7 = load ptr, ptr %vtable.i.i.i.i.i.i19, align 8, !noalias !61
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.06.i.i.i14) #16, !noalias !56
   %incdec.ptr.i.i.i20 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i21 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %__cur.07.i.i.i13, i64 1
   %cmp.not.i.i.i22 = icmp eq ptr %incdec.ptr.i.i.i20, %0
@@ -5370,6 +5368,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

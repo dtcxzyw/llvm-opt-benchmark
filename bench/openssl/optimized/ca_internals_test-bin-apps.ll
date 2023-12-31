@@ -4624,10 +4624,9 @@ entry:
 
 for.cond:                                         ; preds = %entry, %if.end19
   %maxlen.addr.0 = phi i32 [ %spec.select, %if.end19 ], [ %maxlen, %entry ]
-  %cmp2 = icmp ne i32 %maxlen.addr.0, -1
-  %cmp3 = icmp slt i32 %maxlen.addr.0, 1024
-  %or.cond = and i1 %cmp2, %cmp3
-  %maxlen.addr.0. = select i1 %or.cond, i32 %maxlen.addr.0, i32 1024
+  %cmp2.not = icmp eq i32 %maxlen.addr.0, -1
+  %0 = call i32 @llvm.smin.i32(i32 %maxlen.addr.0, i32 1024)
+  %maxlen.addr.0. = select i1 %cmp2.not, i32 1024, i32 %0
   %call6 = call i32 @BIO_read(ptr noundef %in, ptr noundef nonnull %tbuf, i32 noundef %maxlen.addr.0.) #28
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %return.sink.split, label %if.end10
@@ -4643,7 +4642,7 @@ if.end13:                                         ; preds = %if.end10
 
 if.end19:                                         ; preds = %if.end13
   %sub = sub nsw i32 %maxlen.addr.0, %call6
-  %spec.select = select i1 %cmp2, i32 %sub, i32 -1
+  %spec.select = select i1 %cmp2.not, i32 -1, i32 %sub
   %cmp23 = icmp eq i32 %spec.select, 0
   br i1 %cmp23, label %for.end, label %for.cond
 
@@ -6448,6 +6447,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26

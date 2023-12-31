@@ -3358,22 +3358,21 @@ _ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeES
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 192153584101141162
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 192153584101141162, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 192153584101141162)
+  %cond.i = select i1 %cmp7.i, i64 192153584101141162, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEE8allocateERS6_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 48
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #28
   br label %_ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEE8allocateERS6_m.exit.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", ptr %cond.i19, i64 %sub.ptr.div.i
   invoke void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC1EOS4_(ptr noundef nonnull align 16 dereferenceable(48) %add.ptr, ptr noundef nonnull align 16 dereferenceable(48) %__args)
           to label %invoke.cont unwind label %lpad.body
@@ -3395,10 +3394,10 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !21
 
 lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #25
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #25
   invoke void @_ZSt8_DestroyIPN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvT_S7_(ptr noundef %cond.i19, ptr noundef %__cur.010.i.i.i.i.i)
           to label %invoke.cont8.i.i.i.i.i unwind label %lpad7.i.i.i.i.i
 
@@ -3407,21 +3406,21 @@ invoke.cont8.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i
           to label %unreachable.i.i.i.i.i unwind label %lpad7.i.i.i.i.i
 
 lpad7.i.i.i.i.i:                                  ; preds = %invoke.cont8.i.i.i.i.i, %lpad.i.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body.thread unwind label %terminate.lpad.i.i.i.i.i
 
 lpad.body.thread:                                 ; preds = %lpad7.i.i.i.i.i
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #25
+  %7 = extractvalue { ptr, i32 } %6, 0
+  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #25
   br label %if.then
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad7.i.i.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #24
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #24
   unreachable
 
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.i.i
@@ -3446,10 +3445,10 @@ for.inc.i.i.i.i.i30:                              ; preds = %for.body.i.i.i.i.i2
   br i1 %cmp.i.i.not.i.i.i.i.i33, label %invoke.cont14, label %for.body.i.i.i.i.i21, !llvm.loop !21
 
 lpad.i.i.i.i.i24:                                 ; preds = %for.body.i.i.i.i.i21
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #25
+  %12 = extractvalue { ptr, i32 } %11, 0
+  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #25
   invoke void @_ZSt8_DestroyIPN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvT_S7_(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %__cur.010.i.i.i.i.i22)
           to label %invoke.cont8.i.i.i.i.i28 unwind label %lpad7.i.i.i.i.i25
 
@@ -3458,21 +3457,21 @@ invoke.cont8.i.i.i.i.i28:                         ; preds = %lpad.i.i.i.i.i24
           to label %unreachable.i.i.i.i.i29 unwind label %lpad7.i.i.i.i.i25
 
 lpad7.i.i.i.i.i25:                                ; preds = %invoke.cont8.i.i.i.i.i28, %lpad.i.i.i.i.i24
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body.thread48 unwind label %terminate.lpad.i.i.i.i.i26
 
 lpad.body.thread48:                               ; preds = %lpad7.i.i.i.i.i25
-  %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #25
+  %15 = extractvalue { ptr, i32 } %14, 0
+  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #25
   br label %if.else
 
 terminate.lpad.i.i.i.i.i26:                       ; preds = %lpad7.i.i.i.i.i25
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #24
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #24
   unreachable
 
 unreachable.i.i.i.i.i29:                          ; preds = %invoke.cont8.i.i.i.i.i28
@@ -3485,15 +3484,15 @@ invoke.cont14:                                    ; preds = %for.inc.i.i.i.i.i30
 
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i ], [ %1, %invoke.cont14 ]
-  %18 = load i8, ptr %__first.addr.04.i.i.i, align 1
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %18, 0
+  %19 = load i8, ptr %__first.addr.04.i.i.i, align 1
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i, label %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i
-  %idxprom.i.i.i.i.i.i.i.i = sext i8 %18 to i64
+  %idxprom.i.i.i.i.i.i.i.i = sext i8 %19 to i64
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox10expression9calculate6Parser7yystos_E, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i
-  %19 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
-  %cond.i.i.i.i.i.i.i = icmp eq i8 %19, 11
+  %20 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
+  %cond.i.i.i.i.i.i.i = icmp eq i8 %20, 11
   br i1 %cond.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeEEvPT_.exit.i.i.i
 
 sw.bb2.i.i.i.i.i.i.i:                             ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i.i.i
@@ -3524,23 +3523,23 @@ _ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_
   ret void
 
 lpad.body:                                        ; preds = %_ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE11_M_allocateEm.exit
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #25
+  %22 = extractvalue { ptr, i32 } %21, 0
+  %23 = tail call ptr @__cxa_begin_catch(ptr %22) #25
   %tobool.not = icmp eq ptr %cond.i19, null
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lpad.body.thread, %lpad.body
-  %23 = load i8, ptr %add.ptr, align 1
-  %cmp.i.i.i.i.i.i = icmp eq i8 %23, 0
+  %24 = load i8, ptr %add.ptr, align 1
+  %cmp.i.i.i.i.i.i = icmp eq i8 %24, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.end.thread, label %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i
 
 _ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i: ; preds = %if.then
-  %idxprom.i.i.i.i.i.i = sext i8 %23 to i64
+  %idxprom.i.i.i.i.i.i = sext i8 %24 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox10expression9calculate6Parser7yystos_E, i64 0, i64 %idxprom.i.i.i.i.i.i
-  %24 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
-  %cond.i.i.i.i.i = icmp eq i8 %24, 11
+  %25 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %cond.i.i.i.i.i = icmp eq i8 %25, 11
   br i1 %cond.i.i.i.i.i, label %sw.bb2.i.i.i.i.i, label %if.end.thread
 
 sw.bb2.i.i.i.i.i:                                 ; preds = %_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv.exit.i.i.i.i.i
@@ -3558,7 +3557,7 @@ if.else:                                          ; preds = %lpad.body.thread48,
           to label %if.end unwind label %lpad19
 
 lpad19:                                           ; preds = %invoke.cont21, %if.else
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -3576,13 +3575,13 @@ invoke.cont21:                                    ; preds = %if.then.i41, %if.en
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %26
 
 terminate.lpad:                                   ; preds = %lpad19
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #24
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #24
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -3602,6 +3601,9 @@ declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22

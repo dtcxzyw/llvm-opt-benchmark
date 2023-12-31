@@ -485,24 +485,15 @@ land.lhs.true7:                                   ; preds = %if.end
 
 if.end12:                                         ; preds = %land.lhs.true7, %if.end
   %types.1 = phi i64 [ %types.0, %if.end ], [ %spec.select24, %land.lhs.true7 ]
-  %and13 = and i64 %types.1, 16
-  %tobool14.not = icmp eq i64 %and13, 0
   %cmp17 = icmp ult i32 %conv, 128
-  %or.cond25 = or i1 %cmp17, %tobool14.not
   %and20 = and i64 %types.1, -17
-  %types.2 = select i1 %or.cond25, i64 %types.1, i64 %and20
-  %and22 = and i64 %types.2, 4
-  %tobool23 = icmp ne i64 %and22, 0
+  %types.2 = select i1 %cmp17, i64 %types.1, i64 %and20
   %cmp25 = icmp ugt i64 %value, 255
-  %or.cond1 = and i1 %cmp25, %tobool23
   %and28 = and i64 %types.2, -5
-  %types.3 = select i1 %or.cond1, i64 %and28, i64 %types.2
-  %and30 = and i64 %types.3, 2048
-  %tobool31 = icmp ne i64 %and30, 0
+  %types.3 = select i1 %cmp25, i64 %and28, i64 %types.2
   %cmp33 = icmp ugt i64 %value, 65535
-  %or.cond2 = and i1 %cmp33, %tobool31
   %and36 = and i64 %types.3, -2049
-  %types.4 = select i1 %or.cond2, i64 %and36, i64 %types.3
+  %types.4 = select i1 %cmp33, i64 %and36, i64 %types.3
   %and38 = and i64 %types.4, 8192
   %tobool39.not = icmp eq i64 %and38, 0
   br i1 %tobool39.not, label %if.end45, label %land.lhs.true40

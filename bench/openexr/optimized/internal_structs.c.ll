@@ -50,31 +50,31 @@ if.then2:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %alloc_fn = getelementptr inbounds %struct._internal_exr_context, ptr %f, i64 0, i32 16
   %1 = load ptr, ptr %alloc_fn, align 8
-  %call = tail call ptr %1(i64 noundef 264) #9
+  %call = tail call ptr %1(i64 noundef 264) #10
   %tobool4.not = icmp eq ptr %call, null
   br i1 %tobool4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.else
   %standard_error = getelementptr inbounds %struct._internal_exr_context, ptr %f, i64 0, i32 12
   %2 = load ptr, ptr %standard_error, align 8
-  %call6 = tail call i32 %2(ptr noundef nonnull %f, i32 noundef 1) #9
+  %call6 = tail call i32 %2(ptr noundef nonnull %f, i32 noundef 1) #10
   br label %return
 
 if.end7:                                          ; preds = %if.else
   %3 = load ptr, ptr %alloc_fn, align 8
   %conv = sext i32 %add to i64
   %mul = shl nsw i64 %conv, 3
-  %call9 = tail call ptr %3(i64 noundef %mul) #9
+  %call9 = tail call ptr %3(i64 noundef %mul) #10
   %tobool10.not = icmp eq ptr %call9, null
   br i1 %tobool10.not, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %if.end7
   %free_fn = getelementptr inbounds %struct._internal_exr_context, ptr %f, i64 0, i32 17
   %4 = load ptr, ptr %free_fn, align 8
-  tail call void %4(ptr noundef nonnull %call) #9
+  tail call void %4(ptr noundef nonnull %call) #10
   %standard_error12 = getelementptr inbounds %struct._internal_exr_context, ptr %f, i64 0, i32 12
   %5 = load ptr, ptr %standard_error12, align 8
-  %call13 = tail call i32 %5(ptr noundef nonnull %f, i32 noundef 1) #9
+  %call13 = tail call i32 %5(ptr noundef nonnull %f, i32 noundef 1) #10
   br label %return
 
 if.end14:                                         ; preds = %if.end7
@@ -145,7 +145,7 @@ if.then37:                                        ; preds = %if.end33
   %14 = load ptr, ptr %free_fn38, align 8
   %parts39 = getelementptr inbounds %struct._internal_exr_context, ptr %f, i64 0, i32 37
   %15 = load ptr, ptr %parts39, align 8
-  tail call void %14(ptr noundef %15) #9
+  tail call void %14(ptr noundef %15) #10
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then37, %if.end33
@@ -181,14 +181,14 @@ entry:
   %free_fn.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 17
   %2 = load ptr, ptr %free_fn.i, align 8
   %attributes.i = getelementptr inbounds %struct._internal_exr_part, ptr %1, i64 0, i32 2
-  %call.i = tail call i32 @exr_attr_list_destroy(ptr noundef %ctxt, ptr noundef nonnull %attributes.i) #9
+  %call.i = tail call i32 @exr_attr_list_destroy(ptr noundef %ctxt, ptr noundef nonnull %attributes.i) #10
   %tile_level_tile_count_x.i = getelementptr inbounds %struct._internal_exr_part, ptr %1, i64 0, i32 25
   %3 = load ptr, ptr %tile_level_tile_count_x.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void %2(ptr noundef nonnull %3) #9
+  tail call void %2(ptr noundef nonnull %3) #10
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -200,7 +200,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then4.i:                                       ; preds = %if.end.i
   %5 = inttoptr i64 %4 to ptr
-  tail call void %2(ptr noundef nonnull %5) #9
+  tail call void %2(ptr noundef nonnull %5) #10
   br label %internal_exr_destroy_part.exit
 
 internal_exr_destroy_part.exit:                   ; preds = %if.end.i, %if.then4.i
@@ -242,7 +242,7 @@ if.end:                                           ; preds = %if.then5, %if.then3
   %9 = load ptr, ptr %free_fn.i, align 8
   %parts10 = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 37
   %10 = load ptr, ptr %parts10, align 8
-  tail call void %9(ptr noundef %10) #9
+  tail call void %9(ptr noundef %10) #10
   store ptr %init_part9, ptr %parts10, align 8
   br label %if.end29
 
@@ -293,23 +293,23 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dispatch_standard_error(ptr noundef %pctxt, i32 noundef returned %code) #0 {
 entry:
-  %call = tail call ptr @exr_get_default_error_message(i32 noundef %code) #9
+  %call = tail call ptr @exr_get_default_error_message(i32 noundef %code) #10
   %tobool.not.i = icmp eq ptr %pctxt, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %error_handler_fn.i = getelementptr inbounds %struct._internal_exr_context, ptr %pctxt, i64 0, i32 15
   %0 = load ptr, ptr %error_handler_fn.i, align 8
-  tail call void %0(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef %call) #9
+  tail call void %0(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef %call) #10
   br label %dispatch_error.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @default_error_handler.sMutex) #9
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @default_error_handler.sMutex) #10
   %1 = load ptr, ptr @stderr, align 8
-  %call10.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %call) #10
+  %call10.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %call) #11
   %2 = load ptr, ptr @stderr, align 8
   %call12.i.i = tail call i32 @fflush(ptr noundef %2)
-  %call13.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @default_error_handler.sMutex) #9
+  %call13.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @default_error_handler.sMutex) #10
   br label %dispatch_error.exit
 
 dispatch_error.exit:                              ; preds = %if.then.i, %if.end.i
@@ -325,16 +325,16 @@ entry:
 if.then:                                          ; preds = %entry
   %error_handler_fn = getelementptr inbounds %struct._internal_exr_context, ptr %pctxt, i64 0, i32 15
   %0 = load ptr, ptr %error_handler_fn, align 8
-  tail call void %0(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef %msg) #9
+  tail call void %0(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef %msg) #10
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @default_error_handler.sMutex) #9
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @default_error_handler.sMutex) #10
   %1 = load ptr, ptr @stderr, align 8
-  %call10.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %msg) #10
+  %call10.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %msg) #11
   %2 = load ptr, ptr @stderr, align 8
   %call12.i = tail call i32 @fflush(ptr noundef %2)
-  %call13.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @default_error_handler.sMutex) #9
+  %call13.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @default_error_handler.sMutex) #10
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -349,7 +349,7 @@ entry:
   %stkargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %fmtargs)
   call void @llvm.va_copy(ptr nonnull %stkargs, ptr nonnull %fmtargs)
-  %call = call i32 @vsnprintf(ptr noundef nonnull %stackbuf, i64 noundef 256, ptr noundef %msg, ptr noundef nonnull %stkargs) #9
+  %call = call i32 @vsnprintf(ptr noundef nonnull %stackbuf, i64 noundef 256, ptr noundef %msg, ptr noundef nonnull %stkargs) #10
   call void @llvm.va_end(ptr nonnull %stkargs)
   %cmp = icmp sgt i32 %call, 255
   br i1 %cmp, label %if.then, label %if.else14
@@ -359,24 +359,24 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %alloc_fn, align 8
   %add = add nuw nsw i32 %call, 1
   %conv = zext nneg i32 %add to i64
-  %call6 = call ptr %0(i64 noundef %conv) #9
+  %call6 = call ptr %0(i64 noundef %conv) #10
   %tobool.not = icmp eq ptr %call6, null
   br i1 %tobool.not, label %dispatch_error.exit22, label %dispatch_error.exit
 
 dispatch_error.exit:                              ; preds = %if.then
-  %call11 = call i32 @vsnprintf(ptr noundef nonnull %call6, i64 noundef %conv, ptr noundef %msg, ptr noundef nonnull %fmtargs) #9
+  %call11 = call i32 @vsnprintf(ptr noundef nonnull %call6, i64 noundef %conv, ptr noundef %msg, ptr noundef nonnull %fmtargs) #10
   %error_handler_fn.i = getelementptr inbounds %struct._internal_exr_context, ptr %pctxt, i64 0, i32 15
   %1 = load ptr, ptr %error_handler_fn.i, align 8
-  call void %1(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef nonnull %call6) #9
+  call void %1(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef nonnull %call6) #10
   %free_fn = getelementptr inbounds %struct._internal_exr_context, ptr %pctxt, i64 0, i32 17
   %2 = load ptr, ptr %free_fn, align 8
-  call void %2(ptr noundef nonnull %call6) #9
+  call void %2(ptr noundef nonnull %call6) #10
   br label %if.end17
 
 dispatch_error.exit22:                            ; preds = %if.then
   %error_handler_fn.i16 = getelementptr inbounds %struct._internal_exr_context, ptr %pctxt, i64 0, i32 15
   %3 = load ptr, ptr %error_handler_fn.i16, align 8
-  call void %3(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef nonnull @.str) #9
+  call void %3(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef nonnull @.str) #10
   br label %if.end17
 
 if.else14:                                        ; preds = %entry
@@ -386,16 +386,16 @@ if.else14:                                        ; preds = %entry
 if.then.i24:                                      ; preds = %if.else14
   %error_handler_fn.i25 = getelementptr inbounds %struct._internal_exr_context, ptr %pctxt, i64 0, i32 15
   %4 = load ptr, ptr %error_handler_fn.i25, align 8
-  call void %4(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef nonnull %stackbuf) #9
+  call void %4(ptr noundef nonnull %pctxt, i32 noundef %code, ptr noundef nonnull %stackbuf) #10
   br label %if.end17
 
 if.end.i26:                                       ; preds = %if.else14
-  %call.i.i27 = call i32 @pthread_mutex_lock(ptr noundef nonnull @default_error_handler.sMutex) #9
+  %call.i.i27 = call i32 @pthread_mutex_lock(ptr noundef nonnull @default_error_handler.sMutex) #10
   %5 = load ptr, ptr @stderr, align 8
-  %call10.i.i28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef nonnull %stackbuf) #10
+  %call10.i.i28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef nonnull %stackbuf) #11
   %6 = load ptr, ptr @stderr, align 8
   %call12.i.i29 = call i32 @fflush(ptr noundef %6)
-  %call13.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @default_error_handler.sMutex) #9
+  %call13.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @default_error_handler.sMutex) #10
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end.i26, %if.then.i24, %dispatch_error.exit, %dispatch_error.exit22
@@ -427,7 +427,7 @@ if.end:                                           ; preds = %lor.lhs.false, %ent
   %alloc_fn = getelementptr inbounds %struct._exr_context_initializer_v3, ptr %initializers, i64 0, i32 2
   %2 = load ptr, ptr %alloc_fn, align 8
   %add = add i64 %extra_data.0, 552
-  %call = tail call ptr %2(i64 noundef %add) #9
+  %call = tail call ptr %2(i64 noundef %add) #10
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %if.else161, label %if.then3
 
@@ -482,66 +482,86 @@ if.end18:                                         ; preds = %if.end18.sink.split
   %9 = load ptr, ptr %free_fn, align 8
   %free_fn22 = getelementptr inbounds %struct._internal_exr_context, ptr %call, i64 0, i32 17
   store ptr %9, ptr %free_fn22, align 8
-  call void @exr_get_default_maximum_image_size(ptr noundef nonnull %gmaxw, ptr noundef nonnull %gmaxh) #9
+  call void @exr_get_default_maximum_image_size(ptr noundef nonnull %gmaxw, ptr noundef nonnull %gmaxh) #10
   %max_image_width = getelementptr inbounds %struct._exr_context_initializer_v3, ptr %initializers, i64 0, i32 9
   %10 = load i32, ptr %max_image_width, align 8
   %cmp23 = icmp slt i32 %10, 1
   %11 = load i32, ptr %gmaxw, align 4
   %12 = getelementptr inbounds %struct._internal_exr_context, ptr %call, i64 0, i32 18
+  br i1 %cmp23, label %if.end44, label %if.end29
+
+if.end29:                                         ; preds = %if.end18
   %cmp33 = icmp sgt i32 %11, 0
-  %cmp40 = icmp sgt i32 %10, %11
-  %or.cond109 = and i1 %cmp33, %cmp40
-  %13 = select i1 %cmp23, i1 true, i1 %or.cond109
-  %storemerge = select i1 %13, i32 %11, i32 %10
+  %13 = call i32 @llvm.smin.i32(i32 %10, i32 %11)
+  %spec.select148 = select i1 %cmp33, i32 %13, i32 %10
+  br label %if.end44
+
+if.end44:                                         ; preds = %if.end29, %if.end18
+  %storemerge = phi i32 [ %spec.select148, %if.end29 ], [ %11, %if.end18 ]
   store i32 %storemerge, ptr %12, align 8
   %max_image_height = getelementptr inbounds %struct._exr_context_initializer_v3, ptr %initializers, i64 0, i32 10
   %14 = load i32, ptr %max_image_height, align 4
   %cmp45 = icmp slt i32 %14, 1
   %15 = load i32, ptr %gmaxh, align 4
   %16 = getelementptr inbounds %struct._internal_exr_context, ptr %call, i64 0, i32 19
+  br i1 %cmp45, label %if.end67, label %if.end51
+
+if.end51:                                         ; preds = %if.end44
   %cmp56 = icmp sgt i32 %15, 0
-  %cmp63 = icmp sgt i32 %14, %15
-  %or.cond110 = and i1 %cmp56, %cmp63
-  %17 = select i1 %cmp45, i1 true, i1 %or.cond110
-  %storemerge121 = select i1 %17, i32 %15, i32 %14
+  %17 = call i32 @llvm.smin.i32(i32 %14, i32 %15)
+  %spec.select149 = select i1 %cmp56, i32 %17, i32 %14
+  br label %if.end67
+
+if.end67:                                         ; preds = %if.end51, %if.end44
+  %storemerge121 = phi i32 [ %15, %if.end44 ], [ %spec.select149, %if.end51 ]
   store i32 %storemerge121, ptr %16, align 4
-  call void @exr_get_default_maximum_tile_size(ptr noundef nonnull %gmaxw, ptr noundef nonnull %gmaxh) #9
+  call void @exr_get_default_maximum_tile_size(ptr noundef nonnull %gmaxw, ptr noundef nonnull %gmaxh) #10
   %max_tile_width = getelementptr inbounds %struct._exr_context_initializer_v3, ptr %initializers, i64 0, i32 11
   %18 = load i32, ptr %max_tile_width, align 8
   %cmp68 = icmp slt i32 %18, 1
   %19 = load i32, ptr %gmaxw, align 4
   %20 = getelementptr inbounds %struct._internal_exr_context, ptr %call, i64 0, i32 20
+  br i1 %cmp68, label %if.end90, label %if.end74
+
+if.end74:                                         ; preds = %if.end67
   %cmp79 = icmp sgt i32 %19, 0
-  %cmp86 = icmp sgt i32 %18, %19
-  %or.cond111 = and i1 %cmp79, %cmp86
-  %21 = select i1 %cmp68, i1 true, i1 %or.cond111
-  %storemerge122 = select i1 %21, i32 %19, i32 %18
+  %21 = call i32 @llvm.smin.i32(i32 %18, i32 %19)
+  %spec.select150 = select i1 %cmp79, i32 %21, i32 %18
+  br label %if.end90
+
+if.end90:                                         ; preds = %if.end74, %if.end67
+  %storemerge122 = phi i32 [ %19, %if.end67 ], [ %spec.select150, %if.end74 ]
   store i32 %storemerge122, ptr %20, align 8
   %max_tile_height = getelementptr inbounds %struct._exr_context_initializer_v3, ptr %initializers, i64 0, i32 12
   %22 = load i32, ptr %max_tile_height, align 4
   %cmp91 = icmp slt i32 %22, 1
   %23 = load i32, ptr %gmaxh, align 4
   %24 = getelementptr inbounds %struct._internal_exr_context, ptr %call, i64 0, i32 21
+  br i1 %cmp91, label %if.end113, label %if.end97
+
+if.end97:                                         ; preds = %if.end90
   %cmp102 = icmp sgt i32 %23, 0
-  %cmp109 = icmp sgt i32 %22, %23
-  %or.cond112 = and i1 %cmp102, %cmp109
-  %25 = select i1 %cmp91, i1 true, i1 %or.cond112
-  %storemerge123 = select i1 %25, i32 %23, i32 %22
+  %25 = call i32 @llvm.smin.i32(i32 %22, i32 %23)
+  %spec.select151 = select i1 %cmp102, i32 %25, i32 %22
+  br label %if.end113
+
+if.end113:                                        ; preds = %if.end97, %if.end90
+  %storemerge123 = phi i32 [ %23, %if.end90 ], [ %spec.select151, %if.end97 ]
   store i32 %storemerge123, ptr %24, align 4
   %default_zip_level = getelementptr inbounds %struct._internal_exr_context, ptr %call, i64 0, i32 22
-  call void @exr_get_default_zip_compression_level(ptr noundef nonnull %default_zip_level) #9
+  call void @exr_get_default_zip_compression_level(ptr noundef nonnull %default_zip_level) #10
   %default_dwa_quality = getelementptr inbounds %struct._internal_exr_context, ptr %call, i64 0, i32 23
-  call void @exr_get_default_dwa_compression_quality(ptr noundef nonnull %default_dwa_quality) #9
+  call void @exr_get_default_dwa_compression_quality(ptr noundef nonnull %default_dwa_quality) #10
   %zip_level = getelementptr inbounds %struct._exr_context_initializer_v3, ptr %initializers, i64 0, i32 13
   %26 = load i32, ptr %zip_level, align 8
   %cmp114 = icmp sgt i32 %26, -1
   br i1 %cmp114, label %if.then116, label %if.end119
 
-if.then116:                                       ; preds = %if.end18
+if.then116:                                       ; preds = %if.end113
   store i32 %26, ptr %default_zip_level, align 8
   br label %if.end119
 
-if.end119:                                        ; preds = %if.then116, %if.end18
+if.end119:                                        ; preds = %if.then116, %if.end113
   %dwa_quality = getelementptr inbounds %struct._exr_context_initializer_v3, ptr %initializers, i64 0, i32 14
   %27 = load float, ptr %dwa_quality, align 4
   %cmp120 = fcmp ult float %27, 0.000000e+00
@@ -603,13 +623,13 @@ if.end133:                                        ; preds = %if.then132, %if.end
   %write_fn144 = getelementptr inbounds %struct._internal_exr_context, ptr %call, i64 0, i32 29
   store ptr %36, ptr %write_fn144, align 8
   %mutex = getelementptr inbounds %struct._internal_exr_context, ptr %call, i64 0, i32 39
-  %call145 = call i32 @pthread_mutex_init(ptr noundef nonnull %mutex, ptr noundef null) #9
+  %call145 = call i32 @pthread_mutex_init(ptr noundef nonnull %mutex, ptr noundef null) #10
   %cmp146.not = icmp eq i32 %call145, 0
   br i1 %cmp146.not, label %if.end150, label %if.then148
 
 if.then148:                                       ; preds = %if.end133
   %37 = load ptr, ptr %free_fn, align 8
-  call void %37(ptr noundef nonnull %call) #9
+  call void %37(ptr noundef nonnull %call) #10
   store ptr null, ptr %out, align 8
   br label %return
 
@@ -625,15 +645,15 @@ if.then153:                                       ; preds = %if.end150
 
 if.then157:                                       ; preds = %if.then153
   %38 = load ptr, ptr %free_fn, align 8
-  call void %38(ptr noundef nonnull %call) #9
+  call void %38(ptr noundef nonnull %call) #10
   store ptr null, ptr %out, align 8
   br label %return
 
 if.else161:                                       ; preds = %if.end
   %error_handler_fn162 = getelementptr inbounds %struct._exr_context_initializer_v3, ptr %initializers, i64 0, i32 1
   %39 = load ptr, ptr %error_handler_fn162, align 8
-  %call163 = tail call ptr @exr_get_default_error_message(i32 noundef 1) #9
-  tail call void %39(ptr noundef null, i32 noundef 1, ptr noundef %call163) #9
+  %call163 = tail call ptr @exr_get_default_error_message(i32 noundef 1) #10
+  tail call void %39(ptr noundef null, i32 noundef 1, ptr noundef %call163) #10
   br label %return
 
 return:                                           ; preds = %if.else161, %if.then153, %if.then157, %if.end150, %if.then148
@@ -660,11 +680,11 @@ entry:
   %free_fn = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 17
   %0 = load ptr, ptr %free_fn, align 8
   %filename = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 8
-  %call = tail call i32 @exr_attr_string_destroy(ptr noundef %ctxt, ptr noundef nonnull %filename) #9
+  %call = tail call i32 @exr_attr_string_destroy(ptr noundef %ctxt, ptr noundef nonnull %filename) #10
   %tmp_filename = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 9
-  %call1 = tail call i32 @exr_attr_string_destroy(ptr noundef %ctxt, ptr noundef nonnull %tmp_filename) #9
+  %call1 = tail call i32 @exr_attr_string_destroy(ptr noundef %ctxt, ptr noundef nonnull %tmp_filename) #10
   %custom_handlers = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 38
-  %call2 = tail call i32 @exr_attr_list_destroy(ptr noundef %ctxt, ptr noundef nonnull %custom_handlers) #9
+  %call2 = tail call i32 @exr_attr_list_destroy(ptr noundef %ctxt, ptr noundef nonnull %custom_handlers) #10
   %1 = load ptr, ptr %free_fn, align 8
   %num_parts.i = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 34
   %2 = load i32, ptr %num_parts.i, align 4
@@ -683,14 +703,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = load ptr, ptr %free_fn, align 8
   %attributes.i.i = getelementptr inbounds %struct._internal_exr_part, ptr %4, i64 0, i32 2
-  %call.i.i = tail call i32 @exr_attr_list_destroy(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes.i.i) #9
+  %call.i.i = tail call i32 @exr_attr_list_destroy(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes.i.i) #10
   %tile_level_tile_count_x.i.i = getelementptr inbounds %struct._internal_exr_part, ptr %4, i64 0, i32 25
   %6 = load ptr, ptr %tile_level_tile_count_x.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  tail call void %5(ptr noundef nonnull %6) #9
+  tail call void %5(ptr noundef nonnull %6) #10
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.i
@@ -702,7 +722,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %for.b
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %8 = inttoptr i64 %7 to ptr
-  tail call void %5(ptr noundef nonnull %8) #9
+  tail call void %5(ptr noundef nonnull %8) #10
   br label %internal_exr_destroy_part.exit.i
 
 internal_exr_destroy_part.exit.i:                 ; preds = %if.then4.i.i, %if.end.i.i
@@ -710,7 +730,7 @@ internal_exr_destroy_part.exit.i:                 ; preds = %if.then4.i.i, %if.e
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %internal_exr_destroy_part.exit.i
-  tail call void %1(ptr noundef nonnull %4) #9
+  tail call void %1(ptr noundef nonnull %4) #10
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %internal_exr_destroy_part.exit.i
@@ -730,7 +750,7 @@ for.end.i:                                        ; preds = %for.inc.i
 
 if.then4.i:                                       ; preds = %for.end.i
   %12 = load ptr, ptr %parts.i, align 8
-  tail call void %1(ptr noundef %12) #9
+  tail call void %1(ptr noundef %12) #10
   br label %internal_exr_destroy_parts.exit
 
 internal_exr_destroy_parts.exit:                  ; preds = %entry, %for.end.i, %if.then4.i
@@ -738,8 +758,8 @@ internal_exr_destroy_parts.exit:                  ; preds = %entry, %for.end.i, 
   store ptr null, ptr %parts7.i, align 8
   store i32 0, ptr %num_parts.i, align 4
   %mutex = getelementptr inbounds %struct._internal_exr_context, ptr %ctxt, i64 0, i32 39
-  %call3 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex) #9
-  tail call void %0(ptr noundef nonnull %ctxt) #9
+  %call3 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex) #10
+  tail call void %0(ptr noundef nonnull %ctxt) #10
   ret void
 }
 
@@ -789,7 +809,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 ; Function Attrs: nounwind uwtable
 define internal void @default_error_handler(ptr noundef %ctxt, i32 noundef %code, ptr noundef %msg) #0 {
 entry:
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @default_error_handler.sMutex) #9
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @default_error_handler.sMutex) #10
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %if.else9, label %if.then
 
@@ -798,26 +818,26 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %str, align 8
   %tobool1.not = icmp eq ptr %0, null
   %1 = load ptr, ptr @stderr, align 8
-  %call7 = tail call ptr @exr_get_error_code_as_string(i32 noundef %code) #9
+  %call7 = tail call ptr @exr_get_error_code_as_string(i32 noundef %code) #10
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef %call7, ptr noundef %msg) #10
+  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef %call7, ptr noundef %msg) #11
   br label %if.end11
 
 if.else:                                          ; preds = %if.then
-  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %ctxt, ptr noundef %call7, ptr noundef %msg) #10
+  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %ctxt, ptr noundef %call7, ptr noundef %msg) #11
   br label %if.end11
 
 if.else9:                                         ; preds = %entry
   %2 = load ptr, ptr @stderr, align 8
-  %call10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %msg) #10
+  %call10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %msg) #11
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then2, %if.else, %if.else9
   %3 = load ptr, ptr @stderr, align 8
   %call12 = tail call i32 @fflush(ptr noundef %3)
-  %call13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @default_error_handler.sMutex) #9
+  %call13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @default_error_handler.sMutex) #10
   ret void
 }
 
@@ -851,6 +871,9 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -860,8 +883,9 @@ attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { cold }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

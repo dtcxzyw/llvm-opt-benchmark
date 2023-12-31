@@ -1300,7 +1300,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_base
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
-  %22 = phi ptr [ %call5.i.i.i.i6.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %29, %for.inc.i.i.i.i.i ]
+  %22 = phi ptr [ %call5.i.i.i.i6.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %30, %for.inc.i.i.i.i.i ]
   %__begin2.sroa.0.016.i.i.i.i.i = phi ptr [ %19, %for.body.lr.ph.i.i.i.i.i ], [ %incdec.ptr.i12.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %23 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !22
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %22, %23
@@ -1335,22 +1335,21 @@ _ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_
   %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
   %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
-  %cmp9.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 1152921504606846975
-  %or.cond.i.i.i.i.i.i = or i1 %cmp7.i.i.i.i.i.i, %cmp9.i.i.i.i.i.i
-  %cond.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i64 1152921504606846975, i64 %add.i.i.i.i.i.i
+  %27 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 1152921504606846975, i64 %27
   %cmp.not.i.i78.i.i.i.i = icmp eq i64 %cond.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i78.i.i.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i
+  br i1 %cmp.not.i.i78.i.i.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+cond.true.i.i.i.i.i.i:                            ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i.i.i, 3
   %call5.i.i.i.i83.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #21
           to label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i unwind label %lpad.loopexit.i.loopexit.i.i.i.i
 
-_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
-  %cond.i10.i.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %call5.i.i.i.i83.i.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i ]
+_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  %cond.i10.i.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %call5.i.i.i.i83.i.i.i.i, %cond.true.i.i.i.i.i.i ]
   %add.ptr.i.i5.i.i.i = getelementptr inbounds %"class.std::unique_ptr.200", ptr %cond.i10.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i
-  %27 = load i64, ptr %__begin2.sroa.0.016.i.i.i.i.i, align 8
-  store i64 %27, ptr %add.ptr.i.i5.i.i.i, align 8
+  %28 = load i64, ptr %__begin2.sroa.0.016.i.i.i.i.i, align 8
+  store i64 %28, ptr %add.ptr.i.i5.i.i.i, align 8
   store ptr null, ptr %__begin2.sroa.0.016.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i.i.i.i.i = icmp eq ptr %26, %22
   br i1 %cmp.not5.i.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i, label %for.body.i.i.i.i79.i.i.i.i
@@ -1360,8 +1359,8 @@ for.body.i.i.i.i79.i.i.i.i:                       ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i80.i.i.i.i, %for.body.i.i.i.i79.i.i.i.i ], [ %26, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %28 = load i64, ptr %__first.addr.06.i.i.i.i.i.i.i.i, align 8, !alias.scope !29, !noalias !26
-  store i64 %28, ptr %__cur.07.i.i.i.i.i.i.i.i, align 8, !alias.scope !26, !noalias !29
+  %29 = load i64, ptr %__first.addr.06.i.i.i.i.i.i.i.i, align 8, !alias.scope !29, !noalias !26
+  store i64 %29, ptr %__cur.07.i.i.i.i.i.i.i.i, align 8, !alias.scope !26, !noalias !29
   store ptr null, ptr %__first.addr.06.i.i.i.i.i.i.i.i, align 8, !alias.scope !29, !noalias !26
   %incdec.ptr.i.i.i.i80.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.200", ptr %__first.addr.06.i.i.i.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.200", ptr %__cur.07.i.i.i.i.i.i.i.i, i64 1
@@ -1386,18 +1385,18 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_E
   br label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i, %if.then.i8.i.i.i.i.i
-  %29 = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.then.i8.i.i.i.i.i ]
+  %30 = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.then.i8.i.i.i.i.i ]
   %incdec.ptr.i12.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Permission", ptr %__begin2.sroa.0.016.i.i.i.i.i, i64 1
   %cmp.i7.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i12.i.i.i.i.i, %20
   br i1 %cmp.i7.not.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i
 
-lpad.loopexit.i.loopexit.i.i.i.i:                 ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i
-  %lpad.loopexit128.i.i.i.i = landingpad { ptr, i32 }
+lpad.loopexit.i.loopexit.i.i.i.i:                 ; preds = %cond.true.i.i.i.i.i.i
+  %lpad.loopexit127.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i.i
 
 lpad.loopexit.i.loopexit.split-lp.i.i.i.i:        ; preds = %if.then.i.i82.i.i.i.i
-  %lpad.loopexit.split-lp129.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp128.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i.i
 
@@ -1418,26 +1417,26 @@ invoke.cont.i.i.i.i:                              ; preds = %for.inc.i.i.i.i.i, 
 invoke.cont4.i.i.i.i:                             ; preds = %invoke.cont.i.i.i.i
   %call.i.i3.i.i = call noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac10PermissionaSEOS1_(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp.i.i.i.i) #22
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp.i.i.i.i) #22
-  %30 = load ptr, ptr %agg.tmp.i.i.i.i, align 8, !noalias !22
-  %31 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !noalias !22
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %30, %31
+  %31 = load ptr, ptr %agg.tmp.i.i.i.i, align 8, !noalias !22
+  %32 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !noalias !22
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %31, %32
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont.i5.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont4.i.i.i.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i ], [ %30, %invoke.cont4.i.i.i.i ]
-  %32 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
+  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i ], [ %31, %invoke.cont4.i.i.i.i ]
+  %33 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i
-  call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %32) #22
-  call void @_ZdlPv(ptr noundef nonnull %32) #24
+  call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %33) #22
+  call void @_ZdlPv(ptr noundef nonnull %33) #24
   br label %_ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.200", ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %31
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %32
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !33
 
 invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i
@@ -1445,60 +1444,60 @@ invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZNSt10unique_ptrIN
   br label %invoke.cont.i5.i.i.i.i
 
 invoke.cont.i5.i.i.i.i:                           ; preds = %invoke.contthread-pre-split.i.i.i.i.i, %invoke.cont4.i.i.i.i
-  %33 = phi ptr [ %.pr.i.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i.i ], [ %30, %invoke.cont4.i.i.i.i ]
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %33, null
+  %34 = phi ptr [ %.pr.i.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i.i ], [ %31, %invoke.cont4.i.i.i.i ]
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i5.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %33) #24
+  call void @_ZdlPv(ptr noundef nonnull %34) #24
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i5.i.i.i.i
-  %34 = load ptr, ptr %agg.tmp2.i.i.i.i, align 8, !noalias !22
-  %35 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8, !noalias !22
-  %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %34, %35
+  %35 = load ptr, ptr %agg.tmp2.i.i.i.i, align 8, !noalias !22
+  %36 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8, !noalias !22
+  %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %35, %36
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i9.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEvPT_.exit.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %34, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i ]
-  %36 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %36, null
+  %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %35, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i ]
+  %37 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEvPT_.exit.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i
-  call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %36) #22
-  call void @_ZdlPv(ptr noundef nonnull %36) #24
+  call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %37) #22
+  call void @_ZdlPv(ptr noundef nonnull %37) #24
   br label %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEvPT_.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Permission", ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i7.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %35
+  %cmp.not.i.i.i.i7.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %36
   br i1 %cmp.not.i.i.i.i7.i.i.i.i, label %invoke.cont.i9.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !34
 
 invoke.cont.i9.i.i.i.i:                           ; preds = %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEvPT_.exit.i.i.i.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i
-  %tobool.not.i.i.i10.i.i.i.i = icmp eq ptr %34, null
+  %tobool.not.i.i.i10.i.i.i.i = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i10.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EED2Ev.exit.i.i.i.i, label %if.then.i.i.i11.i.i.i.i
 
 if.then.i.i.i11.i.i.i.i:                          ; preds = %invoke.cont.i9.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %34) #24
+  call void @_ZdlPv(ptr noundef nonnull %35) #24
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EED2Ev.exit.i.i.i.i
 
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i11.i.i.i.i, %invoke.cont.i9.i.i.i.i
   %principals.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.225", ptr %__begin2.sroa.0.036.i.i.i, i64 0, i32 1, i32 0, i64 56
-  %37 = load ptr, ptr %principals.i.i.i.i, align 8, !noalias !18
-  store ptr %37, ptr %agg.tmp8.i.i.i.i, align 8, !noalias !22
+  %38 = load ptr, ptr %principals.i.i.i.i, align 8, !noalias !18
+  store ptr %38, ptr %agg.tmp8.i.i.i.i, align 8, !noalias !22
   %_M_finish3.i.i.i.i13.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.225", ptr %__begin2.sroa.0.036.i.i.i, i64 0, i32 1, i32 0, i64 64
-  %38 = load ptr, ptr %_M_finish3.i.i.i.i13.i.i.i.i, align 8, !noalias !18
-  store ptr %38, ptr %_M_finish.i.i.i.i12.i.i.i.i, align 8, !noalias !22
+  %39 = load ptr, ptr %_M_finish3.i.i.i.i13.i.i.i.i, align 8, !noalias !18
+  store ptr %39, ptr %_M_finish.i.i.i.i12.i.i.i.i, align 8, !noalias !22
   %_M_end_of_storage4.i.i.i.i15.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.225", ptr %__begin2.sroa.0.036.i.i.i, i64 0, i32 1, i32 0, i64 72
-  %39 = load ptr, ptr %_M_end_of_storage4.i.i.i.i15.i.i.i.i, align 8, !noalias !18
-  store ptr %39, ptr %_M_end_of_storage.i.i.i.i14.i.i.i.i, align 8, !noalias !22
+  %40 = load ptr, ptr %_M_end_of_storage4.i.i.i.i15.i.i.i.i, align 8, !noalias !18
+  store ptr %40, ptr %_M_end_of_storage.i.i.i.i14.i.i.i.i, align 8, !noalias !22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %principals.i.i.i.i, i8 0, i64 24, i1 false), !noalias !18
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !22
-  %sub.ptr.lhs.cast.i.i16.i.i.i.i = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i.i17.i.i.i.i = ptrtoint ptr %37 to i64
+  %sub.ptr.lhs.cast.i.i16.i.i.i.i = ptrtoint ptr %39 to i64
+  %sub.ptr.rhs.cast.i.i17.i.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i.i18.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i16.i.i.i.i, %sub.ptr.rhs.cast.i.i17.i.i.i.i
   %cmp.i.i19.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i18.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i19.i.i.i.i, label %if.then.i.i45.i.i.i.i, label %if.end.i.i20.i.i.i.i
@@ -1511,7 +1510,7 @@ if.then.i.i45.i.i.i.i:                            ; preds = %_ZNSt6vectorIN9grpc
   unreachable
 
 if.end.i.i20.i.i.i.i:                             ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EED2Ev.exit.i.i.i.i
-  %cmp3.i.not.i22.i.i.i.i = icmp eq ptr %38, %37
+  %cmp3.i.not.i22.i.i.i.i = icmp eq ptr %39, %38
   br i1 %cmp3.i.not.i22.i.i.i.i, label %invoke.cont10.i.i.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %if.end.i.i20.i.i.i.i
@@ -1526,34 +1525,34 @@ for.body.lr.ph.i32.i.i.i.i:                       ; preds = %_ZNSt12_Vector_base
   br label %for.body.i34.i.i.i.i
 
 for.body.i34.i.i.i.i:                             ; preds = %for.inc.i39.i.i.i.i, %for.body.lr.ph.i32.i.i.i.i
-  %40 = phi ptr [ %call5.i.i.i.i6.i23.i.i.i.i, %for.body.lr.ph.i32.i.i.i.i ], [ %47, %for.inc.i39.i.i.i.i ]
-  %__begin2.sroa.0.016.i35.i.i.i.i = phi ptr [ %37, %for.body.lr.ph.i32.i.i.i.i ], [ %incdec.ptr.i12.i40.i.i.i.i, %for.inc.i39.i.i.i.i ]
-  %41 = load ptr, ptr %_M_end_of_storage.i.i.i21.i.i.i.i, align 8, !alias.scope !35, !noalias !22
-  %cmp.not.i.i36.i.i.i.i = icmp eq ptr %40, %41
+  %41 = phi ptr [ %call5.i.i.i.i6.i23.i.i.i.i, %for.body.lr.ph.i32.i.i.i.i ], [ %49, %for.inc.i39.i.i.i.i ]
+  %__begin2.sroa.0.016.i35.i.i.i.i = phi ptr [ %38, %for.body.lr.ph.i32.i.i.i.i ], [ %incdec.ptr.i12.i40.i.i.i.i, %for.inc.i39.i.i.i.i ]
+  %42 = load ptr, ptr %_M_end_of_storage.i.i.i21.i.i.i.i, align 8, !alias.scope !35, !noalias !22
+  %cmp.not.i.i36.i.i.i.i = icmp eq ptr %41, %42
   br i1 %cmp.not.i.i36.i.i.i.i, label %if.else.i.i42.i.i.i.i, label %if.then.i8.i37.i.i.i.i
 
 if.then.i8.i37.i.i.i.i:                           ; preds = %for.body.i34.i.i.i.i
-  %42 = load i64, ptr %__begin2.sroa.0.016.i35.i.i.i.i, align 8
-  store i64 %42, ptr %40, align 8
+  %43 = load i64, ptr %__begin2.sroa.0.016.i35.i.i.i.i, align 8
+  store i64 %43, ptr %41, align 8
   store ptr null, ptr %__begin2.sroa.0.016.i35.i.i.i.i, align 8
-  %43 = load ptr, ptr %_M_finish.i.i.i28.i.i.i.i, align 8, !alias.scope !35, !noalias !22
-  %incdec.ptr.i.i38.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %43, i64 1
+  %44 = load ptr, ptr %_M_finish.i.i.i28.i.i.i.i, align 8, !alias.scope !35, !noalias !22
+  %incdec.ptr.i.i38.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %44, i64 1
   store ptr %incdec.ptr.i.i38.i.i.i.i, ptr %_M_finish.i.i.i28.i.i.i.i, align 8, !alias.scope !35, !noalias !22
   br label %for.inc.i39.i.i.i.i
 
 if.else.i.i42.i.i.i.i:                            ; preds = %for.body.i34.i.i.i.i
-  %44 = load ptr, ptr %agg.tmp7.i.i.i.i, align 8, !noalias !22
-  %sub.ptr.lhs.cast.i.i.i85.i.i.i.i = ptrtoint ptr %40 to i64
-  %sub.ptr.rhs.cast.i.i.i86.i.i.i.i = ptrtoint ptr %44 to i64
+  %45 = load ptr, ptr %agg.tmp7.i.i.i.i, align 8, !noalias !22
+  %sub.ptr.lhs.cast.i.i.i85.i.i.i.i = ptrtoint ptr %41 to i64
+  %sub.ptr.rhs.cast.i.i.i86.i.i.i.i = ptrtoint ptr %45 to i64
   %sub.ptr.sub.i.i.i87.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i85.i.i.i.i, %sub.ptr.rhs.cast.i.i.i86.i.i.i.i
   %cmp.i.i88.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i87.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i88.i.i.i.i, label %if.then.i.i124.i.i.i.i, label %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  br i1 %cmp.i.i88.i.i.i.i, label %if.then.i.i123.i.i.i.i, label %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
 
-if.then.i.i124.i.i.i.i:                           ; preds = %if.else.i.i42.i.i.i.i
+if.then.i.i123.i.i.i.i:                           ; preds = %if.else.i.i42.i.i.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #20
-          to label %.noexc125.i.i.i.i unwind label %lpad.loopexit.i43.loopexit.split-lp.i.i.i.i
+          to label %.noexc124.i.i.i.i unwind label %lpad.loopexit.i43.loopexit.split-lp.i.i.i.i
 
-.noexc125.i.i.i.i:                                ; preds = %if.then.i.i124.i.i.i.i
+.noexc124.i.i.i.i:                                ; preds = %if.then.i.i123.i.i.i.i
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i42.i.i.i.i
@@ -1561,68 +1560,67 @@ _ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EE
   %.sroa.speculated.i.i90.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i89.i.i.i.i, i64 1)
   %add.i.i91.i.i.i.i = add i64 %.sroa.speculated.i.i90.i.i.i.i, %sub.ptr.div.i.i.i89.i.i.i.i
   %cmp7.i.i92.i.i.i.i = icmp ult i64 %add.i.i91.i.i.i.i, %sub.ptr.div.i.i.i89.i.i.i.i
-  %cmp9.i.i93.i.i.i.i = icmp ugt i64 %add.i.i91.i.i.i.i, 1152921504606846975
-  %or.cond.i.i94.i.i.i.i = or i1 %cmp7.i.i92.i.i.i.i, %cmp9.i.i93.i.i.i.i
-  %cond.i.i95.i.i.i.i = select i1 %or.cond.i.i94.i.i.i.i, i64 1152921504606846975, i64 %add.i.i91.i.i.i.i
-  %cmp.not.i.i99.i.i.i.i = icmp eq i64 %cond.i.i95.i.i.i.i, 0
-  br i1 %cmp.not.i.i99.i.i.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i
+  %46 = call i64 @llvm.umin.i64(i64 %add.i.i91.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i93.i.i.i.i = select i1 %cmp7.i.i92.i.i.i.i, i64 1152921504606846975, i64 %46
+  %cmp.not.i.i97.i.i.i.i = icmp eq i64 %cond.i.i93.i.i.i.i, 0
+  br i1 %cmp.not.i.i97.i.i.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i, label %cond.true.i.i98.i.i.i.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
-  %mul.i.i.i.i100.i.i.i.i = shl nuw nsw i64 %cond.i.i95.i.i.i.i, 3
-  %call5.i.i.i.i127.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i100.i.i.i.i) #21
+cond.true.i.i98.i.i.i.i:                          ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  %mul.i.i.i.i99.i.i.i.i = shl nuw nsw i64 %cond.i.i93.i.i.i.i, 3
+  %call5.i.i.i.i126.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i99.i.i.i.i) #21
           to label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i unwind label %lpad.loopexit.i43.loopexit.i.i.i.i
 
-_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
-  %cond.i10.i101.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %call5.i.i.i.i127.i.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i ]
-  %add.ptr.i102.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %cond.i10.i101.i.i.i.i, i64 %sub.ptr.div.i.i.i89.i.i.i.i
-  %45 = load i64, ptr %__begin2.sroa.0.016.i35.i.i.i.i, align 8
-  store i64 %45, ptr %add.ptr.i102.i.i.i.i, align 8
+_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %cond.true.i.i98.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  %cond.i10.i100.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %call5.i.i.i.i126.i.i.i.i, %cond.true.i.i98.i.i.i.i ]
+  %add.ptr.i101.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %cond.i10.i100.i.i.i.i, i64 %sub.ptr.div.i.i.i89.i.i.i.i
+  %47 = load i64, ptr %__begin2.sroa.0.016.i35.i.i.i.i, align 8
+  store i64 %47, ptr %add.ptr.i101.i.i.i.i, align 8
   store ptr null, ptr %__begin2.sroa.0.016.i35.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i103.i.i.i.i = icmp eq ptr %44, %40
-  br i1 %cmp.not5.i.i.i.i103.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i, label %for.body.i.i.i.i104.i.i.i.i
+  %cmp.not5.i.i.i.i102.i.i.i.i = icmp eq ptr %45, %41
+  br i1 %cmp.not5.i.i.i.i102.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i, label %for.body.i.i.i.i103.i.i.i.i
 
-for.body.i.i.i.i104.i.i.i.i:                      ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i, %for.body.i.i.i.i104.i.i.i.i
-  %__cur.07.i.i.i.i105.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i108.i.i.i.i, %for.body.i.i.i.i104.i.i.i.i ], [ %cond.i10.i101.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i ]
-  %__first.addr.06.i.i.i.i106.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i107.i.i.i.i, %for.body.i.i.i.i104.i.i.i.i ], [ %44, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i ]
+for.body.i.i.i.i103.i.i.i.i:                      ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i, %for.body.i.i.i.i103.i.i.i.i
+  %__cur.07.i.i.i.i104.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i107.i.i.i.i, %for.body.i.i.i.i103.i.i.i.i ], [ %cond.i10.i100.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i ]
+  %__first.addr.06.i.i.i.i105.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i106.i.i.i.i, %for.body.i.i.i.i103.i.i.i.i ], [ %45, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %46 = load i64, ptr %__first.addr.06.i.i.i.i106.i.i.i.i, align 8, !alias.scope !41, !noalias !38
-  store i64 %46, ptr %__cur.07.i.i.i.i105.i.i.i.i, align 8, !alias.scope !38, !noalias !41
-  store ptr null, ptr %__first.addr.06.i.i.i.i106.i.i.i.i, align 8, !alias.scope !41, !noalias !38
-  %incdec.ptr.i.i.i.i107.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %__first.addr.06.i.i.i.i106.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i108.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %__cur.07.i.i.i.i105.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i109.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i107.i.i.i.i, %40
-  br i1 %cmp.not.i.i.i.i109.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i, label %for.body.i.i.i.i104.i.i.i.i, !llvm.loop !43
+  %48 = load i64, ptr %__first.addr.06.i.i.i.i105.i.i.i.i, align 8, !alias.scope !41, !noalias !38
+  store i64 %48, ptr %__cur.07.i.i.i.i104.i.i.i.i, align 8, !alias.scope !38, !noalias !41
+  store ptr null, ptr %__first.addr.06.i.i.i.i105.i.i.i.i, align 8, !alias.scope !41, !noalias !38
+  %incdec.ptr.i.i.i.i106.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %__first.addr.06.i.i.i.i105.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i107.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %__cur.07.i.i.i.i104.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i108.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i106.i.i.i.i, %41
+  br i1 %cmp.not.i.i.i.i108.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i, label %for.body.i.i.i.i103.i.i.i.i, !llvm.loop !43
 
-_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i: ; preds = %for.body.i.i.i.i104.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i
-  %__cur.0.lcssa.i.i.i.i110.i.i.i.i = phi ptr [ %cond.i10.i101.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i108.i.i.i.i, %for.body.i.i.i.i104.i.i.i.i ]
-  %incdec.ptr.i111.i.i.i.i = getelementptr %"class.std::unique_ptr.188", ptr %__cur.0.lcssa.i.i.i.i110.i.i.i.i, i64 1
-  %tobool.not.i.i120.i.i.i.i = icmp eq ptr %44, null
-  br i1 %tobool.not.i.i120.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i, label %if.then.i20.i121.i.i.i.i
+_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i: ; preds = %for.body.i.i.i.i103.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i
+  %__cur.0.lcssa.i.i.i.i109.i.i.i.i = phi ptr [ %cond.i10.i100.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i107.i.i.i.i, %for.body.i.i.i.i103.i.i.i.i ]
+  %incdec.ptr.i110.i.i.i.i = getelementptr %"class.std::unique_ptr.188", ptr %__cur.0.lcssa.i.i.i.i109.i.i.i.i, i64 1
+  %tobool.not.i.i119.i.i.i.i = icmp eq ptr %45, null
+  br i1 %tobool.not.i.i119.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i, label %if.then.i20.i120.i.i.i.i
 
-if.then.i20.i121.i.i.i.i:                         ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %44) #24
+if.then.i20.i120.i.i.i.i:                         ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %45) #24
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i
 
-_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i20.i121.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i
-  store ptr %cond.i10.i101.i.i.i.i, ptr %agg.tmp7.i.i.i.i, align 8, !noalias !22
-  store ptr %incdec.ptr.i111.i.i.i.i, ptr %_M_finish.i.i.i28.i.i.i.i, align 8, !noalias !22
-  %add.ptr19.i123.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %cond.i10.i101.i.i.i.i, i64 %cond.i.i95.i.i.i.i
-  store ptr %add.ptr19.i123.i.i.i.i, ptr %_M_end_of_storage.i.i.i21.i.i.i.i, align 8, !noalias !22
+_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i20.i120.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i.i
+  store ptr %cond.i10.i100.i.i.i.i, ptr %agg.tmp7.i.i.i.i, align 8, !noalias !22
+  store ptr %incdec.ptr.i110.i.i.i.i, ptr %_M_finish.i.i.i28.i.i.i.i, align 8, !noalias !22
+  %add.ptr19.i122.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %cond.i10.i100.i.i.i.i, i64 %cond.i.i93.i.i.i.i
+  store ptr %add.ptr19.i122.i.i.i.i, ptr %_M_end_of_storage.i.i.i21.i.i.i.i, align 8, !noalias !22
   br label %for.inc.i39.i.i.i.i
 
 for.inc.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i, %if.then.i8.i37.i.i.i.i
-  %47 = phi ptr [ %incdec.ptr.i111.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i ], [ %incdec.ptr.i.i38.i.i.i.i, %if.then.i8.i37.i.i.i.i ]
+  %49 = phi ptr [ %incdec.ptr.i110.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i ], [ %incdec.ptr.i.i38.i.i.i.i, %if.then.i8.i37.i.i.i.i ]
   %incdec.ptr.i12.i40.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Principal", ptr %__begin2.sroa.0.016.i35.i.i.i.i, i64 1
-  %cmp.i7.not.i41.i.i.i.i = icmp eq ptr %incdec.ptr.i12.i40.i.i.i.i, %38
+  %cmp.i7.not.i41.i.i.i.i = icmp eq ptr %incdec.ptr.i12.i40.i.i.i.i, %39
   br i1 %cmp.i7.not.i41.i.i.i.i, label %invoke.cont10.i.i.i.i, label %for.body.i34.i.i.i.i
 
-lpad.loopexit.i43.loopexit.i.i.i.i:               ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i.i.i.i.i
+lpad.loopexit.i43.loopexit.i.i.i.i:               ; preds = %cond.true.i.i98.i.i.i.i
   %lpad.loopexit.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i.i.i.i
 
-lpad.loopexit.i43.loopexit.split-lp.i.i.i.i:      ; preds = %if.then.i.i124.i.i.i.i
+lpad.loopexit.i43.loopexit.split-lp.i.i.i.i:      ; preds = %if.then.i.i123.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i.i.i.i
@@ -1644,26 +1642,26 @@ invoke.cont10.i.i.i.i:                            ; preds = %for.inc.i39.i.i.i.i
 invoke.cont12.i.i.i.i:                            ; preds = %invoke.cont10.i.i.i.i
   %call14.i.i.i.i = call noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac9PrincipalaSEOS1_(ptr noundef nonnull align 8 dereferenceable(257) %principals.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp6.i.i.i.i) #22
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp6.i.i.i.i) #22
-  %48 = load ptr, ptr %agg.tmp7.i.i.i.i, align 8, !noalias !22
-  %49 = load ptr, ptr %_M_finish.i.i.i28.i.i.i.i, align 8, !noalias !22
-  %cmp.not3.i.i.i49.i.i.i.i = icmp eq ptr %48, %49
+  %50 = load ptr, ptr %agg.tmp7.i.i.i.i, align 8, !noalias !22
+  %51 = load ptr, ptr %_M_finish.i.i.i28.i.i.i.i, align 8, !noalias !22
+  %cmp.not3.i.i.i49.i.i.i.i = icmp eq ptr %50, %51
   br i1 %cmp.not3.i.i.i49.i.i.i.i, label %invoke.cont.i57.i.i.i.i, label %for.body.i.i.i50.i.i.i.i
 
 for.body.i.i.i50.i.i.i.i:                         ; preds = %invoke.cont12.i.i.i.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i51.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i53.i.i.i.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i ], [ %48, %invoke.cont12.i.i.i.i ]
-  %50 = load ptr, ptr %__first.addr.04.i.i.i51.i.i.i.i, align 8
-  %cmp.not.i.i.i.i52.i.i.i.i = icmp eq ptr %50, null
+  %__first.addr.04.i.i.i51.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i53.i.i.i.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i ], [ %50, %invoke.cont12.i.i.i.i ]
+  %52 = load ptr, ptr %__first.addr.04.i.i.i51.i.i.i.i, align 8
+  %cmp.not.i.i.i.i52.i.i.i.i = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i.i52.i.i.i.i, label %_ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i50.i.i.i.i
-  call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %50) #22
-  call void @_ZdlPv(ptr noundef nonnull %50) #24
+  call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %52) #22
+  call void @_ZdlPv(ptr noundef nonnull %52) #24
   br label %_ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i50.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i51.i.i.i.i, align 8
   %incdec.ptr.i.i.i53.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %__first.addr.04.i.i.i51.i.i.i.i, i64 1
-  %cmp.not.i.i.i54.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i53.i.i.i.i, %49
+  %cmp.not.i.i.i54.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i53.i.i.i.i, %51
   br i1 %cmp.not.i.i.i54.i.i.i.i, label %invoke.contthread-pre-split.i55.i.i.i.i, label %for.body.i.i.i50.i.i.i.i, !llvm.loop !44
 
 invoke.contthread-pre-split.i55.i.i.i.i:          ; preds = %_ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i
@@ -1671,63 +1669,63 @@ invoke.contthread-pre-split.i55.i.i.i.i:          ; preds = %_ZNSt10unique_ptrIN
   br label %invoke.cont.i57.i.i.i.i
 
 invoke.cont.i57.i.i.i.i:                          ; preds = %invoke.contthread-pre-split.i55.i.i.i.i, %invoke.cont12.i.i.i.i
-  %51 = phi ptr [ %.pr.i56.i.i.i.i, %invoke.contthread-pre-split.i55.i.i.i.i ], [ %48, %invoke.cont12.i.i.i.i ]
-  %tobool.not.i.i.i58.i.i.i.i = icmp eq ptr %51, null
+  %53 = phi ptr [ %.pr.i56.i.i.i.i, %invoke.contthread-pre-split.i55.i.i.i.i ], [ %50, %invoke.cont12.i.i.i.i ]
+  %tobool.not.i.i.i58.i.i.i.i = icmp eq ptr %53, null
   br i1 %tobool.not.i.i.i58.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i, label %if.then.i.i.i59.i.i.i.i
 
 if.then.i.i.i59.i.i.i.i:                          ; preds = %invoke.cont.i57.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %51) #24
+  call void @_ZdlPv(ptr noundef nonnull %53) #24
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i59.i.i.i.i, %invoke.cont.i57.i.i.i.i
-  %52 = load ptr, ptr %agg.tmp8.i.i.i.i, align 8, !noalias !22
-  %53 = load ptr, ptr %_M_finish.i.i.i.i12.i.i.i.i, align 8, !noalias !22
-  %cmp.not3.i.i.i.i61.i.i.i.i = icmp eq ptr %52, %53
+  %54 = load ptr, ptr %agg.tmp8.i.i.i.i, align 8, !noalias !22
+  %55 = load ptr, ptr %_M_finish.i.i.i.i12.i.i.i.i, align 8, !noalias !22
+  %cmp.not3.i.i.i.i61.i.i.i.i = icmp eq ptr %54, %55
   br i1 %cmp.not3.i.i.i.i61.i.i.i.i, label %invoke.cont.i69.i.i.i.i, label %for.body.i.i.i.i62.i.i.i.i
 
 for.body.i.i.i.i62.i.i.i.i:                       ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEvPT_.exit.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i63.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i65.i.i.i.i, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %52, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i ]
-  %54 = load ptr, ptr %__first.addr.04.i.i.i.i63.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i64.i.i.i.i = icmp eq ptr %54, null
+  %__first.addr.04.i.i.i.i63.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i65.i.i.i.i, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %54, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i ]
+  %56 = load ptr, ptr %__first.addr.04.i.i.i.i63.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i64.i.i.i.i = icmp eq ptr %56, null
   br i1 %cmp.not.i.i.i.i.i.i.i64.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEvPT_.exit.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i62.i.i.i.i
-  call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %54) #22
-  call void @_ZdlPv(ptr noundef nonnull %54) #24
+  call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %56) #22
+  call void @_ZdlPv(ptr noundef nonnull %56) #24
   br label %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEvPT_.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i62.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i63.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i65.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Principal", ptr %__first.addr.04.i.i.i.i63.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i66.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i65.i.i.i.i, %53
+  %cmp.not.i.i.i.i66.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i65.i.i.i.i, %55
   br i1 %cmp.not.i.i.i.i66.i.i.i.i, label %invoke.cont.i69.i.i.i.i, label %for.body.i.i.i.i62.i.i.i.i, !llvm.loop !45
 
 invoke.cont.i69.i.i.i.i:                          ; preds = %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEvPT_.exit.i.i.i.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit.i.i.i.i
-  %tobool.not.i.i.i71.i.i.i.i = icmp eq ptr %52, null
+  %tobool.not.i.i.i71.i.i.i.i = icmp eq ptr %54, null
   br i1 %tobool.not.i.i.i71.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i72.i.i.i.i
 
 if.then.i.i.i72.i.i.i.i:                          ; preds = %invoke.cont.i69.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %52) #24
+  call void @_ZdlPv(ptr noundef nonnull %54) #24
   br label %invoke.cont.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %invoke.cont.i.i.i.i
-  %55 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i.i
 
 ehcleanup.i.i.i.i:                                ; preds = %lpad3.i.i.i.i, %lpad.loopexit.split-lp.i.i.loopexit.split-lp.i.i.i, %lpad.loopexit.split-lp.i.i.loopexit.i.i.i, %lpad.loopexit.i.loopexit.split-lp.i.i.i.i, %lpad.loopexit.i.loopexit.i.i.i.i
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %55, %lpad3.i.i.i.i ], [ %lpad.loopexit128.i.i.i.i, %lpad.loopexit.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp129.i.i.i.i, %lpad.loopexit.i.loopexit.split-lp.i.i.i.i ], [ %lpad.loopexit.i.i.i, %lpad.loopexit.split-lp.i.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad.loopexit.split-lp.i.i.loopexit.split-lp.i.i.i ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %57, %lpad3.i.i.i.i ], [ %lpad.loopexit127.i.i.i.i, %lpad.loopexit.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp128.i.i.i.i, %lpad.loopexit.i.loopexit.split-lp.i.i.i.i ], [ %lpad.loopexit.i.i.i, %lpad.loopexit.split-lp.i.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad.loopexit.split-lp.i.i.loopexit.split-lp.i.i.i ]
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i.i) #22
   call fastcc void @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i.i.i.i) #22
   br label %ehcleanup.i.i.i
 
 lpad11.i.i.i.i:                                   ; preds = %invoke.cont10.i.i.i.i
-  %56 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i.i.i.i
 
 ehcleanup16.i.i.i.i:                              ; preds = %lpad11.i.i.i.i, %lpad.loopexit.split-lp.i24.i.loopexit.split-lp.i.i.i, %lpad.loopexit.split-lp.i24.i.loopexit.i.i.i, %lpad.loopexit.i43.loopexit.split-lp.i.i.i.i, %lpad.loopexit.i43.loopexit.i.i.i.i
-  %.pn2.i.i.i.i = phi { ptr, i32 } [ %56, %lpad11.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad.loopexit.i43.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad.loopexit.i43.loopexit.split-lp.i.i.i.i ], [ %lpad.loopexit15.i.i.i, %lpad.loopexit.split-lp.i24.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp16.i.i.i, %lpad.loopexit.split-lp.i24.i.loopexit.split-lp.i.i.i ]
+  %.pn2.i.i.i.i = phi { ptr, i32 } [ %58, %lpad11.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad.loopexit.i43.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad.loopexit.i43.loopexit.split-lp.i.i.i.i ], [ %lpad.loopexit15.i.i.i, %lpad.loopexit.split-lp.i24.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp16.i.i.i, %lpad.loopexit.split-lp.i24.i.loopexit.split-lp.i.i.i ]
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7.i.i.i.i) #22
   call fastcc void @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp8.i.i.i.i) #22
   br label %ehcleanup.i.i.i
@@ -1739,22 +1737,22 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i72.i.i
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %ref.tmp6.i.i.i.i), !noalias !21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7.i.i.i.i), !noalias !21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp8.i.i.i.i), !noalias !21
-  %57 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !7
-  %cmp.not6.i.i.i.i.i.i.i = icmp eq ptr %57, null
+  %59 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !7
+  %cmp.not6.i.i.i.i.i.i.i = icmp eq ptr %59, null
   br i1 %cmp.not6.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %while.body.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i
-  %__x.addr.08.i.i.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i ], [ %57, %invoke.cont.i.i.i ]
+  %__x.addr.08.i.i.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i ], [ %59, %invoke.cont.i.i.i ]
   %__y.addr.07.i.i.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i ], [ %4, %invoke.cont.i.i.i ]
   %_M_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i.i.i.i, i64 0, i32 1
   %call.i.i.i.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %while.body.i.i.i.i.i.i.i
-  %58 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #23
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #23
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i
@@ -1778,10 +1776,10 @@ lor.rhs.i.i.i.i:                                  ; preds = %_ZNSt3mapINSt7__cxx
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i
-  %60 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #23
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #23
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i
@@ -1801,25 +1799,25 @@ call5.i.i.i.i.noexc43.i:                          ; preds = %if.then.i.i.i.i
           to label %call.i.i.noexc.i unwind label %lpad.i.i41.i
 
 lpad.i.i41.i:                                     ; preds = %call5.i.i.i.i.noexc43.i
-  %62 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  %64 = call ptr @__cxa_begin_catch(ptr %63) #22
+  %65 = extractvalue { ptr, i32 } %64, 0
+  %66 = call ptr @__cxa_begin_catch(ptr %65) #22
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i44.i) #24
   invoke void @__cxa_rethrow() #20
           to label %unreachable.i.i.i unwind label %lpad5.i.i.i
 
 lpad5.i.i.i:                                      ; preds = %lpad.i.i41.i
-  %65 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup.i.i.i unwind label %terminate.lpad.i.i42.i
 
 terminate.lpad.i.i42.i:                           ; preds = %lpad5.i.i.i
-  %66 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #23
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #23
   unreachable
 
 unreachable.i.i.i:                                ; preds = %lpad.i.i41.i
@@ -1833,27 +1831,27 @@ call.i.i.noexc.i:                                 ; preds = %call5.i.i.i.i.noexc
           to label %invoke.cont5.i.i unwind label %lpad.i24.i
 
 invoke.cont5.i.i:                                 ; preds = %call.i.i.noexc.i
-  %68 = extractvalue { ptr, ptr } %call6.i.i, 1
-  %tobool.not.i.i = icmp eq ptr %68, null
+  %70 = extractvalue { ptr, ptr } %call6.i.i, 1
+  %tobool.not.i.i = icmp eq ptr %70, null
   br i1 %tobool.not.i.i, label %if.then.i.i33.i, label %if.then.i25.i
 
 if.then.i25.i:                                    ; preds = %invoke.cont5.i.i
-  %69 = extractvalue { ptr, ptr } %call6.i.i, 0
-  %cmp.not.i.i.i.i = icmp ne ptr %69, null
-  %cmp2.i.i.i.i = icmp eq ptr %4, %68
+  %71 = extractvalue { ptr, ptr } %call6.i.i, 0
+  %cmp.not.i.i.i.i = icmp ne ptr %71, null
+  %cmp2.i.i.i.i = icmp eq ptr %4, %70
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i27.i
 
 lor.rhs.i.i.i27.i:                                ; preds = %if.then.i25.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %68, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %70, i64 0, i32 1
   %call.i.i.i.i.i28.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i30.i unwind label %terminate.lpad.i.i.i.i.i29.i
 
 terminate.lpad.i.i.i.i.i29.i:                     ; preds = %lor.rhs.i.i.i27.i
-  %70 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #23
+  %73 = extractvalue { ptr, i32 } %72, 0
+  call void @__clang_call_terminate(ptr %73) #23
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i30.i: ; preds = %lor.rhs.i.i.i27.i
@@ -1861,15 +1859,15 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %cleanup.thread.i.i
 
 cleanup.thread.i.i:                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i30.i, %if.then.i25.i
-  %72 = phi i1 [ true, %if.then.i25.i ], [ %cmp.i.i.i.i.i31.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i30.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %72, ptr noundef nonnull %call5.i.i.i.i44.i, ptr noundef nonnull %68, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  %73 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
-  %inc.i.i.i.i = add i64 %73, 1
+  %74 = phi i1 [ true, %if.then.i25.i ], [ %cmp.i.i.i.i.i31.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i30.i ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %74, ptr noundef nonnull %call5.i.i.i.i44.i, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %75 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
+  %inc.i.i.i.i = add i64 %75, 1
   store i64 %inc.i.i.i.i, ptr %_M_node_count.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE22_M_emplace_hint_uniqueIJRS7_SA_EEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_.exit.i
 
 lpad.i24.i:                                       ; preds = %call.i.i.noexc.i
-  %74 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__z.i.i) #22
   br label %ehcleanup.i.i.i
@@ -1894,7 +1892,7 @@ invoke.cont10.i.i.i:                              ; preds = %_ZNSt8_Rb_treeINSt7
   br i1 %cmp.i.not.i.i.i, label %for.end.loopexit.i.i.i, label %for.body.i.i.i
 
 lpad9.i.i.i:                                      ; preds = %if.then.i.i.i.i
-  %75 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i
 
@@ -1904,47 +1902,47 @@ for.end.loopexit.i.i.i:                           ; preds = %invoke.cont10.i.i.i
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %if.end.i9.i
-  %76 = phi ptr [ %.pre37.i.i.i, %for.end.loopexit.i.i.i ], [ null, %if.end.i9.i ]
-  %77 = phi ptr [ %.pre.i.i.i, %for.end.loopexit.i.i.i ], [ null, %if.end.i9.i ]
+  %78 = phi ptr [ %.pre37.i.i.i, %for.end.loopexit.i.i.i ], [ null, %if.end.i9.i ]
+  %79 = phi ptr [ %.pre.i.i.i, %for.end.loopexit.i.i.i ], [ null, %if.end.i9.i ]
   %logger_configs.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__begin2.sroa.0.070.i, i64 0, i32 3
-  %78 = load <2 x ptr>, ptr %logger_configs.i.i.i, align 8, !noalias !17
-  store <2 x ptr> %78, ptr %logger_configs.i.i.i.i, align 8, !alias.scope !17, !noalias !7
+  %80 = load <2 x ptr>, ptr %logger_configs.i.i.i, align 8, !noalias !17
+  store <2 x ptr> %80, ptr %logger_configs.i.i.i.i, align 8, !alias.scope !17, !noalias !7
   %_M_end_of_storage.i4.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__begin2.sroa.0.070.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %79 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i, align 8, !noalias !17
-  store ptr %79, ptr %_M_end_of_storage.i.i.i.i13.i.i.i, align 8, !alias.scope !17, !noalias !7
-  %cmp.not3.i.i.i.i.i.i.i.i.i = icmp eq ptr %77, %76
+  %81 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i, align 8, !noalias !17
+  store ptr %81, ptr %_M_end_of_storage.i.i.i.i13.i.i.i, align 8, !alias.scope !17, !noalias !7
+  %cmp.not3.i.i.i.i.i.i.i.i.i = icmp eq ptr %79, %78
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %logger_configs.i.i.i, i8 0, i64 24, i1 false), !noalias !17
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.end.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i ], [ %77, %for.end.i.i.i ]
-  %80 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i14.i.i.i = icmp eq ptr %80, null
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i ], [ %79, %for.end.i.i.i ]
+  %82 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i14.i.i.i = icmp eq ptr %82, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i14.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %80, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %82, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 1
-  %81 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(8) %80) #22
+  %83 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  call void %83(ptr noundef nonnull align 8 dereferenceable(8) %82) #22
   br label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.235", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %76
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %78
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !47
 
 invoke.cont.i.i.i.i.i.i:                          ; preds = %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i, %for.end.i.i.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %77, null
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %79, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules10TakeAsRbacEv.exit.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %77) #24
+  call void @_ZdlPv(ptr noundef nonnull %79) #24
   br label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules10TakeAsRbacEv.exit.i.i
 
 ehcleanup.i.i.i:                                  ; preds = %lpad9.i.i.i, %lpad.i24.i, %lpad5.i.i.i, %ehcleanup16.i.i.i.i, %ehcleanup.i.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %.pn2.i.i.i.i, %ehcleanup16.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i ], [ %74, %lpad.i24.i ], [ %75, %lpad9.i.i.i ], [ %65, %lpad5.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %.pn2.i.i.i.i, %ehcleanup16.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i ], [ %76, %lpad.i24.i ], [ %77, %lpad9.i.i.i ], [ %67, %lpad5.i.i.i ]
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %principals.i.i.i.i.i) #22
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp.i.i.i) #22
   call void @_ZN9grpc_core4RbacD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp.i) #22
@@ -1958,45 +1956,45 @@ invoke.cont8.i:                                   ; preds = %_ZN9grpc_core12_GLO
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i.i), !noalias !7
-  %82 = load ptr, ptr %_M_finish.i.i, align 8, !alias.scope !7
-  %83 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !7
-  %cmp.not.i.i = icmp eq ptr %82, %83
+  %84 = load ptr, ptr %_M_finish.i.i, align 8, !alias.scope !7
+  %85 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !7
+  %cmp.not.i.i = icmp eq ptr %84, %85
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i11.i
 
 if.then.i11.i:                                    ; preds = %invoke.cont8.i
-  call void @_ZN9grpc_core4RbacC1EOS0_(ptr noundef nonnull align 8 dereferenceable(120) %82, ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp.i) #22
-  %84 = load ptr, ptr %_M_finish.i.i, align 8, !alias.scope !7
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %84, i64 1
+  call void @_ZN9grpc_core4RbacC1EOS0_(ptr noundef nonnull align 8 dereferenceable(120) %84, ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp.i) #22
+  %86 = load ptr, ptr %_M_finish.i.i, align 8, !alias.scope !7
+  %incdec.ptr.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %86, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !alias.scope !7
   br label %invoke.cont10.i
 
 if.else.i.i:                                      ; preds = %invoke.cont8.i
-  invoke void @_ZNSt6vectorIN9grpc_core4RbacESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %rbac_policies, ptr %82, ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp.i)
+  invoke void @_ZNSt6vectorIN9grpc_core4RbacESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %rbac_policies, ptr %84, ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp.i)
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %if.else.i.i, %if.then.i11.i
-  %85 = load ptr, ptr %logger_configs.i.i.i.i, align 8, !noalias !7
-  %86 = load ptr, ptr %_M_finish.i.i.i.i12.phi.trans.insert.i.i.i, align 8, !noalias !7
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %85, %86
+  %87 = load ptr, ptr %logger_configs.i.i.i.i, align 8, !noalias !7
+  %88 = load ptr, ptr %_M_finish.i.i.i.i12.phi.trans.insert.i.i.i, align 8, !noalias !7
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %87, %88
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i18.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %invoke.cont10.i, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i16.i, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i ], [ %85, %invoke.cont10.i ]
-  %87 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i15.i = icmp eq ptr %87, null
+  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i16.i, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i ], [ %87, %invoke.cont10.i ]
+  %89 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i15.i = icmp eq ptr %89, null
   br i1 %cmp.not.i.i.i.i.i.i.i15.i, label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %87, align 8
+  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %89, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
-  %88 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  call void %88(ptr noundef nonnull align 8 dereferenceable(8) %87) #22
+  %90 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
+  call void %90(ptr noundef nonnull align 8 dereferenceable(8) %89) #22
   br label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i16.i = getelementptr inbounds %"class.std::unique_ptr.235", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i17.i = icmp eq ptr %incdec.ptr.i.i.i.i.i16.i, %86
+  %cmp.not.i.i.i.i.i17.i = icmp eq ptr %incdec.ptr.i.i.i.i.i16.i, %88
   br i1 %cmp.not.i.i.i.i.i17.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !47
 
 invoke.contthread-pre-split.i.i.i:                ; preds = %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i
@@ -2004,24 +2002,24 @@ invoke.contthread-pre-split.i.i.i:                ; preds = %_ZSt8_DestroyISt10u
   br label %invoke.cont.i.i18.i
 
 invoke.cont.i.i18.i:                              ; preds = %invoke.contthread-pre-split.i.i.i, %invoke.cont10.i
-  %89 = phi ptr [ %.pr.i.i.i, %invoke.contthread-pre-split.i.i.i ], [ %85, %invoke.cont10.i ]
-  %tobool.not.i.i.i.i.i = icmp eq ptr %89, null
+  %91 = phi ptr [ %.pr.i.i.i, %invoke.contthread-pre-split.i.i.i ], [ %87, %invoke.cont10.i ]
+  %tobool.not.i.i.i.i.i = icmp eq ptr %91, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i18.i
-  call void @_ZdlPv(ptr noundef nonnull %89) #24
+  call void @_ZdlPv(ptr noundef nonnull %91) #24
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EED2Ev.exit.i.i
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i18.i
-  %90 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %policies8.i.i.i, ptr noundef %90)
+  %92 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %policies8.i.i.i, ptr noundef %92)
           to label %_ZN9grpc_core4RbacD2Ev.exit.i unwind label %terminate.lpad.i.i.i19.i
 
 terminate.lpad.i.i.i19.i:                         ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EED2Ev.exit.i.i
-  %91 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #23
+  %94 = extractvalue { ptr, i32 } %93, 0
+  call void @__clang_call_terminate(ptr %94) #23
   unreachable
 
 _ZN9grpc_core4RbacD2Ev.exit.i:                    ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EED2Ev.exit.i.i
@@ -2031,12 +2029,12 @@ _ZN9grpc_core4RbacD2Ev.exit.i:                    ; preds = %_ZNSt6vectorISt10un
   br i1 %cmp.i8.not.i, label %invoke.cont8, label %for.body.i
 
 lpad.i4:                                          ; preds = %_ZNSt12_Vector_baseIN9grpc_core4RbacESaIS1_EE11_M_allocateEm.exit.i.i, %if.then.i.i
-  %93 = landingpad { ptr, i32 }
+  %95 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad9.i:                                          ; preds = %if.else.i.i
-  %94 = landingpad { ptr, i32 }
+  %96 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4RbacD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp.i) #22
   br label %ehcleanup
@@ -2061,57 +2059,57 @@ if.end11:                                         ; preds = %invoke.cont8
           to label %_ZNSt10unique_ptrIN9grpc_core22RbacMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit unwind label %lpad13
 
 _ZNSt10unique_ptrIN9grpc_core22RbacMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end11
-  %95 = load ptr, ptr %ref.tmp12, align 8
-  store ptr %95, ptr %agg.result, align 8
+  %97 = load ptr, ptr %ref.tmp12, align 8
+  store ptr %97, ptr %agg.result, align 8
   store ptr null, ptr %ref.tmp12, align 8
   br label %cleanup
 
 lpad13:                                           ; preds = %if.end11
-  %96 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 cleanup:                                          ; preds = %_ZNSt10unique_ptrIN9grpc_core22RbacMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit, %if.then10
   call void @_ZNSt6vectorIN9grpc_core4RbacESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rbac_policies) #22
-  %97 = load ptr, ptr %rbac_config, align 8
-  %98 = load ptr, ptr %3, align 8
-  %cmp.not3.i.i.i.i.i = icmp eq ptr %97, %98
+  %99 = load ptr, ptr %rbac_config, align 8
+  %100 = load ptr, ptr %3, align 8
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %99, %100
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i13, label %for.body.i.i.i.i.i10
 
 for.body.i.i.i.i.i10:                             ; preds = %cleanup, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEvPT_.exit.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i12, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEvPT_.exit.i.i.i.i.i ], [ %97, %cleanup ]
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i12, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEvPT_.exit.i.i.i.i.i ], [ %99, %cleanup ]
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i11 = getelementptr inbounds %"struct.std::_Optional_payload_base.137", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
-  %99 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i11, align 8
-  %100 = and i8 %99, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  %101 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i11, align 8
+  %102 = and i8 %101, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %102, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i10
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i11, align 8
   %logger_configs.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 3
-  %101 = load ptr, ptr %logger_configs.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %103 = load ptr, ptr %logger_configs.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %102 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %101, %102
+  %104 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.not3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %103, %104
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %101, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
-  %103 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %103, null
+  %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %103, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %105 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %105, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %103, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %105, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 1
-  %104 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  call void %104(ptr noundef nonnull align 8 dereferenceable(8) %103) #22
+  %106 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  call void %106(ptr noundef nonnull align 8 dereferenceable(8) %105) #22
   br label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.235", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %102
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %104
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !47
 
 invoke.contthread-pre-split.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2119,23 +2117,23 @@ invoke.contthread-pre-split.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_Destro
   br label %invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %invoke.contthread-pre-split.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %105 = phi ptr [ %.pr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %101, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %105, null
+  %107 = phi ptr [ %.pr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %103, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %107, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %105) #24
+  call void @_ZdlPv(ptr noundef nonnull %107) #24
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %106 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  %this.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %this.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %108, align 8
   call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %this.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i10
   %incdec.ptr.i.i.i.i.i12 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy", ptr %__first.addr.04.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i12, %98
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i12, %100
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i10, !llvm.loop !48
 
 invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEvPT_.exit.i.i.i.i.i
@@ -2143,7 +2141,7 @@ invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyIN9grp
   br label %invoke.cont.i.i13
 
 invoke.cont.i.i13:                                ; preds = %invoke.contthread-pre-split.i.i, %cleanup
-  %this.val.i.i14 = phi ptr [ %this.val.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %97, %cleanup ]
+  %this.val.i.i14 = phi ptr [ %this.val.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %99, %cleanup ]
   %tobool.not.i.i.i.i = icmp eq ptr %this.val.i.i14, null
   br i1 %tobool.not.i.i.i.i, label %return, label %if.then.i.i.i.i15
 
@@ -2152,7 +2150,7 @@ if.then.i.i.i.i15:                                ; preds = %invoke.cont.i.i13
   br label %return
 
 ehcleanup:                                        ; preds = %ehcleanup.i.i, %ehcleanup.i.i.i, %lpad.i4, %lpad9.i, %lpad13
-  %.pn = phi { ptr, i32 } [ %96, %lpad13 ], [ %94, %lpad9.i ], [ %93, %lpad.i4 ], [ %.pn.i.i, %ehcleanup.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %98, %lpad13 ], [ %96, %lpad9.i ], [ %95, %lpad.i4 ], [ %.pn.i.i, %ehcleanup.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
   call void @_ZNSt6vectorIN9grpc_core4RbacESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rbac_policies) #22
   br label %eh.resume
 
@@ -2987,22 +2985,21 @@ _ZNKSt6vectorIN9grpc_core4RbacESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entr
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 76861433640456465
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 76861433640456465, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 76861433640456465)
+  %cond.i = select i1 %cmp7.i, i64 76861433640456465, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 120
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core4RbacESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN9grpc_core4RbacEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core4RbacESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core4RbacEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core4RbacESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core4RbacESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 120
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN9grpc_core4RbacESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN9grpc_core4RbacESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core4RbacESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN9grpc_core4RbacEEE8allocateERS2_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core4RbacEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core4RbacESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN9grpc_core4RbacESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core4RbacESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core4RbacESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZN9grpc_core4RbacC1EOS0_(ptr noundef nonnull align 8 dereferenceable(120) %add.ptr, ptr noundef nonnull align 8 dereferenceable(120) %__args) #22
   %call3.i.i = tail call noundef ptr @_ZSt14__relocate_a_1IPN9grpc_core4RbacES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %1, ptr noundef %__position.coerce, ptr noundef %cond.i10, ptr noundef nonnull align 1 dereferenceable(1) %this) #22
@@ -4199,25 +4196,24 @@ _ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::unique_ptr.200", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = load i64, ptr %__args, align 8
-  store i64 %2, ptr %add.ptr, align 8
+  %3 = load i64, ptr %__args, align 8
+  store i64 %3, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %for.body.i.i.i
@@ -4227,8 +4223,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %3 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !64, !noalias !61
-  store i64 %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !61, !noalias !64
+  %4 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !64, !noalias !61
+  store i64 %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !61, !noalias !64
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !64, !noalias !61
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.200", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::unique_ptr.200", ptr %__cur.07.i.i.i, i64 1
@@ -4246,8 +4242,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10un
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  %4 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !69, !noalias !66
-  store i64 %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !66, !noalias !69
+  %5 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !69, !noalias !66
+  store i64 %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !66, !noalias !69
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !69, !noalias !66
   %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::unique_ptr.200", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::unique_ptr.200", ptr %__cur.07.i.i.i13, i64 1
@@ -4310,25 +4306,24 @@ _ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EE
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 1152921504606846975
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 1152921504606846975, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::unique_ptr.188", ptr %cond.i10, i64 %sub.ptr.div.i
-  %2 = load i64, ptr %__args, align 8
-  store i64 %2, ptr %add.ptr, align 8
+  %3 = load i64, ptr %__args, align 8
+  store i64 %3, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %for.body.i.i.i
@@ -4338,8 +4333,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %3 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !74, !noalias !71
-  store i64 %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !71, !noalias !74
+  %4 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !74, !noalias !71
+  store i64 %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !71, !noalias !74
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !74, !noalias !71
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::unique_ptr.188", ptr %__cur.07.i.i.i, i64 1
@@ -4357,8 +4352,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10un
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %4 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !79, !noalias !76
-  store i64 %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !76, !noalias !79
+  %5 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !79, !noalias !76
+  store i64 %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !76, !noalias !79
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !79, !noalias !76
   %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::unique_ptr.188", ptr %__first.addr.06.i.i.i14, i64 1
   %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::unique_ptr.188", ptr %__cur.07.i.i.i13, i64 1
@@ -7994,19 +7989,18 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Pe
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %3
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEE8allocateERS7_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEE8allocateERS7_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEE8allocateERS7_m.exit.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEE8allocateERS7_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Permission", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr null, ptr %add.ptr.i.i, align 8
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit21.i.i, label %for.body.i.i.i.i.i
@@ -8016,8 +8010,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val10.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE11_M_allocateEm.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %3 = load i64, ptr %__first.addr.02.i.i.i.i.i, align 8, !alias.scope !116, !noalias !113
-  store i64 %3, ptr %__cur.03.i.i.i.i.i, align 8, !alias.scope !113, !noalias !116
+  %4 = load i64, ptr %__first.addr.02.i.i.i.i.i, align 8, !alias.scope !116, !noalias !113
+  store i64 %4, ptr %__cur.03.i.i.i.i.i, align 8, !alias.scope !113, !noalias !116
   store ptr null, ptr %__first.addr.02.i.i.i.i.i, align 8, !alias.scope !116, !noalias !113
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Permission", ptr %__first.addr.02.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Permission", ptr %__cur.03.i.i.i.i.i, i64 1
@@ -8042,8 +8036,8 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Per
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE12emplace_backIJEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE12emplace_backIJEEERS6_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
-  %4 = phi ptr [ %2, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ]
-  ret ptr %4
+  %5 = phi ptr [ %2, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ]
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -11308,19 +11302,18 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Pri
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %3
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEE8allocateERS7_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEE8allocateERS7_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEE8allocateERS7_m.exit.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEE8allocateERS7_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Principal", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr null, ptr %add.ptr.i.i, align 8
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit21.i.i, label %for.body.i.i.i.i.i
@@ -11330,8 +11323,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val10.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE11_M_allocateEm.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  %3 = load i64, ptr %__first.addr.02.i.i.i.i.i, align 8, !alias.scope !161, !noalias !158
-  store i64 %3, ptr %__cur.03.i.i.i.i.i, align 8, !alias.scope !158, !noalias !161
+  %4 = load i64, ptr %__first.addr.02.i.i.i.i.i, align 8, !alias.scope !161, !noalias !158
+  store i64 %4, ptr %__cur.03.i.i.i.i.i, align 8, !alias.scope !158, !noalias !161
   store ptr null, ptr %__first.addr.02.i.i.i.i.i, align 8, !alias.scope !161, !noalias !158
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Principal", ptr %__first.addr.02.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::Policy::Principal", ptr %__cur.03.i.i.i.i.i, i64 1
@@ -11356,8 +11349,8 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Prin
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE12emplace_backIJEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE12emplace_backIJEEERS6_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
-  %4 = phi ptr [ %2, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ]
-  ret ptr %4
+  %5 = phi ptr [ %2, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ]
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -12705,30 +12698,29 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLogg
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 115292150460684697
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 115292150460684697, i64 %add.i.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 115292150460684697)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 115292150460684697, i64 %4
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEE8allocateERS6_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEE8allocateERS6_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 80
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEE8allocateERS6_m.exit.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEE8allocateERS6_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i, i8 0, i64 80, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #22
-  %4 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %4, ptr %_M_left.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_left.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %4, ptr %_M_right.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_right.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1, i32 1
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i, align 8
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.i, label %for.body.i.i.i.i.i
@@ -12739,42 +12731,42 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i) #22
-  %5 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  %6 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  %7 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
-  store i32 %7, ptr %5, align 8, !alias.scope !168, !noalias !171
+  %8 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
+  store i32 %8, ptr %6, align 8, !alias.scope !168, !noalias !171
   %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %6, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
+  store ptr %7, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
-  %8 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
-  store <2 x ptr> %8, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i64 0, i32 1
-  store ptr %5, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %9 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
+  store <2 x ptr> %9, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %7, i64 0, i32 1
+  store ptr %6, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
-  %9 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
+  %10 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
-  store i64 %9, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
+  store i64 %10, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !168
   br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i
-  store i32 0, ptr %5, align 8, !alias.scope !168, !noalias !171
+  store i32 0, ptr %6, align 8, !alias.scope !168, !noalias !171
   %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
   %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %5, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
+  store ptr %6, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %5, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
+  store ptr %6, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !168, !noalias !171
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
   br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i.i
 
@@ -12805,8 +12797,8 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLogge
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit
 
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
-  %10 = phi ptr [ %3, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ]
-  ret ptr %10
+  %11 = phi ptr [ %3, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS5_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ]
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -13308,7 +13300,7 @@ lpad31.i:                                         ; preds = %for.body.i
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i) #22
   br label %ehcleanup62.i
 
-lpad33.loopexit.i:                                ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i.i, %invoke.cont45.i, %invoke.cont41.i
+lpad33.loopexit.i:                                ; preds = %cond.true.i.i.i, %invoke.cont45.i, %invoke.cont41.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
@@ -13365,22 +13357,21 @@ _ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6Confi
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 1152921504606846975
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 1152921504606846975, i64 %add.i.i.i
+  %58 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %58
   %cmp.not.i.i67.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i67.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i.i
+  br i1 %cmp.not.i.i67.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i71.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
           to label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i unwind label %lpad33.loopexit.i
 
-_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i71.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i.i ]
+_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i71.i, %cond.true.i.i.i ]
   %add.ptr.i68.i = getelementptr inbounds %"class.std::unique_ptr.235", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  %58 = load i64, ptr %33, align 8
-  store i64 %58, ptr %add.ptr.i68.i, align 8
+  %59 = load i64, ptr %33, align 8
+  store i64 %59, ptr %add.ptr.i68.i, align 8
   store ptr null, ptr %33, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %57, %53
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i.i, label %for.body.i.i.i.i.i
@@ -13390,8 +13381,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %57, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !182)
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  %59 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !185, !noalias !182
-  store i64 %59, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !182, !noalias !185
+  %60 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !185, !noalias !182
+  store i64 %60, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !182, !noalias !185
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !185, !noalias !182
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.235", ptr %__first.addr.06.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.235", ptr %__cur.07.i.i.i.i.i, i64 1
@@ -13416,20 +13407,20 @@ if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt10un
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %.noexc60.i, %if.then.i.i59.i, %if.then.i54.i, %invoke.cont56.i
-  %60 = load i64, ptr %config.i, align 8
-  %cmp.i.i.i.i61.i = icmp eq i64 %60, 0
+  %61 = load i64, ptr %config.i, align 8
+  %cmp.i.i.i.i61.i = icmp eq i64 %61, 0
   br i1 %cmp.i.i.i.i61.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i, label %if.else.i.i62.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i:     ; preds = %cleanup.i
-  %61 = load ptr, ptr %33, align 8
-  %cmp.not.i.i.i63.i = icmp eq ptr %61, null
+  %62 = load ptr, ptr %33, align 8
+  %cmp.not.i.i.i63.i = icmp eq ptr %62, null
   br i1 %cmp.not.i.i.i63.i, label %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i
-  %vtable.i.i.i.i.i = load ptr, ptr %61, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %62, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
-  %62 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(8) %61) #22
+  %63 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %63(ptr noundef nonnull align 8 dereferenceable(8) %62) #22
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i
@@ -13437,19 +13428,19 @@ _ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14defau
   br label %_ZN4absl12lts_202308028StatusOrISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS6_EEED2Ev.exit.i
 
 if.else.i.i62.i:                                  ; preds = %cleanup.i
-  %and.i.i.i1.i.i.i = and i64 %60, 1
+  %and.i.i.i1.i.i.i = and i64 %61, 1
   %cmp.i.i.i2.i.i.i = icmp eq i64 %and.i.i.i1.i.i.i, 0
   br i1 %cmp.i.i.i2.i.i.i, label %_ZN4absl12lts_202308028StatusOrISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS6_EEED2Ev.exit.i, label %if.then.i.i3.i.i.i
 
 if.then.i.i3.i.i.i:                               ; preds = %if.else.i.i62.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %60)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %61)
           to label %_ZN4absl12lts_202308028StatusOrISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS6_EEED2Ev.exit.i unwind label %terminate.lpad.i4.i.i.i
 
 terminate.lpad.i4.i.i.i:                          ; preds = %if.then.i.i3.i.i.i
-  %63 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #23
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #23
   unreachable
 
 _ZN4absl12lts_202308028StatusOrISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS6_EEED2Ev.exit.i: ; preds = %if.then.i.i3.i.i.i, %if.else.i.i62.i, %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit.i.i.i
@@ -13471,8 +13462,8 @@ ehcleanup.i:                                      ; preds = %lpad51.i, %lpad48.i
 if.end61.i:                                       ; preds = %_ZN4absl12lts_202308028StatusOrISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS6_EEED2Ev.exit.i
   %.pre.i = load i8, ptr %28, align 8
   %.pre82.i = and i8 %.pre.i, 1
-  %65 = icmp eq i8 %.pre82.i, 0
-  br i1 %65, label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit, label %if.then.i.i.i.i65.i
+  %66 = icmp eq i8 %.pre82.i, 0
+  br i1 %66, label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit, label %if.then.i.i.i.i65.i
 
 if.then.i.i.i.i65.i:                              ; preds = %if.end61.i
   store i8 0, ptr %28, align 8
@@ -13483,15 +13474,15 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i65.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEvPT_.exit.i.i.i.i.i.i.i.i.i.i ], [ %call21.val.i, %if.then.i.i.i.i65.i ]
   %config.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules::AuditLogger", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  %66 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %config.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %66)
+  %67 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %config.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %67)
           to label %_ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEvPT_.exit.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
-  %67 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #23
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #23
   unreachable
 
 _ZSt8_DestroyIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEvPT_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
@@ -14139,19 +14130,18 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_che
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 96076792050570581
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 96076792050570581, i64 %add.i.i.i
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 96076792050570581)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 96076792050570581, i64 %3
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEE8allocateERS4_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 96
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEE8allocateERS4_m.exit.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyEEE8allocateERS4_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i, i8 0, i64 96, i1 false)
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit52.i.i, label %for.body.i.i.i.i.i
@@ -14164,33 +14154,33 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.137", ptr %__first.addr.03.i.i.i.i.i, i64 0, i32 1
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.137", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
-  %3 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
-  %4 = and i8 %3, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
+  %4 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  %5 = and i8 %4, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i
-  %5 = load i32, ptr %__first.addr.03.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
-  store i32 %5, ptr %__cur.04.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
-  %6 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  %6 = load i32, ptr %__first.addr.03.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  store i32 %6, ptr %__cur.04.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
+  %7 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  %8 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  %9 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
-  %9 = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  %10 = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
-  %10 = load ptr, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %7, i64 0, i32 1
-  store ptr %6, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !194
+  %11 = load ptr, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %8, i64 0, i32 1
+  store ptr %7, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !194
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
-  %11 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  %12 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
-  store i64 %11, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
+  store i64 %12, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
@@ -14201,30 +14191,30 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink7.i.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %8, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sink5.i.i.i.i.i = phi ptr [ %6, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sink.i.i.i.i.i = phi ptr [ %6, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %10, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sink7.i.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sink5.i.i.i.i.i = phi ptr [ %7, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %10, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %7, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %11, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  store i32 %.sink7.i.i.i.i.i, ptr %6, align 8
-  %12 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %7, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %.sink5.i.i.i.i.i, ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %.sink.i.i.i.i.i, ptr %14, align 8
+  store i32 %.sink7.i.i.i.i.i, ptr %7, align 8
+  %13 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  store ptr %8, ptr %13, align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  store ptr %.sink5.i.i.i.i.i, ptr %14, align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
+  store ptr %.sink.i.i.i.i.i, ptr %15, align 8
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !194
   %audit_condition.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 2
   %audit_condition4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.03.i.i.i.i.i, i64 0, i32 2
-  %15 = load i32, ptr %audit_condition4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
-  store i32 %15, ptr %audit_condition.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
+  %16 = load i32, ptr %audit_condition4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  store i32 %16, ptr %audit_condition.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
   %logger_configs.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 3
   %logger_configs5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.03.i.i.i.i.i, i64 0, i32 3
-  %16 = load <2 x ptr>, ptr %logger_configs5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
-  store <2 x ptr> %16, ptr %logger_configs.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
+  %17 = load <2 x ptr>, ptr %logger_configs5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  store <2 x ptr> %17, ptr %logger_configs.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__cur.04.i.i.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy::Rules", ptr %__first.addr.03.i.i.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %17 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
+  %18 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %logger_configs5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !192, !noalias !189
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !189, !noalias !192
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !192, !noalias !189
@@ -14256,8 +14246,8 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_real
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
-  %18 = phi ptr [ %2, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
-  ret ptr %18
+  %19 = phi ptr [ %2, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -14451,22 +14441,21 @@ _ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE12_M_check_lenEmPKc.e
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 82351536043346212
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 82351536043346212, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 82351536043346212)
+  %cond.i = select i1 %cmp7.i, i64 82351536043346212, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 112
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN9grpc_core23GrpcAuthorizationEngineEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core23GrpcAuthorizationEngineEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 112
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN9grpc_core23GrpcAuthorizationEngineEEE8allocateERS2_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core23GrpcAuthorizationEngineEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %cond.i17, i64 %sub.ptr.div.i
   invoke void @_ZNSt15__new_allocatorIN9grpc_core23GrpcAuthorizationEngineEE9constructIS1_JNS0_4RbacEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(120) %__args)
           to label %invoke.cont unwind label %lpad
@@ -14480,8 +14469,8 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @_ZN9grpc_core23GrpcAuthorizationEngineC1EOS0_(ptr noundef nonnull align 8 dereferenceable(112) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i) #22
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !197, !noalias !200
-  %2 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i) #22
+  %3 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i) #22
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -14498,8 +14487,8 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN9grpc
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i23, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @_ZN9grpc_core23GrpcAuthorizationEngineC1EOS0_(ptr noundef nonnull align 8 dereferenceable(112) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i21) #22
   %vtable.i.i.i.i.i.i22 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !203, !noalias !206
-  %3 = load ptr, ptr %vtable.i.i.i.i.i.i22, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i21) #22
+  %4 = load ptr, ptr %vtable.i.i.i.i.i.i22, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i21) #22
   %incdec.ptr.i.i.i23 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %__first.addr.06.i.i.i21, i64 1
   %incdec.ptr1.i.i.i24 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %__cur.07.i.i.i20, i64 1
   %cmp.not.i.i.i25 = icmp eq ptr %incdec.ptr.i.i.i23, %0
@@ -14523,21 +14512,21 @@ _ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE13_M_deallocate
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngineESaIS1_EE11_M_allocateEm.exit
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #22
+  %6 = extractvalue { ptr, i32 } %5, 0
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i30
 
 if.end.thread:                                    ; preds = %lpad
   %vtable.i.i = load ptr, ptr %add.ptr, align 8
-  %7 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr) #22
+  %8 = load ptr, ptr %vtable.i.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr) #22
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -14551,13 +14540,13 @@ invoke.cont19:                                    ; preds = %if.then.i30, %if.en
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 
 terminate.lpad:                                   ; preds = %lpad17
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #23
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -14655,6 +14644,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19

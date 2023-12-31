@@ -806,11 +806,9 @@ if.end5.i:                                        ; preds = %ossl_quic_enc_level
   br i1 %or.cond.i, label %txp_should_try_staging.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %14 = zext i32 %conn_close_enc_level.0544 to i64
-  %cmp9.i = icmp uge i64 %indvars.iv669, %14
   %cmp11.not.i = icmp eq i32 %conn_close_enc_level.0544, 3
-  %or.cond38.i = or i1 %cmp11.not.i, %cmp9.i
-  %spec.select402 = select i1 %or.cond38.i, i32 %conn_close_enc_level.0544, i32 %.pre-phi
+  %14 = call i32 @llvm.umin.i32(i32 %conn_close_enc_level.0544, i32 %.pre-phi)
+  %spec.select402 = select i1 %cmp11.not.i, i32 3, i32 %14
   %15 = and i32 %.fr108.i, 8192
   %tobool17.not.i = icmp eq i32 %15, 0
   br i1 %tobool17.not.i, label %if.end31.i, label %if.then18.i
@@ -958,7 +956,7 @@ land.lhs.true134.i:                               ; preds = %if.end129.i
   %bf.load135.i = load i16, ptr %want_ack.i, align 8
   %32 = and i16 %bf.load135.i, 1024
   %tobool139.not.i = icmp ne i16 %32, 0
-  %33 = zext i32 %spec.select402 to i64
+  %33 = zext nneg i32 %spec.select402 to i64
   %cmp141.i = icmp eq i64 %indvars.iv669, %33
   %or.cond403 = select i1 %tobool139.not.i, i1 %cmp141.i, i1 false
   br i1 %or.cond403, label %if.end.thread, label %if.end144.i
@@ -1346,7 +1344,7 @@ if.end20:                                         ; preds = %if.end22.i.i, %if.e
   %force_pad.i = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %indvars.iv669, i32 6
   store i32 0, ptr %force_pad.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tpkt.i, i8 0, i64 16, i1 false)
-  %60 = zext i32 %spec.select402 to i64
+  %60 = zext nneg i32 %spec.select402 to i64
   %cmp23 = icmp eq i64 %indvars.iv669, %60
   %conv = zext i1 %cmp23 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %can_be_non_inflight.i)
@@ -4476,7 +4474,7 @@ declare i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef, ptr noundef) local_un
 
 declare i64 @ossl_quic_wire_get_encoded_frame_len_crypto_hdr(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define internal fastcc i32 @determine_len(i64 noundef %space_left, i64 noundef %orig_len, i64 noundef %base_hdr_len, ptr nocapture noundef writeonly %hlen, ptr nocapture noundef writeonly %len) unnamed_addr #7 {
 entry:
   %payload_len = alloca [4 x i64], align 16
@@ -4658,6 +4656,9 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #9
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -4665,7 +4666,7 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }

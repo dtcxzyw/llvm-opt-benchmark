@@ -532,37 +532,36 @@ _ZNKSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12_M_check_lenEmPKc.exit: ; preds 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN8proxygen11HPACKHeaderEEE8allocateERS2_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN8proxygen11HPACKHeaderEEE8allocateERS2_m.exit.i: ; preds = %_ZNKSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   br label %_ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN8proxygen11HPACKHeaderEEE8allocateERS2_m.exit.i
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8proxygen11HPACKHeaderEEE8allocateERS2_m.exit.i ], [ null, %_ZNKSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %cond.i17, i64 %sub.ptr.div.i
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__args) #22
   %call3.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__args) #22
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %call3.i.i.i
-  %2 = load ptr, ptr %__args1, align 8
+  %3 = load ptr, ptr %__args1, align 8
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %__args1, i64 0, i64 23
-  %3 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
-  %cmp.i.i.i.i.i.i = icmp ult i8 %3, 64
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__args1, ptr %2
+  %4 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
+  %cmp.i.i.i.i.i.i = icmp ult i8 %4, 64
+  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__args1, ptr %3
   %size_.i.i.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %__args1, i64 0, i32 1
-  %4 = load i64, ptr %size_.i.i.i.i.i, align 8
-  %conv.i.i.i.i.i = zext i8 %3 to i64
+  %5 = load i64, ptr %size_.i.i.i.i.i, align 8
+  %conv.i.i.i.i.i = zext i8 %4 to i64
   %sub.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ult i8 %3, 24
-  %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub.i.i.i.i.i, i64 %4
+  %cmp.i.i.i.i.i = icmp ult i8 %4, 24
+  %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub.i.i.i.i.i, i64 %5
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   invoke void @_ZN8proxygen11HPACKHeaderC2EN5folly5RangeIPKcEES5_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr %call.i.i.i, ptr %add.ptr.i.i.i, ptr %cond.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i)
           to label %invoke.cont unwind label %lpad
@@ -576,8 +575,8 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !7, !noalias !4
-  store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !4, !noalias !7
+  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !7, !noalias !4
+  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !4, !noalias !7
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !7, !noalias !4
   %value.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__cur.07.i.i.i, i64 0, i32 1
   %value3.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__first.addr.06.i.i.i, i64 0, i32 1
@@ -602,8 +601,8 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8prox
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i25, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %6 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !15, !noalias !12
-  store ptr %6, ptr %__cur.07.i.i.i20, align 8, !alias.scope !12, !noalias !15
+  %7 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !15, !noalias !12
+  store ptr %7, ptr %__cur.07.i.i.i20, align 8, !alias.scope !12, !noalias !15
   store ptr null, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !15, !noalias !12
   %value.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__cur.07.i.i.i20, i64 0, i32 1
   %value3.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__first.addr.06.i.i.i21, i64 0, i32 1
@@ -635,10 +634,10 @@ _ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE13_M_deallocateEPS1_m.exit: 
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE11_M_allocateEm.exit
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #22
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #22
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
@@ -647,7 +646,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont21
 
 lpad19:                                           ; preds = %invoke.cont21
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -661,13 +660,13 @@ invoke.cont21:                                    ; preds = %if.then.i32, %if.en
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 
 terminate.lpad:                                   ; preds = %lpad19
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #23
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -1472,6 +1471,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21

@@ -9347,30 +9347,29 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPK
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 115292150460684697
-  %or.cond.i.i.i = or i1 %cmp7.i.i.i, %cmp9.i.i.i
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i64 115292150460684697, i64 %add.i.i.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 115292150460684697)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 115292150460684697, i64 %4
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_112ChannelCredsEEE8allocateERS3_m.exit.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_112ChannelCredsEEE8allocateERS3_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 80
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
   br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_112ChannelCredsEEE8allocateERS3_m.exit.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core12_GLOBAL__N_112ChannelCredsEEE8allocateERS3_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i, i8 0, i64 80, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #21
-  %4 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %4, ptr %_M_left.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_left.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %4, ptr %_M_right.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_right.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1, i32 0, i32 0, i32 1, i32 1
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i, align 8
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i, label %for.body.i.i.i.i.i
@@ -9381,42 +9380,42 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i) #21
-  %5 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  %6 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  %7 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
-  store i32 %7, ptr %5, align 8, !alias.scope !101, !noalias !104
+  %8 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
+  store i32 %8, ptr %6, align 8, !alias.scope !101, !noalias !104
   %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %6, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
+  store ptr %7, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
-  %8 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
-  store <2 x ptr> %8, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i64 0, i32 1
-  store ptr %5, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %9 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
+  store <2 x ptr> %9, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %7, i64 0, i32 1
+  store ptr %6, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__first.addr.02.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
-  %9 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
+  %10 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
-  store i64 %9, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
+  store i64 %10, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
   br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i
-  store i32 0, ptr %5, align 8, !alias.scope !101, !noalias !104
+  store i32 0, ptr %6, align 8, !alias.scope !101, !noalias !104
   %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
   %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %5, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
+  store ptr %6, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %5, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
+  store ptr %6, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %__cur.03.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1
   br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i
 
@@ -9447,8 +9446,8 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE17_M_realloc_insert
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %10 = phi ptr [ %3, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  ret ptr %10
+  %11 = phi ptr [ %3, %if.then.i ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -10153,22 +10152,21 @@ _ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit: ;
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 164703072086692425
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 164703072086692425, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 164703072086692425)
+  %cond.i = select i1 %cmp7.i, i64 164703072086692425, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 56
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %_ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE8allocateERS3_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %cond.i10, i64 %sub.ptr.div.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %add.ptr, i64 0, i32 1
@@ -10178,23 +10176,23 @@ _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit:
           to label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %_ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #23
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #23
   unreachable
 
 _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE11_M_allocateEm.exit
   %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__args, i64 0, i32 1
-  %4 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
-  store i8 %4, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
+  %5 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
+  store i8 %5, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  %cmp.i.i.i.i = icmp eq i8 %4, 0
+  %cmp.i.i.i.i = icmp eq i8 %5, 0
   br i1 %cmp.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  %cmp.i.not.i.i.i.i.i.i.i = icmp eq i8 %4, -1
+  %cmp.i.not.i.i.i.i.i.i.i = icmp eq i8 %5, -1
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_bS4_SA_SI_SL_EE4typeEDpT0_EERSR_E4typeEDpOSS_.exit.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i
@@ -10207,10 +10205,10 @@ _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cx
   br label %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 _ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_bS4_SA_SI_SL_EE4typeEDpT0_EERSR_E4typeEDpOSS_.exit.i.i.i.i
@@ -10442,37 +10440,36 @@ _ZNKSt6vectorIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerESaIS2_EE12_M_check_le
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 96076792050570581
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 96076792050570581, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %invoke.cont, label %_ZNSt16allocator_traitsISaIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEEE8allocateERS3_m.exit.i
+  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
 
-_ZNSt16allocator_traitsISaIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEEE8allocateERS3_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerESaIS2_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 96
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEEE8allocateERS3_m.exit.i, %_ZNKSt6vectorIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerESaIS2_EE12_M_check_lenEmPKc.exit
-  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerESaIS2_EE12_M_check_lenEmPKc.exit ]
+invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerESaIS2_EE12_M_check_lenEmPKc.exit
+  %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %cond.i17, i64 %sub.ptr.div.i
-  %2 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 88, i1 false)
+  %3 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 88, i1 false)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerE, i64 0, inrange i32 0, i64 2), ptr %add.ptr, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %channel_creds_config_.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %cond.i17, i64 %sub.ptr.div.i, i32 2
   store ptr null, ptr %channel_creds_config_.i.i.i, align 8
-  %3 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1
-  store i32 0, ptr %3, align 8
+  %4 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1
+  store i32 0, ptr %4, align 8
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %3, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %3, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %cond.i17, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 1, i32 1
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -10489,45 +10486,45 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %server_uri_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %server_uri_2.i.i.i.i.i.i.i) #21
   %channel_creds_config_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 2
   %channel_creds_config_3.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  %4 = load ptr, ptr %channel_creds_config_3.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
-  store ptr %4, ptr %channel_creds_config_.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  %5 = load ptr, ptr %channel_creds_config_3.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
+  store ptr %5, ptr %channel_creds_config_.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
   store ptr null, ptr %channel_creds_config_3.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
-  %5 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1
+  %6 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
-  %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1
-  %7 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
-  store i32 %7, ptr %5, align 8, !alias.scope !111, !noalias !114
+  %8 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
+  store i32 %8, ptr %6, align 8, !alias.scope !111, !noalias !114
   %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %6, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  store ptr %7, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3
-  %8 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
-  store <2 x ptr> %8, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i64 0, i32 1
-  store ptr %5, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %9 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
+  store <2 x ptr> %9, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %7, i64 0, i32 1
+  store ptr %6, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
-  %9 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
+  %10 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
-  store i64 %9, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  store i64 %10, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
   br label %_ZSt19__relocate_object_aIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i
-  store i32 0, ptr %5, align 8, !alias.scope !111, !noalias !114
+  store i32 0, ptr %6, align 8, !alias.scope !111, !noalias !114
   %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
   %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %5, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  store ptr %6, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %5, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  store ptr %6, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
   br label %_ZSt19__relocate_object_aIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
@@ -10535,8 +10532,8 @@ _ZSt19__relocate_object_aIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerES2_SaIS2_
   %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !116
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !114, !noalias !111
-  %10 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i) #21
+  %11 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i) #21
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i, i64 1
   %incdec.ptr1.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -10559,45 +10556,45 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN9grpc
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %server_uri_.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %server_uri_2.i.i.i.i.i.i.i23) #21
   %channel_creds_config_.i.i.i.i.i.i.i24 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 2
   %channel_creds_config_3.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i21, i64 0, i32 2
-  %11 = load ptr, ptr %channel_creds_config_3.i.i.i.i.i.i.i25, align 8, !alias.scope !121, !noalias !118
-  store ptr %11, ptr %channel_creds_config_.i.i.i.i.i.i.i24, align 8, !alias.scope !118, !noalias !121
+  %12 = load ptr, ptr %channel_creds_config_3.i.i.i.i.i.i.i25, align 8, !alias.scope !121, !noalias !118
+  store ptr %12, ptr %channel_creds_config_.i.i.i.i.i.i.i24, align 8, !alias.scope !118, !noalias !121
   store ptr null, ptr %channel_creds_config_3.i.i.i.i.i.i.i25, align 8, !alias.scope !121, !noalias !118
-  %12 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 1
+  %13 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 1
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i21, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
-  %13 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !121, !noalias !118
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i27 = icmp eq ptr %13, null
+  %14 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !121, !noalias !118
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i27 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i27, label %if.else.i.i.i.i.i.i.i.i.i.i.i45, label %if.then.i.i.i.i.i.i.i.i.i.i.i28
 
 if.then.i.i.i.i.i.i.i.i.i.i.i28:                  ; preds = %for.body.i.i.i19
   %add.ptr.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i21, i64 0, i32 3, i32 0, i32 0, i32 1
-  %14 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !121, !noalias !118
-  store i32 %14, ptr %12, align 8, !alias.scope !118, !noalias !121
+  %15 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !121, !noalias !118
+  store i32 %15, ptr %13, align 8, !alias.scope !118, !noalias !121
   %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr %13, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i30, align 8, !alias.scope !118, !noalias !121
+  store ptr %14, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i.i30, align 8, !alias.scope !118, !noalias !121
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i31 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i21, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i21, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3
-  %15 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i31, align 8, !alias.scope !121, !noalias !118
-  store <2 x ptr> %15, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i32, align 8, !alias.scope !118, !noalias !121
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %13, i64 0, i32 1
-  store ptr %12, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i35, align 8
+  %16 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i31, align 8, !alias.scope !121, !noalias !118
+  store <2 x ptr> %16, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i.i32, align 8, !alias.scope !118, !noalias !121
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %14, i64 0, i32 1
+  store ptr %13, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i35, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i36 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i21, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
-  %16 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i36, align 8, !alias.scope !121, !noalias !118
+  %17 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i36, align 8, !alias.scope !121, !noalias !118
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i37 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
-  store i64 %16, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i37, align 8, !alias.scope !118, !noalias !121
+  store i64 %17, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i37, align 8, !alias.scope !118, !noalias !121
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !121, !noalias !118
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i29, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i31, align 8, !alias.scope !121, !noalias !118
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i29, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i33, align 8, !alias.scope !121, !noalias !118
   br label %_ZSt19__relocate_object_aIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i38
 
 if.else.i.i.i.i.i.i.i.i.i.i.i45:                  ; preds = %for.body.i.i.i19
-  store i32 0, ptr %12, align 8, !alias.scope !118, !noalias !121
+  store i32 0, ptr %13, align 8, !alias.scope !118, !noalias !121
   %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i46 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i.i46, align 8, !alias.scope !118, !noalias !121
   %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i47 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %12, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i47, align 8, !alias.scope !118, !noalias !121
+  store ptr %13, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i.i47, align 8, !alias.scope !118, !noalias !121
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i48 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %12, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i48, align 8, !alias.scope !118, !noalias !121
+  store ptr %13, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i48, align 8, !alias.scope !118, !noalias !121
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i49 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
   br label %_ZSt19__relocate_object_aIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i38
 
@@ -10605,8 +10602,8 @@ _ZSt19__relocate_object_aIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerES2_SaIS2_
   %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i39 = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i49, %if.else.i.i.i.i.i.i.i.i.i.i.i45 ], [ %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i36, %if.then.i.i.i.i.i.i.i.i.i.i.i28 ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i39, align 8, !alias.scope !123
   %vtable.i.i.i.i.i.i40 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !121, !noalias !118
-  %17 = load ptr, ptr %vtable.i.i.i.i.i.i40, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i21) #21
+  %18 = load ptr, ptr %vtable.i.i.i.i.i.i40, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i21) #21
   %incdec.ptr.i.i.i41 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__first.addr.06.i.i.i21, i64 1
   %incdec.ptr1.i.i.i42 = getelementptr inbounds %"class.grpc_core::GrpcXdsBootstrap::GrpcXdsServer", ptr %__cur.07.i.i.i20, i64 1
   %cmp.not.i.i.i43 = icmp eq ptr %incdec.ptr.i.i.i41, %0
@@ -12666,22 +12663,21 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %cmp9.i = icmp ugt i64 %add.i, 288230376151711743
-  %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %cond.i = select i1 %or.cond.i, i64 288230376151711743, i64 %add.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
-_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i
-  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #21
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
